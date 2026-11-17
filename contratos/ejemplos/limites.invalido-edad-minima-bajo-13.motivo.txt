@@ -1,0 +1,4 @@
+validador=minimum
+ruta=/edad_minima_audiencia/defecto
+contiene=less than the minimum of 13
+texto=la edad mínima de la audiencia no baja de 13

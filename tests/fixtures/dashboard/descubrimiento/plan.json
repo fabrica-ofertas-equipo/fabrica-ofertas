@@ -1,0 +1,82 @@
+{
+ "schema_version": "1.0.0",
+ "corrida_id": "2026-11-06-a",
+ "creado_en": "2026-11-06T06:11:05Z",
+ "tope_consultas": 120,
+ "consultas": [
+  {
+   "qid": "br-acesso-imediato-pdf",
+   "search_terms": "<b>acesso</b>‮ imediato",
+   "countries": [
+    "BR"
+   ],
+   "idioma": "pt",
+   "forma_id": "acesso-imediato-pdf",
+   "ad_active_status": "ACTIVE",
+   "limit": 50,
+   "page_ids": null,
+   "pasada": 1
+  },
+  {
+   "qid": "br-apostila-pdf",
+   "search_terms": "apostila em PDF",
+   "countries": [
+    "BR"
+   ],
+   "idioma": "pt",
+   "forma_id": "apostila-pdf",
+   "ad_active_status": "ACTIVE",
+   "limit": 50,
+   "page_ids": null,
+   "pasada": 1
+  },
+  {
+   "qid": "br-baixe-agora",
+   "search_terms": "baixe agora PDF",
+   "countries": [
+    "BR"
+   ],
+   "idioma": "pt",
+   "forma_id": "baixe-agora",
+   "ad_active_status": "ACTIVE",
+   "limit": 50,
+   "page_ids": null,
+   "pasada": 1
+  },
+  {
+   "qid": "de-pag-929967fd",
+   "search_terms": null,
+   "countries": [
+    "DE"
+   ],
+   "idioma": "de",
+   "forma_id": null,
+   "ad_active_status": "ACTIVE",
+   "limit": 50,
+   "page_ids": [
+    "1537692492755740"
+   ],
+   "pasada": 3
+  },
+  {
+   "qid": "it-pag-c48b3dc7",
+   "search_terms": null,
+   "countries": [
+    "IT"
+   ],
+   "idioma": "it",
+   "forma_id": null,
+   "ad_active_status": "ACTIVE",
+   "limit": 50,
+   "page_ids": [
+    "108605787440965"
+   ],
+   "pasada": 3
+  }
+ ],
+ "plan_archivo": "2026-11-06-a.pasada-3.json",
+ "pasadas": [
+  1,
+  3
+ ]
+}

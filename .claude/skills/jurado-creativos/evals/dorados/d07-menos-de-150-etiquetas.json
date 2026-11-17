@@ -1,0 +1,17 @@
+{
+  "caso_id": "D07",
+  "titulo": "Menos de 150 etiquetas",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "etiquetas": 100,
+    "jurado": "perfecto o pésimo"
+  },
+  "salida_esperada": {
+    "estado_global": "acumulando",
+    "precision": "auc y brier solo si hay etiquetas comprobadas; sin etiquetas, null"
+  },
+  "aprobacion": [
+    "no se juzga ni se promueve con menos de 150"
+  ]
+}

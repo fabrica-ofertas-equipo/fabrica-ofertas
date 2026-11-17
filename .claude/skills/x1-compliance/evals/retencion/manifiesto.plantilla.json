@@ -1,0 +1,12 @@
+{
+  "estado": "PENDIENTE: lo sella el dueño",
+  "sellado_sha256": null,
+  "anotadores": 0,
+  "casos": [],
+  "formato_de_cada_caso": {
+    "id": "RET-001", "idea": "texto de la idea o pieza", "idioma": "it", "macro_nicho_esperado": "salud",
+    "ejes": {"P": "P0", "C": "C1", "E": "E0", "N": "N1"}, "nivel_esperado": "VERDE", "subnivel": null,
+    "veredicto_esperado": "pasa", "ingenuo_por_tema": "acierto|falso_positivo|falso_negativo",
+    "deseo_conservado": null, "ejes_reformulados": null, "nivel_reformulado": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "s05-promesa-de-ingresos-con-riesgo-verde",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Tesis «Gana 3.000 euros al mes…» con riesgo verde (P2n/LP-03; D-06)",
+  "base": "g5-dinero-es-es-trading-con-ia-no-recomendado",
+  "comando": "candidatos",
+  "extra_args": [
+    "--lint"
+  ],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/tesis",
+      "valor": "Gana 3.000 euros al mes con tu hoja de cálculo."
+    }
+  ],
+  "deteccion": "script_lint",
+  "check_esperado": "D-06",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-06",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "promesa-de-ingresos-con-riesgo-verde"
+      }
+    ],
+    "nota": "El lint de X1 solo cubre es-ES y en-US; en otros locales el QA lo detecta leyendo (ejes P2n → ROJO)."
+  }
+}

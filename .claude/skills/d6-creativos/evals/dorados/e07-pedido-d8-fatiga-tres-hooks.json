@@ -1,0 +1,46 @@
+{
+  "caso_id": "e07",
+  "titulo": "Pedido de D8 por fatiga: 3 hooks sin tocar el cuerpo",
+  "tipo": "maker",
+  "macro_nicho": "dinero",
+  "locale": "es-ES",
+  "entrada": {
+    "oferta": "ofertas/_ejemplo (OF-202611-01)",
+    "paquete_previo": "v1 con c01-hueco_img_h1_v1 fatigado",
+    "pedido": {
+      "pedido_id": "PED-0001",
+      "motivo": "fatiga",
+      "ad_origen": "c01-hueco_img_h1_v1",
+      "variable_a_variar": "hook",
+      "cantidad": 3,
+      "plazo_h": 48
+    },
+    "no_repetir": [
+      "Tu pausa no es un hueco"
+    ]
+  },
+  "salida_esperada": {
+    "escalera": "paso 1: 3 hooks con el mismo cuerpo; se reescribe el puente de cada uno; cuerpo, prueba, CTA, claim_ids y precio idénticos",
+    "hooks": "3 hook_tipo distintos entre sí y distintos del original (p. ej. curiosidad, mito, demostracion), todos aprobables",
+    "paquete": "paquete.json v2 con 3 anuncios nuevos (hook_id h3-h5, variable_cambiada = hook_tipo), pedidos_atendidos = [PED-0001], qa_ref y x1_ref nuevos, QA-A y QA-B de nuevo",
+    "no_debe_hacer": [
+      "tocar el cuerpo, el ángulo, el formato o el presentador",
+      "heredar un claim prohibido",
+      "reenviar «Tu pausa no es un hueco» retocado",
+      "superar n_anuncios_max del paquete"
+    ],
+    "ciclo": "cabe en creativos.sla_pedido_h; Ruta A = 0 créditos"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia",
+    "una sola variable cambió (el hook)",
+    "pedido_id registrado"
+  ]
+}

@@ -1,0 +1,550 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/qa.schema.json",
+  "title": "Resultado de QA",
+  "description": "Resultado de un QA independiente (backbone 6). El dictamen de X1 es un QA con etapa=X1 y etapa_objetivo (reconciliación R15). 1.1.0 (CT-3 B-03): el dictamen de X1 puede declarar la categoría especial de anuncios requerida (`categoria_especial_requerida`); la regla cruzada X50 la compara con `campana.special_ad_categories` en ambos sentidos",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "ambito": {
+      "enum": [
+        "oferta",
+        "empresa"
+      ]
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "periodo": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{4}-(W[0-9]{2}|[0-9]{2})$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "etapa": {
+      "$ref": "comunes.schema.json#/$defs/etapa"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "ronda": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2
+    },
+    "creado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "skill_version_qa": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "skill_version_maker": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "artefacto_ref": {
+      "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+    },
+    "artefacto_sha256": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "entradas": {
+      "$ref": "comunes.schema.json#/$defs/hash_mapa"
+    },
+    "veredicto": {
+      "$ref": "comunes.schema.json#/$defs/veredicto_qa"
+    },
+    "puntaje_global": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "umbral": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "string",
+            "pattern": "^R[0-9]{1,2}$"
+          },
+          "nombre": {
+            "type": "string",
+            "minLength": 1
+          },
+          "puntaje": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "evidencia": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Sin evidencia el ítem no cuenta"
+          }
+        },
+        "required": [
+          "item_id",
+          "nombre",
+          "puntaje",
+          "evidencia"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "checks_l1": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "resultado": {
+            "enum": [
+              "pass",
+              "fail",
+              "no_aplica"
+            ]
+          },
+          "detalle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_id",
+          "resultado",
+          "detalle"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "simulaciones_l3": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resultado": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "nombre",
+          "resultado"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "hallazgos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9-]+$|^[A-Z0-9_.-]{2,40}$"
+          },
+          "patron_clave": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "severidad": {
+            "$ref": "comunes.schema.json#/$defs/severidad"
+          },
+          "etapa": {
+            "$ref": "comunes.schema.json#/$defs/etapa"
+          },
+          "skill_version": {
+            "$ref": "comunes.schema.json#/$defs/semver"
+          },
+          "descripcion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidencia": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Cita o ruta que respalda el hallazgo"
+          },
+          "estado": {
+            "enum": [
+              "abierto",
+              "corregido_por_qa",
+              "devuelto_al_maker",
+              "aceptado_con_nota"
+            ]
+          },
+          "correccion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_id",
+          "patron_clave",
+          "severidad",
+          "etapa",
+          "skill_version",
+          "descripcion",
+          "evidencia",
+          "estado"
+        ],
+        "additionalProperties": false,
+        "description": "Hallazgo estructurado (backbone 6.3)"
+      }
+    },
+    "justificacion_sin_hallazgos": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "description": "Anti-sello-de-goma: si hay menos de 3 hallazgos, qué se revisó y por qué no hay más"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cambios_aplicados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "descripcion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tipo": {
+            "enum": [
+              "menor_mecanico",
+              "mejora_de_valor"
+            ]
+          },
+          "ruta": {
+            "anyOf": [
+              {
+                "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "descripcion",
+          "tipo",
+          "ruta"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "mejoras_propuestas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "descripcion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "impacto": {
+            "enum": [
+              "alto",
+              "medio",
+              "bajo"
+            ]
+          },
+          "esfuerzo": {
+            "enum": [
+              "alto",
+              "medio",
+              "bajo"
+            ]
+          }
+        },
+        "required": [
+          "descripcion",
+          "impacto",
+          "esfuerzo"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "riesgos_residuales": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "aprendizajes_para_skill": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "etapa_objetivo": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/etapa"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reglas_version": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/semver"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "politicas_fecha_min": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "semaforo": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "vigencia_hasta": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "firma_motor": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/hmac"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "claims_trazados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "evidencia_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "claim_id",
+          "evidencia_ref"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "x1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "dictamen_ref": {
+              "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+            },
+            "veredicto": {
+              "$ref": "comunes.schema.json#/$defs/veredicto_qa"
+            },
+            "artefacto_sha256": {
+              "$ref": "comunes.schema.json#/$defs/sha256"
+            }
+          },
+          "required": [
+            "dictamen_ref",
+            "veredicto",
+            "artefacto_sha256"
+          ],
+          "additionalProperties": false,
+          "description": "Sello de compliance por hash"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "categoria_especial_requerida": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "EMPLOYMENT",
+          "HOUSING",
+          "FINANCIAL_PRODUCTS_SERVICES",
+          "ISSUES_ELECTIONS_POLITICS",
+          "ONLINE_GAMBLING_AND_GAMING"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Solo en el dictamen de X1 (etapa = X1) y con schema_version >= 1.1.0. Categorías especiales de anuncios de Meta que X1 exige para la campaña (mismo enum que campana.special_ad_categories); [] = X1 dictamina que no aplica ninguna. Opcional en el esquema (los dictámenes 1.0.0 no lo tienen y siguen válidos); la regla cruzada X50 exige que el dictamen vigente iguala campana.special_ad_categories como conjunto (error en ambos sentidos) y, para el dictamen de X1 sobre D7 con schema_version >= 1.1.0, que el campo esté presente (fail-closed: P25 es NO_APLICA con [] y un producto financiero pasaría). [VERIFICAR enum vigente en la fuente oficial de Meta]"
+    }
+  },
+  "required": [
+    "schema_version",
+    "ambito",
+    "oferta_id",
+    "periodo",
+    "etapa",
+    "version",
+    "ronda",
+    "creado_en",
+    "skill_version_qa",
+    "skill_version_maker",
+    "artefacto_ref",
+    "artefacto_sha256",
+    "entradas",
+    "veredicto",
+    "puntaje_global",
+    "umbral",
+    "items",
+    "checks_l1",
+    "simulaciones_l3",
+    "hallazgos",
+    "justificacion_sin_hallazgos",
+    "cambios_aplicados",
+    "mejoras_propuestas",
+    "riesgos_residuales",
+    "aprendizajes_para_skill",
+    "x1"
+  ],
+  "additionalProperties": false,
+  "anyOf": [
+    {
+      "properties": {
+        "hallazgos": {
+          "minItems": 3
+        }
+      }
+    },
+    {
+      "properties": {
+        "justificacion_sin_hallazgos": {
+          "type": "string",
+          "minLength": 20
+        }
+      },
+      "required": [
+        "justificacion_sin_hallazgos"
+      ]
+    }
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ambito": {
+            "const": "oferta"
+          }
+        },
+        "required": [
+          "ambito"
+        ]
+      },
+      "then": {
+        "properties": {
+          "oferta_id": {
+            "$ref": "comunes.schema.json#/$defs/oferta_id"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ambito": {
+            "const": "empresa"
+          }
+        },
+        "required": [
+          "ambito"
+        ]
+      },
+      "then": {
+        "properties": {
+          "oferta_id": {
+            "type": "null"
+          },
+          "periodo": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "etapa": {
+            "const": "X1"
+          },
+          "schema_version": {
+            "not": {
+              "pattern": "^1\\.0\\."
+            }
+          }
+        },
+        "required": [
+          "etapa",
+          "schema_version"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "categoria_especial_requerida"
+          ]
+        }
+      },
+      "description": "categoria_especial_requerida existe solo en el dictamen de X1 y desde 1.1.0"
+    }
+  ]
+}

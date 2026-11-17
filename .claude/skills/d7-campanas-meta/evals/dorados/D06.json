@@ -1,0 +1,33 @@
+{
+  "id": "D06",
+  "descripcion": "Candidato rojo: no se arma, ni en borrador.",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "E"
+      ],
+      "valor": "rojo"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "nivel"
+      ],
+      "valor": "rojo"
+    }
+  ],
+  "check_id": "C13",
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "nivel_no_se_arma",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "nota": "sin ronda de cortesia (C13)"
+  }
+}

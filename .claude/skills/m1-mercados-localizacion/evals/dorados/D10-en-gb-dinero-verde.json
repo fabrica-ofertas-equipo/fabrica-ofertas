@@ -1,0 +1,19 @@
+{
+  "id": "D10",
+  "nombre": "Idioma sin ficha previa en ingles: en-GB para dinero verde",
+  "spec": "departamentos/16 §10.5 eval 10",
+  "entrada": {
+    "locale": "en-GB",
+    "candidato": "dinero verde",
+    "regimen": "diferido sin firma que cubra GB"
+  },
+  "salida_esperada": {
+    "R8": "UK exige registro de IVA desde la primera venta: con diferido y sin exposicion firmada, excluido",
+    "J05": "con etiqueta 'ingresos' cae por R3",
+    "EXPO": "por bandera, no por macro primario"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D10)",
+    "L2": []
+  }
+}

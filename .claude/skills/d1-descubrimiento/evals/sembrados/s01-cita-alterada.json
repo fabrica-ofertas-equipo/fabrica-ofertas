@@ -1,0 +1,31 @@
+{
+  "id": "s01-cita-alterada",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Cita que no figura en la fuente (D-04)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/0/cita",
+      "valor": "Llevo años buscando trabajo y nadie me responde ni una vez"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-04",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-04",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "cita-no-esta-en-la-fuente"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

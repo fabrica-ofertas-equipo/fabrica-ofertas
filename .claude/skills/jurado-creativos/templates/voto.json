@@ -1,0 +1,15 @@
+{
+  "_nota": "UN voto, la respuesta íntegra del agente jurado-votante a UN paquete ciego. Lo guarda el orquestador en <tanda>/votos/ sin tocarlo. Estricto: voto booleano; puntajes enteros 0-10; motivo e idea ≤ 25 palabras; sin campos extra. Obligatorios: paquete_id, avatar_id, pieza_id, voto, motivo, puntaje_gancho, puntaje_claridad, puntaje_general; puntaje_cta, idea y alerta_ceguera pueden ser null o faltar. «origen» lo añade el orquestador: «llm» (por defecto) o «sintetico_demo» (solo demostraciones). Este ejemplo es sintético. Borra las claves que empiezan por «_».",
+  "paquete_id": "K-c695eb24",
+  "avatar_id": "av-pl-PL-01",
+  "pieza_id": "P-0d58c6e1",
+  "voto": true,
+  "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+  "puntaje_gancho": 7,
+  "puntaje_claridad": 6,
+  "puntaje_cta": null,
+  "puntaje_general": 6,
+  "idea": null,
+  "alerta_ceguera": null,
+  "origen": "sintetico_demo"
+}

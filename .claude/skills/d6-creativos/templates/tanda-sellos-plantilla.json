@@ -1,0 +1,8 @@
+{
+  "nota": "EJEMPLO. Lo que X1 selló por plantilla (régimen B, solo si el dueño lo elige). Este archivo NO prueba un sello: lo verifica el motor (compliance.sellar / engine.guard), no tanda.py.",
+  "estatico-html": {
+    "sello_ref": "qa/x1-plantilla-estatico-html.json",
+    "hash_plantilla": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "vigente_hasta": "2026-12-31"
+  }
+}

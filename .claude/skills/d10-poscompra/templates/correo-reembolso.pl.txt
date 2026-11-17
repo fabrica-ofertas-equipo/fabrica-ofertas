@@ -1,0 +1,15 @@
+# tipo: reembolso
+# locale: pl-PL
+# estado: v0.1 sin pulir; lo envía el código tras ejecutar el reembolso (postcompra.reembolsar / reembolso_manual); sin revisor nativo (J11); sello de X1 pendiente
+Asunto: Potwierdzenie zwrotu – zamówienie {{pedido_ref}}
+
+Dzień dobry,
+
+zleciliśmy zwrot {{monto_texto}} za zamówienie {{pedido_ref}} w sklepie {{marca}}.
+
+Pieniądze wracają na tę samą metodę płatności, której użyto przy zakupie. {{tiempo_reembolso}}
+
+Nie musisz nic więcej robić. Jeśli po tym czasie nie zobaczysz zwrotu, napisz na {{soporte_email}} i podaj numer zamówienia.
+
+Sprzedawca: {{vendedor}}
+Zasady zakupu i zwrotów: {{politica_url}}

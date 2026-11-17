@@ -1,0 +1,14 @@
+{
+ "version": "v1",
+ "commit": "abc1234",
+ "url_preview": "https://preview.example/",
+ "aprobado_por": "dueno",
+ "rollback_a": null,
+ "lighthouse": {
+  "rendimiento": 91,
+  "accesibilidad": 97
+ },
+ "obj": {
+  "x": 1
+ }
+}

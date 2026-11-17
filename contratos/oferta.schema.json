@@ -1,0 +1,662 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/oferta.schema.json",
+  "title": "Oferta",
+  "description": "Arquitectura de la oferta (D3)",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "familia_id": {
+      "$ref": "comunes.schema.json#/$defs/familia_id"
+    },
+    "variante_de": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "slug": {
+      "$ref": "comunes.schema.json#/$defs/kebab"
+    },
+    "marca": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dominio": {
+          "type": "string",
+          "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$"
+        }
+      },
+      "required": [
+        "nombre",
+        "dominio"
+      ],
+      "additionalProperties": false
+    },
+    "candidato_ref": {
+      "type": "object",
+      "properties": {
+        "candidato_id": {
+          "$ref": "comunes.schema.json#/$defs/candidato_id"
+        },
+        "problema_id": {
+          "$ref": "comunes.schema.json#/$defs/problema_id"
+        }
+      },
+      "required": [
+        "candidato_id",
+        "problema_id"
+      ],
+      "additionalProperties": false
+    },
+    "macro_nicho": {
+      "$ref": "comunes.schema.json#/$defs/macro_nicho"
+    },
+    "locale": {
+      "$ref": "comunes.schema.json#/$defs/locale"
+    },
+    "paises_segmentacion": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/pais"
+      },
+      "minItems": 1
+    },
+    "moneda": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "riesgo": {
+      "$ref": "candidatos.schema.json#/$defs/riesgo"
+    },
+    "requiere_gate_humano_legal": {
+      "type": "boolean"
+    },
+    "cliente_ideal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prueba_una_frase": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mecanismo": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "minLength": 1
+        },
+        "como_funciona": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "nombre",
+        "como_funciona"
+      ],
+      "additionalProperties": false
+    },
+    "promesa": {
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subtitulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tiempo_prometido_min": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "ÚNICA fuente del tiempo prometido (reconciliación R10); D4 lo mide pero no lo cambia"
+        },
+        "claims_permitidos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "claim_id": {
+                "$ref": "comunes.schema.json#/$defs/kebab"
+              },
+              "texto": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidencia_ref": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Ruta, fuente o 'logica_del_producto'"
+              }
+            },
+            "required": [
+              "claim_id",
+              "texto",
+              "evidencia_ref"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "claims_prohibidos": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "titulo",
+        "subtitulo",
+        "tiempo_prometido_min",
+        "claims_permitidos",
+        "claims_prohibidos"
+      ],
+      "additionalProperties": false
+    },
+    "vehiculo": {
+      "type": "object",
+      "properties": {
+        "formato": {
+          "enum": [
+            "guia_pdf",
+            "plantilla",
+            "biblioteca",
+            "hoja_de_calculo",
+            "checklist",
+            "minicurso_video_corto",
+            "pack"
+          ],
+          "description": "Formato del entregable único"
+        },
+        "tiempo_consumo_min": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Estimado de diseño; <= tiempo_diseno_max_factor x tiempo_prometido_min"
+        },
+        "palabras_max": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "formato",
+        "tiempo_consumo_min",
+        "palabras_max"
+      ],
+      "additionalProperties": false
+    },
+    "entregables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "tipo": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cantidad": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "formato": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "tipo",
+          "cantidad",
+          "formato"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "bonus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "descripcion": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "descripcion"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "garantia": {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "enum": [
+            "reembolso_incondicional",
+            "reembolso_condicionado"
+          ]
+        },
+        "dias": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "texto_visible": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "tipo",
+        "dias",
+        "texto_visible"
+      ],
+      "additionalProperties": false
+    },
+    "urgencia": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "type": "string",
+              "minLength": 1
+            },
+            "verificable_por": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "tipo",
+            "verificable_por"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "prueba": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "enum": [
+              "logica_del_producto",
+              "muestra",
+              "testimonio_con_permiso",
+              "dato_con_fuente"
+            ]
+          },
+          "fuente": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consentimiento_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "tipo",
+          "fuente",
+          "consentimiento_ref"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Nunca testimonios inventados"
+    },
+    "precio": {
+      "type": "object",
+      "properties": {
+        "lista": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "tax_behavior": {
+          "enum": [
+            "inclusive",
+            "exclusive",
+            "unspecified"
+          ]
+        },
+        "anclaje": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "lista",
+        "tax_behavior",
+        "anclaje"
+      ],
+      "additionalProperties": false
+    },
+    "bump": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "comunes.schema.json#/$defs/kebab"
+            },
+            "nombre": {
+              "type": "string",
+              "minLength": 1
+            },
+            "precio": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "descripcion": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "id",
+            "nombre",
+            "precio",
+            "descripcion"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "upsell": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "comunes.schema.json#/$defs/kebab"
+            },
+            "nombre": {
+              "type": "string",
+              "minLength": 1
+            },
+            "precio": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "id",
+            "nombre",
+            "precio"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "angulos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "angulo_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "nivel_conciencia": {
+            "enum": [
+              "N1",
+              "N2",
+              "N3",
+              "N4",
+              "N5"
+            ]
+          },
+          "hook": {
+            "type": "string",
+            "minLength": 1
+          },
+          "objecion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prueba": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claims_ref": {
+            "type": "array",
+            "items": {
+              "$ref": "comunes.schema.json#/$defs/kebab"
+            }
+          },
+          "cita_voz_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "angulo_id",
+          "nivel_conciencia",
+          "hook",
+          "objecion",
+          "prueba",
+          "claims_ref",
+          "cita_voz_ref"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 3,
+      "description": "Ángulos (antes angulos.json): >= 3 ángulos distintos para D6. Reconciliación R14"
+    },
+    "avatar": {
+      "type": "object",
+      "properties": {
+        "quiere": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "cree": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "siente": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "lo_dice": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "objeciones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "texto": {
+                "type": "string",
+                "minLength": 1
+              },
+              "respuesta_en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severidad": {
+                "enum": [
+                  "alta",
+                  "media",
+                  "baja"
+                ]
+              }
+            },
+            "required": [
+              "texto",
+              "respuesta_en",
+              "severidad"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "vocabulario": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "quiere",
+        "cree",
+        "siente",
+        "lo_dice",
+        "objeciones",
+        "vocabulario"
+      ],
+      "additionalProperties": false,
+      "description": "Avatar (antes avatar.json). Citas de voz con fuente en validacion/voz_cliente.json"
+    },
+    "puntaje": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "dimension_min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        }
+      },
+      "required": [
+        "total",
+        "dimension_min"
+      ],
+      "additionalProperties": false
+    },
+    "supuestos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "hipotesis_test": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "aprobada_por_dueno": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/firma_humana"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "familia_id",
+    "variante_de",
+    "version",
+    "origen_version",
+    "slug",
+    "marca",
+    "candidato_ref",
+    "macro_nicho",
+    "locale",
+    "paises_segmentacion",
+    "moneda",
+    "riesgo",
+    "requiere_gate_humano_legal",
+    "cliente_ideal",
+    "prueba_una_frase",
+    "mecanismo",
+    "promesa",
+    "vehiculo",
+    "entregables",
+    "bonus",
+    "garantia",
+    "urgencia",
+    "prueba",
+    "precio",
+    "bump",
+    "upsell",
+    "angulos",
+    "avatar",
+    "puntaje",
+    "supuestos",
+    "hipotesis_test",
+    "aprobada_por_dueno"
+  ],
+  "additionalProperties": false
+}

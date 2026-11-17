@@ -1,0 +1,56 @@
+{
+  "id": "D07",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "pl-PL con revisor_nativo=false y obligacion_legal_idioma=true",
+  "donde_se_siembra": "mercado.json#/revision_linguistica",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "mercado",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/locale",
+          "valor": "pl-PL"
+        },
+        {
+          "op": "set",
+          "ruta": "/paises_segmentacion",
+          "valor": [
+            "PL"
+          ]
+        },
+        {
+          "op": "set",
+          "ruta": "/moneda_cobro",
+          "valor": "PLN"
+        },
+        {
+          "op": "set",
+          "ruta": "/revision_linguistica/revisor_nativo",
+          "valor": false
+        },
+        {
+          "op": "set",
+          "ruta": "/revision_linguistica/obligacion_legal_idioma",
+          "valor": true
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-11"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-11",
+      "patron_clave": "idioma-obligatorio-sin-revisor",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "X32_REVISOR: ROJO de X1 y no se sella"
+  }
+}

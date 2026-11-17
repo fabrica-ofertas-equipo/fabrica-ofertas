@@ -1,0 +1,23 @@
+[
+  {
+    "caso_id": "SAL-07",
+    "macro_nicho": "salud",
+    "ejes": {"P": "P2n", "C": "C1", "E": "E0", "N": "N1"},
+    "veredicto": "reformular",
+    "reencuadre": {
+      "ids": ["RE-02"],
+      "texto": "Planner settimanale dei pasti con lista della spesa",
+      "ejes_reformulados": {"P": "P0", "C": "C1", "E": "E0", "N": "N1"},
+      "deseo_conservado": "total"
+    },
+    "lineas_rojas": ["lp-02"]
+  },
+  {
+    "caso_id": "DIN-02",
+    "macro_nicho": "dinero",
+    "ejes": {"P": "P0", "C": "C1", "E": "E1", "N": "N1"},
+    "veredicto": "pasa",
+    "reencuadre": null,
+    "lineas_rojas": []
+  }
+]

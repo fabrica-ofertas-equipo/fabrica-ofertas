@@ -1,0 +1,32 @@
+{
+  "id": "S20",
+  "descripcion": "Audiencia lookalike/personalizada de compradores en un nivel amarillo con destino UE/UK",
+  "check_id": "C13",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "audiencia",
+        "tipo"
+      ],
+      "valor": "lookalike"
+    }
+  ],
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "audiencia_con_semilla",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C13",
+      "patron_clave": "audiencia-lookalike-amarillo",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

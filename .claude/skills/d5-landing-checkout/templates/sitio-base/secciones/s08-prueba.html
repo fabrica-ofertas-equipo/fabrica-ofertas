@@ -1,0 +1,25 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-confianza">
+  <div class="contenedor">
+    <header class="encabezado">
+      <h2 id="titulo-confianza">{{{titulo}}}</h2>
+    </header>
+{{#si bloques}}
+    <ul class="confianza" role="list">
+{{#cada bloques}}
+      <li class="tarjeta confianza__item">
+        <span class="icono-caja icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#{{icono}}"></use></svg></span>
+        <h3>{{{titulo}}}</h3>
+        <p>{{{texto}}}</p>
+      </li>
+{{/cada}}
+    </ul>
+{{/si}}
+{{#si resenas}}
+    <ul class="resenas" role="list">
+{{#cada resenas}}
+      <li class="tarjeta"><blockquote class="testimonio" data-fuente="{{fuente}}"><p>{{{texto}}}</p></blockquote></li>
+{{/cada}}
+    </ul>
+{{/si}}
+  </div>
+</section>

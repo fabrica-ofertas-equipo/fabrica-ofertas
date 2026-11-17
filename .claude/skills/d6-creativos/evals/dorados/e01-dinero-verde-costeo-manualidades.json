@@ -1,0 +1,100 @@
+{
+  "caso_id": "e01",
+  "titulo": "Dinero, verde: hoja de costeo y precio mínimo para quien vende manualidades (reencuadre de «ganá USD 500 con velas»)",
+  "tipo": "maker",
+  "macro_nicho": "dinero",
+  "locale": "es-AR",
+  "entrada": {
+    "oferta": {
+      "nombre_producto": "Hoja de costeo y precio mínimo",
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "reencuadre_aplicado": {
+          "aplicado": true,
+          "nivel_original": "rojo",
+          "descripcion": "RE-04: de los ingresos a la plantilla de costos"
+        }
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-hoja-costeo",
+          "texto": "Incluye una hoja de cálculo para costear cada producto"
+        },
+        {
+          "claim_id": "calcula-precio-minimo",
+          "texto": "Calcula el precio mínimo a partir de los costos que cargues"
+        },
+        {
+          "claim_id": "formato-hoja-calculo",
+          "texto": "Se entrega como hoja de cálculo editable"
+        }
+      ],
+      "claims_prohibidos": [
+        "ganá USD 500",
+        "ingresos extra con tus velas",
+        "vivir de tus velas"
+      ],
+      "precio": {
+        "monto": 1490,
+        "moneda": "USD"
+      },
+      "angulos": [
+        "costo-por-vela",
+        "precio-minimo",
+        "margen-visible"
+      ]
+    },
+    "economia": {
+      "gasto_test_plan": {
+        "monto": 30000,
+        "moneda": "USD"
+      },
+      "cpa_obj": {
+        "monto": 1200,
+        "moneda": "USD"
+      }
+    },
+    "limites": {
+      "creditos_max_pieza": null,
+      "creditos_max_oferta": null
+    },
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "n_anuncios_max": "min(creativos.n_anuncios_max, campana.n_anuncios_tope, floor(30000/(3*1200)=8)) = 6 con los parámetros de hoy",
+    "ruta": "A (sin topes de créditos: todo HTML→PNG; el brief declara que el video queda sin probar)",
+    "conceptos": ">=3 ángulos de la lista de la oferta, uno por concepto",
+    "hooks_aprobables_ejemplo": [
+      "Costo por vela, precio mínimo y margen en una sola hoja. (resultado-artefacto)",
+      "¿Cómo se calcula el precio mínimo de una vela? (pregunta-tarea)"
+    ],
+    "textos_que_no_deben_aparecer": [
+      "ganar plata con velas",
+      "ingresos extra",
+      "USD 500",
+      "vivir de",
+      "pasivo",
+      "sin experiencia",
+      "sin inversión",
+      "¿Vendés velas y no ganás?"
+    ],
+    "cifras": "solo con rótulo «ilustrativo» en el mismo cuadro, sujeto = la hoja; si no cabe, no va en el anuncio",
+    "voz": "voseo rioplatense solo si el glosario de es-AR lo fija; precio `US$ 14,90` formateado según el glosario",
+    "riesgo_pieza": "verde en todas",
+    "hallazgos_autorrevision": ">=3"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia"
+  ]
+}

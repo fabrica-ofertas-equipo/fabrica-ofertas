@@ -1,0 +1,36 @@
+{
+  "id": "S11",
+  "severidad": "BLOQUEANTE",
+  "defecto": "validacion.json dice GO pero el cálculo da GO_CONDICIONAL; nadie del dueño lo decidió (origen_version = maker).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "sustituto_gratis",
+      "valor": "dominante"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D3",
+        "patron_clave": "veredicto-mejorado-sin-dueno",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R1"
+    ],
+    "debe_citar": "\"final\": \"GO\""
+  },
+  "detecta_script": "veredicto.py comprobar y qa_recomputar.py",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

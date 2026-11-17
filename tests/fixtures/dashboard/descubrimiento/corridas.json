@@ -1,0 +1,38 @@
+[
+ {
+  "corrida_id": "2026-11-06-a",
+  "consultas_ok": 98,
+  "consultas_tope": 120,
+  "consultas_plan": 98,
+  "paginas": 724,
+  "etiquetadas": 694,
+  "candidatas": 636,
+  "pasan_traccion": 11,
+  "fichas": 13,
+  "actualizado_en": "2026-11-06T06:25:41Z"
+ },
+ {
+  "corrida_id": "2026-10-01-a",
+  "consultas_ok": 40,
+  "consultas_tope": 120,
+  "consultas_plan": 48,
+  "paginas": 500,
+  "etiquetadas": null,
+  "candidatas": null,
+  "pasan_traccion": null,
+  "fichas": null,
+  "actualizado_en": "2026-10-01T10:00:00Z"
+ },
+ {
+  "corrida_id": "2026-11-20-b",
+  "consultas_ok": null,
+  "consultas_tope": null,
+  "consultas_plan": null,
+  "paginas": null,
+  "etiquetadas": null,
+  "candidatas": null,
+  "pasan_traccion": null,
+  "fichas": null,
+  "actualizado_en": null
+ }
+]

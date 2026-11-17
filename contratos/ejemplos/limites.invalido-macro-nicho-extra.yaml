@@ -1,0 +1,66 @@
+schema_version: 1.0.0
+version: 1
+moneda_limites: EUR
+capital_en_riesgo_total: 100000
+reserva_no_publicitaria_pct: 20
+gasto_diario_global: 10000
+gasto_diario_por_oferta: 5000
+gasto_total_test_por_oferta: 30000
+perdida_max_test_por_oferta: 30000
+perdida_neta_acumulada_max: 60000
+stop_loss_escala: 20000
+ofertas_en_test_simultaneas_max: 2
+limite_gasto_cuenta_meta: 40000
+factor_techo_teorico_diario: '1.75'
+aumento_presupuesto_max_pct_por_paso: 20
+horas_min_entre_aumentos: 72
+max_cambios_presupuesto_por_hora_por_conjunto: 4
+segundos_min_entre_ediciones: 30
+cuentas_permitidas:
+- act_100000000000001
+paises_permitidos:
+- ES
+locales_permitidos:
+- es-ES
+macro_nichos_permitidos:
+- salud
+- relaciones
+- dinero
+- juegos
+subnichos_prohibidos: []
+lineas_rojas: []
+precio_neto_minimo: 900
+autoaprobar_hasta: 2000
+reembolso_auto_max: 3000
+reembolsos_auto_max_por_dia: 5
+ratio_disputas_pausa: '0.006'
+cupon_descuento_max_pct: 30
+politica_reembolso_dias: 14
+creditos_max_pieza: 50
+creditos_max_oferta: 500
+max_budget_por_corrida_agente: 500
+costo_max_validacion: 0
+costo_max_producto: 1500
+max_costo_por_barrido: 1000
+politica_divulgacion_ia: declarar_siempre
+dias_cobertura_caja: 21
+correos_max_por_dia: 200
+correos_max_por_semana: 1000
+max_consultas_biblioteca: 40
+ventana_veto_min: 60
+fuentes_permitidas:
+- foros-es
+fuentes_prohibidas: []
+max_busquedas_por_barrido: 150
+max_barridos_por_semana: 3
+acciones_gate_humano:
+- activar_campana
+- reactivar_tras_pausa
+- subir_presupuesto_sobre_tope
+- cambiar_limites
+- cambiar_entidad_stripe
+- lanzamiento_pais_idioma_nuevo
+sello:
+  hash: sha256:08f3ddffb9d046dd4ccc9487fc3faf5f1a0d9523d5b1705b0acbcab8c097257d
+  firmado_por: dueno-de-prueba
+  firmado_en: '2026-11-06T12:00:00Z'

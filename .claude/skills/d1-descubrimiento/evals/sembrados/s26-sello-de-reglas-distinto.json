@@ -1,0 +1,34 @@
+{
+  "id": "s26-sello-de-reglas-distinto",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Ranking calculado con un sello de reglas que no es el aprobado (D-02)",
+  "base": "g4-dinero-es-mx-modo-d-planner-por-cobro",
+  "comando": "candidatos",
+  "extra_args": [
+    "--sello-esperado",
+    "sha256:7d3ce2d980bfa21a91cc915ed83068466ced5472d5307a473fd094b1c65f4e4d"
+  ],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/parametros_usados/sello_reglas",
+      "valor": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-02",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-02",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "sello-de-reglas-distinto"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "_comentario": "PLANTILLA con datos de ejemplo (sintetico). Se genera pegando la salida de escala_lectura.py dictamen: el Maker NO cambia una sola cifra de orden_presupuesto ni de dictamen_codigo. El bloque orden_presupuesto valida contra contratos/orden_presupuesto.schema.json; el envoltorio todavia NO tiene esquema (PEDIDOS.md P-06). Los hash de relleno son hex sin digitos 0-9 a proposito.",
+  "schema_version": "0.1.0",
+  "tipo": "propuesta_de_suba",
+  "propuesta_id": "PRO-OF-202611-02-0001",
+  "oferta_id": "OF-202611-02",
+  "familia_id": "FAM-202611-01",
+  "locale": "pl-PL",
+  "macro_nicho": "dinero",
+  "creado_en": "2026-11-12T09:05:00Z",
+  "skill_version": "0.1.0",
+  "origen_version": "maker",
+  "estado": "propuesta",
+  "modo": "GRADUAR",
+  "palanca": "vertical",
+  "accion": "graduar",
+  "ganador": {
+    "nivel": "CAMPEON",
+    "cumple": [
+      "compras_netas >= 1",
+      "cpa_neto <= cpa_obj",
+      "compras_netas >= escalado.campeon_compras_min (10)",
+      "cpa_neto <= escalado.campeon_cpa_max_x_be * cpa_be",
+      "P(CPA <= equilibrio) >= testeo.p_escala"
+    ],
+    "no_cumple": []
+  },
+  "senales": {
+    "retorno_7d": true,
+    "tendencia_3d": true,
+    "umbral_cpa_7d_minor": "1300.00",
+    "umbral_cpa_3d_minor": "1495.00",
+    "compras_ventana_ok": true,
+    "presupuesto_previo_gastado_ok": true,
+    "datos_maduros": true
+  },
+  "dictamen_codigo": {
+    "comando": "escala_lectura.py dictamen --entrada entrada-dictamen.json --limites empresa/limites.yaml --parametros empresa/parametros.yaml",
+    "version_script": "0.1.0",
+    "estado": "PROPONER",
+    "codigo": "GRADUACION_PERMITIDA",
+    "entrada_sha256": "sha256:ffeeddccffeeddccffeeddccffeeddccffeeddccffeeddccffeeddccffeeddcc",
+    "salida_sha256": "sha256:bbaaccddbbaaccddbbaaccddbbaaccddbbaaccddbbaaccddbbaaccddbbaaccdd",
+    "techo": {
+      "factor": "1.75",
+      "gasto_diario_global_minor": 30000,
+      "gasto_diario_por_oferta_minor": 30000,
+      "suma_otras_max_teorico_minor": 13125,
+      "suma_otras_de_la_oferta_max_teorico_minor": 13125,
+      "max_presupuesto_por_global_minor": 9642,
+      "max_presupuesto_por_oferta_minor": 9642,
+      "max_presupuesto_permitido_minor": 9642,
+      "limita": "gasto_diario_global"
+    },
+    "paso": {
+      "actual_minor": 0,
+      "nuevo_minor": 7500,
+      "delta_pct": "100.00",
+      "recortes": [
+        "recortado al límite más estricto: % de paso, múltiplo x2"
+      ]
+    },
+    "motivos": [
+      "recortado al límite más estricto: % de paso, múltiplo x2"
+    ]
+  },
+  "tesis": {
+    "causa": [
+      "<línea 1: por qué el CPA marginal aguantaría>",
+      "<línea 2>",
+      "<línea 3>",
+      "<línea 4>",
+      "<línea 5>"
+    ],
+    "refutacion": "<dato observable y fecha de lectura que la refutaría>",
+    "plan_b": "<reducir 30 % | volver al presupuesto anterior | relevo de creativos>"
+  },
+  "frenos": {
+    "fuente": "empresa/limites.yaml (sello <hash>)",
+    "lectura_300_dia": "maximo_teorico",
+    "gasto_diario_global_minor": 30000,
+    "max_teorico_tras_la_propuesta_minor": 26250,
+    "holgura_minor": 3750,
+    "perdida_neta_acumulada_max_minor": 300000,
+    "perdida_mas_spend_cap_tras_la_propuesta_minor": 105000
+  },
+  "gate_efectivo": {
+    "accion_gate": "accion:subir_presupuesto_d9",
+    "nivel": "N0",
+    "gate": "H"
+  },
+  "ejecuta": "dueño (gate H hoy); el guard/robot cuando J2 esté aplicada y el nivel de D9 lo permita",
+  "sello_x1": {
+    "estado": "pendiente",
+    "ref": null
+  },
+  "no_ejecutable_hasta": [
+    {
+      "pedido": "P-05",
+      "motivo": "la ESCALA nace sin tope de costo (bid_strategy LOWEST_COST_WITHOUT_CAP, meta/payloads.py:215)"
+    },
+    {
+      "pedido": "P-04",
+      "motivo": "J2 no está aplicada: gate efectivo H"
+    }
+  ],
+  "evaluar_en": {
+    "horas": 96,
+    "fecha": "2026-11-16T09:00:00Z",
+    "regla": "veredicto_paso lo calcula el codigo; reversion automatica si es malo"
+  },
+  "supuestos": [
+    "umbral de campeon sin firmar (P-02)"
+  ],
+  "sin_dato": [
+    "caja F1 (P-10)"
+  ],
+  "verificar": [],
+  "preguntas_bloqueantes": [
+    "¿300 US$/día es máximo teórico o suma de presupuestos?"
+  ],
+  "sintetico": true,
+  "orden_presupuesto": {
+    "schema_version": "1.0.0",
+    "orden_id": "ORD-OF-202611-02-0001",
+    "oferta_id": "OF-202611-02",
+    "ts": "2026-11-12T09:00:00Z",
+    "emisor": "D9",
+    "plan_ref": "09-escalado/propuesta-de-suba.json",
+    "accion": "aumentar",
+    "objeto": {
+      "tipo": "campana",
+      "nombre": "OF-202611-02_ESCALA_VENTAS_ADV-PLUS_20261112",
+      "id_meta": null
+    },
+    "antes": {
+      "monto": 0,
+      "moneda": "USD"
+    },
+    "despues": {
+      "monto": 7500,
+      "moneda": "USD"
+    },
+    "delta_pct": "100.00",
+    "horas_desde_ultimo_aumento": null,
+    "regla_id": "D9-E1",
+    "version_reglas": "0.1.0",
+    "hash_parametros": "sha256:deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+    "evidencia": {
+      "ventana": "7d",
+      "gasto": {
+        "monto": 7440,
+        "moneda": "USD"
+      },
+      "compras_stripe": 12,
+      "p": "0.91",
+      "nota": "recortado al límite más estricto: % de paso, múltiplo x2. El delta de una graduación se mide sobre el agregado de la oferta."
+    },
+    "gate": {
+      "accion_gate": "accion:subir_presupuesto_d9",
+      "nivel": "N0",
+      "gate": "H"
+    },
+    "aprobado_por": null,
+    "estado": "propuesta",
+    "ejecutor": "humano",
+    "idempotency_key": "sha256:cafef00dcafef00dcafef00dcafef00dcafef00dcafef00dcafef00dcafef00d",
+    "verificacion_post": null,
+    "sintetico": true
+  }
+}

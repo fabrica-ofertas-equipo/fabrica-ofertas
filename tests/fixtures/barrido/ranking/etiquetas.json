@@ -1,0 +1,392 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "lote_id": "consolidado",
+  "etiquetador": "fixture",
+  "paginas": [
+    {
+      "page_id": "1000000000000001",
+      "tema": "Atlas de puntos gatillo",
+      "tema_slug": "atlas-puntos-gatillo",
+      "publico": "fisioterapeutas",
+      "formato": "atlas_mapas",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Atlas de Puntos Gatillo en PDF"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000002",
+      "tema": "Atlas de puntos gatillo",
+      "tema_slug": "atlas-puntos-gatillo",
+      "publico": "fisioterapeutas",
+      "formato": "atlas_mapas",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Guía de puntos gatillo"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000003",
+      "tema": "Mapas de puntos gatillo",
+      "tema_slug": "atlas-puntos-gatillo",
+      "publico": "fisioterapeutas",
+      "formato": "atlas_mapas",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "MAPAS de dolor muscular"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000011",
+      "tema": "Patrones de crochet",
+      "tema_slug": "crochet-patrones",
+      "publico": "tejedoras",
+      "formato": "patrones",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Florería Tejida: 50 patrones"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000012",
+      "tema": "Patrones de crochet",
+      "tema_slug": "crochet-patrones",
+      "publico": "tejedoras",
+      "formato": "patrones",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "+1000 patrones"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000013",
+      "tema": "Patrones de crochet",
+      "tema_slug": "crochet-patrones",
+      "publico": "tejedoras",
+      "formato": "patrones",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Natale all'Uncinetto · +100 schemi"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000021",
+      "tema": "Yoga y posturas",
+      "tema_slug": "yoga-posturas",
+      "publico": "profes de yoga",
+      "formato": "guia_pdf",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Yoga en PDF"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000022",
+      "tema": "Yoga y posturas",
+      "tema_slug": "yoga-posturas",
+      "publico": "profes de yoga",
+      "formato": "guia_pdf",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.6",
+      "evidencia": [
+        {
+          "titulo": "(sin título)"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000031",
+      "tema": "Finanzas para freelancers",
+      "tema_slug": "finanzas-freelance",
+      "publico": "freelancers",
+      "formato": "ebook",
+      "macro_nicho": "dinero",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Tarifas freelance"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000032",
+      "tema": "Finanzas para freelancers",
+      "tema_slug": "finanzas-freelance",
+      "publico": "freelancers",
+      "formato": "plantillas",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Plantilla de cotización"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000041",
+      "tema": "Recetas para diabéticos",
+      "tema_slug": "recetas-diabeticos",
+      "publico": "personas con diabetes",
+      "formato": "recetario",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Receitas para diabéticos"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000051",
+      "tema": "Plantillas de boda",
+      "tema_slug": "plantillas-boda",
+      "publico": "novias",
+      "formato": "plantillas",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Plantillas de boda"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000061",
+      "tema": "Comunidad de yoga",
+      "tema_slug": "yoga-posturas",
+      "publico": "profes de yoga",
+      "formato": "comunidad_o_app",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": false,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Únete a la comunidad"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000062",
+      "tema": "Consultoría para freelancers",
+      "tema_slug": "finanzas-freelance",
+      "publico": "freelancers",
+      "formato": "servicio",
+      "macro_nicho": "dinero",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Consultoría 1 a 1"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000063",
+      "tema": "Producto físico",
+      "tema_slug": "producto-fisico-varios",
+      "publico": "compradores",
+      "formato": "producto_fisico",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Envío gratis a todo México"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000064",
+      "tema": "Tema dudoso",
+      "tema_slug": "tema-dudoso",
+      "publico": "sin definir",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.3",
+      "evidencia": [
+        {
+          "titulo": "Otra cosa"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000066",
+      "tema": "Tema malo",
+      "tema_slug": "Tema Malo",
+      "publico": "x",
+      "formato": "guia_pdf",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Slug malo A"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000067",
+      "tema": "Doble tema A",
+      "tema_slug": "atlas-puntos-gatillo",
+      "publico": "x",
+      "formato": "atlas_mapas",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Doble tema A"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000067",
+      "tema": "Doble tema B",
+      "tema_slug": "crochet-patrones",
+      "publico": "x",
+      "formato": "patrones",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Doble tema B"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000068",
+      "tema": "indeterminado",
+      "tema_slug": "indeterminado",
+      "publico": "sin definir",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.1",
+      "evidencia": [
+        {
+          "titulo": "Descubre el secreto"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000069",
+      "tema": "indeterminado",
+      "tema_slug": "indeterminado",
+      "publico": "sin definir",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.1",
+      "evidencia": [
+        {
+          "titulo": "Mira esto"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000070",
+      "tema": "indeterminado",
+      "tema_slug": "indeterminado",
+      "publico": "sin definir",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.1",
+      "evidencia": [
+        {
+          "titulo": "Ahora sí"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000071",
+      "tema": "indeterminado",
+      "tema_slug": "indeterminado",
+      "publico": "sin definir",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.1",
+      "evidencia": [
+        {
+          "titulo": "Solo hoy"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000009999",
+      "tema": "Página huérfana",
+      "tema_slug": "tema-huerfano",
+      "publico": "x",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "fixture",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "No existe"
+        }
+      ]
+    }
+  ]
+}

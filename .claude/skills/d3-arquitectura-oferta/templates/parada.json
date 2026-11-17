@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.0.0-sin-esquema",
+  "_nota": "Sin esquema todavía (PEDIDO a contratos): el contrato de salida del Maker de D3 es oferta.schema.json y no tiene forma de decir «no entrego oferta» o «entrego una oferta NO_FACTIBLE y escalo». Este archivo es la señal. Solo se escribe cuando el resultado NO es una oferta lista para el QA. Los valores de `evidencia` son ILUSTRATIVOS.",
+  "oferta_id": "OF-AAAAMM-NN",
+  "version": "v1",
+  "estado": "no_factible_escalar",
+  "_estados_validos": ["devuelta_a_d1", "no_factible_escalar", "riesgo_rojo_sin_reencuadre", "detenida_por_dato_faltante", "fuera_de_mercado_permitido"],
+  "motivo": "Una frase con la causa.",
+  "evidencia": [
+    "03-oferta/economia.json: razon 0.55 < 1.0 en el peor país (IT), veredicto NO_FACTIBLE",
+    "Ciclo 1: precio 14,90 -> 19,90 -> 24,90 EUR: razon 0.86 / 0.68 / 0.75 (todas < 1.0)",
+    "Ciclo 2: país FR quitado del clúster: el peor país pasa a ser IT con la misma razón"
+  ],
+  "ciclos_usados": 2,
+  "siguiente": "ESCALAR al dueño (gate H) con la tabla de ciclos de oferta.md §C; opciones: cambiar mercado, mecanismo o vehículo (D1), o fijar otro precio fuera de rango con su aprobación.",
+  "archivos_entregados": ["03-oferta/oferta.json", "03-oferta/economia.json", "03-oferta/oferta.md"]
+}

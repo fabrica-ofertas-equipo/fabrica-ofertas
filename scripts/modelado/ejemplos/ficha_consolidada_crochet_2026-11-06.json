@@ -1,0 +1,101 @@
+{
+  "_nota": "PRIMERA CORRIDA REAL (2026-11-06T04:53Z, conector ads_library_search, Biblioteca de Anuncios). Medido: anuncios, edad de la oferta, conceptos, original presente por país (IT/PL/PT; también 0 en FR, DE y US). NO evaluado: las tres puertas (marca personal, sustituto gratis y práctica vetada), transferibilidad, entrantes_30d (no hay snapshot previo) y los reencuadres (aún no diseñados). Por eso los tres pares salen «incompleta» y se ordenan por techo. Plantilla para el Maker; no es una recomendación de lanzar.",
+  "ofertas": [
+    {
+      "fuente": {
+        "idioma": "es",
+        "pais": "ES"
+      },
+      "macro_nicho": null,
+      "mercados": [
+        {
+          "_nota": "La misma página ya corre 8 anuncios en italiano («Natale all'Uncinetto · +100 schemi»): el original ya localizó a IT.",
+          "hueco": {
+            "anunciantes_sostenidos": 1,
+            "entrantes_30d": null,
+            "original_presente": true,
+            "puntaje_rival": null
+          },
+          "idioma": "it",
+          "mercado": "IT",
+          "transferibilidad": {
+            "dolor_universal": null,
+            "riesgo_politicas": null,
+            "viabilidad_ticket": null
+          },
+          "ventana": "evergreen"
+        },
+        {
+          "_nota": "14 anuncios con «wzory szydełkowe». Verificar a mano: Katarzyna Kowalska (2 anuncios, ~21 días, sin título); si vende un pack equivalente, anunciantes_sostenidos = 1 y hay que puntuar al rival. Posible entrante: Nora Holm lanzó hoy «Kup 1, Zdobądź 3 Książki», misma estructura que «Compra 1, Lleva 3 Libros» en ES.",
+          "hueco": {
+            "anunciantes_sostenidos": 0,
+            "entrantes_30d": null,
+            "original_presente": false,
+            "puntaje_rival": null
+          },
+          "idioma": "pl",
+          "mercado": "PL",
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ],
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "riesgo_politicas": "0.5",
+            "viabilidad_ticket": null
+          },
+          "ventana": "evergreen"
+        },
+        {
+          "_nota": "29 anuncios con «padrões de croché». Verificar a mano: Tecendo Maria Crochê (1 anuncio, ~53 días). YarnPal lleva 65 días pero en inglés y es aprendizaje, no un pack de patrones. Paolla Silva (BR) lanzó hace 2 días «40 Ideias de Crochê Para Este Natal».",
+          "hueco": {
+            "anunciantes_sostenidos": 0,
+            "entrantes_30d": null,
+            "original_presente": false,
+            "puntaje_rival": null
+          },
+          "idioma": "pt",
+          "mercado": "PT",
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ],
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "riesgo_politicas": "0.5",
+            "viabilidad_ticket": null
+          },
+          "ventana": "evergreen"
+        }
+      ],
+      "modelo_id": "crea-y-emprende-crochet-es",
+      "nombre": "Patrones de crochet en packs (Florería Tejida 50 patrones, Navidad Tejida +100 patrones), página «Crea y Emprende», ES",
+      "pendiente": [
+        "abrir los ad_snapshot_url y juzgar las puertas (marca personal, sustituto gratis, práctica vetada)",
+        "sustituto gratis: en PL, Hobbii anuncia patrones gratuitos («Darmowy Wzór») desde hace 50 días; los patrones de crochet gratis abundan en YouTube y Pinterest",
+        "anunciantes_independientes_mismo_angulo = 4: Crochet al Hogar (200 patrones), Mundo Crochet (+1.000 patrones), Flavia da Silva Araujo (247 diseños), Praiz (101 patrones); juzgado por título",
+        "diseñar al menos un reencuadre (mecanismo, lista a sistema, cambio de unidad, subnicho × obstáculo) antes de puntuar D",
+        "juicio IA crea-y-emprende-crochet-es: puerta sustituto_gratis_cubre: solo un juez opinó: no alcanza para liberar la puerta",
+        "juicio IA crea-y-emprende-crochet-es: puerta practica_vetada: un juez veta y el otro libera: el veto prevalece; revisar",
+        "juicio IA crea-y-emprende-crochet-es: reencuadre subnicho_x_obstaculo lo sustenta un solo juez; no cuenta",
+        "juicio IA crea-y-emprende-crochet-es/PL: viabilidad_ticket: solo un juez opinó: queda sin evaluar",
+        "juicio IA crea-y-emprende-crochet-es/PT: viabilidad_ticket: solo un juez opinó: queda sin evaluar"
+      ],
+      "puertas": {
+        "marca_personal": false,
+        "practica_vetada": true,
+        "sustituto_gratis_cubre": null
+      },
+      "reencuadres": [
+        "cambio_de_unidad",
+        "lista_a_sistema"
+      ],
+      "traccion": {
+        "anunciantes_independientes_mismo_angulo": 4,
+        "anuncios_activos": 27,
+        "conceptos_unicos": 2,
+        "edad_oferta_dias": "14.9",
+        "paginas_misma_landing": 1
+      }
+    }
+  ],
+  "schema_version": "2.0.0"
+}

@@ -1,0 +1,46 @@
+# Salida esperada del motor (engine.factibilidad 1.2.0) para los planes de evals/dorados/{02,06}/. scripts/test_scripts.py la reproduce.
+it-p1490:
+  razon: '0.23'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 14
+it-p1990:
+  razon: '0.31'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 14
+it-p2490:
+  razon: '0.39'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 14
+pl-p4900:
+  razon: '0.20'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 13
+pl-p6900:
+  razon: '0.28'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 13
+pl-p8900:
+  razon: '0.36'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 13
+ticket-7usd:
+  razon: '0.18'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 16
+30usd-dia:
+  razon: '0.75'
+  veredicto: NO_FACTIBLE
+  evento: InitiateCheckout
+  dias_test: 16
+120usd-dia:
+  razon: '0.94'
+  veredicto: NO_FACTIBLE
+  evento: Purchase
+  dias_test: 7

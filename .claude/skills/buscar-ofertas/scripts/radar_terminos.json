@@ -1,0 +1,765 @@
+{
+ "schema_version": "1.0.0",
+ "actualizado": "2026-11-14",
+ "_nota": "Catálogo del radar de ofertas (super buscador). Se busca por SEÑALES DE VENTA DE PRODUCTO DIGITAL (dónde se cobra y cómo se entrega), no por la forma del funnel: la forma se clasifica después. Los mercados salen de modelar-y-lanzar-oferta/scripts/elegir_mercado.py (PAISES). Todo término es frase exacta en la web de la Biblioteca. v6 (14-nov): 19 idiomas más al ampliar elegir_mercado.py a 93 países (frases escritas por el asistente, sin probar en la Biblioteca: si una no trae nada en dos semanas, se cambia).",
+ "ingles_en_cada_mercado": [
+  "instant download",
+  "instant access",
+  "one-time payment",
+  "lifetime access"
+ ],
+ "entrega": {
+  "es": [
+   "descarga inmediata",
+   "acceso inmediato",
+   "pago único",
+   "acceso de por vida",
+   "guía en PDF",
+   "plantillas imprimibles",
+   "recíbelo al instante"
+  ],
+  "pt": [
+   "acesso imediato",
+   "pagamento único",
+   "acesso vitalício",
+   "em PDF",
+   "material digital",
+   "receba na hora",
+   "download imediato"
+  ],
+  "en": [
+   "instant download",
+   "instant access",
+   "one-time payment",
+   "lifetime access",
+   "digital download",
+   "printable PDF",
+   "PDF guide",
+   "ebook"
+  ],
+  "it": [
+   "download immediato",
+   "accesso immediato",
+   "pagamento unico",
+   "accesso a vita",
+   "guida in PDF",
+   "da stampare"
+  ],
+  "fr": [
+   "téléchargement immédiat",
+   "accès immédiat",
+   "paiement unique",
+   "accès à vie",
+   "guide PDF",
+   "à imprimer"
+  ],
+  "de": [
+   "sofort herunterladen",
+   "sofortiger Zugang",
+   "Einmalzahlung",
+   "lebenslanger Zugang",
+   "als PDF",
+   "zum Ausdrucken"
+  ],
+  "nl": [
+   "direct downloaden",
+   "direct toegang",
+   "eenmalige betaling",
+   "levenslang toegang",
+   "als PDF",
+   "e-book"
+  ],
+  "sv": [
+   "ladda ner direkt",
+   "direkt tillgång",
+   "engångsbetalning",
+   "livstids tillgång",
+   "som PDF",
+   "e-bok"
+  ],
+  "no": [
+   "last ned umiddelbart",
+   "umiddelbar tilgang",
+   "engangsbetaling",
+   "livstids tilgang",
+   "som PDF",
+   "e-bok"
+  ],
+  "da": [
+   "download med det samme",
+   "øjeblikkelig adgang",
+   "engangsbetaling",
+   "livstidsadgang",
+   "som PDF",
+   "e-bog"
+  ],
+  "fi": [
+   "lataa heti",
+   "välitön pääsy",
+   "kertamaksu",
+   "elinikäinen pääsy",
+   "PDF-muodossa",
+   "e-kirja"
+  ],
+  "pl": [
+   "natychmiastowy dostęp",
+   "do pobrania",
+   "jednorazowa płatność",
+   "dożywotni dostęp",
+   "w formacie PDF",
+   "do wydruku"
+  ],
+  "cs": [
+   "okamžité stažení",
+   "okamžitý přístup",
+   "jednorázová platba",
+   "doživotní přístup",
+   "ve formátu PDF",
+   "e-kniha"
+  ],
+  "ro": [
+   "descărcare imediată",
+   "acces imediat",
+   "plată unică",
+   "acces pe viață",
+   "în format PDF",
+   "de printat"
+  ],
+  "hu": [
+   "azonnali letöltés",
+   "azonnali hozzáférés",
+   "egyszeri fizetés",
+   "élethosszig tartó hozzáférés",
+   "PDF formátumban",
+   "e-könyv"
+  ],
+  "el": [
+   "άμεση πρόσβαση",
+   "άμεση λήψη",
+   "εφάπαξ πληρωμή",
+   "δια βίου πρόσβαση",
+   "σε μορφή PDF"
+  ],
+  "tr": [
+   "anında indir",
+   "anında erişim",
+   "tek seferlik ödeme",
+   "ömür boyu erişim",
+   "PDF olarak",
+   "e-kitap"
+  ],
+  "ms": [
+   "muat turun segera",
+   "akses segera",
+   "bayaran sekali",
+   "akses seumur hidup",
+   "dalam bentuk PDF",
+   "ebook"
+  ],
+  "id": [
+   "unduh langsung",
+   "akses instan",
+   "sekali bayar",
+   "akses seumur hidup",
+   "dalam bentuk PDF",
+   "ebook"
+  ],
+  "vi": [
+   "tải ngay",
+   "truy cập ngay",
+   "thanh toán một lần",
+   "truy cập trọn đời",
+   "file PDF",
+   "ebook"
+  ],
+  "th": [
+   "ดาวน์โหลดทันที",
+   "เข้าถึงได้ทันที",
+   "จ่ายครั้งเดียว",
+   "ไฟล์ PDF",
+   "อีบุ๊ก"
+  ],
+  "ja": [
+   "すぐにダウンロード",
+   "今すぐアクセス",
+   "買い切り",
+   "PDFで",
+   "電子書籍"
+  ],
+  "ko": [
+   "즉시 다운로드",
+   "바로 이용",
+   "평생 소장",
+   "PDF로",
+   "전자책"
+  ],
+  "zh": [
+   "立即下載",
+   "立即取得",
+   "一次付費",
+   "終身存取",
+   "PDF電子書"
+  ],
+  "ar": [
+   "تحميل فوري",
+   "وصول فوري",
+   "دفعة واحدة",
+   "وصول مدى الحياة",
+   "كتاب إلكتروني",
+   "ملف PDF"
+  ],
+  "he": [
+   "הורדה מיידית",
+   "גישה מיידית",
+   "תשלום חד פעמי",
+   "גישה לכל החיים",
+   "ספר דיגיטלי",
+   "קובץ PDF"
+  ],
+  "hi": [
+   "तुरंत डाउनलोड",
+   "तुरंत एक्सेस",
+   "एक बार भुगतान",
+   "ई-बुक",
+   "PDF में"
+  ],
+  "ru": [
+   "мгновенный доступ",
+   "скачать сразу",
+   "единоразовый платёж",
+   "пожизненный доступ",
+   "в формате PDF",
+   "для печати"
+  ],
+  "uk": [
+   "миттєвий доступ",
+   "завантажити одразу",
+   "одноразовий платіж",
+   "довічний доступ",
+   "у форматі PDF",
+   "для друку"
+  ],
+  "bg": [
+   "незабавно изтегляне",
+   "незабавен достъп",
+   "еднократно плащане",
+   "доживотен достъп",
+   "в PDF формат",
+   "за принтиране"
+  ],
+  "sk": [
+   "okamžité stiahnutie",
+   "okamžitý prístup",
+   "jednorazová platba",
+   "doživotný prístup",
+   "vo formáte PDF",
+   "na tlač"
+  ],
+  "sl": [
+   "takojšen prenos",
+   "takojšen dostop",
+   "enkratno plačilo",
+   "dosmrtni dostop",
+   "v PDF obliki",
+   "za tiskanje"
+  ],
+  "hr": [
+   "trenutačno preuzimanje",
+   "trenutni pristup",
+   "jednokratno plaćanje",
+   "doživotni pristup",
+   "u PDF formatu",
+   "za ispis"
+  ],
+  "sr": [
+   "trenutni pristup",
+   "jednokratno plaćanje",
+   "doživotni pristup",
+   "u PDF formatu",
+   "тренутни приступ",
+   "једнократно плаћање"
+  ],
+  "bs": [
+   "odmah preuzmite",
+   "trenutni pristup",
+   "jednokratno plaćanje",
+   "doživotni pristup",
+   "u PDF formatu"
+  ],
+  "mk": [
+   "моментален пристап",
+   "веднаш преземање",
+   "еднократно плаќање",
+   "доживотен пристап",
+   "во PDF формат"
+  ],
+  "lt": [
+   "iš karto atsisiųsti",
+   "momentinė prieiga",
+   "vienkartinis mokėjimas",
+   "prieiga visam laikui",
+   "PDF formatu"
+  ],
+  "lv": [
+   "tūlītēja lejupielāde",
+   "tūlītēja piekļuve",
+   "vienreizējs maksājums",
+   "mūža piekļuve",
+   "PDF formātā"
+  ],
+  "et": [
+   "kohene allalaadimine",
+   "kohene juurdepääs",
+   "ühekordne makse",
+   "eluaegne juurdepääs",
+   "PDF-failina"
+  ],
+  "ka": [
+   "მყისიერი ჩამოტვირთვა",
+   "ერთჯერადი გადახდა",
+   "უვადო წვდომა",
+   "PDF ფორმატში"
+  ],
+  "hy": [
+   "ակնթարթային ներբեռնում",
+   "միանվագ վճար",
+   "ցմահ հասանելիություն",
+   "PDF ձևաչափով"
+  ],
+  "az": [
+   "dərhal yükləmə",
+   "dərhal giriş",
+   "birdəfəlik ödəniş",
+   "ömürlük giriş",
+   "PDF formatında"
+  ],
+  "mn": [
+   "шууд татаж авах",
+   "нэг удаагийн төлбөр",
+   "насан туршийн эрх",
+   "PDF хэлбэрээр"
+  ],
+  "ur": [
+   "فوری ڈاؤن لوڈ",
+   "ایک بار ادائیگی",
+   "تاحیات رسائی",
+   "پی ڈی ایف میں"
+  ],
+  "bn": [
+   "তাৎক্ষণিক ডাউনলোড",
+   "তাৎক্ষণিক অ্যাক্সেস",
+   "এককালীন পেমেন্ট",
+   "আজীবন অ্যাক্সেস",
+   "পিডিএফ ফাইল"
+  ],
+  "si": [
+   "වහාම බාගත කරන්න",
+   "එක් වරක් ගෙවීම",
+   "ජීවිත කාලය පුරා ප්‍රවේශය",
+   "PDF ආකෘතියෙන්"
+  ]
+ },
+ "plataformas": {
+  "_nota": "Dominios donde se arma o se cobra un producto digital. Se buscan como frase exacta: la Biblioteca encuentra el dominio en el enlace del anuncio. `mercados`: además de la búsqueda mundial, se repite en esos países para que salgan los operadores locales (con «todos los países» dominan EE. UU. y Brasil).",
+  "lista": [
+   {
+    "dominio": "hotmart.com",
+    "mercados": [
+     "BR",
+     "MX",
+     "CO",
+     "AR",
+     "CL",
+     "PE",
+     "ES",
+     "PT",
+     "US"
+    ]
+   },
+   {
+    "dominio": "go.hotmart.com",
+    "mercados": [
+     "BR",
+     "MX",
+     "CO",
+     "ES"
+    ]
+   },
+   {
+    "dominio": "pay.hotmart.com",
+    "mercados": [
+     "BR",
+     "MX",
+     "CO",
+     "ES"
+    ]
+   },
+   {
+    "dominio": "hotm.art",
+    "mercados": []
+   },
+   {
+    "dominio": "kiwify.app",
+    "mercados": [
+     "BR",
+     "MX",
+     "PT"
+    ]
+   },
+   {
+    "dominio": "pay.kiwify.com.br",
+    "mercados": [
+     "BR",
+     "PT"
+    ]
+   },
+   {
+    "dominio": "eduzz.com",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "monetizze.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "braip.com",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "perfectpay.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "ticto.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "kirvano.com",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "cakto.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "greenn.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "payt.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "lastlink.com",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "hubla.com.br",
+    "mercados": [
+     "BR"
+    ]
+   },
+   {
+    "dominio": "impultienda.ar",
+    "mercados": [
+     "AR",
+     "MX",
+     "CO",
+     "CL",
+     "PE",
+     "ES"
+    ]
+   },
+   {
+    "dominio": "inlead.digital",
+    "mercados": [
+     "BR",
+     "MX",
+     "CO",
+     "AR",
+     "ES",
+     "PT"
+    ]
+   },
+   {
+    "dominio": "digistore24.com",
+    "mercados": [
+     "DE",
+     "AT",
+     "CH",
+     "US",
+     "GB",
+     "FR",
+     "IT",
+     "ES",
+     "NL",
+     "PL"
+    ]
+   },
+   {
+    "dominio": "copecart.com",
+    "mercados": [
+     "DE",
+     "AT",
+     "CH"
+    ]
+   },
+   {
+    "dominio": "elopage.com",
+    "mercados": [
+     "DE",
+     "AT",
+     "CH"
+    ]
+   },
+   {
+    "dominio": "ablefy.io",
+    "mercados": [
+     "DE",
+     "AT",
+     "CH"
+    ]
+   },
+   {
+    "dominio": "hop.clickbank.net",
+    "mercados": [
+     "US",
+     "GB",
+     "CA",
+     "AU"
+    ]
+   },
+   {
+    "dominio": "clickbank.net",
+    "mercados": [
+     "US",
+     "GB",
+     "CA",
+     "AU"
+    ]
+   },
+   {
+    "dominio": "buygoods.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "systeme.io",
+    "mercados": [
+     "FR",
+     "US",
+     "ES",
+     "IT",
+     "DE",
+     "BR"
+    ]
+   },
+   {
+    "dominio": "gumroad.com",
+    "mercados": [
+     "US",
+     "GB"
+    ]
+   },
+   {
+    "dominio": "payhip.com",
+    "mercados": [
+     "US",
+     "GB"
+    ]
+   },
+   {
+    "dominio": "stan.store",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "thrivecart.com",
+    "mercados": [
+     "US",
+     "GB",
+     "AU"
+    ]
+   },
+   {
+    "dominio": "samcart.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "myclickfunnels.com",
+    "mercados": [
+     "US",
+     "GB"
+    ]
+   },
+   {
+    "dominio": "kajabi.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "mykajabi.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "podia.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "teachable.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "thinkific.com",
+    "mercados": [
+     "US"
+    ]
+   },
+   {
+    "dominio": "lemonsqueezy.com",
+    "mercados": []
+   },
+   {
+    "dominio": "sellfy.store",
+    "mercados": []
+   },
+   {
+    "dominio": "carrd.co",
+    "mercados": []
+   },
+   {
+    "dominio": "lovable.app",
+    "mercados": []
+   },
+   {
+    "dominio": "vercel.app",
+    "mercados": []
+   },
+   {
+    "dominio": "netlify.app",
+    "mercados": []
+   },
+   {
+    "dominio": "framer.website",
+    "mercados": []
+   },
+   {
+    "dominio": "webflow.io",
+    "mercados": []
+   },
+   {
+    "dominio": "lpages.co",
+    "mercados": []
+   },
+   {
+    "dominio": "typeform.com",
+    "mercados": []
+   },
+   {
+    "dominio": "involve.me",
+    "mercados": []
+   },
+   {
+    "dominio": "heyflow.site",
+    "mercados": []
+   },
+   {
+    "dominio": "perspective.co",
+    "mercados": []
+   },
+   {
+    "dominio": "scoreapp.com",
+    "mercados": []
+   },
+   {
+    "dominio": "tryinteract.com",
+    "mercados": []
+   },
+   {
+    "dominio": "leadquizzes.com",
+    "mercados": []
+   },
+   {
+    "dominio": "xquiz.io",
+    "mercados": []
+   },
+   {
+    "dominio": "marquiz.io",
+    "mercados": []
+   },
+   {
+    "dominio": "funnelfox.com",
+    "mercados": []
+   },
+   {
+    "dominio": "quizell.com",
+    "mercados": []
+   }
+  ]
+ },
+ "producible": {
+  "_nota": "Lo que delata en la landing que NO se puede hacer con nuestro recorrido (se mira al verificar).",
+  "no": [
+   "suscripción",
+   "subscription",
+   "assinatura",
+   "abbonamento",
+   "Abo",
+   "mensual",
+   "monthly",
+   "/mes",
+   "/month",
+   "app store",
+   "google play",
+   "descarga la app",
+   "download the app",
+   "clínica",
+   "consulta médica",
+   "mentoría",
+   "coaching 1:1"
+  ]
+ },
+ "umbrales": {
+  "a_medir_anuncios_vistos": 5,
+  "a_medir_dias": 10,
+  "piso_anuncios": 15,
+  "piso_dias": 10,
+  "busquedas_por_vuelta": 15,
+  "max_por_mercado_por_vuelta": 3,
+  "horas_de_pausa_tras_bloqueo": 6,
+  "a_medir_dias_evergreen": 30,
+  "medidas_por_vuelta": 10,
+  "verificadas_por_vuelta": 3
+ }
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-03",
+  "familia_id": "FAM-202611-03",
+  "variante_de": null,
+  "version": "v1",
+  "origen_version": "maker",
+  "slug": "karty-rozmow-dla-par",
+  "marca": {
+    "nombre": "Pytania na Wieczór",
+    "dominio": "pytanianawieczor.example"
+  },
+  "candidato_ref": {
+    "candidato_id": "CAND-01",
+    "problema_id": "PRB-202611-0007"
+  },
+  "macro_nicho": "relaciones",
+  "locale": "pl-PL",
+  "paises_segmentacion": [
+    "PL"
+  ],
+  "moneda": "PLN",
+  "riesgo": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": true,
+      "nivel_original": "rojo",
+      "descripcion": "El borrador «karty na randki» se leía como facilitación de citas (N2, LM-04); se reencuadró a «karty rozmów dla par, które mieszkają razem» (RE-10: del servicio al archivo) con el rol en tercera persona (RE-08). Se conserva el deseo: mejorar la conversación de la pareja."
+    },
+    "fuentes": [
+      "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+      "docs/_investigacion/22c-meta-politicas-relaciones.md"
+    ],
+    "categoria": "Relaciones de pareja: herramienta de conversación (N1 vigilada)",
+    "claims_a_evitar": [
+      "popraw swój związek",
+      "odzyskaj bliskość w 7 dni",
+      "terapia dla par",
+      "randki",
+      "diagnoza związku"
+    ],
+    "angulo_seguro": "Karty z pytaniami: narzędzie do rozmowy, nie rezultat w związku."
+  },
+  "requiere_gate_humano_legal": false,
+  "cliente_ideal": "Pary, które mieszkają razem i rozmawiają głównie o obowiązkach i rachunkach",
+  "prueba_una_frase": "Dla par, które mieszkają razem i rozmawiają głównie o obowiązkach, Rytuał Jednego Pytania to zestaw 50 kart do wydruku, który prowadzi od «rozmawiamy tylko o rachunkach» do «mamy wieczór rozmowy raz w tygodniu» bez poradników i bez terapii.",
+  "mecanismo": {
+    "nombre": "Rytuał Jednego Pytania",
+    "como_funciona": "Jedna karta z pytaniem na wieczór, trzy poziomy głębokości i zasada rozmowy na zmianę: każdy odpowiada po kolei, bez przerywania."
+  },
+  "promesa": {
+    "titulo": "Karty Rozmów dla Par",
+    "subtitulo": "50 kart z pytaniami do wydruku, w trzech poziomach, i zasada rozmowy na zmianę na wieczór we dwoje",
+    "tiempo_prometido_min": 15,
+    "claims_permitidos": [
+      {
+        "claim_id": "karty-50",
+        "texto": "Zawiera 50 kart z pytaniami do wydruku",
+        "evidencia_ref": "04-producto/entregables/karty-50-v1.pdf"
+      },
+      {
+        "claim_id": "trzy-poziomy",
+        "texto": "Pytania w trzech poziomach głębokości",
+        "evidencia_ref": "logica_del_producto"
+      },
+      {
+        "claim_id": "zasada-na-zmiane",
+        "texto": "Zawiera krótką instrukcję rozmowy na zmianę",
+        "evidencia_ref": "04-producto/entregables/instrukcja-v1.pdf"
+      },
+      {
+        "claim_id": "czas-15-min",
+        "texto": "Pierwsza rozmowa gotowa w około 15 minut",
+        "evidencia_ref": "04-producto/producto.json#tiempos"
+      },
+      {
+        "claim_id": "gwarancja-14-dni",
+        "texto": "Gwarancja zwrotu pieniędzy przez 14 dni",
+        "evidencia_ref": "03-oferta/oferta.json#garantia"
+      }
+    ],
+    "claims_prohibidos": [
+      "popraw swój związek",
+      "terapia dla par",
+      "odzyskaj bliskość w 7 dni",
+      "randki",
+      "diagnoza związku"
+    ]
+  },
+  "vehiculo": {
+    "formato": "pack",
+    "tiempo_consumo_min": 15,
+    "palabras_max": 2000
+  },
+  "entregables": [
+    {
+      "id": "karty-50",
+      "tipo": "karty do wydruku",
+      "cantidad": 1,
+      "formato": "PDF"
+    },
+    {
+      "id": "instrukcja",
+      "tipo": "instrukcja rozmowy na zmianę",
+      "cantidad": 1,
+      "formato": "PDF"
+    }
+  ],
+  "bonus": [
+    {
+      "id": "tablica-tygodniowego-rytualu",
+      "descripcion": "Tablica rytuału tygodniowego do wydruku"
+    },
+    {
+      "id": "karty-na-podroz",
+      "descripcion": "10 dodatkowych kart na wspólną podróż"
+    },
+    {
+      "id": "plakat-zasad-rozmowy",
+      "descripcion": "Plakat A4 z zasadami rozmowy na zmianę"
+    }
+  ],
+  "garantia": {
+    "tipo": "reembolso_incondicional",
+    "dias": 14,
+    "texto_visible": "Jeśli to nie dla Ciebie, zwrócimy pieniądze w ciągu 14 dni. Bez pytań."
+  },
+  "urgencia": null,
+  "prueba": [
+    {
+      "tipo": "muestra",
+      "fuente": "04-producto/entregables/muestras/podglad-karty-v1.pdf",
+      "consentimiento_ref": null
+    },
+    {
+      "tipo": "logica_del_producto",
+      "fuente": "Każda karta ma jedno pytanie, poziom i zasadę tury, co można sprawdzić na podglądzie",
+      "consentimiento_ref": null
+    }
+  ],
+  "precio": {
+    "lista": {
+      "monto": 8900,
+      "moneda": "PLN"
+    },
+    "tax_behavior": "inclusive",
+    "anclaje": null
+  },
+  "bump": {
+    "id": "karty-wspolne-plany",
+    "nombre": "20 dodatkowych kart: wspólne plany",
+    "precio": {
+      "monto": 3560,
+      "moneda": "PLN"
+    },
+    "descripcion": "Dwadzieścia kart z pytaniami o wspólne plany na najbliższy rok"
+  },
+  "upsell": null,
+  "angulos": [
+    {
+      "angulo_id": "jedno-pytanie-na-wieczor",
+      "nivel_conciencia": "N1",
+      "hook": "Jedno pytanie na wieczór: prosty początek rozmowy",
+      "objecion": "Nie mamy czasu na długie rozmowy",
+      "prueba": "Podgląd jednej karty",
+      "claims_ref": [
+        "trzy-poziomy"
+      ],
+      "cita_voz_ref": "EV-02"
+    },
+    {
+      "angulo_id": "rozmowa-poza-obowiazkami",
+      "nivel_conciencia": "N2",
+      "hook": "Rozmowa, która nie dotyczy rachunków ani obowiązków",
+      "objecion": "Rozmawiamy tylko o rachunkach",
+      "prueba": "Przykładowe pytania z poziomu pierwszego",
+      "claims_ref": [
+        "karty-50"
+      ],
+      "cita_voz_ref": "EV-01"
+    },
+    {
+      "angulo_id": "pytanie-na-wieczor",
+      "nivel_conciencia": "N2",
+      "hook": "Pytanie na wieczór: 50 kart gotowych do wydruku",
+      "objecion": "Nie wiemy, od czego zacząć",
+      "prueba": "Podgląd zestawu",
+      "claims_ref": [
+        "karty-50",
+        "czas-15-min"
+      ],
+      "cita_voz_ref": "EV-02"
+    },
+    {
+      "angulo_id": "trzy-poziomy-glebokosci",
+      "nivel_conciencia": "N3",
+      "hook": "Trzy poziomy pytań: od lekkich do głębszych",
+      "objecion": "Darmowe listy szybko się nudzą",
+      "prueba": "Po jednym pytaniu z każdego poziomu",
+      "claims_ref": [
+        "trzy-poziomy",
+        "zasada-na-zmiane"
+      ],
+      "cita_voz_ref": "EV-01"
+    },
+    {
+      "angulo_id": "zestaw-do-wydruku-i-gwarancja",
+      "nivel_conciencia": "N4",
+      "hook": "Zestaw kart do wydruku i 14 dni na zwrot płatności",
+      "objecion": "Są darmowe listy pytań",
+      "prueba": "Podgląd i gwarancja widoczna na stronie",
+      "claims_ref": [
+        "karty-50",
+        "gwarancja-14-dni"
+      ],
+      "cita_voz_ref": "EV-01"
+    }
+  ],
+  "avatar": {
+    "quiere": [
+      "Mieć prosty początek rozmowy wieczorem"
+    ],
+    "cree": [
+      "Że rozmowa wymaga dużo czasu"
+    ],
+    "siente": [
+      "Brak tematów poza obowiązkami"
+    ],
+    "lo_dice": [
+      "Rozmawiamy tylko o rachunkach i o tym, kto zmywa",
+      "Wieczorem każde siedzi w telefonie i nie wiemy, od czego zacząć rozmowę"
+    ],
+    "objeciones": [
+      {
+        "texto": "Są darmowe listy pytań",
+        "respuesta_en": "diferencial",
+        "severidad": "alta"
+      },
+      {
+        "texto": "Czy to nie jest terapia?",
+        "respuesta_en": "faq",
+        "severidad": "media"
+      }
+    ],
+    "vocabulario": [
+      "pytania dla par",
+      "rozmowa na zmianę",
+      "karty"
+    ]
+  },
+  "puntaje": {
+    "total": 78,
+    "dimension_min": 4
+  },
+  "supuestos": [
+    "[SUPUESTO] CPM de práctica (mercado.cpm_esperado); no es una estimación de mercado",
+    "[SUPUESTO] tarifas de Stripe de 03-stripe §4.1 (tarifas_origen=supuesto); IVA de Polonia 23 % [07h §7, B]; BLIK diferido: v1 con tarjeta y billeteras",
+    "[SUPUESTO] sin casos previos (casos_previos_n = 0): ninguna cifra de personas ni testimonios",
+    "[SUPUESTO] precio 89 zł tras 1 ciclo de palancas (49 zł → NO_FACTIBLE)",
+    "[SUPUESTO] revisor nativo de polaco contratado (obligación de idioma, backbone 5.10); texto polaco sin revisión nativa todavía"
+  ],
+  "hipotesis_test": [
+    "Con ~15 compras: «pytanie-na-wieczor» vs «trzy-poziomy-glebokosci» se comparan por CTR de enlace y costo por checkout iniciado",
+    "El bump «karty-wspolne-plany» llega a la toma planificada (parametros.economia.tasa_bump_bp)"
+  ],
+  "aprobada_por_dueno": null
+}

@@ -1,0 +1,20 @@
+{
+  "_comentario": "FIXTURE DE PRUEBA, no es el limites.yaml del dueño. Importes en centavos de USD. 30000 = 300 US$/día y 300000 = 3.000 US$ son los valores de J4 (decisión del dueño, aún sin firmar en empresa/limites.yaml); el resto son valores de prueba [SUPUESTO] solo para que el script tenga con qué calcular. stop_loss_escala figura porque engine CLAVES_CRITICAS['escalar'] lo exige; que deba existir choca con J3/J4 y está abierto en PEDIDOS.md P-08.",
+  "moneda_limites": "USD",
+  "capital_en_riesgo_total": 1000000,
+  "gasto_diario_global": 30000,
+  "gasto_diario_por_oferta": 30000,
+  "perdida_neta_acumulada_max": 300000,
+  "stop_loss_escala": 100000,
+  "ofertas_en_test_simultaneas_max": 1,
+  "limite_gasto_cuenta_meta": 500000,
+  "factor_techo_teorico_diario": "1.75",
+  "aumento_presupuesto_max_pct_por_paso": 100,
+  "horas_min_entre_aumentos": 24,
+  "max_cambios_presupuesto_por_hora_por_conjunto": 4,
+  "segundos_min_entre_ediciones": 30,
+  "dias_cobertura_caja": 21,
+  "paises_permitidos": ["PL"],
+  "locales_permitidos": ["pl-PL"],
+  "macro_nichos_permitidos": ["salud", "relaciones", "dinero"]
+}

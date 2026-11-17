@@ -1,0 +1,3 @@
+validador=type
+ruta=/aov/monto
+texto=el dinero es un entero en unidad menor, nunca un float

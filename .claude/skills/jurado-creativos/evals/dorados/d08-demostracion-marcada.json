@@ -1,0 +1,18 @@
+{
+  "caso_id": "D08",
+  "titulo": "Demostración marcada",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "comando": "python -m scripts.jurado.demo corrida"
+  },
+  "salida_esperada": {
+    "demostracion": "true en jurado, manifiesto y avatares",
+    "votos": "origen sintetico_demo",
+    "calibracion": "acumulando, 0 etiquetas",
+    "calibrar.py": "rechaza el jurado de demostración sin --fixture"
+  },
+  "aprobacion": [
+    "ningún archivo de la demostración puede confundirse con un resultado real"
+  ]
+}

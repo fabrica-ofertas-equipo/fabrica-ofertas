@@ -1,0 +1,38 @@
+{
+  "id": "D06",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Cluster en-CA que incluye Quebec (frances obligatorio)",
+  "donde_se_siembra": "fixtures/pais-CA.json#/identidad/incluye_quebec",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "contexto:D02-commonwealth-dinero",
+      "ops": []
+    }
+  ],
+  "deteccion": {
+    "via": "excluir",
+    "regla": "R5",
+    "pais": "CA",
+    "fichas_mutadas": {
+      "CA": [
+        {
+          "op": "set",
+          "ruta": "/identidad/incluye_quebec",
+          "valor": true
+        }
+      ]
+    }
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-11",
+      "patron_clave": "quebec-en-cluster-ingles",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "Quebec queda fuera del cluster en-CA; fr-CA sin revisor nativo no se lanza"
+  }
+}

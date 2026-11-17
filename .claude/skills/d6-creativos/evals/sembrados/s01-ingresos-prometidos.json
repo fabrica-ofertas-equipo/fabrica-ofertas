@@ -1,0 +1,102 @@
+{
+  "grupo": "★ Ingresos o ahorro prometidos y sus paráfrasis (X1-P01/P02)",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s01-es-ar",
+      "grupo": "s01",
+      "locale": "es-AR",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Ganá USD 3.000 al mes con IA, desde tu casa.",
+        "titular": "Ganá USD 3.000 al mes",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "cifra de ingresos mensuales",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-prometido",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO: cifra de ingreso con plazo («al mes»); LP-03; no hay reencuadre en la pieza",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s01-it-it",
+      "grupo": "s01",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Guadagna 2.000 € al mese da casa con il nostro metodo.",
+        "titular": "Guadagna 2.000 € al mese",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "cifra de ingresos mensuales (par de la nota 25 §5.2)",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-prometido",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO: promesa de ingresos con cifra y plazo en italiano; el lint por idioma debe tener la lista de it-IT",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s01-pl-pl",
+      "grupo": "s01",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Zarabiaj 3000 zł miesięcznie z domu.",
+        "titular": "Zarabiaj 3000 zł miesięcznie",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "cifra de ingresos mensuales",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-prometido",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO en polaco; sin lista de pl-PL el lint falla cerrado y se revisa a mano",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s01-en-us",
+      "grupo": "s01",
+      "locale": "en-US",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Earn $3,000 a month from home with this guide.",
+        "titular": "Earn $3,000 a month",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "cifra de ingresos mensuales",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-prometido",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO: `$\\d+ a month` (cubierto por compliance/reglas_sensibles.yaml en-US)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s01-parafrasis-es",
+      "grupo": "s01",
+      "locale": "es-AR",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Dejá tu empleo y vivite de esto: la guía que cambia tu forma de trabajar.",
+        "titular": "Vivite de esto",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "paráfrasis sin cifra («dejá tu empleo y vivite de esto»)",
+      "check_id_esperado": "D6-L1-02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-prometido-parafraseado",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "El lint por patrón no la ve; la detectan el clasificador y la simulación L3(a) (revisor de Meta): ROJO P2n",
+      "bloqueante": true
+    }
+  ]
+}

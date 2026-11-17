@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-02",
+  "corrida_id": "RUN-20261106-01",
+  "fecha": "2026-11-06T09:00:00Z",
+  "modo": "pipeline",
+  "mercado": {
+    "locale": "it-IT",
+    "paises": [
+      "IT"
+    ]
+  },
+  "pesos": {
+    "dolor": "0.35",
+    "pago": "0.35",
+    "mecanismo": "0.30"
+  },
+  "parametros_usados": {
+    "umbral_score_min": 55,
+    "evidencia_min_fuentes": 2
+  },
+  "consultas": [
+    {
+      "herramienta": "WebSearch",
+      "terminos": "volver a trabajar tras pausa cómo explicar hueco currículum",
+      "pais": "US",
+      "fecha": "2026-11-06T08:30:00Z",
+      "estimated_total_count": null
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "plantilla currículum",
+      "pais": "ES",
+      "fecha": "2026-11-06T08:40:00Z",
+      "estimated_total_count": 14
+    }
+  ],
+  "candidatos": [
+    {
+      "candidato_id": "CAND-01",
+      "problema_id": "PRB-202611-0007",
+      "rango": 1,
+      "macro_nicho": "salud",
+      "nicho_id": "alimentazione-quotidiana",
+      "microsegmento": "pianificazione-cene-settimanali",
+      "problema": "Non sa cosa cucinare ogni sera e finisce per ordinare fuori o buttare cibo",
+      "prueba_una_frase": "Per chi non sa cosa cucinare ogni sera e improvvisa la spesa, Pasti a Blocchi è un planner con lista della spesa che porta da «ogni sera improvviso» a «cinque cene pronte e la lista della spesa della settimana» senza ricette complicate.",
+      "tesis": "Il problema non è la mancanza di ricette ma l'assenza di un piano che colleghi cene e spesa; cinque blocchi con ingredienti in comune lo risolvono in venti minuti.",
+      "mecanismo": {
+        "causa_raiz": {
+          "texto": "Le ricette singole non si combinano tra loro: ogni sera richiede ingredienti diversi, la spesa cresce e si improvvisa.",
+          "senales": [
+            "a1b2c3d4e5f6",
+            "0f9e8d7c6b5a"
+          ]
+        },
+        "nombre": "Pasti a Blocchi",
+        "como_funciona": "Raggruppa cinque cene base in blocchi intercambiabili che condividono gli ingredienti e ricava la lista della spesa settimanale da una tabella di quantità per porzione.",
+        "diferencia": "Un chatbot o un modello gratuito suggeriscono ricette sciolte; questo metodo parte da blocchi con ingredienti in comune e consegna la lista della spesa pronta, che è ciò che manca.",
+        "prueba_logica": "L'anteprima mostra un blocco completo con la sua lista; ogni passo ha un risultato verificabile (cinque cene, lista compilata).",
+        "riesgo_de_claim": "Non promettere dimagrimento, benefici per la salute né tempi di risultato; solo organizzazione e lista della spesa."
+      },
+      "entregable": {
+        "formato": "pack",
+        "alcance": "Planner stampabile di 4 settimane + foglio quantità per porzione + lista della spesa; senza servizio, comunità né aggiornamenti continui.",
+        "estado_a_b": {
+          "a": "Ogni sera improvviso la cena",
+          "b": "Ho cinque cene pronte e la lista della spesa della settimana"
+        },
+        "tiempo_al_primer_resultado": 20,
+        "producibilidad": {
+          "nivel": "alta",
+          "notas": "Contenuto originale; quantità per porzione senza valori nutrizionali."
+        },
+        "licencias": [
+          "sin activos de terceros"
+        ]
+      },
+      "precio_plausible": {
+        "min": {
+          "monto": 900,
+          "moneda": "EUR"
+        },
+        "max": {
+          "monto": 2500,
+          "moneda": "EUR"
+        },
+        "razon": "Planner stampabili in vendita tra 9 e 25 EUR; la lista della spesa pronta giustifica la fascia alta"
+      },
+      "puntajes": {
+        "dolor": {
+          "s": 4,
+          "justificacion": "Dolore espresso con parole proprie nei forum",
+          "evidencia_ids": [
+            "EV-01"
+          ]
+        },
+        "pago": {
+          "s": 3,
+          "justificacion": "Si comprano planner, ma senza lista della spesa",
+          "evidencia_ids": [
+            "EV-02",
+            "EV-03"
+          ]
+        },
+        "mecanismo": {
+          "s": 4,
+          "justificacion": "Meccanismo nominabile e diverso dal planner generico",
+          "evidencia_ids": [
+            "EV-02"
+          ]
+        }
+      },
+      "score_base": 68,
+      "score_ajustado": 66,
+      "confianza": "media",
+      "evidencia": [
+        {
+          "id": "EV-01",
+          "tipo": "E3",
+          "url": "https://forum.esempio.invalid/discussione/cosa-cucino-stasera",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Ogni sera mi chiedo cosa cucinare e alla fine ordino qualcosa",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        {
+          "id": "EV-02",
+          "tipo": "E3",
+          "url": "https://forum.esempio.invalid/discussione/spesa-senza-piano",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Faccio la spesa senza un piano e metà delle cose le butto",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+        },
+        {
+          "id": "EV-03",
+          "tipo": "E1",
+          "url": "https://marketplace.esempio.invalid/classifica/planner-pasti",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Planner settimanali dei pasti tra i più venduti della categoria",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      ],
+      "demanda_pagada": {
+        "n_anuncios": 14,
+        "n_anunciantes": 6,
+        "n_sostenidos": 2,
+        "n_conceptos_unicos": 5,
+        "antiguedad_max_dias": 120,
+        "consultas_ids": [
+          "Q-01",
+          "Q-02"
+        ],
+        "senal_rentabilidad": "no medible"
+      },
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "reencuadre_aplicado": {
+          "aplicado": true,
+          "nivel_original": "rojo",
+          "descripcion": "RE-02: de «Perdi 8 kg in 30 giorni» (cifra y plazo de pérdida de peso, P2n, LP-02) a «Planner settimanale dei pasti con lista della spesa» (la herramienta, no el resultado en el cuerpo); el deseo de comer de forma más ordenada se conserva."
+        },
+        "fuentes": [
+          "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+          "docs/_investigacion/22a-meta-politicas-salud.md"
+        ],
+        "categoria": "Nutrición general: planificación de comidas y lista de la compra (salud, N1 vigilada)",
+        "claims_a_evitar": [
+          "perdi X kg in N giorni",
+          "senza dieta",
+          "dimagrire",
+          "brucia grassi",
+          "metabolismo",
+          "migliora la tua salute"
+        ],
+        "angulo_seguro": "Il planner e la lista della spesa: organizzazione della settimana, non risultati sul corpo."
+      },
+      "similitud_memoria": {
+        "max": "0.31",
+        "con": null
+      },
+      "viabilidad_cpa": {
+        "ratio_pes": "0.37",
+        "ratio_central": "1.44",
+        "ratio_opt": "3.03",
+        "supuestos": [
+          "CPM, CTR y conversión de ejemplo [SUPUESTO]"
+        ],
+        "bandera": "amarilla"
+      },
+      "sensibilidad": {
+        "top3_estable_pct": 85
+      },
+      "ventana_estacional": "Septiembre y enero (vuelta al trabajo y propósitos de año nuevo)",
+      "hipotesis_para_d2": [
+        "I planner in vendita non generano la lista della spesa",
+        "La spesa senza piano compare nei commenti degli annunci"
+      ],
+      "que_la_mataria": [
+        "Un planner gratuito che generi la lista della spesa",
+        "Che Meta classifichi l'offerta come salute per la parola «pasti»"
+      ],
+      "palabras_clave_voz_cliente": [
+        "cosa cucino stasera",
+        "lista della spesa",
+        "pianificare i pasti"
+      ]
+    }
+  ],
+  "descartados": [
+    {
+      "problema": "Perdi 8 kg in 30 giorni: menù settimanale",
+      "motivo": "claim_de_salud_o_ingresos",
+      "redencion": "reformular"
+    },
+    {
+      "problema": "Consulenza nutrizionale personalizzata",
+      "motivo": "requiere_servicio",
+      "redencion": "dividir"
+    },
+    {
+      "problema": "Gruppo privato per mangiare meglio",
+      "motivo": "requiere_comunidad_o_en_vivo",
+      "redencion": "dividir"
+    }
+  ]
+}

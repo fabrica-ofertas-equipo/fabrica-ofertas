@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/validacion.schema.json",
+  "title": "Validación de mercado",
+  "description": "Validación de mercado e inteligencia competitiva (D2)",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "version_script": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "candidato_id": {
+      "$ref": "comunes.schema.json#/$defs/candidato_id"
+    },
+    "macro_nicho": {
+      "$ref": "comunes.schema.json#/$defs/macro_nicho"
+    },
+    "consultas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "herramienta": {
+            "type": "string"
+          },
+          "terminos": {
+            "type": "string"
+          },
+          "pais": {
+            "$ref": "comunes.schema.json#/$defs/pais"
+          },
+          "fecha": {
+            "$ref": "comunes.schema.json#/$defs/timestamp"
+          },
+          "estimated_total_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "truncado": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "herramienta",
+          "terminos",
+          "pais",
+          "fecha",
+          "estimated_total_count",
+          "truncado"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "metricas_mercado": {
+      "type": "object",
+      "properties": {
+        "n_anuncios": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_anunciantes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_sostenidos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edad_mediana_dias": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "n_anuncios",
+        "n_anunciantes",
+        "n_sostenidos",
+        "edad_mediana_dias"
+      ],
+      "additionalProperties": false
+    },
+    "saturacion": {
+      "type": "object",
+      "properties": {
+        "indice": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "n_ind_sostenidos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "saturacion_mecanismo": {
+          "enum": [
+            "baja",
+            "media",
+            "alta"
+          ],
+          "description": "Backbone 5.11: contraste del MU con la competencia"
+        },
+        "detalle": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "indice",
+        "n_ind_sostenidos",
+        "saturacion_mecanismo",
+        "detalle"
+      ],
+      "additionalProperties": false
+    },
+    "convergencia": {
+      "type": "object",
+      "properties": {
+        "estado": {
+          "enum": [
+            "alta",
+            "media",
+            "baja"
+          ]
+        },
+        "detalle": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "estado",
+        "detalle"
+      ],
+      "additionalProperties": false
+    },
+    "huecos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "senales_demanda_organica": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "restricciones_originalidad": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "riesgo_politica": {
+      "$ref": "candidatos.schema.json#/$defs/riesgo"
+    },
+    "veredicto": {
+      "type": "object",
+      "properties": {
+        "calculado": {
+          "enum": [
+            "GO",
+            "GO_CONDICIONAL",
+            "NO_GO"
+          ]
+        },
+        "propuesto": {
+          "enum": [
+            "GO",
+            "GO_CONDICIONAL",
+            "NO_GO"
+          ]
+        },
+        "final": {
+          "enum": [
+            "GO",
+            "GO_CONDICIONAL",
+            "NO_GO"
+          ]
+        },
+        "confianza": {
+          "type": "object",
+          "properties": {
+            "puntos": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "detalle": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "puntos",
+            "detalle"
+          ],
+          "additionalProperties": false
+        },
+        "razones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidencia_faltante": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "calculado",
+        "propuesto",
+        "final",
+        "confianza",
+        "razones",
+        "evidencia_faltante"
+      ],
+      "additionalProperties": false
+    },
+    "no_inferible": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Lo que la Biblioteca de Anuncios NO permite saber (gasto, conversiones, texto principal...)"
+    },
+    "hipotesis_para_d7": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "handoff_d3": {
+      "type": "object",
+      "properties": {
+        "angulos_candidatos": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "objeciones_top": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rango_precios_por_moneda": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "moneda": {
+                "$ref": "comunes.schema.json#/$defs/moneda"
+              },
+              "min": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "max": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "moneda",
+              "min",
+              "max"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "entregables_tipicos": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prohibido_copiar": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "angulos_candidatos",
+        "objeciones_top",
+        "rango_precios_por_moneda",
+        "entregables_tipicos",
+        "prohibido_copiar"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "version_script",
+    "candidato_id",
+    "macro_nicho",
+    "consultas",
+    "metricas_mercado",
+    "saturacion",
+    "convergencia",
+    "huecos",
+    "senales_demanda_organica",
+    "restricciones_originalidad",
+    "riesgo_politica",
+    "veredicto",
+    "no_inferible",
+    "hipotesis_para_d7",
+    "handoff_d3"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+# Parámetros de PRUEBA para scripts/modelado/barrido/ingesta.py (mismo formato que parametros_barrido.propuesta.yaml:
+# `grupos.descubrimiento.<clave>` con {valor, unidad, hipotesis, fuente, ultima_calibracion, rango}).
+# Solo las 10 claves mínimas del contrato (§6). Los valores son de prueba, NO una propuesta de producto.
+# Se cargan con comun.cargar_parametros_barrido(<este archivo>).
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    barrido_limite_por_consulta:
+      {valor: 50, unidad: anuncios, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [10, 50]}
+    barrido_paises_origen:
+      {valor: ["US", "ES", "MX"], unidad: iso2_lista, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: null}
+    barrido_pasadas_max:
+      {valor: 3, unidad: pasadas, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [1, 3]}
+    # Cota baja a propósito (3): así las pruebas ejercitan el tope de títulos con pocos datos.
+    # Solo la usa plan.validar_plan cuando el plan trae una pasada 3 (consultas por page_ids).
+    barrido_page_ids_por_consulta_max:
+      {valor: 5, unidad: paginas, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [1, 10]}
+    barrido_titulos_por_pagina_max:
+      {valor: 3, unidad: titulos, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [1, 30]}
+    barrido_paginas_por_lote_etiquetado:
+      {valor: 20, unidad: paginas, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [10, 40]}
+    barrido_partir_si_total_supera:
+      {valor: 100, unidad: anuncios, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [50, 500]}
+    memoria_ventana_min_dias:
+      {valor: 25, unidad: dias, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [14, 30]}
+    barrido_agentes_paralelos_max:
+      {valor: 6, unidad: agentes, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [2, 12]}
+    barrido_consultas_por_agente_max:
+      {valor: 10, unidad: consultas, hipotesis: true, fuente: "fixture de prueba", ultima_calibracion: null, rango: [4, 20]}
+    # Sin USD ni EUR a propósito: no discriminan país. El mapa decide qué monedas cuentan.
+    barrido_exportador_monedas_pais:
+      valor:
+        BRL: "BR"
+        MXN: "MX"
+        GBP: "GB"
+      unidad: moneda_pais
+      hipotesis: true
+      fuente: "fixture de prueba"
+      ultima_calibracion: null
+      rango: null

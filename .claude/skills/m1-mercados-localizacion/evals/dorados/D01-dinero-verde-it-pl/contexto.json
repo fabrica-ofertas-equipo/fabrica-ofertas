@@ -1,0 +1,22 @@
+{
+  "hoy": "2026-11-06",
+  "limites": {
+    "paises_permitidos": ["IT", "PL"],
+    "locales_permitidos": ["it-IT", "pl-PL"],
+    "nivel_max_lanzable": {"dinero": "amarillo-a", "salud": "amarillo-a", "relaciones": "amarillo-a"}
+  },
+  "candidato": {
+    "candidato_id": "CAND-EJEMPLO-PRESUPUESTO-POR-COBRO",
+    "macro_nicho": "dinero",
+    "riesgo": {"P": "verde", "C": "verde", "E": "verde", "N": "verde", "nivel": "verde"},
+    "banderas": {"S": false, "R": false, "D": true},
+    "etiquetas": ["producto_hogar"],
+    "fuera_de_macro_nicho": false
+  },
+  "fase_pagos": "estandar_tarjeta_billeteras",
+  "decision_managed_payments": "no_decidido",
+  "regimen_fiscal": "diferido",
+  "exposicion_fiscal_firmada_paises": null,
+  "primer_lanzamiento_en_locale": true,
+  "fichas": {"IT": "../fixtures/pais-IT.json", "PL": "../fixtures/pais-PL.json"}
+}

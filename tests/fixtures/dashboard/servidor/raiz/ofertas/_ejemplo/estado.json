@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "familia_id": "FAM-202611-01",
+  "revision": 4,
+  "nivel": "N2",
+  "pausa": false,
+  "fase": "en_construccion",
+  "skills_pin": {
+    "D1": "0.1.0"
+  },
+  "etapas": {
+    "M1": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D1": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D2": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D3": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D4": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D5": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D6": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "qa",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D7": {
+      "estado": "en_QA",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": true,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D8": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "A",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D9": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "obsoleta": false
+    },
+    "D10": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "A",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "obsoleta": false
+    }
+  },
+  "candidato_elegido": {
+    "candidato_id": "CAND-01",
+    "fecha": "2026-11-06T11:20:00Z",
+    "motivo": "<script>alert('x')</script> <img src=x onerror=alert(1)> ‮gnp.exe",
+    "editado_por_dueno": false
+  },
+  "gasto": {
+    "acumulado": {
+      "monto": 1250,
+      "moneda": "EUR"
+    },
+    "hoy": {
+      "monto": 0,
+      "moneda": "EUR"
+    }
+  },
+  "costo_ia": {
+    "monto": 412,
+    "moneda": "EUR"
+  },
+  "actualizado_en": "2026-11-09T10:30:00Z"
+}

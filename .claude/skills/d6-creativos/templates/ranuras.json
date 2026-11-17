@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "encargo": "D5 (ranuras de la landing; anterior al paquete de anuncios, no requiere landing_hash)",
+  "nota": "EJEMPLO. D6 produce las imágenes de ambiente e ilustración (y el video opcional) de las ranuras cuyo productor es D6; D4 produce las del PRODUCTO; el dueño, lo que aporte. D6 escribe aquí y en 06-creativos/ranuras/; D5 integra en 05-landing/ y su assets.json [SUPUESTO: D6 solo escribe en 06-creativos/]. Sin opiniones, avatares ni testimonios (se omiten). Sin texto dentro de imágenes generadas ni personas en salud y relaciones.",
+  "ranuras": [
+    {
+      "slot_id": "hero",
+      "seccion": "hero",
+      "tipo": "imagen",
+      "ratio": "16:9",
+      "alt": "Escritorio con una libreta abierta y una taza",
+      "archivo": "ranuras/hero.png",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "origen": "propio",
+      "ia_generado": false,
+      "herramienta": "chrome-headless-html",
+      "modelo": null,
+      "job_id": null,
+      "licencia_ref": "lic-fuente-sistema",
+      "etiqueta_ia_visible": false,
+      "costo_creditos": 0,
+      "productor": "D6"
+    }
+  ]
+}

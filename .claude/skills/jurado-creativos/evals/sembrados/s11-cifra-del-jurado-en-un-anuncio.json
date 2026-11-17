@@ -1,0 +1,10 @@
+{
+  "caso_id": "S11",
+  "titulo": "Cifra del jurado en un anuncio",
+  "defecto_sembrado": "06-creativos/copies.json: texto_principal contiene «7 de 10 comprarían»",
+  "check_esperado": "JQ-11",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "jurado-qa (Grep)",
+  "correccion_esperada": "quitar la cifra; el jurado es solo uso interno",
+  "automatizado": false
+}

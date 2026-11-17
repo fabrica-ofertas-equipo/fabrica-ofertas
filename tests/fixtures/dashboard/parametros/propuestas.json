@@ -1,0 +1,109 @@
+[
+  {
+    "archivo": "empresa/propuestas/parametros-b0.yaml",
+    "claves": [
+      "estadistica.prior_conv_fuerza_clics",
+      "estadistica.prior_cpc_fuerza_clics",
+      "estadistica.alfa_descarte",
+      "estadistica.k_min_matar",
+      "estadistica.k_min_fallida",
+      "estadistica.nodos_cpc",
+      "estadistica.potencia",
+      "estadistica.precision_relativa",
+      "estadistica.confianza_precision",
+      "estadistica.meta_eventos_aprendizaje_semana",
+      "estadistica.meta_fraccion_min_purchase",
+      "estadistica.control_fraccion",
+      "estadistica.control_fraccion_presupuesto",
+      "estadistica.control_gasto_max_k",
+      "estadistica.mercados_alfa",
+      "estadistica.mercados_p_diferencia",
+      "estadistica.dias_con_compras_min",
+      "estadistica.dias_madurez_compra",
+      "agentes.claude_version_min",
+      "agentes.modelo",
+      "agentes.fallback_modelo",
+      "agentes.esfuerzo",
+      "agentes.tiempo_s_max",
+      "agentes.turnos_max",
+      "agentes.holgura_pct",
+      "agentes.reintentos_transitorios_max",
+      "agentes.backoff_base_s",
+      "agentes.reintentos_validacion_max",
+      "agentes.gracia_s",
+      "agentes.pausa_poll_s",
+      "agentes.bucle_repeticion_max",
+      "agentes.bucle_sin_progreso_turnos",
+      "agentes.estado_max_edad_h",
+      "agentes.bash_timeout_defecto_ms",
+      "agentes.bash_timeout_max_ms",
+      "agentes.hook_timeout_s",
+      "ingesta.tolerancia_seg",
+      "ingesta.cuerpo_max_bytes",
+      "ingesta.contexto_ttl_seg",
+      "watchdog.latido_cada_min",
+      "watchdog.latido_max_min",
+      "watchdog.ciclo_max_min",
+      "landing.max_sesiones_por_visitante",
+      "campana.spend_cap_minimo_meta"
+    ]
+  },
+  {
+    "archivo": "scripts/modelado/parametros_modelado.propuesta.yaml",
+    "claves": [
+      "descubrimiento.modelado_anuncios_objetivo",
+      "descubrimiento.modelado_dias_objetivo",
+      "descubrimiento.modelado_conceptos_objetivo",
+      "descubrimiento.modelado_replica_baja",
+      "descubrimiento.modelado_entrantes_tope_30d",
+      "descubrimiento.modelado_sostenidos_cierre",
+      "descubrimiento.modelado_rival_debil_bajo",
+      "descubrimiento.modelado_hueco_rival_debil",
+      "descubrimiento.modelado_hueco_rival_fuerte",
+      "descubrimiento.modelado_ventana_cierra_pronto",
+      "descubrimiento.modelado_dif_base",
+      "descubrimiento.modelado_dif_un_reencuadre",
+      "descubrimiento.modelado_dif_dos_o_mas",
+      "descubrimiento.modelado_peso_traccion",
+      "descubrimiento.modelado_peso_hueco",
+      "descubrimiento.modelado_peso_transferibilidad",
+      "descubrimiento.modelado_peso_diferenciacion",
+      "descubrimiento.modelado_umbral_pasa",
+      "descubrimiento.modelado_sens_variacion",
+      "descubrimiento.modelado_sens_cobertura_min",
+      "descubrimiento.modelado_sens_top",
+      "descubrimiento.modelado_juicio_tolerancia",
+      "descubrimiento.modelado_evidencia_min_caracteres",
+      "descubrimiento.modelado_calibracion_min_casos",
+      "descubrimiento.modelado_acuerdo_min",
+      "descubrimiento.modelado_captura_pausa_seg",
+      "descubrimiento.modelado_captura_max_por_dia",
+      "descubrimiento.modelado_captura_espera_ms",
+      "descubrimiento.modelado_captura_timeout_seg",
+      "descubrimiento.modelado_lectura_max_bytes",
+      "descubrimiento.modelado_lectura_timeout_seg",
+      "descubrimiento.modelado_lectura_max_caracteres",
+      "descubrimiento.modelado_lectura_max_redirecciones",
+      "descubrimiento.modelado_lectura_max_paginas",
+      "descubrimiento.modelado_lectura_pausa_seg",
+      "descubrimiento.modelado_max_consultas_por_corrida"
+    ]
+  },
+  {
+    "archivo": "otro/propuesta.yaml",
+    "claves": 7
+  },
+  {
+    "archivo": "empresa/propuestas/por-grupo.yaml",
+    "claves": {
+      "estadistica": [
+        "alfa_descarte",
+        "k_min_matar"
+      ],
+      "agentes": {
+        "modelo": {},
+        "esfuerzo": {}
+      }
+    }
+  }
+]

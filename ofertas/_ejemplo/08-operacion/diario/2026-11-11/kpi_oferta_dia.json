@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generado_en": "2026-11-12T09:05:00Z",
+  "run_id": "RUN-20261112-01",
+  "version_esquema": "1.0.0",
+  "version_glosario": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "fecha": "2026-11-11",
+  "fuentes": {
+    "meta": {
+      "frescura_h": "1.5",
+      "estado": "verde"
+    },
+    "stripe_eventos": {
+      "frescura_h": "0.5",
+      "estado": "verde"
+    },
+    "stripe_balance": {
+      "frescura_h": "9",
+      "estado": "verde"
+    }
+  },
+  "filas": [
+    {
+      "kpi_id": "gasto_meta",
+      "valor": 2760,
+      "unidad": "EUR_minor",
+      "n": 1,
+      "estado": "ok",
+      "rango": null,
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "impresiones",
+      "valor": 6133,
+      "unidad": "impresiones",
+      "n": 6133,
+      "estado": "ok",
+      "rango": null,
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "clics_enlace",
+      "valor": 98,
+      "unidad": "clics",
+      "n": 98,
+      "estado": "ok",
+      "rango": null,
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "ctr_enlace",
+      "valor": "1.60",
+      "unidad": "porcentaje",
+      "n": 6133,
+      "estado": "ok",
+      "rango": [
+        "1.30",
+        "1.95"
+      ],
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "compras_stripe",
+      "valor": 1,
+      "unidad": "compras",
+      "n": 1,
+      "estado": "gris",
+      "rango": null,
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "cpa",
+      "valor": 2760,
+      "unidad": "EUR_minor",
+      "n": 1,
+      "estado": "gris",
+      "rango": null,
+      "ventana": "24h"
+    },
+    {
+      "kpi_id": "razon_meta_stripe",
+      "valor": null,
+      "unidad": "razon",
+      "n": 1,
+      "estado": "gris",
+      "rango": null,
+      "ventana": "24h"
+    }
+  ],
+  "sintetico": true
+}

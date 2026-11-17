@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/orden_firmada.schema.json",
+  "title": "Orden firmada del dueño",
+  "description": "Orden que el dueño firma en su terminal (orq firmar) y entrega con POST /ordenes. El motor verifica con la clave pública, rechaza un nonce repetido o un ts fuera de ingesta.tolerancia_seg y solo registra la firma que guard consumirá; no activa nada por sí. Ed25519 en producción (HMAC solo en pruebas). accion = 'aprobar_etapa' exige etapa; el resto, una acción de contratos/gates.json sin prefijo. Payload firmado: la orden sin `firma`, JSON canónico.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "accion": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "etapa": {
+      "$ref": "comunes.schema.json#/$defs/etapa_oferta"
+    },
+    "hash_objetivo": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "object_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "description": "Solo para activar_campana"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "nonce": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]{16,64}$",
+      "description": "Aleatorio de un solo uso, en minúsculas: guard lee empresa/ordenes/<nonce>.json y en APFS/NTFS ABC y abc son el mismo archivo (CT1-09)"
+    },
+    "firma": {
+      "$ref": "comunes.schema.json#/$defs/firma"
+    }
+  },
+  "required": [
+    "schema_version",
+    "accion",
+    "oferta_id",
+    "hash_objetivo",
+    "ts",
+    "nonce",
+    "firma"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "accion": {
+            "const": "aprobar_etapa"
+          }
+        },
+        "required": [
+          "accion"
+        ]
+      },
+      "then": {
+        "required": [
+          "etapa"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "etapa"
+          ]
+        }
+      }
+    }
+  ]
+}

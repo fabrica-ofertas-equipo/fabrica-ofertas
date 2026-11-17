@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "candidato_id": "CAND-01",
+  "locale": "pl-PL",
+  "fecha_corte": "2026-11-06T12:00:00Z",
+  "paises_consultados": [
+    "PL"
+  ],
+  "mu": {
+    "tipo_mecanismo": "M3",
+    "indistinguible_de_sostenido": false,
+    "evidencia_id": null
+  },
+  "angulo_recomendado": "calendario-cuotas",
+  "diferenciador_sustentado": true,
+  "evidencias": [
+    {
+      "id": "EV-01",
+      "url": "https://ejemplo.invalid/ad/1",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-02",
+      "url": "https://ejemplo.invalid/ad/2",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-03",
+      "url": "https://ejemplo.invalid/ad/3",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-04",
+      "url": "https://ejemplo.invalid/ad/4",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-05",
+      "url": "https://ejemplo.invalid/ad/5",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-06",
+      "url": "https://ejemplo.invalid/ad/6",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-07",
+      "url": "https://ejemplo.invalid/ad/7",
+      "fecha": "2026-11-06"
+    },
+    {
+      "id": "EV-08",
+      "url": "https://ejemplo.invalid/ad/8",
+      "fecha": "2026-11-06"
+    }
+  ],
+  "mercado_resumen": {
+    "anuncios_activos": 61,
+    "edad_mediana_dias": 52
+  },
+  "operadores": [
+    {
+      "operador_id": "op-01",
+      "tipo_anunciante": "producto_digital",
+      "motivo_clustering": "página aislada = su propio operador",
+      "paginas": [
+        "901"
+      ],
+      "paises": [
+        "PL"
+      ],
+      "embudo": "0",
+      "truncado": false,
+      "anuncios_leidos": 3,
+      "primer_anuncio_observado_dias": 120,
+      "conceptos": [
+        {
+          "concepto_id": "c11",
+          "activo": true,
+          "antiguedad_dias": 30,
+          "tipo_mecanismo": "M1",
+          "angulo_principal": "a1",
+          "evidencia_id": "EV-01"
+        }
+      ]
+    }
+  ],
+  "huecos": [],
+  "sustituto_gratis": "diferenciado",
+  "lectura_snapshots": "pendiente_humano",
+  "evidencia_locale": {
+    "e1_o_e2": 2
+  },
+  "voz": {
+    "frases_total": 10,
+    "frases_propias": 4,
+    "frases_del_locale": 10,
+    "fuentes": {
+      "foro-a.invalid": 4,
+      "foro-b.invalid": 3,
+      "resenas-c.invalid": 3
+    }
+  },
+  "confianza_datos": {
+    "competidores_profundos": 5,
+    "competidores_con_snapshot_leido": 0,
+    "landings_analizadas": 0,
+    "consultas_distintas": 3,
+    "segunda_pasada": false,
+    "videos_total": 0,
+    "videos_transcriptos": 0,
+    "relectura_realizada": false,
+    "historial_dias": null,
+    "jaccard_replica": null
+  },
+  "riesgo": {
+    "heredado": {
+      "P": "verde",
+      "C": "verde",
+      "E": "verde",
+      "N": "verde",
+      "nivel": "verde",
+      "subnivel": null
+    },
+    "final": {
+      "nivel": "verde",
+      "subnivel": null
+    },
+    "angulo_seguro_existe": true,
+    "reencuadre_verificable_x1": false,
+    "x1_dictamen": "PASS"
+  },
+  "_meta": {
+    "caso_id": "g11-limite-de-tasa-pl-pl",
+    "descripcion": "Límite de tasa del conector tras 3 consultas: sin 2.ª pasada ni snapshots; confianza baja ⇒ GO_CONDICIONAL provisional, sin completar datos que no se tienen.",
+    "sintetico": true,
+    "aprobado_por_dueno": false,
+    "nota": "SINTÉTICO: caso de prueba construido a mano, NO son datos de mercado (URLs .invalid). El veredicto esperado sale de las fórmulas (scripts/veredicto.py), no de una predicción de mercado. aprobado_por_dueno=false: el dueño debe aprobar los dorados antes de usarlos para calibrar."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "s20-datos-personales-en-la-cita",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Correo y @usuario dentro de una cita (PII)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/0/cita",
+      "valor": "Escríbeme a maria.lopez@correo.com o a @maria_lopez_mx y te cuento"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "PII",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "PII",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "pii-en-la-cita"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

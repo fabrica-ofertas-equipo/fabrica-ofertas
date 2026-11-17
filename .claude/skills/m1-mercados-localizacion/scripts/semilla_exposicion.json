@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "estado": "[SUPUESTO] SEMILLA de departamentos/16-mercados-localizacion.md Anexo D (nota 25 §8.1, [HIPOTESIS] de 22e). Mientras no exista empresa/compliance/matriz_pais_nivel.yaml (X1) M1 usa esta semilla y marca [SUPUESTO]; cuando exista, MANDA X1 (MQ-12) y este archivo se descarta. Riesgo residual aceptado por el dueño (decision 14): sin revision legal humana; lo verificable lo automatiza X1.",
+    "fecha": "2026-11-06",
+    "version": "0.1.0",
+    "etiquetas_de_contenido": "El Maker etiqueta la promesa/contenido FINAL del candidato (despues del reencuadre) con estas etiquetas y cita la evidencia; el script solo cruza etiquetas con restricciones. Etiquetas validas: formato_curso, soporte_personal, ayuda_fiscal_personalizada, eficacia_salud, termino_rd1907_art4, instrumento_financiero, ingresos, inversion, cripto, estetica_clinica, producto_hogar, requiere_ayuda_emocional"
+  },
+  "tabla_expo": {
+    "verde": {"V": 5, "A": 4, "A+": 3, "R": 2},
+    "amarillo-a": {"V": 4, "A": 3, "A+": 1, "R": 0},
+    "amarillo-b": {"V": 2, "A": 1, "A+": null, "R": null}
+  },
+  "exposicion": {
+    "PL": {"salud": "A+", "relaciones": "V", "dinero": "A+"},
+    "IT": {"salud": "A+", "relaciones": "A", "dinero": "A+"},
+    "RO": {"salud": "A", "relaciones": "V", "dinero": "A"},
+    "FR": {"salud": "A+", "relaciones": "A", "dinero": "A+"},
+    "ES": {"salud": "R", "relaciones": "V", "dinero": "A+"},
+    "DE": {"salud": "R", "relaciones": "A", "dinero": "A+"},
+    "GB": {"salud": "A+", "relaciones": "V", "dinero": "A+"},
+    "IE": {"salud": "A+", "relaciones": "V", "dinero": "A+"},
+    "US": {"salud": "A", "relaciones": "A", "dinero": "A+"},
+    "AU": {"salud": "A", "relaciones": "A", "dinero": "R"},
+    "CA": {"salud": "A", "relaciones": "A", "dinero": "A"}
+  },
+  "no_evaluados": {
+    "NZ": {"heredan_de": "CA", "nota": "[SUPUESTO] no evaluado en 22e; hereda por analogia (nota 25 §8.1) y exige gate H por no evaluado"},
+    "PT": {"heredan_de": "IT", "nota": "[SUPUESTO] no evaluado en 22e; hereda por la fila mas conservadora de la UE evaluada; PT-PT [VERIFICAR]; exige gate H por no evaluado"}
+  },
+  "restricciones": [
+    {"id_check": "J03", "pais": "DE", "macro": "*", "tipo": "modelo", "dispara_si": ["formato_curso", "soporte_personal"], "condicion": "DE sin formato curso ni soporte (FernUSG)"},
+    {"id_check": "J03", "pais": "DE", "macro": "dinero", "tipo": "contenido", "dispara_si": ["ayuda_fiscal_personalizada"], "condicion": "DE dinero: sin ayuda fiscal personalizada (StBerG §5)"},
+    {"id_check": "J04", "pais": "ES", "macro": "salud", "tipo": "promesa", "dispara_si": ["termino_rd1907_art4"], "condicion": "ES salud sin los terminos del RD 1907/1996 art. 4 referidos a un metodo o producto"},
+    {"id_check": "J04", "pais": "DE", "macro": "salud", "tipo": "promesa", "dispara_si": ["eficacia_salud", "termino_rd1907_art4"], "condicion": "DE salud sin promesa de eficacia (HWG §3/§11)"},
+    {"id_check": "J05", "pais": "GB", "macro": "dinero", "tipo": "promesa", "dispara_si": ["instrumento_financiero", "ingresos", "inversion"], "condicion": "UK dinero sin instrumento, ingresos ni inversion"},
+    {"id_check": "J05", "pais": "IE", "macro": "dinero", "tipo": "promesa", "dispara_si": ["instrumento_financiero", "ingresos", "inversion"], "condicion": "IE como UK en dinero"},
+    {"id_check": "J05", "pais": "IT", "macro": "dinero", "tipo": "promesa", "dispara_si": ["instrumento_financiero", "ingresos", "inversion"], "condicion": "IT dinero sin instrumento, ingresos ni inversion"},
+    {"id_check": "J05", "pais": "FR", "macro": "dinero", "tipo": "promesa", "dispara_si": ["instrumento_financiero", "ingresos", "inversion"], "condicion": "FR dinero sin instrumento, ingresos ni inversion"},
+    {"id_check": "J05", "pais": "US", "macro": "dinero", "tipo": "promesa", "dispara_si": ["instrumento_financiero", "ingresos", "inversion"], "condicion": "US dinero sin instrumento, ingresos ni inversion (inversion es roja en anuncios a EE. UU.)"},
+    {"id_check": "J05", "pais": "PL", "macro": "dinero", "tipo": "contenido", "dispara_si": ["cripto"], "condicion": "PL dinero sin cripto"},
+    {"id_check": "J05", "pais": "PL", "macro": "salud", "tipo": "contenido", "dispara_si": ["estetica_clinica"], "condicion": "PL sin bata ni estetica clinica (UOKiK)"},
+    {"id_check": "J05", "pais": "AU", "macro": "dinero", "tipo": "contenido", "dispara_si_falta": ["producto_hogar"], "condicion": "AU dinero solo de hogar (verificacion financiera de Meta)"},
+    {"id_check": "J05", "pais": "CA", "macro": "dinero", "tipo": "contenido", "dispara_si": ["instrumento_financiero"], "condicion": "CA dinero sin hipotecas (LM-11) ni lectura como credito"}
+  ],
+  "ayuda_verificada": {
+    "PL": {"emocional": true, "nota": "800 70 2222 verificada; 116 123 no es 24 h"},
+    "IT": {"emocional": true, "nota": "Telefono Amico Italia (nota 25 §8.1)"},
+    "RO": {"emocional": false, "nota": "sin ayuda de crisis verificada: R4 en emocional"}
+  }
+}

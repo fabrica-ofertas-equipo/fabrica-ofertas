@@ -1,0 +1,32 @@
+# Worker «fabrica-vivo» — capa en la nube del panel (dueño, 2026-11-14, opción 2).
+# Lee Meta cada 5 minutos y recibe los avisos de venta de Impultienda las 24 horas, aunque la Mac esté apagada.
+# Corte de RESPALDO (17-nov): solo si la vigilancia de la Mac no late hace 30 min, PAUSA campañas pasadas de corte (src/corte.mjs).
+# Nunca activa ni cambia presupuestos.
+name = "fabrica-vivo"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+workers_dev = false
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+CUENTA_META = "TU_CUENTA_META"
+CUENTA_TZ = "America/Argentina/Buenos_Aires"
+GRAPH_VERSION = "v23.0"
+
+# La base y el dominio los completa montar.sh después de `wrangler login`:
+[[d1_databases]]
+binding = "DB"
+database_name = "fabrica-vivo"
+database_id = "PENDIENTE"
+
+[[routes]]
+pattern = "vivo.tu-dominio.com"
+custom_domain = true
+
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   META_ACCESS_TOKEN            token de usuario del sistema de Meta con ads_read (lo pega el dueño)
+#   IMPULTIENDA_WEBHOOK_SECRET   clave de firma del endpoint en Impultienda → Configuraciones → Webhooks (la pega el dueño)
+#   LECTURA_TOKEN                clave para que el panel lea /api/estado (la genera montar.sh y la guarda en ~/.config/fabrica-panel)
+#   META_GESTION_TOKEN           usuario del sistema con ads_management, SOLO para pausar en el corte de respaldo (lo pega el dueño)

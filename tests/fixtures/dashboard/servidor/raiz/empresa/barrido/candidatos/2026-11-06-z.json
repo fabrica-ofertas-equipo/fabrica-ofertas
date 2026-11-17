@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-z",
+  "generado_en": "2026-11-06T06:25:41Z",
+  "resumen": {
+    "paginas_total": 12,
+    "paginas_candidatas": 9,
+    "temas_pasan_traccion": 2
+  },
+  "temas": [
+    {
+      "rank": 1,
+      "tema_slug": "guia",
+      "tema": "<script>alert('x')</script> <img src=x onerror=alert(1)> ‮gnp.exe"
+    }
+  ],
+  "sin_tema": [],
+  "matriz_tema_pais": {
+    "paises": [
+      "ES"
+    ]
+  },
+  "exportadores": {
+    "resumen": {}
+  },
+  "advertencias": [
+    "conteo es un piso"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "oferta_id": "OF-202612-02",
+  "version": "v1",
+  "verificado_el": "2026-12-10",
+  "origen_version": "maker",
+  "eu": {
+    "formato": "pack",
+    "alcance": "Una guía de 18 páginas y una hoja de cálculo duplicable para registrar 4 semanas de gastos con un tope por categoría; cerrado, sin servicio ni actualizaciones continuas",
+    "estado_a_b": {
+      "a": "gastos del mes sin registrar",
+      "b": "4 semanas registradas con un tope por categoría"
+    },
+    "tiempo_primer_resultado": {
+      "declarado_min": 12,
+      "estimado_min": 10,
+      "medido_min": null,
+      "base": "estimado"
+    },
+    "licencias": ["sin activos de terceros", "tipografías OFL (ver licencias.json)"],
+    "sin_servicio_ni_comunidad": true,
+    "resultado": "cumple",
+    "rechazo": null
+  },
+  "mu": {
+    "nombre": "Tetto per Categoria",
+    "visible_en": ["guida-tetto#capitolo-2", "foglio-spese#Settimane"],
+    "operable": {
+      "verificado_por": "autoprueba",
+      "evidencia": "autoprueba.json#pasos[1]",
+      "no_verificado_por_agente": ["abrir y duplicar la hoja en Google Sheets (interfaz gráfica: la hace una persona)"]
+    }
+  },
+  "riesgo_contenido": {
+    "C": "verde",
+    "ejes_heredados": { "P": "verde", "C": "verde", "E": "verde", "N": "verde", "nivel": "verde" },
+    "banderas": [],
+    "rhs": { "requerida": false, "hecha_por": null, "fecha": null }
+  }
+}

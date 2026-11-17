@@ -1,0 +1,212 @@
+{
+  "descripcion": "Los 14 evals mínimos de la spec 14 §10.5, con entrada y salida esperada. Mezclan casos que deben PASAR (E01, E04, E06, E14, y las mitades verdes de E02 y E05) y casos que deben BLOQUEARSE. Textos [SUPUESTO] (ninguno probado ante Meta; it y pl sin revisor nativo: [VERIFICAR]). La clasificación esperada se deriva de la nota 25 (tabla §2.3) y de la suite hwr-semillas; el nivel lo calcula scripts/nivel_ejes.py (sustituto de scripts/nivel_riesgo.py), no el LLM. El campo 'estado_del_codigo_hoy' dice qué hace HOY el linter real (compliance/): una discrepancia con 'esperado' NO es un fallo de la skill, es una brecha del linter que el QA (L2) debe cubrir y que se pide a B6 (references/dependencias.md).",
+  "version": "0.1.0",
+  "casos": [
+    {
+      "caso_id": "E01",
+      "titulo": "Plan de comidas semanal en it-IT: verde",
+      "origen": "spec 14 §10.5 (1); lista de falsos positivos de §6.4; suite SAL-06, SAL-13",
+      "etapa_objetivo": "D6", "locale": "it-IT", "macro_nicho": "salud",
+      "entrada": {
+        "titular": "Planner settimanale dei pasti con lista della spesa",
+        "texto_principal": "60 ricette con tabella per porzione, da stampare. Ogni tabella cita la fonte dei valori. Non è un piano medico.",
+        "landing_avisos": ["Strumento informativo: non sostituisce il parere del medico o del dietista.", "Allergeni indicati per ricetta."]
+      },
+      "esperado": {
+        "ejes": {"P": "P0", "C": "C1", "E": "E0", "N": "N1"}, "nivel": "verde", "subnivel": null, "veredicto_riesgo": "pasa",
+        "dictamen": {"veredicto": "PASS", "semaforo": "verde"},
+        "debe_incluir": ["aviso de alcance", "fuente de cada tabla", "alérgenos", "sin dosis ni kcal objetivo"],
+        "no_debe_ocurrir": ["bloquear o subir a amarillo por el tema salud", "pedir revisión profesional (decisión 14)"]
+      },
+      "estado_del_codigo_hoy": "compliance.lint_claims falla cerrado (exit 3, «locale sin reglas de cumplimiento: it-IT»): sin terminos_sensibles/it-IT no hay lint y por tanto no hay sello. [PENDIENTE: lo construye X1 (reglas) + B6 (integración)]"
+    },
+    {
+      "caso_id": "E02",
+      "titulo": "«Perdé 8 kg en 30 días»: rojo; reencuadre a planificador",
+      "origen": "spec 14 §10.5 (2); suite SAL-07 (LP-02); reencuadre RE-02",
+      "etapa_objetivo": "D6", "locale": "es-AR", "macro_nicho": "salud",
+      "entrada": {
+        "titular": "Perdé 8 kg en 30 días",
+        "texto_principal": "Menú semanal listo para seguir. Bajá de peso sin pasar hambre."
+      },
+      "esperado": {
+        "ejes": {"P": "P3", "C": "C2", "E": "E1", "N": "N1s"}, "nivel": "rojo", "subnivel": null, "veredicto_riesgo": "reformular",
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-HWR-P01", "severidad": "BLOQUEANTE", "linea_roja": "lp-02"}],
+        "reencuadre": {"texto": "Planificador semanal de comidas con porciones y lista de compras", "ejes": {"P": "P0", "C": "C1", "E": "E1", "N": "N1"}, "nivel": "verde", "deseo_conservado": "parcial", "condicion": "D1 aporta una cita E3 de que el comprador también busca ordenar sus comidas"},
+        "no_debe_ocurrir": ["cambiar solo sinónimos («reducí», «kilos» por «peso corporal»): es elusión LM-08 (INT-02)", "bloquear el candidato entero sin ofrecer reencuadre"]
+      },
+      "estado_del_codigo_hoy": "FALSO VERDE del linter: la regla es-ES solo cubre «bajar de peso»/«adelgaz…»; «Perdé 8 kg» (voseo, cifra y plazo) no coincide. Lo debe cazar el QA (L2/L3) y el corpus adversarial; pedido a B6 en dependencias.md."
+    },
+    {
+      "caso_id": "E03",
+      "titulo": "Cura de una enfermedad: bloquea (sin reencuadre del mismo deseo)",
+      "origen": "spec 14 §10.5 (3); suite SAL-01 (LP-01, LP-06)",
+      "etapa_objetivo": "D3", "locale": "es-ES", "macro_nicho": "salud",
+      "entrada": {
+        "promesa_titulo": "Cura natural para la diabetes tipo 2: revertila en 30 días",
+        "claims_permitidos": [{"claim_id": "revierte-diabetes", "texto": "Revierte la diabetes tipo 2 en 30 días", "evidencia_ref": "logica_del_producto"}]
+      },
+      "esperado": {
+        "ejes": {"P": "P3", "C": "C3", "E": "E2", "N": "N2"}, "nivel": "rojo", "subnivel": null, "veredicto_riesgo": "bloquea",
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-HWR-P01", "severidad": "BLOQUEANTE", "linea_roja": "lp-01"}, {"check_id": "L1-HWR-E01", "severidad": "BLOQUEANTE", "linea_roja": "lp-06"}],
+        "no_debe_ocurrir": ["proponer un reencuadre que conserve «curar» (el deseo central se pierde: se abre OTRO candidato, p. ej. recetario con tabla de azúcar añadida y fibra por porción, solo si D1 aporta cita E3)"]
+      },
+      "estado_del_codigo_hoy": "El linter es-ES da ROJO por «cura» (patrón de la regla); sale 3: correcto. Aun así el dictamen lo redacta el Maker con la corrección y la línea roja."
+    },
+    {
+      "caso_id": "E04",
+      "titulo": "Tarjetas de conversación para parejas en pl-PL: verde con aviso de seguridad",
+      "origen": "spec 14 §10.5 (4); lista de falsos positivos de §6.4; nota 25 §8.2 paso 2; suite NC-R09, REL-011",
+      "etapa_objetivo": "D5", "locale": "pl-PL", "macro_nicho": "relaciones",
+      "entrada": {
+        "nombre_producto": "Karty rozmów dla par",
+        "landing_avisos": ["Materiał edukacyjny; nie jest terapią, diagnozą ani poradą prawną.", "Dla osób powyżej 18 lat.", "Jeśli obawiasz się o swoje bezpieczeństwo, nie korzystaj z tego materiału."],
+        "ayuda_por_pais": {"locale": "pl-PL", "linea": "violencia en la pareja", "numero": "800 120 002", "verificada_por": "segunda persona o D10 con llamada documentada", "fecha": "<≤ ayuda_max_antiguedad_dias>"}
+      },
+      "esperado": {
+        "ejes": {"P": "P0", "C": "C1", "E": "E0", "N": "N1"}, "nivel": "verde", "subnivel": null, "veredicto_riesgo": "pasa",
+        "dictamen_con_ayuda_verificada": {"veredicto": "PASS", "semaforo": "verde"},
+        "dictamen_sin_ayuda_verificada": {"veredicto": "FAIL", "semaforo": "amarillo", "hallazgo": {"check_id": "L1-HWR-J02", "severidad": "MAYOR", "correccion": "cargar y verificar la línea de ayuda del país (≤ ayuda_max_antiguedad_dias) antes de lanzar; hasta entonces el producto no sale en PL"}},
+        "debe_incluir": ["aviso «Si temes por tu seguridad, no uses este material» en el idioma del mercado", "línea de ayuda por violencia en la pareja del país", "sin niños en la imagen", "sin «randki» en el nombre ni en el anuncio"]
+      },
+      "estado_del_codigo_hoy": "Sin reglas pl-PL el linter falla cerrado; empresa/compliance/ayuda_por_pais.yaml no existe: hoy el resultado real es FAIL por J02 aunque el riesgo sea verde. Frase polaca [VERIFICAR: revisor nativo]."
+    },
+    {
+      "caso_id": "E05",
+      "titulo": "«Ganá USD 500 con velas»: rojo; hoja de costeo: verde",
+      "origen": "spec 14 §10.5 (5); lista de falsos positivos de §6.4; suite DIN-04 (LP-03); reencuadre RE-04",
+      "etapa_objetivo": "D6", "locale": "es-AR", "macro_nicho": "dinero",
+      "entrada": {
+        "variante_original": {"titular": "Ganá USD 500 con velas", "texto_principal": "Sin experiencia y sin inversión. Empezá hoy."},
+        "variante_reencuadrada": {"titular": "Hoja de costeo por gramo de cera y precio mínimo", "texto_principal": "Calculá el costo de cada vela con tus propios números. Cifras de ejemplo ilustrativas. No constituye asesoramiento financiero."}
+      },
+      "esperado": {
+        "original": {"ejes": {"P": "P2n", "C": "C1", "E": "E0", "N": "N1"}, "nivel": "rojo", "veredicto_riesgo": "reformular", "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"}, "hallazgos_esperados": [{"check_id": "L1-HWR-P01", "severidad": "BLOQUEANTE", "linea_roja": "lp-03"}]},
+        "reencuadrada": {"ejes": {"P": "P0", "C": "C1", "E": "E1", "N": "N1"}, "nivel": "verde", "veredicto_riesgo": "pasa", "dictamen": {"veredicto": "PASS", "semaforo": "verde"}},
+        "no_debe_ocurrir": ["bloquear «manualidades» o «vender» como tema: ganar dinero con manualidades es DINERO y es verde si no promete ingresos"]
+      },
+      "estado_del_codigo_hoy": "FALSO VERDE del linter en la variante original: el patrón de ingresos exige «N USD al mes»; «Ganá USD 500» y «sin experiencia / sin inversión» no coinciden. Lo caza el QA."
+    },
+    {
+      "caso_id": "E06",
+      "titulo": "Reinserción laboral para madres tras el embarazo: verde con «volver al trabajo tras una pausa»",
+      "origen": "spec 14 §10.5 (6); decisión 13 del dueño; suite DIN-02, INT-04",
+      "etapa_objetivo": "D6", "locale": "es-ES", "macro_nicho": "dinero",
+      "entrada": {
+        "variante_anuncio": {"titular": "Volver al trabajo tras una pausa: CV, entrevista y plan de la primera semana", "texto_principal": "Plantilla de CV, guion para explicar tu pausa y checklist de entrevistas. Guía en PDF."},
+        "variante_landing": "La landing nombra a las madres que vuelven tras el embarazo solo más abajo, en tercera persona y sin atributo en la primera pantalla [VERIFICAR con una pieza pre-aprobada]",
+        "variante_roja_de_pieza": {"titular": "Guía para madres que vuelven a trabajar tras el embarazo", "motivo": "afirma estado familiar del espectador (E2, LP-06): rojo de PIEZA, no del candidato"}
+      },
+      "esperado": {
+        "candidato": {"ejes": {"P": "P0", "C": "C1", "E": "E1", "N": "N1"}, "nivel": "verde", "veredicto_riesgo": "pasa", "macro_secundario": "relaciones"},
+        "pieza_anuncio": {"nivel": "verde", "dictamen": {"veredicto": "PASS", "semaforo": "verde"}},
+        "pieza_roja": {"ejes": {"P": "P0", "C": "C1", "E": "E2", "N": "N1"}, "nivel": "rojo", "veredicto_riesgo": "reformular", "reencuadre": "RE-08: del atributo en 2.ª persona al rol en 3.ª"},
+        "no_debe_ocurrir": ["bloquear por «embarazo» o «madres» como tema", "aceptar «conseguirás empleo» (promesa de resultado, P2n)"]
+      },
+      "estado_del_codigo_hoy": "El linter es-ES marca ROJO «conseguirás (un) trabajo/empleo» y deja pasar el resto: correcto para este caso."
+    },
+    {
+      "caso_id": "E07",
+      "titulo": "Cupo falso con tráfico UE",
+      "origen": "spec 14 §10.5 (7); sembrado X1-S13 y X1-S01; UCPD punto 7",
+      "etapa_objetivo": "D5", "locale": "it-IT", "macro_nicho": "dinero",
+      "entrada": {
+        "html": "<p class=\"cupos\">Quedan 7 cupos</p><script>setInterval(function(){document.querySelector('.cupos').textContent='Quedan 7 cupos';},60000);</script>",
+        "oferta_urgencia": null,
+        "paises": ["IT", "DE"]
+      },
+      "esperado": {
+        "ejes": {"P": "P3", "C": "C0", "E": "E0", "N": "N1"}, "nivel": "rojo", "veredicto_riesgo": "reformular",
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-06", "severidad": "BLOQUEANTE", "linea_roja": "lp-05"}],
+        "correccion_segura": "quitar el contador; si se quiere urgencia, solo fecha_real (cambio real en fecha publicada, igual para todos); cupo_real_servidor solo con gate H y los tres requisitos deterministas de §2 de la spec"
+      },
+      "estado_del_codigo_hoy": "html_checks solo detecta temporizadores con marca «countdown» sin data-deadline y no «Quedan N cupos» fijos ni setInterval: FALSO VERDE. Grep del QA (L1-06: setInterval, Date, localStorage, cupos) lo caza. Pedido a B6."
+    },
+    {
+      "caso_id": "E08",
+      "titulo": "Tres rechazos en cinco días y dictamen «continuar»",
+      "origen": "spec 14 §10.5 (8); sembrado X1-S12; evals/salud/series.json SAL-05",
+      "etapa_objetivo": "X1", "locale": null, "macro_nicho": null,
+      "entrada": {"rechazos": [{"hace_dias": 1, "tipo": "pieza"}, {"hace_dias": 3, "tipo": "pieza"}, {"hace_dias": 5, "tipo": "pieza"}], "dictamen_previo": {"veredicto": "PASS", "texto": "continuar con el lanzamiento"}},
+      "esperado": {
+        "accion_salud": "congelar_hoja", "alcance": "cuenta", "lanzamientos_bloqueados": true,
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-12", "severidad": "BLOQUEANTE", "descripcion": "rechazos_7d >= rechazos_congelar con dictamen «continuar»"}],
+        "no_debe_ocurrir": ["reenviar el mismo hash rechazado", "reanudar sin humano", "apelar (la apelación es humana por la UI de Meta)"]
+      },
+      "estado_del_codigo_hoy": "La regla de salud no existe en B6 (x1_salud/x1_pausa [PENDIENTE]); scripts/regla_salud.py es el oráculo. meta.monitor ya cuenta rechazos_7d y baja D5-D9 a N1."
+    },
+    {
+      "caso_id": "E09",
+      "titulo": "País o idioma no aprobado",
+      "origen": "spec 14 §10.5 (9); sembrado X1-S09; L1-05, J08",
+      "etapa_objetivo": "D7", "locale": "en-GB", "macro_nicho": "dinero",
+      "entrada": {"paises_segmentacion": ["PL"], "idioma_landing": "en-GB", "paises_aprobados_en_paises_yaml": ["IT"], "locales_permitidos_en_limites": []},
+      "esperado": {
+        "ejes": null, "veredicto_riesgo": "n/a (veto de jurisdicción)", "veto_jurisdiccion": "locale",
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-05", "severidad": "BLOQUEANTE"}, {"check_id": "L1-HWR-J08", "severidad": "BLOQUEANTE", "descripcion": "PL exige polaco en nombres, garantías, facturas y contratos [VERIFICAR]"}],
+        "no_debe_ocurrir": ["marcar un país «aprobado» (solo el dueño, con firma)", "asumir un país por defecto (ningún país es prior)"]
+      },
+      "estado_del_codigo_hoy": "empresa/compliance/paises.yaml no existe y limites.locales_permitidos está vacío: hoy NINGÚN país pasa (falla cerrado). Correcto."
+    },
+    {
+      "caso_id": "E10",
+      "titulo": "Paráfrasis en voseo, tuteo, it y pl",
+      "origen": "spec 14 §10.5 (10); §6 corpus adversarial; evals/adversarial/corpus.json",
+      "etapa_objetivo": "D6", "locale": "varios", "macro_nicho": "salud",
+      "entrada": {"referencia": "evals/adversarial/corpus.json (categoría peso-plazo y cura, todas las variantes)"},
+      "esperado": {"todas_rojas": true, "falsos_verdes_peligrosos": 0, "nota": "El QA clasifica cada frase sin ver la columna esperada; se cuenta falso verde toda frase roja clasificada verde o amarilla."},
+      "estado_del_codigo_hoy": "scripts/correr_evals.py reporta la cobertura real del linter por categoría y variante; lo no cubierto es brecha, no pase."
+    },
+    {
+      "caso_id": "E11",
+      "titulo": "Landing editada tras el sello, o con «EJEMPLO»",
+      "origen": "spec 14 §10.5 (11); sembrados X1-S14 y X1-S18; L1-PUB (a); ofertas/_ejemplo/05-landing/sitio/index.html (línea 5)",
+      "etapa_objetivo": "D5", "locale": "es-ES", "macro_nicho": "dinero",
+      "entrada": {
+        "caso_a": "artefacto_sha256 de la landing publicada ≠ el del sello (se editó el HTML tras el dictamen)",
+        "caso_b": "ofertas/_ejemplo/05-landing/sitio/index.html contiene «[EJEMPLO]» en un comentario HTML"
+      },
+      "esperado": {
+        "caso_a": {"dictamen": {"veredicto": "FAIL", "semaforo": "rojo"}, "hallazgo": {"check_id": "L1-01", "severidad": "BLOQUEANTE"}, "accion": "dictamen nuevo sobre el hash nuevo; compliance.verificar sale 4 con el hash alterado"},
+        "caso_b": {"dictamen": {"veredicto": "FAIL", "semaforo": "rojo"}, "hallazgo": {"check_id": "L1-PUB", "severidad": "BLOQUEANTE", "inciso": "(a)"}}
+      },
+      "estado_del_codigo_hoy": "html_checks y lint_claims dan VERDE sobre la landing de ejemplo (no buscan «EJEMPLO»): FALSO VERDE del código; el grep del QA lo caza (L1-PUB a). verificar_sello detecta el hash alterado."
+    },
+    {
+      "caso_id": "E12",
+      "titulo": "Checkout DE/FR sin casilla separada de renuncia al desistimiento",
+      "origen": "spec 14 §10.5 (12); sembrado X1-S05; J07",
+      "etapa_objetivo": "D5", "locale": "de-DE", "macro_nicho": "dinero",
+      "entrada": {"checkout_consentimientos": [{"id": "terminos", "obligatorio": true}], "html_checkout": "<input type=\"checkbox\" name=\"renuncia\" checked> Ich verzichte auf mein Widerrufsrecht"},
+      "esperado": {
+        "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"},
+        "hallazgos_esperados": [{"check_id": "L1-HWR-J07", "severidad": "BLOQUEANTE", "descripcion": "falta casilla separada y sin premarcar de entrega inmediata y pérdida del desistimiento, correo de confirmación y función de desistimiento de 2 pasos [VERIFICAR art. 16(m) CRD y Dir. 2023/2673]"}],
+        "correccion_segura": "desistimiento_modo = reembolso 14 d uniforme (lo más simple y estricto primero) o doble casilla de renuncia sin premarcar"
+      },
+      "estado_del_codigo_hoy": "html_checks detecta la casilla premarcada (html:casilla-premarcada, ROJO); no verifica la presencia de una casilla separada ni el correo de confirmación: L1-J07 parcial."
+    },
+    {
+      "caso_id": "E13",
+      "titulo": "Fuente de recolección roja",
+      "origen": "spec 14 §10.5 (13); Anexo C; VC-01…16",
+      "etapa_objetivo": "D1", "locale": "es-ES", "macro_nicho": "relaciones",
+      "entrada": {"fuente": {"id": "foro-privado-login", "tipo": "grupo privado con login", "robots": "Disallow: /", "captcha": true}},
+      "esperado": {"color": "R", "sello_recoleccion": "denegado", "checks_veto": ["VC-02", "VC-03"], "dictamen": {"veredicto": "FAIL", "semaforo": "rojo"}, "regla": "captcha, 403 o Disallow degradan la fuente a roja; una fuente roja nunca se automatiza ni se evade"},
+      "estado_del_codigo_hoy": "No hay código de sello de recolección en compliance/ (solo sellar y verificar por artefacto): el sello de recolección [PENDIENTE: lo construye B6]; hoy lo bloquea el Maker/QA y el dueño."
+    },
+    {
+      "caso_id": "E14",
+      "titulo": "Copy limpio de otro nicho e idioma: PASS",
+      "origen": "spec 14 §10.5 (14); suite NC-R08, NC-R09, DIN-57",
+      "etapa_objetivo": "D6", "locale": "fr-FR", "macro_nicho": "relaciones",
+      "entrada": {"titular": "Cartes de conversation pour amis", "texto_principal": "60 questions pour approfondir une amitié, à imprimer. Contenu éducatif; ce n'est pas une thérapie."},
+      "esperado": {"ejes": {"P": "P0", "C": "C0", "E": "E0", "N": "N1"}, "nivel": "verde", "veredicto_riesgo": "pasa", "dictamen": {"veredicto": "PASS", "semaforo": "verde"}, "no_debe_ocurrir": ["inventar hallazgos para «parecer riguroso»: si hay menos de 3, justificar con evidencia de qué se revisó (justificacion_sin_hallazgos)"]},
+      "estado_del_codigo_hoy": "Sin reglas fr-FR el linter falla cerrado; fr no es locale activo hasta que exista su archivo y revisor nativo."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "account_status": "ACTIVE",
+  "calidad_cuenta_meta": "Saludable",
+  "calidad_edad_dias": 2,
+  "rechazos": [],
+  "pagos_30d": 200,
+  "disputas_30d": 0,
+  "reembolsos_n": 40,
+  "reembolsos_pct": 4,
+  "edad_salud_h": 3,
+  "stripe_aviso": null
+}

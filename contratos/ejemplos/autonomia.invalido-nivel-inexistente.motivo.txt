@@ -1,0 +1,3 @@
+validador=enum
+ruta=/nivel_por_etapa/D1/nivel
+texto=los niveles son N0 a N4

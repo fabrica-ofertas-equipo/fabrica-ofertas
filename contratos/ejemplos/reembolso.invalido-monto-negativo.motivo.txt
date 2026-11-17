@@ -1,0 +1,3 @@
+validador=minimum
+ruta=/monto/monto
+texto=el monto de un reembolso no puede ser negativo

@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Plantilla de MOD-2 (v0) y MOD-4 (v1): mismo archivo, versionado. Las palancas son MEJORAS PEQUENAS sobre la MISMA oferta del referente (J18): no cambian que se vende ni a que precio. Los cuatro enteros 0-3 los propone la IA con evidencia; `valor` y la seleccion los recomputa el QA (hasta que exista scripts/modelado/palancas.py). `estado` = aprobado_por_dueno solo lo escribe el dueño (R-4). Borra las claves que empiezan por `_`.",
+  "oferta_id": "OF-AAAAMM-NN",
+  "referente_id": "ref-01",
+  "version": "v0",
+  "_version_ayuda": "v0 (D1, solo con el desarme) | v1 (con inmersion de D2 y huecos de D2)",
+  "estado": "propuesto",
+  "_estados": ["propuesto", "validado_por_codigo", "aprobado_por_dueno"],
+  "oferta_base_copiada": {
+    "_ayuda": "Paso 'copiar la oferta' (J18). Todo esto se hereda del referente; lo que cambia es la expresion.",
+    "tipo_de_producto": "", "tamano_del_pack": {"cantidad": null, "unidad": "", "decision": "J19"},
+    "niveles": "", "tipos_de_bonus": [], "garantia_dias": null, "pago": "unico", "acceso": "inmediato",
+    "precio_frontal": {"regla": "J16: peldano 17/19/27 US$ mas cercano al precio efectivo del original; lo calcula D3", "peldano_usd": null}
+  },
+  "palancas": [
+    {
+      "palanca_id": "PAL-13",
+      "pieza": "prueba social",
+      "es_pequena": true,
+      "brecha": "que debilidad o hueco corrige",
+      "evidencia_brecha": [{"fuente": "desarme_referente.json#/debilidades/D1", "grado": "visto", "cita": ""}],
+      "cambio": "que hacemos distinto, en una frase",
+      "donde_se_ve": ["oferta.json#prueba", "copy.S04", "esqueleto_funnel.json#plano_objetivo/3"],
+      "hipotesis": "frase medible",
+      "metrica": "CTR de enlace | costo por checkout iniciado | razon de economia | reembolsos",
+      "nivel_atribucion": "creativo",
+      "_niveles": ["creativo", "pagina", "oferta"],
+      "riesgo": {"P": "", "C": "", "E": "", "N": "", "nivel": "", "_ayuda": "codigos de la nota 25; el nivel lo da `python -m scripts.nivel_riesgo`"},
+      "derechos": {"toca_expresion_protegida": false, "_ayuda": "debe ser false; si es true la palanca se rehace"},
+      "puntajes": {"brecha": 3, "respaldo": 3, "factibilidad": 3, "medibilidad": 3, "valor": 81, "_ayuda": "enteros 0-3 propuestos por la IA; valor = producto; un 0 elimina la palanca (R-2)"},
+      "hipotesis_marcada": false
+    }
+  ],
+  "descartadas": [
+    {"palanca_id": "PAL-04", "motivo": "la voz del mercado no la respalda (respaldo 1): queda como hipotesis", "valor": 18}
+  ],
+  "reglas_cumplidas": {
+    "_ayuda": "salida del validador (o del QA mientras no exista scripts/modelado/palancas.py)",
+    "R3_a_tres_piezas_distintas": null, "R3_b_valor_y_confianza": null, "R3_c_sin_palanca_de_precio_libre": null,
+    "R3_d_PAL12_si_sustituto_gratis": null, "R3_e_PAL16_si_practica_vetada": null, "R3_g_todas_pequenas": null,
+    "palancas_min": 3, "palancas_max": 5, "ciclo": 0, "ciclos_max": 2
+  },
+  "bloque_oferta": {
+    "_ayuda": "Bloque `modelado` que D3 copia a oferta.md §G (A5 del proceso) hasta que oferta.json lo admita.",
+    "referente_ref": "ref-01 (sin nombre de pagina)", "plan_mejora_ref": {"version": "v1", "sha256": null},
+    "palancas": [{"id": "PAL-13", "donde_se_ve": [], "hipotesis": "", "metrica": ""}],
+    "antes_despues_ref": "antes_despues.json", "expresion_no_tocada": true
+  },
+  "aprobacion": {"aprobado_por_dueno": null, "fecha": null, "cambios_del_dueno": []}
+}

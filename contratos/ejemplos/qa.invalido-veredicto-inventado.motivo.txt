@@ -1,0 +1,3 @@
+validador=enum
+ruta=/veredicto
+texto=veredictos: PASS, PASS_CON_NOTAS, FAIL, ESCALAR

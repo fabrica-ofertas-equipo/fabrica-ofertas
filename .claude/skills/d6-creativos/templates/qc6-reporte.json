@@ -1,0 +1,135 @@
+{
+  "checks_l1": [
+    {
+      "check_id": "D6-L1-02",
+      "detalle": "qc6: todos los puntos en ok",
+      "resultado": "pass"
+    },
+    {
+      "check_id": "D6-L1-06",
+      "detalle": "qc6: todos los puntos en ok",
+      "resultado": "pass"
+    },
+    {
+      "check_id": "D6-L1-07",
+      "detalle": "qc6: todos los puntos en ok",
+      "resultado": "pass"
+    },
+    {
+      "check_id": "D6-L1-08",
+      "detalle": "qc6: todos los puntos en ok",
+      "resultado": "pass"
+    }
+  ],
+  "herramienta": "qc6",
+  "locale": "pl-PL",
+  "modo": "real",
+  "motores": {
+    "nota": "en una corrida real: disponibilidad() de los motores de la máquina"
+  },
+  "nota": "EJEMPLO con motores falsos (no es evidencia). La forma de checks_l1 es la de contratos/qa.schema.json#checks_l1.",
+  "piezas": [
+    {
+      "archivo": "assets/c01-koszt_img_h1_v1.png",
+      "estado": "ok",
+      "herramientas": {
+        "cuadros_analizados": "1"
+      },
+      "pieza": "c01-koszt_img_h1_v1",
+      "puntos": [
+        {
+          "aplica": false,
+          "detalle": "pieza sin audio (estática o PDF)",
+          "estado": "ok",
+          "evidencia": {},
+          "id": "QC1-audio",
+          "nombre": "Audio sin cortes ni desfases"
+        },
+        {
+          "aplica": true,
+          "detalle": "todo el texto y el audio evaluados están en pl",
+          "estado": "ok",
+          "evidencia": {
+            "copy": {
+              "detectado": "pl",
+              "puntajes": {
+                "pl": 7.0
+              }
+            },
+            "idioma_esperado": "pl",
+            "pantalla": {
+              "detectado": "pl",
+              "puntajes": {
+                "pl": 7.0
+              }
+            }
+          },
+          "id": "QC2-idioma",
+          "nombre": "Un solo idioma de punta a punta"
+        },
+        {
+          "aplica": true,
+          "detalle": "los 1 textos esperados aparecen tal cual y no hay texto sobrante",
+          "estado": "ok",
+          "evidencia": {
+            "exactos": [
+              "Arkusz: koszt, cena minimalna i marża w jednej tabeli dla każdego produktu"
+            ],
+            "texto_leido": "Arkusz: koszt, cena minimalna i marża w jednej tabeli dla każdego produktu"
+          },
+          "id": "QC3-texto",
+          "nombre": "Texto en pantalla sin errores"
+        },
+        {
+          "aplica": true,
+          "detalle": "no se detectaron personas, rostros ni manos",
+          "estado": "ok",
+          "evidencia": {
+            "cuadros_analizados": 1,
+            "manos_max": 0,
+            "personas_max": 0,
+            "rostros_max": 0
+          },
+          "id": "QC4-caras-manos",
+          "nombre": "Caras y manos"
+        },
+        {
+          "aplica": true,
+          "detalle": "ningún nombre ajeno, marca de agua, logo de medio ni enlace en el texto (las imágenes se verifican con licencias.json y a ojo)",
+          "estado": "ok",
+          "evidencia": {
+            "amarillo": [],
+            "rojo": []
+          },
+          "id": "QC5-material-ajeno",
+          "nombre": "Nada de material ajeno"
+        },
+        {
+          "aplica": true,
+          "detalle": "sin promesas prohibidas ni precios fuera de regla en el texto evaluado",
+          "estado": "ok",
+          "evidencia": {
+            "amarillo": [],
+            "notas": [],
+            "precios_encontrados": [],
+            "rojo": []
+          },
+          "id": "QC6-precios-promesas",
+          "nombre": "Sin precios ni promesas prohibidas"
+        }
+      ],
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "tipo": "imagen"
+    }
+  ],
+  "resumen": {
+    "estado": "ok",
+    "falla": 0,
+    "ok": 1,
+    "revisar": 0,
+    "total": 1
+  },
+  "schema_version": "0.1.0",
+  "skill_version": "0.2.0",
+  "version": "0.1.0"
+}

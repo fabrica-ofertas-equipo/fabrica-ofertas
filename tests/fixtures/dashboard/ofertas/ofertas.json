@@ -1,0 +1,137 @@
+{
+ "ok": true,
+ "datos": [
+  {
+   "oferta_id": "_ejemplo",
+   "familia_id": "FAM-202611-01",
+   "demo": true,
+   "fase": "en_construccion",
+   "nivel": "N2",
+   "pausa": false,
+   "etapas": {
+    "M1": "aprobado",
+    "D1": "aprobado",
+    "D2": "aprobado",
+    "D3": "aprobado",
+    "D4": "aprobado",
+    "D5": "aprobado",
+    "D6": "aprobado",
+    "D7": "en_QA",
+    "D8": "pendiente",
+    "D9": "pendiente",
+    "D10": "pendiente"
+   },
+   "gates_pendientes": [
+    "D7"
+   ],
+   "gasto": {
+    "acumulado": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "hoy": {
+     "monto": 0,
+     "moneda": "EUR"
+    }
+   },
+   "costo_ia": {
+    "monto": 412,
+    "moneda": "EUR"
+   },
+   "actualizado_en": "2026-11-09T10:30:00Z"
+  },
+  {
+   "oferta_id": "OF-202611-02",
+   "familia_id": "FAM-202611-02",
+   "demo": false,
+   "fase": "borrador",
+   "nivel": "N0",
+   "pausa": false,
+   "etapas": {},
+   "gates_pendientes": [],
+   "gasto": {
+    "hoy": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "acumulado": {
+     "monto": 0,
+     "moneda": "EUR"
+    }
+   },
+   "costo_ia": {
+    "monto": 0,
+    "moneda": "EUR"
+   },
+   "actualizado_en": "2026-11-10T08:00:00Z"
+  },
+  {
+   "oferta_id": "OF-202611-03",
+   "familia_id": "FAM-202611-03",
+   "demo": false,
+   "fase": "en_test",
+   "nivel": "N2",
+   "pausa": true,
+   "etapas": {
+    "D1": "aprobado",
+    "M1": "aprobado",
+    "D2": "aprobado",
+    "D3": "aprobado",
+    "D4": "aprobado",
+    "D5": "aprobado",
+    "D6": "aprobado",
+    "D7": "aprobado",
+    "D8": "bloqueado",
+    "D9": "pendiente",
+    "D10": "en_progreso"
+   },
+   "gates_pendientes": [],
+   "gasto": {
+    "hoy": {
+     "monto": 1250,
+     "moneda": "EUR"
+    },
+    "acumulado": {
+     "monto": 8400,
+     "moneda": "EUR"
+    }
+   },
+   "costo_ia": {
+    "monto": 1530,
+    "moneda": "USD"
+   },
+   "actualizado_en": "2026-11-12T09:15:00Z"
+  },
+  {
+   "oferta_id": "OF-202611-04",
+   "familia_id": "FAM-202611-04",
+   "demo": false,
+   "fase": "en_construccion",
+   "nivel": "N1",
+   "pausa": false,
+   "etapas": {
+    "D1": "aprobado",
+    "M1": "en_QA",
+    "D2": "pendiente"
+   },
+   "gates_pendientes": [
+    "M1"
+   ],
+   "gasto": {
+    "hoy": null,
+    "acumulado": {
+     "monto": 0,
+     "moneda": "PLN"
+    }
+   },
+   "costo_ia": null,
+   "actualizado_en": "2026-11-11T17:00:00Z"
+  }
+ ],
+ "fuente": [
+  "ofertas/*/estado.json"
+ ],
+ "generado_en": "2026-11-12T09:20:00Z",
+ "vacio": false,
+ "avisos": []
+}

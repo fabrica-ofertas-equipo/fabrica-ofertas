@@ -1,0 +1,83 @@
+# empresa/autonomia.yaml - Nivel de autonomía POR ETAPA (backbone 5.5). Esquema: contratos/autonomia.schema.json.
+# Gates por nivel: contratos/gates.json (tabla única). Ascender exige métricas de confianza del departamento y aprobación del dueño;
+# descender es automático ante violaciones. Valor inicial: N0 (manual guiado) en todas las etapas.
+# OJO (CT-3 A-05, C-04): subir D7 o M1 a N3 NO levanta el gate H de accion:activar_campana ni de accion:lanzamiento_pais_idioma_nuevo aunque contratos/gates.json diga S en N3/N4:
+# están en las seis acciones mínimas de limites.acciones_gate_humano (esquema + validador + engine.guard; no se quitan ni con firma). Gate efectivo = el más estricto de las cuatro fuentes;
+# el validador avisa GATE_ACTIVAR_H. Que el botón active sin clic en N3/N4 es la decisión estructural D-02 del dueño [DUEÑO].
+
+schema_version: "1.0.0"
+version: 1
+nivel_por_etapa:
+  O0:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D0:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  M1:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D1:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D2:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D3:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D4:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D5:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D6:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D7:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D8:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D9:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  D10:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  F1:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  F2:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  X1:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+  X2:
+    nivel: N0
+    desde: "2026-11-06"
+    evidencia: []
+descensos: []
+reglas_descenso:
+  - "2 rechazos de Meta en 7 días: D5..D9 bajan a N1 y X1 congela lanzamientos"
+  - "Violación de un guardarraíl de dinero (gasto > tope, activación sin sello): la etapa baja a N1"
+  - "Dictamen X1 FAIL ignorado por una etapa: la etapa baja a N0"

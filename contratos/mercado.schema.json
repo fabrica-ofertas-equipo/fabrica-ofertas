@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/mercado.schema.json",
+  "title": "Mercado de la oferta",
+  "description": "Mercado de UNA oferta (M1): idioma, países, moneda y reglas locales. 1.1.0 (MA-06): fiscal.exposicion_aceptada (obligatoria si regimen = diferido) y revision_linguistica.obligacion_legal_idioma; sin revisor nativo donde el idioma es obligación legal, X1 emite ROJO. Mercado sigue siendo hipótesis, nunca prior.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.([1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "description": "Versión SemVer del esquema (MAJOR 1, MINOR >= 1): una versión anterior debe migrarse (docs/contratos.md 8)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "familia_id": {
+      "$ref": "comunes.schema.json#/$defs/familia_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "locale": {
+      "$ref": "comunes.schema.json#/$defs/locale"
+    },
+    "paises_segmentacion": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/pais"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "moneda_cobro": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "monedas_precio_adicionales": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/moneda"
+      },
+      "description": "Diseño listo para multimoneda; vacío en el testeo inicial"
+    },
+    "estado_decision": {
+      "enum": [
+        "hipotesis",
+        "decidido_con_datos_propios"
+      ],
+      "description": "Ningún mercado es un prior (dueño, 2026-11-06)"
+    },
+    "evidencia_propia": {
+      "type": "object",
+      "properties": {
+        "clics_enlace": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compras_stripe": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ofertas_probadas": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "clics_enlace",
+        "compras_stripe",
+        "ofertas_probadas"
+      ],
+      "additionalProperties": false,
+      "description": "Datos propios que respaldan la decisión; todo en 0 mientras sea hipótesis"
+    },
+    "cpm_esperado": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cpm_fuente": {
+      "type": "string",
+      "minLength": 1,
+      "description": "De dónde sale el CPM (atlas, dato propio o [SUPUESTO])"
+    },
+    "metodos_pago": {
+      "type": "object",
+      "properties": {
+        "fase": {
+          "enum": [
+            "estandar_tarjeta_billeteras"
+          ],
+          "description": "Testeo inicial: Stripe estándar"
+        },
+        "activos": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "card",
+              "apple_pay",
+              "google_pay",
+              "link"
+            ]
+          },
+          "minItems": 1
+        },
+        "locales_diferidos": {
+          "type": "boolean",
+          "description": "true: métodos locales diferidos por decisión del dueño"
+        }
+      },
+      "required": [
+        "fase",
+        "activos",
+        "locales_diferidos"
+      ],
+      "additionalProperties": false
+    },
+    "fiscal": {
+      "type": "object",
+      "properties": {
+        "regimen": {
+          "enum": [
+            "diferido",
+            "stripe_tax",
+            "merchant_of_record",
+            "otro"
+          ]
+        },
+        "nota": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exposicion_aceptada": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "firmada_por": {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana",
+                  "description": "Firma del dueño (tipo humano; Ed25519 en producción). La fecha de la exposición es firmada_por.fecha"
+                },
+                "paises": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "comunes.schema.json#/$defs/pais"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "description": "Países cuya exposición fiscal acepta el dueño; deben cubrir paises_segmentacion"
+                }
+              },
+              "required": [
+                "firmada_por",
+                "paises"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "description": "El dueño acepta por escrito la exposición tributaria de lanzar con el régimen diferido. null solo si regimen != diferido"
+        }
+      },
+      "required": [
+        "regimen",
+        "nota",
+        "exposicion_aceptada"
+      ],
+      "additionalProperties": false,
+      "description": "Régimen fiscal diferido por decisión del dueño",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "regimen": {
+                "const": "diferido"
+              }
+            },
+            "required": [
+              "regimen"
+            ]
+          },
+          "then": {
+            "properties": {
+              "exposicion_aceptada": {
+                "type": "object",
+                "properties": {
+                  "firmada_por": {
+                    "properties": {
+                      "tipo": {
+                        "const": "humano"
+                      },
+                      "firma": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "consumo": {
+      "type": "object",
+      "properties": {
+        "desistimiento_dias": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "boton_arrepentimiento": {
+          "type": "boolean"
+        },
+        "consentimiento_cookies": {
+          "type": "boolean"
+        },
+        "ley_privacidad": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "desistimiento_dias",
+        "boton_arrepentimiento",
+        "consentimiento_cookies",
+        "ley_privacidad"
+      ],
+      "additionalProperties": false
+    },
+    "glosario_ref": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revision_linguistica": {
+      "type": "object",
+      "properties": {
+        "revisor_nativo": {
+          "type": "boolean"
+        },
+        "metodos": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "retraduccion",
+              "segunda_lectura_otro_modelo",
+              "revision_humana_muestreo"
+            ]
+          }
+        },
+        "obligacion_legal_idioma": {
+          "type": "boolean",
+          "description": "true si el locale impone por ley texto en el idioma local (p. ej. pl-PL, nota 16 C0.3 [VERIFICAR]); con revisor_nativo=false => X1 ROJO y no se lanza"
+        }
+      },
+      "required": [
+        "revisor_nativo",
+        "obligacion_legal_idioma",
+        "metodos"
+      ],
+      "additionalProperties": false
+    },
+    "primer_lanzamiento_en_locale": {
+      "type": "boolean"
+    },
+    "requiere_gate_h": {
+      "type": "boolean"
+    },
+    "aprobado_por": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/firma_humana"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fuentes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Fuentes con fecha o [VERIFICAR]"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "familia_id",
+    "version",
+    "origen_version",
+    "locale",
+    "paises_segmentacion",
+    "moneda_cobro",
+    "monedas_precio_adicionales",
+    "estado_decision",
+    "evidencia_propia",
+    "cpm_esperado",
+    "cpm_fuente",
+    "metodos_pago",
+    "fiscal",
+    "consumo",
+    "glosario_ref",
+    "revision_linguistica",
+    "primer_lanzamiento_en_locale",
+    "requiere_gate_h",
+    "aprobado_por",
+    "fuentes"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/pnl.schema.json",
+  "title": "P&L (F1)",
+  "description": "P&L de F1. Montos como enteros; FX solo con tipo de cambio registrado. 1.1.0 (CT-3 B-10/S-29): `fx_ref` usa el identificador único `TC-<BASE><COTIZADA>-<AAAAMMDD>` (`comunes.tipo_cambio_id`, el de `ledger` y `tipo_cambio`) y retira el patrón `FX-…`; `ingresos_brutos` INCLUYE el impuesto y `impuestos` se resta aparte",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "periodo": {
+      "type": "object",
+      "properties": {
+        "desde": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "hasta": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        }
+      },
+      "required": [
+        "desde",
+        "hasta"
+      ],
+      "additionalProperties": false
+    },
+    "vista": {
+      "enum": [
+        "devengado",
+        "caja"
+      ]
+    },
+    "moneda_base": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "fx_ref": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/tipo_cambio_id"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Tipo de cambio usado para convertir a moneda_base (TC-…); null si no hubo conversión"
+    },
+    "por_oferta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "oferta_id": {
+            "$ref": "comunes.schema.json#/$defs/oferta_id"
+          },
+          "bloque": {
+            "type": "object",
+            "properties": {
+              "lineas": {
+                "type": "object",
+                "properties": {
+                  "ingresos_brutos": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+                    "description": "Cobrado al cliente, IMPUESTO INCLUIDO (no es neto de impuestos)"
+                  },
+                  "impuestos": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+                    "description": "Impuesto incluido en ingresos_brutos; se resta aparte en resultado_operativo"
+                  },
+                  "reembolsos": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "comisiones": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "tarifas_disputa": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "disputas_perdidas": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "gasto_meta": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "costo_ia": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  },
+                  "otros_costos": {
+                    "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                  }
+                },
+                "required": [
+                  "ingresos_brutos",
+                  "impuestos",
+                  "reembolsos",
+                  "comisiones",
+                  "tarifas_disputa",
+                  "disputas_perdidas",
+                  "gasto_meta",
+                  "costo_ia",
+                  "otros_costos"
+                ],
+                "additionalProperties": false,
+                "description": "Líneas en unidad menor de la moneda base, todas >= 0 (el signo lo da la fórmula)"
+              },
+              "resultado_operativo": {
+                "$ref": "comunes.schema.json#/$defs/dinero"
+              },
+              "kpis": {
+                "type": "object",
+                "properties": {
+                  "pedidos": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "aov": {
+                    "anyOf": [
+                      {
+                        "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "mc": {
+                    "anyOf": [
+                      {
+                        "$ref": "comunes.schema.json#/$defs/dinero"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cpa": {
+                    "anyOf": [
+                      {
+                        "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "roas_neto": {
+                    "anyOf": [
+                      {
+                        "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "mer": {
+                    "anyOf": [
+                      {
+                        "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "pedidos",
+                  "aov",
+                  "mc",
+                  "cpa",
+                  "roas_neto",
+                  "mer"
+                ],
+                "additionalProperties": false
+              },
+              "madurez": {
+                "enum": [
+                  "maduro",
+                  "provisional",
+                  "mixto"
+                ]
+              }
+            },
+            "required": [
+              "lineas",
+              "resultado_operativo",
+              "kpis",
+              "madurez"
+            ],
+            "additionalProperties": false,
+            "description": "resultado_operativo = ingresos_brutos - impuestos - reembolsos - comisiones - tarifas_disputa - disputas_perdidas - gasto_meta - costo_ia - otros_costos"
+          }
+        },
+        "required": [
+          "oferta_id",
+          "bloque"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "consolidado": {
+      "type": "object",
+      "properties": {
+        "lineas": {
+          "type": "object",
+          "properties": {
+            "ingresos_brutos": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+              "description": "Cobrado al cliente, IMPUESTO INCLUIDO (no es neto de impuestos)"
+            },
+            "impuestos": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+              "description": "Impuesto incluido en ingresos_brutos; se resta aparte en resultado_operativo"
+            },
+            "reembolsos": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "comisiones": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "tarifas_disputa": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "disputas_perdidas": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "gasto_meta": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "costo_ia": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            "otros_costos": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "ingresos_brutos",
+            "impuestos",
+            "reembolsos",
+            "comisiones",
+            "tarifas_disputa",
+            "disputas_perdidas",
+            "gasto_meta",
+            "costo_ia",
+            "otros_costos"
+          ],
+          "additionalProperties": false,
+          "description": "Líneas en unidad menor de la moneda base, todas >= 0 (el signo lo da la fórmula)"
+        },
+        "resultado_operativo": {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        "kpis": {
+          "type": "object",
+          "properties": {
+            "pedidos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "aov": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mc": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/dinero"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "cpa": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "roas_neto": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mer": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "pedidos",
+            "aov",
+            "mc",
+            "cpa",
+            "roas_neto",
+            "mer"
+          ],
+          "additionalProperties": false
+        },
+        "madurez": {
+          "enum": [
+            "maduro",
+            "provisional",
+            "mixto"
+          ]
+        }
+      },
+      "required": [
+        "lineas",
+        "resultado_operativo",
+        "kpis",
+        "madurez"
+      ],
+      "additionalProperties": false,
+      "description": "resultado_operativo = ingresos_brutos - impuestos - reembolsos - comisiones - tarifas_disputa - disputas_perdidas - gasto_meta - costo_ia - otros_costos"
+    },
+    "frescura": {
+      "type": "object",
+      "properties": {
+        "datos_hasta": {
+          "$ref": "comunes.schema.json#/$defs/timestamp"
+        },
+        "estado": {
+          "enum": [
+            "ok",
+            "stale"
+          ]
+        }
+      },
+      "required": [
+        "datos_hasta",
+        "estado"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "generado_en",
+    "periodo",
+    "vista",
+    "moneda_base",
+    "fx_ref",
+    "por_oferta",
+    "consolidado",
+    "frescura"
+  ],
+  "additionalProperties": false
+}

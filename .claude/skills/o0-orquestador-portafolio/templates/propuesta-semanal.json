@@ -1,0 +1,33 @@
+{
+  "$comentario": "ESQUELETO sin validar: el esquema `propuesta` no existe en contratos/ [PENDIENTE: pedido al dueño de contratos]. Ejemplo ficticio; toda cifra debe salir de portafolio.py / decision/.",
+  "periodo": "AAAA-Www",
+  "generado_en": "AAAA-MM-DDThh:mm:ssZ",
+  "vence_en": "AAAA-MM-DDThh:mm:ssZ",
+  "datos_al": "AAAA-MM-DDThh:mm:ssZ",
+  "cifras_recomputadas": false,
+  "moneda": "<limites.moneda_limites>",
+  "decisiones": [
+    {
+      "oferta_id": "OF-AAAAMM-NN",
+      "macro_nicho": "dinero",
+      "locale": "it-IT",
+      "fase": "en_test",
+      "accion": "esperar",
+      "origen_cifra": "decision/reglas.py::evaluar_celda",
+      "evidencia": ["ofertas/OF-AAAAMM-NN/08-operacion/veredicto_oferta.json"],
+      "incertidumbre": "datos insuficientes",
+      "costo_de_equivocarse": {"monto": 0, "moneda": "<moneda>"},
+      "alternativa_descartada": "<texto>"
+    }
+  ],
+  "asignacion": {"ofertas_en_paralelo": 0, "mercados_en_paralelo": 0},
+  "ascensos_recomendados": [],
+  "riesgos": [],
+  "kpis": {},
+  "radar": {"barridos": 0, "costo": {"monto": 0, "moneda": "<moneda>"}, "banco_tamano": 0, "candidatos_vigentes": 0, "pct_verdes_top_n": null, "edad_evidencia_dias": null},
+  "exposicion": {"por_macro_nicho": {}, "por_mercado": {}, "por_nivel_riesgo": {}},
+  "propuestas_d9": [],
+  "firmas_pedidas": [{"accion": "<accion>", "gate": "H", "comando": ".venv/bin/python -m engine.orq firmar --oferta OF-… --accion <accion> --como dueno --hash-objetivo <hash de lo que firmas> --clave-privada <RUTA que pones tú>"}],
+  "supuestos": [],
+  "verificar": []
+}

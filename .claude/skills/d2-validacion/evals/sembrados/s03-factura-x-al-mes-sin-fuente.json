@@ -1,0 +1,36 @@
+{
+  "id": "S03",
+  "severidad": "BLOQUEANTE",
+  "defecto": "Se afirma lo que factura un competidor sin etiqueta ni fuente.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "validacion.json",
+      "ruta": "senales_demanda_organica[0]",
+      "valor": "El competidor principal factura más de 30.000 euros al mes"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D2",
+        "patron_clave": "lenguaje-de-rentabilidad-sin-fuente",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R1"
+    ],
+    "debe_citar": "factura más de 30.000"
+  },
+  "detecta_script": "ninguno (juicio del QA; lint de lenguaje de rentabilidad)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

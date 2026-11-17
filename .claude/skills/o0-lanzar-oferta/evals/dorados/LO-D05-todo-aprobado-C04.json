@@ -1,0 +1,13 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-D05-todo-aprobado-C04",
+  "entrada": "D1-D7 aprobadas, fase listo_para_activar, nivel N4",
+  "esperado": [
+    "accion activar con gate H aunque gates.json diga S en N4",
+    "avisa C-04 abierta: gate efectivo H hasta que el dueño decida D-02; el botón de punta a punta termina en listo_para_activar",
+    "no sugiere quitar la acción de acciones_gate_humano ni firmar una regla",
+    "comando orq activar … --live con object_ids y hash_config de 07-campana/, marcado [PENDIENTE: B5] porque la CLI rechaza --live; antes, orq firmar --accion activar_campana"
+  ],
+  "verificacion": "scripts/test_proximo_paso.py::test_todo_aprobado_y_listo_pide_activar_con_h"
+}

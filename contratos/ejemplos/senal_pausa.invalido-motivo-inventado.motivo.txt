@@ -1,0 +1,3 @@
+validador=enum
+ruta=/motivo
+texto=motivos: ninguno, disputas, reembolsos, caida_de_entrega, queja_de_correo, fraude, incidente_seguridad, otro

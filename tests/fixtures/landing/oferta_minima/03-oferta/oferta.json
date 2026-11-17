@@ -1,0 +1,54 @@
+{
+  "oferta_id": "OF-209901-01",
+  "slug": "fixture-landing",
+  "marca": {
+    "nombre": "Marca Fixture",
+    "dominio": "marca-fixture.example"
+  },
+  "macro_nicho": "dinero",
+  "locale": "es-ES",
+  "moneda": "EUR",
+  "precio": {
+    "lista": {
+      "monto": 2990,
+      "moneda": "EUR"
+    }
+  },
+  "promesa": {
+    "titulo": "Guía Fixture",
+    "subtitulo": "Una guía de prueba para landing.generar",
+    "tiempo_prometido_min": 45,
+    "claims_permitidos": [
+      {
+        "claim_id": "incluye-plantilla",
+        "texto": "Incluye una plantilla editable",
+        "evidencia_ref": "04-producto/producto.json"
+      }
+    ]
+  },
+  "garantia": {
+    "tipo": "reembolso_incondicional",
+    "dias": 14,
+    "texto_visible": "Si no te sirve, te devolvemos el importe durante 14 días."
+  },
+  "angulos": [
+    {
+      "angulo_id": "angulo-principal",
+      "hook": "Un titular de prueba para la landing",
+      "objecion": "No sé si esto es para mí"
+    },
+    {
+      "angulo_id": "angulo-secundario",
+      "hook": "Un segundo titular de prueba",
+      "objecion": "No tengo tiempo"
+    }
+  ],
+  "avatar": {
+    "objeciones": [
+      {
+        "texto": "¿Esto funciona de verdad?",
+        "severidad": "media"
+      }
+    ]
+  }
+}

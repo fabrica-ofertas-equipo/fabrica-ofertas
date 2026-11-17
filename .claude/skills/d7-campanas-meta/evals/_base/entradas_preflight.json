@@ -1,0 +1,61 @@
+{
+  "modo": "fixture",
+  "pausa": false,
+  "cuenta": {
+    "estado": "ACTIVE",
+    "metodo_pago": true,
+    "saludable": true,
+    "limite_diario_minor": 20000,
+    "limite_gasto_cuenta_minor": 100000,
+    "tipo_pago": "tarjeta",
+    "saldo_prepago_dias": null,
+    "pagina_vinculada": true,
+    "administradores_humanos": 2
+  },
+  "dataset": {
+    "activo": true,
+    "eventos_recientes": true
+  },
+  "emq": {
+    "valor": "6.5",
+    "objetivo": "6.0"
+  },
+  "evento_prueba": {
+    "navegador_event_id": "purchase_cs_test_1",
+    "servidor_event_id": "purchase_cs_test_1"
+  },
+  "dominio_verificado": true,
+  "landing": {
+    "status_code": 200,
+    "redirecciones": 0
+  },
+  "url": {
+    "vacios": false,
+    "macros_presentes": true
+  },
+  "paquete": {
+    "landing_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "precio_minor": 1490,
+    "moneda": "EUR",
+    "textos_iguales": true
+  },
+  "checkout": {
+    "landing_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "precio_minor": 1490,
+    "moneda": "EUR"
+  },
+  "lint_claims_ok": true,
+  "mejoras_meta_opt_out": true,
+  "self_ai_disclosure_ok": true,
+  "mercado": {
+    "locale_ok": true,
+    "paises_ok": true
+  },
+  "nombres_ok": true,
+  "active_errors": [],
+  "objetos_ajenos": [],
+  "vistas_previas_ok": true,
+  "ofertas_en_test": 0,
+  "hash_config_sellado": true,
+  "categoria_especial_coincide_x1": null
+}

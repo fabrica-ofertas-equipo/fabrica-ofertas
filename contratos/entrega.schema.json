@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/entrega.schema.json",
+  "title": "Entrega",
+  "description": "Línea de entregas.jsonl. Sin datos personales: solo IDs y email_hmac.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "entrega_id": {
+      "type": "string",
+      "pattern": "^ENT-[0-9a-f]{12}$"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "checkout_session_id": {
+      "type": "string",
+      "pattern": "^cs_[A-Za-z0-9_]+$"
+    },
+    "email_hmac": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/hmac"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "estado": {
+      "enum": [
+        "pagado",
+        "encolado",
+        "enviado",
+        "entregado",
+        "descargado",
+        "activado",
+        "resultado",
+        "fallido"
+      ],
+      "description": "Máquina de entrega (D10)"
+    },
+    "producto_version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "producto_sha256": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "enlace": {
+      "type": "object",
+      "properties": {
+        "vence_en": {
+          "$ref": "comunes.schema.json#/$defs/timestamp"
+        },
+        "max_descargas": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "descargas": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "vence_en",
+        "max_descargas",
+        "descargas"
+      ],
+      "additionalProperties": false
+    },
+    "intentos": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "idempotency_key": {
+      "$ref": "comunes.schema.json#/$defs/idempotency_key"
+    },
+    "ejecutor": {
+      "enum": [
+        "script",
+        "humano"
+      ]
+    },
+    "sintetico": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "entrega_id",
+    "ts",
+    "oferta_id",
+    "checkout_session_id",
+    "email_hmac",
+    "estado",
+    "producto_version",
+    "producto_sha256",
+    "enlace",
+    "intentos",
+    "idempotency_key",
+    "ejecutor"
+  ],
+  "additionalProperties": false
+}

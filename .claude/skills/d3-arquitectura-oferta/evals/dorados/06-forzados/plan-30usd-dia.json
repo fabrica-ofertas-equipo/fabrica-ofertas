@@ -1,0 +1,54 @@
+{
+  "oferta_id": "OF-202611-95",
+  "version": "v1",
+  "origen_version": "maker",
+  "base": {
+    "moneda": "USD",
+    "precio": 2700,
+    "precio_bump": 900,
+    "tasa_bump_bp": 1000,
+    "tasa_reembolso_bp": 700,
+    "tasa_disputa_bp": 50,
+    "comision_pct_bp": 290,
+    "recargos_bp": 150,
+    "conversion_bp": 100,
+    "comision_fija": 30,
+    "tarifa_disputa": 1500,
+    "costo_variable": 20,
+    "factor_cpa_objetivo_bp": 6000,
+    "stripe_tax": {
+      "pct_bp": 50,
+      "fijo": 0
+    },
+    "escenarios": {
+      "pes": {
+        "cpm": 450,
+        "ctr_enlace_bp": 80,
+        "clic_compra_bp": 70
+      },
+      "central": {
+        "cpm": 450,
+        "ctr_enlace_bp": 120,
+        "clic_compra_bp": 150
+      },
+      "opt": {
+        "cpm": 450,
+        "ctr_enlace_bp": 200,
+        "clic_compra_bp": 250
+      }
+    },
+    "gasto_diario": 3000,
+    "eventos_semana_aprendizaje": 50,
+    "fraccion_aprendizaje_min_bp": 5000,
+    "costos_fijos_oferta": 0,
+    "tarifas_origen": "supuesto",
+    "tarifas_fecha": "2026-11-06",
+    "tarifas_fuente": "[SUPUESTO] 03-stripe §4.1: tarjeta 2,9 % + 0,30 USD, +1,5 % internacional, +1 % conversión, disputa 15 USD, Stripe Tax 0,5 %; 27 USD + bump 9 USD (vector 24,42 de D3 §3.4); escenarios de parametros.yaml"
+  },
+  "paises": {
+    "US": {
+      "tasa_iva_bp": 0,
+      "tarifa_meta_bp": 0
+    }
+  }
+}

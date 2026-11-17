@@ -1,0 +1,110 @@
+{
+  "_nota": "Un avatar del panel (ejemplo real del piloto OF-202611-91, generado por scripts/jurado/avatares.py). Todo sale de voz_cliente.json con su frase_id y su fuente_url; edad, género y ocupación son null (sin dato) y NO se rellenan. estilo_decision es un rol de lectura [SUPUESTO]. Borra las claves que empiezan por «_».",
+  "avatar_id": "av-pl-PL-01",
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "pais": "PL",
+  "idioma": "pl",
+  "baseline": false,
+  "estilo_decision": "esceptico",
+  "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+  "preocupacion_principal": {
+    "tema": "ya-probe-apps",
+    "categorias": [
+      "alternativa",
+      "objecion"
+    ],
+    "frase_ids": [
+      "f-01",
+      "f-10",
+      "f-13"
+    ],
+    "n_fuentes": 3
+  },
+  "preocupaciones_secundarias": [
+    {
+      "tema": "olvido",
+      "frase_ids": [
+        "f-18",
+        "f-29"
+      ]
+    },
+    {
+      "tema": "constancia",
+      "frase_ids": [
+        "f-07"
+      ]
+    }
+  ],
+  "objeciones": [
+    {
+      "tema": "ya-probe-apps",
+      "frase_ids": [
+        "f-01",
+        "f-10",
+        "f-13"
+      ]
+    }
+  ],
+  "en_sus_palabras": [
+    {
+      "frase_id": "f-01",
+      "texto": "Próbowałem jakichś apek, ale ciężko z regularnością.",
+      "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+      "tema": "ya-probe-apps"
+    },
+    {
+      "frase_id": "f-10",
+      "texto": "Duolingo odpada bo szukałbym czegoś żeby poćwiczyć wymowę i się trochę w tym wyrobić.",
+      "fuente_url": "https://wykop.pl/wpis/87994191/naukaangielskiego-naukajezykow-angielskizwykopem-a",
+      "tema": "ya-probe-apps"
+    },
+    {
+      "frase_id": "f-13",
+      "texto": "miałem na duolingo streak 3 lata i wiem, że to nie dla mnie",
+      "fuente_url": "https://wykop.pl/wpis/87765053/mirki-jakie-teraz-appki-spoko-do-nauki-jezyka-konk",
+      "tema": "ya-probe-apps"
+    },
+    {
+      "frase_id": "f-18",
+      "texto": "Przez ten czas prawie całkowicie zapomniałem języka.",
+      "fuente_url": "https://wykop.pl/wpis/87767939/jak-nauczyc-sie-angielskiego-po-latach-przerwy-htt",
+      "tema": "olvido"
+    },
+    {
+      "frase_id": "f-07",
+      "texto": "zdarza mi się pominąć dzień czy dwa",
+      "fuente_url": "https://wykop.pl/wpis/87897451/comiesieczna-aktualizacja-mojej-nauki-angielskiego",
+      "tema": "constancia"
+    }
+  ],
+  "vocabulario": [
+    "słówka",
+    "słownictwo",
+    "mapy myśli",
+    "skojarzenia",
+    "fiszki",
+    "poziom A2 / B1 / B2 / C1",
+    "apka",
+    "lektor",
+    "ciężko z regularnością",
+    "tkwić w tym samym miejscu"
+  ],
+  "demografia": {
+    "edad_rango": null,
+    "genero": null,
+    "ocupacion": null,
+    "origen": "sin_dato",
+    "fuente": null
+  },
+  "nivel_evidencia": "alta",
+  "estado": "activo",
+  "procedencia": {
+    "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+    "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+    "generador": "scripts/jurado/avatares.py 0.1.0",
+    "semilla": "demo-OF-202611-91-2026-11-08",
+    "min_frases_por_foco": 1,
+    "min_fuentes_por_foco": 1
+  }
+}

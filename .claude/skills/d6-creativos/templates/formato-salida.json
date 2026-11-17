@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "nota": "PROPUESTA de contrato común de productores de formato (references/contrato-comun-de-formatos.md). La salida es la pieza más este fragmento: D6 lo inserta en paquete.json (anuncios[].assets[]); el productor no escribe paquete.json.",
+  "ad_name": "c01-hueco_img_h1_v1",
+  "pieza": "assets/c01-hueco_img_h1_v1.png",
+  "fuentes": ["assets/src/c01-hueco_img_h1_v1.html"],
+  "asset_paquete": {
+    "archivo": "assets/c01-hueco_img_h1_v1.png",
+    "ratio": "4:5",
+    "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "herramienta": "chrome-headless-html",
+    "modelo": null,
+    "job_id": null,
+    "ia_generado": false,
+    "c2pa_origen": "n.a.",
+    "c2pa_final": "no",
+    "etiqueta_ia_visible": false,
+    "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "licencia_ref": "lic-fuente-sistema",
+    "costo_creditos": 0
+  },
+  "registros": {
+    "costos_previo": null,
+    "licencias": ["lic-fuente-sistema"],
+    "assets_json": {"creditos_reservados": 0, "creditos_reales": 0}
+  },
+  "qc6": "06-creativos/qc6.json"
+}

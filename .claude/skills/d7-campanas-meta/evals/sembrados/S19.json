@@ -1,0 +1,35 @@
+{
+  "id": "S19",
+  "descripcion": "Anuncio de un producto financiero con special_ad_categories vacio (la categoria la fija el dictamen de X1: lo detecta el QA con la oferta y el dictamen)",
+  "check_id": "C13",
+  "severidad": "BLOQUEANTE",
+  "capa": "qa-l2",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "macro_nicho"
+      ],
+      "valor": "dinero"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "categoria"
+      ],
+      "valor": "comparador de prestamos personales: producto financiero ofrecido en el anuncio"
+    }
+  ],
+  "nota_qa": "C13 + P25: hoy meta.preflight solo evalua P25 si special_ad_categories no esta vacio (ver references/dependencias.md, PEDIDO 4).",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C13",
+      "patron_clave": "categoria-especial-omitida",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

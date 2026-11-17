@@ -1,0 +1,38 @@
+<section class="seccion niveles tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-incluye">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+{{#si kicker}}
+      <p class="kicker">{{{kicker}}}</p>
+{{/si}}
+      <h2 id="titulo-incluye">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+    <p class="niveles__pista"><svg class="ico" aria-hidden="true"><use href="#i-abajo"></use></svg><span>{{t.elige_nivel}}</span></p>
+    <div class="niveles__lista">
+{{#cada modulos}}
+      <details class="nivel" name="niveles">
+        <summary>
+          <span class="icono-caja icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#i-{{icono}}"></use></svg></span>
+          <span class="nivel__titulo">{{{titulo}}}</span>
+{{#si etiqueta}}
+          <span class="chip chip--suave">{{{etiqueta}}}</span>
+{{/si}}
+        </summary>
+        <div class="nivel__cuerpo">
+          <p>{{{texto}}}</p>
+{{#si temas}}
+          <ul class="temas" role="list">
+{{#cada temas}}
+            <li>{{{.}}}</li>
+{{/cada}}
+          </ul>
+{{/si}}
+        </div>
+      </details>
+{{/cada}}
+    </div>
+  </div>
+{{{cta_html}}}
+</section>

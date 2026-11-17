@@ -1,0 +1,39 @@
+<section class="seccion oferta tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-oferta">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <p class="kicker">{{t.precio}}</p>
+      <h2 id="titulo-oferta">{{{titulo}}}</h2>
+      <p class="lede">{{{descripcion}}}</p>
+    </header>
+    <div class="oferta__tarjeta">
+      <div class="oferta__precio">
+{{#si imagen}}
+        <div class="img-rotulada img-rotulada--ajustada"><img class="oferta__img" src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+        {{#si imagen.rotulo}}<span class="rotulo-img" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}</div>
+{{sino}}
+{{#si marcador}}
+        <div class="vp-marcador vp-marcador--compra" data-demo="imagen" role="img" aria-label="{{marcador}}"><span class="vp-marcador__etiqueta">{{marcador}}</span></div>
+{{/si}}
+{{/si}}
+        <p class="precio-etiqueta">{{t.precio}}</p>
+        <p class="precio">{{precio}}</p>
+        <p class="precio-linea">{{{linea_precio}}}</p>
+      </div>
+      <div class="oferta__detalle">
+        <p class="oferta__recibes"><svg class="ico" aria-hidden="true"><use href="#i-regalo"></use></svg><span>{{t.recibes}}</span></p>
+        <ul class="checklist-simple" role="list">
+{{#cada incluye}}
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+        </ul>
+        <a class="boton boton--cta boton--grande boton--bloque" href="/comprar"><span>{{cta.texto}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+        <ul class="pills pills--centro" role="list">
+{{#cada pills}}
+          <li>{{{.}}}</li>
+{{/cada}}
+        </ul>
+        <p class="pago"><svg class="ico" aria-hidden="true"><use href="#i-candado"></use></svg><span>{{t.pago_seguro}}: {{metodos}}</span></p>
+      </div>
+    </div>
+  </div>
+</section>

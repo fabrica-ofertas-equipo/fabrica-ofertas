@@ -1,0 +1,111 @@
+# Entornos y dependencias
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Credenciales y secretos (solo se versiona .env.example)
+.env
+.env.*
+!.env.example
+secrets*
+*.pem
+*.key
+*.p12
+*.pfx
+.dev.vars
+.dev.vars.*
+
+# Artefactos de build y despliegue
+dist/
+build/
+.wrangler/
+coverage/
+.coverage
+htmlcov/
+
+# Bases locales de desarrollo
+*.sqlite3
+*.sqlite3-journal
+*.db
+
+# Sistema operativo y editores
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Estado de ejecución de la empresa (volátil; los yaml de configuración sí se versionan)
+empresa/PAUSA
+empresa/**/*.jsonl
+empresa/**/estado.json
+empresa/**/*.lock
+ofertas/*/.lock
+
+# Evidencia de terceros del descubrimiento (D1; nota 21 §9: fuera de Git, con vencimiento). Decisión de diseño d1-v2-interfaces.md §4.1/§8.2
+empresa/barrido/crudo/
+empresa/barrido/paginas/
+empresa/descubrimiento/senales/
+ofertas/*/01-descubrimiento/crudo/
+
+# Respaldo en git (dueño, 15-nov: «Sí, armalo»). Se sube código, skills, reglas, panel, libro y textos/PDF de las ofertas.
+# Nunca claves ni secretos; nunca videos, audios ni imágenes de las ofertas (están en Meta e Impultienda y pesan GB).
+# Además, infra/respaldo_git.sh saca cualquier archivo de más de 20 MB y frena si encuentra un valor del .env.
+
+# claves y secretos
+**/subida-tokens.txt
+
+# entornos, dependencias y cachés
+.venv*/
+**/.venv*/
+
+# derivados
+_kit/
+ofertas/_funnels/.respaldos/
+*.antes-*
+*.log
+
+# medios pesados de las ofertas (los finales están en Meta; la limpieza los borra al cerrar)
+ofertas/**/*.mp4
+ofertas/**/*.mov
+ofertas/**/*.webm
+ofertas/**/*.mkv
+ofertas/**/*.wav
+ofertas/**/*.mp3
+ofertas/**/*.m4a
+ofertas/**/*.aac
+ofertas/**/*.ogg
+ofertas/**/*.flac
+ofertas/**/*.png
+ofertas/**/*.jpg
+ofertas/**/*.jpeg
+ofertas/**/*.webp
+ofertas/**/*.gif
+ofertas/**/*.heic
+ofertas/**/*.psd
+ofertas/**/*.zip
+# las miniaturas de la marca sí (pesan poco y no se rehacen)
+!ofertas/**/marca/*.png
+!ofertas/**/marca/*.jpg
+
+# renders a medio hacer
+*.parcial-*
+
+# Datos de cada instalación (kit)
+empresa/instalacion.json
+empresa/barrido/
+empresa/backend/
+kit/estado-instalacion.json
+kit/personalizado.json
+ofertas/*
+!ofertas/README.md
+!ofertas/_ejemplo/
+!ofertas/_funnels/
+ofertas/_funnels/*
+!ofertas/_funnels/reglas.json
+!ofertas/_funnels/servicios.json
+!ofertas/_ejemplo/01-descubrimiento/crudo/

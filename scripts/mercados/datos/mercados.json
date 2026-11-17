@@ -1,0 +1,1044 @@
+{
+ "_meta": {
+  "descripcion": "Entradas por mercado puntuado (top 15 de 08 §2.2). Los puntajes 0-5 son los publicados en 08 §2.2 (juicios, confianza por celda); los parámetros de economía y pagos salen de 08 §2.3 y 07a-07h; las tasas de IVA y comisiones marcadas 'recuperada por ajuste' se infirieron para reproducir el r de 08 §2.3 y se contrastaron contra 07a/07c/07b.",
+  "fecha": "2026-11-06",
+  "version": "1.0",
+  "orden": "el de 08 §2.2 (desempate final)"
+ },
+ "mercados": [
+  {
+   "codigo": "CA",
+   "nombre": "Canadá (inglés, sin Quebec)",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 2,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 4,
+     "conf": "A"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 2,
+   "ajuste_creadores_regla": 2,
+   "ajuste_creadores_justificacion": "+2 está en la regla (solo mención: lista Tier 1 de Santiago, sin resultado) [08 §2.3; 06 P1]",
+   "base_08": 77,
+   "total_08": 79,
+   "r_publicado_08": 1.66,
+   "equilibrio_conv_publicado_08_pct": 2.7,
+   "economia": {
+    "cpm_usd": 11.47,
+    "cpm_fuente": "07c §2.4; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 27,
+    "ticket_fuente": "[HIPÓTESIS] 27 USD en CA/AU/NZ/US/GB [08 §2.1]; nunca observado en esos países [16 H2b]",
+    "iva": 0.05,
+    "iva_fuente": "GST federal 5 % (HST 13-15 %, QST y PST provinciales no incluidos); umbral 30.000 CAD no alcanzado en un test [07c §2.2, A; 08 §2.3]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 74,
+    "rango": "66-80",
+    "fuente": "07g §6 (Worldpay GPR25, cálculo propio, C); falta PayPal 16 pp"
+   },
+   "escala": {
+    "poblacion_m": 40.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "482 'ebook PDF' [08 §2.3]"
+  },
+  {
+   "codigo": "NZ",
+   "nombre": "Nueva Zelanda",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 4,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 4,
+     "conf": "A"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 1,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "+1 no está en la regla de 08 (16 H2f); sin evidencia citada de creadores en 08 §2.3, se lleva a 0 [SUPUESTO]",
+   "base_08": 76,
+   "total_08": 77,
+   "r_publicado_08": 1.44,
+   "equilibrio_conv_publicado_08_pct": 2.3,
+   "economia": {
+    "cpm_usd": 9.01,
+    "cpm_fuente": "07c §2.4; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 27,
+    "ticket_fuente": "[HIPÓTESIS] 27 USD [08 §2.1]",
+    "iva": 0.15,
+    "iva_fuente": "GST 15 % (B); umbral 60.000 NZD [07c §2.2]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 62,
+    "rango": "s/d",
+    "fuente": "07g §6 (C); BNPL local 13 pp sin cobrar"
+   },
+   "escala": {
+    "poblacion_m": 5.3,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "265/343 [08 §2.3]"
+  },
+  {
+   "codigo": "AU",
+   "nombre": "Australia",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 4,
+     "conf": "A"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 1,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "+1 no está en la regla de 08 (16 H2f); sin evidencia citada, se lleva a 0 [SUPUESTO]",
+   "base_08": 75,
+   "total_08": 76,
+   "r_publicado_08": 1.77,
+   "equilibrio_conv_publicado_08_pct": 2.8,
+   "economia": {
+    "cpm_usd": 11.63,
+    "cpm_fuente": "07c §2.4; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 27,
+    "ticket_fuente": "[HIPÓTESIS] 27 USD [08 §2.1]",
+    "iva": 0.1,
+    "iva_fuente": "GST 10 % (B); umbral 75.000 AUD [07c §2.2]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 60,
+    "rango": "s/d",
+    "fuente": "07g §6 (C); BNPL local 15 pp sin cobrar"
+   },
+   "escala": {
+    "poblacion_m": 27.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "346/519 [08 §2.3]"
+  },
+  {
+   "codigo": "US",
+   "nombre": "EE. UU. (inglés)",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 1,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 1,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 4,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 4,
+   "ajuste_creadores_regla": 3,
+   "ajuste_creadores_justificacion": "+4 no está en la regla (16 H2f); la evidencia es un solo creador (Santiago opera sobre todo Tier 1 anglo) -> +3 [08 §2.3; 06 §0.1]",
+   "base_08": 65,
+   "total_08": 69,
+   "r_publicado_08": 2.15,
+   "equilibrio_conv_publicado_08_pct": 3.4,
+   "economia": {
+    "cpm_usd": 16.08,
+    "cpm_fuente": "07c §2.4 (Lebesgue; Adamigo da 23,00; 07d: mediana H1-2026 13,51 Synter); Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 27,
+    "ticket_fuente": "[HIPÓTESIS] 27 USD [08 §2.1]",
+    "iva": 0.0,
+    "iva_fuente": "Sin IVA federal; nexo estatal 100.000 USD o 200 transacciones no modelado [07c §2.2; 08 §2.3]",
+    "comision_pct": 0.029,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta doméstica",
+    "comision_fuente": "2,9 % + 0,30 USD tarjeta doméstica de EE. UU. [08 §2.1]",
+    "comision_tarjeta_pct": 0.029,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 65,
+    "rango": "s/d",
+    "fuente": "07g §6 (C); falta PayPal 16 pp"
+   },
+   "escala": {
+    "poblacion_m": 335.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "862/913 [08 §2.3]"
+  },
+  {
+   "codigo": "IE",
+   "nombre": "Irlanda",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 4,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 2,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 1,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "+1 no está en la regla de 08 (16 H2f); sin evidencia citada, se lleva a 0 [SUPUESTO]",
+   "base_08": 66,
+   "total_08": 67,
+   "r_publicado_08": 1.54,
+   "equilibrio_conv_publicado_08_pct": 2.7,
+   "economia": {
+    "cpm_usd": 8.26,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 23,
+    "ticket_fuente": "[HIPÓTESIS] 23 USD en IE [08 §2.1]",
+    "iva": 0.23,
+    "iva_fuente": "IVA 23 %, OSS no-Unión desde la primera venta [07a B.1; 08 §2.3]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 72,
+    "rango": "s/d",
+    "fuente": "07g §6 (C)"
+   },
+   "escala": {
+    "poblacion_m": 5.3,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "351/1.200, sonda contaminada [08 §2.3]"
+  },
+  {
+   "codigo": "GB",
+   "nombre": "Reino Unido",
+   "idioma": "en",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 1,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 2,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 3,
+   "ajuste_creadores_regla": 3,
+   "ajuste_creadores_justificacion": "+3 está en la regla (un creador: alumno de Santiago CPA 41->14) [santiago-bilbao/7Cu55H_oJhI @ 16:58; 08 §2.3] (C)",
+   "base_08": 63,
+   "total_08": 66,
+   "r_publicado_08": 2.02,
+   "equilibrio_conv_publicado_08_pct": 3.2,
+   "economia": {
+    "cpm_usd": 11.81,
+    "cpm_fuente": "07b §3.2 [S16]; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.02,
+    "tarifa_meta_fuente": "Tarifa de ubicación de Meta 2 % [16 §2.1; 07h §5.2; B]",
+    "ticket_usd": 27,
+    "ticket_fuente": "[HIPÓTESIS] 27 USD [08 §2.1]",
+    "iva": 0.2,
+    "iva_fuente": "IVA 20 % desde la primera venta [07b §4.5; S13, B]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 65,
+    "rango": "s/d",
+    "fuente": "07g §6 (C); falta PayPal 23 pp"
+   },
+   "escala": {
+    "poblacion_m": 69.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "526/108 [08 §2.3]"
+  },
+  {
+   "codigo": "IT",
+   "nombre": "Italia",
+   "idioma": "it",
+   "puntajes_08": {
+    "PA": {
+     "v": 4,
+     "conf": "B"
+    },
+    "CAC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 2,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 3,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 5,
+   "ajuste_creadores_regla": 5,
+   "ajuste_creadores_justificacion": "+5 está en la regla (>= 2 creadores B-C positivos: Tomi, Santiago, Fer) [08 §1.4; 06 P4] (B-C)",
+   "base_08": 60,
+   "total_08": 65,
+   "r_publicado_08": 1.34,
+   "equilibrio_conv_publicado_08_pct": 2.7,
+   "economia": {
+    "cpm_usd": 6.06,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.03,
+    "tarifa_meta_fuente": "Tarifa de ubicación de Meta 3 % [16 §2.1; 07h §5.2; B]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "14,90 EUR x 1,16 [07h §3.4; 08 §2.1] [HIPÓTESIS]",
+    "iva": 0.22,
+    "iva_fuente": "IVA 22 % vía OSS no-Unión desde la primera venta [07h §7, B]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 55,
+    "rango": "48-60",
+    "fuente": "07g §6; 07h §3.3 (C); PayPal 24-36 pp sin cubrir"
+   },
+   "escala": {
+    "poblacion_m": 59.1,
+    "fuente": "07h §5.1 (DataReportal, A)"
+   },
+   "sonda_competencia": "516/1.033; crochet 396 [08 §2.3]"
+  },
+  {
+   "codigo": "HUS",
+   "nombre": "Hispanos en EE. UU. (segmento, español)",
+   "idioma": "es",
+   "puntajes_08": {
+    "PA": {
+     "v": 4,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 0,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 4,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 5,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 2,
+   "ajuste_creadores_regla": 2,
+   "ajuste_creadores_justificacion": "+2 está en la regla (solo mención) [08 §2.3]",
+   "base_08": 62,
+   "total_08": 64,
+   "r_publicado_08": 2.39,
+   "equilibrio_conv_publicado_08_pct": 4.2,
+   "economia": {
+    "cpm_usd": 16.08,
+    "cpm_fuente": "07d (CPM EE. UU. 16,08; segmento hispano sin dato propio, 'más barato que el promedio' [HIPÓTESIS]); Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 22,
+    "ticket_fuente": "[HIPÓTESIS] 22 USD [08 §2.1]",
+    "iva": 0.0,
+    "iva_fuente": "Sin IVA federal, nexo estatal [08 §2.3]",
+    "comision_pct": 0.029,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta doméstica",
+    "comision_fuente": "2,9 % + 0,30 USD tarjeta doméstica de EE. UU. [08 §2.1]",
+    "comision_tarjeta_pct": 0.029,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 65,
+    "rango": "s/d",
+    "fuente": "07g §6 (C)"
+   },
+   "escala": {
+    "poblacion_m": 65.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x (población hispana de EE. UU., no audiencia en Meta)"
+   },
+   "sonda_competencia": "862 / 65 'guía PDF en español' [08 §2.3]"
+  },
+  {
+   "codigo": "PL",
+   "nombre": "Polonia",
+   "idioma": "pl",
+   "puntajes_08": {
+    "PA": {
+     "v": 3,
+     "conf": "B"
+    },
+    "CAC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 0,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "0 está en la regla (sin evidencia; 5 videos, 0 lanzamientos) [08 §1.9; 06 §2 P8]",
+   "base_08": 63,
+   "total_08": 63,
+   "r_publicado_08": 1.37,
+   "equilibrio_conv_publicado_08_pct": 3.1,
+   "economia": {
+    "cpm_usd": 5.55,
+    "cpm_fuente": "07b §3.2 [S16]; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 13.2,
+    "ticket_fuente": "49 zł / 3,72 [07h §1,§3.4; 08 §2.1] [HIPÓTESIS]",
+    "iva": 0.23,
+    "iva_fuente": "IVA 23 % vía OSS no-Unión; e-book al 5 % no aplicaría a un PDF de patrones [VERIFICAR] [07h §7; 16 H5]",
+    "comision_pct": 0.044,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "BLIK (1,9 + 1,5 + 1,0 %)",
+    "comision_fuente": "4,4 % + 0,30 USD con BLIK; en tarjeta 5,4 % [07h §3.5; stripe.com/pricing/local-payment-methods; 16 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 0.55
+   },
+   "pagos": {
+    "cobertura_central_pct": 67,
+    "rango": "60-70",
+    "fuente": "07g §6; 07h §3.1 (BLIK 45-55 % en rango de trabajo, C)"
+   },
+   "escala": {
+    "poblacion_m": 38.0,
+    "fuente": "07h §5.1 (DataReportal, A)"
+   },
+   "sonda_competencia": "1.103 PDF; crochet 20; costura 1 [08 §2.3]"
+  },
+  {
+   "codigo": "PT",
+   "nombre": "Portugal (PT-PT)",
+   "idioma": "pt",
+   "puntajes_08": {
+    "PA": {
+     "v": 3,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 2,
+   "ajuste_creadores_regla": 2,
+   "ajuste_creadores_justificacion": "+2 está en la regla (solo mención 'funciona muy bien', sin datos) [08 §2.3; 06 §3]",
+   "base_08": 61,
+   "total_08": 63,
+   "r_publicado_08": 1.28,
+   "equilibrio_conv_publicado_08_pct": 2.6,
+   "economia": {
+    "cpm_usd": 6.02,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "14,90 EUR x 1,16 [08 §2.1] [HIPÓTESIS]",
+    "iva": 0.23,
+    "iva_fuente": "IVA 23 % vía OSS no-Unión [08 §2.3; 07a B.1]",
+    "comision_pct": 0.04,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "MB WAY (1,5 + 2,5 %)",
+    "comision_fuente": "4,0 % + 0,30 USD con MB WAY [07a B.4; recuperada por ajuste de r de 08 §2.3]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 64,
+    "rango": "s/d",
+    "fuente": "07g §6; MB WAY ALTA, Multibanco +~20 pp (C)"
+   },
+   "escala": {
+    "poblacion_m": 10.4,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "339/706; mezcla PT-BR [08 §2.3]"
+  },
+  {
+   "codigo": "BE",
+   "nombre": "Bélgica (NL/FR)",
+   "idioma": "nl/fr",
+   "puntajes_08": {
+    "PA": {
+     "v": 4,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 4,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 0,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "0 está en la regla",
+   "base_08": 60,
+   "total_08": 60,
+   "r_publicado_08": 1.66,
+   "equilibrio_conv_publicado_08_pct": 3.3,
+   "economia": {
+    "cpm_usd": 7.96,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "14,90 EUR x 1,16 [08 §2.1] [HIPÓTESIS]",
+    "iva": 0.21,
+    "iva_fuente": "IVA 21 % vía OSS no-Unión [07a B.1]",
+    "comision_pct": 0.039,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "Bancontact (1,4 + 2,5 %)",
+    "comision_fuente": "3,9 % + 0,30 USD con Bancontact [07a B.4; recuperada por ajuste de r de 08 §2.3]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 65,
+    "rango": "s/d",
+    "fuente": "07g §6; Bancontact ALTA (C)"
+   },
+   "escala": {
+    "poblacion_m": 11.8,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "359 / 36 (NL) [08 §2.3]"
+  },
+  {
+   "codigo": "GR",
+   "nombre": "Grecia",
+   "idioma": "el",
+   "puntajes_08": {
+    "PA": {
+     "v": 2,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 4,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 3,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 0,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "0 está en la regla",
+   "base_08": 60,
+   "total_08": 60,
+   "r_publicado_08": 1.15,
+   "equilibrio_conv_publicado_08_pct": 2.5,
+   "economia": {
+    "cpm_usd": 4.89,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 16.1,
+    "ticket_fuente": "14 EUR x 1,15 = 16,10 USD [07a B.4]; 08 no declara el ticket de GR: 16,1 recupera el r publicado (neto 11,8). [SUPUESTO]",
+    "iva": 0.24,
+    "iva_fuente": "IVA 24 % vía OSS no-Unión; Ley 5317/2026 [07a B.1; 08 §2.3]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 62,
+    "rango": "s/d",
+    "fuente": "07g §6 (C)"
+   },
+   "escala": {
+    "poblacion_m": 10.4,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "274/142; dos páginas dominan [08 §2.3]"
+  },
+  {
+   "codigo": "SE",
+   "nombre": "Suecia",
+   "idioma": "sv",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "B"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 4,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 2,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": -1,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "-1 no está en la regla (16 H2f); 06 §3 dice 'Escandinavia la habrían testeado sin resultado' = no es fracaso explícito (-3) -> 0 [SUPUESTO]",
+   "base_08": 57,
+   "total_08": 56,
+   "r_publicado_08": 1.79,
+   "equilibrio_conv_publicado_08_pct": 3.6,
+   "economia": {
+    "cpm_usd": 8.12,
+    "cpm_fuente": "07b §3.2 [S16]; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa (lista de seis países: GB 2 %, FR/IT/ES 3 %, AT/TR 5 %) [16 §2.1; mediapost 2026; B]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "14,90 EUR x 1,16 [08 §2.1] [HIPÓTESIS]",
+    "iva": 0.25,
+    "iva_fuente": "IVA 25 % vía OSS no-Unión [08 §2.3]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 48,
+    "rango": "s/d",
+    "fuente": "07g §6; Swish inaccesible (C)"
+   },
+   "escala": {
+    "poblacion_m": 10.6,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "24/9 [08 §2.3]"
+  },
+  {
+   "codigo": "ES",
+   "nombre": "España",
+   "idioma": "es",
+   "puntajes_08": {
+    "PA": {
+     "v": 3,
+     "conf": "C"
+    },
+    "CAC": {
+     "v": 3,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 1,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 3,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 2,
+     "conf": "B"
+    },
+    "LOC": {
+     "v": 4,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 0,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "0 está en la regla",
+   "base_08": 55,
+   "total_08": 55,
+   "r_publicado_08": 1.46,
+   "equilibrio_conv_publicado_08_pct": 2.9,
+   "economia": {
+    "cpm_usd": 6.65,
+    "cpm_fuente": "07a B.3; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.03,
+    "tarifa_meta_fuente": "Tarifa de ubicación de Meta 3 % [16 §2.1; 07h §5.2; B]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "14,90 EUR x 1,16 [08 §2.1] [HIPÓTESIS]",
+    "iva": 0.21,
+    "iva_fuente": "IVA 21 % vía OSS no-Unión; art. 105 reembolso íntegro si se informa mal [08 §2.3]",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 50,
+    "rango": "s/d",
+    "fuente": "07g §6; Bizum activable (C)"
+   },
+   "escala": {
+    "poblacion_m": 48.6,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "447/1.658 [08 §2.3]"
+  },
+  {
+   "codigo": "CH",
+   "nombre": "Suiza",
+   "idioma": "de/fr/it",
+   "puntajes_08": {
+    "PA": {
+     "v": 5,
+     "conf": "A"
+    },
+    "CAC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "COMP": {
+     "v": 2,
+     "conf": "C"
+    },
+    "PAGO": {
+     "v": 2,
+     "conf": "C"
+    },
+    "FISC": {
+     "v": 3,
+     "conf": "A"
+    },
+    "LOC": {
+     "v": 2,
+     "conf": "C"
+    },
+    "FRAUD": {
+     "v": 3,
+     "conf": "C"
+    }
+   },
+   "ajuste_creadores_08": 0,
+   "ajuste_creadores_regla": 0,
+   "ajuste_creadores_justificacion": "0 está en la regla",
+   "base_08": 54,
+   "total_08": 54,
+   "r_publicado_08": 1.5,
+   "equilibrio_conv_publicado_08_pct": 2.9,
+   "economia": {
+    "cpm_usd": 8.4,
+    "cpm_fuente": "07b §3.2 [S16]; Lebesgue 2026-07-27, sin metodología (C)",
+    "tarifa_meta": 0.0,
+    "tarifa_meta_fuente": "Sin tarifa [08 §2.3]",
+    "ticket_usd": 17.3,
+    "ticket_fuente": "[HIPÓTESIS] 14,90 EUR x 1,16 [08 §2.1]; 08 §2.3 no lo declara",
+    "iva": 0.081,
+    "iva_fuente": "IVA 8,1 % [07b S28, B]; umbral global 100.000 CHF y representante fiscal. 08 §2.3 publica r = 1,50 y equilibrio 2,9 %: con IVA 8,1 % el cálculo da r = 1,58 y 3,2 %; sin IVA da r = 1,45 y 2,9 %. Ver inconsistencia de Suiza.",
+    "comision_pct": 0.054,
+    "comision_fijo_usd": 0.3,
+    "comision_metodo": "tarjeta",
+    "comision_fuente": "5,4 % + 0,30 USD tarjeta no estadounidense (2,9 + 1,5 + 1,0) [03 §4.3; 07e §1.2; 08 §2.1]",
+    "comision_tarjeta_pct": 0.054,
+    "participacion_disputa_tarjeta": 1.0
+   },
+   "pagos": {
+    "cobertura_central_pct": 45,
+    "rango": "s/d",
+    "fuente": "07g §6; TWINT inaccesible (C)"
+   },
+   "escala": {
+    "poblacion_m": 9.0,
+    "fuente": "[VERIFICAR] cifra aproximada de conocimiento general, no leída en 07x"
+   },
+   "sonda_competencia": "551/170 [08 §2.3]"
+  }
+ ],
+ "fuera_top15_08": {
+  "_fuente": "08 §2.2 'Fuera del top 15': solo se publicó el total, sin desglose; el programa no puede recalcularlos.",
+  "totales": {
+   "Austria": 54,
+   "Francia": 51,
+   "Chequia": 51,
+   "Rumania": 49,
+   "México": 49,
+   "Brasil": 49,
+   "Hungría": 47,
+   "Países Bajos": 40,
+   "Alemania": 36
+  }
+ }
+}

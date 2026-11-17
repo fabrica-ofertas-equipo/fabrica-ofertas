@@ -1,0 +1,67 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D02-rechazos-con-motivo",
+  "estado": "ejecutable_hoy (los de código) + criterio del QA (los de encuadre)",
+  "descripcion": "Seis rechazos con motivo. Ninguno crea nada. El agente responde el motivo canónico y la redención, sin bloquear por el tema solo.",
+  "entrada": {
+    "casos": [
+      {
+        "caso": "cura-natural-diabetes",
+        "entrada": "Candidato «cura natural de la diabetes».",
+        "motivo": "claim_de_salud_o_ingresos (promesa de cura = ROJO por promesa y contenido)",
+        "resultado": "no se redacta brief; B21_ROJO (salida 3) si llega a validarse",
+        "verificable_con": "scripts/test_validar_brief.py::test_candidato_rojo_sale_3"
+      },
+      {
+        "caso": "gana-500-con-velas",
+        "entrada": "Candidato «ganá USD 500 con velas».",
+        "motivo": "claim_de_salud_o_ingresos (promesa de ingresos con cifra = ROJO por promesa; el macro-nicho dinero es válido, el claim no)",
+        "resultado": "no se redacta brief; redención: reencuadrar sin cifra de ingresos (p. ej. hoja de costeo y precio mínimo, caso D01) y que D1 lo re-evalúe",
+        "verificable_con": "scripts/test_validar_brief.py::test_candidato_rojo_sale_3"
+      },
+      {
+        "caso": "recetas-freidora",
+        "entrada": "Candidato «recetas con freidora de aire».",
+        "motivo": "fuera_de_macro_nicho (el deseo central no es salud, relaciones ni dinero)",
+        "resultado": "no se redacta brief; B22_MACRO_NICHO (salida 3)",
+        "verificable_con": "scripts/test_validar_brief.py::test_candidato_fuera_de_macro_nicho_del_brief_sale_3"
+      },
+      {
+        "caso": "presupuesto-sobre-el-tope",
+        "entrada": "test_total_max = gasto_total_test_por_oferta + 1.",
+        "motivo": "tope excedido (el brief solo restringe)",
+        "resultado": "B11_TOPES, salida 5; no crea nada",
+        "verificable_con": "scripts/test_validar_brief.py::test_s1_total_sobre_el_tope_sale_5"
+      },
+      {
+        "caso": "total-bajo-el-minimo-del-mercado",
+        "entrada": "test_total_max < economia.presupuesto_test_min del mercado.",
+        "motivo": "MAYOR: la oferta solo podría morir, no validarse (validarla exige reconocimiento firmado)",
+        "resultado": "B30_PRESUPUESTO_MIN con --presupuesto-test-min, salida 5",
+        "verificable_con": "scripts/test_validar_brief.py::test_presupuesto_minimo_del_mercado"
+      },
+      {
+        "caso": "locale-no-permitido",
+        "entrada": "locale fr-FR no incluido en limites.locales_permitidos.",
+        "motivo": "locale fuera de lo permitido",
+        "resultado": "B13_LOCALE y B13_PAIS, salida 5",
+        "verificable_con": "scripts/test_validar_brief.py::test_s15_locale_no_permitido_sale_5"
+      }
+    ]
+  },
+  "salida_esperada": {
+    "propiedades": [
+      "motivo canónico o código B** correcto",
+      "no redacta un brief aprobable",
+      "ofrece la redención cuando existe (reencuadre, bajar el techo, ampliar la lista solo el dueño)",
+      "no cita números: cita claves"
+    ]
+  },
+  "verificacion": {
+    "comando": ".venv/bin/python .claude/skills/o0-orquestador-portafolio/scripts/test_validar_brief.py",
+    "salida_codigo": 0
+  },
+  "sin_skill_esperado": "acepta ‘ganá USD 500’ por ser dinero, o rechaza «velas» por el tema"
+}

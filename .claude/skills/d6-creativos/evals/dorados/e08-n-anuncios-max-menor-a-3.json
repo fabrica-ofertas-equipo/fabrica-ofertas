@@ -1,0 +1,33 @@
+{
+  "caso_id": "e08",
+  "titulo": "n_anuncios_max < 3: no genera",
+  "tipo": "maker",
+  "macro_nicho": "dinero",
+  "locale": "es-ES",
+  "entrada": {
+    "oferta": "ofertas/_ejemplo (OF-202611-01)",
+    "economia": {
+      "gasto_test_plan": {
+        "monto": 6000,
+        "moneda": "EUR"
+      },
+      "cpa_obj": {
+        "monto": 1098,
+        "moneda": "EUR"
+      }
+    },
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "calculo": "floor(6000 / (3 × 1098)) = 1; min(creativos.n_anuncios_max, campana.n_anuncios_tope, 1) = 1 < campana.n_anuncios_min",
+    "decision": "se detiene sin generar guiones, copies ni piezas",
+    "mensaje": "qué cambiar: subir gasto_test_plan (dueño/D3), bajar cpa_obj (D3) o rediseñar la oferta; el esquema exige ≥3 anuncios y ≥3 conceptos",
+    "comando": "validar_d6.py nmax sale 3 con el hallazgo D6-N01 no-generar",
+    "artefactos": "solo el brief con el cálculo; no hay paquete.json"
+  },
+  "aprobacion": [
+    "0 piezas, 0 copies, 0 créditos",
+    "el mensaje cita el cálculo y las tres salidas",
+    "no baja el mínimo ni «hace 2 anuncios igual»"
+  ]
+}

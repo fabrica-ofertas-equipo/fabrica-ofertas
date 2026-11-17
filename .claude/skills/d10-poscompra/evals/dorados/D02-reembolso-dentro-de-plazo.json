@@ -1,0 +1,69 @@
+{
+  "id": "D02",
+  "tipo": "dorado",
+  "capa": "qa-l3",
+  "auto": "orden_y_respuesta",
+  "descripcion": "Petición de reembolso a los 6 días de una garantía de 30: el Maker redacta la respuesta con el PROCEDIMIENTO PROMETIDO (cita literal de oferta.garantia.texto_visible: misma vía de pago, sin pedir motivo) y emite una ORDEN al código (reembolsar / dentro_de_garantia). No fija montos ni ejecuta; la respuesta que afirma el reembolso solo sale cuando el código acepta la orden; si la rechaza (disputa abierta, tope, PAUSA, método), sale la alternativa y el caso pasa a la cola humana.",
+  "entrada": {
+    "mensaje": {
+      "mensaje_ref": "MSG-20261120-0007",
+      "canal": "correo",
+      "idioma": "pl",
+      "texto": "Dzień dobry, kupiłem materiały 6 dni temu (zamówienie ENT-0eaabe56fc94) i jednak to nie dla mnie. Poproszę o zwrot pieniędzy."
+    },
+    "hechos_del_codigo": {
+      "checkout_session_id": "cs_test_ejemplo0001",
+      "dias_desde_compra": 6,
+      "garantia_dias": 30,
+      "dentro_garantia": true,
+      "disputa_abierta": false,
+      "metodo_pago": "card",
+      "lineas": [
+        "principal",
+        "bump"
+      ],
+      "reembolsos_previos_mismo_comprador": 0,
+      "pausa_global": false
+    },
+    "oferta": {
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "bump": {
+        "id": "zestaw-fiszek"
+      },
+      "garantia": {
+        "dias": 30,
+        "texto_visible": "Jeśli to nie dla Ciebie, możesz poprosić o zwrot płatności w ciągu 30 dni od zakupu. Wystarczy napisać wiadomość na adres kontaktowy ze strony zakupu i podać numer zamówienia; zwrot wraca na tę samą metodę płatności, a powodu podawać nie trzeba."
+      }
+    }
+  },
+  "esperado": {
+    "categoria": "C5",
+    "orden": {
+      "accion": "reembolsar",
+      "checkout_session_id": "cs_test_ejemplo0001",
+      "motivo": "dentro_de_garantia",
+      "categoria": "C5",
+      "mensaje_ref": "MSG-20261120-0007",
+      "nota": "Pide la devolución a los 6 días; el código comprueba garantía, disputa y topes."
+    },
+    "la_respuesta": [
+      "está en polaco",
+      "cita literal la garantía publicada",
+      "dice que vuelve a la misma vía de pago",
+      "no pide motivo como condición (puede invitar a contarlo, sin condicionar)",
+      "no promete fecha ni monto que no entregó el código",
+      "firma con el nombre de la marca, no con un nombre de persona inventado",
+      "no intenta disuadir ni ofrece algo a cambio de no pedir el reembolso"
+    ],
+    "senales_propias": "≤ 200 caracteres, sin datos personales: «pide reembolso a los 6 días: ‘no es para mí’»"
+  },
+  "respuesta_dorada": {
+    "si_orden_aceptada": "Dzień dobry,\n\ndziękujemy za wiadomość. Zgodnie z tym, co obiecaliśmy na stronie zakupu („Jeśli to nie dla Ciebie, możesz poprosić o zwrot płatności w ciągu 30 dni od zakupu. Wystarczy napisać wiadomość na adres kontaktowy ze strony zakupu i podać numer zamówienia; zwrot wraca na tę samą metodę płatności, a powodu podawać nie trzeba.”), zleciliśmy zwrot płatności za zamówienie ENT-0eaabe56fc94. Pieniądze wrócą na tę samą metodę płatności, której użyto przy zakupie; potwierdzenie dostaniesz osobnym e-mailem.\n\nNie musisz nic więcej robić ani podawać powodu. Jeśli chcesz, napisz, co nie zadziałało – pomoże nam to poprawić materiały, ale nie jest warunkiem zwrotu.\n\nZespół Słowomapa",
+    "si_orden_rechazada": "Dzień dobry,\n\ndziękujemy za wiadomość. Twoją prośbę o zwrot za zamówienie ENT-0eaabe56fc94 przekazaliśmy do ręcznego sprawdzenia przez osobę z zespołu; odpiszemy w ciągu 24 godzin.\n\nZespół Słowomapa"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "debe_citar_evidencia": "la orden validada y la cita literal de la garantía"
+  }
+}

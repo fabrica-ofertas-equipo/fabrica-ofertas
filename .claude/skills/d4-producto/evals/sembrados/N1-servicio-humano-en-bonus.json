@@ -1,0 +1,26 @@
+{
+  "id": "N1",
+  "dorado_base": "D4-01",
+  "obligatorio_100pct": false,
+  "mutacion": {
+    "archivos": [
+      "03-oferta/oferta.json (copia de prueba)",
+      "04-producto/producto.json"
+    ],
+    "cambio": "bonus nuevo {id: sesion, descripcion: 'Sessione individuale 1:1 di 30 minuti'} con ítem y fila de matriz"
+  },
+  "detectores_deterministas": [
+    "cobertura_matriz.py → servicio-oculto (BLOQUEANTE, L1-14)",
+    "lint_contenido.py → servicio-oculto"
+  ],
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-14",
+      "patron_clave": "servicio-oculto",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4"
+    },
+    "verificacion.json": "eu.resultado devuelve; rechazo.motivo requiere_servicio; destino D3",
+    "veredicto": "FAIL"
+  }
+}

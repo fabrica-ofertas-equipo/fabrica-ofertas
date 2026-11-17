@@ -1,0 +1,61 @@
+# Copia de pruebas de los topes de la ruta D (independiente de la propuesta: las pruebas no deben cambiar si se recalibra).
+schema_version: "1.0.0"
+version: 1
+grupos:
+  ruta_d:
+    ruta_d_max_desplazamientos_por_busqueda:
+      valor: 5
+      unidad: desplazamientos
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [1, 30]
+    ruta_d_max_busquedas_por_dia:
+      valor: 3
+      unidad: busquedas
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [1, 20]
+    ruta_d_max_anuncios_por_busqueda:
+      valor: 12
+      unidad: anuncios
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [5, 1000]
+    ruta_d_espera_desplazamiento_ms:
+      valor: 3000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [1000, 15000]
+    ruta_d_desplazamientos_sin_nuevos_max:
+      valor: 1
+      unidad: desplazamientos
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [1, 3]
+    ruta_d_dom_max_caracteres:
+      valor: 2000000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [1000000, 100000000]
+    ruta_d_texto_anuncio_max_caracteres:
+      valor: 600
+      unidad: caracteres
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [100, 10000]
+    ruta_d_campo_corto_max_caracteres:
+      valor: 120
+      unidad: caracteres
+      hipotesis: true
+      fuente: "prueba"
+      ultima_calibracion: null
+      rango: [50, 1000]

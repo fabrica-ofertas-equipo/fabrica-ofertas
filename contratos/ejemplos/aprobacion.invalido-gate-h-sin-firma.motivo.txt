@@ -1,0 +1,3 @@
+validador=type
+ruta=/aprobado_por/firma
+texto=un gate H exige la firma del dueño

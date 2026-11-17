@@ -1,0 +1,64 @@
+{
+  "caso_id": "e06",
+  "titulo": "Otro idioma: la misma oferta de costeo en it-IT y pl-PL, texto reescrito (no traducido)",
+  "tipo": "maker",
+  "macro_nicho": "dinero",
+  "locale": [
+    "it-IT",
+    "pl-PL"
+  ],
+  "entrada": {
+    "oferta_base": "e01 (hoja de costeo y precio mínimo para quien vende manualidades)",
+    "mercados": {
+      "it-IT": {
+        "moneda_cobro": "EUR",
+        "precio": {
+          "monto": 1490,
+          "moneda": "EUR"
+        },
+        "revision_linguistica": {
+          "revisor_nativo": false
+        }
+      },
+      "pl-PL": {
+        "moneda_cobro": "PLN",
+        "precio": {
+          "monto": 4900,
+          "moneda": "PLN"
+        },
+        "revision_linguistica": {
+          "revisor_nativo": false,
+          "obligacion_legal_idioma": true
+        }
+      }
+    },
+    "pedido": "dos paquetes (dos oferta_id hermanas de una misma familia)"
+  },
+  "salida_esperada": {
+    "texto": "cada paquete escrito desde la motivación local (voz_cliente del idioma, glosario, ejemplos del país); ningún texto es traducción de es-AR ni del otro idioma; retraducción y segunda lectura con otro modelo",
+    "ejemplos_aprobables": {
+      "it-IT": "Modello Excel per costi, prezzo e margine",
+      "pl-PL": "Arkusz: koszt, cena minimalna i marża w jednej tabeli"
+    },
+    "formato": {
+      "it-IT": "14,90 €",
+      "pl-PL": "49 zł (o 49,00 zł)"
+    },
+    "revisor": "J11: ningún idioma exige revisor nativo; pl-PL con obligacion_legal_idioma y revisor_nativo=false NO es ROJO ni detiene el paquete (la obligación se cumple escribiendo en polaco); la calidad del idioma la dan las 5 capas de linguistico.json (glosario y dossier, lint, retraducción, segunda lectura de otro modelo, cobertura contra el dossier)",
+    "familia": "X1 revalida claims por jurisdicción; no se reutilizan assets con texto ni el dataset; un hook ganador del otro idioma es solo hipótesis",
+    "lint": "lint_claims falla cerrado en it-IT y pl-PL (sin reglas): se declara [PENDIENTE] y se revisa a mano con la lista de idioma"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia",
+    "copies.idioma == locale en cada paquete",
+    "caracteres (ł, ż, ś, à, è) intactos",
+    "linguistico.json con las 5 capas"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "ventana_h": 72,
+  "medido_en": "2026-11-13T09:00:00Z",
+  "campana": {
+    "campaign_id": "120000000000001",
+    "effective_status": "ACTIVE"
+  },
+  "anuncios": [
+    {
+      "ad_id": "120000000000003",
+      "effective_status": "ACTIVE",
+      "rechazado": false
+    },
+    {
+      "ad_id": "120000000000004",
+      "effective_status": "ACTIVE",
+      "rechazado": false
+    },
+    {
+      "ad_id": "120000000000005",
+      "effective_status": "ACTIVE",
+      "rechazado": false
+    },
+    {
+      "ad_id": "120000000000006",
+      "effective_status": "ACTIVE",
+      "rechazado": false
+    },
+    {
+      "ad_id": "120000000000007",
+      "effective_status": "ACTIVE",
+      "rechazado": false
+    }
+  ],
+  "gasto": {
+    "real": {
+      "monto": 8100,
+      "moneda": "EUR"
+    },
+    "esperado": {
+      "monto": 8280,
+      "moneda": "EUR"
+    }
+  },
+  "estado_aprendizaje": "LEARNING",
+  "rechazos_7d": 0,
+  "adid_capturado_bp": 9800,
+  "clics_enlace": 420,
+  "vistas_landing": 330,
+  "anomalias": [
+    "gasto-sin-clics"
+  ],
+  "lanzamiento_estable": true
+}

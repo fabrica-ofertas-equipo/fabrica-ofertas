@@ -1,0 +1,81 @@
+{
+  "caso_id": "e05",
+  "titulo": "Amarillo-A: cuaderno de duelo (o calendario de impuestos): RHS y bloque de ayuda",
+  "tipo": "maker",
+  "macro_nicho": "relaciones",
+  "locale": "es-ES",
+  "entrada": {
+    "oferta": {
+      "nombre_producto": "Cuaderno para el recuerdo (21 hojas)",
+      "riesgo": {
+        "P": "verde",
+        "C": "amarillo",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "amarillo"
+      },
+      "subnivel_calculado": "A (un solo eje amarillo: C2)",
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-21-hojas",
+          "texto": "Incluye 21 hojas imprimibles para escribir"
+        },
+        {
+          "claim_id": "no-es-terapia",
+          "texto": "Es un cuaderno de escritura; no es terapia"
+        }
+      ],
+      "claims_prohibidos": [
+        "superar el duelo",
+        "sanar",
+        "en 21 días"
+      ],
+      "precio": {
+        "monto": 1190,
+        "moneda": "EUR"
+      },
+      "angulos": [
+        "hojas-para-escribir",
+        "un-recuerdo-por-hoja",
+        "cuaderno-imprimible"
+      ]
+    },
+    "economia": {
+      "gasto_test_plan": {
+        "monto": 27600,
+        "moneda": "EUR"
+      },
+      "cpa_obj": {
+        "monto": 1098,
+        "moneda": "EUR"
+      }
+    },
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "marcas": "el paquete marca RHS (revisión humana de seguridad) de la primera pieza de cada ángulo nuevo y gate H del dueño del país × macro-nicho × nivel; espera",
+    "hooks": "herramienta o producto, sin condición del lector ni gancho de duelo: «Un cuaderno de 21 hojas con una pregunta por hoja.»",
+    "textos_que_no_deben_aparecer": [
+      "¿Has perdido a alguien?",
+      "tu dolor",
+      "superar",
+      "sanar",
+      "terapia",
+      "en 21 días"
+    ],
+    "avisos": "«Cuaderno de escritura; no es terapia ni sustituye ayuda profesional» + bloque de ayuda del país si `ayuda_por_pais.yaml` existe; si no, [PENDIENTE] y no avanza a Fase 2",
+    "presupuesto_cuenta": "el paquete declara que es amarillo para que X1/D7 apliquen la cuota de gasto (`limites.cuota_gasto_amarillo_max_pct` [PENDIENTE])"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia",
+    "RHS marcada para cada ángulo nuevo",
+    "ningún gancho de duelo, ruptura, abuso ni deuda"
+  ]
+}

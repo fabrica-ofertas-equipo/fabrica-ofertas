@@ -1,0 +1,31 @@
+{
+  "sintetico": true,
+  "fuente": "Forma modelada sobre la respuesta real de la Graph API de Meta (level=ad, time_increment=1, campos spend/impressions/clicks/inline_link_clicks/actions; https://developers.facebook.com/docs/marketing-api/insights, leído 2026-11-06). Sin captura real: esta sesión no tiene conector de Meta ni red. Valores de spend/impresiones/clics de 2026-11-11 elegidos para coincidir con ofertas/_ejemplo/08-operacion/diario/2026-11-11/kpi_oferta_dia.json (gasto_meta 2760, impresiones 6133, clics_enlace 98, 1 compra).",
+  "cuenta": {
+    "account_id": "123456789012345",
+    "timezone_name": "Europe/Madrid",
+    "currency": "EUR"
+  },
+  "filas": [
+    {"date_start": "2026-11-10", "date_stop": "2026-11-10", "ad_id": "120210000000101", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "2.00", "impressions": "400", "clicks": "9", "inline_link_clicks": "6"},
+    {"date_start": "2026-11-10", "date_stop": "2026-11-10", "ad_id": "120210000000102", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "2.00", "impressions": "400", "clicks": "9", "inline_link_clicks": "6"},
+    {"date_start": "2026-11-10", "date_stop": "2026-11-10", "ad_id": "120210000000103", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "1.80", "impressions": "350", "clicks": "8", "inline_link_clicks": "5"},
+    {"date_start": "2026-11-10", "date_stop": "2026-11-10", "ad_id": "120210000000104", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "1.70", "impressions": "350", "clicks": "7", "inline_link_clicks": "4"},
+    {"date_start": "2026-11-10", "date_stop": "2026-11-10", "ad_id": "120210000000105", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "1.50", "impressions": "300", "clicks": "7", "inline_link_clicks": "4"},
+
+    {"date_start": "2026-11-11", "date_stop": "2026-11-11", "ad_id": "120210000000101", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "5.90", "impressions": "1300", "clicks": "32", "inline_link_clicks": "21"},
+    {"date_start": "2026-11-11", "date_stop": "2026-11-11", "ad_id": "120210000000102", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "5.90", "impressions": "1300", "clicks": "32", "inline_link_clicks": "21"},
+    {"date_start": "2026-11-11", "date_stop": "2026-11-11", "ad_id": "120210000000103", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "5.65", "impressions": "1250", "clicks": "30", "inline_link_clicks": "20",
+     "actions": [{"action_type": "offsite_conversion.fb_pixel_purchase", "value": "1"}]},
+    {"date_start": "2026-11-11", "date_stop": "2026-11-11", "ad_id": "120210000000104", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "5.40", "impressions": "1200", "clicks": "29", "inline_link_clicks": "19"},
+    {"date_start": "2026-11-11", "date_stop": "2026-11-11", "ad_id": "120210000000105", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "4.75", "impressions": "1083", "clicks": "27", "inline_link_clicks": "17"},
+
+    {"date_start": "2026-11-12", "date_stop": "2026-11-12", "ad_id": "120210000000101", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "9.00", "impressions": "1800", "clicks": "42", "inline_link_clicks": "30",
+     "actions": [{"action_type": "offsite_conversion.fb_pixel_purchase", "value": "1"}]},
+    {"date_start": "2026-11-12", "date_stop": "2026-11-12", "ad_id": "120210000000102", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "8.80", "impressions": "1750", "clicks": "41", "inline_link_clicks": "29"},
+    {"date_start": "2026-11-12", "date_stop": "2026-11-12", "ad_id": "120210000000103", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "8.50", "impressions": "1700", "clicks": "40", "inline_link_clicks": "28"},
+    {"date_start": "2026-11-12", "date_stop": "2026-11-12", "ad_id": "120210000000104", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "8.20", "impressions": "1650", "clicks": "39", "inline_link_clicks": "27",
+     "actions": [{"action_type": "offsite_conversion.fb_pixel_purchase", "value": "1"}]},
+    {"date_start": "2026-11-12", "date_stop": "2026-11-12", "ad_id": "120210000000105", "adset_id": "120210000000011", "campaign_id": "120210000000001", "spend": "7.50", "impressions": "1600", "clicks": "38", "inline_link_clicks": "26"}
+  ]
+}

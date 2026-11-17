@@ -1,0 +1,1489 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/propuestos/d5-copy.schema.json",
+  "title": "copy.json de D5 (PROPUESTA de la skill d5-landing-checkout)",
+  "description": "Contrato de entrada del generador mejorado de landings: un campo por bloque del plano de secciones. Los importes, días de garantía, tiempos y plazos NO se escriben: se usan placeholders {precio}, {precio_bump}, {moneda}, {garantia_dias}, {tiempo_min}, {marca}, {producto}, {bump_nombre}, {bump_descripcion}, {vence_dias}, {max_descargas}, {n:<id>}, {paginas:<id>}, {formato:<id>}, {ia_divulgacion}, {ayuda_pais} (de ayuda_por_pais.yaml, nunca escrito a mano), que expande el generador desde oferta.json, checkout.json y producto.json. Límites de longitud: references/copy-por-seccion.md (los aplica scripts/lint_copy.py como MENOR). Estado: PROPUESTA, no normativa hasta que A0 la integre en contratos/ (ver references/dependencias.md). 0.2.0 (aditiva: todo lo nuevo es opcional y un copy 0.1.x sigue siendo válido): `estructura` (plano `referente` o `clasica`), `barra_superior`, `==palabra==` para resaltar en cualquier texto, S15 (cómo lo recibes) y S16 (comparación con el mercado: cifras con fuente y fecha, como enteros en unidad menor), y campos de apoyo en S02, S04, S06, S07, S08 y S09. Con `schema_version` ≥ 0.2.0 y sin `estructura`, el plano es el del referente (landing/contenido.plano_de). Datos REALES (valoración, ventas, descargas de la muestra) NO van aquí: los produce código en 05-landing/prueba_social_real.json.",
+  "x-version": "0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$"
+    },
+    "oferta_id": {
+      "type": "string",
+      "pattern": "^OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[0-9]+$"
+    },
+    "origen_version": {
+      "enum": [
+        "maker",
+        "qa",
+        "humano"
+      ]
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Z][A-Za-z0-9]{1,7})?$"
+    },
+    "moneda": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "tono": {
+      "type": "object",
+      "properties": {
+        "persona": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Forma de tratamiento del locale (tu, vos, usted, ty, du, vous, you...)."
+        },
+        "registro": {
+          "enum": [
+            "informal",
+            "formal"
+          ]
+        },
+        "glosario_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nota": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "persona",
+        "registro",
+        "glosario_ref"
+      ],
+      "description": "Tono del locale (de empresa/mercados/glosarios/<locale>.md cuando exista)."
+    },
+    "contexto_riesgo": {
+      "type": "object",
+      "properties": {
+        "macro_nicho": {
+          "enum": [
+            "salud",
+            "relaciones",
+            "dinero",
+            "habilidades_hobbies"
+          ],
+          "description": "Los 4 macro-nichos estándar (J6/J9, 2026-11-06): habilidades_hobbies (instrumentos, cocina, plantas, manualidades, deportes, oficios) sin promesa de ingresos ni de salud. Hasta que S-A lo agregue a contratos/comunes.schema.json, oferta.json puede no admitirlo (F-45)."
+        },
+        "nivel": {
+          "enum": [
+            "verde",
+            "amarillo-a",
+            "amarillo-b"
+          ]
+        },
+        "tema_vigilado": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conflicto_pareja_familia": {
+          "type": "boolean"
+        },
+        "hero_reformulado": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "angulo_id": {
+                "$ref": "#/$defs/id"
+              },
+              "hook_original": {
+                "$ref": "#/$defs/texto"
+              },
+              "motivo": {
+                "$ref": "#/$defs/texto"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "angulo_id",
+              "hook_original",
+              "motivo"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "macro_nicho",
+        "nivel",
+        "tema_vigilado",
+        "conflicto_pareja_familia"
+      ],
+      "description": "Copiado de oferta.riesgo por el Maker; el nivel rojo no llega aquí (prechequeo lo bloquea)."
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/texto"
+        },
+        "description": {
+          "$ref": "#/$defs/texto"
+        },
+        "og_title": {
+          "$ref": "#/$defs/texto"
+        },
+        "og_description": {
+          "$ref": "#/$defs/texto"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "description",
+        "og_title",
+        "og_description"
+      ],
+      "description": "Datos públicos: neutros (C16), sin términos de salud/deuda."
+    },
+    "cifras_con_traza": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "valor": {
+            "type": "string"
+          },
+          "unidad": {
+            "type": "string"
+          },
+          "traza": {
+            "$ref": "#/$defs/texto",
+            "description": "Ruta#campo del contrato que contiene la cifra (producto.json u oferta.json)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "valor",
+          "unidad",
+          "traza"
+        ]
+      }
+    },
+    "cta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "texto": {
+            "$ref": "#/$defs/texto"
+          },
+          "usos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "texto",
+          "usos"
+        ]
+      },
+      "minItems": 2
+    },
+    "secciones": {
+      "type": "object",
+      "properties": {
+        "S01": {
+          "type": "object",
+          "properties": {
+            "kicker": {
+              "$ref": "#/$defs/texto",
+              "description": "Etiqueta sobre el titular: qué es el producto (formato + tema neutro), en tercera persona."
+            },
+            "h1": {
+              "$ref": "#/$defs/texto",
+              "description": "Titular. Sin pregunta ni atributo del lector (E ≤ E1). Puede reformular el hook del ángulo; mismo claim_id."
+            },
+            "h1_resaltado": {
+              "$ref": "#/$defs/texto",
+              "description": "Tramo destacado del titular (segunda línea)."
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto",
+              "description": "Promesa + diferencial, solo con claims_permitidos de oferta.json."
+            },
+            "pills": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 3
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            },
+            "microcopy": {
+              "$ref": "#/$defs/texto",
+              "description": "Garantía · pago · entrega; con placeholders {garantia_dias}."
+            },
+            "imagen_ref": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "kicker",
+            "h1",
+            "subtitulo",
+            "pills",
+            "cta_ref",
+            "microcopy",
+            "imagen_ref"
+          ],
+          "description": "Hero (S01). Nunca se omite."
+        },
+        "S02": {
+          "type": "object",
+          "properties": {
+            "cifras": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "valor": {
+                    "$ref": "#/$defs/texto",
+                    "description": "Número o placeholder: {tiempo_min}, {n:paquete}, {n:<item_id>}, {paginas:<item_id>}; si es literal, declararlo en cifras_con_traza."
+                  },
+                  "etiqueta": {
+                    "$ref": "#/$defs/texto"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "valor",
+                  "etiqueta"
+                ]
+              },
+              "minItems": 3
+            },
+            "beneficios": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "icono": {
+                    "$ref": "#/$defs/icono"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "titulo",
+                  "texto"
+                ]
+              },
+              "minItems": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "cifras",
+            "beneficios"
+          ],
+          "description": "Cifras del contenido y beneficios (S02). Omisible si la cifra no tiene traza."
+        },
+        "S03": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "dolores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "texto": {
+                    "$ref": "#/$defs/texto",
+                    "description": "Dolor parafraseado, sin comillas ni atributo del lector."
+                  },
+                  "fuente_ref": {
+                    "$ref": "#/$defs/texto",
+                    "description": "Ruta#campo de la voz del cliente: validacion.json u oferta.avatar."
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "texto",
+                  "fuente_ref"
+                ]
+              },
+              "minItems": 3
+            },
+            "reencuadre": {
+              "$ref": "#/$defs/texto"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "dolores",
+            "reencuadre"
+          ],
+          "description": "Problema (S03). Sin investigación de dolor: bloquea, no se omite."
+        },
+        "S04": {
+          "type": "object",
+          "properties": {
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "pies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "imagen_ref": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "imagen_ref",
+                  "texto"
+                ]
+              },
+              "minItems": 1
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "kicker",
+            "titulo",
+            "pies"
+          ],
+          "description": "Muestra real del entregable (S04). Omisible sin captura real aprobada."
+        },
+        "S05": {
+          "type": "object",
+          "properties": {
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "nombre": {
+              "$ref": "#/$defs/texto",
+              "description": "Nombre del mecanismo (2-6 palabras) tal como en oferta.mecanismo.nombre."
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "como_funciona": {
+              "$ref": "#/$defs/texto",
+              "description": "Verbatim de oferta.mecanismo.como_funciona salvo recorte."
+            },
+            "de_a_b": {
+              "$ref": "#/$defs/texto"
+            },
+            "etiquetas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "kicker",
+            "nombre",
+            "como_funciona",
+            "de_a_b",
+            "etiquetas"
+          ],
+          "description": "Mecanismo único (S05)."
+        },
+        "S06": {
+          "type": "object",
+          "properties": {
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "modulos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "item_ref": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "icono": {
+                    "$ref": "#/$defs/icono"
+                  },
+                  "etiqueta": {
+                    "$ref": "#/$defs/texto",
+                    "description": "Rótulo corto del nivel (p. ej. «16 mapas»); la cifra debe venir de {n:…} o de cifras_con_traza."
+                  },
+                  "temas": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/texto"
+                    },
+                    "maxItems": 8,
+                    "description": "Temas del nivel: se muestran al abrir el nivel (selector <details>, sin JavaScript)."
+                  },
+                  "categorias": {
+                    "type": "array",
+                    "maxItems": 6,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "titulo": {
+                          "$ref": "#/$defs/texto"
+                        },
+                        "texto": {
+                          "$ref": "#/$defs/texto"
+                        },
+                        "temas": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/$defs/texto"
+                          },
+                          "maxItems": 10
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "titulo"
+                      ]
+                    },
+                    "description": "Categorías del panel del nivel (título, descripción corta y temas); sin ellas se muestran `temas`."
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "titulo",
+                  "texto",
+                  "item_ref"
+                ]
+              },
+              "minItems": 1
+            },
+            "checklist": {
+              "type": "object",
+              "properties": {
+                "titulo": {
+                  "$ref": "#/$defs/texto"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "minItems": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "titulo",
+                "items"
+              ]
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            },
+            "selector": {
+              "enum": [
+                "pestanas",
+                "desplegable"
+              ],
+              "description": "Selector de niveles del plano referente: `pestanas` (por defecto; fila de pestañas y panel debajo, con enlaces :target, sin JavaScript) o `desplegable` (acordeón <details>)."
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "modulos"
+          ],
+          "description": "Qué incluye (S06)."
+        },
+        "S07": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "si": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 2
+            },
+            "no": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 2
+            },
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            },
+            "tarjetas": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "icono": {
+                    "$ref": "#/$defs/icono"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "texto"
+                ]
+              },
+              "description": "Tarjetas «para quién» (plano referente; 4 es lo habitual). Sin ellas se derivan de `si`."
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "si",
+            "no"
+          ],
+          "description": "Para quién es y para quién no (S07). Tercera persona."
+        },
+        "S08": {
+          "type": "object",
+          "properties": {
+            "modo": {
+              "enum": [
+                "honesta",
+                "real"
+              ]
+            },
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "bloques": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "titulo",
+                  "texto"
+                ]
+              }
+            },
+            "resenas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "compra_id": {
+                    "$ref": "#/$defs/texto",
+                    "description": "ID de compra real (Stripe); sin él no se publica."
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "autor": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 40,
+                    "description": "Nombre con que el comprador autorizó mostrarse (p. ej. «Anna K.»); opcional. La reseña lleva siempre «compra verificada»."
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "compra_id",
+                  "texto"
+                ]
+              }
+            },
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "modo",
+            "titulo",
+            "bloques",
+            "resenas"
+          ],
+          "description": "Prueba y credibilidad (S08). Al lanzar: modo `honesta` (resenas vacío). Modo `real` solo con reseñas con compra_id y sin cifras de resultado."
+        },
+        "S09": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "bonos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "nombre": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "archivo_ref": {
+                    "$ref": "#/$defs/id"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "nombre",
+                  "texto",
+                  "archivo_ref"
+                ]
+              }
+            },
+            "bump": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "$ref": "#/$defs/texto"
+                    },
+                    "texto": {
+                      "$ref": "#/$defs/texto"
+                    },
+                    "etiqueta_casilla": {
+                      "$ref": "#/$defs/texto"
+                    },
+                    "premarcado": {
+                      "const": false
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "nombre",
+                    "texto",
+                    "etiqueta_casilla",
+                    "premarcado"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "subtitulo": {
+              "$ref": "#/$defs/texto"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "bonos",
+            "bump"
+          ],
+          "description": "Bonus y bump (S09). Omisible si no hay bono con archivo ni bump."
+        },
+        "S10": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "texto": {
+              "$ref": "#/$defs/texto"
+            },
+            "nota_legal": {
+              "$ref": "#/$defs/texto"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "texto",
+            "nota_legal"
+          ],
+          "description": "Garantía (S10). Días solo por {garantia_dias}."
+        },
+        "S11": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "descripcion": {
+              "$ref": "#/$defs/texto"
+            },
+            "incluye": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 3
+            },
+            "pills": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 3
+            },
+            "linea_precio": {
+              "$ref": "#/$defs/texto",
+              "description": "«Precio final: {precio}…» (sin «IVA incluido» con régimen diferido)."
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "descripcion",
+            "incluye",
+            "pills",
+            "linea_precio",
+            "cta_ref"
+          ],
+          "description": "Precio y CTA (S11)."
+        },
+        "S12": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "preguntas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "tipo": {
+                    "enum": [
+                      "fija",
+                      "objecion"
+                    ]
+                  },
+                  "objecion_ref": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "q": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "a": {
+                    "$ref": "#/$defs/texto"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "tipo",
+                  "q",
+                  "a"
+                ]
+              },
+              "minItems": 6
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "preguntas"
+          ],
+          "description": "FAQ (S12): 6-9 preguntas; fijas (entrega, formato, desistimiento, medios, alcance, idioma) y objeciones por peso."
+        },
+        "S13": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "filas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sin": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "con": {
+                    "$ref": "#/$defs/texto"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "sin",
+                  "con"
+                ]
+              },
+              "minItems": 2
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            },
+            "microcopy": {
+              "$ref": "#/$defs/texto"
+            },
+            "lista": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "description": "Lista de seguridad bajo el CTA final (plano referente). Solo hechos verificables; sin ella se usan las celdas «con» de `filas`."
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "filas",
+            "cta_ref",
+            "microcopy"
+          ],
+          "description": "Cierre sin/con + CTA (S13). Solo diferencias verificables."
+        },
+        "S14": {
+          "type": "object",
+          "properties": {
+            "descripcion": {
+              "$ref": "#/$defs/texto"
+            },
+            "aviso": {
+              "$ref": "#/$defs/texto"
+            },
+            "aviso_seguridad": {
+              "type": "string"
+            },
+            "ayuda": {
+              "type": "string"
+            },
+            "enlaces": {
+              "type": "object",
+              "properties": {
+                "vendedor": {
+                  "$ref": "#/$defs/texto"
+                },
+                "terminos": {
+                  "$ref": "#/$defs/texto"
+                },
+                "privacidad": {
+                  "$ref": "#/$defs/texto"
+                },
+                "reembolsos": {
+                  "$ref": "#/$defs/texto"
+                },
+                "cookies": {
+                  "$ref": "#/$defs/texto"
+                },
+                "aviso": {
+                  "$ref": "#/$defs/texto"
+                },
+                "entrega": {
+                  "$ref": "#/$defs/texto"
+                },
+                "desistimiento": {
+                  "$ref": "#/$defs/texto"
+                },
+                "preferencias_cookies": {
+                  "$ref": "#/$defs/texto"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "vendedor",
+                "terminos",
+                "privacidad",
+                "reembolsos",
+                "cookies",
+                "aviso",
+                "entrega",
+                "desistimiento",
+                "preferencias_cookies"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "descripcion",
+            "aviso",
+            "enlaces"
+          ],
+          "description": "Pie (S14): descripción, aviso de alcance, aviso de seguridad (pareja/familia), ayuda (amarillo-b) y rótulos de enlaces legales."
+        },
+        "banner": {
+          "type": "object",
+          "properties": {
+            "texto": {
+              "$ref": "#/$defs/texto"
+            },
+            "etiqueta_marketing": {
+              "$ref": "#/$defs/texto"
+            },
+            "aceptar": {
+              "$ref": "#/$defs/texto"
+            },
+            "rechazar": {
+              "$ref": "#/$defs/texto"
+            },
+            "personalizar": {
+              "$ref": "#/$defs/texto"
+            },
+            "guardar": {
+              "$ref": "#/$defs/texto"
+            },
+            "version_texto": {
+              "type": "string",
+              "pattern": "^v[0-9]+$"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "texto",
+            "etiqueta_marketing",
+            "aceptar",
+            "rechazar",
+            "personalizar",
+            "guardar",
+            "version_texto"
+          ],
+          "description": "Banner de consentimiento (componente). Aceptar y Rechazar con el mismo peso; todo apagado por defecto."
+        },
+        "comprar": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "resumen_prepago": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/texto"
+              },
+              "minItems": 4
+            },
+            "casillas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "obligatoria": {
+                    "type": "boolean"
+                  },
+                  "premarcada": {
+                    "const": false
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "texto",
+                  "obligatoria",
+                  "premarcada"
+                ]
+              },
+              "minItems": 1
+            },
+            "boton": {
+              "$ref": "#/$defs/texto"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "resumen_prepago",
+            "casillas",
+            "boton"
+          ],
+          "description": "/comprar: resumen antes de pagar y casillas separadas, nunca premarcadas."
+        },
+        "gracias": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "texto": {
+              "$ref": "#/$defs/texto"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "texto"
+          ],
+          "description": "/gracias."
+        },
+        "S15": {
+          "type": "object",
+          "properties": {
+            "kicker": {
+              "$ref": "#/$defs/texto"
+            },
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "pasos": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "texto": {
+                    "$ref": "#/$defs/texto"
+                  },
+                  "icono": {
+                    "$ref": "#/$defs/icono"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "titulo"
+                ]
+              }
+            },
+            "cta_ref": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "pasos"
+          ],
+          "description": "Cómo lo recibes (S15, plano referente): 3 pasos con el flujo REAL de entrega. Sin este bloque se deriva del checklist de S06."
+        },
+        "S16": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "$ref": "#/$defs/texto"
+            },
+            "intro": {
+              "$ref": "#/$defs/texto"
+            },
+            "filas": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "etiqueta": {
+                    "$ref": "#/$defs/texto",
+                    "description": "Qué es lo que se compara («PDF-y z mapami», «kurs wideo»…). Sin importes en el texto: las cifras van en desde/hasta."
+                  },
+                  "desde": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Importe en unidad menor (1200 = 12,00); en la moneda de la oferta."
+                  },
+                  "hasta": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "fuente": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 120,
+                    "description": "OBLIGATORIA por cifra: quién publica el precio (tienda, dominio). Sin fuente la fila no se publica."
+                  },
+                  "fecha": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+                    "description": "Fecha en que se leyó el precio (AAAA-MM-DD)."
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "etiqueta",
+                  "desde",
+                  "fuente",
+                  "fecha"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "titulo",
+            "filas"
+          ],
+          "description": "Comparación con el mercado (S16, plano referente): precios REALES de terceros con fuente y fecha por cifra (referencia: docs/_historial/modelado-piloto/inmersion/pl-competencia-y-precios.md). Nunca precio tachado ni suma de «valores»; el generador la marca como comparación y landing.validar exenta SOLO estas cifras de L1-PRECIO."
+        }
+      },
+      "required": [
+        "S01",
+        "S06",
+        "S07",
+        "S10",
+        "S11",
+        "S12",
+        "S14",
+        "banner",
+        "comprar",
+        "gracias"
+      ],
+      "additionalProperties": false
+    },
+    "variantes_por_angulo": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z0-9]+(-[a-z0-9]+)*$": {
+          "type": "object",
+          "properties": {
+            "S01": {
+              "type": "object",
+              "properties": {
+                "kicker": {
+                  "$ref": "#/$defs/texto"
+                },
+                "h1": {
+                  "$ref": "#/$defs/texto"
+                },
+                "h1_resaltado": {
+                  "$ref": "#/$defs/texto"
+                },
+                "subtitulo": {
+                  "$ref": "#/$defs/texto"
+                }
+              },
+              "additionalProperties": false,
+              "required": [],
+              "description": "Campos del hero que cambian por ángulo."
+            },
+            "S03": {
+              "type": "object",
+              "properties": {
+                "orden": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "orden"
+              ]
+            },
+            "S11": {
+              "type": "object",
+              "properties": {
+                "cta_ref": {
+                  "$ref": "#/$defs/id"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "cta_ref"
+              ]
+            },
+            "S12": {
+              "type": "object",
+              "properties": {
+                "primero": {
+                  "$ref": "#/$defs/id"
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "primero"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [],
+          "description": "Solo estos 4 bloques pueden variar por ángulo; el resto del plano es idéntico (K03: nunca texto dinámico)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "omitidas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seccion": {
+            "enum": [
+              "S02",
+              "S04",
+              "S08",
+              "S09",
+              "S13",
+              "S15",
+              "S16"
+            ]
+          },
+          "motivo": {
+            "$ref": "#/$defs/texto"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "seccion",
+          "motivo"
+        ]
+      }
+    },
+    "estructura": {
+      "enum": [
+        "referente",
+        "clasica"
+      ],
+      "description": "Plano de página. `referente` = orden del referente de venta (barra superior, héroe, qué hay dentro, reseñas, niveles, para quién, bonus, comparación, precio, garantía, cómo lo recibes, FAQ, CTA final); `clasica` = el plano original S01..S13. Sin el campo: `referente` si schema_version ≥ 0.2.0, `clasica` si no."
+    },
+    "barra_superior": {
+      "type": "object",
+      "properties": {
+        "informativa": {
+          "$ref": "#/$defs/texto",
+          "description": "Barra siempre visible: «pago único · acceso inmediato · garantía de {garantia_dias} días». Sin «solo hoy», sin cuenta atrás y sin fecha inventada."
+        },
+        "lanzamiento": {
+          "type": "object",
+          "properties": {
+            "texto": {
+              "$ref": "#/$defs/texto",
+              "description": "Con {fecha_lanzamiento} y opcionalmente {precio} y {precio_despues}. SOLO se muestra si checkout.json trae `precio_programado` con la MISMA fecha, la fecha no ha pasado y el precio de después es mayor."
+            },
+            "fecha": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "texto",
+            "fecha"
+          ]
+        },
+        "icono": {
+          "$ref": "#/$defs/icono"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Barra superior configurable. La de lanzamiento solo existe con un precio programado REAL en checkout.json; si no, se pinta la informativa. Nunca cuentas atrás que se reinicien."
+    },
+    "rotulos_imagen": {
+      "type": "object",
+      "properties": {
+        "modo": {
+          "enum": [
+            "imagen",
+            "grupo"
+          ],
+          "description": "`imagen` (por defecto): cada imagen ilustrativa o de IA lleva su rótulo (insignia sobre la imagen grande, pie bajo la miniatura). `grupo`: un solo pie por sección de varias imágenes (galería y bonus); hero, compra y pack siempre llevan el suyo."
+        },
+        "ilustrativa": {
+          "$ref": "#/$defs/texto",
+          "description": "Rótulo corto de una imagen ilustrativa; por defecto el del idioma (landing/textos.py: «Ilustracja poglądowa», «Ilustración orientativa»…)."
+        },
+        "ilustrativa_pie": {
+          "$ref": "#/$defs/texto",
+          "description": "Pie de grupo para imágenes ilustrativas (modo `grupo`)."
+        },
+        "ia": {
+          "$ref": "#/$defs/texto",
+          "description": "Rótulo de IA; por defecto el del idioma («Obraz wygenerowany z pomocą AI», «Imagen generada con ayuda de IA»…)."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Rótulos de las imágenes con `ilustrativa: true` o `etiqueta_ia_visible: true` en assets.json (J21: las ilustrativas SÍ se publican, rotuladas). Todo opcional: sin él, texto y modo por defecto."
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "locale",
+    "moneda",
+    "tono",
+    "contexto_riesgo",
+    "meta",
+    "cifras_con_traza",
+    "cta",
+    "secciones",
+    "variantes_por_angulo",
+    "omitidas"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "texto": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "icono": {
+      "enum": [
+        "semilla",
+        "reloj",
+        "cohete",
+        "diana",
+        "libro",
+        "mapa",
+        "movil",
+        "imprimir",
+        "descarga",
+        "corazon",
+        "rayo",
+        "bombilla",
+        "grafico",
+        "usuarios",
+        "calendario",
+        "chat",
+        "ruta",
+        "niveles",
+        "persona",
+        "hoja",
+        "lupa",
+        "escudo",
+        "regalo",
+        "sobre",
+        "candado",
+        "estrella",
+        "pregunta",
+        "balanza",
+        "etiqueta",
+        "pluma",
+        "megafono",
+        "insignia",
+        "play"
+      ],
+      "description": "Ícono del sprite de sitio-base (lista cerrada; el Maker no escribe ids ni SVG). Cada ícono se pinta con un color derivado de la paleta."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          {
+            "required": [
+              "estructura"
+            ],
+            "properties": {
+              "estructura": {
+                "const": "clasica"
+              }
+            }
+          },
+          {
+            "not": {
+              "required": [
+                "estructura"
+              ]
+            },
+            "properties": {
+              "schema_version": {
+                "pattern": "^0\\.[01]\\."
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "secciones": {
+            "required": [
+              "S03",
+              "S05"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

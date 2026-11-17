@@ -1,0 +1,84 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 12,
+  "duration_ms": 45000,
+  "session_id": "session-ok-0001",
+  "claude_version": "2.1.314",
+  "total_cost_usd": 0.42,
+  "modelUsage": {"claude-sonnet-5": {"input_tokens": 12000, "output_tokens": 3000}},
+  "permission_denials": [],
+  "structured_output": {
+    "schema_version": "1.0.0",
+    "oferta_id": "OF-202611-01",
+    "familia_id": "FAM-202611-01",
+    "variante_de": null,
+    "version": "v1",
+    "origen_version": "maker",
+    "slug": "reinsercion-laboral-madres",
+    "marca": {"nombre": "Mi Regreso Laboral", "dominio": "miregresolaboral.example"},
+    "candidato_ref": {"candidato_id": "CAND-01", "problema_id": "PRB-202611-0007"},
+    "macro_nicho": "dinero",
+    "locale": "es-ES",
+    "paises_segmentacion": ["ES"],
+    "moneda": "EUR",
+    "riesgo": {
+      "P": "verde", "C": "verde", "E": "verde", "N": "verde", "nivel": "verde",
+      "reencuadre_aplicado": {
+        "aplicado": true, "nivel_original": "amarillo",
+        "descripcion": "Se pasó de «para madres que vuelven tras la baja» a «tras una pausa laboral larga» sin afirmar nada sobre quien ve el anuncio."
+      },
+      "fuentes": ["docs/_investigacion/22b-meta-politicas-dinero.md", "docs/_investigacion/22d-stripe-restricciones-salud-relaciones-dinero.md", "docs/_investigacion/05-legal.md"],
+      "categoria": "Empleo y carrera: guía informativa, no oferta de empleo [VERIFICAR si Meta la trata como categoría especial de empleo]",
+      "claims_a_evitar": ["conseguirás trabajo", "garantizamos entrevistas", "cifras de sueldo o ingresos", "referencias a maternidad como atributo del espectador"],
+      "angulo_seguro": "Presentación de la experiencia: el hueco como relato que se puede contar con claridad."
+    },
+    "requiere_gate_humano_legal": false,
+    "cliente_ideal": "Persona que vuelve a buscar trabajo tras una pausa larga y no sabe cómo presentarla",
+    "prueba_una_frase": "Para personas que vuelven a buscar trabajo tras una pausa larga y no saben cómo explicarla, el Puente de la Pausa es una guía con plantilla que lleva de «tengo un hueco en mi currículum» a «currículum y guion de entrevista listos» sin inventar experiencia ni pedir disculpas.",
+    "mecanismo": {"nombre": "Puente de la Pausa", "como_funciona": "Reordena el currículum por competencias, traduce lo hecho durante la pausa a frases con datos y añade un guion de 30 segundos."},
+    "promesa": {
+      "titulo": "El Puente de la Pausa",
+      "subtitulo": "Una guía y una plantilla para presentar tu experiencia tras una pausa laboral, sin pedir disculpas",
+      "tiempo_prometido_min": 90,
+      "claims_permitidos": [
+        {"claim_id": "incluye-plantilla-cv", "texto": "Incluye una plantilla editable de currículum con enfoque en competencias", "evidencia_ref": "04-producto/entregables/plantilla-cv-puente-v1.md"},
+        {"claim_id": "guion-explicar-pausa", "texto": "Incluye un guion para explicar tu pausa en 30 segundos", "evidencia_ref": "04-producto/entregables/puente-de-la-pausa-v1-guia.md"},
+        {"claim_id": "tiempo-90-min", "texto": "Pensado para completarlo en unos 90 minutos", "evidencia_ref": "04-producto/producto.json#tiempos"},
+        {"claim_id": "garantia-14-dias", "texto": "Garantía de devolución de 14 días", "evidencia_ref": "03-oferta/oferta.json#garantia"}
+      ],
+      "claims_prohibidos": ["conseguirás trabajo", "garantizamos entrevistas", "cifras de sueldo o ingresos", "cualquier afirmación sobre la situación personal del espectador"]
+    },
+    "vehiculo": {"formato": "pack", "tiempo_consumo_min": 90, "palabras_max": 4500},
+    "entregables": [
+      {"id": "guia-puente", "tipo": "guía", "cantidad": 1, "formato": "markdown/PDF"},
+      {"id": "plantilla-cv", "tipo": "plantilla editable", "cantidad": 1, "formato": "docx/markdown"}
+    ],
+    "bonus": [],
+    "garantia": {"tipo": "reembolso_incondicional", "dias": 14, "texto_visible": "Si no te sirve, te devolvemos el importe durante 14 días. Sin preguntas."},
+    "urgencia": null,
+    "prueba": [
+      {"tipo": "muestra", "fuente": "04-producto/entregables/muestras/muestra-guia-v1.md", "consentimiento_ref": null},
+      {"tipo": "logica_del_producto", "fuente": "Cada paso entrega un resultado verificable (tabla, CV, guion)", "consentimiento_ref": null}
+    ],
+    "precio": {"lista": {"monto": 1990, "moneda": "EUR"}, "tax_behavior": "inclusive", "anclaje": null},
+    "bump": {"id": "respuestas-modelo", "nombre": "12 respuestas modelo para preguntas de entrevista", "precio": {"monto": 790, "moneda": "EUR"}, "descripcion": "Doce respuestas escritas con la fórmula del guion, listas para adaptar"},
+    "upsell": null,
+    "angulos": [
+      {"angulo_id": "hueco-como-relato", "nivel_conciencia": "N2", "hook": "Tu pausa no es un hueco: es un relato que puedes contar", "objecion": "Me da vergüenza el tiempo sin trabajar", "prueba": "Muestra gratuita del guion", "claims_ref": ["guion-explicar-pausa"], "cita_voz_ref": "EV-01"},
+      {"angulo_id": "pregunta-de-entrevista", "nivel_conciencia": "N3", "hook": "La pregunta que más temes, con tu respuesta ya escrita", "objecion": "No sé qué decir cuando me pregunten", "prueba": "Fórmula del guion de 30 segundos", "claims_ref": ["guion-explicar-pausa"], "cita_voz_ref": "EV-01"},
+      {"angulo_id": "plan-en-una-tarde", "nivel_conciencia": "N2", "hook": "Currículum por competencias en una tarde", "objecion": "No tengo tiempo", "prueba": "Tiempos por paso", "claims_ref": ["tiempo-90-min", "incluye-plantilla-cv"], "cita_voz_ref": "EV-02"}
+    ],
+    "avatar": {
+      "quiere": ["Volver a trabajar con confianza"], "cree": ["Que el hueco la penaliza"], "siente": ["Vergüenza e inseguridad al explicarlo"],
+      "lo_dice": ["No sé cómo explicar tres años sin trabajar en el currículum"],
+      "objeciones": [{"texto": "¿Esto me va a conseguir trabajo?", "respuesta_en": "faq", "severidad": "alta"}],
+      "vocabulario": ["hueco", "pausa", "volver a trabajar"]
+    },
+    "puntaje": {"total": 78, "dimension_min": 3},
+    "supuestos": ["[SUPUESTO] CPM, CTR y conversión de ejemplo", "[SUPUESTO] tarifas de Stripe de ejemplo"],
+    "hipotesis_test": ["El ángulo «pregunta de entrevista» convierte mejor que «hueco como relato»"],
+    "aprobada_por_dueno": null
+  }
+}

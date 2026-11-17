@@ -1,0 +1,94 @@
+# Autonomía FICTICIA de prueba: N2 en todas las etapas.
+schema_version: 1.0.0
+version: 1
+nivel_por_etapa:
+  O0:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D0:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  M1:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D1:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D2:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D3:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D4:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D5:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D6:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D7:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D8:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D9:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  D10:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  F1:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  F2:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  X1:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+  X2:
+    nivel: N2
+    desde: '2026-11-06'
+    evidencia:
+    - 'ejemplo: nivel de prueba'
+descensos: []
+reglas_descenso:
+- '2 rechazos de Meta en 7 días: D5..D9 bajan a N1 y X1 congela lanzamientos'
+- 'Violación de un guardarraíl de dinero (gasto > tope, activación sin sello): la etapa baja a N1'
+- 'Dictamen X1 FAIL ignorado por una etapa: la etapa baja a N0'

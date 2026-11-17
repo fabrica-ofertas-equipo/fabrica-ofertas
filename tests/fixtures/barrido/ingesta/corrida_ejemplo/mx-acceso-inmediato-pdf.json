@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "qid": "mx-acceso-inmediato-pdf",
+  "consulta": {"search_terms": "Acceso inmediato en PDF", "countries": ["MX"], "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null},
+  "capturado_en": "2026-11-06T05:52:40Z",
+  "ruta": "A",
+  "estimated_total_count": 2,
+  "ads": [
+    {"id": "9100000000000003", "page_id": 900000000000001, "page_name": "Pagina Sintetica Uno", "ad_creative_link_title": "Pack de 100 plantillas", "ad_delivery_start_time": 1792238400, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=9100000000000003", "currency": "USD"},
+    {"id": "9100000000000004", "page_id": 900000000000002, "page_name": "Pagina Sintetica Dos", "ad_creative_link_title": "Calendario de siembra imprimible", "ad_delivery_start_time": 1793534400, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=9100000000000004", "currency": "MXN"}
+  ]
+}

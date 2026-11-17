@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "accion": "activar_campana",
+  "gate": "H",
+  "nivel": "N2",
+  "hash_objetivo": "sha256:445cfcd889a7fe9ad2c0fdbc749378116c8f2592e8b5b4395c2eec550ef641c0",
+  "object_ids": [
+    "120000000000001",
+    "120000000000002",
+    "120000000000003",
+    "120000000000004",
+    "120000000000005",
+    "120000000000006",
+    "120000000000007"
+  ],
+  "aprobado_por": {
+    "tipo": "humano",
+    "id": "dueno",
+    "fecha": "2026-11-10T09:00:00Z",
+    "firma": "hmac-sha256:949954a4b48e61c8c072ffe5f0f52663a835c9e3ab514099161913379aa29317"
+  },
+  "creado_en": "2026-11-10T09:00:00Z",
+  "vigencia_hasta": "2026-11-10T21:00:00Z"
+}

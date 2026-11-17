@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "datos": [
+  {
+   "slug": "d3-oferta",
+   "version": "1.0.0",
+   "estado": "v1",
+   "descripcion": "Construye la oferta: mecanismo, precio y economía unitaria. Úsala cuando haya validación aprobada.",
+   "lineas_skill_md": 212,
+   "archivos": {
+    "SKILL.md": true,
+    "references": 3,
+    "rubric.md": true,
+    "templates": 2,
+    "scripts": 4,
+    "evals": 6,
+    "CHANGELOG.md": true
+   },
+   "agentes": [
+    "d3-maker",
+    "d3-qa"
+   ],
+   "dod": [
+    {
+     "criterio": "Contrato: salida válida contra su esquema",
+     "ok": true
+    },
+    {
+     "criterio": "Evals: ≥ 6 casos",
+     "ok": true
+    },
+    {
+     "criterio": "Estabilidad: 3 corridas",
+     "ok": null
+    }
+   ]
+  },
+  {
+   "slug": "d5-landing-checkout",
+   "version": "0.1.0",
+   "estado": "borrador",
+   "descripcion": "Genera el sitio y el checkout. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+   "lineas_skill_md": 540,
+   "archivos": [
+    "SKILL.md",
+    "references/",
+    "rubric.md",
+    "scripts/"
+   ],
+   "agentes": [
+    "d5-maker"
+   ],
+   "dod": []
+  },
+  {
+   "slug": "planificador-video",
+   "version": "0.2.0",
+   "estado": "borrador",
+   "descripcion": "Planifica ediciones de vídeo.",
+   "lineas_skill_md": null,
+   "archivos": {},
+   "agentes": [],
+   "dod": []
+  }
+ ],
+ "fuente": [
+  ".claude/skills/*/",
+  ".claude/agents/"
+ ],
+ "generado_en": "2026-11-10T10:05:00Z",
+ "vacio": false,
+ "avisos": []
+}

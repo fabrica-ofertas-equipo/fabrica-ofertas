@@ -1,0 +1,97 @@
+{
+ "corrida_id": "2026-11-06-a",
+ "plan": {
+  "existe": true,
+  "archivo": "2026-11-06-a.pasada-3.json",
+  "pasadas": [
+   1,
+   3
+  ],
+  "consultas": 5,
+  "tope_consultas": 120,
+  "creado_en": "2026-11-06T06:11:05Z"
+ },
+ "crudo": {
+  "existe": true,
+  "ok": 5,
+  "error": 0
+ },
+ "paginas": {
+  "existe": true,
+  "total": 5
+ },
+ "etiquetas": {
+  "existe": true,
+  "cobertura": {
+   "paginas_total": 724,
+   "etiquetadas": 694,
+   "indeterminadas": 205,
+   "en_disputa": 0,
+   "sin_etiquetar": 30,
+   "rechazadas": 0,
+   "avanzan_a_candidata": 641,
+   "tasa_etiquetadas": "0.9586",
+   "tasa_con_tema": "0.6754",
+   "lotes_total": 37,
+   "lotes_validados": 37,
+   "lotes_sin_salida": 0,
+   "lotes_salida_invalida": 0
+  }
+ },
+ "memoria": {
+  "existe": true,
+  "hash": "sha256:abc",
+  "ts": "2026-11-06T06:09:47Z"
+ },
+ "candidatos": {
+  "existe": true,
+  "resumen": {
+   "paginas_total": 724,
+   "paginas_candidatas": 636,
+   "paginas_en_temas": 436,
+   "paginas_sin_tema": 200,
+   "paginas_por_verificar": 561,
+   "paginas_por_medicion": {
+    "completa": 27,
+    "parcial": 23,
+    "muestra": 674,
+    "sin_medicion": 0
+   },
+   "paginas_candidatas_por_estado": {
+    "pasa": 13,
+    "indeterminada_por_muestra": 608,
+    "no_pasa": 15
+   },
+   "paginas_descartadas": 88,
+   "descartadas_por_motivo": {
+    "formato_excluido": 45,
+    "no_es_oferta_digital_pago_unico": 47,
+    "sin_etiqueta": 30,
+    "tema_indeterminado_sin_traccion_alta": 5
+   },
+   "temas": 391,
+   "temas_pasan_traccion": 11,
+   "temas_indeterminados_por_muestra": 368,
+   "temas_no_pasan_traccion": 12,
+   "sin_tema_pasan_traccion": 2,
+   "sin_tema_indeterminadas_por_muestra": 198,
+   "temas_que_pasan_por_macro_nicho": {
+    "salud": 1,
+    "relaciones": 0,
+    "dinero": 0,
+    "mixto": 0,
+    "fuera_de_marco": 10
+   }
+  }
+ },
+ "fichas": {
+  "existe": true,
+  "total": 2
+ },
+ "freno": {
+  "activo": true,
+  "ts": "2026-11-06T06:03:43Z",
+  "motivo": "HTTP 403 (Document)"
+ },
+ "comando_estado": "python -m scripts.modelado.barrido estado 2026-11-06-a"
+}

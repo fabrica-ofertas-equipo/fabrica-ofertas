@@ -1,0 +1,34 @@
+{
+  "id": "s04-duplicado-de-la-memoria",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Candidato que duplica con otro nombre una oferta de la memoria, sim ≥ 0,80 (D-05)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/similitud_memoria",
+      "valor": {
+        "max": "0.86",
+        "con": "OF-202610-03"
+      }
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-05",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-05",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "duplicado-de-la-memoria"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

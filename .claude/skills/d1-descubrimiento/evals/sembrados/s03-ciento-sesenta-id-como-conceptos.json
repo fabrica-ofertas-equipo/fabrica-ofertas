@@ -1,0 +1,31 @@
+{
+  "id": "s03-ciento-sesenta-id-como-conceptos",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ 160 id de anuncio contados como 160 conceptos (D-07)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/demanda_pagada/n_conceptos_unicos",
+      "valor": 160
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-07",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-07",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "conceptos-inflados"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

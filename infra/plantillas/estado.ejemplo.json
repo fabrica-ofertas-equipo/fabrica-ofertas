@@ -1,0 +1,47 @@
+{
+  "version_esquema": 1,
+  "modo": "simulado",
+  "semaforo": "ROJO",
+  "generado_en": "2026-11-06T06:00:12Z",
+  "valido_hasta": "2026-11-06T12:00:12Z",
+  "commit": "0000000000000000000000000000000000000000",
+  "hash_scripts": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "nota": "EJEMPLO ILUSTRATIVO. modo=simulado: los hooks lo rechazan. Solo modo=vivo habilita gasto o activación.",
+  "items": [
+    {
+      "id": "M-02",
+      "bloque": "meta",
+      "critico": true,
+      "estado": "VERDE",
+      "mensaje": "cuenta activa; moneda y zona coinciden con decisiones.yaml",
+      "evidencia": {"account_status": 1, "disable_reason": 0, "en_cuentas_permitidas": true},
+      "medido_en": "2026-11-06T06:00:03Z",
+      "expira_en": "2026-11-06T12:00:03Z",
+      "latencia_ms": 412
+    },
+    {
+      "id": "M-03",
+      "bloque": "meta",
+      "critico": true,
+      "estado": "ROJO",
+      "mensaje": "limite_gasto_cuenta_meta no está cargado en limites.yaml",
+      "evidencia": {"spend_cap_minor": 0, "limite_cargado": false},
+      "medido_en": "2026-11-06T06:00:04Z",
+      "expira_en": "2026-11-06T12:00:04Z",
+      "latencia_ms": 388
+    },
+    {
+      "id": "C-09",
+      "bloque": "cloudflare",
+      "critico": true,
+      "estado": "PENDIENTE_EXTERNO",
+      "mensaje": "watchdog aún no desplegado",
+      "evidencia": {},
+      "medido_en": "2026-11-06T06:00:05Z",
+      "expira_en": "2026-11-06T12:00:05Z",
+      "latencia_ms": 0
+    }
+  ],
+  "resumen": {"verde": 1, "amarillo": 0, "rojo": 1, "pendiente_externo": 1},
+  "firma": "hmac-sha256:EJEMPLO-SIN-VALOR"
+}

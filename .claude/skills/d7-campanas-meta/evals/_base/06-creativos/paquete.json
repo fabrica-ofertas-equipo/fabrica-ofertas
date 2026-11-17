@@ -1,0 +1,70 @@
+{
+  "_nota": "extracto minimo",
+  "oferta_id": "OF-202611-02",
+  "destino": {
+    "url_base": "https://piano-pasti.example/",
+    "plantilla_utm": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-02&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "landing_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "precio": {
+      "monto": 1490,
+      "moneda": "EUR"
+    }
+  },
+  "politicas": {
+    "meta_enhancements": {
+      "generacion_texto": false,
+      "mejoras_creativas": false
+    },
+    "divulgacion_ia": "declarar_siempre"
+  },
+  "anuncios": [
+    {
+      "ad_name": "c01-menu_img_h1_v1",
+      "assets": [
+        {
+          "sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+        }
+      ]
+    },
+    {
+      "ad_name": "c01-menu_img_h2_v1",
+      "assets": [
+        {
+          "sha256": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+        }
+      ]
+    },
+    {
+      "ad_name": "c02-spesa_img_h1_v1",
+      "assets": [
+        {
+          "sha256": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      ]
+    },
+    {
+      "ad_name": "c02-spesa_img_h2_v1",
+      "assets": [
+        {
+          "sha256": "sha256:4444444444444444444444444444444444444444444444444444444444444444"
+        }
+      ]
+    },
+    {
+      "ad_name": "c03-tempo_img_h1_v1",
+      "assets": [
+        {
+          "sha256": "sha256:5555555555555555555555555555555555555555555555555555555555555555"
+        }
+      ]
+    },
+    {
+      "ad_name": "c03-tempo_img_h2_v1",
+      "assets": [
+        {
+          "sha256": "sha256:6666666666666666666666666666666666666666666666666666666666666666"
+        }
+      ]
+    }
+  ]
+}

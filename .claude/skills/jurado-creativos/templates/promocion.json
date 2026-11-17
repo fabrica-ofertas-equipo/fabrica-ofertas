@@ -1,0 +1,11 @@
+{
+  "_nota": "Promoción de sombra a asesor. La firma el DUEÑO (no el jurado ni un agente). Solo vale si calibracion_sha256 es el hash del calibracion.json VIGENTE y ese archivo dice estado_global = elegible_asesor del mismo mercado; si la calibración siguiente deja de ser elegible, el jurado vuelve a sombra solo. agregar.py verifica todo esto. Borra las claves que empiezan por «_».",
+  "schema_version": "0.1.0",
+  "locale": "pl-PL",
+  "aprobado_por": "nombre del dueño",
+  "fecha": "AAAA-MM-DD",
+  "calibracion_ref": "empresa/jurado/calibracion/AAAA-Sww.json",
+  "calibracion_sha256": "sha256 del archivo anterior (sha256sum)",
+  "alcance": "ordenar la tanda y llenar los cupos del test (lo aplica el código de la cola, no el jurado); nunca excluir, pausar, activar ni mover presupuesto",
+  "revisar_en": "AAAA-MM-DD"
+}

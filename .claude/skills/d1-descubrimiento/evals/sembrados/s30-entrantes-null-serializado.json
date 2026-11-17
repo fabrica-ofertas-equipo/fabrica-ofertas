@@ -1,0 +1,31 @@
+{
+  "id": "s30-entrantes-null-serializado",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ entrantes_30d en null (ficha incompleta) serializado como candidato",
+  "base": "g4-dinero-es-mx-modo-d-planner-por-cobro",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "modelado",
+      "op": "replace",
+      "ruta": "/pares_por_candidato/CAND-01/hueco/entrantes_30d",
+      "valor": null
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-14",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-14",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "entrantes-cero-o-null"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

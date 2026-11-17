@@ -1,0 +1,556 @@
+{
+  "ok": true,
+  "datos": {
+    "lineas": [
+      {
+        "n": 1,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:00:00Z",
+        "ejecucion_id": "RUN-20261106-01",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D5",
+        "agente": "d5-maker",
+        "skill_version": "0.1.0",
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D5 en_progreso → en_QA",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": null,
+        "hash": "ba56142965a4c9849c41a7e7ec9cd3ab3fad6e138965431f98892e734464f96d"
+      },
+      {
+        "n": 2,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:04:00Z",
+        "ejecucion_id": "RUN-20261106-01",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D5",
+        "agente": "d5-qa",
+        "skill_version": "0.1.0",
+        "evento": "llamada_herramienta",
+        "herramienta": "claude -p",
+        "entrada_resumen": "QA de la etapa D5 (ronda 1)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 38,
+          "moneda": "USD"
+        },
+        "tokens": {
+          "entrada": 1800,
+          "salida": 420
+        },
+        "modo": "dry_run",
+        "hash_previo": "ba56142965a4c9849c41a7e7ec9cd3ab3fad6e138965431f98892e734464f96d",
+        "hash": "6a51c14f9eb00939ff5506146d46fc2bc1c091a1fe201f2691f0fc2f1e137dee"
+      },
+      {
+        "n": 3,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:09:00Z",
+        "ejecucion_id": "RUN-20261106-01",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D5",
+        "agente": "d5-qa",
+        "skill_version": "0.1.0",
+        "evento": "decision",
+        "herramienta": "qa.veredicto",
+        "entrada_resumen": "PASS: tracking completo",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "6a51c14f9eb00939ff5506146d46fc2bc1c091a1fe201f2691f0fc2f1e137dee",
+        "hash": "bd30680353562dcc92c9b0f7ef9851294b9900bc5fd2aebc42bfba271ff3ea9e"
+      },
+      {
+        "n": 4,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:12:00Z",
+        "ejecucion_id": "RUN-20261106-01",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D5",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "aprobacion",
+        "herramienta": "orq.firmar",
+        "entrada_resumen": "D5 aprobado por dueno",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "bd30680353562dcc92c9b0f7ef9851294b9900bc5fd2aebc42bfba271ff3ea9e",
+        "hash": "2532434da15a0e38aa92a279a3c40bebaff42f719e59dd612548b1c4d3889b45"
+      },
+      {
+        "n": 5,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:20:00Z",
+        "ejecucion_id": "RUN-20261106-01",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D6",
+        "agente": "d6-maker",
+        "skill_version": "0.1.0",
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D6 pendiente → en_progreso",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "2532434da15a0e38aa92a279a3c40bebaff42f719e59dd612548b1c4d3889b45",
+        "hash": "bd8a5dda58761aca4ed448c2fc8ac5722cd9d0623e8895acf6a27b343ab05dc9"
+      },
+      {
+        "n": 6,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:31:00Z",
+        "ejecucion_id": "RUN-20261106-02",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D6",
+        "agente": "d6-maker",
+        "skill_version": "0.1.0",
+        "evento": "llamada_herramienta",
+        "herramienta": "claude -p",
+        "entrada_resumen": "Redacta creativos (variante 1)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 121,
+          "moneda": "USD"
+        },
+        "tokens": {
+          "entrada": 1800,
+          "salida": 420
+        },
+        "modo": "dry_run",
+        "hash_previo": "bd8a5dda58761aca4ed448c2fc8ac5722cd9d0623e8895acf6a27b343ab05dc9",
+        "hash": "12d3ea2b2ff585e596799b0a49cb2cbf622c2db65f91bbe172e81d0db6d97dfb"
+      },
+      {
+        "n": 7,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:44:00Z",
+        "ejecucion_id": "RUN-20261106-02",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D6",
+        "agente": "d6-qa",
+        "skill_version": "0.1.0",
+        "evento": "decision",
+        "herramienta": "qa.veredicto",
+        "entrada_resumen": "PASS_CON_NOTAS: 2 hooks repetidos",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "12d3ea2b2ff585e596799b0a49cb2cbf622c2db65f91bbe172e81d0db6d97dfb",
+        "hash": "a35c5ecf2e33635c1d2a09faf757bb4419e7f6020c265ed94c3164082e5fc363"
+      },
+      {
+        "n": 8,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T12:52:00Z",
+        "ejecucion_id": "RUN-20261106-02",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D6",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D6 en_QA → aprobado (gate S)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "a35c5ecf2e33635c1d2a09faf757bb4419e7f6020c265ed94c3164082e5fc363",
+        "hash": "cfcdb4ede2ba9c6b4de78d189fcdebe6804eaa382e4f7444a62d293e50d8dc7c"
+      },
+      {
+        "n": 9,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:00:00Z",
+        "ejecucion_id": "RUN-20261106-03",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D7",
+        "agente": "d7-maker",
+        "skill_version": "0.1.0",
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D7 pendiente → en_progreso",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "cfcdb4ede2ba9c6b4de78d189fcdebe6804eaa382e4f7444a62d293e50d8dc7c",
+        "hash": "a3d0c27990470279152e894b2f931bd626387d48d9d12a2fe95dc192d520f418"
+      },
+      {
+        "n": 10,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:15:00Z",
+        "ejecucion_id": "RUN-20261106-03",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D7",
+        "agente": "d7-maker",
+        "skill_version": "0.1.0",
+        "evento": "accion",
+        "herramienta": "scripts.meta_crear",
+        "entrada_resumen": "Crear campaña en seco (ABO, 3 conjuntos)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "a3d0c27990470279152e894b2f931bd626387d48d9d12a2fe95dc192d520f418",
+        "hash": "341d951824cfb42faddeb8c00a362479ddc6312cb339fdd0d8dabebb9077d791"
+      },
+      {
+        "n": 11,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:21:00Z",
+        "ejecucion_id": "RUN-20261106-03",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D7",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "bloqueo",
+        "herramienta": "engine.guard",
+        "entrada_resumen": "guard: paso «infra» rechazó --live (modo simulado)",
+        "resultado": {
+          "estado": "bloqueado",
+          "codigo": 4
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "341d951824cfb42faddeb8c00a362479ddc6312cb339fdd0d8dabebb9077d791",
+        "hash": "6ffee4b1932f62b8d89f0f97fbb3d73c4eb0516720c9510ff7407931e3f35b52"
+      },
+      {
+        "n": 12,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:26:00Z",
+        "ejecucion_id": "RUN-20261106-03",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D7",
+        "agente": "d7-qa",
+        "skill_version": "0.1.0",
+        "evento": "llamada_herramienta",
+        "herramienta": "claude -p",
+        "entrada_resumen": "QA de la etapa D7 (ronda 1)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 64,
+          "moneda": "USD"
+        },
+        "tokens": {
+          "entrada": 1800,
+          "salida": 420
+        },
+        "modo": "dry_run",
+        "hash_previo": "6ffee4b1932f62b8d89f0f97fbb3d73c4eb0516720c9510ff7407931e3f35b52",
+        "hash": "12115c82a05f53ba43d2e114eecfaf6058ddcdb05e749245c5591fe43d09c0ee"
+      },
+      {
+        "n": 13,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:30:00Z",
+        "ejecucion_id": "RUN-20261106-03",
+        "oferta_id": "OF-202611-01",
+        "etapa": "D7",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D7 en_progreso → en_QA (gate H pendiente)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "12115c82a05f53ba43d2e114eecfaf6058ddcdb05e749245c5591fe43d09c0ee",
+        "hash": "5bd210b64ebd0b2f58b759ec1dfb31e7046c0fd6f04e52f3b062e217ba800cf9"
+      },
+      {
+        "n": 14,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:35:00Z",
+        "ejecucion_id": "RUN-20261106-04",
+        "oferta_id": "OF-202611-02",
+        "etapa": "D8",
+        "agente": "script:subir_presupuesto",
+        "skill_version": null,
+        "evento": "accion",
+        "herramienta": "meta.subir_presupuesto",
+        "entrada_resumen": "subir presupuesto 20 → 24 EUR (dry-run)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "5bd210b64ebd0b2f58b759ec1dfb31e7046c0fd6f04e52f3b062e217ba800cf9",
+        "hash": "810a532d8b81874d8b5ba81afe636aa5c0c8a8e625cbae7c16e76af8e69db56f"
+      },
+      {
+        "n": 15,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:38:00Z",
+        "ejecucion_id": "RUN-20261106-04",
+        "oferta_id": "OF-202611-02",
+        "etapa": "D8",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "alerta",
+        "herramienta": "engine.d8",
+        "entrada_resumen": "gasto 1,8× el presupuesto (umbral 1,75×)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "810a532d8b81874d8b5ba81afe636aa5c0c8a8e625cbae7c16e76af8e69db56f",
+        "hash": "abe1af02e6dad4dcefb7323cba013d2f80102586ce22eaeab266f11207f1ccc4"
+      },
+      {
+        "n": 16,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:44:00Z",
+        "ejecucion_id": "RUN-20261106-04",
+        "oferta_id": "OF-202611-02",
+        "etapa": "D8",
+        "agente": "d8-maker",
+        "skill_version": "0.1.0",
+        "evento": "llamada_herramienta",
+        "herramienta": "claude -p",
+        "entrada_resumen": "Lectura de KPI del día <script>alert(1)</script> ‮oculto",
+        "resultado": {
+          "estado": "error",
+          "codigo": 3
+        },
+        "costo_estimado": {
+          "monto": 12,
+          "moneda": "USD"
+        },
+        "tokens": {
+          "entrada": 1800,
+          "salida": 420
+        },
+        "modo": "dry_run",
+        "hash_previo": "abe1af02e6dad4dcefb7323cba013d2f80102586ce22eaeab266f11207f1ccc4",
+        "hash": "9a14f0f230a1d5199417ad3d4fa1d03cef9eb309508df2869e8adc10924a0c25"
+      },
+      {
+        "n": 17,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:50:00Z",
+        "ejecucion_id": "RUN-20261106-05",
+        "oferta_id": null,
+        "etapa": "D1",
+        "agente": "d1-maker",
+        "skill_version": "0.1.0",
+        "evento": "accion",
+        "herramienta": "scripts.barrido",
+        "entrada_resumen": "barrido plan ver (lectura)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "9a14f0f230a1d5199417ad3d4fa1d03cef9eb309508df2869e8adc10924a0c25",
+        "hash": "20c7f6a9cf0a7ef50642bba4e077cfdce6d1b97419c5d2db9eb41076ccd69569"
+      },
+      {
+        "n": 18,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T13:58:00Z",
+        "ejecucion_id": "RUN-20261106-05",
+        "oferta_id": null,
+        "etapa": "D1",
+        "agente": "motor",
+        "skill_version": null,
+        "evento": "bloqueo",
+        "herramienta": "captura",
+        "entrada_resumen": "freno de captura activo: HTTP 403 (Document)",
+        "resultado": {
+          "estado": "bloqueado",
+          "codigo": 4
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "20c7f6a9cf0a7ef50642bba4e077cfdce6d1b97419c5d2db9eb41076ccd69569",
+        "hash": "f074956bca5fe6287a189e3c1f0f1e4bc36b5fa757c1eeddfbfce2887a12415d"
+      },
+      {
+        "n": 19,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T14:05:00Z",
+        "ejecucion_id": "RUN-20261106-06",
+        "oferta_id": "OF-202611-03",
+        "etapa": "D2",
+        "agente": "d2-maker",
+        "skill_version": "0.1.0",
+        "evento": "transicion",
+        "herramienta": "orq.transicion",
+        "entrada_resumen": "D2 en_progreso → en_QA (gate H pendiente)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "f074956bca5fe6287a189e3c1f0f1e4bc36b5fa757c1eeddfbfce2887a12415d",
+        "hash": "bddd725b75703eceddad842bbe21319bcef3472f7b283eb08f26095c86d6fe45"
+      },
+      {
+        "n": 20,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T14:11:00Z",
+        "ejecucion_id": "RUN-20261106-06",
+        "oferta_id": "OF-202611-03",
+        "etapa": "D2",
+        "agente": "d2-qa",
+        "skill_version": "0.1.0",
+        "evento": "llamada_herramienta",
+        "herramienta": "claude -p",
+        "entrada_resumen": "QA de la etapa D2 (ronda 1)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 57,
+          "moneda": "USD"
+        },
+        "tokens": {
+          "entrada": 1800,
+          "salida": 420
+        },
+        "modo": "dry_run",
+        "hash_previo": "bddd725b75703eceddad842bbe21319bcef3472f7b283eb08f26095c86d6fe45",
+        "hash": "0bec29373b674925b19572fa16683e5e1f3d2fba52b05edbda9e1ceb418b8677"
+      },
+      {
+        "n": 21,
+        "schema_version": "1.0.0",
+        "ts": "2026-11-06T14:18:00Z",
+        "ejecucion_id": "RUN-20261106-07",
+        "oferta_id": "OF-202611-02",
+        "etapa": "D8",
+        "agente": "script:subir_presupuesto",
+        "skill_version": null,
+        "evento": "accion",
+        "herramienta": "meta.subir_presupuesto",
+        "entrada_resumen": "subir presupuesto 24 → 28 EUR (dry-run)",
+        "resultado": {
+          "estado": "ok",
+          "codigo": 0
+        },
+        "costo_estimado": {
+          "monto": 0,
+          "moneda": "USD"
+        },
+        "tokens": null,
+        "modo": "dry_run",
+        "hash_previo": "0bec29373b674925b19572fa16683e5e1f3d2fba52b05edbda9e1ceb418b8677",
+        "hash": "f864c09879fe1b6175ffad2f71d39e1f1e1ec0602046913c37c00dc04bc9f53e"
+      }
+    ],
+    "total": 21,
+    "siguiente": 22,
+    "cadena_ok": true
+  },
+  "fuente": [
+    "empresa/registro.jsonl"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

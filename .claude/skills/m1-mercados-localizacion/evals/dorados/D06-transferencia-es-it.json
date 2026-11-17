@@ -1,0 +1,31 @@
+{
+  "id": "D06",
+  "nombre": "Hipotesis de transferencia es-ES -> it-IT del radar",
+  "spec": "departamentos/16 §10.5 eval 6; Anexo B",
+  "entrada": {
+    "hipotesis_transferencia": {
+      "problema_id": "PRB-202611-0001",
+      "locale_origen": "es-ES",
+      "locale_destino": "it-IT",
+      "mecanismo_traducible": "parcial"
+    }
+  },
+  "salida_esperada": {
+    "respuesta_a_d1": {
+      "viable": true,
+      "barrido_local_solicitado": true,
+      "requisitos": [
+        "ficha vigente",
+        "glosario",
+        "revisor",
+        "paridad de evidencia local"
+      ]
+    },
+    "estado_del_par": "hipotesis_de_transferencia",
+    "prohibido": "estado 'valido' sin evidencia_local"
+  },
+  "verificacion": {
+    "automatica": "templates/emparejamiento.json + sembrado D16 (MQ-22)",
+    "L2": []
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "caso_id": "S12",
+  "titulo": "Precisión inventada",
+  "defecto_sembrado": "jurado.json: precision.etiquetas = 12, auc = 0,71, estado = «elegible_asesor»",
+  "check_esperado": "JQ-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "jurado-qa: estado debe ser acumulando con < 150 etiquetas",
+  "correccion_esperada": "estado = acumulando; auc/brier solo con etiquetas comprobadas",
+  "automatizado": false
+}

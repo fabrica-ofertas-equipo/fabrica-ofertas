@@ -1,0 +1,10 @@
+{
+  "caso_id": "S08",
+  "titulo": "Una ancla en el orden",
+  "defecto_sembrado": "jurado.json: orden[0].ad_name = «ancla-buena»",
+  "check_esperado": "JQ-04",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar.verificar → J-L1-05",
+  "correccion_esperada": "las anclas no entran al orden",
+  "automatizado": true
+}

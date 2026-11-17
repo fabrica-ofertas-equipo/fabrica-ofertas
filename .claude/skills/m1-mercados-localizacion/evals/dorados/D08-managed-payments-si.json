@@ -1,0 +1,20 @@
+{
+  "id": "D08",
+  "nombre": "Managed Payments = si (relaciones, pl-PL)",
+  "spec": "departamentos/16 §10.5 eval 8; Rama Managed Payments",
+  "entrada": {
+    "decision_managed_payments": "si",
+    "candidato": "relaciones verde"
+  },
+  "salida_esperada": {
+    "PL": "cobertura ≈ 17 % (BLIK/Przelewy24/Satispay salen); R6 la excluye",
+    "FISC": "sube (el MoR presenta el impuesto) y R8 no aplica",
+    "M1": "informa el delta de puntaje y de neto de cada rama; NO decide el regimen"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D08)",
+    "L2": [
+      "verificar [VERIFICAR] antes de elegirlo: solo Checkout/Payment Links, sin dominio propio de checkout (roza decision 9 y backbone 5.3)"
+    ]
+  }
+}

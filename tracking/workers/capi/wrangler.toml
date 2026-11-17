@@ -1,0 +1,23 @@
+# Worker `capi` (docs/06 4.3; infra/plantillas/variables-entorno.yaml).
+# Modulo interno: sin rutas publicas, se consume por import directo desde
+# otros Workers de este repositorio o por binding de servicio.
+name = "fabrica-capi"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# CPU generosa: el hash SHA-256 de em/ph y la llamada a Graph no deberian
+# acercarse a esto. Valor exacto contra el limite real del plan Paid:
+# [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releido]
+cpu_ms = 50
+
+# Variables de configuracion (no secretas), cargadas por B8 segun
+# infra/plantillas/variables-entorno.yaml:
+#   META_API_VERSION  -- version fija de Graph API [VERIFICAR en sandbox]
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   META_CAPI_TOKEN__<oferta_id>  -- token del dataset de ESA oferta
+#
+# Pedido a B8 (ver README "Pedidos"): falta documentar en
+# infra/plantillas/variables-entorno.yaml si se envia `test_event_code` en
+# `FABRICA_ENTORNO=prueba` y bajo que nombre de variable.

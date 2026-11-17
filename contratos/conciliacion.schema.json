@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/conciliacion.schema.json",
+  "title": "Conciliación de F1",
+  "description": "empresa/finanzas/conciliacion.json: conciliación triple Stripe <-> ledger <-> Meta de un periodo. Conciliación distinta de 0 => cifra tachada en el dashboard, nunca 0 ni dato viejo sin marca.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "const": "empresa"
+        }
+      ],
+      "description": "oferta_id o la cadena fija 'empresa' (costos y flujos sin oferta)"
+    },
+    "periodo": {
+      "type": "object",
+      "properties": {
+        "desde": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "hasta": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        }
+      },
+      "required": [
+        "desde",
+        "hasta"
+      ],
+      "additionalProperties": false
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "moneda": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "stripe_vs_ledger": {
+      "type": "object",
+      "properties": {
+        "izquierda": {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        "derecha": {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        "diferencia": {
+          "$ref": "comunes.schema.json#/$defs/dinero",
+          "description": "izquierda - derecha; 0 = conciliado"
+        }
+      },
+      "required": [
+        "izquierda",
+        "derecha",
+        "diferencia"
+      ],
+      "additionalProperties": false,
+      "description": "Comparación en la misma moneda; diferencia = izquierda - derecha"
+    },
+    "gasto_meta_vs_ledger": {
+      "type": "object",
+      "properties": {
+        "izquierda": {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        "derecha": {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        "diferencia": {
+          "$ref": "comunes.schema.json#/$defs/dinero",
+          "description": "izquierda - derecha; 0 = conciliado"
+        }
+      },
+      "required": [
+        "izquierda",
+        "derecha",
+        "diferencia"
+      ],
+      "additionalProperties": false,
+      "description": "Comparación en la misma moneda; diferencia = izquierda - derecha"
+    },
+    "compras": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stripe": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "razon_meta_stripe": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "meta",
+        "stripe",
+        "razon_meta_stripe"
+      ],
+      "additionalProperties": false
+    },
+    "cobertura_adid_bp": {
+      "$ref": "comunes.schema.json#/$defs/proporcion_bp"
+    },
+    "excluidos": {
+      "type": "object",
+      "properties": {
+        "pruebas": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "internas": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "pruebas",
+        "internas"
+      ],
+      "additionalProperties": false
+    },
+    "pendientes_asincronos": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "OXXO/vouchers aún no pagados: no cuentan"
+    },
+    "estado": {
+      "enum": [
+        "CONCILIADO",
+        "DESCUADRE",
+        "INCOMPLETO"
+      ]
+    },
+    "cifras_tachadas": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "periodo",
+    "generado_en",
+    "moneda",
+    "stripe_vs_ledger",
+    "gasto_meta_vs_ledger",
+    "compras",
+    "cobertura_adid_bp",
+    "excluidos",
+    "pendientes_asincronos",
+    "estado",
+    "cifras_tachadas"
+  ],
+  "additionalProperties": false
+}

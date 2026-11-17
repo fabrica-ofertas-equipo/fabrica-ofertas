@@ -1,0 +1,144 @@
+# Variables de entorno por servicio. SOLO NOMBRES: ningún valor va en este archivo ni en el repositorio.
+# Los valores los carga el dueño desde donde guarde sus claves (un gestor si lo usa; NUNCA en chats ni en el repositorio) (docs/07-puesta-en-marcha.md, sección 8.3).
+# tipo: secreto = nunca se lee después de cargado; config = valor no sensible (puede versionarse en wrangler.toml / railway.json).
+# rotacion_dias: 0 = no rota por calendario. Cada servicio recibe SOLO sus variables (mínimo privilegio).
+version: 1
+actualizado: "2026-11-06"
+convenciones:
+  prefijos_secretos_a_detectar: ["EAA", "sk_", "rk_live_", "rk_test_", "whsec_", "cfut_"]
+  dinero: "enteros en unidad menor + moneda ISO 4217; nunca float"
+  tiempo: "UTC ISO-8601 con Z"
+
+plataformas:
+  railway:
+    entorno_produccion: produccion
+    entorno_pruebas: pruebas
+    servicios:
+      motor:
+        descripcion: "Escritor único de estado y gasto; 1 réplica; scheduler interno; emite el latido al watchdog."
+        variables:
+          - {nombre: DATABASE_URL, tipo: secreto, origen: "referencia al servicio Postgres (red privada)", rotacion_dias: 0, obligatoria: true}
+          - {nombre: EMPRESA_DIR, tipo: config, origen: "ruta de datos de empresa/", rotacion_dias: 0, obligatoria: true}
+          - {nombre: MODO, tipo: config, origen: "vivo | prueba | simulado", rotacion_dias: 0, obligatoria: true}
+          - {nombre: META_AD_ACCOUNT_ID, tipo: config, origen: "act_<id> de la única cuenta (debe estar en cuentas_permitidas)", rotacion_dias: 0, obligatoria: true}
+          - {nombre: META_TOKEN_OPERADOR, tipo: secreto, origen: "usuario del sistema operador (ads_management)", rotacion_dias: 60, obligatoria: true}
+          - {nombre: META_TOKEN_LECTURA, tipo: secreto, origen: "usuario del sistema de lectura (ads_read); en Fase 1 puede reutilizar el del operador", rotacion_dias: 60, obligatoria: false}
+          - {nombre: META_APP_ID, tipo: config, origen: "app de empresa del portfolio", rotacion_dias: 0, obligatoria: true}
+          - {nombre: META_APP_SECRET, tipo: secreto, origen: "app de Meta; solo para debug_token [VERIFICAR alternativa sin secreto de app]", rotacion_dias: 180, obligatoria: true}
+          - {nombre: STRIPE_RK_LECTURA, tipo: secreto, origen: "clave restringida de solo lectura", rotacion_dias: 90, obligatoria: true}
+          - {nombre: STRIPE_RK_REEMBOLSO, tipo: secreto, origen: "clave restringida Refunds:Write; solo el servicio determinista de D10", rotacion_dias: 90, obligatoria: false}
+          - {nombre: CLOUDFLARE_API_TOKEN_LECTURA, tipo: secreto, origen: "token cf_lectura", rotacion_dias: 90, obligatoria: true}
+          - {nombre: CLOUDFLARE_ACCOUNT_ID, tipo: config, origen: "panel de Cloudflare", rotacion_dias: 0, obligatoria: true}
+          - {nombre: RAILWAY_API_TOKEN_LECTURA, tipo: secreto, origen: "token de solo lectura [VERIFICAR alcance disponible]", rotacion_dias: 90, obligatoria: false}
+          - {nombre: GITHUB_TOKEN_LECTURA, tipo: secreto, origen: "token fino de solo lectura del repositorio", rotacion_dias: 90, obligatoria: true}
+          - {nombre: CORREO_API_KEY_LECTURA, tipo: secreto, origen: "clave del proveedor con permiso de lectura de dominios y métricas", rotacion_dias: 90, obligatoria: false}
+          - {nombre: PREFLIGHT_HMAC_KEY, tipo: secreto, origen: "clave de firma de estado.json; NO en runners de agentes", rotacion_dias: 180, obligatoria: true}
+          - {nombre: LATIDO_HMAC, tipo: secreto, origen: "clave compartida con el Worker watchdog", rotacion_dias: 180, obligatoria: true}
+          - {nombre: WATCHDOG_URL, tipo: config, origen: "https://watchdog.<dominio_infra>", rotacion_dias: 0, obligatoria: true}
+          - {nombre: ALERTA_CORREO_API_KEY, tipo: secreto, origen: "clave del proveedor solo con permiso de enviar", rotacion_dias: 90, obligatoria: true}
+          - {nombre: ALERTA_PUSH_TOKEN, tipo: secreto, origen: "servicio de notificaciones push [VERIFICAR proveedor]", rotacion_dias: 180, obligatoria: true}
+          - {nombre: ALERTA_DESTINO, tipo: config, origen: "direcciones del dueño y del respaldo", rotacion_dias: 0, obligatoria: true}
+      etl:
+        descripcion: "Cron (mínimo 5 min; debe terminar). Meta cada 3 h con reproceso de 7 días; backfill diario de Stripe."
+        variables:
+          - {nombre: DATABASE_URL, tipo: secreto, origen: "referencia a Postgres", rotacion_dias: 0, obligatoria: true}
+          - {nombre: META_AD_ACCOUNT_ID, tipo: config, origen: "igual que motor", rotacion_dias: 0, obligatoria: true}
+          - {nombre: META_TOKEN_LECTURA, tipo: secreto, origen: "ads_read (Fase 2) o copia del operador (Fase 1)", rotacion_dias: 60, obligatoria: true}
+          - {nombre: STRIPE_RK_LECTURA, tipo: secreto, origen: "solo lectura", rotacion_dias: 90, obligatoria: true}
+          - {nombre: FX_FUENTE, tipo: config, origen: "fuente de tipos de cambio [DUEÑO: decidir]", rotacion_dias: 0, obligatoria: false}
+      api:
+        descripcion: "Panel/dashboard y destino de eventos de Stripe para finanzas. Único servicio con dominio público."
+        variables:
+          - {nombre: DATABASE_URL, tipo: secreto, origen: "referencia a Postgres", rotacion_dias: 0, obligatoria: true}
+          - {nombre: STRIPE_WHSEC_FINANZAS_LIVE, tipo: secreto, origen: "secreto del destino de finanzas en vivo", rotacion_dias: 90, obligatoria: true}
+          - {nombre: STRIPE_WHSEC_FINANZAS_TEST, tipo: secreto, origen: "secreto del destino de finanzas en prueba", rotacion_dias: 90, obligatoria: true}
+          - {nombre: SESION_SECRETO, tipo: secreto, origen: "firma de sesiones del panel", rotacion_dias: 180, obligatoria: true}
+          - {nombre: PANEL_2FA_ISSUER, tipo: config, origen: "nombre del emisor TOTP", rotacion_dias: 0, obligatoria: false}
+      postgres:
+        descripcion: "Servicio de base de datos de Railway con volumen. Sin proxy TCP público."
+        variables: []
+      respaldo:
+        descripcion: "Cron de pg_dump nocturno cifrado hacia un bucket R2 distinto."
+        variables:
+          - {nombre: DATABASE_URL, tipo: secreto, origen: "referencia a Postgres", rotacion_dias: 0, obligatoria: true}
+          - {nombre: R2_RESPALDO_ACCESS_KEY_ID, tipo: secreto, origen: "token R2 de escritura acotado al bucket de respaldos", rotacion_dias: 90, obligatoria: true}
+          - {nombre: R2_RESPALDO_SECRET_ACCESS_KEY, tipo: secreto, origen: "idem", rotacion_dias: 90, obligatoria: true}
+          - {nombre: R2_RESPALDO_BUCKET, tipo: config, origen: "nombre del bucket de respaldos", rotacion_dias: 0, obligatoria: true}
+          - {nombre: RESPALDO_CLAVE_CIFRADO, tipo: secreto, origen: "clave de cifrado del volcado; copia donde el dueño guarde sus claves", rotacion_dias: 365, obligatoria: true}
+
+  cloudflare:
+    workers:
+      crear-sesion:
+        ubicacion: "tracking/workers/crear-sesion"
+        rutas: "<dominio_oferta>/api/sesion* (una por zona de oferta)"
+        variables:
+          - {nombre: STRIPE_RK_CHECKOUT, tipo: secreto, origen: "clave restringida Checkout Sessions:Write", rotacion_dias: 90, obligatoria: true}
+          - {nombre: CATALOGO_HMAC, tipo: secreto, origen: "firma del catálogo oferta->price_id", rotacion_dias: 180, obligatoria: true}
+          - {nombre: STRIPE_API_VERSION, tipo: config, origen: "versión fija [VERIFICAR en sandbox]", rotacion_dias: 0, obligatoria: true}
+          - {nombre: ORIGENES_PERMITIDOS, tipo: config, origen: "origenes exactos de los sitios de las ofertas (https://<dominio>), separados por comas; modo formulario: Origin debe coincidir (nunca el Host)", rotacion_dias: 0, obligatoria: true}
+          - {nombre: LOCALES_RENUNCIA_REQUERIDA, tipo: config, origen: "locales UE/UK que exigen la casilla de renuncia al desistimiento, separados por comas; solo si el catalogo firmado no lo declara (decision-arranque-de-pago)", rotacion_dias: 0, obligatoria: false}
+      webhook-stripe:
+        ubicacion: "tracking/workers/webhook-stripe"
+        rutas: "hooks.<dominio_infra>/stripe"
+        variables:
+          - {nombre: STRIPE_WHSEC_LIVE, tipo: secreto, origen: "destino de entrega en vivo", rotacion_dias: 90, obligatoria: true}
+          - {nombre: STRIPE_WHSEC_TEST, tipo: secreto, origen: "destino de entrega en prueba", rotacion_dias: 90, obligatoria: true}
+          - {nombre: STRIPE_TOLERANCIA_SEG, tipo: config, origen: "300 por defecto; nunca 0", rotacion_dias: 0, obligatoria: true}
+      fulfill:
+        ubicacion: "tracking/workers/fulfill"
+        rutas: "interna (cola o llamada desde webhook-stripe)"
+        variables:
+          - {nombre: STRIPE_RK_ENTREGA, tipo: secreto, origen: "lectura de sesiones, PaymentIntents y charges", rotacion_dias: 90, obligatoria: true}
+          - {nombre: CORREO_API_KEY, tipo: secreto, origen: "proveedor transaccional; solo enviar", rotacion_dias: 90, obligatoria: true}
+          - {nombre: DESCARGA_HMAC, tipo: secreto, origen: "firma de tokens de descarga", rotacion_dias: 180, obligatoria: true}
+          - {nombre: DESCARGA_DIAS_VENCIMIENTO, tipo: config, origen: "parámetro enlace.vencimiento_dias", rotacion_dias: 0, obligatoria: true}
+      capi:
+        ubicacion: "tracking/workers/capi"
+        rutas: "interna"
+        variables:
+          - {nombre: "META_CAPI_TOKEN__<oferta_id>", tipo: secreto, origen: "token del dataset de ESA oferta (un token por dataset)", rotacion_dias: 90, obligatoria: true}
+          - {nombre: META_API_VERSION, tipo: config, origen: "versión fija de Graph API", rotacion_dias: 0, obligatoria: true}
+      descarga:
+        ubicacion: "infra/workers/descarga"
+        rutas: "descargas.<dominio_infra>/d/*"
+        variables:
+          - {nombre: DESCARGA_HMAC, tipo: secreto, origen: "valida tokens", rotacion_dias: 180, obligatoria: true}
+          - {nombre: "BUCKET_PRODUCTOS (binding R2)", tipo: config, origen: "binding, sin claves S3 en el borde", rotacion_dias: 0, obligatoria: true}
+          - {nombre: "CONTADORES (binding KV)", tipo: config, origen: "contador de descargas", rotacion_dias: 0, obligatoria: true}
+      watchdog:
+        ubicacion: "infra/workers/watchdog"
+        rutas: "watchdog.<dominio_infra> + cron */5 * * * * (UTC)"
+        variables:
+          - {nombre: META_TOKEN_PAUSA, tipo: secreto, origen: "usuario 'pausa' (Fase 2) o copia del operador (Fase 1); solo la cuenta publicitaria", rotacion_dias: 60, obligatoria: true}
+          - {nombre: LATIDO_HMAC, tipo: secreto, origen: "mismo valor que en motor", rotacion_dias: 180, obligatoria: true}
+          - {nombre: ALERTA_CORREO_API_KEY, tipo: secreto, origen: "solo enviar", rotacion_dias: 90, obligatoria: true}
+          - {nombre: ALERTA_PUSH_TOKEN, tipo: secreto, origen: "push", rotacion_dias: 180, obligatoria: true}
+          - {nombre: CUENTAS_PERMITIDAS, tipo: config, origen: "copia de limites.yaml: IDs act_<id>", rotacion_dias: 0, obligatoria: true}
+          - {nombre: WATCHDOG_LATIDO_MAX_MIN, tipo: config, origen: "parámetro watchdog.latido_max_min", rotacion_dias: 0, obligatoria: true}
+          - {nombre: GASTO_DIARIO_MAX_MINOR, tipo: config, origen: "unidad menor, de limites.yaml. OBLIGATORIA (docs/07 §9.2.2, D-13): sin ella /estado responde 503 y C-09 es ROJO crítico, nunca se omite", rotacion_dias: 0, obligatoria: true}
+          - {nombre: CUENTA_TZ, tipo: config, origen: "zona IANA de la cuenta de Meta (decisiones.yaml). OBLIGATORIA: el gasto de 'hoy' se compara en esta zona, no en UTC", rotacion_dias: 0, obligatoria: true}
+          - {nombre: LIMITE_CUENTA_MINOR, tipo: config, origen: "copia de limites.yaml: limite_gasto_cuenta_meta, unidad menor; pausa al 90 % de account.amount_spent", rotacion_dias: 0, obligatoria: true}
+          - {nombre: "ESTADO (binding KV)", tipo: config, origen: "latido:ultimo, watchdog:visto y pausa:global", rotacion_dias: 0, obligatoria: true}
+    tokens_de_api_en_otros_sistemas: "ver permisos-tokens.yaml"
+
+  github:
+    entornos:
+      pruebas:
+        secretos:
+          - {nombre: CLOUDFLARE_API_TOKEN, tipo: secreto, origen: "cf_deploy acotado a recursos de pruebas", rotacion_dias: 90}
+          - {nombre: CLOUDFLARE_ACCOUNT_ID, tipo: config, origen: "panel de Cloudflare", rotacion_dias: 0}
+      produccion:
+        secretos:
+          - {nombre: CLOUDFLARE_API_TOKEN, tipo: secreto, origen: "cf_deploy", rotacion_dias: 90}
+          - {nombre: CLOUDFLARE_ACCOUNT_ID, tipo: config, origen: "panel de Cloudflare", rotacion_dias: 0}
+          - {nombre: RAILWAY_TOKEN, tipo: secreto, origen: "token de despliegue del proyecto", rotacion_dias: 90}
+    prohibido_en_github: ["rk_*", "whsec_*", "tokens de Meta", "PREFLIGHT_HMAC_KEY", "LATIDO_HMAC"]
+
+  entorno_local_del_dueno:
+    nota: "Credenciales de administración. Viven solo donde el dueño guarde sus claves (un gestor si lo usa); no se cargan en ningún servicio."
+    variables:
+      - {nombre: META_TOKEN_ADMIN_SISTEMA, tipo: secreto, origen: "admin del sistema (business_management); se usa a mano y se revoca tras cada alta", rotacion_dias: 0}
+      - {nombre: STRIPE_RK_CATALOGO, tipo: secreto, origen: "Products y Prices: Write; solo para stripe_catalogo.py local o con aprobación", rotacion_dias: 90}
+      - {nombre: CLOUDFLARE_API_TOKEN_DNS, tipo: secreto, origen: "cf_dns: DNS Edit solo en zonas de ofertas", rotacion_dias: 90}
+      - {nombre: R2_SUBIDA_ACCESS_KEY_ID, tipo: secreto, origen: "r2_subida: Object Read & Write solo en el bucket de productos", rotacion_dias: 90}
+      - {nombre: R2_SUBIDA_SECRET_ACCESS_KEY, tipo: secreto, origen: "idem", rotacion_dias: 90}

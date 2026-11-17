@@ -1,0 +1,3 @@
+validador=enum
+ruta=/emisor
+texto=solo D8 o D9 emiten órdenes de presupuesto

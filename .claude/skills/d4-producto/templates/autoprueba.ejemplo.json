@@ -1,0 +1,53 @@
+{
+  "oferta_id": "OF-202612-02",
+  "version": "v1",
+  "ejecutado_el": "2026-12-10",
+  "ejecutado_por": "maker",
+  "entorno": {
+    "entorno_ejecucion": "archivos locales, scripts de la skill y de scripts/producto/; sin red ni sandbox",
+    "gasto": 0,
+    "red": "ninguna",
+    "cuentas": "ninguna (todo paso con cuenta, web o pago es no_ejecutable_por_agente)",
+    "captcha": "no hay (si apareciera, el paso es no_ejecutable_por_agente)"
+  },
+  "caso_de_prueba": "Persona ficticia (rotulada «ejemplo ficticio»): ingresos de 1.800 € al mes y 6 categorías de gasto.",
+  "pasos": [
+    {
+      "id": "paso-1-elenco-categorie",
+      "ejecutable_por_agente": true,
+      "micro_acciones": [{ "tipo": "abrir_copiar_pegar", "n": 2 }, { "tipo": "decidir_ajustar", "n": 4 }],
+      "resultado": "Lista de 6 categorías escrita en la hoja",
+      "evidencia_ref": "entregables/fuente/pruebas/paso-1.md"
+    },
+    {
+      "id": "paso-2-fissa-il-tetto",
+      "ejecutable_por_agente": true,
+      "micro_acciones": [{ "tipo": "decidir_ajustar", "n": 6 }, { "tipo": "configurar_herramienta", "n": 1 }],
+      "resultado": "Tope por categoría calculado por la fórmula de la hoja; coincide con el caso dorado CD-01",
+      "evidencia_ref": "entregables/fuente/pruebas/paso-2.md"
+    },
+    {
+      "id": "paso-3-registra-la-settimana",
+      "ejecutable_por_agente": false,
+      "micro_acciones": [{ "tipo": "abrir_copiar_pegar", "n": 4 }, { "tipo": "otro", "n": 1, "t_min": 4, "justificacion": "anotar a mano los gastos reales de una semana (depende de la persona)" }],
+      "resultado": "no_ejecutable_por_agente: requiere la interfaz de Google Sheets y los gastos reales de una persona",
+      "evidencia_ref": null
+    }
+  ],
+  "casos_dorados": [
+    {
+      "id": "CD-01",
+      "descripcion": "Reparto del tope con la fórmula de la hoja frente a una implementación de referencia independiente",
+      "entrada": { "ingresos_mensuales": 1800, "porcentajes": { "vivienda": 35, "alimentacion": 20 } },
+      "esperado": { "tope_vivienda": 630, "tope_alimentacion": 360 },
+      "obtenido": { "tope_vivienda": 630, "tope_alimentacion": 360 },
+      "implementacion_de_referencia": "entregables/fuente/pruebas/referencia_calculo.py",
+      "ok": true
+    }
+  ],
+  "no_ejecutable_por_agente": ["abrir y duplicar la hoja en Google Sheets", "configuración regional de la hoja al locale it-IT"],
+  "trabas": [],
+  "ambiguedades": [],
+  "prompts_o_unidades": { "entradas_probadas": 3, "utilizables": 3, "porcentaje_utilizable": "100" },
+  "pasa_a_checklist_del_dueno": ["primer paso real cronometrado", "abrir en el celular"]
+}

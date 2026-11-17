@@ -1,0 +1,96 @@
+{
+  "_comentario": "PROPUESTA para .claude/settings.json (B9 no tiene permiso de escribir .claude/**, docs/09 §6). El dueño la revisa y la instala a mano (copiar el contenido, sin esta clave _comentario). Sustituir //RAIZ por la ruta absoluta real del repositorio al instalar.",
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "disableClaudeAiConnectors": false,
+  "disableSkillShellExecution": true,
+  "permissions": {
+    "defaultMode": "dontAsk",
+    "disableBypassPermissionsMode": "disable",
+    "blockReadsOutsideWorkingDirectories": true,
+    "blockWritesOutsideWorkingDirectories": true,
+    "deny": [
+      "mcp__claude_ai_Meta_ADS__ads_activate_entity",
+      "mcp__claude_ai_Meta_ADS__ads_boost_ig_post",
+      "mcp__claude_ai_Meta_ADS__ads_delete_*",
+      "mcp__claude_ai_Meta_ADS__ads_creative_*",
+      "mcp__claude_ai_Meta_ADS__ads_experiment_*",
+      "mcp__claude_ai_Meta_ADS__ads_update_custom_audience*",
+      "mcp__claude_ai_Meta_ADS__ads_pixel_*",
+      "mcp__claude_ai_Meta_ADS__ads_catalog_*",
+      "mcp__claude_ai_Meta_ADS__ads_finalize_local_ad_image_upload",
+      "mcp__claude_ai_Shopify__create-*",
+      "mcp__claude_ai_Shopify__publish-*",
+      "mcp__claude_ai_Shopify__update-*",
+      "mcp__claude_ai_Shopify__bulk-update-*",
+      "mcp__claude_ai_Shopify__upload*",
+      "mcp__claude_ai_Shopify__graphql_mutation",
+      "mcp__claude_ai_Shopify__set-inventory",
+      "mcp__claude_ai_Higgsfield__publish_*",
+      "mcp__claude_ai_Higgsfield__deploy_website",
+      "mcp__claude_ai_Higgsfield__create_website",
+      "mcp__claude_ai_Higgsfield__tiktok_*",
+      "mcp__claude_ai_Higgsfield__delete_*",
+      "mcp__claude_ai_Higgsfield__sandbox_exec",
+      "mcp__claude_ai_Google_Drive__share_file",
+      "mcp__claude_ai_Google_Drive__trash_file",
+      "mcp__claude_ai_Google_Drive__create_file",
+      "mcp__claude_ai_Google_Drive__update_file",
+      "Edit(//RAIZ/.claude/**)",
+      "Edit(//RAIZ/agentes/hooks/**)",
+      "Edit(//RAIZ/contratos/**)",
+      "Edit(//RAIZ/empresa/limites.yaml)",
+      "Edit(//RAIZ/empresa/parametros.yaml)",
+      "Edit(//RAIZ/empresa/compliance/sellos/**)",
+      "Edit(//RAIZ/empresa/PAUSA)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(//**/*.pem)",
+      "Read(~/.ssh/**)",
+      "Read(~/.claude/**)",
+      "Read(~/.config/**)",
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(rm *)"
+    ],
+    "ask": [
+      "mcp__claude_ai_Meta_ADS__ads_create_*",
+      "mcp__claude_ai_Meta_ADS__ads_update_entity",
+      "mcp__claude_ai_Higgsfield__ads_studio_generate",
+      "mcp__claude_ai_Higgsfield__generate_*",
+      "mcp__claude_ai_Higgsfield__ai_influencer_generate",
+      "mcp__claude_ai_Higgsfield__execute_preset"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      { "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/pretooluse_gasto.py"],
+          "timeout": 15, "onFailure": "block" } ] },
+      { "matcher": "mcp__.*|Bash", "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/pretooluse_activacion.py"],
+          "timeout": 15, "onFailure": "block" } ] },
+      { "matcher": "Bash", "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/pretooluse_bash.py"],
+          "timeout": 15, "onFailure": "block" } ] }
+    ],
+    "PostToolUse": [
+      { "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/posttooluse_registro.py"], "timeout": 10 } ] }
+    ],
+    "PostToolUseFailure": [
+      { "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/posttooluse_registro.py"], "timeout": 10 } ] }
+    ],
+    "Stop": [
+      { "hooks": [
+        { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/.venv/bin/python",
+          "args": ["${CLAUDE_PROJECT_DIR}/agentes/hooks/stop_verificacion.py"], "timeout": 60 } ] }
+    ]
+  }
+}

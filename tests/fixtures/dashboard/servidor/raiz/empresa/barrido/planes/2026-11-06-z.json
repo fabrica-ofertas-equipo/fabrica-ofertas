@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-z",
+  "creado_en": "2026-11-06T06:10:38Z",
+  "tope_consultas": 120,
+  "consultas": [
+    {
+      "qid": "es-a",
+      "pasada": 1
+    },
+    {
+      "qid": "es-b",
+      "pasada": 1
+    }
+  ]
+}

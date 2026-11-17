@@ -1,0 +1,239 @@
+{
+  "id": "D03",
+  "descripcion": "Oferta viva con un anuncio ganador (c01-mapas: 2 ventas por día y 20 clics de enlace por cada mil impresiones durante 8 días) que en los 4 últimos días cae a 1 venta por día y 10 clics por mil con el mismo gasto diario. Lectura del 2026-11-20 (últimos 3 días contra los 7 anteriores): CTR de enlace 1,00 % contra 1,85 % (-46 %) y costo por venta 1.000 contra 538 en unidad menor (x1,86). Lectura del 2026-11-19: -50 % y x2,00. Dos lecturas seguidas alertan (umbrales de prueba: caída de CTR >= 30 %, costo por venta >= x1,5, 2 señales). No hay pedidos abiertos a D6. Debe proponer RELEVAR (pedido a D6 con una sola variable, el gancho; máximo 5 piezas), sin pausar el anuncio vivo.",
+  "modo": "FATIGA",
+  "comando": "proponer.py fatiga --entrada <entrada> --umbrales evals/_base/umbrales_prueba.json",
+  "entrada": {
+    "schema_version": "0.1.0",
+    "tipo": "entrada_d8",
+    "oferta_id": "OF-202611-02",
+    "fecha_cuenta": "2026-11-20",
+    "tz": "Europe/Warsaw",
+    "ahora": "2026-11-09T09:00:00Z",
+    "solo_lectura": true,
+    "moneda_meta": "USD",
+    "monedas_pedido": [],
+    "presupuesto": {
+      "diario_minor": 7500,
+      "moneda": "USD",
+      "fuente": "ofertas/OF-202611-02/07-campana/campana.json:presupuesto.diario"
+    },
+    "contexto": {
+      "pausa_activa": false,
+      "infra_semaforo": "VERDE",
+      "traspaso_lanzamiento_estable": true,
+      "pedidos_creativos_abiertos": 0
+    },
+    "frescura": {
+      "ultima_ingesta_meta_ts": "2026-11-09T08:30:00Z",
+      "edad_ingesta_meta_min": 30,
+      "ultima_ingesta_pedidos_ts": null,
+      "edad_ingesta_pedidos_min": null
+    },
+    "campaign_ids": [
+      "120000000000001"
+    ],
+    "primer_dia_con_gasto": "2026-11-08",
+    "dias_cerrados_desde_primer_gasto": 1,
+    "dia": {
+      "fecha": "2026-11-20",
+      "cerrado": true,
+      "gasto_minor": 7400,
+      "impresiones": 18000,
+      "clics_enlace": 160,
+      "compras_meta": 0,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0,
+      "ventas_con_reembolso": 0,
+      "vistas_landing": 130,
+      "vistas_landing_con_adid": 125,
+      "initiate_checkout": 4,
+      "ingesta_meta_posterior_al_cierre": true,
+      "minutos_desde_cierre": 600
+    },
+    "acumulado": {
+      "desde": "2026-11-08",
+      "gasto_minor": 7400,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0
+    },
+    "cobertura_adid_bp": null,
+    "disputas_abiertas": 0,
+    "serie_oferta": [
+      {
+        "fecha": "2026-11-08",
+        "gasto_minor": 7400,
+        "impresiones": 18000,
+        "clics_enlace": 160,
+        "compras_meta": 0,
+        "ventas_stripe_total": 0,
+        "ventas_stripe_atribuidas": 0,
+        "ventas_stripe_sin_atribucion": 0,
+        "pedidos_pendientes": 0
+      }
+    ],
+    "anuncios": [
+      {
+        "ad_id": "120000000000100",
+        "concepto_id": "c01-mapas",
+        "por_dia": {
+          "2026-11-09": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-10": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-11": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-12": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-13": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-14": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-15": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-16": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 20,
+            "compras_meta": 0,
+            "ventas_stripe": 2,
+            "ic": 0
+          },
+          "2026-11-17": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 10,
+            "compras_meta": 0,
+            "ventas_stripe": 1,
+            "ic": 0
+          },
+          "2026-11-18": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 10,
+            "compras_meta": 0,
+            "ventas_stripe": 1,
+            "ic": 0
+          },
+          "2026-11-19": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 10,
+            "compras_meta": 0,
+            "ventas_stripe": 1,
+            "ic": 0
+          },
+          "2026-11-20": {
+            "gasto_minor": 1000,
+            "impresiones": 1000,
+            "clics_enlace": 10,
+            "compras_meta": 0,
+            "ventas_stripe": 1,
+            "ic": 0
+          }
+        }
+      }
+    ],
+    "avisos": []
+  },
+  "esperado": {
+    "propuestas": [
+      {
+        "objeto_tipo": "anuncio",
+        "objeto_id": "120000000000100",
+        "accion_negocio": "RELEVAR",
+        "accion_contrato": "SEGUIR",
+        "codigo": "FATIGA_RELEVO_PEDIDO",
+        "cantidad_max_pedido": 5,
+        "variable_a_variar": "hook"
+      }
+    ],
+    "anuncios": [
+      {
+        "ad_id": "120000000000100",
+        "estado": "FATIGA_CONFIRMADA"
+      }
+    ]
+  },
+  "salida_maker_esperada": {
+    "propuestas": [
+      {
+        "objeto_tipo": "anuncio",
+        "objeto_id": "120000000000100",
+        "accion_negocio": "RELEVAR",
+        "accion_contrato": "SEGUIR",
+        "codigo": "FATIGA_RELEVO_PEDIDO",
+        "requiere_humano": false
+      }
+    ],
+    "pedidos_creativos": [
+      {
+        "ad_origen": "120000000000100",
+        "variable_a_variar": "hook",
+        "cantidad_max": 5
+      }
+    ],
+    "debe_incluir": [
+      "el pedido transmite la estructura y la variable, no el texto del ganador ni sus claims; lista no_repetir",
+      "ángulo (angulo_id) tomado de oferta.angulos[] permitido al nivel de riesgo",
+      "el anuncio vivo NO se pausa (regla de oro 2: el ganador sigue en testeo); el relevo entra como anuncio nuevo en la tanda siguiente, nunca dentro del conjunto que aprende",
+      "descarte del diagnóstico de embudo (etapas 0, 2 y 4) antes de culpar al creativo"
+    ],
+    "no_debe": [
+      "pedir más de 5 piezas ni más de una variable",
+      "pedir un ángulo fuera de oferta.angulos[]",
+      "pausar el anuncio original",
+      "inventar la frecuencia o cualquier cifra que no esté en la entrada"
+    ]
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "hallazgos_minimos": 3
+  }
+}

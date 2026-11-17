@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.1.0",
+  "oferta_id": "OF-202611-01",
+  "familia_id": "FAM-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "es-ES",
+  "paises_segmentacion": [
+    "ES"
+  ],
+  "moneda_cobro": "EUR",
+  "monedas_precio_adicionales": [],
+  "estado_decision": "prior",
+  "evidencia_propia": {
+    "clics_enlace": 0,
+    "compras_stripe": 0,
+    "ofertas_probadas": 0
+  },
+  "cpm_esperado": {
+    "monto": 450,
+    "moneda": "EUR"
+  },
+  "cpm_fuente": "[SUPUESTO] CPM de ejemplo para España; se reemplaza con el dato propio del primer test",
+  "metodos_pago": {
+    "fase": "estandar_tarjeta_billeteras",
+    "activos": [
+      "card",
+      "apple_pay",
+      "google_pay",
+      "link"
+    ],
+    "locales_diferidos": true
+  },
+  "fiscal": {
+    "regimen": "diferido",
+    "nota": "Régimen fiscal diferido por decisión del dueño (2026-11-06); diseño listo para Stripe Tax o MoR",
+    "exposicion_aceptada": {
+      "firmada_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": "hmac-sha256:0e5cfadef483e4a12deecdaf221c82cade99df8599f5feef97f70573832f6301"
+      },
+      "paises": [
+        "ES"
+      ]
+    }
+  },
+  "consumo": {
+    "desistimiento_dias": 14,
+    "boton_arrepentimiento": true,
+    "consentimiento_cookies": true,
+    "ley_privacidad": "RGPD"
+  },
+  "glosario_ref": null,
+  "revision_linguistica": {
+    "revisor_nativo": false,
+    "obligacion_legal_idioma": false,
+    "metodos": [
+      "retraduccion",
+      "segunda_lectura_otro_modelo",
+      "revision_humana_muestreo"
+    ]
+  },
+  "primer_lanzamiento_en_locale": true,
+  "requiere_gate_h": true,
+  "aprobado_por": null,
+  "fuentes": [
+    "docs/_investigacion/05-legal.md",
+    "[VERIFICAR] norma de consumo vigente en España"
+  ]
+}

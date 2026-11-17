@@ -1,0 +1,74 @@
+{
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "tanda_id": "tanda-2026-11-08_pl-PL",
+  "demostracion": true,
+  "piezas": [
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Rozumiesz, co czytasz, ale gubisz słowa, gdy trzeba się odezwać?",
+      "id_origen": "G-0001"
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Słówka z listy wylatują Ci z głowy? Zobacz je w mapie, w zdaniach.",
+      "id_origen": "G-0002"
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Szkoła nauczyła gramatyki, a w rozmowie wychodzi „kali jeść, kali pić”?",
+      "id_origen": "G-0003"
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Aplikacja trzyma passę, a Ty dalej tkwisz w tym samym miejscu?",
+      "id_origen": "G-0004"
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Nie masz czasu dojeżdżać na kurs? Mapa mieści się w telefonie.",
+      "id_origen": "G-0005"
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Nie stać Cię teraz na lekcje? Zacznij od materiału za cenę jednej książki.",
+      "id_origen": "G-0006"
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Zabraknie Ci słówka i musisz kombinować? Ułóż słownictwo tematami.",
+      "id_origen": "G-0007"
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "A2, B1, B2… Zobacz, jakie słownictwo mieści się na Twoim poziomie.",
+      "id_origen": "G-0008"
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Wracasz do angielskiego po latach? Zacznij od mapy, nie od podręcznika.",
+      "id_origen": "G-0009"
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Bez cudów i bez „sekretu poliglotów”. Tylko mapy myśli, poziom po poziomie.",
+      "id_origen": "G-0010"
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "tipo": "texto",
+      "texto_visible": "Pobierz jedną mapę za darmo i sprawdź, czy to dla Ciebie.",
+      "id_origen": "G-0011"
+    }
+  ]
+}

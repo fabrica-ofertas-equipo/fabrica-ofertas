@@ -1,0 +1,36 @@
+{
+  "id": "S09",
+  "severidad": "BLOQUEANTE",
+  "defecto": "Una frase de voz_cliente.json trae un @handle y un teléfono.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "voz_cliente.json",
+      "ruta": "frases[1].texto_literal",
+      "valor": "scrivimi su @mario_rossi o chiamami al 333 1234567"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D5",
+        "patron_clave": "pii-en-voz-del-cliente",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R4"
+    ],
+    "debe_citar": "@mario_rossi"
+  },
+  "detecta_script": "verificar_citas.py (PII)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

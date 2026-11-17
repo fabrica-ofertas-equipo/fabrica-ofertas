@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "reembolso_id": "RF-34f941d1ed00",
+  "ts": "2026-11-12T08:00:00Z",
+  "oferta_id": "OF-202611-01",
+  "checkout_session_id": "cs_test_ejemplo0002",
+  "adid": "120000000000003",
+  "stripe_refund_id": "re_ejemplo_0001",
+  "monto": {
+    "monto": 1990,
+    "moneda": "EUR"
+  },
+  "motivo": "dentro_de_garantia",
+  "regla_aplicada": "RF-GARANTIA",
+  "dentro_garantia": true,
+  "dias_desde_compra": 1,
+  "estado": "ejecutado",
+  "ejecutor": "script",
+  "gate": "A",
+  "idempotency_key": "sha256:34f941d1ed00b91201bae5f26ef76b5be56b3a08b66c21a7a2f1871721daad19",
+  "sintetico": true
+}

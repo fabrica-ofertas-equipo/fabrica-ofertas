@@ -1,0 +1,42 @@
+{
+  "id": "S14",
+  "severidad": "BLOQUEANTE",
+  "defecto": "El mecanismo único del candidato es idéntico al de op-03 y se da por diferencial (indistinguible_de_sostenido=false).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[2].anuncios[0].mecanismo_declarado",
+      "valor": "calendario de cuotas por colores"
+    },
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[2].anuncios[1].mecanismo_declarado",
+      "valor": "calendario de cuotas por colores"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-R5",
+        "patron_clave": "mu-identico-dado-por-diferencial",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R5"
+    ],
+    "debe_citar": "calendario de cuotas por colores"
+  },
+  "detecta_script": "ninguno (contraste del MU con cada sostenido)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo.",
+  "contexto_extra": "Con 01-descubrimiento/candidatos.json#candidatos[0].mecanismo.nombre = «Calendario de cuotas por colores»."
+}

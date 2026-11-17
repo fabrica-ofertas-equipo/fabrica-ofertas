@@ -1,0 +1,36 @@
+{
+  "id": "S18",
+  "severidad": "MAYOR",
+  "defecto": "El informe suma los estimated_total_count de dos países como «tamaño de mercado».",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "validacion.json",
+      "ruta": "saturacion.detalle",
+      "valor": "Tamaño de mercado: 1.340 anuncios activos (suma de los totales de IT y ES)"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D4",
+        "patron_clave": "totales-de-sonda-sumados",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R1"
+    ],
+    "debe_citar": "suma de los totales"
+  },
+  "detecta_script": "ninguno (juicio del QA)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

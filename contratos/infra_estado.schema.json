@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/infra_estado.schema.json",
+  "title": "Estado de infraestructura",
+  "description": "Semáforo de infraestructura. Sin VERDE firmado y con menos de hc_preflight_vigencia_horas de antigüedad, nadie gasta ni activa.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "modo": {
+      "enum": [
+        "vivo",
+        "prueba",
+        "simulado"
+      ],
+      "description": "MINOR 1.1.0 (docs/06 D-07). Opcional por compatibilidad; AUSENTE equivale a no vivo. Solo 'vivo' habilita --live; los hooks y engine.guard rechazan 'prueba' y 'simulado' para gastar o activar."
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$",
+      "description": "Commit del código que midió (MINOR 1.1.0)"
+    },
+    "hash_scripts": {
+      "$ref": "comunes.schema.json#/$defs/sha256",
+      "description": "Hash del mapa de scripts firmados (MINOR 1.1.0)"
+    },
+    "semaforo": {
+      "enum": [
+        "VERDE",
+        "AMARILLO",
+        "ROJO"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]*-[0-9]{2}$|^[a-z0-9_.-]+$"
+          },
+          "bloque": {
+            "type": "string"
+          },
+          "estado": {
+            "enum": [
+              "VERDE",
+              "AMARILLO",
+              "ROJO",
+              "PENDIENTE",
+              "PENDIENTE_EXTERNO"
+            ]
+          },
+          "evidencia_ruta": {
+            "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+          },
+          "medido_en": {
+            "$ref": "comunes.schema.json#/$defs/timestamp"
+          },
+          "expira_en": {
+            "$ref": "comunes.schema.json#/$defs/timestamp"
+          },
+          "critico": {
+            "type": "boolean",
+            "description": "Ítem crítico del catálogo (MINOR 1.1.0): un crítico en ROJO fuerza semáforo ROJO"
+          },
+          "mensaje": {
+            "type": "string",
+            "maxLength": 300,
+            "description": "Texto breve sin secretos ni datos personales (MINOR 1.1.0)"
+          },
+          "latencia_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Latencia de la sonda (MINOR 1.1.0)"
+          }
+        },
+        "required": [
+          "id",
+          "bloque",
+          "estado",
+          "evidencia_ruta",
+          "medido_en",
+          "expira_en"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "valido_hasta": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "firma": {
+      "$ref": "comunes.schema.json#/$defs/hmac"
+    }
+  },
+  "required": [
+    "schema_version",
+    "semaforo",
+    "items",
+    "generado_en",
+    "valido_hasta",
+    "firma"
+  ],
+  "additionalProperties": false
+}

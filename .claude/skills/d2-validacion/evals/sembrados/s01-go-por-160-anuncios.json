@@ -1,0 +1,77 @@
+{
+  "id": "S01",
+  "severidad": "BLOQUEANTE",
+  "defecto": "GO justificado por «160 anuncios» de un solo concepto de un solo anunciante (volumen bruto como prueba).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "operadores",
+      "valor": [
+        {
+          "operador_id": "op-01",
+          "tipo_anunciante": "producto_digital",
+          "motivo_clustering": "página aislada = su propio operador",
+          "paginas": [
+            "901"
+          ],
+          "paises": [
+            "IT"
+          ],
+          "embudo": "0",
+          "truncado": false,
+          "anuncios_leidos": 0,
+          "primer_anuncio_observado_dias": 60,
+          "conceptos": [
+            {
+              "concepto_id": "c11",
+              "activo": true,
+              "antiguedad_dias": 60,
+              "tipo_mecanismo": "M1",
+              "angulo_principal": "flujo-mensual",
+              "evidencia_id": "EV-01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "mercado_resumen.anuncios_activos",
+      "valor": 160
+    },
+    {
+      "archivo": "validacion.json",
+      "ruta": "veredicto.razones[0]",
+      "valor": "160 anuncios activos de un anunciante prueban que hay demanda"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D4",
+        "patron_clave": "conteo-bruto-como-prueba",
+        "severidad": "BLOQUEANTE"
+      },
+      {
+        "check_id": "D2-L1-D3",
+        "patron_clave": "veredicto-incoherente",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R1"
+    ],
+    "debe_citar": "160 anuncios"
+  },
+  "detecta_script": "veredicto.py comprobar (calculado ≠ GO) y qa_recomputar.py",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<title>{{titulo}}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{descripcion}}">
+<meta name="theme-color" content="{{color_tema}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{og_titulo}}">
+<meta property="og:description" content="{{og_descripcion}}">
+<meta property="og:url" content="{{og_url}}">
+{{#si og_imagen}}
+<meta property="og:image" content="{{og_imagen}}">
+{{/si}}
+{{#cada precargas}}
+<link rel="preload" href="{{href}}" as="font" type="font/woff2" crossorigin>
+{{/cada}}
+<link rel="stylesheet" href="/css/estilos.css">
+<script src="/js/consentimiento.js" defer></script>
+{{#si script_turnstile}}
+<script src="{{script_turnstile}}" async defer></script>
+{{/si}}
+</head>
+<body{{{body_attrs}}}>
+{{#si vista_previa}}
+<div class="vp-barra" data-demo="barra" role="note">{{vista_previa.barra}}</div>
+{{/si}}
+<a class="salto" href="#contenido">{{t.salto}}</a>
+{{{sprite}}}
+{{#si barra_superior}}
+<div class="barra-superior{{#si barra_superior.lanzamiento}} barra-superior--lanzamiento{{/si}}" role="region" aria-label="{{t.aviso_barra}}"{{#si barra_superior.lanzamiento}} data-barra-lanzamiento="{{barra_superior.lanzamiento}}"{{/si}}>
+  <p class="contenedor barra-superior__texto"><svg class="ico" aria-hidden="true"><use href="#i-{{barra_superior.icono}}"></use></svg><span>{{{barra_superior.texto}}}</span></p>
+</div>
+{{/si}}
+<header class="cabecera tono-{{tono_cabecera}}">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__marca" href="/">{{marca}}</a>
+{{#si cta_cabecera}}
+    <a class="boton boton--mini" href="/comprar">{{cta_cabecera}}</a>
+{{/si}}
+  </div>
+</header>
+<main id="contenido" tabindex="-1">
+{{#cada secciones}}
+{{{html}}}
+{{/cada}}
+{{#si barra}}
+  <div class="barra-cta tono-oscuro" role="region" aria-label="{{t.compra_rapida}}">
+    <p class="barra-cta__precio"><span>{{t.precio}}</span> <strong>{{barra.precio}}</strong></p>
+    <a class="boton boton--cta" href="/comprar">{{barra.texto}}</a>
+  </div>
+{{/si}}
+</main>
+{{{pie}}}
+</body>
+</html>

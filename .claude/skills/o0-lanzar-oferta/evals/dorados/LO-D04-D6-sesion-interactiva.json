@@ -1,0 +1,13 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-D04-D6-sesion-interactiva",
+  "entrada": "oferta en N2 con D5 aprobada y D6 pendiente",
+  "esperado": [
+    "accion ingresar con requiere_sesion_interactiva",
+    "motivo: Higgsfield solo en sesión interactiva",
+    "comando ingresar --origen sesion_code",
+    "cotizar y aprobar créditos antes de gastar, anotado en la ficha"
+  ],
+  "verificacion": "scripts/test_proximo_paso.py::test_d6_higgsfield_y_n3_avisa_alternativa_pendiente"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "D03",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Dato de ficha sin fuente ni fecha",
+  "donde_se_siembra": "fixtures/pais-IT.json#/fiscal/tasa_bp",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "ficha:IT",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/fiscal/tasa_bp/fuente_url",
+          "valor": ""
+        },
+        {
+          "op": "del",
+          "ruta": "/fiscal/tasa_bp/fecha_lectura"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-02"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-02",
+      "patron_clave": "dato-sin-trazabilidad",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "toda hoja con fuente_url (o [VERIFICAR]), fecha_lectura y confianza"
+  }
+}

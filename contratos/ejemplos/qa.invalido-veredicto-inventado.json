@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "D3",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-07T10:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "03-oferta/oferta.json",
+  "artefacto_sha256": "sha256:ffe325ecf1cbb9c0dfd2e261c4fc5a32e652eca272570c4ee16afdce7132a130",
+  "entradas": {
+    "02-validacion/validacion.json": "sha256:4f1bcd1d70c1e615ac71ff9d35a5dfa3c2e5efeeb7fd9c64e30b5142b1591b53",
+    "03-oferta/economia.json": "sha256:eeb5c3c6f7989b576ec16d36c91a80378a48dd38be20544cd8d13a7be9915dde"
+  },
+  "veredicto": "APROBADO",
+  "puntaje_global": "4.40",
+  "umbral": "3.8",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Coherencia con el contrato de la etapa",
+      "puntaje": 5,
+      "evidencia": "03-oferta/oferta.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia citada",
+      "puntaje": 4,
+      "evidencia": "03-oferta/oferta.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Claims y cumplimiento",
+      "puntaje": 5,
+      "evidencia": "03-oferta/oferta.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Claridad para el siguiente agente",
+      "puntaje": 4,
+      "evidencia": "03-oferta/oferta.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Reproducibilidad",
+      "puntaje": 4,
+      "evidencia": "03-oferta/oferta.json: revisado campo por campo contra el contrato"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-ESQUEMA",
+      "resultado": "pass",
+      "detalle": "validar_esquemas.py sin errores"
+    },
+    {
+      "check_id": "L1-HASHES",
+      "resultado": "pass",
+      "detalle": "hashes coinciden"
+    }
+  ],
+  "simulaciones_l3": [],
+  "hallazgos": [
+    {
+      "check_id": "D3-H1",
+      "patron_clave": "formato",
+      "severidad": "MENOR",
+      "etapa": "D3",
+      "skill_version": "0.1.0",
+      "descripcion": "Mayúsculas inconsistentes en un título",
+      "evidencia": "03-oferta/oferta.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "D3-H2",
+      "patron_clave": "unidades",
+      "severidad": "MENOR",
+      "etapa": "D3",
+      "skill_version": "0.1.0",
+      "descripcion": "Falta aclarar una unidad en un campo",
+      "evidencia": "03-oferta/oferta.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "D3-H3",
+      "patron_clave": "evidencia",
+      "severidad": "MEJORA",
+      "etapa": "D3",
+      "skill_version": "0.1.0",
+      "descripcion": "Se podría añadir una segunda fuente",
+      "evidencia": "03-oferta/oferta.json",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir una segunda muestra gratuita",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Datos de ejemplo: no hay evidencia real de mercado"
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": null
+}

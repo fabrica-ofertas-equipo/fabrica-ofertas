@@ -1,0 +1,3 @@
+validador=contains
+ruta=/metadata_esquema
+texto=la sesión debe llevar adid en metadata (backbone 5.3)

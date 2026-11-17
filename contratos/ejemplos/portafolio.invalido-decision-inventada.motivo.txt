@@ -1,0 +1,3 @@
+validador=enum
+ruta=/ofertas/0/decision
+texto=decisión de cartera fuera de la lista

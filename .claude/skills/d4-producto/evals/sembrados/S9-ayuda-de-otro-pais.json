@@ -1,0 +1,22 @@
+{
+  "id": "S9",
+  "dorado_base": "D4-05",
+  "obligatorio_100pct": false,
+  "mutacion": {
+    "archivo": "entregables/fuente/guida.html (it-IT)",
+    "antes": "1522",
+    "despues": "988"
+  },
+  "detector_determinista": "lint_contenido.py --locale it-IT --ayuda-numeros 1522 → ayuda-de-otro-pais (BLOQUEANTE)",
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-15",
+      "patron_clave": "ayuda-de-otro-pais",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "guida.html:línea del bloque de ayuda y ayuda_por_pais.yaml del país",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  }
+}

@@ -1,0 +1,847 @@
+{
+  "schema_version": "1.1.0",
+  "version": 1,
+  "grupos": {
+    "orquestador": {
+      "max_rondas_qa": {
+        "valor": 2,
+        "unidad": "rondas",
+        "hipotesis": true,
+        "fuente": "backbone 6.5 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "reintentos_tecnicos": {
+        "valor": 2,
+        "unidad": "reintentos",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          0,
+          3
+        ]
+      },
+      "espera_reintento_min": {
+        "valor": [
+          1,
+          5
+        ],
+        "unidad": "minutos",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "timeout_etapa_min": {
+        "valor": {
+          "D1": 30,
+          "D2": 45,
+          "D3": 20,
+          "D4": 60,
+          "D5": 60,
+          "D6": 90,
+          "D7": 30,
+          "QA": 25
+        },
+        "unidad": "minutos",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "umbral_pass_o0": {
+        "valor": "4.0",
+        "unidad": "puntaje_0_5",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "3.5",
+          "4.5"
+        ]
+      },
+      "umbral_item_min_o0": {
+        "valor": 3,
+        "unidad": "puntaje_0_5",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "p_viable_descartar": {
+        "valor": "0.05",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "O0 3.4 + reconciliación R07 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.02",
+          "0.10"
+        ]
+      },
+      "p_viable_escalar": {
+        "valor": "0.80",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.70",
+          "0.95"
+        ]
+      },
+      "exploracion_pct": {
+        "valor": 20,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "O0/F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          0,
+          40
+        ]
+      },
+      "paralelas_max_por_nivel": {
+        "valor": {
+          "N0": 1,
+          "N1": 1,
+          "N2": 1,
+          "N3": 2,
+          "N4": 3
+        },
+        "unidad": "ofertas",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "gasto_alarma_pct": {
+        "valor": 80,
+        "unidad": "porcentaje_del_tope_diario",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "freno_pct": {
+        "valor": 100,
+        "unidad": "porcentaje_del_tope_diario",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "frescura_datos_max_h": {
+        "valor": 24,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          6,
+          48
+        ]
+      },
+      "pausa_global_max_min": {
+        "valor": 5,
+        "unidad": "minutos",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          1,
+          15
+        ]
+      },
+      "propuesta_vence_h": {
+        "valor": 72,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          24,
+          168
+        ]
+      }
+    },
+    "testeo": {
+      "k_corte": {
+        "valor": 3,
+        "unidad": "multiplo_de_cpa",
+        "hipotesis": true,
+        "fuente": "D3/D7/D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          2,
+          4
+        ]
+      },
+      "n_dec": {
+        "valor": 15,
+        "unidad": "compras",
+        "hipotesis": true,
+        "fuente": "D3/D7/D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          10,
+          25
+        ]
+      },
+      "ventana_no_decidir_h": {
+        "valor": 72,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "D7/D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          48,
+          96
+        ]
+      },
+      "impr_min_diag": {
+        "valor": 3000,
+        "unidad": "impresiones",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          2000,
+          8000
+        ]
+      },
+      "clics_min_diag": {
+        "valor": 100,
+        "unidad": "clics",
+        "hipotesis": true,
+        "fuente": "D8/O0 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          60,
+          200
+        ]
+      },
+      "p_kill": {
+        "valor": "0.90",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "<img src=x onerror=alert(1)> [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.85",
+          "0.95"
+        ]
+      },
+      "p_fallida": {
+        "valor": "0.95",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.85",
+          "0.95"
+        ]
+      },
+      "p_escala": {
+        "valor": "0.80",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.70",
+          "0.95"
+        ]
+      },
+      "p_ganador": {
+        "valor": "0.80",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.7",
+          "0.9"
+        ]
+      },
+      "p_cierre_tope": {
+        "valor": "0.20",
+        "unidad": "probabilidad",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "tasa_conexion_min": {
+        "valor": "0.70",
+        "unidad": "razon",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.60",
+          "0.85"
+        ]
+      },
+      "tasa_ic_min_pct": {
+        "valor": 3,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          2,
+          5
+        ]
+      },
+      "tasa_compra_ic_min_pct": {
+        "valor": 20,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          15,
+          30
+        ]
+      },
+      "cpm_alto_factor": {
+        "valor": "1.5",
+        "unidad": "factor",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1.3",
+          "2"
+        ]
+      },
+      "freq_alerta_7d": {
+        "valor": "2.5",
+        "unidad": "frecuencia",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "2",
+          "4"
+        ]
+      },
+      "fatiga_caida_ctr_pct": {
+        "valor": 30,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          20,
+          40
+        ]
+      },
+      "fatiga_factor_cpa": {
+        "valor": "1.5",
+        "unidad": "factor",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1.3",
+          "2"
+        ]
+      },
+      "fatiga_senales_min": {
+        "valor": 2,
+        "unidad": "senales_de_3",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "razon_meta_stripe_min": {
+        "valor": "0.8",
+        "unidad": "razon",
+        "hipotesis": true,
+        "fuente": "D0/D7/D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "razon_meta_stripe_max": {
+        "valor": "1.3",
+        "unidad": "razon",
+        "hipotesis": true,
+        "fuente": "D0/D7/D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "cobertura_adid_min_pct": {
+        "valor": 90,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "razon_ventana_dias": {
+        "valor": 7,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "razon_n_min": {
+        "valor": 10,
+        "unidad": "compras",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "k_ciego": {
+        "valor": "2",
+        "unidad": "multiplo",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1.5",
+          "3"
+        ]
+      },
+      "chequeos_rojos_g8": {
+        "valor": 2,
+        "unidad": "chequeos",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          2,
+          3
+        ]
+      }
+    },
+    "veredicto": {
+      "compras_min": {
+        "valor": 15,
+        "unidad": "compras",
+        "hipotesis": true,
+        "fuente": "backbone 5.9; D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          10,
+          25
+        ]
+      },
+      "dias_min": {
+        "valor": 7,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "backbone 5.9; D9 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          5,
+          10
+        ]
+      },
+      "dias_max": {
+        "valor": 14,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          7,
+          30
+        ]
+      },
+      "madurez_dias_extra": {
+        "valor": 7,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "backbone 5.9 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          3,
+          14
+        ]
+      },
+      "estabilidad_tol_pct": {
+        "valor": 15,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          10,
+          25
+        ]
+      },
+      "max_dia_pct": {
+        "valor": 50,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "reembolso_max_pct": {
+        "valor": 8,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "D8 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      }
+    },
+    "dashboard": {
+      "etl_meta_cada_h": {
+        "valor": 3,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          1,
+          6
+        ]
+      },
+      "etl_stripe_backfill_hora": {
+        "valor": "03:00",
+        "unidad": "hora_utc",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "meta_ventana_reproceso_dias": {
+        "valor": 7,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          3,
+          28
+        ]
+      },
+      "meta_dias_inmaduros": {
+        "valor": 2,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          1,
+          3
+        ]
+      },
+      "frescura_meta_amarillo_h": {
+        "valor": 6,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          3,
+          24
+        ]
+      },
+      "frescura_meta_rojo_h": {
+        "valor": 12,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          3,
+          24
+        ]
+      },
+      "frescura_stripe_eventos_amarillo_h": {
+        "valor": 2,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          1,
+          12
+        ]
+      },
+      "frescura_stripe_eventos_rojo_h": {
+        "valor": 6,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          1,
+          12
+        ]
+      },
+      "frescura_stripe_balance_amarillo_h": {
+        "valor": 26,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          24,
+          48
+        ]
+      },
+      "frescura_stripe_balance_rojo_h": {
+        "valor": 36,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          24,
+          48
+        ]
+      },
+      "recon_tol_stripe_balance": {
+        "valor": 0,
+        "unidad": "unidades_menores",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          0,
+          1
+        ]
+      },
+      "recon_tol_gasto_meta_pct": {
+        "valor": "1",
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.5",
+          "2"
+        ]
+      },
+      "cobertura_atribucion_min_pct": {
+        "valor": 70,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          50,
+          90
+        ]
+      },
+      "gasto_min_decision_x_cpa": {
+        "valor": "2.0",
+        "unidad": "multiplo_de_cpa",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1",
+          "4"
+        ]
+      },
+      "pedidos_min_verde": {
+        "valor": 5,
+        "unidad": "pedidos",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          3,
+          10
+        ]
+      },
+      "recon_min_pedidos": {
+        "valor": 10,
+        "unidad": "pedidos",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          5,
+          30
+        ]
+      },
+      "alerta_gasto_sobre_presupuesto_x": {
+        "valor": "1.75",
+        "unidad": "factor",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1.2",
+          "2"
+        ]
+      },
+      "costo_ia_max_pct": {
+        "valor": 15,
+        "unidad": "porcentaje_del_bruto",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": "2026-11-06",
+        "rango": [
+          5,
+          25
+        ]
+      },
+      "mer_verde_factor": {
+        "valor": "1.2",
+        "unidad": "factor_sobre_mer_be",
+        "hipotesis": true,
+        "fuente": "F2 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1.1",
+          "1.5"
+        ]
+      },
+      "compras_internas_ids": {
+        "valor": [],
+        "unidad": "lista_de_session_id",
+        "hipotesis": true,
+        "fuente": "F2 3.3 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      }
+    },
+    "finanzas": {
+      "reserva_reembolsos_modo": {
+        "valor": "r_esperado_sobre_neto_no_maduro",
+        "unidad": "regla",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "reserva_disputas_pct": {
+        "valor": "1",
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "0.5",
+          "3"
+        ]
+      },
+      "reserva_impuesto_indirecto_pct": {
+        "valor": 100,
+        "unidad": "porcentaje_del_amount_tax",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "reserva_renta_pct": {
+        "valor": 25,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          15,
+          35
+        ]
+      },
+      "reserva_stripe_pct": {
+        "valor": null,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          0,
+          25
+        ]
+      },
+      "impuesto_meta_pct": {
+        "valor": 0,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          0,
+          25
+        ]
+      },
+      "alerta_enfriamiento_h": {
+        "valor": 24,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          6,
+          72
+        ]
+      },
+      "presupuesto_test_x_cpa_obj": {
+        "valor": 15,
+        "unidad": "multiplo_de_cpa_obj",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          8,
+          25
+        ]
+      },
+      "concentracion_max_pct": {
+        "valor": 50,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          30,
+          70
+        ]
+      },
+      "payout_lag_dias": {
+        "valor": 14,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          2,
+          14
+        ]
+      },
+      "comision_desvio_pp": {
+        "valor": "1.5",
+        "unidad": "puntos_porcentuales",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null,
+        "rango": [
+          "1",
+          "3"
+        ]
+      },
+      "datos_frescura_roja_h": {
+        "valor": 26,
+        "unidad": "horas",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "caja_libre_dias_amarilla": {
+        "valor": 7,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "tarifas_antiguedad_max_dias": {
+        "valor": 30,
+        "unidad": "dias",
+        "hipotesis": true,
+        "fuente": "F1 3.3 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "gasto_vs_tope_amarilla_pct": {
+        "valor": 80,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      },
+      "gasto_vs_tope_roja_pct": {
+        "valor": 100,
+        "unidad": "porcentaje",
+        "hipotesis": true,
+        "fuente": "F1 3.4 [HIPÓTESIS]",
+        "ultima_calibracion": null
+      }
+    }
+  }
+}

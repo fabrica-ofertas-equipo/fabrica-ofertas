@@ -1,0 +1,39 @@
+{
+  "id": "S05",
+  "severidad": "MAYOR",
+  "defecto": "El hueco declarado lo cubren 2 de los 4 sostenidos (ausencia 0,5 < umbral).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "huecos[0].presente_en",
+      "valor": [
+        "op-01",
+        "op-02"
+      ]
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-R5",
+        "patron_clave": "hueco-no-sustentado",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R5"
+    ],
+    "debe_citar": "ausente en 4 de 4"
+  },
+  "detecta_script": "veredicto.py comprobar (el calculado baja a GO_CONDICIONAL)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

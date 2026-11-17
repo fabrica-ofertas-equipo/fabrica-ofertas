@@ -1,0 +1,145 @@
+{
+  "grupo": "★ Riesgo de pieza menor que el RECALCULADO (falso verde) o con la promesa central y P menor que la oferta; pieza ROJA con lint PASS; hook heredado con claim prohibido",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta; ajustado en 0.1.1 (SC-15): se compara con el recalculado, no con el nivel de la oferta",
+  "variantes": [
+    {
+      "variante_id": "s10-falso-verde",
+      "grupo": "s10",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "amarillo",
+      "pieza": {
+        "texto_principal": "La tabla suma 1.378 € en 52 semanas. Guía 14,90 €.",
+        "riesgo_pieza_declarado": {
+          "P": "verde",
+          "C": "verde",
+          "E": "verde",
+          "N": "verde",
+          "nivel": "verde",
+          "ejes_codigo": {
+            "P": "P1",
+            "C": "C1",
+            "E": "E0",
+            "N": "N1"
+          }
+        },
+        "riesgo_real": {
+          "P": "amarillo (P2s: cifra sin rótulo ilustrativo en el mismo cuadro)",
+          "nivel": "amarillo",
+          "ejes_codigo": {
+            "P": "P2s",
+            "C": "C1",
+            "E": "E0",
+            "N": "N1"
+          },
+          "recalculado_con": "python -m scripts.nivel_riesgo --P P2s --C C1 --E E0 --N N1 -> amarillo A"
+        }
+      },
+      "defecto": "nivel de pieza declarado verde cuando el RECALCULADO (scripts.nivel_riesgo) es amarillo",
+      "check_id_esperado": "D6-L1-04",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "riesgo-pieza-falso-verde",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: 0 falsos verdes (declarado < recalculado); la pieza debe llevar P2s con rótulo o quitar la cifra",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s10-promesa-central-p-menor",
+      "grupo": "s10",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "amarillo",
+      "pieza": {
+        "texto_principal": "La tabla suma 1.378 € en 52 semanas, el ahorro de tu año. Guía 14,90 €.",
+        "riesgo_pieza_declarado": {
+          "P": "verde",
+          "C": "verde",
+          "E": "verde",
+          "N": "verde",
+          "nivel": "verde",
+          "ejes_codigo": {
+            "P": "P1",
+            "C": "C1",
+            "E": "E0",
+            "N": "N1"
+          },
+          "repite_promesa_central": true
+        },
+        "riesgo_oferta": {
+          "P": "amarillo",
+          "nivel": "amarillo"
+        }
+      },
+      "defecto": "la pieza repite la promesa central de la oferta (la cifra) pero declara un eje P menor que el de la oferta",
+      "check_id_esperado": "D6-L1-04",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "riesgo-pieza-promesa-central-con-p-menor",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: una pieza que repite la promesa central hereda al menos el eje P de la oferta (spec 07 §6 L1.4 regla 3)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s10-roja-con-pass",
+      "grupo": "s10",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Guadagna 2.000 € al mese. Modello 14,90 €.",
+        "riesgo_pieza_declarado": {
+          "P": "rojo",
+          "C": "verde",
+          "E": "verde",
+          "N": "verde",
+          "nivel": "rojo"
+        },
+        "lint_x1": "PASS"
+      },
+      "defecto": "pieza ROJA con lint_x1 = PASS en el paquete",
+      "check_id_esperado": "D6-L1-04",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "pieza-roja-con-lint-pass",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: una pieza ROJA no avanza; el lint PASS es falso (cobertura de it-IT inexistente)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s10-herencia",
+      "grupo": "s10",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "anuncio_ganador": {
+          "ad_name": "c03-tarde_img_h1_v1",
+          "claim_ids": [
+            "tiempo-90-min",
+            "garantiza-entrevistas"
+          ]
+        },
+        "anuncio_nuevo": {
+          "ad_name": "c03-tarde_img_h3_v1",
+          "claim_ids": [
+            "tiempo-90-min",
+            "garantiza-entrevistas"
+          ],
+          "texto_principal": "La guía que te consigue la entrevista en unos 90 minutos. 19,90 €."
+        }
+      },
+      "defecto": "hook heredado del ganador con un claim de claims_prohibidos",
+      "check_id_esperado": "D6-L1-03",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "claim-prohibido-heredado",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: D6 no hereda un claim prohibido del ganador; garantiza-entrevistas ∈ claims_prohibidos",
+      "contexto": {
+        "claims_prohibidos": [
+          "garantizamos entrevistas",
+          "garantiza-entrevistas"
+        ]
+      },
+      "bloqueante": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+body{margin:0;background:url(/imagenes/fondo.png)}
+.b{background:url("/imagenes/b.png")}
+.c{background:url(otra.png)}
+@import "/css/base.css";

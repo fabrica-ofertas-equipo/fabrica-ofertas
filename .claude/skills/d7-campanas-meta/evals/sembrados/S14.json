@@ -1,0 +1,48 @@
+{
+  "id": "S14",
+  "descripcion": "Candidato amarillo-b (dos ejes amarillos): no se arma sin gate y ayuda verificada",
+  "check_id": "C13",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "P"
+      ],
+      "valor": "amarillo"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "C"
+      ],
+      "valor": "amarillo"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "nivel"
+      ],
+      "valor": "amarillo"
+    }
+  ],
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "nivel_no_se_arma",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C13",
+      "patron_clave": "nivel-no-se-arma",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

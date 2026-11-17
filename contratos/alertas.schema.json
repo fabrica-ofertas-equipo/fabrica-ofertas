@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/alertas.schema.json",
+  "title": "Alerta (una línea de alertas.jsonl)",
+  "description": "Una alerta de F1 o F2 (docs/04 5: una alerta = regla x objeto x ventana, deduplicada). Formato JSONL unificado: una línea = un objeto = el ESTADO VIGENTE de una alerta (id único por archivo; no es una bitácora de eventos). El panel (GET /finanzas) lee SOLO empresa/datos/alertas.jsonl; empresa/finanzas/alertas.jsonl (F1) no tiene lector, pero el esquema vale para ambas rutas y el validador de empresa recorre línea a línea solo la primera. severidad: info, amarilla (▲), naranja (F1-A02: pausa de oferta) o roja (■). estado: abierta, reconocida, cerrada (el cierre automático al volver al rango lo hace el productor). valor y umbral: cadena decimal, entero, dinero {monto, moneda} o null (null en umbral = 'sin umbral fijado': la alerta queda gris, nunca verde); nunca float. Productor: python -m dashboard.alertas (B10, aún inexistente) para F2 y F1 para las suyas.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,99}$",
+      "description": "Identificador estable de la alerta (derivado de regla x objeto x ventana); único por archivo"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp",
+      "description": "Instante de la última lectura que sostiene el estado"
+    },
+    "severidad": {
+      "enum": [
+        "info",
+        "amarilla",
+        "naranja",
+        "roja"
+      ]
+    },
+    "regla_id": {
+      "type": "string",
+      "pattern": "^F[12]-[A-Z0-9][A-Z0-9-]{0,39}$",
+      "description": "Regla que la disparó (F1-A01..A08, F2-A01..A17); el prefijo F1/F2 coincide con `origen` (X49_ALERTAS)"
+    },
+    "origen": {
+      "enum": [
+        "F1",
+        "F2"
+      ]
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "null si la alerta no es de una oferta (empresa, macro-nicho, infraestructura)"
+    },
+    "macro_nicho": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/macro_nicho"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "nivel": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo"
+        },
+        {
+          "$ref": "comunes.schema.json#/$defs/nivel_lanzable"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Nivel de riesgo de políticas del objeto (verde, amarillo, rojo; con subnivel amarillo-a o amarillo-b), o null"
+    },
+    "valor": {
+      "$ref": "#/$defs/medida",
+      "description": "Lo observado"
+    },
+    "umbral": {
+      "$ref": "#/$defs/medida",
+      "description": "Lo que se comparó (clave de parametros o limites); null si no hay umbral fijado"
+    },
+    "accion_sugerida": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300,
+      "description": "Qué hacer y quién (destino de docs/04 5); texto neutro: sin datos de salud, deuda o relaciones de clientes ni secretos"
+    },
+    "estado": {
+      "enum": [
+        "abierta",
+        "reconocida",
+        "cerrada"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "ts",
+    "severidad",
+    "regla_id",
+    "origen",
+    "oferta_id",
+    "macro_nicho",
+    "nivel",
+    "valor",
+    "umbral",
+    "accion_sugerida",
+    "estado"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "medida": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/decimal"
+        },
+        {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        {
+          "$ref": "comunes.schema.json#/$defs/dinero"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Cadena decimal, entero (|n| <= 2^53-1), dinero {monto, moneda} o null; nunca float"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "D12",
+  "descripcion": "Cuenta prepaga con saldo para 4 dias de gasto (> 3): P06 ROJO.",
+  "capa": "script-preflight",
+  "mutaciones_entradas": [
+    {
+      "ruta": [
+        "cuenta",
+        "tipo_pago"
+      ],
+      "valor": "prepago"
+    },
+    {
+      "ruta": [
+        "cuenta",
+        "saldo_prepago_dias"
+      ],
+      "valor": 4
+    }
+  ],
+  "check_id": "C08",
+  "esperado": {
+    "P06": "ROJO"
+  },
+  "semaforo": "ROJO",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "nota": "el dueno ajusta el saldo; el agente no toca la cuenta"
+  }
+}

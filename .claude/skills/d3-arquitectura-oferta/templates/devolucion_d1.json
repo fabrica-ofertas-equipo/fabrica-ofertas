@@ -1,0 +1,15 @@
+{
+  "_ejemplo": "PLANTILLA (sin esquema aún; mismo formato que la devolucion_d1 de D2, .claude/skills/d2-validacion/templates/devolucion_d1.json). D3 NO escribe el banco: D1 la ingiere. Se escribe en 03-oferta/ junto con parada.json (estado devuelta_a_d1) y SIN oferta.json.",
+  "schema_version": "0.1.0-borrador",
+  "oferta_id": "OF-AAAAMM-NN",
+  "origen": "D3",
+  "problema_id": "PRB-AAAAMM-NNNN",
+  "candidato_id": "CAND-NN",
+  "locale": "xx-XX",
+  "motivo": "multi_mecanismo",
+  "redencion": "dividir",
+  "detalle": "Una frase: qué de la ficha MU/EU no se sostiene al diseñar la oferta (p. ej. aparecen dos «cómo» con nombre propio) y en qué campo o cita se ve.",
+  "refinamiento": null,
+  "evidencia_ids": ["EV-01"],
+  "fecha": "2026-11-06"
+}

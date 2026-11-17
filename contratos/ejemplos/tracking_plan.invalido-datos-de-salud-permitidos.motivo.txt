@@ -1,0 +1,3 @@
+validador=const
+ruta=/datos_sensibles/permitidos
+texto=ningún dato de salud puede viajar al píxel

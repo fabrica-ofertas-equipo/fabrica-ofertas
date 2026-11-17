@@ -1,0 +1,10 @@
+{
+  "caso_id": "S10",
+  "titulo": "Cita alterada",
+  "defecto_sembrado": "avatares.json: en_sus_palabras[0].texto distinto del de voz_cliente.json",
+  "check_esperado": "JQ-09",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "avatares.validar --voz → «el texto de la cita fue alterado»",
+  "correccion_esperada": "restaurar el texto literal",
+  "automatizado": true
+}

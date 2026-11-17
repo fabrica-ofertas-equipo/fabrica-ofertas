@@ -1,0 +1,37 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D01-brief-it-IT-dinero",
+  "estado": "ejecutable_hoy (verificación en seco y orq crear/estado) + requiere_motor [PENDIENTE: SB-8 orq validar, SB-9 ejecutar real] (recorrido completo)",
+  "descripcion": "Brief it-IT, dinero verde: «hoja de costeo y precio mínimo para quien vende manualidades». Recorre etapas simuladas.",
+  "entrada": {
+    "prompt": "Modo A. Candidato elegido por el dueño: CAND-01, macro_nicho dinero, riesgo verde, problema «no sé cuánto cobrar por lo que hago a mano», locale it-IT. Responde «defaults» salvo el dominio (mappadeicosti.example).",
+    "limites": "evals/dorados/limites.ficticio.yaml",
+    "autonomia": "N0"
+  },
+  "salida_esperada": {
+    "archivo": "empresa/propuestas/00-brief.hoja-de-costeo-manualidades.borrador.yaml",
+    "referencia": "templates/00-brief.it-IT-dinero.borrador.yaml",
+    "propiedades": [
+      "válido contra brief.schema.json",
+      "oferta_id OF-000000-00 y familia_id FAM-000000-00 (sin asignar)",
+      "aprobado_por.firma null",
+      "mercado_objetivo it-IT/IT/EUR con es_hipotesis true",
+      "presupuesto en moneda_limites (EUR)",
+      "test_diario_max x 1.75 <= gasto_diario_por_oferta",
+      "≤ 10 preguntas hechas",
+      "cada default en supuestos[] como [SUPUESTO]",
+      "no elige candidato ni firma"
+    ]
+  },
+  "verificacion": {
+    "comando": "S=.claude/skills/o0-orquestador-portafolio; .venv/bin/python $S/scripts/validar_brief.py $S/templates/00-brief.it-IT-dinero.borrador.yaml --limites $S/evals/dorados/limites.ficticio.yaml",
+    "salida_codigo": 0
+  },
+  "recorrido_simulado": {
+    "comando": ".venv/bin/python .claude/skills/o0-lanzar-oferta/scripts/proximo_paso.py --estado .claude/skills/o0-orquestador-portafolio/templates/estado.oferta-nueva.json",
+    "esperado": "accion firmar (O0, H) → tras la firma: ingresar D1 (N0)... M1 → D2 → … → D7 → activar (H)"
+  },
+  "sin_skill_esperado": "inventa topes, mezcla monedas, escribe aprobado_por a mano o recorta preguntas sin defaults"
+}

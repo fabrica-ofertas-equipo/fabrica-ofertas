@@ -1,0 +1,93 @@
+{
+  "id": "D02",
+  "descripcion": "Señal ambigua: ganador claro (CAMPEON) y retorno de 7 días a favor, pero la tendencia de 3 días se deterioró (CPA de 3 días 16 US$ > 1,15 x 13 US$). Una sola señal no sube presupuesto (en el sistema de referencia solo 1 de cada 3 subas acierta): la skill NO propone nada, explica por qué y qué dato cambiaría el veredicto (una lectura de 3 días que vuelva a <= 14,95 US$).",
+  "capa": "script-dictamen",
+  "contexto": {
+    "macro_nicho": "dinero",
+    "locale": "pl-PL",
+    "moneda": "USD",
+    "rol": "test",
+    "nivel_autonomia_d9": "N0"
+  },
+  "entrada": {
+    "oferta_id": "OF-202611-02",
+    "familia_id": "FAM-202611-01",
+    "ahora": "2026-11-12T09:00:00Z",
+    "moneda": "USD",
+    "nivel_autonomia_d9": "N0",
+    "pausa": false,
+    "objeto": {
+      "rol": "test",
+      "campaign_id": "120000000000001",
+      "nombre": "OF-202611-02_TEST_VENTAS_CBO_20261109"
+    },
+    "escala_nueva": {
+      "nombre": "OF-202611-02_ESCALA_VENTAS_ADV-PLUS_20261112"
+    },
+    "presupuesto_actual_minor": 7500,
+    "presupuesto_agregado_oferta_minor": 7500,
+    "presupuesto_inicial_deseado_minor": 22500,
+    "campanas_escala_existentes": 0,
+    "spend_cap_restante_minor": 52500,
+    "perdida_acumulada_oferta_minor": 0,
+    "secuencia_orden": 1,
+    "plan_ref": "09-escalado/propuesta-de-suba.json",
+    "cuenta": {
+      "activas": [
+        {
+          "oferta_id": "OF-202611-02",
+          "campaign_id": "120000000000001",
+          "max_teorico_diario_minor": 13125,
+          "spend_cap_restante_minor": 52500,
+          "moneda": "USD",
+          "perdida_acumulada_minor": 0
+        }
+      ],
+      "gasto_vitalicio_minor": 40000,
+      "ediciones_recientes": [],
+      "ultimo_aumento": null,
+      "cambios_ultima_hora": 0,
+      "segundos_desde_ultima_edicion": 86400
+    },
+    "metricas": {
+      "compras_netas": 12,
+      "cpa_neto_minor": 600,
+      "cpa_be_minor": 1600,
+      "cpa_obj_minor": 1300,
+      "p_cpa_menor_equilibrio": "0.91",
+      "cpa_7d_minor": 620,
+      "cpa_3d_minor": 1600,
+      "cpa_72h_minor": 640,
+      "compras_7d": 12,
+      "gasto_7d_minor": 7440,
+      "gasto_72h_minor": 3200,
+      "presupuesto_previo_gastado_pct": 97,
+      "datos_maduros": true,
+      "veredicto_d8": "PROMETEDORA"
+    },
+    "elegibilidad": {
+      "riesgo_nivel": "verde",
+      "sello_x1_vigente": true,
+      "cuenta_saludable": true,
+      "tracking_sano": true,
+      "sin_incidente_d10": true,
+      "sin_congelacion": true,
+      "sin_alerta_fatiga": true,
+      "reembolsos_disputas_ok": true,
+      "hoja_no_pausada": true,
+      "macro_nicho_permitido": true,
+      "limite_diario_meta_ok": true
+    }
+  },
+  "esperado": {
+    "estado": "NO_PROPONER",
+    "codigo": "SENAL_AMBIGUA",
+    "ganador_nivel": "CAMPEON",
+    "orden_borrador": null
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "hallazgos_minimos": 3,
+    "nota": "El QA debe ver que no hay orden_presupuesto y que el informe dice que NO se sube; un 'sube un poco por prudencia' es MAYOR."
+  }
+}

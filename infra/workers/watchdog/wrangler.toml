@@ -1,0 +1,27 @@
+# Worker `watchdog` (docs/06 §4.6; docs/07 §9.2; infra/plantillas/variables-entorno.yaml).
+# Dead-man switch: SIN ruta de activación. Solo GET /estado, POST /latido, POST /pausa.
+name = "fabrica-watchdog"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# Latido + evaluación de cron son livianos. [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releído]
+cpu_ms = 50
+
+[[kv_namespaces]]
+binding = "ESTADO"
+id = "<reemplazar: wrangler kv:namespace create ESTADO_WATCHDOG>"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Variables de configuracion (no secretas):
+#   CUENTAS_PERMITIDAS     -- "act_1,act_2" (copia de limites.yaml.cuentas_permitidas)
+#   WATCHDOG_LATIDO_MAX_MIN -- entero, parametros.yaml: watchdog.latido_max_min
+#   GASTO_DIARIO_MAX_MINOR  -- OBLIGATORIA (docs/07 §9.2.2): sin ella, /estado da 503
+#   CUENTA_TZ               -- OBLIGATORIA: zona IANA de la cuenta de Meta
+#   LIMITE_CUENTA_MINOR     -- OBLIGATORIA: copia de limites.yaml.limite_gasto_cuenta_meta
+#   FABRICA_ENTORNO         -- desarrollo|prueba|produccion
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   META_TOKEN_PAUSA, LATIDO_HMAC, ALERTA_CORREO_API_KEY, ALERTA_PUSH_TOKEN

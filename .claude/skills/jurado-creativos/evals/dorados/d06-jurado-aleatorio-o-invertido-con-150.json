@@ -1,0 +1,17 @@
+{
+  "caso_id": "D06",
+  "titulo": "Jurado aleatorio o invertido con ≥ 150 etiquetas",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "etiquetas": "≥ 150",
+    "jurado": "aleatorio / invertido"
+  },
+  "salida_esperada": {
+    "estado_global": "apagar",
+    "accion": "APAGAR; paquetes.py armar se niega sin --reactivado-por"
+  },
+  "aprobacion": [
+    "la decisión sale del AUC y su IC95, no de un p-valor suelto"
+  ]
+}

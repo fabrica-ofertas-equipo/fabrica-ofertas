@@ -1,0 +1,20 @@
+# FICTICIO: solo las claves que lee scripts/validar_brief.py para los casos de evals. NO es un limites.yaml (sin sello): jamás se usa para operar.
+moneda_limites: EUR
+gasto_total_test_por_oferta: 33000
+gasto_diario_por_oferta: 5000
+factor_techo_teorico_diario: '1.75'
+paises_permitidos:
+- IT
+- PL
+- US
+locales_permitidos:
+- it-IT
+- pl-PL
+- en-US
+cuentas_permitidas:
+- act_100000000000001
+macro_nichos_permitidos:
+- salud
+- relaciones
+- dinero
+subnichos_prohibidos: []

@@ -1,0 +1,51 @@
+{
+  "_nota": "SINTÉTICA (eval/plantilla de D1 Modo D). Datos inventados con formato real 2.0.0; no es una medición del mercado.",
+  "schema_version": "2.0.0",
+  "ofertas": [
+    {
+      "modelo_id": "planner-presupuesto-quincenal-us",
+      "nombre": "Planner de presupuesto por cobro (original en inglés, SINTÉTICO)",
+      "fuente": {
+        "idioma": "en",
+        "pais": "US"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 22,
+        "edad_oferta_dias": "16",
+        "conceptos_unicos": 4,
+        "paginas_misma_landing": 3,
+        "anunciantes_independientes_mismo_angulo": 2
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "lista_a_sistema"
+      ],
+      "mercados": [
+        {
+          "mercado": "MX",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 40,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          },
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ]
+        }
+      ]
+    }
+  ]
+}

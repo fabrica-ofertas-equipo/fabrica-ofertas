@@ -1,0 +1,13 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-problema">
+  <div class="contenedor">
+    <header class="encabezado">
+      <h2 id="titulo-problema">{{{titulo}}}</h2>
+    </header>
+    <ul class="dolores" role="list">
+{{#cada dolores}}
+      <li class="dolor"><span class="dolor__marca" aria-hidden="true"><svg class="ico"><use href="#i-x"></use></svg></span><p>{{{texto}}}</p></li>
+{{/cada}}
+    </ul>
+    <p class="reencuadre">{{{reencuadre}}}</p>
+  </div>
+</section>

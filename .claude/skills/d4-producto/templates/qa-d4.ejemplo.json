@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202612-02",
+  "periodo": null,
+  "etapa": "D4",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-12-11T09:30:00Z",
+  "skill_version_qa": "0.1.1",
+  "skill_version_maker": "0.1.1",
+  "artefacto_ref": "04-producto/producto.json",
+  "artefacto_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "entradas": {
+    "03-oferta/oferta.json": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "04-producto/verificacion.json": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "veredicto": "FAIL",
+  "puntaje_global": "3.58",
+  "umbral": "4.0",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Utilidad",
+      "puntaje": 4,
+      "evidencia": "guida-v1: cada capítulo termina en un resultado comprobable (cap. 2, «Il tuo tetto è…»)"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Claridad",
+      "puntaje": 3,
+      "evidencia": "informe novato N1: ambigüedad sobre la categoría «imprevistos» (cap. 2, p. 6)"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Densidad",
+      "puntaje": 4,
+      "evidencia": "trazabilidad.md: 18 de 18 páginas mapeadas a una promesa"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Exactitud y vigencia",
+      "puntaje": 2,
+      "evidencia": "afirmaciones.jsonl:A1: la cifra del cap. 4 se lee 1,500 y la fuente dice 1.500 (L1-13)"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Originalidad",
+      "puntaje": 3,
+      "evidencia": "control comparado con un prompt simple de chatbot en it-IT: la hoja con fórmula por categoría es superior; el texto del cap. 1 es previsible"
+    },
+    {
+      "item_id": "R6",
+      "nombre": "Fidelidad y tiempo",
+      "puntaje": 4,
+      "evidencia": "tiempo_total.py: 51 min recalculados frente a 60 prometidos; matriz 3/3 cumplida"
+    },
+    {
+      "item_id": "R7",
+      "nombre": "Diseño",
+      "puntaje": 4,
+      "evidencia": "PDF abierto en 390 px de ancho: sin desbordes; jerarquía coherente"
+    },
+    {
+      "item_id": "R8",
+      "nombre": "Claims",
+      "puntaje": 4,
+      "evidencia": "lint_contenido.py sin términos vetados; claims ⊂ claims_permitidos"
+    },
+    {
+      "item_id": "R9",
+      "nombre": "Prompts y unidades",
+      "puntaje": 4,
+      "evidencia": "autoprueba.json#prompts_o_unidades: 3 entradas, 100 % utilizables"
+    },
+    {
+      "item_id": "R10",
+      "nombre": "Coherencia con la landing",
+      "puntaje": 4,
+      "evidencia": "promesa.subtitulo y portada coinciden; sin detalle discordante"
+    },
+    {
+      "item_id": "R11",
+      "nombre": "Seguridad del contenido",
+      "puntaje": 4,
+      "evidencia": "aviso de alcance y «cuándo parar» presentes; recurso de ayuda del país no requerido en este tema"
+    },
+    {
+      "item_id": "R12",
+      "nombre": "Lengua y localización",
+      "puntaje": 3,
+      "evidencia": "retraducción: 1 discrepancia de sentido en el aviso del cap. 3 (localizacion.json#retraduccion)"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-01",
+      "resultado": "pass",
+      "detalle": "validar_esquemas oferta limpio; idioma de los 3 ítems = it-IT"
+    },
+    {
+      "check_id": "L1-02",
+      "resultado": "pass",
+      "detalle": "cobertura_matriz.py: 3 promesas, 3 filas, 0 ítems sin promesa"
+    },
+    {
+      "check_id": "L1-03",
+      "resultado": "pass",
+      "detalle": "tiempo_total.py: 51 ≤ 60"
+    },
+    {
+      "check_id": "L1-12",
+      "resultado": "fail",
+      "detalle": "verificar_respaldo.py: cifra-distinta-de-fuente en A1"
+    },
+    {
+      "check_id": "L1-13",
+      "resultado": "fail",
+      "detalle": "lint_contenido.py: separador-ajeno «1,500 €» en cap. 4"
+    },
+    {
+      "check_id": "L1-17",
+      "resultado": "pass",
+      "detalle": "lint_hoja.py: sin macros, sin hojas ocultas, sin fórmulas de estado"
+    }
+  ],
+  "simulaciones_l3": [
+    {
+      "nombre": "novato en frío (N1, N2)",
+      "resultado": "primer resultado en el paso 2 en ambos; una ambigüedad común (imprevistos); paso 3 no_verificado_por_agente"
+    },
+    {
+      "nombre": "lector vulnerable (deuda)",
+      "resultado": "no aplica el plan de pago de deudas: el producto no lo incluye; sin lenguaje de culpa"
+    }
+  ],
+  "hallazgos": [
+    {
+      "check_id": "L1-13",
+      "patron_clave": "separador-ajeno",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "skill_version": "0.1.1",
+      "descripcion": "El capítulo 4 escribe «1,500 €» (separador de miles inglés) en un producto it-IT: se lee 1,5 €",
+      "evidencia": "entregables/fuente/guida.html:212; afirmaciones.jsonl:A1 (valor_normalizado 1500)",
+      "estado": "devuelto_al_maker",
+      "correccion": "Escribir «1.500 €»"
+    },
+    {
+      "check_id": "R2",
+      "patron_clave": "ambiguedad-categoria",
+      "severidad": "MAYOR",
+      "etapa": "D4",
+      "skill_version": "0.1.1",
+      "descripcion": "No se aclara si «imprevistos» suma dentro del 100 % de las categorías",
+      "evidencia": "informe_novato N1 y N2: paso-2",
+      "estado": "devuelto_al_maker"
+    },
+    {
+      "check_id": "L1-09",
+      "patron_clave": "mayuscula-inconsistente",
+      "severidad": "MENOR",
+      "etapa": "D4",
+      "skill_version": "0.1.1",
+      "descripcion": "Títulos de capítulo con mayúsculas inconsistentes",
+      "evidencia": "entregables/fuente/guida.html:h2",
+      "estado": "devuelto_al_maker",
+      "correccion": "Unificar mayúsculas de los títulos de capítulo (h2) según el glosario"
+    },
+    {
+      "check_id": "R12",
+      "patron_clave": "retraduccion-sentido",
+      "severidad": "MAYOR",
+      "etapa": "D4",
+      "skill_version": "0.1.1",
+      "descripcion": "La retraducción del aviso del cap. 3 invierte el sentido de «no sostituisce»",
+      "evidencia": "localizacion.json#retraduccion.discrepancias[0]",
+      "estado": "devuelto_al_maker"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir un ejemplo resuelto con una segunda persona ficticia en el cap. 2",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Primer producto it-IT sin revisor nativo: la revisión humana de glosario y avisos sigue pendiente (localizacion.json#revision_humana)"
+  ],
+  "aprendizajes_para_skill": [
+    "Un separador de miles de otro idioma junto a una unidad escapó al Maker: añadir lint_contenido.py al autochequeo del paso 5"
+  ],
+  "x1": null
+}

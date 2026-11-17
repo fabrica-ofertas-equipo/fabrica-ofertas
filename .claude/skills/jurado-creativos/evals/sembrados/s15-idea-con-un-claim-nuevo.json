@@ -1,0 +1,10 @@
+{
+  "caso_id": "S15",
+  "titulo": "Idea con un claim nuevo",
+  "defecto_sembrado": "ideas[0].idea = «prometer fluidez en 30 días»",
+  "check_esperado": "JQ-11",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "jurado-qa",
+  "correccion_esperada": "descartar la idea y registrarla; no entra a la matriz",
+  "automatizado": false
+}

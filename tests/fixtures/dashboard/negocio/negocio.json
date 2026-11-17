@@ -1,0 +1,1020 @@
+{
+ "corte": {
+  "ultimo": "2026-11-12T20:00:00-03:00",
+  "mas_viejo": "2026-11-11T08:00:00-03:00",
+  "horas": 37.0,
+  "viejo": true
+ },
+ "referencias": {
+  "checkout": [
+   8.0,
+   12.0
+  ],
+  "checkout_buena": 10.0,
+  "compra": [
+   25.0,
+   30.0
+  ],
+  "pocos_checkouts": 30,
+  "horas_datos_viejos": 24
+ },
+ "cartera": {
+  "gasto_meta": 126.0,
+  "produccion": 16.0,
+  "fijos": 2.0,
+  "bruto": 53.0,
+  "neto": 49.0,
+  "neto_menos_meta": -77.0,
+  "neto_menos_todo": -93.0,
+  "ganancia_neta": -95.0,
+  "roas_bruto": 0.42,
+  "roas_neto": 0.39,
+  "roas_meta": 0.36,
+  "roas_real": 0.34,
+  "costos_total": 144.0,
+  "comisiones": 4.0,
+  "cpa_medio": 31.5,
+  "equilibrio_medio": 12.25,
+  "ventas": 4,
+  "compras_meta": 6,
+  "ofertas": 3,
+  "ganando": 0,
+  "perdiendo": 3,
+  "sin_pauta": 0,
+  "ganando_contra_meta": 0,
+  "gasto_ultimo_dia": 30.0,
+  "ultimo_dia": "2026-11-12",
+  "gasto_ultimo_dia_leido": null,
+  "presupuesto_diario": 50.0,
+  "etapas": {
+   "apagar": 1,
+   "aprobada": 0,
+   "armada": 0,
+   "test": 1,
+   "renovando": 0,
+   "renovacion_programada": 0,
+   "programada": 0,
+   "apagada": 1
+  },
+  "con_backend": 1,
+  "falta_backend": 0,
+  "fijos_pendientes": [
+   "Plan de la tienda"
+  ],
+  "aov": 13.25,
+  "margen_neto_pct": -179.2,
+  "margen_contra_meta_pct": -145.3,
+  "ganancia_ultimo_dia": null,
+  "ultimo_dia_completo": null,
+  "meta_ganancia_dia": 10000.0,
+  "fijos_mes": [
+   {
+    "concepto": "Plan de la tienda",
+    "usd_mes": null,
+    "nota": null
+   },
+   {
+    "concepto": "Dominio",
+    "usd_mes": 30.0,
+    "nota": null
+   }
+  ]
+ },
+ "ofertas": [
+  {
+   "id": "kit-uno",
+   "nombre": "Kit Uno",
+   "estado": "activa",
+   "mercado": "MX",
+   "tipo_funnel": "tsl + niveles",
+   "inicio": "2026-11-12T00:00:00-06:00",
+   "inicio_texto": "2026-11-12T00:00:00-06:00",
+   "corte": "2026-11-12T20:00-03:00",
+   "corte_horas": 1.0,
+   "tests": 2,
+   "tiendas": [
+    "kit-uno",
+    "kit-uno-basico",
+    "kit-uno"
+   ],
+   "campanas": [
+    "111",
+    "112"
+   ],
+   "gasto_meta": 36.0,
+   "produccion": {
+    "kie_creditos": 2000.0,
+    "kie_usd": 10.0,
+    "gemini_imagenes": 10.0,
+    "gemini_usd": 1.0,
+    "otros_usd": 0.0,
+    "total": 11.0,
+    "notas": []
+   },
+   "fijos": 0.3333,
+   "dias_pauta": 1,
+   "ventas_n": 3,
+   "bruto": 38.0,
+   "neto": 35.0,
+   "neto_menos_meta": -1.0,
+   "neto_menos_todo": -12.0,
+   "ganancia_neta": -12.33,
+   "roas_bruto": 1.06,
+   "roas_neto": 0.97,
+   "roas_meta": 1.25,
+   "valor_compras_meta": 45.0,
+   "roas_real": 0.74,
+   "comisiones": 3.0,
+   "ganancia_contra_meta": -1.0,
+   "costos": {
+    "meta": 36.0,
+    "produccion": 11.0,
+    "fijos": 0.3333,
+    "total": 47.33
+   },
+   "ticket_medio": 12.67,
+   "kpis": {
+    "aov": 12.67,
+    "aov_neto": 11.67,
+    "aov_veces_principal": 0.84,
+    "precio_principal": 15.0,
+    "margen_neto_pct": -32.5,
+    "margen_contra_meta_pct": -2.6,
+    "comision_pct": 7.9,
+    "take_rate_pct": 0.0,
+    "ventas_extra_n": 0,
+    "ganancia_ultimo_dia": null,
+    "ultimo_dia": null
+   },
+   "cpa": 12.0,
+   "equilibrio": 11.67,
+   "equilibrio_fuente": "real",
+   "equilibrio_nota": null,
+   "fase": "test",
+   "fin_test": "2026-11-13T00:00:00-06:00",
+   "ticket_front": 15.0,
+   "corte_usd": 67.5,
+   "semaforo_cpa": {
+    "zona": "sobre",
+    "tono": "error",
+    "texto": "Cada venta cuesta más de lo que deja"
+   },
+   "veredicto": "perdiendo",
+   "embudo": {
+    "visitas": 100.0,
+    "checkout": 10.0,
+    "compras": 3.0,
+    "pct_checkout": 10.0,
+    "pct_compra": 30.0,
+    "pct_compra_visita": 3.0,
+    "tono_checkout": "ok",
+    "tono_compra": "ok",
+    "pocos_datos": true,
+    "periodo": [],
+    "incompleto": false,
+    "parcial": false
+   },
+   "meta": {
+    "gasto_usd": 36.0,
+    "impresiones": 1000.0,
+    "clics_enlace": 40.0,
+    "visitas_landing_meta": 30.0,
+    "inicios_pago_meta": 8.0,
+    "compras_meta": 5.0
+   },
+   "compras_meta": 5,
+   "diferencia_atribucion": 2,
+   "ventas": [
+    {
+     "orden": "A1",
+     "tienda": "kit-uno",
+     "nivel": null,
+     "fecha": "2026-11-12",
+     "moneda": "MXN",
+     "bruto": 300.0,
+     "neto": 280.0,
+     "tipo": null,
+     "bruto_usd": 15.0,
+     "neto_usd": 14.0
+    },
+    {
+     "orden": "A2",
+     "tienda": "kit-uno",
+     "nivel": null,
+     "fecha": "2026-11-12",
+     "moneda": "MXN",
+     "bruto": 300.0,
+     "neto": 280.0,
+     "tipo": null,
+     "bruto_usd": 15.0,
+     "neto_usd": 14.0
+    },
+    {
+     "orden": "A3",
+     "tienda": "kit-uno-basico",
+     "nivel": "básico",
+     "fecha": "2026-11-12",
+     "moneda": "MXN",
+     "bruto": 160.0,
+     "neto": 140.0,
+     "tipo": null,
+     "bruto_usd": 8.0,
+     "neto_usd": 7.0
+    }
+   ],
+   "por_tienda": [
+    {
+     "slug": "kit-uno",
+     "nombre": "Kit Uno",
+     "ventas": 2,
+     "bruto_usd": 30.0,
+     "neto_usd": 28.0,
+     "embudo": {
+      "landing": 100.0,
+      "checkout": 7.0,
+      "compras": 2.0
+     }
+    },
+    {
+     "slug": "kit-uno-basico",
+     "nombre": "Kit Uno Básico",
+     "ventas": 1,
+     "bruto_usd": 8.0,
+     "neto_usd": 7.0,
+     "embudo": {
+      "landing": 0,
+      "checkout": 3.0,
+      "compras": 1.0
+     }
+    }
+   ],
+   "diario": [
+    {
+     "fecha": "2026-11-12",
+     "gasto": 30.0,
+     "ventas": 3,
+     "bruto": 38.0,
+     "neto": 35.0,
+     "resultado": 5.0,
+     "compras_meta": 5
+    }
+   ],
+   "historial_leido": null,
+   "historial_vs_corte": -6.0,
+   "ventas_sin_fecha": 0,
+   "ficha": {
+    "tiendas": [
+     {
+      "slug": "kit-uno",
+      "nombre": "Kit Uno",
+      "url": "https://kit-uno.impultienda.ar/",
+      "precio": {
+       "moneda": "MXN",
+       "monto": 300,
+       "usd": 15
+      }
+     },
+     {
+      "slug": "kit-uno-basico",
+      "nombre": "Kit Uno Básico",
+      "url": null
+     }
+    ],
+    "landing_original": null,
+    "campanas": [
+     {
+      "id": "111",
+      "presupuesto_diario_usd": 50,
+      "estado": "ACTIVE",
+      "nombre": "MX | Kit Uno",
+      "leido": "2026-11-12T20:15-03:00",
+      "conjuntos": [
+       {
+        "id": "8",
+        "nombre": "MX abierto",
+        "estado": "ACTIVE"
+       }
+      ]
+     }
+    ]
+   },
+   "accion_sugerida": {
+    "clave": "mirar",
+    "texto": "Mirar un día más",
+    "tono": "aviso",
+    "porque": "Costo por venta US$ 12,00 contra un equilibrio de US$ 11,67, 3 ventas, US$ 36,00 gastados. Cada venta cuesta más de lo que deja.",
+    "regla": "propuesta, todavía sin firmar por el dueño"
+   },
+   "segunda_oportunidad": false,
+   "top_anuncios": [],
+   "anuncios": {
+    "lista": [
+     {
+      "id": "10",
+      "nombre": "A02 | flojo",
+      "conjunto": "MX R3",
+      "estado": "ACTIVE",
+      "miniatura": null,
+      "creativo_id": null,
+      "ids": null,
+      "conjuntos": null,
+      "gasto_usd": 26.0,
+      "compras_meta": 0,
+      "cpa": null,
+      "roas_meta": 0.0,
+      "roas_neto_estimado": 0.0,
+      "ctr_pct": 1.25,
+      "cpc": 2.6,
+      "cpm": 32.5,
+      "clic_pago_pct": 0.0,
+      "pago_compra_pct": null,
+      "costo_pago": null,
+      "visitas_landing_meta": 0,
+      "costo_visita": null,
+      "hook_pct": null,
+      "retencion_pct": null,
+      "retencion_25_pct": null,
+      "retencion_50_pct": null,
+      "impresiones": 800,
+      "clics_enlace": 10,
+      "inicios_pago_meta": 0,
+      "veredicto": {
+       "clave": "flojo",
+       "texto": "Flojo",
+       "tono": "error"
+      }
+     },
+     {
+      "id": "9",
+      "nombre": "A01 | <img src=x onerror=alert(1)>",
+      "conjunto": "MX abierto",
+      "estado": "ACTIVE",
+      "miniatura": null,
+      "creativo_id": null,
+      "ids": null,
+      "conjuntos": null,
+      "gasto_usd": 20.0,
+      "compras_meta": 4,
+      "cpa": 5.0,
+      "roas_meta": 3.0,
+      "roas_neto_estimado": 2.33,
+      "ctr_pct": 3.33,
+      "cpc": 0.67,
+      "cpm": 22.22,
+      "clic_pago_pct": 20.0,
+      "pago_compra_pct": 66.7,
+      "costo_pago": 3.33,
+      "visitas_landing_meta": 0,
+      "costo_visita": null,
+      "hook_pct": null,
+      "retencion_pct": 10.0,
+      "retencion_25_pct": 30.0,
+      "retencion_50_pct": null,
+      "impresiones": 900,
+      "clics_enlace": 30,
+      "inicios_pago_meta": 6,
+      "veredicto": {
+       "clave": "ganador",
+       "texto": "Ganador",
+       "tono": "ok"
+      }
+     },
+     {
+      "id": "11",
+      "nombre": "A03 | nuevo",
+      "conjunto": "MX R3",
+      "estado": "ADSET_PAUSED",
+      "miniatura": null,
+      "creativo_id": null,
+      "ids": null,
+      "conjuntos": null,
+      "gasto_usd": 0.0,
+      "compras_meta": 0,
+      "cpa": null,
+      "roas_meta": null,
+      "roas_neto_estimado": null,
+      "ctr_pct": null,
+      "cpc": null,
+      "cpm": null,
+      "clic_pago_pct": null,
+      "pago_compra_pct": null,
+      "costo_pago": null,
+      "visitas_landing_meta": 0,
+      "costo_visita": null,
+      "hook_pct": null,
+      "retencion_pct": null,
+      "retencion_25_pct": null,
+      "retencion_50_pct": null,
+      "impresiones": 0,
+      "clics_enlace": 0,
+      "inicios_pago_meta": 0,
+      "veredicto": {
+       "clave": "sin_datos",
+       "texto": "Sin datos",
+       "tono": "neutro"
+      }
+     }
+    ],
+    "leido": "2026-11-12T23:25-03:00",
+    "conjuntos": [
+     "MX R3",
+     "MX abierto"
+    ],
+    "cuenta": {
+     "ganador": 1,
+     "promete": 0,
+     "sin_datos": 1,
+     "flojo": 1,
+     "mirar": 0
+    },
+    "resumen": "1 ganador · 1 flojo · 1 sin datos · el que más vende: A01 | <img src=x onerror=alert(1)> (4 compras)",
+    "neto_por_venta": 11.67,
+    "neto_estimado": false,
+    "top": [
+     {
+      "id": "9",
+      "nombre": "A01 | <img src=x onerror=alert(1)>",
+      "conjunto": null,
+      "estado": "ACTIVE",
+      "miniatura": null,
+      "creativo_id": null,
+      "ids": [
+       "9"
+      ],
+      "conjuntos": [
+       "MX abierto"
+      ],
+      "gasto_usd": 20.0,
+      "compras_meta": 4,
+      "cpa": 5.0,
+      "roas_meta": 3.0,
+      "roas_neto_estimado": 2.33,
+      "ctr_pct": 3.33,
+      "cpc": 0.67,
+      "cpm": 22.22,
+      "clic_pago_pct": 20.0,
+      "pago_compra_pct": 66.7,
+      "costo_pago": 3.33,
+      "visitas_landing_meta": 0,
+      "costo_visita": null,
+      "hook_pct": null,
+      "retencion_pct": 10.0,
+      "retencion_25_pct": 30.0,
+      "retencion_50_pct": null,
+      "impresiones": 900,
+      "clics_enlace": 30,
+      "inicios_pago_meta": 6,
+      "veredicto": {
+       "clave": "ganador",
+       "texto": "Ganador",
+       "tono": "ok"
+      },
+      "puesto": 1
+     },
+     {
+      "id": "10",
+      "nombre": "A02 | flojo",
+      "conjunto": null,
+      "estado": "ACTIVE",
+      "miniatura": null,
+      "creativo_id": null,
+      "ids": [
+       "10"
+      ],
+      "conjuntos": [
+       "MX R3"
+      ],
+      "gasto_usd": 26.0,
+      "compras_meta": 0,
+      "cpa": null,
+      "roas_meta": 0.0,
+      "roas_neto_estimado": 0.0,
+      "ctr_pct": 1.25,
+      "cpc": 2.6,
+      "cpm": 32.5,
+      "clic_pago_pct": 0.0,
+      "pago_compra_pct": null,
+      "costo_pago": null,
+      "visitas_landing_meta": 0,
+      "costo_visita": null,
+      "hook_pct": null,
+      "retencion_pct": null,
+      "retencion_25_pct": null,
+      "retencion_50_pct": null,
+      "impresiones": 800,
+      "clics_enlace": 10,
+      "inicios_pago_meta": 0,
+      "veredicto": {
+       "clave": "flojo",
+       "texto": "Flojo",
+       "tono": "error"
+      },
+      "puesto": 2
+     }
+    ],
+    "n_creativos": 2
+   },
+   "programado": [
+    {
+     "cuando": "2026-11-13T00:00:00-06:00",
+     "que": "Sube a 65 USD por día y entra el conjunto R3",
+     "en_horas": 6.0,
+     "corto": "mañana 00:00: 65 USD/día + conjunto R3"
+    }
+   ],
+   "con_datos_periodo": true,
+   "meta_sin_dia": null,
+   "backend": {
+    "estado": "no",
+    "activo": false,
+    "activar_desde": null,
+    "texto": "Sin backend",
+    "upsells": [],
+    "bumps": [],
+    "tiendas": [],
+    "desde": null,
+    "nota": null,
+    "falta": false
+   },
+   "replica_de": null,
+   "frase": "Cada venta cuesta US$ 12,00 y deja US$ 11,67",
+   "etapa": {
+    "clave": "test",
+    "texto": "En test",
+    "corto": "Test · día 1",
+    "tono": "aviso",
+    "orden": 2,
+    "detalle": "Día 1 del mercado: el test cierra el 13/11 00:00. Con ventas y el costo por venta bajo 1,5 tickets, pasa a renovar."
+   },
+   "renovaciones": [],
+   "documentos": [
+    {
+     "titulo": "Expediente del funnel",
+     "ruta": "ofertas/_funnels/Kit Uno/FUNNEL.md"
+    }
+   ]
+  },
+  {
+   "id": "mapa-dos",
+   "nombre": "Mapa Dos",
+   "estado": "pausada",
+   "mercado": "MX",
+   "tipo_funnel": null,
+   "inicio": "2026-11-11T00:00:00-06:00",
+   "inicio_texto": "2026-11-11T00:00:00-06:00",
+   "corte": "2026-11-12T20:00-03:00",
+   "corte_horas": 1.0,
+   "tests": 1,
+   "tiendas": [
+    "mapa-dos"
+   ],
+   "campanas": [
+    "222"
+   ],
+   "gasto_meta": 50.0,
+   "produccion": {
+    "kie_creditos": 1000.0,
+    "kie_usd": 5.0,
+    "gemini_imagenes": 0.0,
+    "gemini_usd": 0.0,
+    "otros_usd": 0.0,
+    "total": 5.0,
+    "notas": []
+   },
+   "fijos": 0.6667,
+   "dias_pauta": 2,
+   "ventas_n": 1,
+   "bruto": 15.0,
+   "neto": 14.0,
+   "neto_menos_meta": -36.0,
+   "neto_menos_todo": -41.0,
+   "ganancia_neta": -41.67,
+   "roas_bruto": 0.3,
+   "roas_neto": 0.28,
+   "roas_meta": null,
+   "valor_compras_meta": null,
+   "roas_real": 0.25,
+   "comisiones": 1.0,
+   "ganancia_contra_meta": -36.0,
+   "costos": {
+    "meta": 50.0,
+    "produccion": 5.0,
+    "fijos": 0.6667,
+    "total": 55.67
+   },
+   "ticket_medio": 15.0,
+   "kpis": {
+    "aov": 15.0,
+    "aov_neto": 14.0,
+    "aov_veces_principal": null,
+    "precio_principal": null,
+    "margen_neto_pct": -277.8,
+    "margen_contra_meta_pct": -240.0,
+    "comision_pct": 6.7,
+    "take_rate_pct": 0.0,
+    "ventas_extra_n": 0,
+    "ganancia_ultimo_dia": null,
+    "ultimo_dia": null
+   },
+   "cpa": 50.0,
+   "equilibrio": 14.0,
+   "equilibrio_fuente": "real",
+   "equilibrio_nota": null,
+   "fase": "post-lanzamiento",
+   "fin_test": "2026-11-12T00:00:00-06:00",
+   "ticket_front": null,
+   "corte_usd": null,
+   "semaforo_cpa": {
+    "zona": "sobre",
+    "tono": "error",
+    "texto": "Cada venta cuesta más de lo que deja"
+   },
+   "veredicto": "perdiendo",
+   "embudo": {
+    "visitas": 200.0,
+    "checkout": 30.0,
+    "compras": 1.0,
+    "pct_checkout": 15.0,
+    "pct_compra": 3.3,
+    "pct_compra_visita": 0.5,
+    "tono_checkout": "ok",
+    "tono_compra": "aviso",
+    "pocos_datos": false,
+    "periodo": [],
+    "incompleto": false,
+    "parcial": false
+   },
+   "meta": {
+    "gasto_usd": 50.0,
+    "impresiones": 0,
+    "clics_enlace": 0,
+    "visitas_landing_meta": 0,
+    "inicios_pago_meta": 0,
+    "compras_meta": 1.0
+   },
+   "compras_meta": 1,
+   "diferencia_atribucion": 0,
+   "ventas": [
+    {
+     "orden": "B1",
+     "tienda": null,
+     "nivel": null,
+     "fecha": "2026-11-12",
+     "moneda": "MXN",
+     "bruto": 300.0,
+     "neto": 280.0,
+     "tipo": null,
+     "bruto_usd": 15.0,
+     "neto_usd": 14.0
+    }
+   ],
+   "por_tienda": [
+    {
+     "slug": "mapa-dos",
+     "nombre": "mapa-dos",
+     "ventas": 1,
+     "bruto_usd": 15.0,
+     "neto_usd": 14.0
+    }
+   ],
+   "diario": [
+    {
+     "fecha": "2026-11-12",
+     "gasto": null,
+     "ventas": 1,
+     "bruto": 15.0,
+     "neto": 14.0,
+     "resultado": null,
+     "compras_meta": null
+    }
+   ],
+   "historial_leido": null,
+   "historial_vs_corte": null,
+   "ventas_sin_fecha": 0,
+   "ficha": {
+    "landing_original": null
+   },
+   "accion_sugerida": {
+    "clave": "pausada",
+    "texto": "Pausada",
+    "tono": "pausada",
+    "porque": "La campaña está pausada. Antes de pausarla la regla decía: Mirar un día más. Costo por venta US$ 50,00 contra un equilibrio de US$ 14,00, 1 venta, US$ 50,00 gastados. Cada venta cuesta más de lo que deja.",
+    "regla": "propuesta, todavía sin firmar por el dueño"
+   },
+   "segunda_oportunidad": false,
+   "top_anuncios": [],
+   "anuncios": {
+    "lista": [],
+    "leido": null,
+    "conjuntos": [],
+    "cuenta": {
+     "ganador": 0,
+     "promete": 0,
+     "sin_datos": 0,
+     "flojo": 0,
+     "mirar": 0
+    },
+    "resumen": "0 ganadores · 0 sin datos · todavía ningún anuncio vendió",
+    "neto_por_venta": 14.0,
+    "neto_estimado": false,
+    "top": [],
+    "n_creativos": 0
+   },
+   "programado": [],
+   "con_datos_periodo": true,
+   "meta_sin_dia": null,
+   "backend": {
+    "estado": "activo",
+    "activo": true,
+    "activar_desde": null,
+    "texto": "Backend activo · 2 upsells",
+    "upsells": [
+     {
+      "nombre": "Extra Uno",
+      "precio_usd": 21.0
+     },
+     {
+      "nombre": "Extra Dos",
+      "precio_usd": 13.0
+     }
+    ],
+    "bumps": [],
+    "tiendas": [
+     "mapa-dos"
+    ],
+    "desde": "2026-11-12",
+    "nota": "Embudo activo.",
+    "falta": false
+   },
+   "replica_de": null,
+   "frase": "Campaña pausada con US$ 50,00 gastados y 1 venta",
+   "etapa": {
+    "clave": "apagada",
+    "texto": "Apagada",
+    "corto": "Apagada",
+    "tono": "pausada",
+    "orden": 6,
+    "detalle": "La campaña está pausada."
+   },
+   "renovaciones": [
+    {
+     "ronda": "R2",
+     "inicio": "2026-11-12T00:00:00-06:00",
+     "estado": "activa",
+     "anuncios": 10,
+     "conjunto": null,
+     "nota": "7 iteraciones y 3 nuevos"
+    }
+   ],
+   "documentos": [
+    {
+     "titulo": "Expediente del funnel",
+     "ruta": "ofertas/_funnels/Mapa Dos/FUNNEL.md"
+    }
+   ]
+  },
+  {
+   "id": "camino-tres",
+   "nombre": "Camino Tres",
+   "estado": "activa",
+   "mercado": "BR",
+   "tipo_funnel": null,
+   "inicio": "2026-11-10T00:00:00-03:00",
+   "inicio_texto": "2026-11-10T00:00:00-03:00",
+   "corte": "2026-11-11T08:00-03:00",
+   "corte_horas": 37.0,
+   "tests": 1,
+   "tiendas": [
+    "camino-tres"
+   ],
+   "campanas": [
+    "333"
+   ],
+   "gasto_meta": 40.0,
+   "produccion": {
+    "kie_creditos": 0.0,
+    "kie_usd": 0.0,
+    "gemini_imagenes": 0.0,
+    "gemini_usd": 0.0,
+    "otros_usd": 0.0,
+    "total": 0.0,
+    "notas": []
+   },
+   "fijos": 1.0,
+   "dias_pauta": 3,
+   "ventas_n": 0,
+   "bruto": 0.0,
+   "neto": 0.0,
+   "neto_menos_meta": -40.0,
+   "neto_menos_todo": -40.0,
+   "ganancia_neta": -41.0,
+   "roas_bruto": 0.0,
+   "roas_neto": 0.0,
+   "roas_meta": null,
+   "valor_compras_meta": null,
+   "roas_real": 0.0,
+   "comisiones": 0.0,
+   "ganancia_contra_meta": -40.0,
+   "costos": {
+    "meta": 40.0,
+    "produccion": 0.0,
+    "fijos": 1.0,
+    "total": 41.0
+   },
+   "ticket_medio": null,
+   "kpis": {
+    "aov": null,
+    "aov_neto": null,
+    "aov_veces_principal": null,
+    "precio_principal": 13.0,
+    "margen_neto_pct": null,
+    "margen_contra_meta_pct": null,
+    "comision_pct": null,
+    "take_rate_pct": null,
+    "ventas_extra_n": 0,
+    "ganancia_ultimo_dia": null,
+    "ultimo_dia": null
+   },
+   "cpa": null,
+   "equilibrio": 12.0,
+   "equilibrio_fuente": "estimado",
+   "equilibrio_nota": null,
+   "fase": "test",
+   "fin_test": "2026-11-11T00:00:00-03:00",
+   "ticket_front": 13.0,
+   "corte_usd": 19.5,
+   "semaforo_cpa": {
+    "zona": "sin_ventas_corte",
+    "tono": "error",
+    "texto": "Sin ventas tras gastar 3,1 tickets"
+   },
+   "veredicto": "perdiendo",
+   "embudo": {
+    "visitas": 60.0,
+    "checkout": 2.0,
+    "compras": 0,
+    "pct_checkout": 3.3,
+    "pct_compra": 0.0,
+    "pct_compra_visita": 0.0,
+    "tono_checkout": "aviso",
+    "tono_compra": "aviso",
+    "pocos_datos": true,
+    "periodo": [],
+    "incompleto": false,
+    "parcial": false
+   },
+   "meta": {
+    "gasto_usd": 40.0,
+    "impresiones": 0,
+    "clics_enlace": 0,
+    "visitas_landing_meta": 0,
+    "inicios_pago_meta": 0,
+    "compras_meta": 0
+   },
+   "compras_meta": 0,
+   "diferencia_atribucion": 0,
+   "ventas": [],
+   "por_tienda": [
+    {
+     "slug": "camino-tres",
+     "nombre": "camino-tres",
+     "ventas": 0,
+     "bruto_usd": 0.0,
+     "neto_usd": 0.0
+    }
+   ],
+   "diario": [],
+   "historial_leido": null,
+   "historial_vs_corte": null,
+   "ventas_sin_fecha": 0,
+   "ficha": {
+    "equilibrio_estimado_usd": 12.0,
+    "tiendas": [
+     {
+      "slug": "camino-tres",
+      "rol": "principal",
+      "precio": {
+       "moneda": "BRL",
+       "monto": 69,
+       "usd": 13.0
+      },
+      "url": null
+     }
+    ],
+    "landing_original": null
+   },
+   "accion_sugerida": {
+    "clave": "cortar",
+    "texto": "Apagar",
+    "tono": "error",
+    "regla": "firmada por el dueño el 12-nov: en el día 1 (o mientras no venda) se apaga sola con el CPA en 1,5 tickets del producto completo (ticket del completo: dueño, 13-nov)",
+    "porque": "Gastó US$ 40,00 sin ventas: 3,1 tickets de US$ 13,00 (el corte es 1,5)."
+   },
+   "segunda_oportunidad": false,
+   "top_anuncios": [],
+   "anuncios": {
+    "lista": [],
+    "leido": null,
+    "conjuntos": [],
+    "cuenta": {
+     "ganador": 0,
+     "promete": 0,
+     "sin_datos": 0,
+     "flojo": 0,
+     "mirar": 0
+    },
+    "resumen": "0 ganadores · 0 sin datos · todavía ningún anuncio vendió",
+    "neto_por_venta": 12.0,
+    "neto_estimado": true,
+    "top": [],
+    "n_creativos": 0
+   },
+   "programado": [],
+   "con_datos_periodo": true,
+   "meta_sin_dia": null,
+   "backend": {
+    "estado": "no",
+    "activo": false,
+    "activar_desde": null,
+    "texto": "Sin backend",
+    "upsells": [],
+    "bumps": [],
+    "tiendas": [],
+    "desde": null,
+    "nota": null,
+    "falta": false
+   },
+   "replica_de": null,
+   "frase": "Sin ventas con US$ 40,00 gastados",
+   "etapa": {
+    "clave": "apagar",
+    "texto": "Para apagar",
+    "corto": "Apagar",
+    "tono": "error",
+    "orden": 0,
+    "detalle": "Gastó US$ 40,00 sin ventas: 3,1 tickets de US$ 13,00 (el corte es 1,5). La vigilancia de cada hora la apaga sola."
+   },
+   "renovaciones": [],
+   "documentos": [
+    {
+     "titulo": "Expediente del funnel",
+     "ruta": "ofertas/_funnels/Camino Tres/FUNNEL.md"
+    }
+   ]
+  }
+ ],
+ "atencion": [
+  {
+   "tono": "grave",
+   "oferta": "kit-uno",
+   "titulo": "Kit Uno: cada venta cuesta más de lo que deja",
+   "detalle": "Costo por venta US$ 12,00 contra un equilibrio de US$ 11,67 (3 ventas). Con pocas ventas es una pista, no un veredicto."
+  },
+  {
+   "tono": "aviso",
+   "oferta": "kit-uno",
+   "titulo": "Kit Uno: Meta cuenta más compras que las reales",
+   "detalle": "Meta atribuye 5 compras y la tienda registró 3. Puede haber eventos duplicados en el medidor."
+  },
+  {
+   "tono": "grave",
+   "oferta": "mapa-dos",
+   "titulo": "Mapa Dos: cada venta cuesta más de lo que deja",
+   "detalle": "Costo por venta US$ 50,00 contra un equilibrio de US$ 14,00 (1 ventas). Con pocas ventas es una pista, no un veredicto."
+  },
+  {
+   "tono": "critico",
+   "oferta": "camino-tres",
+   "titulo": "Camino Tres: gastó 1,5 tickets sin ventas",
+   "detalle": "Gastó US$ 40,00 sin ninguna venta; el corte es US$ 19,50 (1,5 × US$ 13,00). La vigilancia la apaga sola."
+  },
+  {
+   "tono": "aviso",
+   "oferta": "camino-tres",
+   "titulo": "Camino Tres: datos de hace 37 horas",
+   "detalle": "Los números tienen más de un día. Pídele al agente la revisión del funnel para ponerlos al día."
+  },
+  {
+   "tono": "info",
+   "oferta": "camino-tres",
+   "titulo": "Camino Tres: la página convence poco",
+   "detalle": "Llega al pago el 3,3 % de las visitas (referencia 8-12 %)."
+  },
+  {
+   "tono": "info",
+   "oferta": null,
+   "titulo": "Falta un costo fijo en la cuenta",
+   "detalle": "Sin el monto de: Plan de la tienda. La ganancia neta no lo incluye hasta que lo cargues."
+  }
+ ],
+ "tipos_de_cambio": {
+  "MXN": 0.05,
+  "BRL": 0.2,
+  "USD": 1.0
+ },
+ "libro": {
+  "ruta": "ofertas/_funnels/libro-de-tests.json",
+  "modificado": "2026-11-12T23:00:00Z",
+  "version": 2
+ }
+}

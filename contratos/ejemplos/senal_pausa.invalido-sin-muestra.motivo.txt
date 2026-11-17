@@ -1,0 +1,3 @@
+validador=required
+ruta=/metricas
+texto=la señal debe declarar si la muestra es suficiente

@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "datos": {
+    "lineas": [],
+    "total": 0,
+    "siguiente": 1,
+    "cadena_ok": null
+  },
+  "fuente": [
+    "empresa/registro.jsonl"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": true,
+  "avisos": []
+}

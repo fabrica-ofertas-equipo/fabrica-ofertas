@@ -1,0 +1,58 @@
+# Plantilla de registro de verificación de conexiones (se copia a empresa/infra/verificaciones/AAAAMMDD-<id>.yaml).
+# Un registro por conexión y por verificación. NUNCA incluir valores de secretos ni datos personales.
+# La evidencia es una ruta a un archivo (captura, salida de comando redactada) y su hash SHA-256.
+version: 1
+instrucciones:
+  - "Completar tras cada alta, rotación o cambio. Los ítems manuales caducan a hc.evidencia_max_antiguedad_dias (30 por defecto)."
+  - "estado: PENDIENTE | PENDIENTE_EXTERNO | VERDE | AMARILLO | ROJO | DIFERIDO (decisión del dueño, backbone decisión 15: no bloquea ningún preflight ni registro). Solo el script preflight marca VERDE lo que mide; los ítems manuales los marca el dueño con evidencia."
+  - "Si algo falla, describirlo en 'hallazgo' sin pegar la respuesta cruda si contiene identificadores sensibles."
+
+plantilla_registro:
+  id_verificacion: "VER-AAAAMMDD-NN"
+  conexion_id: "<id del catálogo de abajo>"
+  fecha_utc: "AAAA-MM-DDTHH:MM:SSZ"
+  realizado_por: "dueno | preflight | qa"
+  metodo: "panel | api_lectura | cli | prueba_e2e"
+  comando_o_consulta: "descripción sin secretos"
+  resultado: "VERDE | AMARILLO | ROJO | PENDIENTE_EXTERNO"
+  hallazgo: ""
+  evidencia_ruta: ""
+  evidencia_sha256: ""
+  proximo_vencimiento_utc: ""
+  accion_siguiente: ""
+  firma_dueno: ""   # solo en ítems con gate H
+
+catalogo_de_conexiones:
+  - {id: meta-portfolio, bloque: meta, que_se_verifica: "portfolio de la LLC, negocio verificado, 2FA en la plataforma (el segundo administrador queda diferido: decisión 15)", metodo: panel, caduca_dias: 30, estado: PENDIENTE}
+  - {id: meta-cuenta-diagnostico, bloque: meta, que_se_verifica: "diagnóstico de la cuenta deshabilitada (account_status, disable_reason) y decisión", metodo: panel, caduca_dias: 0, estado: PENDIENTE}
+  - {id: meta-cuenta-unica, bloque: meta, que_se_verifica: "account_status=1, moneda, zona, tarjeta con tope, ID en cuentas_permitidas", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: meta-fan-page, bloque: meta, que_se_verifica: "página publicada y asignada", metodo: api_lectura, caduca_dias: 7, estado: PENDIENTE}
+  - {id: meta-app-y-usuarios, bloque: meta, que_se_verifica: "app del portfolio, usuarios del sistema, activos asignados", metodo: panel, caduca_dias: 30, estado: PENDIENTE}
+  - {id: meta-token-operador, bloque: meta, que_se_verifica: "debug_token: válido, scopes mínimos, vencimiento", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: meta-dominio-<oferta>, bloque: meta, que_se_verifica: "TXT de verificación y estado verificado", metodo: api_lectura, caduca_dias: 7, estado: PENDIENTE}
+  - {id: meta-dataset-<oferta>, bloque: meta, que_se_verifica: "dataset DS_<oferta_id>, eventos recientes, EMQ", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: meta-capi-<oferta>, bloque: meta, que_se_verifica: "evento con test_event_code recibido y deduplicado", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: meta-spend-cap, bloque: meta, que_se_verifica: "spend_cap > amount_spent y <= limite_gasto_cuenta_meta", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: meta-dsa, bloque: meta, que_se_verifica: "default_dsa_beneficiary y default_dsa_payor (si se segmenta a la UE)", metodo: api_lectura, caduca_dias: 30, estado: PENDIENTE}
+  - {id: meta-borrador-vs-activo, bloque: meta, que_se_verifica: "prueba A-9: estado resultante de publicar un borrador", metodo: prueba_e2e, caduca_dias: 0, estado: PENDIENTE}
+  - {id: stripe-cuenta, bloque: stripe, que_se_verifica: "charges_enabled, payouts_enabled, sin requisitos vencidos, descriptor", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: stripe-claves, bloque: stripe, que_se_verifica: "claves restringidas por función; pruebas negativas (403)", metodo: prueba_e2e, caduca_dias: 90, estado: PENDIENTE}
+  - {id: stripe-destinos-prueba, bloque: stripe, que_se_verifica: "destinos de prueba con eventos exactos y stripe trigger", metodo: cli, caduca_dias: 30, estado: PENDIENTE}
+  - {id: stripe-destinos-vivo, bloque: stripe, que_se_verifica: "destinos en vivo con eventos exactos", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: stripe-catalogo, bloque: stripe, que_se_verifica: "Price y lookup_key = checkout.json", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: stripe-compra-real-minima, bloque: stripe, que_se_verifica: "compra real mínima y reembolso (gate H)", metodo: panel, caduca_dias: 0, estado: PENDIENTE}
+  - {id: cloudflare-zonas-dns, bloque: cloudflare, que_se_verifica: "zona activa, DNSSEC, SPF/DKIM/DMARC y TXT de Meta", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: cloudflare-workers, bloque: cloudflare, que_se_verifica: "versión desplegada = commit; rutas y cron", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: cloudflare-r2-privado, bloque: cloudflare, que_se_verifica: "acceso sin firma = 403/404; r2.dev desactivado", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: cloudflare-tokens, bloque: cloudflare, que_se_verifica: "tokens/verify activos; vencimientos", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: railway-servicios, bloque: railway, que_se_verifica: "motor 1 réplica, etl, api, Postgres", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: railway-respaldo, bloque: railway, que_se_verifica: "respaldo de volumen y pg_dump en R2 recientes; restauración probada", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: github-repo, bloque: github, que_se_verifica: "repo privado, reglas de main, CI verde, entornos", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: correo-dominio-<oferta>, bloque: correo, que_se_verifica: "dominio verificado; SPF, DKIM, DMARC en pass en Gmail y Outlook", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: legal-paginas-<oferta>, bloque: legal, que_se_verifica: "siete páginas con 200, enlazadas, hash sellado por X1", metodo: api_lectura, caduca_dias: 7, estado: PENDIENTE}
+  - {id: consentimiento-<oferta>, bloque: legal, que_se_verifica: "sin consentimiento no hay solicitudes a Meta (Playwright)", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: secretos-gestor-2fa, bloque: seguridad, que_se_verifica: "DIFERIDO por decisión del dueño (2026-11-06, decisión 15): gestor de contraseñas, llaves físicas y segundo administrador no se exigen por ahora. Sigue vigente: las claves nunca van a chats ni al repositorio, y el 2FA que exija cada plataforma", metodo: panel, caduca_dias: 90, estado: DIFERIDO}
+  - {id: killswitch-capas, bloque: kill_switch, que_se_verifica: "pruebas A-1 a A-12", metodo: prueba_e2e, caduca_dias: 30, estado: PENDIENTE}
+  - {id: watchdog, bloque: kill_switch, que_se_verifica: "visto <= 10 min; latido recibido; alertas por dos canales", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: limites-cargados, bloque: control, que_se_verifica: "limites.yaml completo y firmado", metodo: api_lectura, caduca_dias: 1, estado: PENDIENTE}
+  - {id: infra-verde-firmada, bloque: control, que_se_verifica: "estado.json VERDE, firmado, < 6 h; gate H del dueño", metodo: panel, caduca_dias: 0, estado: PENDIENTE}

@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "descripcion": "Catálogo de las OCHO mutaciones sembrables de B0-11 sobre la landing de ofertas/_ejemplo (más cuatro complementarias del texto de docs/06 B0-11 que el encargo de la ola 0b-2 no listó). Cada una es un parche determinista aplicable a una COPIA temporal (tests/contratos/aplicar_mutacion_landing.py) y declara la regla del lint de publicación que debe dispararse (tests/contratos/lint_landing_referencia.py; B4 las mapea a landing.validar). La base pasa limpia: ninguna regla.",
+  "base": "ofertas/_ejemplo",
+  "operaciones": {
+    "borrar": "archivo",
+    "reemplazar": "archivo, buscar, reemplazo, veces",
+    "insertar_antes": "archivo, ancla, texto, veces",
+    "json_establecer": "archivo, ruta, valor"
+  },
+  "mutaciones": [
+    {
+      "id": "ML-01",
+      "nombre": "legal_ausente",
+      "descripcion": "Borra una de las siete páginas legales (cookies); el pie de todas las páginas sigue enlazándola.",
+      "parches": [
+        {
+          "op": "borrar",
+          "archivo": "05-landing/sitio/legal/cookies.html"
+        }
+      ],
+      "regla_esperada": "L1-LEGALES",
+      "reglas_colaterales": [
+        "L1-RUTAS"
+      ],
+      "check_d5": "C01"
+    },
+    {
+      "id": "ML-02",
+      "nombre": "ejemplo_visible",
+      "descripcion": "Deja la palabra EJEMPLO en el texto visible del pie de la portada.",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "<p>Contenido informativo. No garantiza entrevistas ni empleo.</p>",
+          "reemplazo": "<p>Contenido informativo. EJEMPLO. No garantiza entrevistas ni empleo.</p>",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-EJEMPLO-VISIBLE",
+      "reglas_colaterales": [],
+      "check_d5": "C03"
+    },
+    {
+      "id": "ML-03",
+      "nombre": "script_externo",
+      "descripcion": "Agrega un script de un dominio de terceros en el head de la portada.",
+      "parches": [
+        {
+          "op": "insertar_antes",
+          "archivo": "05-landing/sitio/index.html",
+          "ancla": "</head>",
+          "texto": "<script src=\"https://cdn.terceros.invalid/lib.js\"></script>\n",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-SCRIPT-EXTERNO",
+      "reglas_colaterales": [],
+      "check_d5": "C01"
+    },
+    {
+      "id": "ML-04",
+      "nombre": "precio_distinto",
+      "descripcion": "Cambia el precio visible del CTA de la portada (17,90 € en lugar de 19,90 €); oferta.json y checkout.json no cambian.",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "Quiero la guía — 19,90 €",
+          "reemplazo": "Quiero la guía — 17,90 €",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-PRECIO",
+      "reglas_colaterales": [],
+      "check_d5": "C02"
+    },
+    {
+      "id": "ML-05",
+      "nombre": "salud_en_title",
+      "descripcion": "Pone un término de salud (ansiedad) en el título de la portada.",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "<title>Mi Regreso Laboral — El Puente de la Pausa</title>",
+          "reemplazo": "<title>Mi Regreso Laboral — Guía contra la ansiedad tras una pausa</title>",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-SALUD",
+      "reglas_colaterales": [],
+      "check_d5": "M10"
+    },
+    {
+      "id": "ML-06",
+      "nombre": "pixel_antes_del_consentimiento",
+      "descripcion": "Enlaza pixel.js directamente desde el head de la portada, sin pasar por consentimiento.js.",
+      "parches": [
+        {
+          "op": "insertar_antes",
+          "archivo": "05-landing/sitio/index.html",
+          "ancla": "</head>",
+          "texto": "<script src=\"/js/pixel.js\" defer></script>\n",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-CONSENT-PIXEL",
+      "reglas_colaterales": [],
+      "check_d5": "C10"
+    },
+    {
+      "id": "ML-07",
+      "nombre": "enlace_interno_roto",
+      "descripcion": "Rompe el enlace del pie a la política de privacidad en la portada (la ruta no existe).",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "href=\"/legal/privacidad\"",
+          "reemplazo": "href=\"/legal/privacidad-vieja\"",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-ENLACE-INTERNO",
+      "reglas_colaterales": [],
+      "check_d5": "C01"
+    },
+    {
+      "id": "ML-08",
+      "nombre": "enlace_externo_fuera_de_rutas",
+      "descripcion": "Agrega en la portada un enlace a un dominio externo que no figura en rutas.json.",
+      "parches": [
+        {
+          "op": "insertar_antes",
+          "archivo": "05-landing/sitio/index.html",
+          "ancla": "<section><h2>Garantía de",
+          "texto": "<section><p><a href=\"https://blog.terceros.invalid/articulo\">Más información</a></p></section>\n",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-ENLACE-EXTERNO",
+      "reglas_colaterales": [],
+      "check_d5": "C01"
+    }
+  ],
+  "complementarias": [
+    {
+      "id": "MC-01",
+      "nombre": "moneda_distinta",
+      "descripcion": "Cambia el símbolo de la moneda visible en el CTA (19,90 $).",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "Quiero la guía — 19,90 €",
+          "reemplazo": "Quiero la guía — 19,90 $",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-MONEDA",
+      "reglas_colaterales": [],
+      "check_d5": "C02"
+    },
+    {
+      "id": "MC-02",
+      "nombre": "garantia_distinta",
+      "descripcion": "Cambia los días de garantía visibles en la sección de garantía de la portada (30 en lugar de 14).",
+      "parches": [
+        {
+          "op": "reemplazar",
+          "archivo": "05-landing/sitio/index.html",
+          "buscar": "<h2>Garantía de 14 días</h2>",
+          "reemplazo": "<h2>Garantía de 30 días</h2>",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-GARANTIA",
+      "reglas_colaterales": [],
+      "check_d5": "C02"
+    },
+    {
+      "id": "MC-03",
+      "nombre": "salud_en_tracking",
+      "descripcion": "Pone un término de salud (ansiedad) en el dominio verificado de tracking.json (los nombres de evento son un enum cerrado: el esquema ya los protege).",
+      "parches": [
+        {
+          "op": "json_establecer",
+          "archivo": "05-landing/tracking.json",
+          "ruta": [
+            "dominio_verificado"
+          ],
+          "valor": "ansiedad-laboral.example"
+        }
+      ],
+      "regla_esperada": "L1-SALUD",
+      "reglas_colaterales": [],
+      "check_d5": "M10"
+    },
+    {
+      "id": "MC-04",
+      "nombre": "casilla_premarcada",
+      "descripcion": "Agrega en la portada una casilla del bump ya marcada.",
+      "parches": [
+        {
+          "op": "insertar_antes",
+          "archivo": "05-landing/sitio/index.html",
+          "ancla": "<section><h2>Garantía de",
+          "texto": "<section><label><input type=\"checkbox\" name=\"bump\" checked> Añadir las respuestas modelo</label></section>\n",
+          "veces": 1
+        }
+      ],
+      "regla_esperada": "L1-CASILLA-PREMARCADA",
+      "reglas_colaterales": [],
+      "check_d5": "C03"
+    }
+  ]
+}

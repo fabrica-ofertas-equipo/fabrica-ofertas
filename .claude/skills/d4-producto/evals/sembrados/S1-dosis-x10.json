@@ -1,0 +1,24 @@
+{
+  "id": "S1",
+  "dorado_base": "D4-04",
+  "obligatorio_100pct": true,
+  "mutacion": {
+    "archivo": "entregables/fuente/recetario.html",
+    "antes": "Una porción aporta 2,5 g de fibra",
+    "despues": "Una porción aporta 25 g de fibra",
+    "respaldo_sin_tocar": "afirmaciones.jsonl:A7 valor_normalizado \"2.5\", unidad \"g\""
+  },
+  "detector_determinista": "verificar_respaldo.py → cifra-distinta-de-fuente (BLOQUEANTE) y cifra-sin-respaldo",
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-13",
+      "patron_clave": "cifra-distinta-de-fuente",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "recetario.html (línea de la porción) y afirmaciones.jsonl:A7",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  },
+  "calibracion": "un QA que no cita ambos lados no cuenta como detección"
+}

@@ -1,0 +1,10 @@
+{
+ "oferta_id": "OF-202611-01",
+ "familia_id": "FAM-202611-01",
+ "fase": "en_construccion",
+ "d6": {
+  "estado": "aprobado",
+  "gate": "S",
+  "gate_pendiente": false
+ }
+}

@@ -1,0 +1,14 @@
+{
+  "valores": {
+    "moneda_limites": null,
+    "gasto_diario_por_oferta": null,
+    "gasto_total_test_por_oferta": null,
+    "perdida_max_test_por_oferta": null
+  },
+  "nulos": [
+    "moneda_limites",
+    "gasto_diario_por_oferta",
+    "gasto_total_test_por_oferta",
+    "perdida_max_test_por_oferta"
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/propuestos/d5-paleta.schema.json",
+  "title": "paleta.json de D5 (PROPUESTA de la skill d5-landing-checkout)",
+  "description": "Contrato de entrada del generador para el diseño: paleta completa (HEX con motivo), pares de contraste que deben cumplir AA y tipografías autoalojadas. scripts/contraste_paleta.py calcula las razones y comprueba que no se reutilizan los HEX de la referencia. Estado: PROPUESTA, no normativa.",
+  "x-version": "0.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$"
+    },
+    "oferta_id": {
+      "type": "string",
+      "pattern": "^OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[1-9][0-9]*$"
+    },
+    "origen_version": {
+      "enum": [
+        "maker",
+        "qa",
+        "humano"
+      ]
+    },
+    "concepto": {
+      "type": "object",
+      "properties": {
+        "macro_nicho": {
+          "enum": [
+            "salud",
+            "relaciones",
+            "dinero"
+          ]
+        },
+        "tipo_producto": {
+          "type": "string"
+        },
+        "emocion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "familia_cromatica": {
+          "type": "string",
+          "minLength": 5
+        },
+        "evita": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "macro_nicho",
+        "tipo_producto",
+        "emocion",
+        "familia_cromatica"
+      ],
+      "additionalProperties": false
+    },
+    "colores": {
+      "type": "object",
+      "minProperties": 10,
+      "propertyNames": {
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "motivo": {
+            "type": "string",
+            "minLength": 15,
+            "description": "Por qué este color para ESTE producto y nicho (emoción, función). No menciona la referencia."
+          }
+        },
+        "required": [
+          "hex",
+          "motivo"
+        ],
+        "additionalProperties": false
+      },
+      "required": [
+        "fondo_claro",
+        "fondo_oscuro",
+        "superficie",
+        "texto_sobre_claro",
+        "texto_sobre_oscuro",
+        "acento",
+        "cta_fondo",
+        "cta_texto",
+        "linea",
+        "foco"
+      ]
+    },
+    "pares_contraste": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "properties": {
+          "fg": {
+            "type": "string"
+          },
+          "bg": {
+            "type": "string"
+          },
+          "uso": {
+            "enum": [
+              "cuerpo",
+              "boton",
+              "enlace",
+              "etiqueta",
+              "titulo_grande",
+              "foco",
+              "linea"
+            ]
+          },
+          "minimo": {
+            "type": "string",
+            "pattern": "^[0-9](\\.[0-9])?$"
+          },
+          "razon": {
+            "type": "string",
+            "description": "Razón calculada por contraste_paleta.py (opcional)."
+          }
+        },
+        "required": [
+          "fg",
+          "bg",
+          "uso",
+          "minimo"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tipografia": {
+      "type": "object",
+      "properties": {
+        "titulos": {
+          "type": "object",
+          "properties": {
+            "familia": {
+              "type": "string",
+              "minLength": 1
+            },
+            "pesos": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            "archivos": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^fonts/[a-z0-9-]+\\.woff2$"
+              },
+              "description": "Archivos .woff2 autoalojados en 05-landing/fonts/. Puede ir VACÍO mientras no existan (F-55, SB-17): el generador avisa y usa la pila de sistema; no declares archivos que no existen."
+            },
+            "licencia": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "familia",
+            "pesos",
+            "archivos",
+            "licencia"
+          ],
+          "additionalProperties": false
+        },
+        "texto": {
+          "type": "object",
+          "properties": {
+            "familia": {
+              "type": "string",
+              "minLength": 1
+            },
+            "pesos": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            "archivos": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^fonts/[a-z0-9-]+\\.woff2$"
+              },
+              "description": "Archivos .woff2 autoalojados en 05-landing/fonts/. Puede ir VACÍO mientras no existan (F-55, SB-17): el generador avisa y usa la pila de sistema; no declares archivos que no existen."
+            },
+            "licencia": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "familia",
+            "pesos",
+            "archivos",
+            "licencia"
+          ],
+          "additionalProperties": false
+        },
+        "carga": {
+          "type": "object",
+          "properties": {
+            "font_display": {
+              "enum": [
+                "swap",
+                "optional",
+                "fallback"
+              ]
+            },
+            "precarga": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "autoalojada": {
+              "const": true
+            }
+          },
+          "required": [
+            "font_display",
+            "autoalojada"
+          ],
+          "additionalProperties": false
+        },
+        "glifos_verificados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nota": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "titulos",
+        "texto",
+        "carga",
+        "glifos_verificados"
+      ],
+      "additionalProperties": false
+    },
+    "verificacion": {
+      "type": "object",
+      "properties": {
+        "script": {
+          "type": "string"
+        },
+        "contraste_ok": {
+          "type": "boolean"
+        },
+        "no_reutiliza_base": {
+          "type": "boolean"
+        },
+        "fecha": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "script",
+        "contraste_ok",
+        "no_reutiliza_base",
+        "fecha"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "concepto",
+    "colores",
+    "pares_contraste",
+    "tipografia",
+    "verificacion"
+  ],
+  "additionalProperties": false
+}

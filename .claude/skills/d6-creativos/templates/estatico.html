@@ -1,0 +1,65 @@
+<!doctype html>
+<!--
+  Plantilla de estático de D6 (Ruta A: HTML -> PNG). NO se edita a mano por pieza:
+  scripts/render_estatico.py la rellena desde copies.json (anuncios[].texto_en_pieza + marca) y la renderiza.
+  Reglas: sin recursos remotos (sin red), fuentes = los WOFF2 autoalojados de D5 (05-landing/fonts/, incrustados como
+  data: URI por el script, en la primera línea del bloque de estilos; licencia en licencias.json) o, si no hay, la pila del sistema; lang = locale,
+  texto = copies.json congelado, cifras solo con rótulo "ilustrativo" en el mismo cuadro (variable ROTULO).
+  Zona segura (references/specs-formatos.md §2): 9:16 deja 14 % arriba, 35 % abajo y 180 px por lado.
+-->
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<title>{{AD_NAME}}</title>
+<style>
+  {{FUENTES_CSS}}
+  :root { --fondo: {{COLOR_FONDO}}; --texto: {{COLOR_TEXTO}}; --acento: {{COLOR_ACENTO}}; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--fondo); color: var(--texto); font-family: {{FUENTE}}, sans-serif; overflow: hidden; }
+  .pieza { position: relative; box-sizing: border-box; overflow: hidden; background: var(--fondo); }
+  .zona { position: absolute; display: flex; flex-direction: column; justify-content: center; gap: 36px; overflow: hidden; }
+  .marca { font-size: 34px; letter-spacing: .08em; text-transform: uppercase; color: var(--acento); font-weight: 700; }
+  .gancho { font-size: 92px; line-height: 1.08; font-weight: 800; margin: 0; }
+  .apoyo { font-size: 44px; line-height: 1.25; margin: 0; }
+  .rotulo { align-self: flex-start; font-size: 30px; padding: 6px 18px; border: 3px solid var(--acento); border-radius: 8px; }
+  .rotulo:empty { display: none; }
+  .aviso { font-size: 28px; line-height: 1.3; opacity: .92; }
+  .aviso:empty { display: none; }
+  .barra { position: absolute; left: 0; top: 0; width: 18px; height: 100%; background: var(--acento); }
+
+  /* Ratios: medidas de render y márgenes de la zona segura */
+  .r-4x5  .pieza { width: 1080px; height: 1350px; }
+  .r-4x5  .zona  { left: 65px;  right: 65px;  top: 81px;  bottom: 270px; }
+  .r-1x1  .pieza { width: 1080px; height: 1080px; }
+  .r-1x1  .zona  { left: 65px;  right: 65px;  top: 65px;  bottom: 216px; }
+  .r-9x16 .pieza { width: 1080px; height: 1920px; }
+  .r-9x16 .zona  { left: 180px; right: 180px; top: 269px; bottom: 672px; }
+  .r-3x4  .pieza { width: 1080px; height: 1440px; }
+  .r-3x4  .zona  { left: 65px;  right: 65px;  top: 86px;  bottom: 288px; }
+</style>
+</head>
+<body class="{{RATIO_CLASS}}" data-ad-name="{{AD_NAME}}" data-ajuste="pendiente">
+<div class="pieza">
+  <div class="barra"></div>
+  <div class="zona" id="zona">
+    <div class="marca">{{MARCA}}</div>
+    <h1 class="gancho" id="gancho">{{GANCHO}}</h1>
+    <p class="apoyo">{{APOYO}}</p>
+    <div class="rotulo">{{ROTULO}}</div>
+    <div class="aviso">{{AVISO}}</div>
+  </div>
+</div>
+<script>
+  // Ajusta el gancho para que todo quepa en la zona segura; si no cabe ni al mínimo, marca "desborda"
+  // (render_estatico.py lo lee con --dump-dom y rechaza la pieza: nunca se recorta texto en silencio).
+  (function () {
+    var zona = document.getElementById("zona"), g = document.getElementById("gancho");
+    var tam = 92, minimo = 40;
+    function cabe() { return zona.scrollHeight <= zona.clientHeight + 1 && zona.scrollWidth <= zona.clientWidth + 1; }
+    g.style.fontSize = tam + "px";
+    while (!cabe() && tam > minimo) { tam -= 2; g.style.fontSize = tam + "px"; }
+    document.body.setAttribute("data-ajuste", cabe() ? "ok" : "desborda");
+  })();
+</script>
+</body>
+</html>

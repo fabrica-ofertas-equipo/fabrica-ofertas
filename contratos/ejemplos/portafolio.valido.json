@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "generado_en": "2026-11-09T11:00:00Z",
+  "moneda": "EUR",
+  "limites_sello": "sha256:23a98e4a63616579eb2ce6910d31e5fdbaf71e5ffb55c1bf8999a0db08bd313e",
+  "exploracion_pct_usada": 20,
+  "concentracion_max_pct_usada": 50,
+  "caja": {
+    "disponible": {
+      "monto": 80000,
+      "moneda": "EUR"
+    },
+    "comprometido": {
+      "monto": 0,
+      "moneda": "EUR"
+    }
+  },
+  "ofertas": [
+    {
+      "oferta_id": "OF-202611-01",
+      "familia_id": "FAM-202611-01",
+      "slug": "reinsercion-laboral-madres",
+      "macro_nicho": "dinero",
+      "nicho_id": "empleo-y-carrera",
+      "locale": "es-ES",
+      "fase": "listo_para_activar",
+      "nivel": "N2",
+      "gasto_acumulado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "gasto_hoy": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "p_viable": "0.40",
+      "decision": "esperar",
+      "motivo": "Campaña en borrador a la espera del gate H de activación"
+    }
+  ]
+}

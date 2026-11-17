@@ -1,0 +1,46 @@
+{
+  "id": "D08",
+  "descripcion": "Paquete con 2 anuncios rechazables (copy con promesa de peso y de curar un diagnostico): el QA L3 (revisor de politicas) debe frenar; el Maker no escribe ni edita copy.",
+  "capa": "qa-l2",
+  "mutaciones": [
+    {
+      "archivo": "06-creativos/paquete.json",
+      "ruta": [
+        "anuncios",
+        1,
+        "copy"
+      ],
+      "valor": {
+        "texto_principal": "Perdi 5 kg in 2 settimane con questo menu",
+        "cta": "LEARN_MORE"
+      }
+    },
+    {
+      "archivo": "06-creativos/paquete.json",
+      "ruta": [
+        "anuncios",
+        4,
+        "copy"
+      ],
+      "valor": {
+        "texto_principal": "Il menu che aiuta a curare il diabete",
+        "cta": "LEARN_MORE"
+      }
+    }
+  ],
+  "check_id": "C10",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "C10",
+        "severidad": "BLOQUEANTE"
+      },
+      {
+        "check_id": "C10",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "nota": "devuelve a D6/X1; QA-A previo a crear: P14-P19, P25 y PX1-PX4 sobre paquete.json"
+  }
+}

@@ -1,0 +1,7 @@
+# contratos/ejemplos
+Ejemplos de cada artefacto: `<esquema>.valido.(json|yaml)` debe pasar y `<esquema>.invalido-<motivo>.(json|yaml)` debe fallar con el motivo escrito en su archivo hermano `<esquema>.invalido-<motivo>.motivo.txt` (líneas `validador=`, `ruta=` como puntero JSON y `texto=`).
+Los válidos de oferta salen de `ofertas/_ejemplo/`. Los de empresa (`limites.valido.yaml`, `autonomia.valido.yaml`, `infra_estado`, `portafolio`, `pnl`) son FICTICIOS: `limites.valido.yaml` está en EUR y sellado solo para probar; NUNCA es un límite real.
+Propietario: el mismo que los esquemas de `contratos/`.
+Validar: `.venv/bin/python -m scripts.validar_esquemas ejemplos`. Probar: `.venv/bin/python -m unittest discover -s tests/contratos -t .`
+
+Los ejemplos de `aprobacion`, `sello`, `orden_firmada` (y `exposicion_aceptada` de `mercado`) llevan firmas FICTICIAS: HMAC con la clave de prueba pública (`aprobacion`, `mercado`) o Ed25519 SSHSIG REALES (`sello`, `orden_firmada`) hechas con una clave desechable cuya pública es `clave-publica-de-prueba.pub` (la privada se descartó; no protege nada). Verifican con `engine.comun.verificar_ed25519(json_canonico(payload_firma(...)), firma, <pública>)`; el validador solo comprueba el formato salvo que se le inyecte el hook `verificador`. Para regenerarlas: `ssh-keygen -t ed25519 -N ""` con una clave nueva, firmar con `engine.comun.firmar_ed25519` y guardar solo la pública.

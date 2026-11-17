@@ -1,0 +1,315 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "estado": "borrador",
+  "qa_ref": "qa/d6-v1.json",
+  "x1_ref": "qa/x1-d6-v1.json",
+  "destino": {
+    "url_base": "https://miregresolaboral.example/",
+    "plantilla_utm": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-01&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "landing_hash": "sha256:2bc468b28ee91f80cb36ad7c1f407d8988b3f5b79cc5f0ec078845a1f7424d92",
+    "precio": {
+      "monto": 1990,
+      "moneda": "EUR"
+    }
+  },
+  "politicas": {
+    "meta_enhancements": {
+      "generacion_texto": false,
+      "mejoras_creativas": false
+    },
+    "divulgacion_ia": "declarar_siempre"
+  },
+  "conceptos": [
+    {
+      "concepto_id": "c01-hueco",
+      "angulo_id": "hueco-como-relato",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El encuadre «hueco como relato» aumenta el CTR frente al encuadre de plantilla",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-03, es-ES), ficha de formato F-01",
+        "Voz del cliente EV-01 (vocabulario y situación, sin cita en primera persona)",
+        "Orgánico es-ES: ficha de formato F-02 (estructura y ritmo; sin activos)"
+      ]
+    },
+    {
+      "concepto_id": "c02-entrevista",
+      "angulo_id": "pregunta-de-entrevista",
+      "nivel_conciencia": "N3",
+      "hipotesis": "Mostrar la fórmula del guion convierte mejor que describir la guía",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-03, es-ES), ficha de formato F-03",
+        "Voz del cliente EV-01 (objeción «qué decir en la entrevista»)",
+        "Competidor indirecto es-ES: ficha de formato F-04 (demostración con hoja real)"
+      ]
+    },
+    {
+      "concepto_id": "c03-tarde",
+      "angulo_id": "plan-en-una-tarde",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El tiempo prometido (claim tiempo-90-min) atrae a quien tiene poco tiempo",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-05, es-ES), ficha de formato F-05",
+        "Voz del cliente EV-02 (objeción «no tengo tiempo»)",
+        "Orgánico es-ES: ficha de formato F-06 (lista de pasos con reloj)"
+      ]
+    }
+  ],
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "concepto_id": "c01-hueco",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "escena-pov",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Una pausa laboral no es un hueco: es un relato que se puede contar. Guía con guion de 30 segundos y plantilla de currículum por competencias. Guía + plantilla: 19,90 €.",
+        "titular": "Guía + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c01-hueco_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c01-hueco_img_h2_v1",
+      "concepto_id": "c01-hueco",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "pregunta-tarea",
+      "v": 1,
+      "copy": {
+        "texto_principal": "¿Cómo se cuenta una pausa laboral en 30 segundos? Hay un orden para hacerlo: guion de 30 segundos y plantilla editable. Guía + plantilla: 19,90 €.",
+        "titular": "Guía + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c01-hueco_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c02-entrevista_img_h1_v1",
+      "concepto_id": "c02-entrevista",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "demostracion",
+      "v": 1,
+      "copy": {
+        "texto_principal": "La fórmula del guion de 30 segundos, paso a paso. Se ve la hoja del guion completándose, con ejemplo resuelto. Guía + plantilla: 19,90 €.",
+        "titular": "Guía + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c02-entrevista_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c02-entrevista_img_h2_v1",
+      "concepto_id": "c02-entrevista",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "resultado-artefacto",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Un guion de 30 segundos ya redactado, listo para ensayar en voz alta. Incluye un guion de 30 segundos para explicar la pausa y su fórmula. Guía + plantilla: 19,90 €.",
+        "titular": "Guía + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c02-entrevista_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "concepto_id": "c03-tarde",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "resultado-artefacto",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Currículum por competencias: guía pensada para unos 90 minutos. Plantilla editable y pasos con su tiempo. Guía + plantilla: 19,90 €.",
+        "titular": "Guía de 90 minutos",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c03-tarde_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c03-tarde_img_h2_v1",
+      "concepto_id": "c03-tarde",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "escena-pov",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Una mesa, una plantilla editable y unos 90 minutos. Pensado para completarlo en unos 90 minutos, con la plantilla de currículum incluida. Guía + plantilla: 19,90 €.",
+        "titular": "Plantilla + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c03-tarde_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "herramienta": "chrome-headless-html",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "licencia_ref": "lic-fuente-sistema",
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    }
+  ],
+  "reserva": [
+    {
+      "concepto_id": "c04-ordenar",
+      "guion_ref": "guiones/c04-ordenar_reserva.md",
+      "copy": {
+        "texto_principal": "Ordenar la experiencia por competencias antes de explicar la pausa: guía y plantilla. Guía + plantilla: 19,90 €.",
+        "titular": "Guía + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      }
+    }
+  ],
+  "costo_total_creditos": 0,
+  "pedidos_atendidos": []
+}

@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/producto.schema.json",
+  "title": "Producto",
+  "description": "Producto digital (D4)",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "producto_id": {
+      "type": "string",
+      "pattern": "^PROD-OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "estado": {
+      "enum": [
+        "borrador",
+        "en_QA",
+        "aprobado"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "tipo": {
+            "enum": [
+              "guia_pdf",
+              "guia_md",
+              "plantilla_docx",
+              "plantilla_md",
+              "plantilla_xlsx",
+              "checklist",
+              "video",
+              "muestra",
+              "otro"
+            ]
+          },
+          "archivo": {
+            "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+          },
+          "paginas": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "peso_mb": {
+            "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+          },
+          "sha256": {
+            "$ref": "comunes.schema.json#/$defs/sha256"
+          },
+          "formato": {
+            "type": "string"
+          },
+          "idioma": {
+            "$ref": "comunes.schema.json#/$defs/locale"
+          },
+          "en_paquete": {
+            "type": "boolean",
+            "description": "false para muestras de vista previa"
+          }
+        },
+        "required": [
+          "id",
+          "tipo",
+          "archivo",
+          "paginas",
+          "peso_mb",
+          "sha256",
+          "formato",
+          "idioma",
+          "en_paquete"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "matriz_promesas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "promesa_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "texto": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entregable_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "prueba": {
+            "type": "string",
+            "minLength": 1
+          },
+          "estado": {
+            "enum": [
+              "cumplida",
+              "parcial",
+              "pendiente"
+            ]
+          }
+        },
+        "required": [
+          "promesa_id",
+          "texto",
+          "entregable_id",
+          "prueba",
+          "estado"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tiempos": {
+      "type": "object",
+      "properties": {
+        "lectura_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ejecucion_min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_min": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "prometido_min": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Debe ser IGUAL a oferta.promesa.tiempo_prometido_min"
+        },
+        "base": {
+          "enum": [
+            "estimado",
+            "cold_run_humano"
+          ]
+        }
+      },
+      "required": [
+        "lectura_min",
+        "ejecucion_min",
+        "total_min",
+        "prometido_min",
+        "base"
+      ],
+      "additionalProperties": false
+    },
+    "pasos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "ejecutable_por_agente": {
+            "type": "boolean"
+          },
+          "t_humano_min": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "ejecutable_por_agente",
+          "t_humano_min"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "vigencia": {
+      "type": "object",
+      "properties": {
+        "verificado_el": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "revisar_antes_de": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "items_volatiles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "verificado_el",
+        "revisar_antes_de",
+        "items_volatiles"
+      ],
+      "additionalProperties": false
+    },
+    "entrega": {
+      "type": "object",
+      "properties": {
+        "estrategia": {
+          "enum": [
+            "enlace_firmado_email",
+            "pagina_descarga"
+          ]
+        },
+        "vence_dias": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_descargas": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "estrategia",
+        "vence_dias",
+        "max_descargas"
+      ],
+      "additionalProperties": false
+    },
+    "ia_divulgacion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "comunes.schema.json#/$defs/version"
+          },
+          "fecha": {
+            "$ref": "comunes.schema.json#/$defs/fecha"
+          },
+          "cambio": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "version",
+          "fecha",
+          "cambio"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "producto_id",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "estado",
+    "items",
+    "matriz_promesas",
+    "tiempos",
+    "pasos",
+    "vigencia",
+    "entrega",
+    "ia_divulgacion",
+    "changelog"
+  ],
+  "additionalProperties": false
+}

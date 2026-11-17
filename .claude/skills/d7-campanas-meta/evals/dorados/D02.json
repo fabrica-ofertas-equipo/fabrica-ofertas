@@ -1,0 +1,74 @@
+{
+  "id": "D02",
+  "descripcion": "La misma oferta con presupuesto bajo: el diario no alcanza para PURCHASE y el test solo puede refutar (no validar); lo dice la tarjeta.",
+  "capa": "script-presupuesto",
+  "contexto": {
+    "macro_nicho": "salud",
+    "locale": "it-IT",
+    "paises": [
+      "IT"
+    ],
+    "moneda": "EUR",
+    "riesgo": "verde"
+  },
+  "entrada_presupuesto": {
+    "moneda": "EUR",
+    "cpa_be": 1600,
+    "cpa_esperado": 1000,
+    "tarifa_meta_bp": 300,
+    "n_anuncios_paquete": 3,
+    "dias_test": 10,
+    "evento_economia": "InitiateCheckout",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": 9300,
+    "inicio": "2026-11-16T00:00:00Z",
+    "limites": {
+      "moneda_limites": "EUR",
+      "gasto_diario_por_oferta": 3000,
+      "gasto_total_test_por_oferta": 16500,
+      "perdida_max_test_por_oferta": 16500,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "OK",
+    "n_anuncios": 3,
+    "total_plan": 14400,
+    "solo_refuta": true,
+    "facturado_plan": 14832,
+    "presupuesto": {
+      "diario": 1440,
+      "total_test": 14400,
+      "max_teorico_diario": 2520,
+      "spend_cap": 15840,
+      "candado_alternativo": null
+    },
+    "evento": {
+      "campana": "INITIATE_CHECKOUT",
+      "recomendado": "INITIATE_CHECKOUT"
+    },
+    "monto_api": {
+      "offset_meta": 100
+    },
+    "techo_necesario_para_validar": 16995
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "umbral": "media >= 4,0 y ningun item < 3",
+    "hallazgos_minimos": 3,
+    "nota": "anti-sello-de-goma: >= 3 hallazgos o evidencia de que se reviso"
+  }
+}

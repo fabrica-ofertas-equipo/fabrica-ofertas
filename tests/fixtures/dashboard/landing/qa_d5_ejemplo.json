@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "D5",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-08T10:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "05-landing/sitio",
+  "artefacto_sha256": "sha256:2bc468b28ee91f80cb36ad7c1f407d8988b3f5b79cc5f0ec078845a1f7424d92",
+  "entradas": {
+    "03-oferta/oferta.json": "sha256:ffe325ecf1cbb9c0dfd2e261c4fc5a32e652eca272570c4ee16afdce7132a130",
+    "04-producto/producto.json": "sha256:b9eac0f688bc1f231640cd122311685b68fb229b3233e84ef93ab251f83c7f21",
+    "05-landing/assets.json": "sha256:46c1c28c29b5c4a35e53593ae3387d529be7ad1fc7eb75ed2a777ec315e2ff29",
+    "05-landing/checkout.json": "sha256:2e456eea31435120978fe922ee16ec64a29070960347595f756b36395bf875ca",
+    "05-landing/tracking.json": "sha256:0101bc95491604ceff195c5f53621e6e4e9cc732b22bcb36602e284c357c98af"
+  },
+  "veredicto": "PASS",
+  "puntaje_global": "4.40",
+  "umbral": "3.8",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Coherencia con el contrato de la etapa",
+      "puntaje": 5,
+      "evidencia": "05-landing/sitio: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia citada",
+      "puntaje": 4,
+      "evidencia": "05-landing/sitio: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Claims y cumplimiento",
+      "puntaje": 5,
+      "evidencia": "05-landing/sitio: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Claridad para el siguiente agente",
+      "puntaje": 4,
+      "evidencia": "05-landing/sitio: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Reproducibilidad",
+      "puntaje": 4,
+      "evidencia": "05-landing/sitio: revisado campo por campo contra el contrato"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-ESQUEMA",
+      "resultado": "pass",
+      "detalle": "validar_esquemas.py sin errores"
+    },
+    {
+      "check_id": "L1-HASHES",
+      "resultado": "pass",
+      "detalle": "hashes coinciden"
+    }
+  ],
+  "simulaciones_l3": [],
+  "hallazgos": [
+    {
+      "check_id": "D5-H1",
+      "patron_clave": "formato",
+      "severidad": "MENOR",
+      "etapa": "D5",
+      "skill_version": "0.1.0",
+      "descripcion": "Mayúsculas inconsistentes en un título",
+      "evidencia": "05-landing/sitio",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "D5-H2",
+      "patron_clave": "unidades",
+      "severidad": "MENOR",
+      "etapa": "D5",
+      "skill_version": "0.1.0",
+      "descripcion": "Falta aclarar una unidad en un campo",
+      "evidencia": "05-landing/sitio",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "D5-H3",
+      "patron_clave": "evidencia",
+      "severidad": "MEJORA",
+      "etapa": "D5",
+      "skill_version": "0.1.0",
+      "descripcion": "Se podría añadir una segunda fuente",
+      "evidencia": "05-landing/sitio",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir una segunda muestra gratuita",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Datos de ejemplo: no hay evidencia real de mercado"
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": {
+    "dictamen_ref": "qa/x1-d5-v1.json",
+    "veredicto": "PASS",
+    "artefacto_sha256": "sha256:2bc468b28ee91f80cb36ad7c1f407d8988b3f5b79cc5f0ec078845a1f7424d92"
+  }
+}

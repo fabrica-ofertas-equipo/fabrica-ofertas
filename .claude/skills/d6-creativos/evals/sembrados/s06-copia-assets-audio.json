@@ -1,0 +1,126 @@
+{
+  "grupo": "★ Copia de competidor; asset sin job_id, sin licencia o con C2PA eliminado; voz ≠ subtítulo",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s06-copia",
+      "grupo": "s06",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Descubre el método secreto que los expertos en finanzas personales no quieren que conozcas para ordenar tus gastos cada mes.",
+        "titular": "Método secreto",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "≥8 palabras idénticas a un competidor del corpus",
+      "check_id_esperado": "X1-K02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "copia-ngrama",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: secuencia ≥ compliance.ngrama_copia_palabras idéntica a un anuncio del corpus (y «secreto»/«no quieren» es retórica de estafa)",
+      "contexto": {
+        "corpus": "«descubre el método secreto que los expertos en finanzas personales no quieren que conozcas»"
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s06-job",
+      "grupo": "s06",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "asset": {
+          "archivo": "assets/c01-hueco_vid_h1_v1.mp4",
+          "ia_generado": true,
+          "herramienta": "higgsfield",
+          "modelo": "kling3_0",
+          "job_id": null,
+          "licencia_ref": "lic-higgsfield",
+          "costo_creditos": 40
+        }
+      },
+      "defecto": "asset generado sin job_id",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "asset-sin-job-id",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: no se puede conciliar el costo ni probar el origen",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s06-licencia",
+      "grupo": "s06",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "asset": {
+          "archivo": "assets/c02-prezzo_img_h1_v1.png",
+          "ia_generado": true,
+          "herramienta": "higgsfield",
+          "modelo": "marketing_studio_image",
+          "job_id": "J-123",
+          "licencia_ref": null,
+          "costo_creditos": 4
+        }
+      },
+      "defecto": "asset sin licencia",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "asset-sin-licencia",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: falta la licencia (términos de uso comercial por plan)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s06-c2pa",
+      "grupo": "s06",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "asset": {
+          "archivo": "assets/c03-koszt_vid_h1_v1.mp4",
+          "ia_generado": true,
+          "herramienta": "higgsfield",
+          "modelo": "seedance_2_5",
+          "job_id": "J-777",
+          "licencia_ref": "lic-higgsfield",
+          "c2pa_origen": "si",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "costo_creditos": 40
+        }
+      },
+      "defecto": "C2PA eliminado en la recodificación sin etiqueta visible",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "c2pa-perdido-sin-etiqueta-visible",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: no se oculta el origen IA; si la recodificación perdió C2PA hace falta etiqueta visible",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s06-voz",
+      "grupo": "s06",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "guion_aprobado": "La hoja calcula el precio mínimo a partir de los costos que cargues.",
+        "audio_transcrito": "La hoja garantiza el precio mínimo y te hace ganar más.",
+        "subtitulo": "La hoja calcula el precio mínimo a partir de los costos que cargues."
+      },
+      "defecto": "voz en off con un claim distinto al subtítulo",
+      "check_id_esperado": "X1-M02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "voz-distinta-del-subtitulo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: el audio dice «garantiza… te hace ganar más» (verbo de cambio, promesa); debe ser idéntico al guion sellado",
+      "bloqueante": true
+    }
+  ]
+}

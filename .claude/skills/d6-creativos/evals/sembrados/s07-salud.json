@@ -1,0 +1,120 @@
+{
+  "grupo": "★ Salud: kilos y plazo, verbos de cambio, nombres con reset/estable, báscula o antes/después",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s07-es-ar",
+      "grupo": "s07",
+      "locale": "es-AR",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Bajá 8 kg en 30 días con este plan de comidas.",
+        "titular": "Bajá 8 kg en 30 días",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "kilos y plazo",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "kilos-y-plazo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-02: cifra y plazo de pérdida de peso",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s07-it-it",
+      "grupo": "s07",
+      "locale": "it-IT",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Perdi 8 kg in 30 giorni senza dieta con il nostro planner.",
+        "titular": "Perdi 8 kg in 30 giorni",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "kilos y plazo (par de la nota 25)",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "kilos-y-plazo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-02 en italiano («senza dieta» y los plazos: patrón de la AGCM)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s07-pl-pl",
+      "grupo": "s07",
+      "locale": "pl-PL",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Schudnij 10 kg w miesiąc z tym planerem posiłków.",
+        "titular": "Schudnij 10 kg w miesiąc",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "kilos y plazo",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "kilos-y-plazo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-02 en polaco",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s07-glucosa",
+      "grupo": "s07",
+      "locale": "es-ES",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Recetas que bajan tu glucosa, con tabla de azúcar por porción.",
+        "titular": "Recetas que bajan tu glucosa",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "verbo de cambio con el producto como sujeto sobre el cuerpo del lector",
+      "check_id_esperado": "X1-P07",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "verbo-de-cambio-con-producto-como-sujeto",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO P2n (y condición del lector): reencuadre RE-01 «recetario con tabla de azúcar añadida y fibra por porción»",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s07-reset",
+      "grupo": "s07",
+      "locale": "en-US",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "The Sleep Reset Method: a nightly planner for calmer evenings.",
+        "titular": "Sleep Reset Method",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "nombre de método con «reset» (estado)",
+      "check_id_esperado": "X1-P07",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "nombre-con-estado-o-reset",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO P2n: nombre de estado en el método; detiene y decide una persona (el nombre es único por oferta)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s07-bascula",
+      "grupo": "s07",
+      "locale": "es-ES",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Planificador semanal de comidas. PDF: 9,90 €.",
+        "descripcion_visual": "fotograma 2: una báscula de baño y una cinta métrica junto al planificador; fotograma 5: «antes/después»"
+      },
+      "defecto": "báscula y antes/después en un fotograma",
+      "check_id_esperado": "X1-M03",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "bascula-o-antes-despues",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE (OCR/visión a 1 fps): salud solo producto, hojas o manos; báscula y antes/después prohibidos",
+      "bloqueante": true
+    }
+  ]
+}

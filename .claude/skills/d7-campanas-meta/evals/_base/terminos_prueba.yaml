@@ -1,0 +1,6 @@
+# SOLO PRUEBA: lexico ficticio para los evals; el real lo entrega X1 (terminos_sensibles/<locale>.yaml)
+terminos:
+  - diabet
+  - debito
+  - rottura
+  - tumor

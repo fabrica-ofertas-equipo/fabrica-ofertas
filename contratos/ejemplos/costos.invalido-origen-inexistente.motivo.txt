@@ -1,0 +1,3 @@
+validador=enum
+ruta=/origen
+texto=origen de costo: ia, creditos o herramienta

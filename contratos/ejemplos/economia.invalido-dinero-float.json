@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "script_version": "1.0.0",
+  "entradas_usadas": {
+    "tarifas_fecha": "2026-11-05",
+    "tarifas_fuente": "[SUPUESTO] comisión 1,5 % + 0,25 EUR; tarifa de disputa 15 EUR (ejemplo; verificar contra tarifas.json de F1)",
+    "moneda": "EUR",
+    "precio": {
+      "monto": 1990,
+      "moneda": "EUR"
+    },
+    "precio_bump": {
+      "monto": 790,
+      "moneda": "EUR"
+    },
+    "tasa_bump_bp": 1000,
+    "tasa_reembolso_bp": 700,
+    "tasa_disputa_bp": 50,
+    "comision_pct_bp": 150,
+    "comision_fija": {
+      "monto": 25,
+      "moneda": "EUR"
+    },
+    "tarifa_disputa": {
+      "monto": 1500,
+      "moneda": "EUR"
+    },
+    "costo_variable": {
+      "monto": 20,
+      "moneda": "EUR"
+    },
+    "factor_cpa_objetivo_bp": 6000,
+    "escenarios": {
+      "pes": {
+        "cpm": {
+          "monto": 600,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 100,
+        "clic_compra_bp": 120
+      },
+      "central": {
+        "cpm": {
+          "monto": 450,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 160,
+        "clic_compra_bp": 220
+      },
+      "opt": {
+        "cpm": {
+          "monto": 400,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 220,
+        "clic_compra_bp": 300
+      }
+    },
+    "tasa_iva_bp": 0,
+    "stripe_tax": {
+      "pct_bp": 0,
+      "fijo": {
+        "monto": 0,
+        "moneda": "EUR"
+      }
+    },
+    "tarifa_meta_bp": 0,
+    "recargos_bp": 0,
+    "conversion_bp": 0,
+    "tarifas_origen": "supuesto"
+  },
+  "aov": {
+    "monto": 20.69,
+    "moneda": "EUR"
+  },
+  "mc": {
+    "monto": 1840,
+    "moneda": "EUR"
+  },
+  "cpa_be": {
+    "monto": 1840,
+    "moneda": "EUR"
+  },
+  "cpa_obj": {
+    "monto": 1104,
+    "moneda": "EUR"
+  },
+  "roas_be": "1.12",
+  "cpa_real": {
+    "pes": {
+      "monto": 5000,
+      "moneda": "EUR"
+    },
+    "central": {
+      "monto": 1278,
+      "moneda": "EUR"
+    },
+    "opt": {
+      "monto": 606,
+      "moneda": "EUR"
+    }
+  },
+  "razon": "1.44",
+  "razon_obj": "0.86",
+  "veredicto": "FACTIBLE",
+  "presupuesto_test_min": {
+    "monto": 27600,
+    "moneda": "EUR"
+  },
+  "dias_test": 10,
+  "gasto_test_plan": {
+    "monto": 27600,
+    "moneda": "EUR"
+  },
+  "perdida_max_test": {
+    "monto": 27600,
+    "moneda": "EUR"
+  },
+  "evento_optimizacion_inicial": "Purchase",
+  "criterios_corte": {
+    "k": 3,
+    "n_dec": 15,
+    "validada": "backbone 5.9 (parametros.veredicto)"
+  },
+  "conv_central": "0.022",
+  "cpc_esperado": {
+    "monto": "28.125",
+    "moneda": "EUR"
+  },
+  "cpa_be_visto": {
+    "monto": 1840,
+    "moneda": "EUR"
+  },
+  "limites_pendientes": [],
+  "resultado_esperado_central": {
+    "monto": 12124,
+    "moneda": "EUR"
+  }
+}

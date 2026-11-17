@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/propuestos/d5-assets.schema.json",
+  "title": "assets.json de D5 ampliado (PROPUESTA de la skill d5-landing-checkout)",
+  "description": "Superset compatible de contratos/assets.schema.json 1.0.0: añade tamaño en píxeles, formato, `productor` (D4 | D6 | dueno), `herramienta`, `etiqueta_ia_visible`, secciones galeria/bonus/compra/cierre/opiniones, estado `omitida` y el enlace de compra. Catálogo fijo de 20 ranuras + og: references/landing-estructura.md §5. D5 solo DECLARA las ranuras: no renderiza (el render HTML a PNG es de render_estatico.py de D6), no genera con IA y no gasta ni cotiza créditos (créditos, cotización y prompt son de D6; LT-32, LT-48, SC-5). TRANSITORIO: los productores html_png, captura_producto, higgsfield y comprador_real y los campos creditos_estimados, cotizacion_ref y prompt_ref figuran como OBSOLETOS solo porque tests/fixtures/landing/*/assets.json (del constructor de landing/) aún los usan y landing/contenido.py valida 1.1.x contra este archivo; no deben escribirse en ofertas nuevas (dependencias.md §1). Estado: PROPUESTA; hasta que CT la integre como 1.1.0 manda el contrato vigente.",
+  "x-version": "1.1.1-propuesta",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.[0-9]+\\.[0-9]+$"
+    },
+    "oferta_id": {
+      "type": "string",
+      "pattern": "^OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[1-9][0-9]*$"
+    },
+    "origen_version": {
+      "enum": [
+        "maker",
+        "qa",
+        "humano"
+      ]
+    },
+    "enlace_compra": {
+      "type": "object",
+      "properties": {
+        "ruta": {
+          "const": "/comprar"
+        },
+        "destino": {
+          "const": "crear-sesion"
+        }
+      },
+      "required": [
+        "ruta",
+        "destino"
+      ],
+      "additionalProperties": false,
+      "description": "El único enlace de compra: va a /comprar y de ahí a una sesión de Checkout creada en servidor."
+    },
+    "slots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "seccion": {
+            "enum": [
+              "hero",
+              "problema",
+              "mecanismo",
+              "producto",
+              "prueba",
+              "garantia",
+              "faq",
+              "pie",
+              "og",
+              "galeria",
+              "bonus",
+              "compra",
+              "cierre",
+              "opiniones"
+            ],
+            "description": "Los 9 primeros son los del contrato 1.0.0; galeria, bonus, compra, cierre y opiniones son la ampliación propuesta."
+          },
+          "tipo": {
+            "enum": [
+              "imagen",
+              "video",
+              "icono",
+              "captura_producto"
+            ]
+          },
+          "ratio": {
+            "enum": [
+              "1:1",
+              "4:5",
+              "9:16",
+              "16:9",
+              "3:4",
+              "1.91:1"
+            ],
+            "description": "1.91:1 = og 1200×630 (Open Graph); el resto, los de siempre."
+          },
+          "ancho_px": {
+            "type": "integer",
+            "minimum": 16
+          },
+          "alto_px": {
+            "type": "integer",
+            "minimum": 16
+          },
+          "formato": {
+            "enum": [
+              "webp",
+              "png",
+              "jpg",
+              "avif",
+              "svg",
+              "mp4"
+            ]
+          },
+          "proposito": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alt": {
+            "type": "string",
+            "description": "Texto alternativo neutro: describe lo que se ve, sin términos sensibles (C16) ni «ejemplo». Obligatorio salvo en ranuras omitidas. Tiene que ser REAL: describe lo que se ve (≥ 10 caracteres), sin el id de la ranura ni un texto genérico («imagen», «bonus»); `landing.generar` rechaza una ranura aprobada con un alt que no lo cumpla."
+          },
+          "estado": {
+            "enum": [
+              "vacio",
+              "asignado",
+              "aprobado",
+              "omitida"
+            ],
+            "description": "`omitida` (ampliación propuesta): la ranura no se usa en esta oferta (sin material real); su sección se omite o se reduce."
+          },
+          "peso_max_kb": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "archivo": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^(?!/)(?!.*\\.\\.)[A-Za-z0-9_./-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "origen": {
+            "anyOf": [
+              {
+                "enum": [
+                  "producto_muestra",
+                  "ia",
+                  "stock_licenciado",
+                  "propio",
+                  "placeholder_de_ejemplo"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Naturaleza del recurso (contrato 1.0.0): los cinco del contrato (LT-32). `html_png` y `comprador_real` ya no existen."
+          },
+          "ia_generado": {
+            "type": "boolean"
+          },
+          "licencia_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "productor": {
+            "enum": [
+              "D4",
+              "D6",
+              "dueno",
+              "kie",
+              "ranuras_kie"
+            ],
+            "description": "Quién produce la imagen (campo `productor`, no `origen`): D4 las del PRODUCTO (hero con mockup, galería de muestras, portadas de bonus, tarjeta de compra), D6 las de ambiente e ilustración y el render HTML a PNG (render_estatico.py), dueno lo que aporte (en prosa, dueño; el literal `dueno` sin tilde lo confirma CT, SA-12). Productores retirados (SC-5): html_png, captura_producto, higgsfield y comprador_real. D5 no produce ni gasta. `kie` / `ranuras_kie` (F-71): imágenes generadas con Kie.ai por `ranuras_kie.py` (escenas IA y composiciones por código); la herramienta concreta va en `herramienta` y la ranura lleva `ia_generado: true` y `etiqueta_ia_visible: true`."
+          },
+          "herramienta": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 80,
+            "description": "Herramienta con que la produce su productor (texto corto); null mientras la ranura esté vacía u omitida."
+          },
+          "etiqueta_ia_visible": {
+            "type": "boolean",
+            "description": "El recurso lleva la divulgación de IA visible (campo fijado por LT-32). El generador pinta el rótulo «Imagen generada con ayuda de IA» (por imagen o por grupo) y `landing.validar` (L1-IMAGEN-ROTULO) lo exige."
+          },
+          "ilustrativa": {
+            "type": "boolean",
+            "description": "0.2.0 (J21, F-71/F-75), opcional: imagen ILUSTRATIVA («base de cómo se vería») hecha mientras D4 no entrega el producto; no es captura real. Va con tipo `imagen` (no `captura_producto`, que exige ia_generado=false), ia_generado=true y etiqueta_ia_visible=true. Una ranura ilustrativa NO cuenta como «muestra real» de S04 en producción: se reemplaza por la real en la versión siguiente (`reemplazar_con_real_cuando_exista_producto`). El generador la publica CON un rótulo visible («Ilustración orientativa», por imagen o por grupo; J21: no se omite S04 en producción) y `landing.validar` (L1-IMAGEN-ROTULO) exige ese rótulo."
+          },
+          "reemplazar_con_real_cuando_exista_producto": {
+            "type": "boolean",
+            "description": "0.2.0 (J21), opcional: cuando D4 entregue el producto esta ranura se rehace con la pieza real (versión nueva v<n+1>); mientras tanto es ilustrativa."
+          },
+          "revision_ciega": {
+            "type": "object",
+            "description": "0.2.0 (J21), opcional: resultado de la revisión ciega de la imagen por un agente independiente (d5-qa en modo revisión de imágenes). Solo las ranuras con veredicto PASA pasan a `aprobado`.",
+            "properties": {
+              "ronda": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "veredicto": {
+                "enum": [
+                  "PASA",
+                  "REHACER"
+                ]
+              },
+              "informe_ref": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "description": "Ruta del informe de la revisión (p. ej. 05-landing/assets/revision-ronda1.json), relativa a la oferta."
+              }
+            },
+            "required": [
+              "ronda",
+              "veredicto",
+              "informe_ref"
+            ],
+            "additionalProperties": false
+          },
+          "obligatoria": {
+            "type": "boolean"
+          },
+          "carga": {
+            "enum": [
+              "eager",
+              "lazy"
+            ]
+          },
+          "condicion_de_uso": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Cuándo existe la ranura y cuándo se omite (sin inventar material)."
+          }
+        },
+        "required": [
+          "slot_id",
+          "seccion",
+          "tipo",
+          "ratio",
+          "ancho_px",
+          "alto_px",
+          "formato",
+          "proposito",
+          "alt",
+          "estado",
+          "peso_max_kb",
+          "archivo",
+          "sha256",
+          "origen",
+          "ia_generado",
+          "licencia_ref",
+          "productor",
+          "obligatoria",
+          "carga",
+          "condicion_de_uso"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "estado": {
+                  "enum": [
+                    "asignado",
+                    "aprobado"
+                  ]
+                }
+              },
+              "required": [
+                "estado"
+              ]
+            },
+            "then": {
+              "properties": {
+                "archivo": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "origen": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "tipo": {
+                  "const": "captura_producto"
+                }
+              },
+              "required": [
+                "tipo"
+              ]
+            },
+            "then": {
+              "properties": {
+                "ia_generado": {
+                  "const": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "seccion": {
+                  "const": "opiniones"
+                }
+              },
+              "required": [
+                "seccion"
+              ]
+            },
+            "then": {
+              "properties": {
+                "productor": {
+                  "enum": [
+                    "dueno"
+                  ]
+                },
+                "ia_generado": {
+                  "const": false
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "estado": {
+                  "not": {
+                    "const": "omitida"
+                  }
+                }
+              },
+              "required": [
+                "estado"
+              ]
+            },
+            "then": {
+              "properties": {
+                "alt": {
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "slots"
+  ],
+  "additionalProperties": false
+}

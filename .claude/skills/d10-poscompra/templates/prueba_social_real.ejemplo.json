@@ -1,0 +1,7 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-000000-00",
+  "generado_en": "2026-11-22T12:00:00Z",
+  "ventas": {"total": 3, "fuente": "Stripe, pagos completados", "al": "2026-11-22"},
+  "valoracion": {"media_decimas": 35, "n": 2, "fuente": "Reseñas de compradores verificados, con su permiso", "al": "2026-11-22"}
+}

@@ -1,0 +1,155 @@
+{
+  "grupo": "★ Derechos (J13), datos inventados (J8) y gancho repetido (0.2.0)",
+  "bloqueante": true,
+  "fuente": "0.2.0: decisiones J8, J13, J17 y J18 del dueño (docs/_historial/mentor-sistema/decisiones-del-dueno.md) y biblioteca de ganchos; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s11-copia-textual-de-referente",
+      "grupo": "s11",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "520 mappe mentali dall'A1 al C2: il pack completo",
+        "titular": "520 mappe mentali · dall'A1 al C2",
+        "hook_tipo": "lista-numero"
+      },
+      "defecto": "el titular es el título de anuncio de un referente, palabra por palabra (expresión ajena)",
+      "check_id_esperado": "D6-L1-08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "copia-expresion-referente",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: la expresión del referente no se toca (J13); ganchos.py rechazar da similitud 1,00 con un referencia_anticopia. Se hereda la estructura (cantidad + niveles), no el texto",
+      "contexto": {
+        "corpus_referentes": [
+          "520 mappe mentali · dall'A1 al C2"
+        ]
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s11-nombre-de-marca-ajena",
+      "grupo": "s11",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Mappa del Francese™: tutto il francese in una pagina per livello",
+        "titular": "Mappa del Francese™",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "usa el nombre de producto (con ™) de un referente",
+      "check_id_esperado": "D6-L1-08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "nombre-ajeno-en-pieza",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: nombres de producto, método, bonus y marca del referente son expresión protegida (J13, QM-02); qc6 --prohibir lo detecta en el texto de la pieza",
+      "contexto": {
+        "nombres_del_referente": [
+          "Mappa del Francese"
+        ]
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s11-testimonio-inventado",
+      "grupo": "s11",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "«Con esta guía conseguí tres entrevistas en una semana», cuenta Marta, 34 años.",
+        "titular": "La guía de Marta",
+        "hook_tipo": "escena-pov"
+      },
+      "defecto": "testimonio con nombre y resultado, sin reseña real (`compra_id`)",
+      "check_id_esperado": "X1-P08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "testimonio-inventado",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: testimonio inventado con resultado y atributo personal; J8 y la nota de J19 lo prohíben aunque el dueño «corra el riesgo de baneo»",
+      "contexto": {
+        "oferta": {
+          "prueba": null
+        }
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s11-aviso-de-compra-falso",
+      "grupo": "s11",
+      "locale": "en-US",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Sarah from Austin just bought this budget template. 12 people are viewing it right now.",
+        "titular": "Budget template",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "aviso de compra reciente y contador de personas viendo",
+      "check_id_esperado": "X1-P05",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "aviso-de-compra-falso",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: aviso de compra y contador inventados (urgencia y prueba social falsas); solo valdría una urgencia con fecha real y precio programado, nunca un aviso de compra",
+      "contexto": {
+        "oferta": {
+          "urgencia": null
+        }
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s11-cifra-de-clientes-inventada",
+      "grupo": "s11",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Tysiące zadowolonych klientów już używa tego arkusza. Arkusz kosztów: 49 zł.",
+        "titular": "Tysiące zadowolonych klientów",
+        "hook_tipo": "lista-numero"
+      },
+      "defecto": "cifra de clientes satisfechos sin dato real",
+      "check_id_esperado": "X1-P08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "cifra-de-clientes-inventada",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: cifra de clientes sin dato en `prueba_social_real` (X1-P08); es uno de los falsos negativos conocidos del lint de pl-PL que qc6 también cubre",
+      "contexto": {
+        "oferta": {
+          "prueba": null
+        }
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s11-frase-rechazada-reenviada",
+      "grupo": "s11",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Una pausa laboral no es un hueco: es un relato que se cuenta en 30 segundos (versión retocada).",
+        "titular": "Guía + plantilla",
+        "hook_tipo": "escena-pov"
+      },
+      "defecto": "frase rechazada por Meta reenviada con un retoque",
+      "check_id_esperado": "D6-L1-08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "rechazo-reenviado",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: una frase rechazada por Meta, Stripe o X1 nunca se reenvía, ni retocada (SKILL regla 13); en la biblioteca figura con estado «rechazado» y ganchos.py rechazar da similitud ≥ 0,80",
+      "contexto": {
+        "ganchos": [
+          {
+            "id": "G-0099",
+            "estado": "rechazado",
+            "texto": "Una pausa laboral no es un hueco: es un relato que se puede contar."
+          }
+        ]
+      },
+      "bloqueante": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "oferta_id": "OF-209901-01",
+  "pixel_id": "111000000000002",
+  "dataset_id": "111000000000002",
+  "dominio_verificado": "marca-fixture.example",
+  "eventos": [
+    {
+      "nombre": "PageView",
+      "parametros_permitidos": ["fbp", "fbc"]
+    },
+    {
+      "nombre": "Purchase",
+      "parametros_permitidos": ["value", "currency"]
+    }
+  ],
+  "consent_gating": {
+    "plataforma": "banner_propio_v1"
+  }
+}

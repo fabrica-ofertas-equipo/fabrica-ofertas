@@ -1,0 +1,48 @@
+{
+ "entregas": [
+  {
+   "schema_version": "1.0.0",
+   "entrega_id": "ENT-0eaabe56fc94",
+   "ts": "2026-11-11T10:05:00Z",
+   "oferta_id": "OF-202611-01",
+   "checkout_session_id": "cs_test_ejemplo0001",
+   "email_hmac": "hmac-sha256:fd984bad363e9a30021460091726467b65bb1e88c31752d93c68ade87e4946e4",
+   "estado": "entregado",
+   "producto_version": "v1",
+   "producto_sha256": "sha256:fb99dd1299e2dc079039594c0a476d89a50de164e635d19e0fcdb55de0ad3780",
+   "enlace": {
+    "vence_en": "2026-11-18T10:05:00Z",
+    "max_descargas": 5,
+    "descargas": 0
+   },
+   "intentos": 1,
+   "idempotency_key": "sha256:0eaabe56fc949758bde88bf749eca47e974a36e875662e92b546a868b9b84ce1",
+   "ejecutor": "script",
+   "sintetico": true
+  }
+ ],
+ "reembolsos": [
+  {
+   "schema_version": "1.0.0",
+   "reembolso_id": "RF-34f941d1ed00",
+   "ts": "2026-11-12T08:00:00Z",
+   "oferta_id": "OF-202611-01",
+   "checkout_session_id": "cs_test_ejemplo0002",
+   "adid": "120000000000003",
+   "stripe_refund_id": "re_ejemplo_0001",
+   "monto": {
+    "monto": 1990,
+    "moneda": "EUR"
+   },
+   "motivo": "dentro_de_garantia",
+   "regla_aplicada": "RF-GARANTIA",
+   "dentro_garantia": true,
+   "dias_desde_compra": 1,
+   "estado": "ejecutado",
+   "ejecutor": "script",
+   "gate": "A",
+   "idempotency_key": "sha256:34f941d1ed00b91201bae5f26ef76b5be56b3a08b66c21a7a2f1871721daad19",
+   "sintetico": true
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{"periodo":{"desde":"2026-11-16","hasta":"2026-11-16","timezone":"America/Argentina/Buenos_Aires"},"tipo_tienda":"store",
+ "ventas":{"cantidad":18,"post_compra":12,"ingresos":[{"moneda":"USD","total":1408.48}],"ticket_promedio":[{"moneda":"USD","valor":78.25}]},
+ "visitas":{"landing":1,"checkout":50,"entradas":1,"definicion_entradas":"tienda: visitas a la landing"},
+ "conversion":{"entradas_a_compra_pct":1800,"landing_a_checkout_pct":5000,"checkout_a_compra_pct":36},
+ "order_bump":{"compras_principales":18,"con_bump":10,"tasa_pct":55.56},
+ "por_metodo_pago":[{"metodo":"impulpay","cobros":30,"ingresos":[{"moneda":"USD","total":1408.48}]}],
+ "top_productos":[{"nombre":"Producto principal","unidades":18,"ingresos":[{"moneda":"USD","total":955.07}]}]}

@@ -1,0 +1,120 @@
+{
+  "grupo": "★ Dinero: sin inversión, ingresos pasivos, billetes, ahorro prometido",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s09-sin-inversion",
+      "grupo": "s09",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Empieza hoy sin inversión y sin experiencia con esta guía de costeo.",
+        "titular": "Sin inversión, sin experiencia",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "«sin inversión» y «sin experiencia»",
+      "check_id_esperado": "X1-P07",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "sin-inversion-experiencia",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-03: promesa de facilidad sobre dinero",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s09-pasivo",
+      "grupo": "s09",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Ingresos pasivos mientras duermes con esta plantilla de ventas.",
+        "titular": "Ingresos pasivos",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "«ingresos pasivos»",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ingreso-pasivo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-03",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s09-billetes",
+      "grupo": "s09",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Hoja de costeo: 14,90 €.",
+        "descripcion_visual": "fotograma 3: una mano contando billetes sobre la mesa"
+      },
+      "defecto": "billetes en un fotograma",
+      "check_id_esperado": "X1-M03",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "billetes-en-fotograma",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE (visión): contar billetes implica ingresos; está bloqueado por X1",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s09-ahorro-it",
+      "grupo": "s09",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Risparmia 1.378 € in un anno con questo planner dei risparmi.",
+        "titular": "Risparmia 1.378 € in un anno",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "ahorro prometido (misma cifra que un ejemplo ilustrativo: aquí es verbo de promesa)",
+      "check_id_esperado": "X1-P02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ahorro-prometido-no-ilustrativo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO P2n (RT-05): sujeto = el lector, verbo de promesa; sin rótulo «illustrativo» en el mismo cuadro",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s09-ahorro-es",
+      "grupo": "s09",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Ahorra 1.378 € en un año con esta tabla de 52 semanas.",
+        "titular": "Ahorra 1.378 € en un año",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "ahorro prometido",
+      "check_id_esperado": "X1-P02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ahorro-prometido-no-ilustrativo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO P2n: «ahorra» (promesa); aprobable: «La tabla suma 1.378 € en 52 semanas (ilustrativo)»",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s09-de",
+      "grupo": "s09",
+      "locale": "de-DE",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Steuern sparen durch Absetzen: die Arbeitshilfe für Ihr Jahr.",
+        "titular": "Steuern sparen durch Absetzen",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "ahorro fiscal prometido (par de la nota 25)",
+      "check_id_esperado": "X1-P02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "ahorro-prometido-no-ilustrativo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO P2n y LC-06b (ayuda fiscal personalizada en Alemania); aprobable: «Fristenkalender und Belegordner»",
+      "bloqueante": true
+    }
+  ]
+}

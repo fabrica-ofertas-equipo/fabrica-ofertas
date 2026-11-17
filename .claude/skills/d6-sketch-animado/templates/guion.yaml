@@ -1,0 +1,110 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Guion de un SKETCH ANIMADO (skill d6-sketch-animado · v0.1 sin pulir)
+# Una carpeta por anuncio: ofertas/<oferta_id>/06-creativos/sketch/<ad_name>/guion.yaml
+# Se escribe desde brief-sketch.json (scripts/brief_desde_oferta.py). Reglas: references/formato.md
+# y references/cumplimiento.md. TODO texto hablado o en pantalla que afirme un hecho lleva [claim: id].
+# ──────────────────────────────────────────────────────────────────────────────
+titulo: "<título interno del sketch>"
+locale: es-ES                     # = oferta.locale; el guion se ESCRIBE en este idioma (no se traduce)
+fps: 30
+pausa: 0.18                       # silencio tras cada línea (referencia: 0,28 s entre réplicas)
+ritmo_voces: "fast-paced, snappy sitcom delivery"
+etiqueta_ia: "Ficción animada · generada con IA"   # en el idioma del locale; según limites.politica_divulgacion_ia
+
+d6:                               # contrato con D6 (rutas relativas a esta carpeta)
+  oferta_id: OF-AAAAMM-NN
+  ad_name: cNN-concepto_vid_hN_v1
+  ejecucion_id: RUN-AAAAMMDD-NN
+  moneda: EUR
+  costos_borrador: ../../costos.jsonl      # 06-creativos/costos.jsonl (borrador del Maker)
+  assets_dir: ../../assets                 # el mp4 final se copia a 06-creativos/assets/<ad_name>.mp4
+
+estilo_visual: >
+  Modern 3D animated feature film look, stylized CG family-comedy characters with slightly exaggerated
+  proportions, large expressive eyes, readable acting faces, detailed skin, hair and fabric textures,
+  warm cozy practical lighting, shallow depth of field, cinematic grade.
+
+puesta: >
+  <quién está sentado/parado y dónde durante toda la escena, en inglés>
+
+modelos:
+  imagen: nano-banana-pro
+  resolucion_imagen: 2K
+  dialogo: kling/ai-avatar-pro
+  accion: kling-3.0/video
+  modo_accion: std
+  paralelo: 8
+
+subtitulos: {palabras_max: 3, y: 1150, tamano: 46}
+
+# Marca del cierre = 05-landing/paleta.json de la oferta (D5). Sin paleta: colores neutros y [SUPUESTO].
+marca:
+  fondo: "#F5F3EE"
+  texto: "#141414"
+  primario: "#1F4ED8"
+  acento: "#1F4ED8"
+  acento_texto: "#FFFFFF"
+  # fuente_titulos: "<familia>"
+  # fuentes: [{familia: "<familia>", archivo: ../../../05-landing/fonts/<x>.woff2}]
+
+# Música por secciones (Suno vía Kie, instrumental, licencia en licencias.json): suspenso → corte → asombro → corte → cierre
+musicas:
+  # - {archivo: musica/cue-interrogatorio-1.mp3, desde: p01, hasta: pNN, inicio: 2.0, volumen: 0.32, sin_voz: 0.45}
+  # - {archivo: musica/cue-revelacion-1.mp3, desde: pNN, hasta: pNN, volumen: 0.30, sin_voz: 0.42, fundido: 0.4}
+  # - {archivo: musica/cue-cierre-1.mp3, desde: cierre, volumen: 0.5, sin_voz: 0.5, fundido: 0.1}
+
+escenarios:
+  set1:
+    descripcion: >
+      <el lugar, en inglés: muebles, objetos, luz, hora del día>
+
+# Personajes GENÉRICOS y ficticios, por papel (references/formato.md §3). Nunca «clientes», nunca reales.
+personajes:
+  prota:
+    nombre: "<nombre local>"
+    papel: protagonista            # calmo; describe el producto, NO cuenta resultados propios
+    genero: f
+    descripcion: >
+      <edad, pelo, ropa fija, actitud — en inglés>
+    voz: {proveedor: google, voice_id: "<id de ./sketch voces-google --filtro '<país> female'>"}
+  autoridad:
+    nombre: "<nombre>"
+    papel: autoridad
+    genero: m
+    descripcion: >
+      <...>
+    voz: {proveedor: google, voice_id: "<id>"}
+  fiscal:
+    nombre: "<nombre>"
+    papel: fiscal                  # sospecha y pregunta las objeciones
+    genero: f
+    descripcion: >
+      <...>
+    voz: {proveedor: google, voice_id: "<id>"}
+  comico:
+    nombre: "<nombre>"
+    papel: comico                  # alivio cómico; se come el remate
+    genero: m
+    descripcion: >
+      <...>
+    voz: {proveedor: google, voice_id: "<id>"}
+
+# Planos: un plano por línea. Campos: id, escenario, personajes, habla, texto, encuadre, accion, emocion,
+# camara (fijo|push|push-lento|push-fuerte|pull), pausa, musica: corta, elenco: solo, actuacion: intensa,
+# duracion (acción), sfx [{generar|archivo, dur, en, volumen}], claims [ids].
+planos:
+  - id: p01
+    escenario: set1
+    personajes: [prota, autoridad, fiscal, comico]
+    habla: prota
+    texto: "[confused] <gancho in medias res>"
+    encuadre: wide shot ...
+    accion: ...
+  # … (ver references/ejemplo-guion.yaml)
+
+cierre:
+  duracion: 6
+  antes: "<Comentá|Comenta|Commenta…>"
+  palabra: "<PALABRA>"
+  despues: "<y te mando …>"        # solo lo que la oferta realmente entrega [claim]
+  # extra: "<línea secundaria>"

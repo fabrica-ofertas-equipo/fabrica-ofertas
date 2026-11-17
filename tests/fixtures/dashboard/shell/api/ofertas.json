@@ -1,0 +1,165 @@
+{
+  "ok": true,
+  "datos": [
+    {
+      "oferta_id": "_ejemplo",
+      "familia_id": "FAM-202611-01",
+      "demo": true,
+      "fase": "en_construccion",
+      "nivel": "N2",
+      "pausa": false,
+      "etapas": {
+        "M1": "aprobado",
+        "D1": "aprobado",
+        "D2": "aprobado",
+        "D3": "aprobado",
+        "D4": "aprobado",
+        "D5": "aprobado",
+        "D6": "aprobado",
+        "D7": "en_QA",
+        "D8": "pendiente",
+        "D9": "pendiente",
+        "D10": "pendiente"
+      },
+      "gates_pendientes": [
+        "D7"
+      ],
+      "gasto": {
+        "hoy": {
+          "monto": 0,
+          "moneda": "EUR"
+        },
+        "acumulado": {
+          "monto": 0,
+          "moneda": "EUR"
+        }
+      },
+      "costo_ia": {
+        "monto": 412,
+        "moneda": "EUR"
+      },
+      "actualizado_en": "2026-11-09T10:30:00Z",
+      "oferta_id_estado": "OF-202611-01",
+      "aviso": null
+    },
+    {
+      "oferta_id": "OF-202611-02",
+      "familia_id": "FAM-202611-02",
+      "demo": false,
+      "fase": "en_test",
+      "nivel": "N1",
+      "pausa": false,
+      "etapas": {
+        "M1": "aprobado",
+        "D1": "aprobado",
+        "D2": "aprobado",
+        "D3": "aprobado",
+        "D4": "aprobado",
+        "D5": "aprobado",
+        "D6": "aprobado",
+        "D7": "aprobado",
+        "D8": "en_progreso",
+        "D9": "pendiente",
+        "D10": "pendiente"
+      },
+      "gates_pendientes": [],
+      "gasto": {
+        "hoy": {
+          "monto": 4200,
+          "moneda": "EUR"
+        },
+        "acumulado": {
+          "monto": 18950,
+          "moneda": "EUR"
+        }
+      },
+      "costo_ia": {
+        "monto": 903,
+        "moneda": "EUR"
+      },
+      "actualizado_en": "2026-11-06T13:40:00Z",
+      "oferta_id_estado": "OF-202611-02",
+      "aviso": null
+    },
+    {
+      "oferta_id": "OF-202611-03",
+      "familia_id": "FAM-202611-02",
+      "demo": false,
+      "fase": "en_construccion",
+      "nivel": "N0",
+      "pausa": false,
+      "etapas": {
+        "M1": "aprobado",
+        "D1": "aprobado",
+        "D2": "en_QA",
+        "D3": "pendiente",
+        "D4": "pendiente",
+        "D5": "pendiente",
+        "D6": "pendiente",
+        "D7": "pendiente",
+        "D8": "pendiente",
+        "D9": "pendiente",
+        "D10": "pendiente"
+      },
+      "gates_pendientes": [
+        "D2"
+      ],
+      "gasto": {
+        "hoy": {
+          "monto": 0,
+          "moneda": "PLN"
+        },
+        "acumulado": {
+          "monto": 0,
+          "moneda": "PLN"
+        }
+      },
+      "costo_ia": {
+        "monto": 188,
+        "moneda": "USD"
+      },
+      "actualizado_en": "2026-11-06T12:10:00Z",
+      "oferta_id_estado": "OF-202611-03",
+      "aviso": null
+    },
+    {
+      "oferta_id": "OF-202611-04",
+      "familia_id": "FAM-202611-03",
+      "demo": false,
+      "fase": "borrador",
+      "nivel": "N0",
+      "pausa": false,
+      "etapas": {
+        "M1": "bloqueado",
+        "D1": "pendiente"
+      },
+      "gates_pendientes": [],
+      "gasto": {
+        "hoy": {
+          "monto": 0,
+          "moneda": "EUR"
+        },
+        "acumulado": {
+          "monto": 0,
+          "moneda": "EUR"
+        }
+      },
+      "costo_ia": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "actualizado_en": "2026-11-05T18:00:00Z",
+      "oferta_id_estado": "OF-202611-04",
+      "aviso": "estado.json con 1 etapa sin versión aprobada"
+    }
+  ],
+  "fuente": [
+    "ofertas/_ejemplo/estado.json",
+    "ofertas/OF-202611-02/estado.json",
+    "ofertas/OF-202611-03/estado.json",
+    "ofertas/OF-202611-04/estado.json"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

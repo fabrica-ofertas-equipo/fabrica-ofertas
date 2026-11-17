@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "generado_en": "2026-11-20T09:00:00Z",
+  "origen_version": "maker",
+  "veredicto": "INCONCLUSA",
+  "veredicto_sha256": "sha256:0ea532ac3fa458184185757f4b9d5a40dd09cc508bf83ccc91482c8d18e9bfaf",
+  "causa_principal": "volumen-insuficiente",
+  "causas": [
+    {
+      "codigo": "volumen-insuficiente",
+      "descripcion": "Ejemplo: menos compras netas que las exigidas por veredicto.compras_min al agotar el tope.",
+      "nivel_evidencia": "medio"
+    }
+  ],
+  "aprendizajes": [
+    "Ejemplo: con CPA central cerca del equilibrio el tope no alcanza para decidir."
+  ],
+  "parametros_a_calibrar": [
+    {
+      "parametro": "estadistica.dias_madurez_compra",
+      "motivo": "El retraso mediano medido fue mayor que el supuesto."
+    }
+  ],
+  "retraso_clic_compra": {
+    "n_compras": 6,
+    "mediana_h": 20,
+    "p90_h": 96,
+    "fuente": "stripe_vs_evento_clic"
+  }
+}

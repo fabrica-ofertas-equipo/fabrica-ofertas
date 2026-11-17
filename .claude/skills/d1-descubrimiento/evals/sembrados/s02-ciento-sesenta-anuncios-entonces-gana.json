@@ -1,0 +1,31 @@
+{
+  "id": "s02-ciento-sesenta-anuncios-entonces-gana",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ «El competidor corre 160 anuncios, entonces gana mucho» como prueba (D-07)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/tesis",
+      "valor": "El competidor corre 160 anuncios activos, entonces gana mucho y el mercado es seguro."
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-07",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-07",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "conteo-de-anuncios-como-prueba"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

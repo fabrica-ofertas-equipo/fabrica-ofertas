@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es" data-tema="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <!-- Sin scripts ni estilos en línea, sin CDN, sin fuentes remotas: todo sale de este mismo origen (127.0.0.1).
+       Las pantallas que necesiten estilos propios usan ui.instalarEstilos(id, css) (CSSStyleSheet + adoptedStyleSheets): CSSOM no cae bajo style-src. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>Panel · Fábrica de ofertas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%232f5bd8'/%3E%3Cpath d='M6 15l4-4 3 3 5-6' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="app" class="app" data-colapsada="false">
+    <noscript>
+      <p class="sin-js">Para funcionar, el panel necesita que JavaScript esté activado en tu navegador. Todo corre en tu computadora, sin conexión a internet.</p>
+    </noscript>
+    <div class="arranque" id="arranque" role="status"><span>Abriendo el panel…</span><i class="esq__barra esq__barra--l"></i><i class="esq__barra esq__barra--m"></i><i class="esq__barra esq__barra--s"></i></div>
+  </div>
+</body>
+</html>

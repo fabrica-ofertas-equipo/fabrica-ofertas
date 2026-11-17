@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-z",
+  "generado_en": "2026-11-06T06:25:41Z",
+  "paginas": [
+    {
+      "page_id": "100001",
+      "page_name": "Guía 1",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "<script>alert('x')</script> <img src=x onerror=alert(1)> ‮gnp.exe"
+      ]
+    },
+    {
+      "page_id": "100002",
+      "page_name": "Plantillas 2",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 2"
+      ]
+    },
+    {
+      "page_id": "100003",
+      "page_name": "Guía 3",
+      "paises": [
+        "MX",
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 3"
+      ]
+    },
+    {
+      "page_id": "100004",
+      "page_name": "Plantillas 4",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "completa"
+      },
+      "titulos": [
+        "título 4"
+      ]
+    },
+    {
+      "page_id": "100005",
+      "page_name": "Guía 5",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 5"
+      ]
+    },
+    {
+      "page_id": "100006",
+      "page_name": "Plantillas 6",
+      "paises": [
+        "MX",
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 6"
+      ]
+    },
+    {
+      "page_id": "100007",
+      "page_name": "Guía 7",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 7"
+      ]
+    },
+    {
+      "page_id": "100008",
+      "page_name": "Plantillas 8",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "completa"
+      },
+      "titulos": [
+        "título 8"
+      ]
+    },
+    {
+      "page_id": "100009",
+      "page_name": "Guía 9",
+      "paises": [
+        "MX",
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 9"
+      ]
+    },
+    {
+      "page_id": "100010",
+      "page_name": "Plantillas 10",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 10"
+      ]
+    },
+    {
+      "page_id": "100011",
+      "page_name": "Guía 11",
+      "paises": [
+        "ES"
+      ],
+      "medicion": {
+        "estado": "muestra"
+      },
+      "titulos": [
+        "título 11"
+      ]
+    },
+    {
+      "page_id": "100012",
+      "page_name": "Plantillas 12",
+      "paises": [
+        "MX",
+        "ES"
+      ],
+      "medicion": {
+        "estado": "completa"
+      },
+      "titulos": [
+        "título 12"
+      ]
+    }
+  ],
+  "advertencias": []
+}

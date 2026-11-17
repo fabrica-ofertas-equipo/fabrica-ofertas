@@ -1,0 +1,3 @@
+validador=enum
+ruta=/entradas/etapa:D1/gate/N0
+texto=la tabla de gates solo admite A, S, H o NA

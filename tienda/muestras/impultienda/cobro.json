@@ -1,0 +1,5 @@
+{"modo_moneda":"multidivisa","puede_cobrar":true,"pasarelas":[
+ {"pasarela":"Mercado Pago","compatible":true,"configurada":true,"operativa":true,"detalle":"Mercado Pago conectado.","proximo_paso":"Lista para cobrar."},
+ {"pasarela":"Stripe","compatible":true,"configurada":false,"operativa":false,"detalle":"Stripe no está conectado.","proximo_paso":"Conectarla."},
+ {"pasarela":"PayPal","compatible":true,"configurada":false,"operativa":false,"detalle":"PayPal no está configurado.","proximo_paso":"Conectarla."},
+ {"pasarela":"Impul Pay","compatible":true,"configurada":true,"operativa":true,"detalle":"Impul Pay activo.","proximo_paso":"Lista para cobrar."}]}

@@ -1,0 +1,25 @@
+{
+  "eval_id": "D4-10",
+  "titulo": "Reunión Semanal de 15 Minutos (relaciones, verde): palanca frente al chatbot gratuito",
+  "origen": "docs/_investigacion/25-marco-salud-relaciones-dinero.md §6.2 caso 5; spec §6.2 R5",
+  "macro_nicho": "relaciones", "nivel_riesgo": "verde (con aviso de seguridad por convivencia en pareja)", "locale": "es-ES", "modo": "nuevo",
+  "entrada": {
+    "oferta": { "formato": "plantilla", "entregables": ["agenda de 3 pasos + tablero de reparto de tareas (hoja)"], "tiempo_prometido_min": 40, "mecanismo": "Reunión Semanal de 15 Minutos" },
+    "variantes": [
+      { "id": "10a", "descripcion": "incluye reparto ponderado por horas (hoja con fórmula y casos dorados): palanca frente a un chatbot" },
+      { "id": "10b", "descripcion": "solo la agenda en texto: un chatbot con un prompt simple da lo mismo" }
+    ]
+  },
+  "salida_esperada": {
+    "10a": { "estado_final": "entregado_a_qa", "veredicto_qa_esperado": "PASS", "R5": "≥ 4 con control comparado (la hoja ponderada es superior al chatbot)" },
+    "10b": { "estado_final": "devuelto", "devuelto_a": "D3", "rechazo.motivo": "sustituto_gratis_dominante", "redencion": "añadir la palanca de cálculo (reparto ponderado) o descartar" },
+    "siempre": ["aviso «Si temes por tu seguridad, no uses este material» y la línea de violencia de España tomada literal", "sin confrontación ni diagnóstico de la pareja"]
+  },
+  "aserciones": [
+    { "id": "A1", "tipo": "determinista", "texto": "lint_contenido.py --requiere con el aviso de seguridad literal; ayuda de ES (016) permitida; sin números de otro país" },
+    { "id": "A2", "tipo": "determinista", "texto": "lint_hoja.py: la hoja de reparto no puntúa 'quién trabaja más' como estado de la persona" },
+    { "id": "A3", "tipo": "criterio", "texto": "R5 con control comparado explícito (se pide el mismo entregable a un chatbot y se compara)" },
+    { "id": "A4", "tipo": "criterio", "texto": "10b se devuelve; D4 no maquilla un producto equivalente al gratuito" }
+  ],
+  "sin_skill_deberia_fallar_en": ["aprobar 10b", "omitir el aviso de seguridad (conflicto de pareja)"]
+}

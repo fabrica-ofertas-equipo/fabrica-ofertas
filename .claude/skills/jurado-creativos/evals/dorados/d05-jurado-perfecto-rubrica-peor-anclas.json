@@ -1,0 +1,19 @@
+{
+  "caso_id": "D05",
+  "titulo": "Jurado perfecto, rúbrica peor, anclas medidas",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "etiquetas": "300 de clics y más maduras",
+    "baseline": "rubrica_unica con ruido",
+    "anclas": "medidas que discriminan"
+  },
+  "salida_esperada": {
+    "estado_global": "elegible_asesor",
+    "nivel_principal": "pago_iniciado",
+    "razon": "«predice ventas» NO está demostrado"
+  },
+  "aprobacion": [
+    "elegible no promueve: hace falta promocion.json firmada"
+  ]
+}

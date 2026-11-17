@@ -1,0 +1,10 @@
+{
+  "caso_id": "S05",
+  "titulo": "El orden se aplica en sombra",
+  "defecto_sembrado": "jurado.json: modo = sombra, aplica_orden = true",
+  "check_esperado": "JQ-07",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar.verificar → J-L1-02; el esquema también lo rechaza",
+  "correccion_esperada": "aplica_orden = false",
+  "automatizado": true
+}

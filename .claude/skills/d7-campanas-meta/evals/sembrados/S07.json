@@ -1,0 +1,56 @@
+{
+  "id": "S07",
+  "descripcion": "evento PURCHASE con diario muy por debajo del umbral de aprendizaje (economia pide Purchase)",
+  "check_id": "C04",
+  "severidad": "MAYOR",
+  "capa": "script-presupuesto",
+  "entrada_presupuesto": {
+    "moneda": "EUR",
+    "cpa_be": 1600,
+    "cpa_esperado": 1000,
+    "tarifa_meta_bp": 300,
+    "n_anuncios_paquete": 3,
+    "dias_test": 10,
+    "evento_economia": "Purchase",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": 9300,
+    "inicio": "2026-11-16T00:00:00Z",
+    "limites": {
+      "moneda_limites": "EUR",
+      "gasto_diario_por_oferta": 3000,
+      "gasto_total_test_por_oferta": 40000,
+      "perdida_max_test_por_oferta": 40000,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "EVENTO_INCOHERENTE",
+    "evento": {
+      "campana": "PURCHASE",
+      "recomendado": "INITIATE_CHECKOUT"
+    }
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C04",
+      "patron_clave": "purchase-sin-presupuesto",
+      "severidad": "MAYOR"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

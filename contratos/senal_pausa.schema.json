@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/senal_pausa.schema.json",
+  "title": "Señal de pausa D10 a D8",
+  "description": "Señal D10 -> D8 (reconciliación R08): D8 la lee en cada ciclo y la registra en decisiones.jsonl",
+  "x-version": "1.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "emitida": {
+      "type": "boolean",
+      "description": "true si D10 solicita acción a D8"
+    },
+    "nivel": {
+      "enum": [
+        "verde",
+        "amarillo",
+        "rojo"
+      ]
+    },
+    "motivo": {
+      "enum": [
+        "ninguno",
+        "disputas",
+        "reembolsos",
+        "caida_de_entrega",
+        "queja_de_correo",
+        "fraude",
+        "incidente_seguridad",
+        "otro"
+      ],
+      "description": "1.2.0 (CT-3 B-09/S-29): `incidente_seguridad` = mensaje de cliente que atribuye daño, crisis, abuso o pérdida de dinero al producto (22f §4.8; D10 lo deriva a un humano). `otro` sigue válido para lo que no encaja; ya no debe usarse para incidentes de seguridad"
+    },
+    "metricas": {
+      "type": "object",
+      "properties": {
+        "muestra_suficiente": {
+          "type": "boolean",
+          "description": "false: n por debajo de salud_operativa.reembolsos_n_min o disputas_muestra_min_pagos; el % no dispara por sí solo"
+        },
+        "pagos_ventana": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "casos_disputa_efw": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "disputas_efw_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        },
+        "reembolsos_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        },
+        "ventana_dias": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "muestra_suficiente",
+        "pagos_ventana",
+        "casos_disputa_efw",
+        "disputas_efw_pct",
+        "reembolsos_pct",
+        "ventana_dias"
+      ],
+      "additionalProperties": false
+    },
+    "umbrales_usados": {
+      "type": "object",
+      "properties": {
+        "disputas_alerta_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        },
+        "ratio_disputas_pausa": {
+          "$ref": "comunes.schema.json#/$defs/fraccion"
+        },
+        "reembolsos_alerta_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        },
+        "reembolsos_pausa_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        }
+      },
+      "required": [
+        "disputas_alerta_pct",
+        "ratio_disputas_pausa",
+        "reembolsos_alerta_pct",
+        "reembolsos_pausa_pct"
+      ],
+      "additionalProperties": false,
+      "description": "Copia de parametros.salud_operativa y limites.ratio_disputas_pausa"
+    },
+    "accion_solicitada": {
+      "enum": [
+        "ninguna",
+        "alertar",
+        "pausar"
+      ]
+    },
+    "consumida_por": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "etapa": {
+              "const": "D8"
+            },
+            "decision_id": {
+              "$ref": "comunes.schema.json#/$defs/sha256",
+              "description": "decision_id (sha256) de la línea de decisiones.jsonl que leyó la señal"
+            },
+            "ts": {
+              "$ref": "comunes.schema.json#/$defs/timestamp"
+            }
+          },
+          "required": [
+            "etapa",
+            "decision_id",
+            "ts"
+          ],
+          "additionalProperties": false,
+          "description": "D8 DEBE registrar que leyó la señal (regla G6)"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sintetico": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "ts",
+    "emitida",
+    "nivel",
+    "motivo",
+    "metricas",
+    "umbrales_usados",
+    "accion_solicitada",
+    "consumida_por"
+  ],
+  "additionalProperties": false
+}

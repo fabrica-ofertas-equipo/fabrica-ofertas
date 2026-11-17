@@ -1,0 +1,11 @@
+{
+  "_nota": "Respuesta REAL de ads_library_search (2026-11-06, search_terms='Acceso inmediato en PDF', countries=['ES'], ACTIVE, limit=5). Es el contenido del campo 'results' ya decodificado. El conector no entrega texto del anuncio, solo el titulo del enlace.",
+  "estimated_total_count": 932,
+  "ads": [
+    {"id": "1736210814961162", "page_id": 1431294770063492, "page_name": "Anna Martin", "ad_creative_link_title": "Profe, ¿qué trabaja cada postura?", "ad_creation_time": 1793936411, "ad_delivery_start_time": 1793942244, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=1736210814961162", "currency": "USD"},
+    {"id": "2300226560768716", "page_id": 1431294770063492, "page_name": "Anna Martin", "ad_creative_link_title": "Profe, ¿qué trabaja cada postura?", "ad_creation_time": 1793935088, "ad_delivery_start_time": 1793943149, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=2300226560768716", "currency": "USD"},
+    {"id": "1109961595354228", "page_id": 1171760232680161, "page_name": "Corpo Sem Dor", "ad_creative_link_title": "", "ad_creation_time": 1793889534, "ad_delivery_start_time": 1793938665, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=1109961595354228", "currency": "BRL"},
+    {"id": "1078017478572011", "page_id": 1282575998279080, "page_name": "Atril Estudio", "ad_creative_link_title": "⭐⭐⭐⭐⭐ Atlas Visual de Puntos Gatillo", "ad_creation_time": 1793934097, "ad_delivery_start_time": 1793943506, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=1078017478572011", "currency": "USD"},
+    {"id": "2507078536362386", "page_id": 1282575998279080, "page_name": "Atril Estudio", "ad_creative_link_title": "⭐⭐⭐⭐⭐ Atlas Visual de Puntos Gatillo", "ad_creation_time": 1793934088, "ad_delivery_start_time": 1793939458, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=2507078536362386", "currency": "USD"}
+  ]
+}

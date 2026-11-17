@@ -1,0 +1,21 @@
+{
+  "id": "H07",
+  "dorado_base": "D4-02",
+  "obligatorio_100pct": false,
+  "mutacion": {
+    "archivo": "04-producto/producto.json",
+    "cambio": "pasos[].t_humano_min suman 55 (ejecucion_min 55) con tiempos.prometido_min 20 y oferta.promesa.tiempo_prometido_min 20"
+  },
+  "detector_determinista": "tiempo_total.py → L1-03 BLOQUEANTE (> tolerancia × prometido)",
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-03",
+      "patron_clave": "tiempo-excede-promesa",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4"
+    },
+    "veredicto": "ESCALAR",
+    "destino": "D3",
+    "nota": "promesa inviable: motivo «tiempo», no un FAIL de redacción; el Maker no edita promesa"
+  }
+}

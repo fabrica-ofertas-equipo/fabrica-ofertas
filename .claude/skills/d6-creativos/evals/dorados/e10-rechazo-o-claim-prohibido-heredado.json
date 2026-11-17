@@ -1,0 +1,48 @@
+{
+  "caso_id": "e10",
+  "titulo": "Pedido con motivo=rechazo o claim prohibido heredado: lo descarta",
+  "tipo": "maker",
+  "macro_nicho": "dinero",
+  "locale": "es-ES",
+  "entrada": {
+    "oferta": "ofertas/_ejemplo (OF-202611-01)",
+    "pedido": {
+      "pedido_id": "PED-0002",
+      "motivo": "rechazo",
+      "ad_origen": "c02-entrevista_img_h2_v1",
+      "frase_rechazada": "La respuesta que te consigue la entrevista",
+      "variable_a_variar": "hook",
+      "cantidad": 2,
+      "plazo_h": 48
+    },
+    "ganador_previo": {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "claim_ids": [
+        "tiempo-90-min",
+        "garantiza-entrevistas"
+      ],
+      "nota": "garantiza-entrevistas figura hoy en claims_prohibidos"
+    }
+  },
+  "salida_esperada": {
+    "rechazo": "la frase rechazada pasa a fallas conocidas (aviso a X2) y a la lista anti-copia; no se reenvía ni retocada ni traducida; no se edita el anuncio rechazado: se abre un concepto/hook nuevo con otro claim y se informa al dueño/X1",
+    "herencia": "el claim garantiza-entrevistas se descarta del nuevo paquete aunque el ganador lo tuviera; se avisa a D8/X1 para revisar el anuncio ganador",
+    "no_debe_hacer": [
+      "usar «consigue la entrevista» ni sinónimos",
+      "copiar el cuerpo del ganador con su claim prohibido",
+      "apelar el rechazo"
+    ]
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia",
+    "la frase rechazada no aparece en ningún texto nuevo",
+    "no hereda claims prohibidos"
+  ]
+}

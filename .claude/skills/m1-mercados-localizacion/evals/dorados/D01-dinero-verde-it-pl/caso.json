@@ -1,0 +1,43 @@
+{
+  "id": "D01",
+  "nombre": "Dinero verde (presupuesto por cobro), es-ES -> it-IT / pl-PL, fase vigente y con_locales",
+  "spec": "departamentos/16 §10.5 eval 1 (caso piloto 1)",
+  "entrada": {
+    "contexto": "D01-dinero-verde-it-pl/contexto.json",
+    "fichas": "fixtures/pais-IT.json, fixtures/pais-PL.json",
+    "limites_simulados": "limites.simulado.yaml",
+    "nota": "fichas de EJEMPLO armadas desde 07g/07h/08; revisor nativo supuesto contratado; mercados_test_paralelos_max = 1 (hoy)"
+  },
+  "salida_esperada": {
+    "fase_vigente": {
+      "excluidos": [
+        {
+          "pais": "PL",
+          "regla": "R6",
+          "motivo": "cobertura 17,0 % < umbral duro"
+        }
+      ],
+      "elegido": "IT/it-IT/EUR",
+      "banderas_IT": [
+        "cobertura_media",
+        "cpm_vencido",
+        "requiere_firma_exposicion_fiscal"
+      ],
+      "PL_bandera": "bajo_minimo (no exclusion)"
+    },
+    "con_locales_PLN": "ambos entran (PL 67,0 %); con presupuesto igual y SIN precio tachado; 60-75 USD por pais es solo señal de proceso: no compara mercados (eso exige clics_min)",
+    "valor_de_desbloqueo_PL": "50,0 pp (BLIK + PLN); IT 1,5 pp (Satispay marginal); hueco PayPal IT 30,0 pp",
+    "mercado.json": "estado_decision hipotesis; metodos_pago.fase estandar_tarjeta_billeteras; requiere_gate_h true; aprobado_por null; exposicion_aceptada pendiente de la firma del gate H",
+    "no_debe_aparecer": [
+      "lenguaje de prior o favorito",
+      "peso de creadores != 0",
+      "BLIK en metodos_pago.activos"
+    ]
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (pruebas D01 x5 y plantillas L1)",
+    "L2": [
+      "el resumen de 1 pagina para el gate H nombra el mercado elegido, 2 alternativas, que se asume y que falta"
+    ]
+  }
+}

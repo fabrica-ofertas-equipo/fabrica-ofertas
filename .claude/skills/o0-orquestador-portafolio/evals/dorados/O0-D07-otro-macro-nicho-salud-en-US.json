@@ -1,0 +1,25 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D07-otro-macro-nicho-salud-en-US",
+  "estado": "ejecutable_hoy",
+  "descripcion": "Salud, en-US, USD: organizador para preparar una consulta médica (no un claim de salud). Mismas reglas; si fuera amarillo, el subnivel A o B lo calcula scripts.nivel_riesgo (≥ 2 ejes amarillos = B).",
+  "entrada": {
+    "prompt": "Modo A. CAND-03, salud, locale en-US. Defaults salvo dominio (visitprep.example).",
+    "limites": "evals/dorados/limites.ficticio.yaml"
+  },
+  "salida_esperada": {
+    "referencia": "templates/00-brief.en-US-salud.borrador.yaml",
+    "propiedades": [
+      "sin claims de salud ni promesas",
+      "si el candidato fuera amarillo: gate H y aviso, no bloqueo por tema",
+      "nivel de riesgo no calculado por el Maker: lo da D1 y se recomputa con python -m scripts.nivel_riesgo"
+    ]
+  },
+  "verificacion": {
+    "comando": "S=.claude/skills/o0-orquestador-portafolio; .venv/bin/python $S/scripts/validar_brief.py $S/templates/00-brief.en-US-salud.borrador.yaml --limites $S/evals/dorados/limites.ficticio.yaml",
+    "salida_codigo": 0
+  },
+  "sin_skill_esperado": "rechaza por ser salud o agrega promesas"
+}

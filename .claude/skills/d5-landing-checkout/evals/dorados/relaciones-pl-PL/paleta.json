@@ -1,0 +1,196 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "concepto": {
+    "macro_nicho": "relaciones",
+    "tipo_producto": "tarjetas de conversación para parejas que conviven (PDF para imprimir)",
+    "emocion": [
+      "cercanía",
+      "calma",
+      "orden"
+    ],
+    "familia_cromatica": "ciruela y rosa suave con un único acento verde azulado para el CTA",
+    "evita": [
+      "rojo y corazones del romance de cliché",
+      "terracota y arena de la referencia",
+      "imágenes de personas como clientes"
+    ]
+  },
+  "colores": {
+    "fondo_claro": {
+      "hex": "#F9F0F6",
+      "motivo": "Blanco rosado muy suave: calidez íntima sin infantilizar ni usar el rojo del romance de cliché."
+    },
+    "fondo_oscuro": {
+      "hex": "#2E1F3B",
+      "motivo": "Ciruela profunda para las secciones de contraste: serenidad nocturna, el momento de la conversación en casa."
+    },
+    "superficie": {
+      "hex": "#FFFFFF",
+      "motivo": "Tarjetas limpias sobre el fondo claro."
+    },
+    "superficie_oscura": {
+      "hex": "#3F2C52",
+      "motivo": "Tarjetas sobre ciruela: un escalón más claro para dar jerarquía."
+    },
+    "texto_sobre_claro": {
+      "hex": "#2A1B33",
+      "motivo": "Casi negro violáceo: lectura cómoda del cuerpo."
+    },
+    "texto_suave_sobre_claro": {
+      "hex": "#66506F",
+      "motivo": "Texto secundario con contraste AA sobre el fondo claro."
+    },
+    "texto_sobre_oscuro": {
+      "hex": "#F6EDF4",
+      "motivo": "Blanco rosado para el cuerpo sobre ciruela."
+    },
+    "texto_suave_sobre_oscuro": {
+      "hex": "#CDB8D6",
+      "motivo": "Texto secundario sobre ciruela."
+    },
+    "acento": {
+      "hex": "#F2A7C3",
+      "motivo": "Rosa suave para titulares destacados sobre fondo oscuro: cercanía sin dramatismo."
+    },
+    "acento_sobre_claro": {
+      "hex": "#8F2F5F",
+      "motivo": "Versión profunda del acento para enlaces y marcas sobre fondo claro."
+    },
+    "cta_fondo": {
+      "hex": "#2FB5A3",
+      "motivo": "Verde azulado: contrasta con la gama rosa-ciruela y señala el botón de compra sin connotar alarma ni urgencia."
+    },
+    "cta_texto": {
+      "hex": "#1A1024",
+      "motivo": "Texto del botón en casi negro: contraste alto sobre el verde azulado."
+    },
+    "cta_hover": {
+      "hex": "#27A090",
+      "motivo": "Hover del botón: un paso más profundo."
+    },
+    "linea": {
+      "hex": "#E5D5DE",
+      "motivo": "Líneas divisorias suaves."
+    },
+    "foco": {
+      "hex": "#6B2C91",
+      "motivo": "Anillo de foco violeta visible sobre el fondo claro."
+    },
+    "exito": {
+      "hex": "#2E7D6B",
+      "motivo": "Marcas de verificación de la lista de incluidos."
+    }
+  },
+  "pares_contraste": [
+    {
+      "fg": "texto_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_suave_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_claro",
+      "bg": "superficie",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_oscuro",
+      "bg": "fondo_oscuro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_suave_sobre_oscuro",
+      "bg": "fondo_oscuro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_oscuro",
+      "bg": "superficie_oscura",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "cta_texto",
+      "bg": "cta_fondo",
+      "uso": "boton",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "cta_texto",
+      "bg": "cta_hover",
+      "uso": "boton",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "acento_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "enlace",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "acento",
+      "bg": "fondo_oscuro",
+      "uso": "enlace",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "foco",
+      "bg": "fondo_claro",
+      "uso": "foco",
+      "minimo": "3.0"
+    }
+  ],
+  "tipografia": {
+    "titulos": {
+      "familia": "Lora",
+      "pesos": [
+        600,
+        700
+      ],
+      "archivos": [
+        "fonts/lora-600.woff2",
+        "fonts/lora-700.woff2"
+      ],
+      "licencia": "OFL-1.1"
+    },
+    "texto": {
+      "familia": "Nunito Sans",
+      "pesos": [
+        400,
+        700
+      ],
+      "archivos": [
+        "fonts/nunito-sans-400.woff2",
+        "fonts/nunito-sans-700.woff2"
+      ],
+      "licencia": "OFL-1.1"
+    },
+    "carga": {
+      "font_display": "swap",
+      "precarga": [
+        "fonts/nunito-sans-400.woff2"
+      ],
+      "autoalojada": true
+    },
+    "glifos_verificados": [],
+    "nota": "[PENDIENTE] verificar que los archivos subconjuntados incluyen ą ć ę ł ń ó ś ź ż (Latin-ext) con fonttools antes del gate H"
+  },
+  "verificacion": {
+    "script": "scripts/contraste_paleta.py",
+    "contraste_ok": true,
+    "no_reutiliza_base": true,
+    "fecha": "2026-11-06"
+  }
+}

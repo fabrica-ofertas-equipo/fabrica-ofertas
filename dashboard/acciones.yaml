@@ -1,0 +1,102 @@
+# Lista blanca de la consola de acciones del panel (CONTRATO §6). SOLO lecturas y simulaciones.
+#
+# Reglas que aplica el cargador (dashboard/acciones.py); una entrada que las incumpla se RECHAZA y no se ejecuta nunca:
+#   - argv fijo; el primer elemento es {python}; los marcadores {nombre} ocupan un elemento completo y deben declararse
+#     en `parametros` con un tipo validado: corrida | oferta | entero | eleccion | bandera (NO existe texto libre).
+#   - prohibido en el argv: --live, activar, publicar, reembolsar, gastar, firmar, borrar, pausar/reanudar, meta.*,
+#     escribir PAUSA o el freno de captura.
+#   - riesgo: lectura | escribe_local. Hoy todas son `lectura` (ningún barrido con --escribir).
+#   - requiere: rutas que deben existir; si faltan, la acción aparece como «próximamente» y no se ejecuta.
+#   - timeout_s: 1-900. Salida máxima 256 KB. Un trabajo a la vez por acción.
+version: 1
+acciones:
+  - id: barrido_estado
+    titulo: "Ver cómo va un barrido de anuncios"
+    descripcion: "Muestra el estado de un barrido: el plan, las consultas hechas (con y sin error), las páginas, su clasificación, los candidatos y las fichas, el cupo que queda y si el freno de la captura está puesto. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 120
+    argv: ["{python}", "-m", "scripts.modelado.barrido", "estado", "{corrida}"]
+    parametros:
+      corrida: {tipo: corrida, requerido: true, descripcion: "Qué barrido mirar: escribe su código (fecha y una letra), por ejemplo 2026-11-06-a"}
+
+  - id: barrido_plan_ver
+    titulo: "Ver el plan de consultas de un barrido"
+    descripcion: "Muestra un resumen del plan de consultas que tiene el barrido, y si quieres, el detalle de cada consulta. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 60
+    argv: ["{python}", "-m", "scripts.modelado.barrido", "plan", "ver", "{corrida}", "{consultas}"]
+    parametros:
+      corrida: {tipo: corrida, requerido: true, descripcion: "Qué barrido usar: su código (fecha y una letra), por ejemplo 2026-11-06-a"}
+      consultas: {tipo: bandera, flag: "--consultas", descripcion: "Mostrar también el detalle de cada consulta"}
+
+  - id: barrido_rankear
+    titulo: "Probar el ranking de temas de un barrido (simulacro)"
+    descripcion: "Calcula el ranking de temas y el cruce de temas por país como simulacro: muestra el resultado pero no guarda nada. También muestra la huella (marca única) de las reglas de puntaje que se usaron."
+    riesgo: lectura
+    timeout_s: 300
+    argv: ["{python}", "-m", "scripts.modelado.barrido", "rankear", "{corrida}"]
+    parametros:
+      corrida: {tipo: corrida, requerido: true, descripcion: "Qué barrido usar: su código (fecha y una letra), por ejemplo 2026-11-06-a"}
+
+  - id: barrido_fichas
+    titulo: "Probar el armado de las fichas de ofertas (simulacro)"
+    descripcion: "Arma el borrador de las fichas de ofertas y comprueba que tengan el formato esperado, como simulacro: no guarda nada."
+    riesgo: lectura
+    timeout_s: 300
+    argv: ["{python}", "-m", "scripts.modelado.barrido", "fichas", "{corrida}"]
+    parametros:
+      corrida: {tipo: corrida, requerido: true, descripcion: "Qué barrido usar: su código (fecha y una letra), por ejemplo 2026-11-06-a"}
+
+  - id: validar_esquemas
+    titulo: "Revisar que los formatos de los contratos estén bien"
+    descripcion: "Carga y comprueba todos los formatos de datos (esquemas) de la carpeta contratos/. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 120
+    argv: ["{python}", "-m", "scripts.validar_esquemas", "esquemas"]
+
+  - id: validar_ejemplos
+    titulo: "Revisar los ejemplos de los contratos"
+    descripcion: "Comprueba los ejemplos de contratos/ejemplos/: los correctos tienen que pasar y los incorrectos tienen que fallar. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 120
+    argv: ["{python}", "-m", "scripts.validar_esquemas", "ejemplos"]
+
+  - id: validar_oferta
+    titulo: "Revisar una oferta completa (solo lectura)"
+    descripcion: "Comprueba que los archivos de una oferta tengan el formato esperado y que sean coherentes entre sí. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 120
+    argv: ["{python}", "-m", "scripts.validar_esquemas", "oferta", "ofertas/{oferta}"]
+    parametros:
+      oferta: {tipo: oferta, requerido: true, descripcion: "Qué oferta revisar: su código (por ejemplo OF-202611-01) o _ejemplo, la oferta de demostración"}
+
+  - id: pruebas_paquete
+    titulo: "Correr las pruebas de una parte del sistema"
+    descripcion: "Corre las pruebas automáticas de la parte que elijas, para ver si todo sigue funcionando. No usa internet ni claves, y no toca las ofertas ni los datos reales de la empresa."
+    riesgo: lectura
+    timeout_s: 600
+    argv: ["{python}", "-m", "unittest", "discover", "-s", "tests/{paquete}", "-t", "."]
+    parametros:
+      paquete:
+        tipo: eleccion
+        requerido: true
+        valores: [agentes, compliance, contratos, datos, decision, engine, infra, landing, meta, mercados, postcompra, scripts]
+        requiere_directorio: "tests/{valor}"
+        descripcion: "Parte del sistema a probar (por ejemplo engine es el sistema automático que mueve las ofertas, y compliance es la revisión de cumplimiento)"
+
+  - id: landing_validar
+    titulo: "Revisar la página de venta de una oferta antes de publicarla"
+    descripcion: "Revisa la página de venta (landing) de una oferta: que el precio, la moneda y la garantía coincidan, que los enlaces y las páginas legales existan, que se pida consentimiento antes de medir y que no haya datos de salud. Solo mira: no cambia nada."
+    riesgo: lectura
+    timeout_s: 120
+    requiere: ["landing/validar.py"]
+    argv: ["{python}", "-m", "landing.validar", "--oferta", "{oferta}", "--json"]
+    parametros:
+      oferta: {tipo: oferta, requerido: true, descripcion: "Qué oferta revisar: su código, por ejemplo OF-202611-01"}
+
+  - id: landing_generar
+    titulo: "Armar la página de venta (simulacro)"
+    descripcion: "Armaría la página de venta de una oferta como simulacro, sin guardar nada."
+    riesgo: lectura
+    proximamente: true
+    motivo: "Todavía no se puede: el comando que arma la página siempre guarda archivos en la carpeta de la oferta y aún no tiene modo simulacro. Se habilitará cuando se agregue ese modo (tarea B4)."

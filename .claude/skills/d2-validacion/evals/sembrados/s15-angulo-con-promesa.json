@@ -1,0 +1,41 @@
+{
+  "id": "S15",
+  "severidad": "BLOQUEANTE",
+  "defecto": "El ángulo recomendado promete salir de las deudas en 90 días (P3).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "validacion.json",
+      "ruta": "handoff_d3.angulos_candidatos[0]",
+      "valor": "sal-de-tus-deudas-en-90-dias"
+    },
+    {
+      "archivo": "validacion.json",
+      "ruta": "riesgo_politica.angulo_seguro",
+      "valor": "Sal de tus deudas en 90 días con un calendario"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D10",
+        "patron_clave": "angulo-con-promesa-de-resultado",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R7"
+    ],
+    "debe_citar": "sal-de-tus-deudas-en-90-dias"
+  },
+  "detecta_script": "ninguno (juicio del QA; el nivel esperado sale de `python -m scripts.nivel_riesgo` en el L1). SIEMPRE se prueba",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

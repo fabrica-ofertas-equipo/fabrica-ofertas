@@ -1,0 +1,15 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-faq">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <h2 id="titulo-faq">{{{titulo}}}</h2>
+    </header>
+    <div class="faq">
+{{#cada preguntas}}
+      <details class="faq__item" id="{{id}}">
+        <summary><span>{{{q}}}</span></summary>
+        <p>{{{a}}}</p>
+      </details>
+{{/cada}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+{
+  "_nota": "Informe del jurado-qa (solo lectura). Hermano `0.1.0-borrador` de contratos/qa.schema.json: ese esquema aún no tiene una etapa para el jurado (PEDIDOS.md #3), así que usa los mismos nombres de campo para migrarlo sin reescribir. El QA NO corrige: cada hallazgo lleva `correccion` y estado `devuelto_al_orquestador`; `cambios_aplicados` es siempre []. Borra las claves que empiezan por «_».",
+  "schema_version": "0.1.0-borrador",
+  "ambito": "oferta",
+  "oferta_id": "OF-AAAAMM-NN",
+  "etapa_de_referencia": "D6",
+  "subetapa": "jurado",
+  "tanda_id": "AAAA-MM-DD_pl-PL",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "AAAA-MM-DDThh:mm:ssZ",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "06-creativos/jurado/<tanda>/jurado.json",
+  "artefacto_sha256": "sello del jurado.json",
+  "entradas": {"06-creativos/jurado/<tanda>/privado/manifiesto.json": "sha256"},
+  "veredicto": "PASS | PASS_CON_NOTAS | FAIL | ESCALAR",
+  "puntaje_global": "0.00",
+  "umbral": "4.00",
+  "items": [
+    {"item_id": "R1", "nombre": "Ceguera efectiva", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R2", "nombre": "Trazabilidad de los avatares", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R3", "nombre": "Honestidad del estado (sombra, promoción, precisión)", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R4", "nombre": "Rigor de la agregación y de las bandas", "critico": false, "puntaje": null, "evidencia": ""},
+    {"item_id": "R5", "nombre": "Uso interno y cumplimiento", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R6", "nombre": "Reproducibilidad (semilla, hashes, registro)", "critico": false, "puntaje": null, "evidencia": ""}
+  ],
+  "checks_l1": [
+    {"check_id": "JQ-01", "resultado": "pass|fail|no_aplica", "ejecutor": "codigo|qa", "detalle": ""}
+  ],
+  "simulaciones_l3": [
+    {"simulacion_id": "L3-a", "nombre": "Adversario de la ceguera", "resultado": "", "hallazgos": []}
+  ],
+  "hallazgos": [
+    {"check_id": "JQ-00", "patron_clave": "kebab-case", "severidad": "BLOQUEANTE | MAYOR | MENOR | MEJORA", "etapa": "D6", "skill_version": "0.1.0",
+     "descripcion": "", "evidencia": "archivo:campo = valor", "estado": "devuelto_al_orquestador", "correccion": "el parche exacto"}
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [],
+  "riesgos_residuales": [],
+  "aprendizajes_para_skill": []
+}

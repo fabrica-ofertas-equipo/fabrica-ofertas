@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "concepto": {
+    "macro_nicho": "dinero",
+    "tipo_producto": "guía con plantilla de currículum",
+    "emocion": [
+      "claridad",
+      "orden",
+      "calma profesional"
+    ],
+    "familia_cromatica": "azul petróleo y blancos fríos con un acento ámbar solo para el CTA",
+    "evita": [
+      "terracota y arena de la referencia",
+      "rojo de alarma",
+      "verdes de «éxito financiero»",
+      "imaginería de dinero"
+    ]
+  },
+  "colores": {
+    "fondo_claro": {
+      "hex": "#F5F7F8",
+      "motivo": "Blanco frío que evoca papel limpio y un documento en orden; se aleja de la calidez artesanal de la referencia."
+    },
+    "fondo_oscuro": {
+      "hex": "#12303B",
+      "motivo": "Azul petróleo profundo para las secciones de contraste: seriedad tranquila, sin el negro-marrón de la referencia."
+    },
+    "superficie": {
+      "hex": "#FFFFFF",
+      "motivo": "Tarjetas sobre fondo claro: separan bloques sin bordes pesados."
+    },
+    "superficie_oscura": {
+      "hex": "#1B4452",
+      "motivo": "Tarjetas sobre el fondo oscuro; un escalón más claro que el fondo para crear jerarquía."
+    },
+    "texto_sobre_claro": {
+      "hex": "#14262E",
+      "motivo": "Casi negro azulado: lectura cómoda de párrafos largos en móvil."
+    },
+    "texto_suave_sobre_claro": {
+      "hex": "#4A5F68",
+      "motivo": "Texto secundario (microcopy, pies) con contraste suficiente sin competir con el cuerpo."
+    },
+    "texto_sobre_oscuro": {
+      "hex": "#EAF2F4",
+      "motivo": "Blanco azulado para cuerpo sobre fondo oscuro; evita el blanco puro deslumbrante."
+    },
+    "texto_suave_sobre_oscuro": {
+      "hex": "#A9C3CB",
+      "motivo": "Texto secundario sobre oscuro."
+    },
+    "acento": {
+      "hex": "#6FD3DE",
+      "motivo": "Turquesa claro para titulares destacados y marcas sobre fondo oscuro: frescura y orden."
+    },
+    "acento_sobre_claro": {
+      "hex": "#0F6E7E",
+      "motivo": "Versión oscura del acento para enlaces y marcas sobre fondo claro."
+    },
+    "cta_fondo": {
+      "hex": "#F2B134",
+      "motivo": "Ámbar: el único tono cálido de la página, reservado al botón de compra para que sea inequívoco."
+    },
+    "cta_texto": {
+      "hex": "#14262E",
+      "motivo": "Texto del botón en el mismo casi negro del cuerpo: contraste alto sobre ámbar."
+    },
+    "cta_hover": {
+      "hex": "#E09E1B",
+      "motivo": "Estado hover del botón: un paso más saturado, sin cambiar el texto."
+    },
+    "linea": {
+      "hex": "#C9D6DA",
+      "motivo": "Líneas divisorias suaves de tono frío."
+    },
+    "foco": {
+      "hex": "#0B5A68",
+      "motivo": "Anillo de foco de teclado visible sobre el fondo claro."
+    },
+    "exito": {
+      "hex": "#1F7A5C",
+      "motivo": "Marcas de verificación de la lista de incluidos; verde frío, no verde dinero."
+    }
+  },
+  "pares_contraste": [
+    {
+      "fg": "texto_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_suave_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_claro",
+      "bg": "superficie",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_oscuro",
+      "bg": "fondo_oscuro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_suave_sobre_oscuro",
+      "bg": "fondo_oscuro",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "texto_sobre_oscuro",
+      "bg": "superficie_oscura",
+      "uso": "cuerpo",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "cta_texto",
+      "bg": "cta_fondo",
+      "uso": "boton",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "cta_texto",
+      "bg": "cta_hover",
+      "uso": "boton",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "acento_sobre_claro",
+      "bg": "fondo_claro",
+      "uso": "enlace",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "acento",
+      "bg": "fondo_oscuro",
+      "uso": "enlace",
+      "minimo": "4.5"
+    },
+    {
+      "fg": "foco",
+      "bg": "fondo_claro",
+      "uso": "foco",
+      "minimo": "3.0"
+    }
+  ],
+  "tipografia": {
+    "titulos": {
+      "familia": "Source Serif 4",
+      "pesos": [
+        600,
+        700
+      ],
+      "archivos": [
+        "fonts/source-serif-4-600.woff2",
+        "fonts/source-serif-4-700.woff2"
+      ],
+      "licencia": "OFL-1.1"
+    },
+    "texto": {
+      "familia": "Source Sans 3",
+      "pesos": [
+        400,
+        600
+      ],
+      "archivos": [
+        "fonts/source-sans-3-400.woff2",
+        "fonts/source-sans-3-600.woff2"
+      ],
+      "licencia": "OFL-1.1"
+    },
+    "carga": {
+      "font_display": "swap",
+      "precarga": [
+        "fonts/source-sans-3-400.woff2"
+      ],
+      "autoalojada": true
+    },
+    "glifos_verificados": [],
+    "nota": "[PENDIENTE] verificar la cobertura de glifos del locale con fonttools y subconjuntar a Latin + Latin-ext; no hay verificación automática hoy"
+  },
+  "verificacion": {
+    "script": "scripts/contraste_paleta.py",
+    "contraste_ok": true,
+    "no_reutiliza_base": true,
+    "fecha": "2026-11-06"
+  }
+}

@@ -1,0 +1,613 @@
+{
+  "_nota": "Casos del corpus de los mentores (docs/_investigacion/20a, 20b, 18d) reconstruidos para ejercitar la fórmula. Las puertas, el hueco y los reencuadres reflejan lo que dicen los mentores; las cifras de tracción son ILUSTRATIVAS salvo en crochet-patrones-es (27 anuncios, 2 conceptos, edad de la oferta 14,9 días: medidos con ads_library_search el 2026-11-06 sobre la página que 18d §0.5 ya había medido). No son mediciones de mercado.",
+  "schema_version": "2.0.0",
+  "ofertas": [
+    {
+      "modelo_id": "trusa-3r",
+      "nombre": "Trusa 3R: fichas terapéuticas para psicólogas infantiles (original en inglés)",
+      "fuente": {
+        "idioma": "en",
+        "pais": "US"
+      },
+      "macro_nicho": "salud",
+      "traccion": {
+        "anuncios_activos": 31,
+        "edad_oferta_dias": 21,
+        "conceptos_unicos": 4,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 1
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "mecanismo_nombrable"
+      ],
+      "mercados": [
+        {
+          "mercado": "RO",
+          "idioma": "ro",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.7"
+          },
+          "reencuadres_mercado": [
+            "autoridad_local",
+            "localizacion_cultural"
+          ]
+        },
+        {
+          "mercado": "PL",
+          "idioma": "pl",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.7"
+          },
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ]
+        },
+        {
+          "mercado": "ES",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 58,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.7"
+          }
+        },
+        {
+          "mercado": "IT",
+          "idioma": "it",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 3,
+            "puntaje_rival": 70,
+            "entrantes_30d": 2
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.7"
+          }
+        },
+        {
+          "mercado": "FR",
+          "idioma": "fr",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 3,
+            "puntaje_rival": 65,
+            "entrantes_30d": 2
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.7"
+          }
+        },
+        {
+          "mercado": "DE",
+          "idioma": "de",
+          "hueco": {
+            "original_presente": true,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 80,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.7"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "sostengo-pronto",
+      "nombre": "Sostengo pronto: kit para docentes de apoyo (original en italiano)",
+      "fuente": {
+        "idioma": "it",
+        "pais": "IT"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 40,
+        "edad_oferta_dias": 30,
+        "conceptos_unicos": 5,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "lista_a_sistema"
+      ],
+      "mercados": [
+        {
+          "mercado": "ES",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          },
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ]
+        },
+        {
+          "mercado": "IT",
+          "idioma": "it",
+          "hueco": {
+            "original_presente": true,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 75,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.9"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "desayunos-365-diabeticos",
+      "nombre": "365 desayunos que no disparan la glucosa (rediseño de oferta BR) en Argentina",
+      "fuente": {
+        "idioma": "pt",
+        "pais": "BR"
+      },
+      "macro_nicho": "salud",
+      "traccion": {
+        "anuncios_activos": 40,
+        "edad_oferta_dias": 30,
+        "conceptos_unicos": 5,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 1
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "mecanismo_nombrable",
+        "cambio_de_unidad",
+        "subnicho_x_obstaculo"
+      ],
+      "mercados": [
+        {
+          "mercado": "AR",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 2,
+            "puntaje_rival": 65,
+            "entrantes_30d": 2
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.9",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.5"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "recetario-generico",
+      "nombre": "Recetario temático genérico (sin mecanismo ni subnicho)",
+      "fuente": {
+        "idioma": "es",
+        "pais": "AR"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 60,
+        "edad_oferta_dias": 45,
+        "conceptos_unicos": 6,
+        "paginas_misma_landing": 3,
+        "anunciantes_independientes_mismo_angulo": 4
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [],
+      "mercados": [
+        {
+          "mercado": "AR",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": true,
+            "anunciantes_sostenidos": 5,
+            "puntaje_rival": 60,
+            "entrantes_30d": 6
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.9"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "megapack-goma-eva",
+      "nombre": "Megapack de 2.000 moldes de goma eva (contenido de terceros revendido)",
+      "fuente": {
+        "idioma": "es",
+        "pais": "AR"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 30,
+        "edad_oferta_dias": 20,
+        "conceptos_unicos": 3,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": true
+      },
+      "reencuadres": [
+        "lista_a_sistema"
+      ],
+      "mercados": [
+        {
+          "mercado": "ES",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "curso-ejercicio-influencer",
+      "nombre": "Cursos de ejercicio de un influencer (177.000 € en un lanzamiento)",
+      "fuente": {
+        "idioma": "es",
+        "pais": "ES"
+      },
+      "macro_nicho": "salud",
+      "traccion": {
+        "anuncios_activos": 35,
+        "edad_oferta_dias": 25,
+        "conceptos_unicos": 4,
+        "paginas_misma_landing": 1,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": true,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "autoridad_local"
+      ],
+      "mercados": [
+        {
+          "mercado": "IT",
+          "idioma": "it",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.6"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "kit-bricolaje-madera",
+      "nombre": "Kit de bricolaje en madera (Woodcraft DH): «todos los alumnos lo hallan»",
+      "fuente": {
+        "idioma": "fr",
+        "pais": "FR"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 28,
+        "edad_oferta_dias": 18,
+        "conceptos_unicos": 3,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 1
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "lista_a_sistema"
+      ],
+      "mercados": [
+        {
+          "mercado": "FR",
+          "idioma": "fr",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 2,
+            "puntaje_rival": 60,
+            "entrantes_30d": 8
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.9"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "juegos-navidad",
+      "nombre": "Juegos de Navidad: 40 juegos + 8 escaletas (ventana 5-nov a 10-dic)",
+      "fuente": {
+        "idioma": "pt",
+        "pais": "BR"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 35,
+        "edad_oferta_dias": 18,
+        "conceptos_unicos": 4,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "lista_a_sistema",
+        "cambio_de_unidad"
+      ],
+      "mercados": [
+        {
+          "mercado": "RO",
+          "idioma": "ro",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 1
+          },
+          "ventana": "abierta",
+          "transferibilidad": {
+            "dolor_universal": "0.7",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "crochet-patrones-es",
+      "nombre": "Patrones de crochet (Crea y Emprende, ES): ya localizados al italiano por el mismo operador",
+      "fuente": {
+        "idioma": "es",
+        "pais": "ES"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 27,
+        "edad_oferta_dias": "14.9",
+        "conceptos_unicos": 2,
+        "paginas_misma_landing": 1,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [],
+      "mercados": [
+        {
+          "mercado": "IT",
+          "idioma": "it",
+          "hueco": {
+            "original_presente": true,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 70,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": "0.9"
+          }
+        },
+        {
+          "mercado": "PL",
+          "idioma": "pl",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          },
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ]
+        },
+        {
+          "mercado": "PT",
+          "idioma": "pt",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": 45,
+            "entrantes_30d": 1
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.9"
+          },
+          "reencuadres_mercado": [
+            "localizacion_cultural"
+          ]
+        }
+      ]
+    },
+    {
+      "modelo_id": "curso-con-comunidad-whatsapp",
+      "nombre": "Producto con app y comunidad de WhatsApp con mensaje diario",
+      "fuente": {
+        "idioma": "es",
+        "pais": "AR"
+      },
+      "macro_nicho": "relaciones",
+      "traccion": {
+        "anuncios_activos": 30,
+        "edad_oferta_dias": 20,
+        "conceptos_unicos": 3,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [],
+      "mercados": [
+        {
+          "mercado": "ES",
+          "idioma": "es",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.7",
+            "riesgo_politicas": "0.6"
+          }
+        }
+      ]
+    },
+    {
+      "modelo_id": "oferta-pendiente-de-landing",
+      "nombre": "Oferta hallada en la Biblioteca cuya landing aún no se revisó",
+      "fuente": {
+        "idioma": "en",
+        "pais": "US"
+      },
+      "macro_nicho": "dinero",
+      "traccion": {
+        "anuncios_activos": 30,
+        "edad_oferta_dias": 20,
+        "conceptos_unicos": 3,
+        "paginas_misma_landing": 2,
+        "anunciantes_independientes_mismo_angulo": 0
+      },
+      "puertas": {
+        "marca_personal": null,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "reencuadres": [
+        "mecanismo_nombrable"
+      ],
+      "pendiente": [
+        "revisar landing y marca personal",
+        "evaluar riesgo de políticas"
+      ],
+      "mercados": [
+        {
+          "mercado": "PL",
+          "idioma": "pl",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": 0
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": "0.8",
+            "viabilidad_ticket": "0.8",
+            "riesgo_politicas": null
+          }
+        }
+      ]
+    }
+  ]
+}

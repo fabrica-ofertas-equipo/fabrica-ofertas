@@ -1,0 +1,17 @@
+# Plantilla de empresa/mercados/glosarios/reglas/<locale>.yaml (lo lee scripts/lint_locale.py).
+# [PENDIENTE: esquema `reglas_locale`] Todo termino prohibido sale de X1 (terminos_sensibles/<locale>.yaml) o del glosario aprobado; ninguno se inventa.
+locale: xx-XX                 # BCP-47 con region
+idioma: xx
+registro: "tu | Lei | Ty | tutoiement"      # decision del glosario, no del lint
+decimal: ","                   # separador decimal del locale
+miles: "."                     # separador de miles
+alfabetos_permitidos: []       # [cirilico, cjk, arabe] solo si el locale los usa
+diacriticos: ""                # caracteres esperados (p. ej. un alfabeto con diacriticos); vacio = no se chequea
+diacriticos_min_chars: 200
+prohibidos:                    # termino o regex; fuente obligatoria
+  - {termino: "EJEMPLO", regex: false, motivo: "promesa/termino vetado", fuente: "X1 terminos_sensibles/xx-XX.yaml"}
+obligatorios:                  # terminos que deben aparecer en el conjunto de textos revisado
+  - {termino: "EJEMPLO", motivo: "aviso de alcance / ilustrativo / impuesto"}
+calcos: []                     # calcos tipicos del idioma fuente (lista cerrada, con revision nativa)
+plurales: []                   # [{forma_1: ..., forma_2_4: ..., forma_5_mas: ...}] solo idiomas con plural por rangos
+longitud_max: {}               # {titulo: 40}

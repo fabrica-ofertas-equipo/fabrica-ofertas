@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "producto_id": "PROD-OF-202611-02",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "qa",
+  "estado": "aprobado",
+  "items": [
+    {
+      "id": "karty",
+      "tipo": "otro",
+      "archivo": "entregables/karty-do-rozmow-v1.pdf",
+      "paginas": 12,
+      "peso_mb": "1.20",
+      "formato": "pdf",
+      "idioma": "pl-PL",
+      "en_paquete": true,
+      "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "instrukcja",
+      "tipo": "otro",
+      "archivo": "entregables/instrukcja-v1.pdf",
+      "paginas": 1,
+      "peso_mb": "0.10",
+      "formato": "pdf",
+      "idioma": "pl-PL",
+      "en_paquete": true,
+      "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "id": "zeszyt-notatek",
+      "tipo": "otro",
+      "archivo": "entregables/zeszyt-v1.pdf",
+      "paginas": 6,
+      "peso_mb": "0.30",
+      "formato": "pdf",
+      "idioma": "pl-PL",
+      "en_paquete": false,
+      "sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    {
+      "id": "karta-muestra",
+      "tipo": "muestra",
+      "archivo": "entregables/muestras/karta-muestra.pdf",
+      "paginas": 1,
+      "peso_mb": "0.05",
+      "formato": "pdf",
+      "idioma": "pl-PL",
+      "en_paquete": false,
+      "sha256": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    }
+  ],
+  "matriz_promesas": [
+    {
+      "promesa_id": "zestaw-kart",
+      "texto": "Zestaw kart z pytaniami do druku",
+      "entregable_id": "karty",
+      "prueba": "Plik karty-do-rozmow-v1.pdf",
+      "estado": "cumplida"
+    },
+    {
+      "promesa_id": "czas-20-min",
+      "texto": "Jedna rozmowa to około 20 minut",
+      "entregable_id": "karty",
+      "prueba": "Instrukcja, krok 3",
+      "estado": "cumplida"
+    }
+  ],
+  "tiempos": {
+    "lectura_min": 5,
+    "ejecucion_min": 15,
+    "total_min": 20,
+    "prometido_min": 20,
+    "base": "estimado"
+  },
+  "pasos": [
+    {
+      "id": "paso-1-wybierz-karte",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 5
+    },
+    {
+      "id": "paso-2-rozmowa",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 15
+    }
+  ],
+  "vigencia": {
+    "verificado_el": "2026-11-05",
+    "revisar_antes_de": "2027-05-04",
+    "items_volatiles": []
+  },
+  "entrega": {
+    "estrategia": "enlace_firmado_email",
+    "vence_dias": 7,
+    "max_descargas": 5
+  },
+  "ia_divulgacion": "Materiał przygotowany z pomocą AI i sprawdzony przez człowieka (zasada ujawniania właściciela).",
+  "changelog": [
+    {
+      "version": "v1",
+      "fecha": "2026-11-05",
+      "cambio": "Pierwsza zatwierdzona wersja (fixture)"
+    }
+  ]
+}

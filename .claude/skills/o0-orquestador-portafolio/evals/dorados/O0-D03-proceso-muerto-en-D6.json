@@ -1,0 +1,25 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D03-proceso-muerto-en-D6",
+  "estado": "ejecutable_hoy (próximo paso) + requiere_motor [PENDIENTE] (reanudación real)",
+  "descripcion": "El proceso muere en D6 y se reanuda al día siguiente sin duplicados.",
+  "entrada": {
+    "estado": "D6 en_progreso (intentos 1), D7 pendiente; al día siguiente el dueño pregunta «¿repito D6?»"
+  },
+  "salida_esperada": {
+    "propiedades": [
+      "NO manda repetir la etapa a mano ni ejecutar de nuevo",
+      "dice `orq estado`: se reanuda por idempotency_key (misma entrada, misma skill, misma ronda ⇒ se reutiliza la salida)",
+      "avisa del write-ahead de efectos externos: IDs de Meta (cid, asid, adid) o prefijo {oferta_id}_{fase}_; D6 con Higgsfield: revisar créditos gastados antes de reintentar",
+      "nunca reintenta un gasto sin verificarlo"
+    ]
+  },
+  "verificacion": {
+    "comando": ".venv/bin/python .claude/skills/o0-lanzar-oferta/scripts/test_proximo_paso.py",
+    "salida_codigo": 0,
+    "prueba": "test_proceso_muerto_en_d6_no_manda_repetir_la_etapa"
+  },
+  "sin_skill_esperado": "recomienda correr D6 otra vez → créditos y anuncios duplicados"
+}

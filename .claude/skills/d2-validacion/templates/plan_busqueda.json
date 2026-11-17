@@ -1,0 +1,28 @@
+{
+  "_ejemplo": "SINTÉTICO. Plantilla de plan_busqueda.json (sin esquema aún: lo pide la spec D2 §3.3). Los términos son nativos del locale y los revisó una segunda lectura; reemplaza todo por tu caso.",
+  "schema_version": "0.1.0-borrador",
+  "oferta_id": "OF-202611-01",
+  "candidato_id": "CAND-01",
+  "locale": "it-IT",
+  "pais_principal": "IT",
+  "paises_consulta": ["IT"],
+  "pais_referencia": null,
+  "fecha": "2026-11-06T09:00:00Z",
+  "semilla_muestreo": 7,
+  "modo_lectura_snapshot": "humano_muestreo",
+  "modo_transcripcion": "no_disponible",
+  "presupuesto_consultas": {"max_consultas_biblioteca": "<limites.yaml: del dueño; null = no se consulta>", "busqueda": 20, "segunda_pasada": 8, "relectura": 8, "reserva": 4},
+  "reuso_consultas_d1": [],
+  "advertiser_job": "plan_future_campaigns",
+  "advertiser_request_plantilla": "Investigar qué anuncios de productos digitales existen sobre un tema, en un país, para planificar una oferta.",
+  "terminos": [
+    {"termino": "calendario rate prestiti", "familia": "solucion", "paises": ["IT"], "origen": "palabras_clave_voz_cliente", "revision": "segunda_lectura_otro_modelo"},
+    {"termino": "scadenzario rate", "familia": "solucion", "paises": ["IT"], "origen": "glosario_locale", "revision": "segunda_lectura_otro_modelo"},
+    {"termino": "gestire le rate", "familia": "dolor", "paises": ["IT"], "origen": "voz_cliente_d1", "revision": "segunda_lectura_otro_modelo"},
+    {"termino": "foglio excel rate", "familia": "formato", "paises": ["IT"], "origen": "frases_forma.yaml (formato)", "revision": "segunda_lectura_otro_modelo"},
+    {"termino": "organizzare i pagamenti", "familia": "resultado", "paises": ["IT"], "origen": "voz_cliente_d1", "revision": "segunda_lectura_otro_modelo"},
+    {"termino": "piano rate prestito", "familia": "solucion", "paises": ["IT"], "origen": "palabras_clave_voz_cliente", "revision": "segunda_lectura_otro_modelo"}
+  ],
+  "sustitutos_a_medir": ["chatbot (pedir el calendario a un asistente de IA)", "plantilla gratuita de hoja de cálculo", "video gratuito en YouTube"],
+  "notas": ["La Biblioteca NO traduce: cada término es nativo del locale, 2-3 palabras.", "El filtro `countries` es por país ALCANZADO; el principal lleva todos los términos."]
+}

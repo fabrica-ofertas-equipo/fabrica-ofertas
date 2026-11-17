@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/orden_presupuesto.schema.json",
+  "title": "Orden de presupuesto",
+  "description": "Orden de cambio de presupuesto: ÚNICO artefacto que cambia presupuesto, y solo lo aplica un script determinista.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "orden_id": {
+      "type": "string",
+      "pattern": "^ORD-OF-[0-9]{6}-[0-9]{2}-[0-9]{4}$"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "emisor": {
+      "enum": [
+        "D8",
+        "D9"
+      ],
+      "description": "ÚNICO escritor por oferta: D9 si hay plan vigente, D8 si no (reconciliación R04)"
+    },
+    "plan_ref": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "accion": {
+      "enum": [
+        "mantener",
+        "aumentar",
+        "reducir"
+      ]
+    },
+    "objeto": {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "enum": [
+            "campana",
+            "conjunto"
+          ]
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "id_meta": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/id_meta"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "tipo",
+        "nombre",
+        "id_meta"
+      ],
+      "additionalProperties": false
+    },
+    "antes": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "despues": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "delta_pct": {
+      "$ref": "comunes.schema.json#/$defs/decimal"
+    },
+    "horas_desde_ultimo_aumento": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "regla_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,20}$"
+    },
+    "version_reglas": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "hash_parametros": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "evidencia": {
+      "type": "object",
+      "properties": {
+        "ventana": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gasto": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "compras_stripe": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nota": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "ventana",
+        "gasto",
+        "compras_stripe",
+        "p",
+        "nota"
+      ],
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": "object",
+      "properties": {
+        "accion_gate": {
+          "type": "string",
+          "pattern": "^accion:[a-z0-9_]+$"
+        },
+        "nivel": {
+          "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+        },
+        "gate": {
+          "$ref": "comunes.schema.json#/$defs/gate_tabla"
+        }
+      },
+      "required": [
+        "accion_gate",
+        "nivel",
+        "gate"
+      ],
+      "additionalProperties": false
+    },
+    "aprobado_por": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/firma_humana"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "estado": {
+      "enum": [
+        "propuesta",
+        "aprobada",
+        "ejecutada",
+        "bloqueada",
+        "rechazada"
+      ]
+    },
+    "ejecutor": {
+      "enum": [
+        "script",
+        "humano"
+      ]
+    },
+    "idempotency_key": {
+      "$ref": "comunes.schema.json#/$defs/idempotency_key"
+    },
+    "verificacion_post": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "leido_de_meta": {
+              "type": "boolean"
+            },
+            "valor_leido": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "leido_de_meta",
+            "valor_leido"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sintetico": {
+      "type": "boolean",
+      "description": "true: dato de ejemplo, no real"
+    }
+  },
+  "required": [
+    "schema_version",
+    "orden_id",
+    "oferta_id",
+    "ts",
+    "emisor",
+    "plan_ref",
+    "accion",
+    "objeto",
+    "antes",
+    "despues",
+    "delta_pct",
+    "horas_desde_ultimo_aumento",
+    "regla_id",
+    "version_reglas",
+    "hash_parametros",
+    "evidencia",
+    "gate",
+    "aprobado_por",
+    "estado",
+    "ejecutor",
+    "idempotency_key",
+    "verificacion_post"
+  ],
+  "additionalProperties": false
+}

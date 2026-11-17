@@ -1,0 +1,33 @@
+# PLANTILLA de empresa/compliance/matriz_pais_nivel.yaml (J01; nota 25 §8.1, [HIPÓTESIS]).
+# Exposición: V bajo · A medio · A+ medio-alto · R alto. El overlay SOLO sube y no reemplaza a los lints.
+# Nivel máximo SIN gate H: V → amarillo-b con ayuda verificada (J02) · A → amarillo-a (B con gate H, ayuda verificada y texto fiel a la fuente T1 verificado por script) ·
+#   A+ → amarillo-a SOLO con gate H del dueño por país × macro × nivel (registra el riesgo residual en empresa/decisiones_dueno.jsonl) · R → verde de hogar (sin cifra de ahorro, instrumento ni ingreso).
+# Se califica por BANDERA (S/R/D), no solo por el macro primario. Aprobación: dueño con firma. Sin esta matriz aprobada, J01 falla cerrado (ningún país pasa).
+version: 0.1.0-borrador
+estado: pendiente_de_firma_del_dueno
+fecha: "2026-11-06"
+exposicion:
+  PL: {salud: A+, relaciones: V, dinero: A+}
+  IT: {salud: A+, relaciones: A, dinero: A+}
+  RO: {salud: A, relaciones: V, dinero: A}
+  FR: {salud: A+, relaciones: A, dinero: A+}
+  ES: {salud: R, relaciones: V, dinero: A+}     # salud R condicional a «finalidad sanitaria» (J04)
+  DE: {salud: R, relaciones: A, dinero: A+}     # salud: solo verde hasta el gate H (HWG §3/§11)
+  GB: {salud: A+, relaciones: V, dinero: A+}
+  US: {salud: A, relaciones: A, dinero: A+}
+  AU: {salud: A, relaciones: A, dinero: R}      # dinero: solo verde de hogar
+  IE: {salud: A+, relaciones: V, dinero: A+}
+  CA: {salud: A, relaciones: A, dinero: A}      # sin hipotecas
+nivel_max_sin_gate:
+  V: amarillo-b
+  A: amarillo-a
+  "A+": amarillo-a   # solo con gate H del dueño por país × macro × nivel
+  R: verde
+condiciones_por_pais:
+  IT: ["dinero: J05 (sin instrumento, ingresos ni inversión) y gate H", "relaciones: ruptura y duelo solo con ayuda verificada (J02)"]
+  PL: ["revisor nativo por idioma × macro", "sin «randki»/citas en nombre ni anuncio de relaciones", "dinero sin cripto"]
+  DE: ["J03: sin formato curso ni soporte humano", "J04: sin «gegen» + dolencia", "StBerG §5: sin ayuda fiscal personalizada"]
+  ES: ["J04: sin términos del RD 1907/1996 art. 4 referidos a un método o producto"]
+  GB: ["J05: sin enlaces ni comisiones, sin ingresos", "IVA desde la primera venta (contador)"]
+  US: ["inversión roja; hipotecas LM-11; categoría financiera si se promociona un producto financiero"]
+fuente: "docs/_investigacion/25-marco-salud-relaciones-dinero.md §8.1 y 22e §5 [VERIFICAR cada celda]"

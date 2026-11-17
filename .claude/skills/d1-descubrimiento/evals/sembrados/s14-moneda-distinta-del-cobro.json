@@ -1,0 +1,40 @@
+{
+  "id": "s14-moneda-distinta-del-cobro",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Precio en moneda distinta de la de cobro sin conversión (D-09)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [
+    "--moneda-cobro",
+    "USD"
+  ],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/precio_plausible/min/moneda",
+      "valor": "MXN"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/precio_plausible/max/moneda",
+      "valor": "MXN"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-09",
+  "severidad_esperada": "MAYOR",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-09",
+        "severidad": "MAYOR",
+        "patron_clave": "moneda-sin-conversion"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

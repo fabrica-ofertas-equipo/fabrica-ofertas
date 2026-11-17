@@ -1,0 +1,22 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-resumen">
+  <div class="contenedor">
+    <h2 class="solo-lectores" id="titulo-resumen">{{t.resumen}}</h2>
+{{#si cifras}}
+    <ul class="cifras cifras--{{n_cifras}}" role="list">
+{{#cada cifras}}
+      <li class="cifra"><strong class="cifra__valor">{{valor}}</strong><span class="cifra__etiqueta">{{{etiqueta}}}</span></li>
+{{/cada}}
+    </ul>
+{{/si}}
+    <ol class="beneficios" role="list">
+{{#cada beneficios}}
+      <li class="tarjeta beneficio">
+        <span class="icono-caja icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#i-{{icono}}"></use></svg></span>
+        <span class="num" aria-hidden="true">{{num}}</span>
+        <h3>{{{titulo}}}</h3>
+        <p>{{{texto}}}</p>
+      </li>
+{{/cada}}
+    </ol>
+  </div>
+</section>

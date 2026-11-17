@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/checkout.schema.json",
+  "title": "Checkout",
+  "description": "Configuración del checkout de Stripe (D5). 1.2.0: se retira webhook_eventos (MI-05): los eventos de los destinos `entrega` y `finanzas` tienen UNA fuente, infra/plantillas/stripe-eventos-webhook.yaml (B8, docs/07 2.3); el preflight S-03 compara los destinos vivos con ese manifiesto, no con cada oferta. ui_mode sigue [VERIFICAR] hasta la prueba en sandbox.",
+  "x-version": "1.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.([2-9]|[1-9][0-9]+)\\.(0|[1-9][0-9]*)$",
+      "description": "Versión SemVer del esquema (MAJOR 1, MINOR >= 2): una versión anterior debe migrarse (docs/contratos.md 8)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "moneda": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "precio": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "price_ids": {
+      "type": "object",
+      "properties": {
+        "test": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^price_[A-Za-z0-9_]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "live": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^price_[A-Za-z0-9_]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "test",
+        "live"
+      ],
+      "additionalProperties": false,
+      "description": "IDs de Stripe; precio y moneda salen de un catálogo del servidor, nunca del cliente"
+    },
+    "bump": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "modo": {
+              "enum": [
+                "casilla_en_checkout",
+                "oferta_previa"
+              ]
+            },
+            "price_id": {
+              "type": "string",
+              "pattern": "^price_[A-Za-z0-9_]+$"
+            },
+            "copy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "precio": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "modo",
+            "price_id",
+            "copy",
+            "precio"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "upsell": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "price_id": {
+              "type": "string",
+              "pattern": "^price_[A-Za-z0-9_]+$"
+            },
+            "precio": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "price_id",
+            "precio"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "precios_por_moneda": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "moneda": {
+            "$ref": "comunes.schema.json#/$defs/moneda"
+          },
+          "monto": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "price_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "moneda",
+          "monto",
+          "price_id"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Diseño listo para multimoneda; vacío en el testeo inicial"
+    },
+    "impuestos": {
+      "type": "object",
+      "properties": {
+        "modo": {
+          "enum": [
+            "diferido",
+            "stripe_tax",
+            "incluido_sin_calculo"
+          ],
+          "description": "Régimen fiscal diferido por decisión del dueño"
+        },
+        "pais": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/pais"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tax_behavior": {
+          "enum": [
+            "inclusive",
+            "exclusive",
+            "unspecified"
+          ]
+        },
+        "tax_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "modo",
+        "pais",
+        "tax_behavior",
+        "tax_code"
+      ],
+      "additionalProperties": false
+    },
+    "metodos": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "card",
+          "apple_pay",
+          "google_pay",
+          "link"
+        ]
+      },
+      "minItems": 1,
+      "description": "Testeo inicial: tarjeta y billeteras; métodos locales diferidos"
+    },
+    "descriptor": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 22
+    },
+    "success_url": {
+      "$ref": "comunes.schema.json#/$defs/url"
+    },
+    "return_url": {
+      "$ref": "comunes.schema.json#/$defs/url"
+    },
+    "garantia_dias": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "consentimientos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "texto_version": {
+            "$ref": "comunes.schema.json#/$defs/version"
+          },
+          "obligatorio": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "texto_version",
+          "obligatorio"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "metadata_esquema": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Claves que la sesión lleva en metadata (backbone 5.3): debe contener oferta_id, adid, asid, cid, utm_source, utm_medium, utm_campaign, utm_content, utm_term, visitor_id, consent_marketing ('1'|'0'), landing_version y event_source_url (<= 500 caracteres). Opcionales: fbp, fbc (sin hash). Sin consent_marketing='1' el webhook NO envía Purchase a Meta (M11). Nada de condiciones de salud/finanzas en event_source_url (M10).",
+      "allOf": [
+        {
+          "contains": {
+            "const": "oferta_id"
+          }
+        },
+        {
+          "contains": {
+            "const": "adid"
+          }
+        },
+        {
+          "contains": {
+            "const": "asid"
+          }
+        },
+        {
+          "contains": {
+            "const": "cid"
+          }
+        },
+        {
+          "contains": {
+            "const": "utm_source"
+          }
+        },
+        {
+          "contains": {
+            "const": "utm_medium"
+          }
+        },
+        {
+          "contains": {
+            "const": "utm_campaign"
+          }
+        },
+        {
+          "contains": {
+            "const": "utm_content"
+          }
+        },
+        {
+          "contains": {
+            "const": "utm_term"
+          }
+        },
+        {
+          "contains": {
+            "const": "visitor_id"
+          }
+        },
+        {
+          "contains": {
+            "const": "consent_marketing"
+          }
+        },
+        {
+          "contains": {
+            "const": "landing_version"
+          }
+        },
+        {
+          "contains": {
+            "const": "event_source_url"
+          }
+        }
+      ]
+    },
+    "ui_mode": {
+      "enum": [
+        "hosted",
+        "embedded",
+        "custom"
+      ],
+      "description": "Etiqueta del contrato (hosted|embedded|custom). El valor real del parámetro de la API de Stripe (docs/07 2.4 dice hosted_page) lo fija crear-sesion tras la prueba en sandbox: [VERIFICAR]; no cambiar este enum sin esa prueba"
+    },
+    "expires_at_min": {
+      "type": "integer",
+      "minimum": 30,
+      "maximum": 1440
+    },
+    "sesion_en_servidor": {
+      "const": true,
+      "description": "La Checkout Session se crea en servidor por visitante (backbone 5.3)"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "moneda",
+    "precio",
+    "price_ids",
+    "bump",
+    "upsell",
+    "precios_por_moneda",
+    "impuestos",
+    "metodos",
+    "descriptor",
+    "success_url",
+    "return_url",
+    "garantia_dias",
+    "consentimientos",
+    "metadata_esquema",
+    "ui_mode",
+    "expires_at_min",
+    "sesion_en_servidor"
+  ],
+  "additionalProperties": false
+}

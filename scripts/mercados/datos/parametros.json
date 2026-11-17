@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "descripcion": "Parámetros del modelo de ranking de mercados de docs/_investigacion/08-mercados-ranking.md (§2.1, §2.5, §5) y de las correcciones de 16-red-team (H1, M1, M2, §5.2). Cada parámetro lleva fuente y etiqueta; los marcados HIPÓTESIS son supuestos a recalibrar con datos propios.",
+    "fecha": "2026-11-06",
+    "version": "1.0"
+  },
+  "pesos_08": {
+    "PA": 15, "CAC": 20, "COMP": 10, "PAGO": 20, "FISC": 15, "LOC": 10, "FRAUD": 10,
+    "_fuente": "08 §2.1 (encargo del dueño). Total = 100."
+  },
+  "reglas_cac": {
+    "descripcion": "Puntaje del costo de adquisición según r = CPA esperado / neto (08 §2.1). Se aplica la primera banda cuyo tope r_max >= r.",
+    "bandas": [
+      {"r_max": 1.0, "puntaje": 5},
+      {"r_max": 1.25, "puntaje": 4},
+      {"r_max": 1.5, "puntaje": 3},
+      {"r_max": 1.8, "puntaje": 2},
+      {"r_max": 2.2, "puntaje": 1}
+    ],
+    "puntaje_mayor": 0,
+    "_fuente": "08 §2.1 fila 'Costo de adquisición'"
+  },
+  "reglas_pago": {
+    "descripcion": "Puntaje de pagos según cobertura central con lo habilitado (08 §2.1).",
+    "bandas": [
+      {"cobertura_min": 70, "puntaje": 5},
+      {"cobertura_min": 60, "puntaje": 4},
+      {"cobertura_min": 50, "puntaje": 3},
+      {"cobertura_min": 40, "puntaje": 2},
+      {"cobertura_min": 30, "puntaje": 1}
+    ],
+    "puntaje_menor": 0,
+    "_fuente": "08 §2.1 fila 'Ajuste de pagos'"
+  },
+  "embudo_08": {
+    "ctr_enlace": 0.018,
+    "conversion_base": 0.02,
+    "ticket_referencia_conversion_usd": 17.3,
+    "elasticidad": 0.5,
+    "conversion_min": 0.01,
+    "conversion_max": 0.03,
+    "_fuente": "08 §2.1 y §5: conv_esp(P) = clamp(0,02*(17,3/P)^0,5; 1 %; 3 %); CTR de enlace 1,8 %. [HIPÓTESIS]. 16 M2: el 1,8 % es el umbral de descarte de Tomi Trimb, no un promedio.",
+    "fx": {"EURUSD": 1.16, "USDPLN": 3.72, "_fuente": "07h §1 (B); 08 §8"}
+  },
+  "costos_directos": {
+    "stripe_tax_pct": 0.005,
+    "stripe_tax_fijo_api_usd": 0.50,
+    "reembolso": 0.08,
+    "disputa_tasa": 0.006,
+    "disputa_costo_usd": 15.0,
+    "_fuente": "16 H1 y §2.1: Stripe Tax Basic 0,5 % o 0,50 USD vía API (stripe.com/pricing, A); reembolso 8 % (umbral de 08 §6; creadores declaran 0-5 %, C); disputas 0,6 % x 15 USD con tarjeta (stripe.com/pricing, A; 0,6 % [HIPÓTESIS] de 16). Fórmula: EV = (1-rho)*neto_ok - rho*(comisión+Tax) - d*15*participación_tarjeta, con neto_ok = P - IVA - comisión - Tax (16 §2.1: el reembolso devuelve el bruto y el IVA, la comisión se pierde)."
+  },
+  "escala": {
+    "descripcion": "Criterio nuevo propuesto por 16 H2 y §5.2 (peso 5-10 %, restando de los criterios de facilidad). Puntaje por población (millones). [NUEVO] [HIPÓTESIS]: umbrales propios; la población es un proxy del alcance publicitario.",
+    "peso": 10,
+    "bandas": [
+      {"poblacion_min_m": 55, "puntaje": 5},
+      {"poblacion_min_m": 30, "puntaje": 4},
+      {"poblacion_min_m": 15, "puntaje": 3},
+      {"poblacion_min_m": 8, "puntaje": 2}
+    ],
+    "puntaje_menor": 1
+  },
+  "creadores_regla_08": {
+    "descripcion": "Valores que 08 §2.1 prevé para el ajuste de creadores: +10 (evidencia A en varios, no ocurre), +5 (B-C positivo de >=2 creadores), +3/+2 (un creador o solo mención), 0 (sin evidencia o mixta), -3 (fracaso explícito). 08 §5 acota a +/-5 salvo evidencia A.",
+    "valores_permitidos": [10, 5, 3, 2, 0, -3],
+    "tope_sin_evidencia_a": 5,
+    "_fuente": "08 §2.1, §5; 16 H2(f)"
+  },
+  "escenarios_parametros": {
+    "ctr_enlace": {"valores": [0.010, 0.013, 0.018], "_fuente": "16 M2 (central 1,3 %, rango 0,8-1,8 %); 08 §2.5 (1,0 y 1,2 %); 1,8 % = valor de 08 [HIPÓTESIS]"},
+    "cpm_q4_multiplicador": {"valores": [1.0, 1.2, 1.5], "_fuente": "16 M1: x1,2-1,5 en el piloto; Black Friday 2026-11-27; fuentes de Q4 son blogs/herramientas comerciales (C), sin cifra autoritativa para PL ni IT [HIPÓTESIS]"},
+    "ticket_bloque_ingles_usd": {"valores": [27, 17], "mercados": ["CA", "NZ", "AU", "US", "GB"], "_fuente": "08 §2.5 y 16 H2(b): 27 USD es [HIPÓTESIS] no observada en esos países; 17-20 USD como caso base hasta tener dato propio (16 §5.2 punto 5). IE conserva su 23 USD de 08 (08 §2.5 deja IE en 67)."}
+  }
+}

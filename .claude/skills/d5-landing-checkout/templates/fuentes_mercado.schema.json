@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/propuestos/d5-fuentes-mercado.schema.json",
+  "title": "fuentes_mercado.json de D5 (PROPUESTA de la skill d5-landing-checkout)",
+  "description": "Fuentes DECLARADAS de las cifras de «comparación con el mercado» (S16): de dónde sale cada precio ajeno, con la fecha de lectura y la cifra observada, para que el generador y `landing.validar` lo contrasten por código (F-64) en vez de dejarlo a la revisión manual. Una fuente se declara con `url` y/o con `archivo`: un texto capturado dentro de 05-landing/ (con `sha256`), donde la cifra tiene que aparecer. El archivo lo produce una captura (p. ej. `capturar_fuente`, F-13) o la lectura del dueño; D5 no navega la web. Estado: PROPUESTA.",
+  "x-version": "0.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$"
+    },
+    "oferta_id": {
+      "type": "string",
+      "pattern": "^OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "fuentes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "items": {
+        "type": "object",
+        "properties": {
+          "fuente": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 120,
+            "description": "El nombre con que aparece en `copy.S16.filas[].fuente` (tienda o dominio)."
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://[^\\s]+$",
+            "maxLength": 300,
+            "description": "Página leída (solo https). No se enlaza ni se publica."
+          },
+          "archivo": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*\\.\\.)[A-Za-z0-9_./-]+$",
+            "description": "Texto capturado de la página, relativo a 05-landing/."
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "fecha": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+            "description": "Fecha de lectura (AAAA-MM-DD); debe ser la de la fila de S16."
+          },
+          "moneda": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "cifras": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "etiqueta": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "monto": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Importe observado en unidad menor (12900 = 129,00)."
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "monto"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fuente",
+          "fecha",
+          "cifras"
+        ],
+        "anyOf": [
+          {
+            "required": [
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "archivo",
+              "sha256"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "fuentes"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "S08",
+  "severidad": "MAYOR",
+  "defecto": "El rango de precios mezcla un precio en reales con euros sin conversión.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "validacion.json",
+      "ruta": "handoff_d3.rango_precios_por_moneda[0].max",
+      "valor": 7990
+    },
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[3].oferta.precio_texto_visible",
+      "valor": "R$ 79,90"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-R6",
+        "patron_clave": "monedas-mezcladas",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R6"
+    ],
+    "debe_citar": "R$ 79,90"
+  },
+  "detecta_script": "ninguno (juicio del QA)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

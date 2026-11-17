@@ -1,0 +1,26 @@
+# tipo: entrega
+# locale: es
+# estado: v0.1 sin pulir; texto base (es-ES); las variantes es-MX, es-AR… salen del glosario de M1; sello de X1 pendiente
+Asunto: Tu acceso a los materiales – pedido {{pedido_ref}}
+
+Hola,
+
+gracias por tu compra en {{marca}}. Aquí tienes tus materiales:
+
+{{lista_enlaces}}
+
+Cómo funciona
+· Los enlaces son válidos {{vence_dias}} días y cada uno permite descargar el archivo hasta {{max_descargas}} veces. Guarda los archivos en tu dispositivo.
+· Primer paso: {{primer_paso}}
+
+Tu número de pedido: {{pedido_ref}}
+
+Garantía de devolución del dinero: {{garantia_dias}} días
+{{garantia_texto}}
+Política completa: {{politica_url}}
+
+{{bloque_renuncia}}
+
+Si un enlace no se abre o dejó de funcionar, responde a este correo o escribe a {{soporte_email}} y te enviaremos uno nuevo.
+
+Vendedor: {{vendedor}}

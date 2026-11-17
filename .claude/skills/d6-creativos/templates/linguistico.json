@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.2.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "es-ES",
+  "glosario_ref": null,
+  "revisor_nativo": {
+    "requerido": false,
+    "opcional": true,
+    "hecho": false,
+    "quien": null,
+    "fecha": null,
+    "obligacion_legal_idioma": false,
+    "observaciones": "J11: la revisión por un hablante nativo ya no es requisito, bloqueo ni gate (tampoco con obligacion_legal_idioma: esa obligación se cumple escribiendo en el idioma). Si el dueño la pide por su cuenta se anota aquí y no cambia ningún veredicto."
+  },
+  "capas": {
+    "1_glosario_y_dossier": {
+      "estado": "pendiente",
+      "glosario_ref": "empresa/mercados/glosarios/es-ES.md [PENDIENTE: el archivo no existe]",
+      "dossier_ref": "dossier de voz del cliente del país (J12) o voz_cliente.json; si no existe: [SUPUESTO]",
+      "justificacion_si_no_aplica": null
+    },
+    "2_lint_determinista": {
+      "estado": "pendiente",
+      "compliance_lint_claims": "salida de python -m compliance.lint_claims sobre copies.json y guiones",
+      "qc6": "06-creativos/qc6.json (qc6.py lote): puntos QC2, QC5 y QC6",
+      "lint_locale": "scripts/mercados/lint_locale.py [PENDIENTE: S-B, SB-13]",
+      "justificacion_si_no_aplica": null
+    },
+    "3_retraduccion": [
+      {
+        "ad_name": "c01-hueco_img_h1_v1",
+        "retraduccion_es_dueno": "(si el locale es español, se omite; en otros idiomas va aquí, hecha sin ver el original)",
+        "diferencias": []
+      }
+    ],
+    "4_segunda_lectura": [
+      {
+        "modelo": "otro modelo, contexto aparte",
+        "hallazgos": [],
+        "observaciones": "naturalidad, registro, calcos del español o del inglés, falsos amigos, plurales y números"
+      }
+    ],
+    "5_cobertura_dossier": {
+      "estado": "pendiente",
+      "terminos_del_dossier_usados": [],
+      "que_evitar_presentes": [],
+      "calcos": [],
+      "observaciones": "reemplaza al muestreo humano nativo (QM-14): cuántos giros del dossier usa cada pieza, ninguno de los «qué evitar» y calcos bajo el umbral"
+    }
+  },
+  "caracteres_verificados": [
+    "ñ",
+    "á",
+    "é",
+    "í",
+    "ó",
+    "ú",
+    "¿",
+    "¡"
+  ],
+  "veredicto": "pendiente"
+}

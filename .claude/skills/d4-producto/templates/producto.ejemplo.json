@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "producto_id": "PROD-OF-202612-02",
+  "oferta_id": "OF-202612-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "estado": "borrador",
+  "items": [
+    {
+      "id": "guida-tetto",
+      "tipo": "guia_pdf",
+      "archivo": "entregables/tetto-per-categoria-v1-guida.pdf",
+      "paginas": 18,
+      "peso_mb": "1.20",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "formato": "pdf",
+      "idioma": "it-IT",
+      "en_paquete": true
+    },
+    {
+      "id": "foglio-spese",
+      "tipo": "plantilla_xlsx",
+      "archivo": "entregables/tetto-per-categoria-v1-foglio.xlsx",
+      "paginas": null,
+      "peso_mb": "0.05",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "formato": "xlsx",
+      "idioma": "it-IT",
+      "en_paquete": true
+    },
+    {
+      "id": "campione-guida",
+      "tipo": "muestra",
+      "archivo": "entregables/muestras/tetto-per-categoria-v1-campione.pdf",
+      "paginas": 4,
+      "peso_mb": "0.30",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "formato": "pdf",
+      "idioma": "it-IT",
+      "en_paquete": false
+    }
+  ],
+  "matriz_promesas": [
+    {
+      "promesa_id": "foglio-4-settimane",
+      "texto": "Include un foglio di calcolo per registrare 4 settimane di spese con un tetto per categoria",
+      "entregable_id": "foglio-spese",
+      "prueba": "Foglio «Settimane» del file tetto-per-categoria-v1-foglio.xlsx; caso dorato CD-01 de autoprueba.json",
+      "estado": "cumplida"
+    },
+    {
+      "promesa_id": "guida-passo-passo",
+      "texto": "Include una guida passo passo per fissare il tetto di ogni categoria",
+      "entregable_id": "guida-tetto",
+      "prueba": "Capitolo 2 della guida (paso 2 de autoprueba.json)",
+      "estado": "cumplida"
+    },
+    {
+      "promesa_id": "tempo-60-min",
+      "texto": "Pensato per essere completato in circa 60 minuti",
+      "entregable_id": "guida-tetto",
+      "prueba": "tiempos de este archivo: lectura recalculada por tiempo_total.py más pasos de autoprueba.json",
+      "estado": "cumplida"
+    }
+  ],
+  "tiempos": {
+    "lectura_min": 12,
+    "ejecucion_min": 39,
+    "total_min": 51,
+    "prometido_min": 60,
+    "base": "estimado"
+  },
+  "pasos": [
+    { "id": "paso-1-elenco-categorie", "ejecutable_por_agente": true, "t_humano_min": 10 },
+    { "id": "paso-2-fissa-il-tetto", "ejecutable_por_agente": true, "t_humano_min": 15 },
+    { "id": "paso-3-registra-la-settimana", "ejecutable_por_agente": false, "t_humano_min": 8 },
+    { "id": "paso-4-leggi-il-totale", "ejecutable_por_agente": true, "t_humano_min": 6 }
+  ],
+  "vigencia": {
+    "verificado_el": "2026-12-10",
+    "revisar_antes_de": "2027-06-08",
+    "items_volatiles": ["umbral fiscal citado en el capítulo 4 (afirmaciones.jsonl#A1)"]
+  },
+  "entrega": {
+    "estrategia": "enlace_firmado_email",
+    "vence_dias": 7,
+    "max_descargas": 5
+  },
+  "ia_divulgacion": "Realizzato con l'aiuto di strumenti di IA a partire dalle fonti indicate, con revisione editoriale di [LLC]. (Texto de ejemplo: el definitivo sale del glosario del locale y de limites.politica_divulgacion_ia.)",
+  "changelog": [
+    { "version": "v1", "fecha": "2026-12-10", "cambio": "Primera versión (plantilla de ejemplo; hashes a recalcular con empaquetar.py --actualizar)" }
+  ]
+}

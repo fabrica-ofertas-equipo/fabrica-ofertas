@@ -1,0 +1,26 @@
+{
+  "id": "s42-comunidad-con-negacion-pospuesta",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "CONTROL sin defecto: «comunidad no incluida» (negación pospuesta, D-13)",
+  "control_sin_defecto": true,
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/entregable/alcance",
+      "valor": "Guía de 5 pasos, plantilla editable de CV y guion de entrevista; entrega única, comunidad no incluida y sin actualizaciones continuas."
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-13",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "PASS",
+    "hallazgos": [],
+    "nota": "Control de falso positivo: aquí la comunidad está NEGADA («comunidad no incluida»), así que D-13 NO se incumple y el QA no debe marcarlo. Si un heurístico automático (ficha_a_candidato) lo veta por la palabra «comunidad» con la negación pospuesta, es un falso positivo que el QA debe reportar como observación para S-B, no como defecto del candidato."
+  }
+}

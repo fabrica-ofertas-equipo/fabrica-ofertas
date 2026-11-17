@@ -1,0 +1,3 @@
+validador=enum
+ruta=/severidad
+texto=la severidad es info, amarilla, naranja o roja

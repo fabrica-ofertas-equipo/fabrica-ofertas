@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "datos": [],
+ "fuente": [
+  ".claude/skills/*/"
+ ],
+ "generado_en": "2026-11-10T10:05:00Z",
+ "vacio": true,
+ "avisos": []
+}

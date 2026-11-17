@@ -1,0 +1,196 @@
+# Banco de «formas» del barrido por forma (D1 Modo D, spec departamentos/02-descubrimiento.md §17.3 pieza 1).
+# Una «forma» es una frase ESTRUCTURAL de las ofertas digitales de pago único («acceso inmediato en PDF»,
+# «+100 plantillas», «garantía de 7 días»…): trae anuncios de TODOS los temas, no de un nicho elegido de antemano.
+#
+# Reglas del archivo (las verifica plan.cargar_banco; si algo falla, el plan no se genera):
+#  - `idiomas.<idioma>.paises`: países ISO-2 donde se busca con las frases de ese idioma. Un país pertenece a UN solo idioma.
+#    Ningún país es «el favorito»: el orden y la selección de países de origen salen de `barrido_paises_origen`
+#    (parametros_barrido.propuesta.yaml), no de este archivo.
+#  - Cada forma lleva frase en TODOS los idiomas declarados: `principal` (consulta de la pasada 1) y `variantes`
+#    (consultas de la pasada 2, que parten una búsqueda con demasiados anuncios en cortes distintos).
+#  - Las búsquedas no se traducen solas: la Biblioteca busca texto literal, por eso cada idioma tiene sus giros naturales.
+#  - Ninguna frase se repite dentro de un idioma (ni entre formas ni entre principal y variantes).
+#  - El orden de las formas es el orden del plan. Agregar una forma NO cambia los qid de las demás.
+# Las frases son búsquedas propias del sistema (confiables). Lo que devuelve la Biblioteca sigue siendo dato no confiable.
+
+schema_version: "1.0.0"
+version: 1
+
+idiomas:
+  es: {paises: [ES, MX, CO, AR, CL, PE]}
+  en: {paises: [US, GB, CA, AU]}
+  pt: {paises: [BR, PT]}
+  it: {paises: [IT]}
+  fr: {paises: [FR]}
+  de: {paises: [DE, AT]}
+  pl: {paises: [PL]}
+  ro: {paises: [RO]}
+
+formas:
+  - id: acceso-inmediato-pdf
+    descripcion: "Entrega por acceso inmediato a un PDF (la frase de la prueba real de §17.2: 932 anuncios en ES)."
+    frases:
+      es: {principal: "Acceso inmediato en PDF", variantes: ["Acceso inmediato al PDF", "Recibe el PDF al instante", "Acceso inmediato en formato PDF"]}
+      en: {principal: "Instant PDF access", variantes: ["Instant access to your PDF", "Get instant access to the PDF", "PDF with instant access"]}
+      pt: {principal: "Acesso imediato em PDF", variantes: ["Acesso imediato ao PDF", "Receba o PDF na hora", "Acesso imediato ao material em PDF"]}
+      it: {principal: "Accesso immediato in PDF", variantes: ["Accesso immediato al PDF", "Ricevi subito il PDF", "Accesso immediato al materiale in PDF"]}
+      fr: {principal: "Accès immédiat en PDF", variantes: ["Accès immédiat au PDF", "Recevez le PDF immédiatement", "Accès immédiat au document PDF"]}
+      de: {principal: "Sofortiger Zugriff als PDF", variantes: ["Sofortzugriff auf das PDF", "PDF sofort erhalten", "Sofort-Zugang zum PDF"]}
+      pl: {principal: "Natychmiastowy dostęp w PDF", variantes: ["Natychmiastowy dostęp do pliku PDF", "PDF od razu po zakupie", "Natychmiastowy dostęp do PDF"]}
+      ro: {principal: "Acces imediat în PDF", variantes: ["Acces imediat la PDF", "Primești PDF-ul imediat", "Acces instant în format PDF"]}
+
+  - id: descarga-inmediata
+    descripcion: "Producto digital que se descarga al comprar."
+    frases:
+      es: {principal: "Descarga inmediata", variantes: ["Descarga instantánea", "Descárgalo al instante", "Descarga digital inmediata"]}
+      en: {principal: "Instant download", variantes: ["Instant digital download", "Download instantly", "Digital download, instant delivery"]}
+      pt: {principal: "Download imediato", variantes: ["Baixe na hora", "Download instantâneo", "Download digital imediato"]}
+      it: {principal: "Download immediato", variantes: ["Scarica subito", "Download istantaneo", "Download digitale immediato"]}
+      fr: {principal: "Téléchargement immédiat", variantes: ["Téléchargement instantané", "Téléchargez immédiatement", "Téléchargement numérique immédiat"]}
+      de: {principal: "Sofort-Download", variantes: ["Sofortiger Download", "Direkt herunterladen", "Digitaler Sofort-Download"]}
+      pl: {principal: "Natychmiastowe pobranie", variantes: ["Pobierz natychmiast", "Natychmiastowe pobieranie plików", "Pobranie od razu po zakupie"]}
+      ro: {principal: "Descărcare imediată", variantes: ["Descarcă imediat", "Descărcare instantanee", "Descărcare digitală imediată"]}
+
+  - id: pago-unico
+    descripcion: "Precio de un solo pago, sin suscripción."
+    frases:
+      es: {principal: "Pago único", variantes: ["Un solo pago", "Paga una sola vez", "Pago único, sin suscripción"]}
+      en: {principal: "One-time payment", variantes: ["Pay once", "One-time purchase, no subscription", "Single payment"]}
+      pt: {principal: "Pagamento único", variantes: ["Pague uma vez só", "Pagamento único, sem mensalidade", "Sem mensalidades"]}
+      it: {principal: "Pagamento unico", variantes: ["Paghi una sola volta", "Un solo pagamento", "Pagamento unico, senza abbonamento"]}
+      fr: {principal: "Paiement unique", variantes: ["Un seul paiement", "Payez une seule fois", "Paiement unique, sans abonnement"]}
+      de: {principal: "Einmalzahlung", variantes: ["Einmalige Zahlung", "Einmal zahlen", "Einmalzahlung, kein Abo"]}
+      pl: {principal: "Jednorazowa płatność", variantes: ["Płacisz tylko raz", "Jedna płatność, bez subskrypcji", "Płatność jednorazowa"]}
+      ro: {principal: "Plată unică", variantes: ["Plătești o singură dată", "O singură plată", "Plată unică, fără abonament"]}
+
+  - id: garantia-7-dias
+    descripcion: "Garantía de devolución de 7 días."
+    frases:
+      es: {principal: "Garantía de 7 días", variantes: ["7 días de garantía", "Garantía de 7 días o te devolvemos tu dinero", "Devolución en 7 días"]}
+      en: {principal: "7-day money-back guarantee", variantes: ["7 day guarantee", "7-day refund guarantee", "Money-back guarantee within 7 days"]}
+      pt: {principal: "Garantia de 7 dias", variantes: ["7 dias de garantia", "Garantia incondicional de 7 dias", "Devolução em 7 dias"]}
+      it: {principal: "Garanzia di 7 giorni", variantes: ["7 giorni di garanzia", "Soddisfatti o rimborsati in 7 giorni", "Rimborso entro 7 giorni"]}
+      fr: {principal: "Garantie de 7 jours", variantes: ["7 jours de garantie", "Satisfait ou remboursé 7 jours", "Remboursement sous 7 jours"]}
+      de: {principal: "7 Tage Garantie", variantes: ["7 Tage Geld-zurück-Garantie", "Garantie von 7 Tagen", "Rückerstattung innerhalb von 7 Tagen"]}
+      pl: {principal: "Gwarancja 7 dni", variantes: ["7 dni gwarancji", "Gwarancja zwrotu pieniędzy w 7 dni", "Zwrot pieniędzy w ciągu 7 dni"]}
+      ro: {principal: "Garanție 7 zile", variantes: ["Garanție de 7 zile", "7 zile garanție", "Banii înapoi în 7 zile"]}
+
+  - id: mas-100-plantillas
+    descripcion: "Paquete de más de 100 plantillas."
+    frases:
+      es: {principal: "+100 plantillas", variantes: ["Más de 100 plantillas", "Pack de 100 plantillas", "100 plantillas editables"]}
+      en: {principal: "100+ templates", variantes: ["Over 100 templates", "100 editable templates", "Pack of 100 templates"]}
+      pt: {principal: "+100 modelos prontos", variantes: ["Mais de 100 modelos", "100 modelos editáveis", "Pack com 100 templates"]}
+      it: {principal: "+100 modelli", variantes: ["Oltre 100 modelli", "100 modelli modificabili", "Pacchetto di 100 modelli"]}
+      fr: {principal: "+100 modèles", variantes: ["Plus de 100 modèles", "100 modèles modifiables", "Pack de 100 modèles"]}
+      de: {principal: "100+ Vorlagen", variantes: ["Über 100 Vorlagen", "100 bearbeitbare Vorlagen", "Paket mit 100 Vorlagen"]}
+      pl: {principal: "+100 szablonów", variantes: ["Ponad 100 szablonów", "100 edytowalnych szablonów", "Pakiet 100 szablonów"]}
+      ro: {principal: "+100 șabloane", variantes: ["Peste 100 de șabloane", "100 de șabloane editabile", "Pachet de 100 de șabloane"]}
+
+  - id: mas-100-fichas
+    descripcion: "Paquete de más de 100 fichas o actividades imprimibles."
+    frases:
+      es: {principal: "+100 fichas", variantes: ["Más de 100 fichas", "100 fichas imprimibles", "Pack de 100 fichas"]}
+      en: {principal: "100+ worksheets", variantes: ["Over 100 worksheets", "100 printable worksheets", "Pack of 100 worksheets"]}
+      pt: {principal: "+100 fichas de atividades", variantes: ["Mais de 100 fichas", "100 fichas para imprimir", "Pack com 100 atividades"]}
+      it: {principal: "+100 schede", variantes: ["Oltre 100 schede", "100 schede stampabili", "Pacchetto di 100 schede"]}
+      fr: {principal: "+100 fiches", variantes: ["Plus de 100 fiches", "100 fiches imprimables", "Pack de 100 fiches"]}
+      de: {principal: "100+ Arbeitsblätter", variantes: ["Über 100 Arbeitsblätter", "100 druckbare Arbeitsblätter", "Paket mit 100 Arbeitsblättern"]}
+      pl: {principal: "+100 kart pracy", variantes: ["Ponad 100 kart pracy", "100 kart do wydruku", "Pakiet 100 kart pracy"]}
+      ro: {principal: "+100 fișe", variantes: ["Peste 100 de fișe", "100 de fișe imprimabile", "Pachet de 100 de fișe"]}
+
+  - id: mas-100-recetas
+    descripcion: "Recetario de más de 100 recetas."
+    frases:
+      es: {principal: "+100 recetas", variantes: ["Más de 100 recetas", "100 recetas fáciles", "Recetario con 100 recetas"]}
+      en: {principal: "100+ recipes", variantes: ["Over 100 recipes", "100 easy recipes", "Recipe book with 100 recipes"]}
+      pt: {principal: "+100 receitas", variantes: ["Mais de 100 receitas", "100 receitas fáceis", "E-book com 100 receitas"]}
+      it: {principal: "+100 ricette", variantes: ["Oltre 100 ricette", "100 ricette facili", "Ricettario con 100 ricette"]}
+      fr: {principal: "+100 recettes", variantes: ["Plus de 100 recettes", "100 recettes faciles", "Livre de 100 recettes"]}
+      de: {principal: "100+ Rezepte", variantes: ["Über 100 Rezepte", "100 einfache Rezepte", "Rezeptbuch mit 100 Rezepten"]}
+      pl: {principal: "+100 przepisów", variantes: ["Ponad 100 przepisów", "100 prostych przepisów", "E-book ze 100 przepisami"]}
+      ro: {principal: "+100 rețete", variantes: ["Peste 100 de rețete", "100 de rețete simple", "Carte cu 100 de rețete"]}
+
+  - id: guia-paso-a-paso-pdf
+    descripcion: "Guía práctica paso a paso entregada en PDF."
+    frases:
+      es: {principal: "Guía paso a paso en PDF", variantes: ["Guía práctica paso a paso", "Guía completa paso a paso", "Paso a paso en PDF"]}
+      en: {principal: "Step-by-step guide PDF", variantes: ["Step-by-step PDF guide", "Complete step-by-step guide", "Easy step-by-step guide"]}
+      pt: {principal: "Guia passo a passo em PDF", variantes: ["Guia prático passo a passo", "Guia completo passo a passo", "Passo a passo em PDF"]}
+      it: {principal: "Guida passo passo in PDF", variantes: ["Guida pratica passo dopo passo", "Guida completa passo passo", "Passo passo in PDF"]}
+      fr: {principal: "Guide pas à pas en PDF", variantes: ["Guide pratique pas à pas", "Guide complet pas à pas", "Pas à pas en PDF"]}
+      de: {principal: "Schritt-für-Schritt-Anleitung als PDF", variantes: ["Schritt-für-Schritt-Guide", "Komplette Schritt-für-Schritt-Anleitung", "Anleitung Schritt für Schritt (PDF)"]}
+      pl: {principal: "Przewodnik krok po kroku w PDF", variantes: ["Praktyczny przewodnik krok po kroku", "Kompletny poradnik krok po kroku", "Krok po kroku w PDF"]}
+      ro: {principal: "Ghid pas cu pas în PDF", variantes: ["Ghid practic pas cu pas", "Ghid complet pas cu pas", "Pas cu pas în PDF"]}
+
+  - id: kit-completo
+    descripcion: "«Kit completo» o paquete todo-en-uno."
+    frases:
+      es: {principal: "Kit completo", variantes: ["Kit completo digital", "Kit completo para empezar", "Incluye el kit completo"]}
+      en: {principal: "Complete kit", variantes: ["Complete digital kit", "Complete starter kit", "All-in-one kit"]}
+      pt: {principal: "Kit completo", variantes: ["Kit completo digital", "Kit completo para começar", "Kit completo com bônus"]}
+      it: {principal: "Kit completo", variantes: ["Kit completo digitale", "Kit completo per iniziare", "Kit completo con bonus"]}
+      fr: {principal: "Kit complet", variantes: ["Kit complet numérique", "Kit complet pour débuter", "Kit complet avec bonus"]}
+      de: {principal: "Komplettpaket", variantes: ["Komplett-Set", "Das komplette Paket", "Digitales Komplettpaket"]}
+      pl: {principal: "Kompletny zestaw", variantes: ["Pełny zestaw", "Kompletny zestaw cyfrowy", "Kompletny zestaw na start"]}
+      ro: {principal: "Kit complet", variantes: ["Pachet complet", "Kit complet digital", "Kit complet pentru început"]}
+
+  - id: apostila-ebook
+    descripcion: "Ebook, manual o apostila digital (la «apostila» es la forma típica brasileña)."
+    frases:
+      es: {principal: "Ebook en PDF", variantes: ["Manual en PDF", "Libro digital", "Ebook descargable"]}
+      en: {principal: "Digital ebook", variantes: ["eBook download", "PDF ebook", "Digital workbook"]}
+      pt: {principal: "Apostila digital", variantes: ["E-book em PDF", "Apostila em PDF", "Apostila completa"]}
+      it: {principal: "Ebook in PDF", variantes: ["Manuale in PDF", "Libro digitale", "Dispensa in PDF"]}
+      fr: {principal: "Ebook en PDF", variantes: ["Manuel en PDF", "Livre numérique", "Ebook à télécharger"]}
+      de: {principal: "E-Book als PDF", variantes: ["Digitales Handbuch", "E-Book zum Download", "Handbuch als PDF"]}
+      pl: {principal: "E-book w PDF", variantes: ["Podręcznik w PDF", "E-book do pobrania", "Cyfrowy podręcznik"]}
+      ro: {principal: "Ebook în PDF", variantes: ["Manual în PDF", "Carte digitală", "Ebook de descărcat"]}
+
+  - id: acceso-de-por-vida
+    descripcion: "Acceso vitalicio al material, sin renovaciones."
+    frases:
+      es: {principal: "Acceso de por vida", variantes: ["Acceso vitalicio", "Acceso para siempre", "Acceso ilimitado de por vida"]}
+      en: {principal: "Lifetime access", variantes: ["Access for life", "Unlimited lifetime access", "Yours forever"]}
+      pt: {principal: "Acesso vitalício", variantes: ["Acesso para sempre", "Acesso por toda a vida", "Acesso vitalício ao material"]}
+      it: {principal: "Accesso a vita", variantes: ["Accesso per sempre", "Accesso illimitato a vita", "Accesso a vita al materiale"]}
+      fr: {principal: "Accès à vie", variantes: ["Accès illimité à vie", "Accès pour toujours", "Accès à vie au contenu"]}
+      de: {principal: "Lebenslanger Zugriff", variantes: ["Zugang auf Lebenszeit", "Unbegrenzter Zugriff", "Lebenslanger Zugang"]}
+      pl: {principal: "Dostęp na całe życie", variantes: ["Dostęp dożywotni", "Dożywotni dostęp", "Dostęp bez limitu czasowego"]}
+      ro: {principal: "Acces pe viață", variantes: ["Acces pe viață la materiale", "Acces nelimitat pe viață", "Acces nelimitat în timp"]}
+
+  - id: pack-imprimible
+    descripcion: "Material listo para imprimir."
+    frases:
+      es: {principal: "Pack imprimible", variantes: ["Material imprimible", "PDF listo para imprimir", "Pack de imprimibles"]}
+      en: {principal: "Printable bundle", variantes: ["Printable pack", "Ready-to-print PDF", "Printable PDF bundle"]}
+      pt: {principal: "Pack para imprimir", variantes: ["Material para imprimir", "PDF pronto para imprimir", "Pack de imprimíveis"]}
+      it: {principal: "Pacchetto stampabile", variantes: ["Materiale da stampare", "PDF pronto da stampare", "Pack stampabile"]}
+      fr: {principal: "Pack imprimable", variantes: ["Matériel à imprimer", "PDF prêt à imprimer", "Lot de fichiers imprimables"]}
+      de: {principal: "Druckbares Paket", variantes: ["Ausdruckbares Material", "PDF zum Ausdrucken", "Druckvorlagen-Paket"]}
+      pl: {principal: "Pakiet do wydruku", variantes: ["Materiały do druku", "PDF gotowy do wydruku", "Pakiet do drukowania"]}
+      ro: {principal: "Pachet imprimabil", variantes: ["Materiale de printat", "PDF gata de printat", "Pachet de imprimabile"]}
+
+  - id: atlas-mapas-visuales
+    descripcion: "Atlas o mapas visuales (familia «atlas / mapas / fichas» vista en §17.2 para salud y educación)."
+    frases:
+      es: {principal: "Atlas visual", variantes: ["Mapas visuales", "Atlas en PDF", "Mapas conceptuales en PDF"]}
+      en: {principal: "Visual atlas", variantes: ["Visual maps PDF", "Illustrated atlas", "Mind maps PDF"]}
+      pt: {principal: "Atlas visual", variantes: ["Mapas visuais", "Atlas em PDF", "Mapas mentais em PDF"]}
+      it: {principal: "Atlante visivo", variantes: ["Mappe visive", "Atlante in PDF", "Mappe concettuali in PDF"]}
+      fr: {principal: "Atlas visuel", variantes: ["Cartes visuelles", "Atlas en PDF", "Cartes mentales en PDF"]}
+      de: {principal: "Visueller Atlas", variantes: ["Visuelle Karten", "Atlas als PDF", "Mindmaps als PDF"]}
+      pl: {principal: "Atlas wizualny", variantes: ["Mapy wizualne", "Atlas w PDF", "Mapy myśli w PDF"]}
+      ro: {principal: "Atlas vizual", variantes: ["Hărți vizuale", "Atlas în PDF", "Hărți mentale în PDF"]}
+
+  - id: kit-profesional
+    descripcion: "Kit de recursos para profesionales (familia «kit profesional» vista en §17.2)."
+    frases:
+      es: {principal: "Kit profesional", variantes: ["Kit para profesionales", "Kit profesional en PDF", "Recursos profesionales listos para usar"]}
+      en: {principal: "Professional kit", variantes: ["Professional toolkit", "Toolkit for professionals", "Ready-to-use professional resources"]}
+      pt: {principal: "Kit profissional", variantes: ["Kit para profissionais", "Kit profissional em PDF", "Recursos profissionais prontos para usar"]}
+      it: {principal: "Kit professionale", variantes: ["Kit per professionisti", "Kit professionale in PDF", "Risorse professionali pronte all'uso"]}
+      fr: {principal: "Kit professionnel", variantes: ["Kit pour professionnels", "Kit professionnel en PDF", "Ressources professionnelles prêtes à l'emploi"]}
+      de: {principal: "Profi-Kit", variantes: ["Toolkit für Fachkräfte", "Profi-Set als PDF", "Fertige Profi-Materialien"]}
+      pl: {principal: "Zestaw profesjonalny", variantes: ["Zestaw dla profesjonalistów", "Profesjonalny zestaw w PDF", "Gotowe materiały profesjonalne"]}
+      ro: {principal: "Kit profesional", variantes: ["Kit pentru profesioniști", "Kit profesional în PDF", "Resurse profesionale gata de folosit"]}

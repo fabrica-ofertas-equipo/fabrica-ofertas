@@ -1,0 +1,412 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "es-ES",
+  "moneda": "EUR",
+  "tono": {
+    "persona": "tu",
+    "registro": "informal",
+    "glosario_ref": null,
+    "nota": "[SUPUESTO] sin glosario de M1 para es-ES: tuteo, frases cortas, verbos de acción neutros"
+  },
+  "contexto_riesgo": {
+    "macro_nicho": "dinero",
+    "nivel": "verde",
+    "tema_vigilado": [],
+    "conflicto_pareja_familia": false,
+    "hero_reformulado": [
+      {
+        "angulo_id": "hueco-como-relato",
+        "hook_original": "Tu pausa no es un hueco: es un relato que puedes contar",
+        "motivo": "«tu + situación» en la primera pantalla: se pasa a tercera persona sin atributo (E ≤ E1). Mismo claim: guion-explicar-pausa"
+      },
+      {
+        "angulo_id": "pregunta-de-entrevista",
+        "hook_original": "La pregunta que más temes, con tu respuesta ya escrita",
+        "motivo": "«que más temes» atribuye un estado emocional al lector: se neutraliza. Mismo claim: guion-explicar-pausa"
+      }
+    ]
+  },
+  "meta": {
+    "title": "{marca} — {producto}",
+    "description": "Guía y plantilla para presentar una pausa laboral por competencias. Pago único y entrega inmediata.",
+    "og_title": "{marca} — {producto}",
+    "og_description": "Guía y plantilla para presentar una pausa laboral por competencias. Pago único y entrega inmediata."
+  },
+  "cifras_con_traza": [
+    {
+      "valor": "30",
+      "unidad": "segundos",
+      "traza": "03-oferta/oferta.json#promesa.claims_permitidos[guion-explicar-pausa]"
+    }
+  ],
+  "cta": [
+    {
+      "id": "cta-hero",
+      "texto": "Quiero la guía",
+      "usos": [
+        "S01"
+      ]
+    },
+    {
+      "id": "cta-compra",
+      "texto": "Comprar la guía por {precio}",
+      "usos": [
+        "S11"
+      ]
+    },
+    {
+      "id": "cta-cierre",
+      "texto": "Quiero mi currículum puente",
+      "usos": [
+        "S13"
+      ]
+    }
+  ],
+  "secciones": {
+    "S01": {
+      "kicker": "Guía y plantilla de currículum",
+      "h1": "Una pausa laboral se puede contar como un relato",
+      "h1_resaltado": "sin pedir disculpas",
+      "subtitulo": "Reordena el currículum por competencias y prepara un guion de 30 segundos para explicar la pausa.",
+      "pills": [
+        "Plantilla editable",
+        "Guion de 30 segundos",
+        "Entrega inmediata"
+      ],
+      "cta_ref": "cta-hero",
+      "microcopy": "Garantía de {garantia_dias} días · Pago único · Entrega digital inmediata",
+      "imagen_ref": "hero"
+    },
+    "S02": {
+      "cifras": [
+        {
+          "valor": "{tiempo_min}",
+          "etiqueta": "minutos en total"
+        },
+        {
+          "valor": "{n:paquete}",
+          "etiqueta": "archivos listos"
+        },
+        {
+          "valor": "30",
+          "etiqueta": "segundos de guion"
+        }
+      ],
+      "beneficios": [
+        {
+          "titulo": "Orden por competencias",
+          "texto": "El currículum deja de contar fechas y pasa a mostrar lo que se sabe hacer."
+        },
+        {
+          "titulo": "Frases con datos",
+          "texto": "Lo hecho durante la pausa se traduce a frases concretas que caben en el papel."
+        },
+        {
+          "titulo": "Guion para la entrevista",
+          "texto": "Una fórmula corta para explicar el periodo sin justificarse."
+        }
+      ]
+    },
+    "S03": {
+      "titulo": "Cuesta explicar una pausa cuando no hay un orden claro",
+      "dolores": [
+        {
+          "texto": "Un hueco en el currículum se vuelve difícil de explicar sin sonar a disculpa.",
+          "fuente_ref": "02-validacion/validacion.json#handoff_d3.objeciones_top"
+        },
+        {
+          "texto": "Lo hecho durante la pausa queda fuera del papel porque no parece experiencia.",
+          "fuente_ref": "03-oferta/oferta.json#avatar.lo_dice"
+        },
+        {
+          "texto": "La pregunta sobre ese periodo llega en la entrevista y la respuesta no está preparada.",
+          "fuente_ref": "03-oferta/oferta.json#angulos[pregunta-de-entrevista]"
+        },
+        {
+          "texto": "El formato cronológico deja la pausa a la vista y esconde las competencias.",
+          "fuente_ref": "03-oferta/oferta.json#mecanismo"
+        }
+      ],
+      "reencuadre": "El problema no es la pausa. Es no tener un orden para contarla."
+    },
+    "S04": {
+      "kicker": "Mira el material por dentro",
+      "titulo": "Lo que vas a usar, tal como es",
+      "pies": [
+        {
+          "imagen_ref": "muestra-principal",
+          "texto": "Página de la guía: la fórmula del guion de 30 segundos con un caso resuelto"
+        },
+        {
+          "imagen_ref": "muestra-1",
+          "texto": "Primera página de la plantilla de currículum por competencias"
+        }
+      ]
+    },
+    "S05": {
+      "kicker": "El método",
+      "nombre": "Puente de la Pausa",
+      "subtitulo": "Una guía con plantilla para pasar del hueco sin explicar a un currículum y un guion listos",
+      "como_funciona": "Reordena el currículum por competencias, traduce lo hecho durante la pausa a frases con datos y añade un guion de 30 segundos para explicarla.",
+      "de_a_b": "Del hueco sin explicar al currículum y el guion de entrevista listos.",
+      "etiquetas": [
+        "Competencias",
+        "Frases con datos",
+        "Guion de 30 s"
+      ]
+    },
+    "S06": {
+      "kicker": "Todo en un solo acceso",
+      "titulo": "Esto es lo que incluye",
+      "modulos": [
+        {
+          "titulo": "Guía paso a paso",
+          "texto": "Cinco pasos para ordenar la experiencia, traducir la pausa y preparar el guion.",
+          "item_ref": "guia-puente"
+        },
+        {
+          "titulo": "Plantilla de currículum editable",
+          "texto": "Enfoque en competencias, lista para rellenar y adaptar a cada oferta de trabajo.",
+          "item_ref": "plantilla-cv"
+        }
+      ],
+      "checklist": {
+        "titulo": "Qué recorre la guía",
+        "items": [
+          "Inventario de lo hecho durante la pausa",
+          "Traducción a competencias",
+          "Currículum puente con la plantilla",
+          "Guion para explicar la pausa",
+          "Preguntas habituales de la entrevista"
+        ]
+      }
+    },
+    "S07": {
+      "titulo": "Para quién es y para quién no",
+      "si": [
+        "Quien vuelve a buscar trabajo tras una pausa larga y quiere ordenar cómo presentarla.",
+        "Quien prefiere un método con plantilla a empezar con un currículum en blanco.",
+        "Quien dispone de una tarde para completar los pasos."
+      ],
+      "no": [
+        "Quien busca ofertas de empleo: no es una bolsa de trabajo ni intermedia con empresas.",
+        "Quien espera un resultado asegurado: aquí hay método y materiales, no promesas.",
+        "Quien necesita revisión individual de su currículum: no se ofrece."
+      ]
+    },
+    "S08": {
+      "modo": "honesta",
+      "titulo": "Qué puedes comprobar antes de comprar",
+      "bloques": [
+        {
+          "titulo": "El método se ve en la muestra",
+          "texto": "La guía incluye una fórmula de guion con un caso resuelto; cada paso termina en algo que puedes revisar: una tabla, un currículum, un guion."
+        },
+        {
+          "titulo": "Cómo está hecho",
+          "texto": "{ia_divulgacion}"
+        },
+        {
+          "titulo": "Quién lo vende",
+          "texto": "{marca} es una marca con datos completos del vendedor en la página «Vendedor y contacto»."
+        }
+      ],
+      "resenas": []
+    },
+    "S09": {
+      "titulo": "Opcional al pagar",
+      "bonos": [],
+      "bump": {
+        "nombre": "{bump_nombre}",
+        "texto": "{bump_descripcion}. Solo si marcas la casilla al pagar.",
+        "etiqueta_casilla": "Añadir {bump_nombre} por {precio_bump}",
+        "premarcado": false
+      }
+    },
+    "S10": {
+      "titulo": "Garantía de {garantia_dias} días",
+      "texto": "Si no te sirve, te devolvemos el importe durante {garantia_dias} días. Sin preguntas.",
+      "nota_legal": "La garantía comercial no sustituye tu derecho legal de desistimiento."
+    },
+    "S11": {
+      "titulo": "Guía y plantilla en un solo pago",
+      "descripcion": "{producto}: guía paso a paso y plantilla de currículum editable.",
+      "incluye": [
+        "Guía paso a paso del Puente de la Pausa",
+        "Plantilla de currículum editable por competencias",
+        "Guion de 30 segundos para explicar la pausa",
+        "Entrega digital inmediata por correo"
+      ],
+      "pills": [
+        "Pago único",
+        "Entrega inmediata",
+        "Garantía {garantia_dias} días"
+      ],
+      "linea_precio": "Precio final: {precio}. Pago único, sin suscripciones.",
+      "cta_ref": "cta-compra"
+    },
+    "S12": {
+      "titulo": "Preguntas frecuentes",
+      "preguntas": [
+        {
+          "id": "faq-objecion-trabajo",
+          "tipo": "objecion",
+          "objecion_ref": "03-oferta/oferta.json#avatar.objeciones[0]",
+          "q": "¿Esto me va a conseguir trabajo?",
+          "a": "No. Es una guía para ordenar y presentar la experiencia; no garantiza entrevistas ni empleo. El resultado depende de cada persona y de cada oferta."
+        },
+        {
+          "id": "faq-entrega",
+          "tipo": "fija",
+          "q": "¿Cómo y cuándo recibo los archivos?",
+          "a": "Justo después del pago llega un correo con un enlace de descarga. El enlace vence a los {vence_dias} días y permite hasta {max_descargas} descargas; si se agota, puedes pedir un reenvío."
+        },
+        {
+          "id": "faq-formato",
+          "tipo": "fija",
+          "q": "¿En qué formato llegan?",
+          "a": "La guía llega en {formato:guia-puente} y la plantilla en {formato:plantilla-cv}; se abren en el móvil y en el ordenador."
+        },
+        {
+          "id": "faq-reembolso",
+          "tipo": "fija",
+          "q": "¿Qué pasa si no me sirve?",
+          "a": "Tienes {garantia_dias} días para pedir la devolución del importe, sin preguntas. Además se aplica el derecho de desistimiento donde la ley lo reconoce, desde la página de desistimiento."
+        },
+        {
+          "id": "faq-pago",
+          "tipo": "fija",
+          "q": "¿Con qué medios de pago puedo pagar?",
+          "a": "Con tarjeta, Apple Pay, Google Pay o Link, en la página de pago segura de Stripe."
+        },
+        {
+          "id": "faq-alcance",
+          "tipo": "fija",
+          "q": "¿Es una oferta de empleo o una asesoría?",
+          "a": "No. Es un material descargable para trabajar por cuenta propia. No incluye bolsa de trabajo, revisión individual ni asesoramiento personalizado."
+        },
+        {
+          "id": "faq-tiempo",
+          "tipo": "fija",
+          "q": "¿Cuánto tiempo lleva?",
+          "a": "Está pensado para completarlo en unos {tiempo_min} minutos."
+        },
+        {
+          "id": "faq-idioma",
+          "tipo": "fija",
+          "q": "¿En qué idioma está?",
+          "a": "Todo el material está en español de España."
+        }
+      ]
+    },
+    "S13": {
+      "titulo": "Con un orden claro, la pausa se cuenta mejor",
+      "filas": [
+        {
+          "sin": "Un currículum cronológico que deja la pausa a la vista",
+          "con": "Un currículum por competencias"
+        },
+        {
+          "sin": "Una respuesta improvisada en la entrevista",
+          "con": "Un guion de 30 segundos preparado"
+        },
+        {
+          "sin": "Lo hecho durante la pausa, sin nombrar",
+          "con": "Frases con datos para cada actividad"
+        }
+      ],
+      "cta_ref": "cta-cierre",
+      "microcopy": "Entrega inmediata · Garantía de {garantia_dias} días · {precio}"
+    },
+    "S14": {
+      "descripcion": "Guía y plantilla descargables para presentar una pausa laboral.",
+      "aviso": "Contenido informativo. No constituye asesoramiento laboral, financiero ni legal y no garantiza resultados.",
+      "aviso_seguridad": "",
+      "ayuda": "",
+      "enlaces": {
+        "vendedor": "Vendedor y contacto",
+        "terminos": "Términos de uso",
+        "privacidad": "Privacidad",
+        "reembolsos": "Reembolsos y desistimiento",
+        "cookies": "Cookies",
+        "aviso": "Aviso de contenido",
+        "entrega": "Entrega y soporte",
+        "desistimiento": "Desistimiento",
+        "preferencias_cookies": "Preferencias de cookies"
+      }
+    },
+    "banner": {
+      "texto": "Usamos una cookie propia para recordar tu elección y, solo si aceptas, cookies de marketing para medir los anuncios.",
+      "etiqueta_marketing": "Permitir cookies de marketing",
+      "aceptar": "Aceptar",
+      "rechazar": "Rechazar",
+      "personalizar": "Personalizar",
+      "guardar": "Guardar elección",
+      "version_texto": "v1"
+    },
+    "comprar": {
+      "titulo": "Antes de pagar",
+      "resumen_prepago": [
+        "Vendedor: {marca}, con datos completos en la página del vendedor.",
+        "Formato: guía en {formato:guia-puente} y plantilla en {formato:plantilla-cv}.",
+        "Idioma: español de España.",
+        "Licencia: uso personal; no se puede revender ni redistribuir.",
+        "Entrega: inmediata por correo, con enlace de descarga.",
+        "Reembolso: {garantia_dias} días, sin preguntas."
+      ],
+      "casillas": [
+        {
+          "id": "terminos-y-desistimiento",
+          "texto": "He leído y acepto los términos y la política de reembolsos.",
+          "obligatoria": true,
+          "premarcada": false
+        },
+        {
+          "id": "renuncia-entrega-inmediata",
+          "texto": "Acepto que la entrega empiece ahora mismo y entiendo que, al descargar el archivo, pierdo el derecho legal de desistimiento; la garantía de {garantia_dias} días sigue vigente.",
+          "obligatoria": true,
+          "premarcada": false
+        }
+      ],
+      "boton": "Continuar al pago seguro"
+    },
+    "gracias": {
+      "titulo": "Gracias por tu compra",
+      "texto": "En unos minutos recibirás un correo con el enlace de descarga. Si no aparece, revisa la carpeta de spam o pide un reenvío desde la página de entrega."
+    }
+  },
+  "variantes_por_angulo": {
+    "hueco-como-relato": {},
+    "pregunta-de-entrevista": {
+      "S01": {
+        "kicker": "Guía y plantilla de entrevista",
+        "h1": "La pregunta sobre la pausa, con la respuesta ya escrita",
+        "h1_resaltado": "en un guion de 30 segundos",
+        "subtitulo": "Una fórmula corta para explicar un periodo sin trabajar, más la plantilla de currículum por competencias."
+      },
+      "S12": {
+        "primero": "faq-objecion-trabajo"
+      }
+    },
+    "plan-en-una-tarde": {
+      "S01": {
+        "kicker": "Guía y plantilla de currículum",
+        "h1": "Un currículum por competencias en una tarde",
+        "h1_resaltado": "con la pausa bien contada",
+        "subtitulo": "Cinco pasos con tiempos estimados para completar la plantilla en unos {tiempo_min} minutos."
+      },
+      "S03": {
+        "orden": [
+          3,
+          0,
+          1,
+          2
+        ]
+      }
+    }
+  },
+  "omitidas": []
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "lote_id": "lote-003",
+  "generado_en": "2026-11-06T12:00:00Z",
+  "paginas": [
+    {
+      "page_id": "2000000000000004",
+      "page_name": "Crea y Emprende",
+      "paises": [
+        "ES"
+      ],
+      "titulos": [
+        "Patrones de crochet: 26 ramos para armar",
+        "Vende tus primeros ramos en 7 días"
+      ]
+    }
+  ]
+}

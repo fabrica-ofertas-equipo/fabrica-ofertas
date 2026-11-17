@@ -1,0 +1,102 @@
+{
+  "dictamenes": [
+    {
+      "oferta_id": "_ejemplo",
+      "archivo": "qa/x1-d5-v1.json",
+      "ruta": "ofertas/_ejemplo/qa/x1-d5-v1.json",
+      "etapa": "X1",
+      "etapa_objetivo": "D5",
+      "version": "v1",
+      "veredicto": "PASS",
+      "semaforo": "verde",
+      "creado_en": "2026-11-08T09:00:00Z",
+      "vigencia_hasta": "2026-12-05",
+      "reglas_version": "1.0.0",
+      "n_hallazgos": 3
+    },
+    {
+      "oferta_id": "_ejemplo",
+      "archivo": "qa/x1-d6-v1.json",
+      "ruta": "ofertas/_ejemplo/qa/x1-d6-v1.json",
+      "etapa": "X1",
+      "etapa_objetivo": "D6",
+      "version": "v1",
+      "veredicto": "PASS",
+      "semaforo": "verde",
+      "creado_en": "2026-11-08T14:00:00Z",
+      "vigencia_hasta": "2026-12-05",
+      "reglas_version": "1.0.0",
+      "n_hallazgos": 3
+    },
+    {
+      "oferta_id": "_ejemplo",
+      "archivo": "qa/x1-d6-v2.json",
+      "ruta": "ofertas/_ejemplo/qa/x1-d6-v2.json",
+      "etapa": "X1",
+      "etapa_objetivo": "D6",
+      "version": "v2",
+      "veredicto": "FAIL",
+      "semaforo": "rojo",
+      "creado_en": "2026-11-09T09:00:00Z",
+      "vigencia_hasta": "2026-12-05",
+      "reglas_version": "1.0.0",
+      "n_hallazgos": 3
+    },
+    {
+      "oferta_id": "_ejemplo",
+      "archivo": "qa/x1-d7-v1.json",
+      "ruta": "ofertas/_ejemplo/qa/x1-d7-v1.json",
+      "etapa": "X1",
+      "etapa_objetivo": "D7",
+      "version": "v1",
+      "veredicto": "PASS",
+      "semaforo": "verde",
+      "creado_en": "2026-11-09T09:00:00Z",
+      "vigencia_hasta": "2026-12-05",
+      "reglas_version": "1.0.0",
+      "n_hallazgos": 3
+    }
+  ],
+  "sellos": [
+    {
+      "archivo": "2bc468b28ee91f80cb36ad7c1f407d8988b3f5b79cc5f0ec078845a1f7424d92.json",
+      "legible": true,
+      "oferta_id": "_ejemplo",
+      "etapa_objetivo": "D5",
+      "emitido_en": "2026-11-08T10:00:00Z",
+      "vigencia_hasta": "2026-12-08T10:00:00Z",
+      "vigente": true,
+      "dictamen_ref": "ofertas/OF-202611-01/qa/x1-d5-v1.json",
+      "artefacto_sha256": "sha256:2bc468b28ee91f80cb36ad7c1f407d8988b3f5b79cc5f0ec078845a1f7424d92",
+      "reglas_version": "1.0.0"
+    },
+    {
+      "archivo": "3b9f3985f4c565c9bd57ac4961c800e4ea997556c889ce9e3a87ab370136ca2e.json",
+      "legible": true,
+      "oferta_id": "_ejemplo",
+      "etapa_objetivo": "D6",
+      "emitido_en": "2026-10-01T10:00:00Z",
+      "vigencia_hasta": "2026-10-31T10:00:00Z",
+      "vigente": false,
+      "dictamen_ref": "ofertas/OF-202611-01/qa/x1-d6-v1.json",
+      "artefacto_sha256": "sha256:3b9f3985f4c565c9bd57ac4961c800e4ea997556c889ce9e3a87ab370136ca2e",
+      "reglas_version": "1.0.0"
+    },
+    {
+      "archivo": "d797662d77e2e097990106b66907d02295efb4dae1dacbb08061c7954f9cd69c.json",
+      "legible": true,
+      "oferta_id": "_ejemplo",
+      "etapa_objetivo": "D7",
+      "emitido_en": "2026-11-08T10:00:00Z",
+      "vigencia_hasta": "2026-12-08T10:00:00Z",
+      "vigente": true,
+      "dictamen_ref": "ofertas/OF-202611-01/qa/x1-d7-v1.json",
+      "artefacto_sha256": "sha256:d797662d77e2e097990106b66907d02295efb4dae1dacbb08061c7954f9cd69c",
+      "reglas_version": "1.0.0"
+    },
+    {
+      "archivo": "roto.json",
+      "legible": false
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "S02",
+  "severidad": "BLOQUEANTE",
+  "defecto": "Una frase de voz_cliente.json no está en el texto crudo de su fuente (cita fabricada).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "voz_cliente.json",
+      "ruta": "frases[0].texto_literal",
+      "valor": "ho perso quattromila euro con le rate e nessuno mi aiuta"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D5",
+        "patron_clave": "cita-fabricada",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R4"
+    ],
+    "debe_citar": "ho perso quattromila euro"
+  },
+  "detecta_script": "verificar_citas.py --base (FABRICADA)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo.",
+  "contexto_extra": "Dejar en crudo/voz/foro-a-123.txt solo el texto original de la frase f-01 («non riesco a capire quanto mi resta da pagare ogni mese»)."
+}

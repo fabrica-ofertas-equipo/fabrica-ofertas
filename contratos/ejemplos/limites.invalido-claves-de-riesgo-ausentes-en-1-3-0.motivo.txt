@@ -1,0 +1,4 @@
+validador=required
+ruta=
+contiene=hojas_pausadas
+texto=con schema_version >= 1.3.0 las diez claves de riesgo son obligatorias (pueden ser null; null = solo verde)

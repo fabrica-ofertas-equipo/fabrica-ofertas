@@ -1,0 +1,3 @@
+validador=enum
+ruta=/vista
+texto=la vista es devengado o caja

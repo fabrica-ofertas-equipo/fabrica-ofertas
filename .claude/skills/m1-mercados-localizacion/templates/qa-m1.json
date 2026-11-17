@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "M1",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-06T12:00:00Z",
+  "skill_version_qa": "0.1.1",
+  "skill_version_maker": "0.1.1",
+  "artefacto_ref": "mercado.json",
+  "artefacto_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "entradas": {
+    "mercado.seleccion.json": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "veredicto": "PASS_CON_NOTAS",
+  "puntaje_global": "4.10",
+  "umbral": "4.0",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Trazabilidad",
+      "puntaje": 4,
+      "evidencia": "fichas IT: 100 % de hojas con fuente, fecha y confianza (l1.json MQ-02 pass); CPM con fecha 2026-07-27 etiquetado [SUPUESTO]"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Pagos por fase",
+      "puntaje": 5,
+      "evidencia": "seleccion.ranking[0].cobertura: estandar 48.0 / con_locales 49.5, hueco_paypal_pp 30.0, valor_desbloqueo 1.5"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Economia",
+      "puntaje": 4,
+      "evidencia": "parametros_usados: reembolso_bp 800, disputa_bp 60, stripe_tax; r 2.48 reproducido con rank.py"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Exposicion por macro",
+      "puntaje": 4,
+      "evidencia": "matriz_ref [SUPUESTO] semilla Anexo D; R3 cruza etiquetas del candidato (producto_hogar)"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Localizacion",
+      "puntaje": 3,
+      "evidencia": "glosario_ref null: glosario it-IT pendiente; retraduccion y muestreo nativo planificados en revision_linguistica.metodos"
+    },
+    {
+      "item_id": "R6",
+      "nombre": "Honestidad",
+      "puntaje": 5,
+      "evidencia": "estado_decision hipotesis; evidencia_externa.creadores.peso_en_decision 0; pendientes_dueno lista 6 decisiones"
+    },
+    {
+      "item_id": "R7",
+      "nombre": "Gates y firma",
+      "puntaje": 4,
+      "evidencia": "primer_lanzamiento_en_locale true, requiere_gate_h true, aprobado_por null (MQ-15 pass)"
+    },
+    {
+      "item_id": "R8",
+      "nombre": "Utilidad para el siguiente agente",
+      "puntaje": 4,
+      "evidencia": "precio_referencia por moneda con 'fija: D3'; presupuesto_test_sugerido etiquetado"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "MQ-01",
+      "resultado": "pass",
+      "detalle": "borrador valido; firma de exposicion pendiente del gate H"
+    },
+    {
+      "check_id": "MQ-09",
+      "resultado": "pass",
+      "detalle": "pesos=100, creadores=0, rank.py OK"
+    }
+  ],
+  "simulaciones_l3": [
+    {
+      "nombre": "escéptico: ¿por qué no el otro mercado?",
+      "resultado": "respondido con cobertura 17,0 % vs umbral duro y valor de desbloqueo 50,0 pp (BLIK + PLN)"
+    }
+  ],
+  "hallazgos": [
+    {
+      "check_id": "M1-H1",
+      "patron_clave": "glosario-pendiente",
+      "severidad": "MENOR",
+      "etapa": "M1",
+      "skill_version": "0.1.1",
+      "descripcion": "glosario_ref es null y el primer lanzamiento exige glosario antes de D4-D6",
+      "evidencia": "mercado.json#/glosario_ref",
+      "estado": "devuelto_al_maker",
+      "correccion": "dejar glosario_ref en null con el pendiente declarado en mercado.seleccion.json#/pendientes_dueno, o apuntar al glosario cuando exista"
+    },
+    {
+      "check_id": "M1-H2",
+      "patron_clave": "cpm-vencido",
+      "severidad": "MENOR",
+      "etapa": "M1",
+      "skill_version": "0.1.1",
+      "descripcion": "cpm_fuente no cita el dia de lectura en la misma frase",
+      "evidencia": "mercado.json#/cpm_fuente",
+      "estado": "devuelto_al_maker",
+      "correccion": "citar la fecha 2026-07-27 en la misma frase de cpm_fuente (la aplica el Maker en la ronda siguiente)"
+    },
+    {
+      "check_id": "M1-H3",
+      "patron_clave": "mejora-barrido",
+      "severidad": "MEJORA",
+      "etapa": "M1",
+      "skill_version": "0.1.1",
+      "descripcion": "citar la presencia del tema por pais del barrido como hipotesis de transferencia",
+      "evidencia": "seleccion.evidencia_externa.barrido",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Segundo bloque de exploracion barato para contrastar el modelo",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Todo CPM de referencia es confianza C y vencido",
+    "Hueco de PayPal en IT no cerrable con Stripe de una LLC de EE. UU."
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": null
+}

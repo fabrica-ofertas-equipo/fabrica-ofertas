@@ -1,0 +1,118 @@
+{
+ "ok": true,
+ "datos": {
+  "entradas": [
+   {
+    "id": "PUL-0001",
+    "ts": "2026-11-09T09:00:00Z",
+    "autor": "dueno",
+    "evento": "alta",
+    "oferta_id": "_ejemplo",
+    "etapa": "D3",
+    "titulo": "El precio sugerido no cuadra con la economía",
+    "detalle": "economia.json usa 1900 pero oferta.md dice 19 €.",
+    "severidad": "alta",
+    "tipo": "observacion",
+    "estado": "abierta"
+   },
+   {
+    "id": "PUL-0002",
+    "ts": "2026-11-09T09:30:00Z",
+    "autor": "dueno",
+    "evento": "alta",
+    "oferta_id": "_ejemplo",
+    "etapa": "D5",
+    "titulo": "Falta la página de reembolsos en el pie",
+    "detalle": "",
+    "severidad": "media",
+    "tipo": "observacion",
+    "estado": "abierta"
+   },
+   {
+    "id": "PUL-0003",
+    "ts": "2026-11-09T10:00:00Z",
+    "autor": "dueno",
+    "evento": "alta",
+    "oferta_id": null,
+    "etapa": "D1",
+    "titulo": "Regla: descartar candidatos con sustituto gratis dominante",
+    "detalle": "Criterio mío, valdría para cualquier nicho.",
+    "severidad": "baja",
+    "tipo": "decision",
+    "estado": "abierta"
+   },
+   {
+    "id": "PUL-0004",
+    "ts": "2026-11-09T10:30:00Z",
+    "autor": "dueno",
+    "evento": "alta",
+    "oferta_id": "OF-202611-03",
+    "etapa": "D8",
+    "titulo": "Lectura de Meta llega con 30 h de atraso",
+    "detalle": "",
+    "severidad": "alta",
+    "tipo": "nota",
+    "estado": "abierta"
+   },
+   {
+    "id": "PUL-0001",
+    "ts": "2026-11-10T08:00:00Z",
+    "autor": "dueno",
+    "evento": "estado",
+    "estado": "en_curso"
+   },
+   {
+    "id": "PUL-0002",
+    "ts": "2026-11-10T08:05:00Z",
+    "autor": "dueno",
+    "evento": "estado",
+    "estado": "resuelta"
+   },
+   {
+    "id": "PUL-0001",
+    "ts": "2026-11-10T09:00:00Z",
+    "autor": "dueno",
+    "evento": "estado",
+    "estado": "resuelta"
+   },
+   {
+    "id": "PUL-0001",
+    "ts": "2026-11-10T09:30:00Z",
+    "autor": "dueno",
+    "evento": "estado",
+    "estado": "abierta"
+   },
+   {
+    "id": "PUL-9999",
+    "ts": "2026-11-10T09:31:00Z",
+    "autor": "dueno",
+    "evento": "estado",
+    "estado": "resuelta"
+   },
+   {
+    "ts": "2026-11-10T09:32:00Z",
+    "titulo": "sin id"
+   },
+   {
+    "id": "PUL-0005",
+    "ts": "2026-11-10T10:00:00Z",
+    "autor": "dueno",
+    "evento": "alta",
+    "oferta_id": "_ejemplo",
+    "etapa": "D3",
+    "titulo": "<b>HTML</b> en título ‮",
+    "detalle": "<script>alert(1)</script>",
+    "severidad": "rara",
+    "tipo": "otra",
+    "estado": "abierta"
+   }
+  ],
+  "total": 11
+ },
+ "fuente": [
+  "empresa/panel/pulido.jsonl"
+ ],
+ "generado_en": "2026-11-10T10:05:00Z",
+ "vacio": false,
+ "avisos": []
+}

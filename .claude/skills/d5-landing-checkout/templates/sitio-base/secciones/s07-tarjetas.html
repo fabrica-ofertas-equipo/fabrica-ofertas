@@ -1,0 +1,35 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-quien">
+  <div class="contenedor">
+    <header class="encabezado">
+{{#si kicker}}
+      <p class="kicker">{{{kicker}}}</p>
+{{/si}}
+      <h2 id="titulo-quien">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+    <ul class="para-quien" role="list">
+{{#cada tarjetas}}
+      <li class="tarjeta tarjeta--perfil">
+        <span class="icono-caja icono-caja--grande icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#i-{{icono}}"></use></svg></span>
+{{#si titulo}}
+        <h3>{{{titulo}}}</h3>
+{{/si}}
+        <p>{{{texto}}}</p>
+      </li>
+{{/cada}}
+    </ul>
+{{#si no}}
+    <div class="panel no-encaja">
+      <h3><svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg><span>{{t.no}}</span></h3>
+      <ul role="list">
+{{#cada no}}
+        <li><svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+      </ul>
+    </div>
+{{/si}}
+  </div>
+{{{cta_html}}}
+</section>

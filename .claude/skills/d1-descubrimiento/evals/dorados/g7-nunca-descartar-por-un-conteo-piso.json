@@ -1,0 +1,87 @@
+{
+  "id": "g7-nunca-descartar-por-un-conteo-piso",
+  "tipo": "dorado",
+  "version_caso": "0.1.0",
+  "aprobado_por_dueno": false,
+  "aviso": "SINTÉTICO: datos inventados con dominios .invalid; ilustra el formato y las reglas, no mide el mercado. Falta que el dueño apruebe dorados reales.",
+  "titulo": "Regla del piso: no se descarta por un conteo truncado (barrido)",
+  "modo": "D",
+  "entrada": {
+    "descripcion": "Barrido con una página vista solo por frases: 12 anuncios en una muestra truncada (50 de 932). El umbral de tracción es 15.",
+    "candidatos_barrido": {
+      "schema_version": "1.0.0",
+      "corrida_id": "EVAL-SINTETICO",
+      "temas": [
+        {
+          "tema_slug": "tema-con-piso",
+          "estado_traccion": "indeterminada_por_muestra",
+          "hay_muestra_truncada": true,
+          "paginas": [
+            {
+              "page_id": "1",
+              "estado_traccion": "indeterminada_por_muestra",
+              "medicion_estado": "muestra",
+              "anuncios_activos_medidos": 12,
+              "anuncios_activos_medidos_es_piso": true,
+              "edad_es_piso": true
+            }
+          ]
+        },
+        {
+          "tema_slug": "tema-medido-bajo",
+          "estado_traccion": "no_pasa",
+          "hay_muestra_truncada": false,
+          "paginas": [
+            {
+              "page_id": "2",
+              "estado_traccion": "no_pasa",
+              "medicion_estado": "completa",
+              "anuncios_activos_medidos": 9,
+              "anuncios_activos_medidos_es_piso": false,
+              "edad_es_piso": false
+            }
+          ]
+        },
+        {
+          "tema_slug": "tema-piso-ya-supera",
+          "estado_traccion": "pasa",
+          "hay_muestra_truncada": true,
+          "paginas": [
+            {
+              "page_id": "3",
+              "estado_traccion": "pasa",
+              "medicion_estado": "parcial",
+              "anuncios_activos_medidos": 31,
+              "anuncios_activos_medidos_es_piso": true,
+              "edad_es_piso": true
+            }
+          ]
+        }
+      ],
+      "descartadas": [
+        {
+          "page_id": "9",
+          "motivos": [
+            "formato_excluido:servicio"
+          ]
+        }
+      ]
+    }
+  },
+  "esperado": {
+    "validar_barrido": {
+      "exit": 0
+    },
+    "debe_cumplir": [
+      "la página de 12 anuncios queda `indeterminada_por_muestra` (un conteo de muestra es un PISO), nunca no_pasa ni descartada",
+      "se pide la pasada 3 (una consulta por page_id y país: `barrido plan pasada3`) para medirla",
+      "un piso que ya supera el umbral (31 ≥ 15) es definitivo: pasa",
+      "solo `no_pasa` con medición completa y sin pisos"
+    ],
+    "no_debe": [
+      "descartar por «pocos anuncios» una página con muestra truncada",
+      "tratar la ausencia en la muestra como ausencia en el mercado (es una hipótesis hasta medir)"
+    ]
+  },
+  "salida_esperada": {}
+}

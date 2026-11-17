@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "tipo_cambio_id": "TC-USDEUR-20261106",
+  "par": "USD/EUR",
+  "fecha": "2026-11-06",
+  "tasa": "0,9250",
+  "fuente": "[SUPUESTO] tasa ficticia de ejemplo; la real sale de la fuente registrada por F1",
+  "obtenido_en": "2026-11-06T07:00:00Z",
+  "hash_contenido": "sha256:921aad680aefde956142872eb32a46f042fb47c4b83f9fc8f8512767b5bb006b"
+}

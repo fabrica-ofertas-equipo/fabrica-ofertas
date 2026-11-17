@@ -1,0 +1,18 @@
+{
+  "caso_id": "D04",
+  "titulo": "Votos malformados",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "votos": "voto «sí», puntaje 11, motivo de 26 palabras, campo extra, JSON roto, duplicado, paquete ajeno"
+  },
+  "salida_esperada": {
+    "rechazados": "todos, con motivo",
+    "contados": 0,
+    "alerta_ceguera": "va a cuarentena y no cuenta"
+  },
+  "aprobacion": [
+    "ningún voto malformado entra a votos[]",
+    "completitud y faltantes cuadran"
+  ]
+}

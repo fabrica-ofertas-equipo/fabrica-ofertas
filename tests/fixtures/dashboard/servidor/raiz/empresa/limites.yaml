@@ -1,0 +1,8 @@
+schema_version: "1.0.0"
+version: 1
+moneda_limites: null
+capital_en_riesgo_total: null
+acciones_gate_humano: []
+maximos:
+  gasto_diario: null
+  ofertas_simultaneas: 2

@@ -1,0 +1,4 @@
+validador=enum
+ruta=/nivel_max_lanzable/salud
+contiene=amarillo-A
+texto=el nivel se escribe en minúsculas (amarillo-a)

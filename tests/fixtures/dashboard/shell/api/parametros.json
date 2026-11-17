@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "datos": {
+    "limites": {
+      "valores": {
+        "max_gasto_diario_total": null
+      },
+      "nulos": [
+        "max_gasto_diario_total",
+        "max_gasto_por_oferta",
+        "perdida_neta_acumulada_max"
+      ]
+    },
+    "parametros": {},
+    "autonomia": {},
+    "propuestas": [
+      {
+        "archivo": "empresa/propuestas/parametros-b0.yaml",
+        "claves": [
+          "dashboard.etl_meta_cada_h"
+        ]
+      }
+    ]
+  },
+  "fuente": [
+    "empresa/limites.yaml",
+    "empresa/parametros.yaml"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

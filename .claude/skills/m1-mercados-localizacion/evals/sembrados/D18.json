@@ -1,0 +1,45 @@
+{
+  "id": "D18",
+  "bloqueante_star": false,
+  "severidad": "MAYOR",
+  "defecto": "f_meta aplicado dos veces al presupuesto",
+  "donde_se_siembra": "mercado.seleccion.json#/presupuesto_test_sugerido/por_mercado",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/presupuesto_test_sugerido/por_mercado",
+          "valor": {
+            "monto": 177984,
+            "moneda": "USD"
+          }
+        },
+        {
+          "op": "set",
+          "ruta": "/presupuesto_test_sugerido/total",
+          "valor": {
+            "monto": 177984,
+            "moneda": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-19"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-19",
+      "patron_clave": "f-meta-doble",
+      "severidad": "MAYOR",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "presupuesto = K x clics_min x CPC (el CPC ya incluye f_meta)"
+  }
+}

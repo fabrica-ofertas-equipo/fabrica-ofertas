@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "ejecucion_id": "RUN-20261106-01",
+  "oferta_id": "OF-202611-01",
+  "skill_version": "0.1.0",
+  "costo_estimado": {
+    "monto": 0,
+    "moneda": "EUR"
+  },
+  "tokens": null,
+  "modo": "dry_run",
+  "ts": "2026-11-06T11:00:00Z",
+  "etapa": "D1",
+  "agente": "d1-maker",
+  "evento": "accion",
+  "herramienta": "WebSearch",
+  "entrada_resumen": "búsqueda de voz del cliente sobre el hueco en el currículum",
+  "resultado": {
+    "estado": "ok",
+    "codigo": 0
+  },
+  "hash_previo": null,
+  "hash": "sha256:818c2a992524221b72ab36c7e045b9a4d770a6769433e9f4786c1d7f95f70945"
+}

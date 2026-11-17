@@ -1,0 +1,37 @@
+{
+  "id": "S21",
+  "descripcion": "Anuncio rechazado recreado identico (mismo asset) en lugar de uno nuevo corregido",
+  "check_id": "C10",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "archivos_nuevos": [
+    {
+      "archivo": "07-campana/lanzamiento.log",
+      "lineas": [
+        {
+          "ts": "2026-11-17T10:00:00Z",
+          "tipo": "RECHAZO",
+          "ad_id": "120000000000100",
+          "asset_sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "eje": "P",
+          "motivo": "politica"
+        }
+      ]
+    }
+  ],
+  "esperado": {
+    "check_id": "C10",
+    "codigo": "anuncio_rechazado_recreado_identico",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C10",
+      "patron_clave": "anuncio-rechazado-recreado",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

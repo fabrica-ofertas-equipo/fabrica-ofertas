@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "semaforo": "VERDE",
+  "generado_en": "2026-11-09T06:00:00Z",
+  "valido_hasta": "2026-11-09T12:00:00Z",
+  "items": [
+    {
+      "id": "META-01",
+      "bloque": "meta",
+      "estado": "VERDE",
+      "evidencia_ruta": "empresa/infra/healthcheck/20261109-0600.json",
+      "medido_en": "2026-11-09T06:00:00Z",
+      "expira_en": "2026-11-10T06:00:00Z"
+    },
+    {
+      "id": "STRIPE-01",
+      "bloque": "stripe",
+      "estado": "VERDE",
+      "evidencia_ruta": "empresa/infra/healthcheck/20261109-0600.json",
+      "medido_en": "2026-11-09T06:00:00Z",
+      "expira_en": "2026-11-10T06:00:00Z"
+    }
+  ],
+  "firma": "abc"
+}

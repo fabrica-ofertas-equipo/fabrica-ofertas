@@ -1,0 +1,56 @@
+# Catálogo normativo de ítems de scripts/preflight.py (44: 43 + R-06, persistencia). Todas las sondas son de SOLO LECTURA.
+# Diseño y principios: docs/07-puesta-en-marcha.md, sección 10. Los umbrales entre [] salen de empresa/parametros.yaml.
+# Regla de sonda no ejecutable (sin credencial, sin red, timeout): ROJO si critico=true, AMARILLO si no. Nunca VERDE por ausencia.
+# modos: completo (todos) | ligero (cada hc.sonda_ligera_min con campañas activas, solo los marcados ligero: true).
+version: 1
+actualizado: "2026-11-06"
+agregacion:
+  ROJO: "algún ítem crítico en ROJO, o falta un bloque completo"
+  AMARILLO: "algún AMARILLO, o ROJO no crítico"
+  VERDE: "todos los críticos en VERDE con medición vigente"
+  vigencia_maxima_horas: 6
+items:
+  - {id: M-01, bloque: meta, critico: true, ligero: true, comprueba: "debug_token de cada token de Meta", verde: "válido; scopes dentro de los mínimos; vence en más de [token.alerta_dias_antes] o no vence", amarillo: "vence dentro de [token.alerta_dias_antes]", rojo: "inválido o con scope de más (p. ej. business_management)"}
+  - {id: M-02, bloque: meta, critico: true, ligero: true, comprueba: "GET act_<id>: account_status, disable_reason, currency, timezone_name", verde: "account_status=1; disable_reason=0; ID en cuentas_permitidas; moneda y zona = decisiones.yaml", amarillo: "", rojo: "cualquier otro estado o ID fuera de la lista"}
+  - {id: M-03, bloque: meta, critico: true, ligero: true, comprueba: "spend_cap, amount_spent, funding_source", verde: "spend_cap>0; spend_cap-amount_spent>0; spend_cap<=limite_gasto_cuenta_meta; no prepago", amarillo: "restante por debajo de [meta.cap_aviso_pct]", rojo: "spend_cap=0 (sin tope), sin valor en limites.yaml o fondos prepagos"}
+  - {id: M-04, bloque: meta, critico: true, ligero: false, comprueba: "fan page asignada y publicada", verde: "publicada y sin restricciones", amarillo: "", rojo: "sin publicar o sin acceso"}
+  - {id: M-05, bloque: meta, critico: true, ligero: false, comprueba: "dataset de cada oferta con campaña planificada: existencia, últimos eventos, EMQ de Purchase", verde: "evento en menos de 24 h y EMQ>=[meta.emq_min_purchase]", amarillo: "EMQ bajo el umbral o evento entre 24 y 72 h", rojo: "sin dataset o sin eventos hace más de 72 h"}
+  - {id: M-06, bloque: meta, critico: true, ligero: false, comprueba: "verificación de dominio por oferta (TXT en DNS y estado en el portfolio)", verde: "TXT presente y dominio verificado", amarillo: "TXT presente y estado no legible", rojo: "ausente"}
+  - {id: M-07, bloque: meta, critico: true, ligero: false, condicion: "la oferta segmenta a la UE o a 'mundial'", comprueba: "default_dsa_beneficiary y default_dsa_payor en la cuenta", verde: "ambos presentes", amarillo: "", rojo: "falta alguno"}
+  - {id: M-08, bloque: meta, critico: false, ligero: false, comprueba: "nivel de acceso de la API, usuarios del sistema y uso (X-Business-Use-Case)", verde: "coincide con la fase del plan y uso menor a 75 %", amarillo: "Limited con más de una función por token", rojo: "uso de cuota superior a 75 % sostenido"}
+  - {id: M-09, bloque: meta, critico: true, ligero: false, comprueba: "bitácora de actividad de 24 h contra registro.jsonl", verde: "todo cambio tiene registro propio", amarillo: "cambios del propio sistema de Meta sin explicar", rojo: "cambio de un actor desconocido"}
+  - {id: M-10, bloque: meta, critico: false, ligero: false, comprueba: "errores de entrega de campañas activas (ads_get_errors)", verde: "ninguno", amarillo: "avisos", rojo: "errores que bloquean la entrega"}
+  - {id: S-01, bloque: stripe, critico: true, ligero: true, comprueba: "rk_lectura válida (GET /v1/balance)", verde: "200", amarillo: "latencia alta", rojo: "401 o 403"}
+  - {id: S-02, bloque: stripe, critico: true, ligero: false, comprueba: "charges_enabled, payouts_enabled, requirements.currently_due", verde: "ambos activos y sin pendientes", amarillo: "pendientes con más de 7 días", rojo: "alguno inhabilitado o requisito vencido"}
+  - {id: S-03, bloque: stripe, critico: true, ligero: true, comprueba: "destinos de eventos en vivo: existen, habilitados, eventos EXACTOS de stripe-eventos-webhook.yaml", verde: "coincide", amarillo: "sobra un evento", rojo: "falta un evento o destino inhabilitado"}
+  - {id: S-04, bloque: stripe, critico: true, ligero: true, comprueba: "eventos de las últimas 24 h contra la tabla stripe_eventos", verde: "sin huecos", amarillo: "huecos recuperados por reintento", rojo: "huecos mayores a [webhook.tolerancia_huecos]"}
+  - {id: S-05, bloque: stripe, critico: true, ligero: false, comprueba: "Price activos de las ofertas contra checkout.json (precio, moneda, lookup_key)", verde: "coincide", amarillo: "", rojo: "no coincide"}
+  - {id: S-06, bloque: stripe, critico: true, ligero: false, comprueba: "coherencia de modo: claves vivas solo en producción, de prueba solo en pruebas", verde: "coherente", amarillo: "", rojo: "mezcla"}
+  - {id: S-07, bloque: stripe, critico: true, ligero: false, comprueba: "(disputas + alertas tempranas de fraude) / pagos, 30 días", verde: "menor a [ratio_disputas_alerta]", amarillo: "entre alerta y pausa", rojo: "mayor o igual a [ratio_disputas_pausa]"}
+  - {id: S-08, bloque: stripe, critico: false, ligero: false, comprueba: "descriptor, política de reembolso y contacto configurados", verde: "presentes", amarillo: "", rojo: "ausentes"}
+  - {id: C-01, bloque: cloudflare, critico: true, ligero: false, comprueba: "tokens/verify de cada token de Cloudflare", verde: "active y vence en más de 14 días", amarillo: "vence pronto", rojo: "inactivo"}
+  - {id: C-02, bloque: cloudflare, critico: true, ligero: false, comprueba: "Workers: versión desplegada contra commit y hash esperados", verde: "coincide", amarillo: "", rojo: "distinta"}
+  - {id: C-03, bloque: cloudflare, critico: true, ligero: false, comprueba: "rutas por zona y cron del watchdog presentes", verde: "completo", amarillo: "", rojo: "falta alguno"}
+  - {id: C-04, bloque: cloudflare, critico: true, ligero: false, comprueba: "DNS por dominio: SPF, DKIM, DMARC y TXT de Meta", verde: "todos", amarillo: "DMARC en p=none más de [email.dmarc_none_dias] días", rojo: "falta SPF o DKIM"}
+  - {id: C-05, bloque: cloudflare, critico: true, ligero: false, comprueba: "TLS y vencimiento de dominios", verde: "más de [tls.dias_min_restantes] y más de [dominio.dias_min_renovacion] días", amarillo: "por debajo del umbral", rojo: "vencido"}
+  - {id: C-06, bloque: cloudflare, critico: true, ligero: false, comprueba: "R2 privado (GET sin firma da 403/404; r2.dev desactivado)", verde: "privado", amarillo: "", rojo: "accesible"}
+  - {id: C-07, bloque: cloudflare, critico: true, ligero: false, comprueba: "humo HTTP: landing 200, UTM persiste, /api/sesion responde, URL con %7C da 200", verde: "todo", amarillo: "lento", rojo: "falla"}
+  - {id: C-08, bloque: cloudflare, critico: true, ligero: true, comprueba: "webhook con firma inválida (sonda propia)", verde: "responde 400", amarillo: "", rojo: "responde 2xx"}
+  - {id: C-09, bloque: cloudflare, critico: true, ligero: true, comprueba: "watchdog: visto en 10 min o menos y latido recibido en 2 periodos o menos", verde: "ambos", amarillo: "", rojo: "fuera de rango"}
+  - {id: R-01, bloque: railway, critico: true, ligero: false, comprueba: "servicios activos: motor con 1 réplica, etl, api, Postgres", verde: "todos", amarillo: "", rojo: "uno caído o motor con réplicas distintas de 1"}
+  - {id: R-02, bloque: railway, critico: true, ligero: false, comprueba: "respaldo de Railway y pg_dump en R2 con menos de 26 h", verde: "ambos", amarillo: "solo uno", rojo: "ninguno"}
+  - {id: R-03, bloque: railway, critico: true, ligero: false, comprueba: "base: conexión, latencia y espacio", verde: "conecta; espacio menor a 80 %", amarillo: "80 a 90 %", rojo: "no conecta o mayor a 90 %"}
+  - {id: R-04, bloque: railway, critico: false, ligero: false, comprueba: "etl: última ejecución exitosa", verde: "dentro de 2 periodos", amarillo: "2 a 3 periodos", rojo: "más de 3 periodos"}
+  - {id: R-05, bloque: railway, critico: true, ligero: false, comprueba: "variables esperadas por NOMBRE en cada servicio (sin leer valores)", verde: "completas", amarillo: "", rojo: "falta alguna"}
+  - {id: R-06, bloque: railway, critico: true, ligero: false, comprueba: "empresa/ persiste tras un redeploy (centinela; redespliega en pruebas y lo relee)", verde: "centinela de una corrida anterior legible y sin alterar", amarillo: "centinela demasiado reciente para confirmar persistencia entre corridas", rojo: "centinela ilegible o alterado"}
+  - {id: G-01, bloque: github, critico: true, ligero: false, comprueba: "repo privado, reglas de main, CI verde del último commit", verde: "todo", amarillo: "CI amarillo", rojo: "repo público o sin reglas"}
+  - {id: G-02, bloque: github, critico: true, ligero: false, comprueba: "hash de scripts/preflight*, hook y settings.json contra lo firmado", verde: "coincide", amarillo: "", rojo: "distinto"}
+  - {id: G-03, bloque: github, critico: true, ligero: false, comprueba: "gitleaks sobre el repo", verde: "0 hallazgos", amarillo: "", rojo: "1 o más"}
+  - {id: E-01, bloque: correo, critico: true, ligero: false, comprueba: "dominios del proveedor de correo verificados", verde: "todos", amarillo: "pendiente hace menos de 24 h", rojo: "no verificado"}
+  - {id: E-02, bloque: correo, critico: false, ligero: false, comprueba: "rebotes y quejas, 7 días", verde: "menor a [email.rebote_max_pct] y [email.queja_max_pct]", amarillo: "cerca del límite", rojo: "por encima"}
+  - {id: L-01, bloque: legal, critico: true, ligero: false, comprueba: "siete páginas legales: 200, enlazadas, hash igual al sellado por X1", verde: "todo", amarillo: "", rojo: "falta una o hash distinto"}
+  - {id: L-02, bloque: legal, critico: true, ligero: false, condicion: "oferta con tráfico UE/UK", comprueba: "sin consentimiento no hay solicitudes a facebook.com/tr ni connect.facebook.net (Playwright)", verde: "cumple", amarillo: "", rojo: "dispara"}
+  - {id: K-01, bloque: seguridad, critico: true, ligero: true, comprueba: "empresa/PAUSA ausente y motor sin pausa", verde: "sí", amarillo: "", rojo: "PAUSA presente"}
+  - {id: K-02, bloque: seguridad, critico: true, ligero: false, comprueba: "vencimientos de empresa/infra/secretos.md", verde: "todos a más de 14 días", amarillo: "alguno a 14 días o menos", rojo: "alguno vencido"}
+  - {id: K-03, bloque: seguridad, critico: false, ligero: false, critico_desde: N3, comprueba: "simulacro de kill switch (A-1 a A-12) en los últimos 30 días", verde: "sí", amarillo: "30 a 45 días", rojo: "nunca o más de 45 días"}
+  - {id: P-01, bloque: control, critico: true, ligero: true, comprueba: "limites.yaml: campos requeridos presentes y hash firmado", verde: "sí", amarillo: "", rojo: "falta un campo o el hash no coincide"}

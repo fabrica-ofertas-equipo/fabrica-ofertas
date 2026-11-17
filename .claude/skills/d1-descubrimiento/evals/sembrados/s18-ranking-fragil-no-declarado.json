@@ -1,0 +1,31 @@
+{
+  "id": "s18-ranking-fragil-no-declarado",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ top3_estable_pct bajo el mínimo y el informe no declara «ranking frágil» (D-11)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/sensibilidad/top3_estable_pct",
+      "valor": 40
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-11",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-11",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "ranking-fragil-no-declarado"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/propuestos/d5-prueba-social-real.schema.json",
+  "title": "prueba_social_real.json de D5 (PROPUESTA de la skill d5-landing-checkout)",
+  "description": "Prueba social REAL de una oferta: ventas, descargas de la muestra y valoración, cada bloque con su fuente y la fecha del dato. Lo produce CÓDIGO a partir de datos reales (Stripe, registro de descargas, reseñas verificadas), nunca el Maker. La landing solo muestra un bloque con total ≥ 1 (cero o ausente = no se muestra) y cita la fecha del dato. No hay cuentas atrás, «+N alumnos» ni toast de compra: solo lo medido. Estado: PROPUESTA; productor pendiente (pedido a S-B en docs/_historial/coordinacion-sesiones.md).",
+  "x-version": "0.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$"
+    },
+    "oferta_id": {
+      "type": "string",
+      "pattern": "^OF-[0-9]{6}-[0-9]{2}$"
+    },
+    "generado_en": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "ventas": {
+      "$ref": "#/$defs/total"
+    },
+    "descargas_muestra": {
+      "$ref": "#/$defs/total"
+    },
+    "valoracion": {
+      "type": "object",
+      "properties": {
+        "media_decimas": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 50,
+          "description": "Media en décimas: 48 = 4,8 de 5."
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Número de valoraciones reales."
+        },
+        "fuente": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 120
+        },
+        "al": {
+          "$ref": "#/$defs/fecha"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "media_decimas",
+        "n",
+        "fuente",
+        "al"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "generado_en"
+  ],
+  "$defs": {
+    "fecha": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    },
+    "total": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fuente": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 120,
+          "description": "De dónde sale el número (p. ej. «Stripe, pagos completados»)."
+        },
+        "al": {
+          "$ref": "#/$defs/fecha"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "total",
+        "fuente",
+        "al"
+      ]
+    }
+  }
+}

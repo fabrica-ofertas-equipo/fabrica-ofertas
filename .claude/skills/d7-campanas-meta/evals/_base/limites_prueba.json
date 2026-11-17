@@ -1,0 +1,22 @@
+{
+  "moneda_limites": "EUR",
+  "gasto_diario_por_oferta": 8000,
+  "gasto_total_test_por_oferta": 40000,
+  "perdida_max_test_por_oferta": 40000,
+  "factor_techo_teorico_diario": "1.75",
+  "paises_permitidos": [
+    "IT",
+    "PL",
+    "DE"
+  ],
+  "locales_permitidos": [
+    "it-IT",
+    "pl-PL",
+    "de-DE"
+  ],
+  "ofertas_en_test_simultaneas_max": 1,
+  "politica_divulgacion_ia": "declarar_siempre",
+  "edad_minima_audiencia": {
+    "defecto": 18
+  }
+}

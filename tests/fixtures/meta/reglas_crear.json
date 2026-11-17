@@ -1,0 +1,10 @@
+[
+  {"metodo": "GET", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/campaigns", "cuerpo": {"data": []}},
+  {"metodo": "POST", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/campaigns", "cuerpo": {"id": "1001"}},
+  {"metodo": "GET", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/adsets", "cuerpo": {"data": []}},
+  {"metodo": "POST", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/adsets", "cuerpo": {"id": "2001"}},
+  {"metodo": "GET", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/adcreatives", "cuerpo": {"data": []}},
+  {"metodo": "POST", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/adcreatives", "cuerpo": {"id": "3001"}},
+  {"metodo": "GET", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/ads", "cuerpo": {"data": []}},
+  {"metodo": "POST", "url_prefijo": "https://graph.facebook.com/v21.0/act_100000000000001/ads", "cuerpo": {"id": "4001"}}
+]

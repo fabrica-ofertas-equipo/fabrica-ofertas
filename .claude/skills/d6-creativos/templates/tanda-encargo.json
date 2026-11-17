@@ -1,0 +1,36 @@
+{
+  "avisos": [],
+  "composicion": {
+    "angulos_nuevos": 3,
+    "relevos": 3,
+    "traducciones": 2
+  },
+  "faltan": 0,
+  "fecha": "2026-11-08",
+  "limites": {
+    "estado": "[SUPUESTO] pendiente de parametros.yaml (PEDIDOS.md #1)",
+    "maximo": 10,
+    "minimo": 5
+  },
+  "locale": "pl-PL",
+  "modo": "manual",
+  "nota": "EJEMPLO generado con tanda.py plan. Carpeta de la tanda: 06-creativos/tandas/AAAA-MM-DD_<locale>/",
+  "objetivo": 8,
+  "objetivo_efectivo": 8,
+  "oferta_id": "OF-202611-91",
+  "prioridad": [
+    "relevos",
+    "angulos_nuevos",
+    "traducciones"
+  ],
+  "produce": 8,
+  "reglas": [
+    "una variable por vez (SKILL §5.8)",
+    "cada gancho pasa por ganchos.py rechazar antes de redactarse",
+    "qc6 lote antes de dejar la tanda en «por aprobar»",
+    "de noche se produce y a la tarde se carga: la tanda no sube nada a Meta"
+  ],
+  "ruta": "A (HTML a PNG, 0 créditos)",
+  "schema_version": "0.1.0",
+  "tipo": "tanda"
+}

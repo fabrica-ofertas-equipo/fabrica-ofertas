@@ -1,0 +1,3 @@
+[EJEMPLO FICTICIO, no es una fuente real; sirve para probar verificar_respaldo.py]
+Autoridad Ficticia de Hacienda (organismo oficial inventado). Guía del contribuyente, edición de ejemplo.
+El umbral mensual del tramo de ejemplo es de 1.500 euros. Las personas que superen ese umbral deben presentar el formulario inventado F-00 dentro de los treinta días siguientes.

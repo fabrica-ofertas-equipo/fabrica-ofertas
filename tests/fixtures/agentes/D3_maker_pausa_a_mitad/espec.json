@@ -1,0 +1,37 @@
+{
+  "rol": "maker",
+  "etapa": "D3",
+  "oferta_id": "OF-202611-01",
+  "agente": "d3-maker",
+  "prompt_base": "Encargo de prueba: arma oferta.json para OF-202611-01 a partir de validacion.json y economia.json.",
+  "entradas": [
+    "ofertas/OF-202611-01/02-validacion/validacion.json",
+    "ofertas/OF-202611-01/03-oferta/economia.json"
+  ],
+  "contrato_salida": "contratos/oferta.schema.json",
+  "artefactos_esperados": [
+    "oferta.json"
+  ],
+  "herramientas": [
+    "Read",
+    "Grep",
+    "Glob",
+    "Write",
+    "Edit",
+    "Bash"
+  ],
+  "allow": [
+    "Edit(//RAIZ/ofertas/OF-202611-01/D3/.staging/RUN-FIXTURE/**)"
+  ],
+  "rutas_escribibles": [
+    "oferta.json"
+  ],
+  "presupuesto": {
+    "usd_centavos_max": 500,
+    "tiempo_s_max": 1200,
+    "turnos_max": 40
+  },
+  "modelo": "claude-sonnet-5",
+  "esfuerzo": "medium",
+  "ronda": 1
+}

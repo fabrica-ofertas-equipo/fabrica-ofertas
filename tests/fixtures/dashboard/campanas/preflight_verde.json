@@ -1,0 +1,106 @@
+{
+ "schema_version": "1.0.0",
+ "oferta_id": "OF-202611-01",
+ "hash_config": "sha256:2be24a1d67ab55d658f663b219632fad7689c7b8900435f5fb84a3c45fda57ed",
+ "generado_en": "2026-11-10T09:00:00Z",
+ "valido_hasta": "2026-11-11T09:00:00Z",
+ "semaforo": "VERDE",
+ "checks": {
+  "P01": {
+   "estado": "VERDE",
+   "evidencia": "sin empresa/PAUSA"
+  },
+  "P02": {
+   "estado": "VERDE",
+   "evidencia": "cuenta act_900000000000001 ACTIVE"
+  },
+  "P03": {
+   "estado": "VERDE",
+   "evidencia": "método de pago válido (tarjeta terminada en 4242)"
+  },
+  "P04": {
+   "estado": "VERDE",
+   "evidencia": "cuenta saludable según X1"
+  },
+  "P05": {
+   "estado": "VERDE",
+   "evidencia": "límite diario de Meta 5000,00 EUR ≥ 1,75 × 27,60 EUR"
+  },
+  "P06": {
+   "estado": "VERDE",
+   "evidencia": "límite de gasto de cuenta fijado: 300,00 EUR"
+  },
+  "P07": {
+   "estado": "VERDE",
+   "evidencia": "página 900000000000002 vinculada"
+  },
+  "P08": {
+   "estado": "VERDE",
+   "evidencia": "dataset 999000000000001 con eventos de las últimas 24 h"
+  },
+  "P09": {
+   "estado": "VERDE",
+   "evidencia": "EMQ 6,4 ≥ 6,0"
+  },
+  "P10": {
+   "estado": "VERDE",
+   "evidencia": "evento de prueba con el mismo event_id en navegador y servidor"
+  },
+  "P11": {
+   "estado": "VERDE",
+   "evidencia": "dominio miregresolaboral.example verificado"
+  },
+  "P12": {
+   "estado": "VERDE",
+   "evidencia": "enlace 200 sin redirecciones"
+  },
+  "P13": {
+   "estado": "VERDE",
+   "evidencia": "URL con las 6 macros y sin vacíos"
+  },
+  "P14": {
+   "estado": "VERDE",
+   "evidencia": "landing_hash, precio y moneda iguales al paquete y al checkout"
+  },
+  "P15": {
+   "estado": "VERDE",
+   "evidencia": "copys iguales al paquete; lint_claims sin ROJO"
+  },
+  "P16": {
+   "estado": "VERDE",
+   "evidencia": "mejoras de Meta en OPT_OUT"
+  },
+  "P17": {
+   "estado": "VERDE",
+   "evidencia": "self_ai_disclosure = política"
+  },
+  "P18": {
+   "estado": "VERDE",
+   "evidencia": "es-ES y ES dentro de paises_permitidos"
+  },
+  "P19": {
+   "estado": "VERDE",
+   "evidencia": "nombres ASCII con _ y sin |"
+  },
+  "P20": {
+   "estado": "VERDE",
+   "evidencia": "presupuesto 27,60 EUR/día y spend_cap 303,60 EUR dentro de límites"
+  },
+  "P21": {
+   "estado": "VERDE",
+   "evidencia": "active_errors vacío; 0 objetos ajenos"
+  },
+  "P22": {
+   "estado": "VERDE",
+   "evidencia": "vistas previas de 5 anuncios sin errores"
+  },
+  "P23": {
+   "estado": "VERDE",
+   "evidencia": "1 oferta en test < máximo 2"
+  },
+  "P24": {
+   "estado": "VERDE",
+   "evidencia": "hash_config sellado"
+  }
+ }
+}

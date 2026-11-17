@@ -1,0 +1,467 @@
+{
+ "descripcion": "Casos LEGÍTIMOS que deben PASAR (o pasar con revisión) y que un filtro por tema bloquearía: es el contrapeso del sobre-bloqueo (KPI: <= 15 %). Salida esperada = clasificación por criterio (nota 25) y dictamen. 'lint_correcto' dice lo que debería dar un linter bien calibrado; scripts/correr_evals.py compara con el linter REAL y cuenta falsos positivos. L08 documenta uno conocido. Frases it/pl/ro/fr/de [SUPUESTO] sin revisor nativo: [VERIFICAR].",
+ "version": "0.1.0",
+ "casos": [
+  {
+   "caso_id": "L01",
+   "titulo": "Planificador de comidas con tabla por porción (es)",
+   "origen": "spec 14 §6.4 falsos positivos; suite SAL-13",
+   "locale": "es-ES",
+   "macro_nicho": "salud",
+   "etapa_objetivo": "D6",
+   "texto": "Planificador semanal de comidas con tabla por porción y lista de la compra",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "aviso de alcance",
+     "fuente de la tabla",
+     "alérgenos"
+    ]
+   }
+  },
+  {
+   "caso_id": "L02",
+   "titulo": "Hoja de costeo y precio mínimo para quien vende manualidades",
+   "origen": "spec 14 §6.4 falsos positivos; decisión 13 del dueño; suite DIN-04 (reencuadre)",
+   "locale": "es-ES",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Hoja de costeo y precio mínimo para quien vende manualidades",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E1",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "«no constituye asesoramiento financiero»",
+     "«cifras ilustrativas»",
+     "sin enlaces comisionados"
+    ]
+   }
+  },
+  {
+   "caso_id": "L03",
+   "titulo": "Reinserción laboral tras una pausa (es)",
+   "origen": "decisión 13 del dueño; suite DIN-02; spec §10.5 (6)",
+   "locale": "es-ES",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Guía para volver al trabajo tras una pausa: plantilla de CV, guion para explicar tu pausa y checklist de entrevistas",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E1",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L04",
+   "titulo": "Meal-prep planner (en)",
+   "origen": "suite SAL-11/SAL-12 por analogía",
+   "locale": "en-US",
+   "macro_nicho": "salud",
+   "etapa_objetivo": "D6",
+   "texto": "Weekly meal-prep planner with grocery lists and a per-serving table",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L05",
+   "titulo": "Presupuesto base cero (en)",
+   "origen": "nota 25 §5.2 (aprobable en)",
+   "locale": "en-US",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Zero-based budget template: enter your own numbers. Illustrative figures only. Not financial advice.",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L06",
+   "titulo": "Tarjetas de conversación para parejas (en)",
+   "origen": "nota 25 §5.2 y NC-R09 por analogía",
+   "locale": "en-US",
+   "macro_nicho": "relaciones",
+   "etapa_objetivo": "D6",
+   "texto": "50 conversation cards for couples. Educational material; not therapy.",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C0",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "«Si temes por tu seguridad, no uses este material» + línea de ayuda del país (J02)"
+    ]
+   }
+  },
+  {
+   "caso_id": "L07",
+   "titulo": "Tableros de rutinas familiares (es)",
+   "origen": "suite REL-007/REL-008 por analogía",
+   "locale": "es-ES",
+   "macro_nicho": "relaciones",
+   "etapa_objetivo": "D6",
+   "texto": "Tableros de rutinas familiares para imprimir: 6 tableros de mañana y de noche",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E1",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L08",
+   "titulo": "«Comida sana» con tabla: falso positivo conocido del linter",
+   "origen": "compliance/reglas_sensibles.yaml es-ES salud rojo `\\bsana(r|rte|mos)?\\b`",
+   "locale": "es-ES",
+   "macro_nicho": "salud",
+   "etapa_objetivo": "D6",
+   "texto": "Recetas de comida sana para la semana con tabla por porción",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "FAIL",
+     "semaforo": "rojo"
+    },
+    "lint_correcto": "n/a"
+   },
+   "nota": "El riesgo por candidato es VERDE (el adjetivo describe la comida, no promete curar al lector), pero el linter real da ROJO por «sana»: el dictamen es FAIL con el linter actual porque solo se levanta un ROJO corrigiendo el artefacto (spec §7). Corrección segura: «Recetas semanales con tabla por porción» (sin la palabra). El Maker NO relaja la regla ni la salta: lo registra en aprendizajes_para_skill y pide al dueño (reclasifica una REGLA, no un caso) afinar `sana`.",
+   "lint_falso_positivo_conocido": true
+  },
+  {
+   "caso_id": "L09",
+   "titulo": "Calendario de cuotas, préstamos y tarjetas (it)",
+   "origen": "suite NC-D06: el término «prestiti» no bloquea",
+   "locale": "it-IT",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Scadenzario di rate, prestiti e carte: tutte le scadenze in un foglio",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L10",
+   "titulo": "Lista para reconocer estafas financieras (it)",
+   "origen": "suite DIN-10",
+   "locale": "it-IT",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Checklist per riconoscere le truffe finanziarie",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L11",
+   "titulo": "Gastos bancarios y suscripciones olvidadas (fr)",
+   "origen": "suite DIN-57",
+   "locale": "fr-FR",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Guide : comprendre ses frais bancaires et repérer les abonnements oubliés",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L12",
+   "titulo": "Tarjetas de pausas activas para home office (de)",
+   "origen": "suite NC-S10",
+   "locale": "de-DE",
+   "macro_nicho": "salud",
+   "etapa_objetivo": "D6",
+   "texto": "Bewegungspausen-Karten für Homeoffice: 20 Übungen à 2 Minuten",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "sin «gegen» + dolencia (HWG §3)",
+     "gate H por país × macro × nivel si Alemania aún no está aprobada"
+    ]
+   }
+  },
+  {
+   "caso_id": "L13",
+   "titulo": "Presupuesto por días hasta el sueldo (ro)",
+   "origen": "suite DIN-56",
+   "locale": "ro-RO",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Buget pe zile până la salariu: foaie imprimabilă",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C0",
+     "E": "E1",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO"
+   }
+  },
+  {
+   "caso_id": "L14",
+   "titulo": "Planner de las primeras 12 semanas tras el parto (pl)",
+   "origen": "suite NC-S07: el tema vigilado «posparto» no sube el nivel",
+   "locale": "pl-PL",
+   "macro_nicho": "salud",
+   "etapa_objetivo": "D6",
+   "texto": "Planer pierwszych 12 tygodni po porodzie: odpoczynek, sen, wizyty kontrolne",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C1",
+     "E": "E1",
+     "N": "N1"
+    },
+    "nivel": "verde",
+    "subnivel": null,
+    "veredicto_riesgo": "pasa",
+    "dictamen": {
+     "veredicto": "PASS",
+     "semaforo": "verde"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "sin dieta ni ejercicio prescritos (LC-08)"
+    ]
+   }
+  },
+  {
+   "caso_id": "L15",
+   "titulo": "Cuaderno de duelo (it): amarillo-a que PASA con revisión, no se bloquea",
+   "origen": "suite REL-016 (su motivo de «puerta M» es de la v1: la nota 25 v1.1 verifica Telefono Amico Italia)",
+   "locale": "it-IT",
+   "macro_nicho": "relaciones",
+   "etapa_objetivo": "D6",
+   "texto": "Quaderno di scrittura per il lutto: 30 spunti. Non è una terapia.",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C2",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "amarillo",
+    "subnivel": "A",
+    "veredicto_riesgo": "pasa_con_revision",
+    "dictamen": {
+     "veredicto": "PASS_CON_NOTAS",
+     "semaforo": "amarillo"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "bloque «Si necesitas ayuda ahora» con Telefono Amico Italia 02 2327 2327 (nota 25: leído 2026-11-06; reverificar antes de 2027-05-05)",
+     "RHS en el primer lanzamiento de la hoja × idioma",
+     "gate H del dueño por país × macro × nivel si el país es A+ [VERIFICAR matriz]",
+     "ayuda_por_pais.yaml verificada ≤ ayuda_max_antiguedad_dias"
+    ]
+   }
+  },
+  {
+   "caso_id": "L16",
+   "titulo": "Cómo leer un contrato de crédito (pl): amarillo-a",
+   "origen": "suite DIN-36",
+   "locale": "pl-PL",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Jak czytać umowę kredytową: przewodnik z przykładem",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C2",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "amarillo",
+    "subnivel": "A",
+    "veredicto_riesgo": "pasa_con_revision",
+    "dictamen": {
+     "veredicto": "PASS_CON_NOTAS",
+     "semaforo": "amarillo"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "sin enlaces comisionados ni instrumento recomendado (N01, J05)"
+    ]
+   }
+  },
+  {
+   "caso_id": "L17",
+   "titulo": "Calendario fiscal para freelancers (pl): amarillo-a",
+   "origen": "suite DIN-11",
+   "locale": "pl-PL",
+   "macro_nicho": "dinero",
+   "etapa_objetivo": "D6",
+   "texto": "Kalendarz podatkowy dla freelancerów: terminy i teczka na dokumenty",
+   "esperado": {
+    "ejes": {
+     "P": "P0",
+     "C": "C2",
+     "E": "E0",
+     "N": "N1"
+    },
+    "nivel": "amarillo",
+    "subnivel": "A",
+    "veredicto_riesgo": "pasa_con_revision",
+    "dictamen": {
+     "veredicto": "PASS_CON_NOTAS",
+     "semaforo": "amarillo"
+    },
+    "lint_correcto": "sin ROJO",
+    "debe_incluir": [
+     "hechos de plazos con fuente T1 en afirmaciones.jsonl",
+     "«no sustituye a un asesor»",
+     "sin «deducí / optimizá / pagá menos»"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+# Preguntas abiertas y supuestos (v0.1)
+
+Formato del prompt de arranque (§10.1 de la spec): las preguntas bloqueantes van aquí y se avanza con **`[SUPUESTO]`** marcado. Lo no respondido por el dueño **sigue siendo `[SUPUESTO]`**. Los hechos externos sin fuente oficial leída van `[VERIFICAR]`. Etiquetas: `[DUEÑO]` decide el dueño · `[SUPUESTO]` adoptado para avanzar · `[VERIFICAR]` hecho externo sin confirmar.
+
+## Preguntas bloqueantes de la spec (§10.1 y §11)
+
+| Id | Pregunta | Supuesto adoptado en v0.1 | Efecto si el dueño decide otra cosa |
+|---|---|---|---|
+| P-01 `[DUEÑO]` | Entidad e impuestos: ¿Stripe directo + Stripe Tax, Managed Payments (+ costo; exige producto 100 % automatizado y no admite BLIK ni Przelewy24) o MoR? LLC y Stripe ya están decididas | **sin decidir**: X1 no toca lo fiscal; `mp_elegible` se calcula pero no se aplica; el dossier lo señala **al contador** | cambia `mp_elegible`, L-13 de D5 y los métodos de pago; no cambia el criterio de riesgo |
+| P-02 `[DUEÑO]` | Aprobar las **30 líneas rojas** y `nivel_max_lanzable` = amarillo-a (B solo con gate H). Recomendación: aprobar | se aplican **como criterio** de dictamen; `limites.lineas_rojas` sigue `[]` | cargarlas en `limites.yaml` habilita el bloqueo por motor |
+| P-03 `[DUEÑO]` | Cuenta de Meta deshabilitada previa: ¿apelar o abandonar? (nunca abrir otra) | no se usa esa cuenta ni su píxel; X1 no apela | si apela, X1 solo prepara la evidencia (`apelaciones.jsonl`); la apelación es humana |
+| P-04 `[DUEÑO]` | Locales y países de v1 (Polonia e Italia son hipótesis a probar en paralelo, no prior); contador; presupuesto; revisor nativo de it y pl | ningún país es prior; **ningún país está `aprobado`** (`paises.yaml` sin firma) | sin país aprobado, J01/L1-05 falla cerrado |
+| P-05 `[DUEÑO]` | IA (avatares), escasez y garantía | IA: **solo narrador etiquetado** + C2PA, sin primera persona de experiencia; escasez: **solo `fecha_real`** (`cupo_real_servidor` con gate H); garantía: **piso 14 días incondicional**, 30 opcional como palanca, nunca atada a un resultado, no sustituye el desistimiento legal | cambia `limites.politica_divulgacion_ia` (hoy `null`) y L-07/O-05 |
+| P-06 `[DUEÑO]` | Nombre público del vendedor y de beneficiario/pagador DSA (LLC o marca); **aprobar `politica_recoleccion`** (la prepara X1, sin revisión legal humana); **zonas cerradas** (ayuno, dejar de fumar, astrología, cripto de custodia) | vendedor/DSA sin definir (L-01 queda abierto); la política de recolección es borrador; las zonas grises se tratan como `pasa_con_gate` **solo cuando el dueño las cierre** | cada zona gris cerrada se agrega a `limites.zonas_grises` (MINOR pendiente) |
+| P-07 `[VERIFICAR]` | Políticas vigentes de Meta (varias dieron 404); art. 16(m) Dir. 2011/83/UE y transposición de la 2023/2673 (EUR-Lex vacío); excepciones de contenido digital (AR, MX, CL, CO, BR); Loi Toubon y francés en Quebec; umbrales de Stripe; lectura por API de la calidad de cuenta; si Meta revisa anuncios en PAUSA | todo `[VERIFICAR]` en `jurisdicciones.md` y `politicas-meta-stripe.md`; **nunca** se afirma «Meta prohíbe X» sin texto leído | X1 las cierra con fuente y fecha (Modo C) |
+
+## Preguntas que surgen al forjar la skill
+
+| Id | Pregunta | Supuesto adoptado |
+|---|---|---|
+| P-08 | ¿Qué archivo es **el** dictamen cuando el Maker y el QA de X1 comparten el nombre `qa/x1-<etapa>-v<n>.json`? (`dependencias.md` D-11) | `[SUPUESTO]` el **Maker** entrega un **borrador** en su staging (`validar_dictamen.py --sin-nombre`); el **informe del QA** (salida estructurada persistida por el runner) es el **dictamen vinculante** que cita el sello; el QA confirma o refuta cada hallazgo del Maker |
+| P-09 | Si el linter real da ROJO sobre un texto que el criterio clasifica verde (p. ej. «comida sana»), ¿qué hace X1? | `[SUPUESTO]` el dictamen es **FAIL** hasta que se corrija el artefacto (un ROJO solo se levanta corrigiendo el artefacto); el Maker lo registra en `aprendizajes_para_skill` y pide al dueño reclasificar **la regla**; **nunca** la relaja ni la salta |
+| P-10 | ¿Qué pasa con un `locale` sin reglas (hoy fuera de es-ES/es-AR/es-MX/en-US/it-IT/pl-PL/ro-RO/fr-FR/de-DE)? | `[SUPUESTO]` **no es un pase**: el dictamen es `ESCALAR` (no hay L1 para ese idioma); el QA puede emitir hallazgos L2 pero el sello no es posible hasta que existan las reglas y el revisor nativo |
+| P-11 | ¿«Revisión profesional» del amarillo-b (nota 25) tras la decisión 14? | `[SUPUESTO]` se sustituye por **texto fiel a la fuente T1 verificado por script + gate H del dueño + riesgo residual registrado**; ninguna tarea queda esperando a un profesional |
+| P-12 | ¿Quién verifica `ayuda_por_pais.yaml` si X1 no verifica lo que él mismo cargó? | `[SUPUESTO]` una **segunda persona** (el dueño) o **D10 con llamada documentada**; la fecha cuenta contra `ayuda_max_antiguedad_dias` (pendiente de MINOR) |
+| P-13 | ¿X1 pide RHS (revisión humana de seguridad) al dueño o a otra persona? | `[SUPUESTO]` una persona (no necesariamente un profesional); 30-60 min; solo en el primer lanzamiento de cada hoja × idioma; no acredita exactitud clínica |
+| P-14 | ¿Qué locale usa el linter para `es-AR` y `es-MX` (voseo, jerga)? | **Resuelto en código (S-B B6b):** el linter trae reglas propias de es-AR (voseo) y es-MX, `[HIPÓTESIS]`; `correr_evals.py codigo` usa la variante exacta del locale y solo cae al proxy `es-ES` si no hay reglas propias. Falta el revisor nativo (gate H del primer lanzamiento del idioma) |
+| P-15 | ¿Se mide el sobre-bloqueo también sobre el reencuadre? | sí (`correr_evals.py suite`: «sobre-bloqueo del reencuadre»); requisito ≤ 15 % de legítimos |

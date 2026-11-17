@@ -1,0 +1,324 @@
+{
+  "schema_version": "0.2.0",
+  "descripcion": "Plano de sitio-base: dos PLANOS de página (campo `planos`) y los bloques que no son secciones. `referente` = estructura imitada del referente de venta (decisión del dueño J17/J18; docs/_historial/modelado-piloto/estructura-funnel-referentes.md §4): barra superior → héroe → «qué hay dentro» → reseñas → niveles con selector → para quién → bonus → comparación con el mercado → precio y desglose → garantía → cómo lo recibes → FAQ → CTA final → pie, con CTA repetido tras los bloques marcados `cta` y botón fijo en móvil. `clasica` = el plano original S01..S13 (copy 0.1.x). landing/generar.py elige el plano con `copy.estructura` (o, sin él, `referente` si copy.schema_version ≥ 0.2.0 y `clasica` si no), renderiza cada sección con su plantilla (la del plano manda), la omite sin romper la página si falta su material real y reparte los tonos de fondo para dar ritmo. Campos de cada sección: id · ancla (id HTML estable) · plantilla · tono (preferido; si la sección anterior ya lo tiene pasa a su alterno: claro<->suave, oscuro<->profundo) · obligatoria · copy (ruta en copy.json) · imagenes (ranuras de assets.json que consume) · proposito · omite_si.",
+  "tonos": [
+    "claro",
+    "suave",
+    "oscuro",
+    "profundo"
+  ],
+  "secciones": [
+    {
+      "id": "S01",
+      "ancla": "inicio",
+      "plantilla": "s01-hero.html",
+      "tono": "oscuro",
+      "obligatoria": true,
+      "copy": "secciones.S01",
+      "imagenes": [
+        "S01.imagen_ref"
+      ],
+      "proposito": "Que en 5 segundos se entienda qué es, para quién (tercera persona), qué recibe y cuánto cuesta; primer CTA visible sin desplazarse. Con `==palabra==` resalta la palabra clave del titular (marcatextos); ranura grande de mockup; pastilla de valoración y contador SOLO con prueba_social_real.",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S02",
+      "ancla": "resumen",
+      "plantilla": "s02-cifras-beneficios.html",
+      "tono": "claro",
+      "obligatoria": false,
+      "copy": "secciones.S02",
+      "imagenes": [],
+      "proposito": "Tangibilizar el entregable con cifras del producto real y tres beneficios de uso.",
+      "omite_si": "no hay bloque S02 en copy.json; una cifra literal sin traza en cifras_con_traza se descarta (si no queda ninguna, se muestran solo los beneficios)"
+    },
+    {
+      "id": "S03",
+      "ancla": "problema",
+      "plantilla": "s03-problema.html",
+      "tono": "oscuro",
+      "obligatoria": true,
+      "copy": "secciones.S03",
+      "imagenes": [],
+      "proposito": "Que el lector reconozca la situación en su vocabulario, sin atributo, y el reencuadre (variante por ángulo: orden de los dolores).",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S04",
+      "ancla": "muestra",
+      "plantilla": "s04-muestra.html",
+      "tono": "claro",
+      "obligatoria": false,
+      "copy": "secciones.S04",
+      "imagenes": [
+        "S04.pies[].imagen_ref"
+      ],
+      "proposito": "Dejar juzgar la calidad: capturas reales aprobadas del entregable con su pie (plano clásico: galería; plano referente: tira oscura de miniaturas «qué hay dentro» con CTA).",
+      "omite_si": "no hay bloque S04 o ninguna ranura de sus pies está aprobada (nunca se inventa una captura)"
+    },
+    {
+      "id": "S05",
+      "ancla": "metodo",
+      "plantilla": "s05-mecanismo.html",
+      "tono": "oscuro",
+      "obligatoria": true,
+      "copy": "secciones.S05",
+      "imagenes": [],
+      "proposito": "Nombrar el mecanismo único, cómo funciona y el paso de A a B.",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S06",
+      "ancla": "incluye",
+      "plantilla": "s06-incluye.html",
+      "tono": "claro",
+      "obligatoria": true,
+      "copy": "secciones.S06",
+      "imagenes": [],
+      "proposito": "Detallar lo que se descarga (plano clásico: módulos y checklist; plano referente: niveles con selector desplegable `<details>`, sin JavaScript, con íconos de color y CTA).",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S07",
+      "ancla": "para-quien",
+      "plantilla": "s07-para-quien.html",
+      "tono": "claro",
+      "obligatoria": true,
+      "copy": "secciones.S07",
+      "imagenes": [],
+      "proposito": "Filtrar con honestidad y fijar el alcance (plano clásico: sí/no; plano referente: tarjetas «para quién» con íconos y el «no encaja» en un panel; con CTA).",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S08",
+      "ancla": "confianza",
+      "plantilla": "s08-prueba.html",
+      "tono": "claro",
+      "obligatoria": false,
+      "copy": "secciones.S08",
+      "imagenes": [],
+      "proposito": "Motivos reales para confiar sin inventar prueba social: bloques comprobables (modo honesta) y reseñas con compra_id y permiso en oferta.prueba (modo real; tarjetas con «compra verificada»). En vista previa (--vista-previa) y sin reseñas reales se pintan opiniones de DEMOSTRACIÓN con cinta «DEMO» que `landing.validar` bloquea (L1-DEMO).",
+      "omite_si": "no hay bloque S08; en modo real, una reseña sin testimonio con permiso en oferta.prueba detiene la generación"
+    },
+    {
+      "id": "S09",
+      "ancla": "extras",
+      "plantilla": "s09-extras.html",
+      "tono": "oscuro",
+      "obligatoria": false,
+      "copy": "secciones.S09",
+      "imagenes": [
+        "bono-N"
+      ],
+      "proposito": "Mostrar los complementos reales (bonos con archivo) y el bump como decisión consciente, nunca premarcado (plano referente: sección oscura con una portada por bonus).",
+      "omite_si": "no hay bono con archivo en producto.items ni bump (copy.bump nulo o sin oferta.bump y checkout.bump)"
+    },
+    {
+      "id": "S10",
+      "ancla": "garantia",
+      "plantilla": "s10-garantia.html",
+      "tono": "claro",
+      "obligatoria": true,
+      "copy": "secciones.S10",
+      "imagenes": [],
+      "proposito": "Revertir el riesgo con insignia (plano referente: DESPUÉS del precio); los días salen del contrato.",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S11",
+      "ancla": "oferta",
+      "plantilla": "s11-precio.html",
+      "tono": "oscuro",
+      "obligatoria": true,
+      "copy": "secciones.S11",
+      "imagenes": [
+        "compra"
+      ],
+      "proposito": "Convertir: total con moneda, qué incluye, medios de pago, CTA (variante por ángulo: cta_ref).",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S12",
+      "ancla": "preguntas",
+      "plantilla": "s12-faq.html",
+      "tono": "claro",
+      "obligatoria": true,
+      "copy": "secciones.S12",
+      "imagenes": [],
+      "proposito": "Responder las objeciones y las preguntas fijas del locale con <details> (sin JavaScript); variante por ángulo: cuál abre.",
+      "omite_si": "nunca"
+    },
+    {
+      "id": "S13",
+      "ancla": "cierre",
+      "plantilla": "s13-cierre.html",
+      "tono": "oscuro",
+      "obligatoria": false,
+      "copy": "secciones.S13",
+      "imagenes": [],
+      "proposito": "Cierre sin/con con diferencias verificables y el CTA final.",
+      "omite_si": "no hay bloque S13 en copy.json"
+    },
+    {
+      "id": "S15",
+      "ancla": "como-recibes",
+      "plantilla": "s15-entrega.html",
+      "tono": "claro",
+      "obligatoria": false,
+      "copy": "secciones.S15",
+      "imagenes": [],
+      "proposito": "Disipar la duda «¿cómo me llega?» en 3 pasos (acceso inmediato · por correo · estudio o impresión) con el flujo real de entrega; con CTA.",
+      "omite_si": "no hay bloque S15 ni checklist de S06 (con checklist de S06 de 3 ítems o menos se deriva de él); solo existe en el plano referente"
+    },
+    {
+      "id": "S16",
+      "ancla": "comparacion",
+      "plantilla": "s16-comparacion.html",
+      "tono": "claro",
+      "obligatoria": false,
+      "copy": "secciones.S16",
+      "imagenes": [],
+      "proposito": "Comparación con precios REALES del mercado: cada cifra lleva su fuente y la fecha de lectura (`fuente` obligatoria por cifra); nunca un precio tachado ni una suma de «valores». Es la forma honesta del ancla del referente.",
+      "omite_si": "no hay bloque S16 o ninguna fila trae fuente y fecha; solo existe en el plano referente. `landing.validar` exenta las cifras marcadas data-comparacion-cifra de L1-PRECIO solo si traen data-fuente"
+    },
+    {
+      "id": "S14",
+      "plantilla": "pie.html",
+      "tono": "profundo",
+      "obligatoria": true,
+      "copy": "secciones.S14",
+      "proposito": "Identidad del vendedor, avisos de alcance, de seguridad y de ayuda, siete enlaces legales (+ desistimiento si la ruta existe) y preferencias de cookies.",
+      "ancla": "pie",
+      "pie": true,
+      "imagenes": [],
+      "omite_si": "nunca"
+    }
+  ],
+  "otros": {
+    "banner": {
+      "copy": "secciones.banner",
+      "salida": "sitio/js/consentimiento.js",
+      "proposito": "Banner de consentimiento: Aceptar, Rechazar y Personalizar con el mismo peso; todo apagado; textos del locale."
+    },
+    "gracias": {
+      "plantilla": "gracias.html",
+      "copy": "secciones.gracias",
+      "salida": "sitio/gracias.html"
+    },
+    "legal": {
+      "plantilla": "legal.html",
+      "salida": "sitio/legal/<n>.html",
+      "nota": "plantilla genérica por idioma (landing/textos.py), sin revisión legal (decisión 14)"
+    },
+    "comprar": {
+      "plantilla": "comprar.html",
+      "copy": "secciones.comprar",
+      "salida": "sitio/comprar.html",
+      "nota": "/comprar es ESTÁTICA (rutas.json: estatica:comprar; /api/sesion = dinamica:crear-sesion) con UN <form method=\"post\" action=\"/api/sesion\"> (docs/_historial/decision-arranque-de-pago.md): campos ocultos oferta_id y locale, casilla bump solo con bump_modo = oferta_previa, casilla renuncia_desistimiento (required) solo si checkout.compra.renuncia.requerido (o, sin él, UE/UK por locale), nunca premarcadas, un botón. Turnstile solo con checkout.turnstile.habilitado."
+    },
+    "desistimiento": {
+      "plantilla": "legal.html",
+      "salida": "sitio/desistimiento.html",
+      "nota": "solo si /desistimiento figura en rutas.json; texto genérico por idioma (landing/textos.py); la función POST /api/desistimiento es de D10"
+    },
+    "descarga": {
+      "salida": null,
+      "nota": "/descarga/<token> es dinámica (token firmado, D10): no se genera como HTML estático"
+    },
+    "barra_superior": {
+      "copy": "barra_superior",
+      "proposito": "Barra superior configurable: informativa (siempre, sin «solo hoy» ni fecha inventada) o de lanzamiento, que solo se pinta si checkout.json trae un precio programado con la MISMA fecha y esa fecha no ha pasado."
+    },
+    "vista_previa": {
+      "proposito": "`landing.generar --vista-previa`: marcadores de imagen («[vista previa: …]»), opiniones y valoración de DEMOSTRACIÓN con cinta «DEMO» y una barra fija «VISTA PREVIA». Nunca en producción: `landing.validar` (L1-DEMO) y `landing.desplegar --entorno produccion` lo rechazan."
+    }
+  },
+  "planos": {
+    "clasica": {
+      "orden": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "ajustes": {}
+    },
+    "referente": {
+      "orden": [
+        "S01",
+        "S04",
+        "S08",
+        "S06",
+        "S07",
+        "S09",
+        "S16",
+        "S11",
+        "S10",
+        "S15",
+        "S12",
+        "S13"
+      ],
+      "ajustes": {
+        "S01": {
+          "plantilla": "s01-hero-ref.html",
+          "tono": "claro"
+        },
+        "S04": {
+          "plantilla": "s04-tira.html",
+          "tono": "oscuro",
+          "cta": true
+        },
+        "S08": {
+          "plantilla": "s08-opiniones.html",
+          "tono": "claro",
+          "cta": true
+        },
+        "S06": {
+          "plantilla": "s06-pestanas.html",
+          "tono": "suave",
+          "cta": true
+        },
+        "S07": {
+          "plantilla": "s07-tarjetas.html",
+          "tono": "claro",
+          "cta": true
+        },
+        "S09": {
+          "plantilla": "s09-bonus.html",
+          "tono": "oscuro"
+        },
+        "S16": {
+          "tono": "claro"
+        },
+        "S11": {
+          "plantilla": "s11-precio-ref.html",
+          "tono": "suave"
+        },
+        "S10": {
+          "plantilla": "s10-garantia-ref.html",
+          "tono": "claro"
+        },
+        "S15": {
+          "tono": "suave",
+          "cta": true
+        },
+        "S12": {
+          "tono": "claro"
+        },
+        "S13": {
+          "plantilla": "s13-cierre-ref.html",
+          "tono": "oscuro"
+        }
+      }
+    }
+  }
+}

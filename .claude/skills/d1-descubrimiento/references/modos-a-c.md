@@ -1,0 +1,33 @@
+# Modos A-C (dolor-primero): la rutina manual asistida de hoy
+
+> Spec §3-§10 (SOP §4) e interfaces §6.2. **El radar dolor-primero está solo diseñado**: no existen `score.py`, `lint_claims.py` (de D1), `check_urls.py` ni `banco.py` `[PENDIENTE: S-B]` (ya existen `dedup.py`, `macro.py`, `ingresar_senal.py`, `nichos.py` y `ficha_a_candidato.py`, que es del Modo D). Hasta entonces, en N0-N2 corre **a mano y asistido**: el Maker con la skill, una persona que captura las fuentes que no son el conector y pega extractos redactados, y cuentas a la vista. Prioridad del dueño: el Modo D va primero; el dolor-primero se profundiza después de las bases del testeo. **Sin scraping automatizado de foros ni redes.**
+
+## 1. Los tres modos
+| Modo | Entrada | Qué debes hacer distinto |
+|---|---|---|
+| **A radar abierto** | sin semilla | amplitud en todas las fuentes y hojas de tanda 1 + formas estructurales; ≥ 1 `explore` (nicho ausente de la memoria de ofertas, evidencia 100 % externa); ≤ `max_por_nicho_topn` por nicho; cuota mínima por macro (`cuota_min_exploracion_por_macro_nicho_pct`) |
+| **B dado un nicho** | `nicho_semilla` (hoja o nicho de la propuesta `nichos.yaml`) | ≥ 5 fuentes con profundidad; sub-nichos más estrechos; no te quedes en los términos de los mentores |
+| **C dado un problema del dueño** | `problema_dueno` (texto) | **reformulas** el problema (audiencia, resultado, obstáculo), lo **contrastas con evidencia** (evidencia del problema + 2 alternativas), propones **2-4 variantes** y puedes concluir **«no recomendado»** con su motivo canónico y una alternativa; la decisión sigue siendo del dueño. La idea del dueño es **hipótesis, no evidencia** (E4) |
+
+## 2. Pasos (criterio de «listo» por paso)
+1. **Preflight** (`scripts/preflight.py --modo A|B|C`): ver `modo-d-rutina.md` §0. *Listo:* P-01…P-07 sin BLOQUEA.
+2. **Plan de investigación** → `crudo/plan.md` (plantilla `templates/plan.md`): modo, locale, fuentes (de `fuentes.md` y con su modo de acceso), consultas, presupuesto (consultas de la Biblioteca, tope de sesión), qué **no** se toca (fuentes `no_usar`, rojas, grupos privados). *Listo:* cada fuente del plan está en `fuentes_permitidas` o el dueño la acepta por escrito en el encargo.
+3. **Semillas** (`n_semillas_crudas`): el autoinventario del dueño (sabe hacer / le preguntan / resolvió / quejas vistas) se trata como **semillas**; modo C: reformular `problema_dueno`. Normalizas cada semilla a «[audiencia] quiere [resultado] pero [obstáculo/disparador]» y haces dedup interno. *Listo:* ≥ 1 semilla de fuente **externa** (no todo autoinventario: sesgo de autoexperiencia).
+4. **Filtro duro** (a cada semilla): macro por Q0-Q6 sobre la prueba de una frase (`fuera_de_macro_nicho` antes del riesgo); MU/EU; líneas rojas LC/LM; riesgo por ejes (`nivel_riesgo.py` lo recalcula el L1); `producibilidad` > 1; precio dentro del rango. Los rechazos llevan motivo canónico y `vigente_hasta` (`banco.md` §4). *Listo:* cada descarte explicado con su motivo; cero descartes por tema.
+5. **Evidencia por finalista** (`n_finalistas_con_evidencia`): ≥ `evidencia_min_tipos` tipos y ≥ `evidencia_min_fuentes` fuentes independientes; cada una con URL, fecha ≤ `antiguedad_max_evidencia_meses`, **cita literal ≤ 25 palabras** confirmada sobre el texto crudo (`crudo/EV-NN.txt`). `WebFetch` resume con un modelo auxiliar: **sirve para ubicar, no como cita**. Fuentes con login/JS ilegibles o de color R → captura humana (`fuentes.md` §3) o E4. **El conocimiento del modelo no cuenta.** *Listo:* toda cita reproducible abriendo su enlace (el QA lo verifica por muestreo).
+6. **Radar de oferta** (`ads_library_search`, ver `biblioteca-anuncios.md`): 2-3 palabras **en el idioma de los anuncios**, `ACTIVE`, un país por consulta, solo los ≤ 8 mejores pre-puntaje, ≤ `consultas_biblioteca_por_corrida_pipeline`; luego por `page_ids` de los más sostenidos (orden por fecha de creación, máx. 50). Descartas títulos irrelevantes y agrupas en **conceptos únicos**; cada consulta va a `consultas[]` con `estimated_total_count`. *Listo:* `demanda_pagada` con persistencia y conceptos, `senal_rentabilidad = "no medible"`; sin tope o sin conector → plan B declarado y `evidencia_demanda_pagada` ≤ 2.
+7. **Puntuar 0-5** con justificación y `evidencia_ids` (tabla de `puntuacion.md`); calcular `score_base`, `f_confianza`, `f_dup`, `f_viab` y el top-N por MMR **con las cuentas a la vista** (`crudo/cuentas.md`); sensibilidad ±30 % por peso. *Listo:* pesos suman 100, score recalculable (el L1 lo recalcula), ranking discriminante.
+8. **Tesis, riesgos, `que_la_mataria`, `hipotesis_para_d2`, informe** (`candidatos-formato.md` §6). Responde «¿por qué no se lo pide a un chatbot?» en `mecanismo.diferencia`. *Listo:* informe decidible en 10 minutos.
+9. **Sellado y L1** (`candidatos-formato.md` §5), **QA** (máx. 2 rondas), **gate H**.
+
+## 3. Reglas específicas
+- **Voz del cliente:** escribe el problema como lo diría el cliente; guarda sus palabras (en su idioma) en `palabras_clave_voz_cliente` para D2/D6.
+- **Anunciantes y comentarios de competidores:** la fuente de mayor señal es lo que **piden sin respuesta** en comentarios de líderes (E3 alta) y las reseñas 2-3★ (huecos): captura asistida, extractos ≤ 25 palabras redactados. **Nunca se copia el producto ajeno**: solo el problema y el hueco.
+- **Sustituto gratis:** pedírselo a un chatbot es el competidor real de una guía genérica; `disposicion_pago_precio` baja a 1 si solo hay gratis; la diferencia del mecanismo debe decir qué no cubre el gratis.
+- **Estacionalidad:** calendario del país + serie anual y plazo de producción antes del pico; vida útil corta se declara.
+- **Modo C con idea débil:** si cae en una línea roja de contenido o negocio (p. ej. trading con IA, LM-03), emite **«no recomendado»** con el motivo canónico `linea_roja_de_contenido_o_negocio` (`comunes` 1.4.0; el `linea_roja_id` va en el informe), y propone la **alternativa verde como otro candidato** (checklist anti-estafas), no como reencuadre. Nunca cambias solo palabras (elusión LM-08).
+- **Modo A en un mercado de poder adquisitivo bajo:** precios y viabilidad ajustados; puede que ningún candidato sobreviva: entonces no escribes `candidatos.json` y lo dices.
+- **Si el conector no está autenticado o falla:** plan B (enlaces `ad_snapshot_url` para revisión humana), `evidencia_demanda_pagada` ≤ 2, confianza media; el candidato no se ofrece en N4.
+
+## 4. Lo que sigue pendiente de construirse
+El banco de problemas y sus esquemas (CT-4), `score.py`, `check_urls.py`, `lint_claims.py`, `seleccionar.py` y una puerta de entrada para modos A-C (`ficha_a_candidato.py` solo mapea fichas del Modo D): `references/dependencias.md`.

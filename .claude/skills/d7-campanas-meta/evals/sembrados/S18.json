@@ -1,0 +1,31 @@
+{
+  "id": "S18",
+  "descripcion": "Termino sensible en el slug de la oferta (viaja a la URL y a los nombres de Meta)",
+  "check_id": "C15",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "slug"
+      ],
+      "valor": "piano-pasti-diabete"
+    }
+  ],
+  "esperado": {
+    "check_id": "C15",
+    "codigo": "termino_sensible_en_nombre_o_url",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C15",
+      "patron_clave": "termino-sensible-en-url",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

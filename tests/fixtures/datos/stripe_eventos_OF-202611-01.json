@@ -1,0 +1,129 @@
+{
+  "sintetico": true,
+  "fuente": "Forma modelada sobre los objetos reales de la API de Stripe (Event, Checkout Session, Charge con refunds expandido, Dispute; https://docs.stripe.com/api/events/object, /checkout/sessions/object, /charges/object, /disputes/object, leídos 2026-11-06). Sin captura real: esta sesión no tiene conector de Stripe ni red. Importes en centavos de EUR, coherentes con ofertas/_ejemplo/05-landing/checkout.json (precio 1990, bump 790).",
+  "eventos": [
+    {
+      "id": "evt_cs_a1b2c3",
+      "type": "checkout.session.completed",
+      "created": 1794394800,
+      "data": {"object": {
+        "id": "cs_test_a1b2c3",
+        "payment_intent": "pi_a1b2c3",
+        "amount_total": 1990,
+        "currency": "eur",
+        "livemode": true,
+        "payment_status": "paid",
+        "metadata": {
+          "oferta_id": "OF-202611-01",
+          "adid": "120210000000103",
+          "visitor_id": "v_a1b2c3d4e5f6a1b2",
+          "consent_marketing": "1"
+        }
+      }}
+    },
+    {
+      "id": "evt_cs_d4e5f6",
+      "type": "checkout.session.completed",
+      "created": 1794475800,
+      "data": {"object": {
+        "id": "cs_test_d4e5f6",
+        "payment_intent": "pi_d4e5f6",
+        "amount_total": 1990,
+        "currency": "eur",
+        "livemode": true,
+        "payment_status": "paid",
+        "metadata": {
+          "oferta_id": "OF-202611-01",
+          "adid": "120210000000101",
+          "visitor_id": "v_d4e5f6a1b2c3d4e5",
+          "consent_marketing": "1"
+        }
+      }}
+    },
+    {
+      "id": "evt_cs_g7h8i9",
+      "type": "checkout.session.completed",
+      "created": 1794495600,
+      "data": {"object": {
+        "id": "cs_test_g7h8i9",
+        "payment_intent": "pi_g7h8i9",
+        "amount_total": 2780,
+        "currency": "eur",
+        "livemode": true,
+        "payment_status": "paid",
+        "metadata": {
+          "oferta_id": "OF-202611-01",
+          "adid": "120210000000104",
+          "visitor_id": "v_g7h8i9j0k1l2g7h8",
+          "consent_marketing": "1"
+        }
+      }}
+    },
+    {
+      "id": "evt_cs_g7h8i9_duplicado",
+      "type": "checkout.session.completed",
+      "created": 1794495601,
+      "data": {"object": {
+        "id": "cs_test_g7h8i9",
+        "payment_intent": "pi_g7h8i9",
+        "amount_total": 2780,
+        "currency": "eur",
+        "livemode": true,
+        "payment_status": "paid",
+        "metadata": {
+          "oferta_id": "OF-202611-01",
+          "adid": "120210000000104",
+          "visitor_id": "v_g7h8i9j0k1l2g7h8",
+          "consent_marketing": "1"
+        }
+      }}
+    },
+    {
+      "id": "evt_cs_prueba",
+      "type": "checkout.session.completed",
+      "created": 1794495650,
+      "data": {"object": {
+        "id": "cs_test_prueba",
+        "payment_intent": "pi_prueba",
+        "amount_total": 1990,
+        "currency": "eur",
+        "livemode": false,
+        "payment_status": "paid",
+        "metadata": {
+          "oferta_id": "OF-202611-01",
+          "verificacion": "1",
+          "visitor_id": "v_prueba0000000001",
+          "consent_marketing": "0"
+        }
+      }}
+    },
+    {
+      "id": "evt_charge_refunded_d4e5f6",
+      "type": "charge.refunded",
+      "created": 1794556800,
+      "data": {"object": {
+        "id": "ch_d4e5f6",
+        "payment_intent": "pi_d4e5f6",
+        "currency": "eur",
+        "amount_refunded": 1990,
+        "refunds": {"data": [
+          {"id": "re_d4e5f6refund01", "amount": 1990, "status": "succeeded", "reason": "requested_by_customer", "created": 1794556800}
+        ]}
+      }}
+    },
+    {
+      "id": "evt_dispute_g7h8i9",
+      "type": "charge.dispute.created",
+      "created": 1794556860,
+      "data": {"object": {
+        "id": "dp_g7h8i9dispute01",
+        "charge": "ch_g7h8i9",
+        "payment_intent": "pi_g7h8i9",
+        "amount": 2780,
+        "currency": "eur",
+        "status": "warning_needs_response",
+        "created": 1794556860
+      }}
+    }
+  ]
+}

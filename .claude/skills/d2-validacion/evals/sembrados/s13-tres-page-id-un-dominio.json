@@ -1,0 +1,41 @@
+{
+  "id": "S13",
+  "severidad": "BLOQUEANTE",
+  "defecto": "Tres page_id del mismo dominio contados como operadores independientes.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[1].dominio",
+      "valor": "uno.ejemplo.invalid"
+    },
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[2].dominio",
+      "valor": "uno.ejemplo.invalid"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D7",
+        "patron_clave": "operadores-no-independientes",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R3"
+    ],
+    "debe_citar": "uno.ejemplo.invalid"
+  },
+  "detecta_script": "ninguno (clasificación ciega; clustering de operador_id)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

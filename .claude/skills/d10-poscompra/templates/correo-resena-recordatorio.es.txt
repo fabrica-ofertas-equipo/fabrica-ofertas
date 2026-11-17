@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: es
+# estado: v0.1 sin pulir; único recordatorio (día 7); no se envía si ya respondió, se dio de baja, pidió reembolso, abrió una disputa o tiene un ticket abierto; sello de X1 pendiente
+Asunto: Un solo recordatorio: tu valoración – pedido {{pedido_ref}}
+
+Hola,
+
+hace unos días te enviamos una petición para valorar los materiales de {{marca}}. Este es el único recordatorio: no te escribiremos más sobre esto.
+
+Si quieres, elige cuántas estrellas das, de 1 a 5:
+
+1 de 5: {{resena_url_1}}
+2 de 5: {{resena_url_2}}
+3 de 5: {{resena_url_3}}
+4 de 5: {{resena_url_4}}
+5 de 5: {{resena_url_5}}
+
+En la página siguiente confirmas tu valoración y decides si podemos mostrar tu comentario. No publicamos nada sin tu permiso. Queremos tu opinión sincera, sea la que sea.
+
+Si prefieres no hacerlo, no tienes que hacer nada. Si algo no te funciona, escribe a {{soporte_email}}.
+
+Darte de baja de estos mensajes: {{baja_url}}
+
+Vendedor: {{vendedor}}
+Política de compra y devoluciones: {{politica_url}}

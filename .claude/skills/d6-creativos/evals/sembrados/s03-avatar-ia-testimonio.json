@@ -1,0 +1,67 @@
+{
+  "grupo": "★ Avatar IA que da testimonio sin etiqueta (X1-J06, P04)",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s03-es-es",
+      "grupo": "s03",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "presentador": "avatar_ia",
+        "etiqueta_ia_visible": false,
+        "guion": "Yo lo usé y a las 2 semanas ya tenía mi hoja de costos lista y vendía más.",
+        "texto_principal": "Mira cómo me cambió la hoja de costeo."
+      },
+      "defecto": "avatar IA en primera persona, sin etiqueta, con resultado",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "avatar-ia-sin-etiqueta-testimonio",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: testimonio sintético («yo lo usé»), resultado y plazo, humano fotorrealista sin «Presentador generado con IA»",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s03-it-it",
+      "grupo": "s03",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "presentador": "avatar_ia",
+        "etiqueta_ia_visible": false,
+        "guion": "L'ho usato io e dopo due settimane avevo già i miei prezzi pronti.",
+        "texto_principal": "Guarda come mi ha aiutato questo modello."
+      },
+      "defecto": "avatar IA en primera persona, sin etiqueta",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "avatar-ia-sin-etiqueta-testimonio",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE en italiano: testimonio sintético y sin rótulo (AI Act art. 50)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s03-pl-pl",
+      "grupo": "s03",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "presentador": "avatar_ia",
+        "etiqueta_ia_visible": false,
+        "guion": "Używałam tego arkusza i po dwóch tygodniach miałam gotowe ceny.",
+        "texto_principal": "Zobacz, jak pomógł mi ten arkusz."
+      },
+      "defecto": "avatar IA en primera persona, sin etiqueta",
+      "check_id_esperado": "D6-L1-09",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "avatar-ia-sin-etiqueta-testimonio",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE en polaco",
+      "bloqueante": true
+    }
+  ]
+}

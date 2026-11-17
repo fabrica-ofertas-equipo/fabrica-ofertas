@@ -1,0 +1,84 @@
+# PROPUESTA de valores para parametros.schema 1.1.0 (ola 0b-1, 2026-11-06). NO es empresa/parametros.yaml: el dueño aprueba y la fusiona.
+# Es un OVERLAY: se fusiona sobre empresa/parametros.yaml (grupos nuevos completos + claves nuevas opcionales de grupos existentes).
+# Todo [HIPÓTESIS] salvo hipotesis: false. Sin float: decimales como cadena. Una prueba (tests/contratos/test_ola_0b1.py) verifica que
+# plantilla + overlay validan contra el esquema y pasan coherencia_parametros.
+#
+# CT-3 lote A (2026-11-06): los cuatro grupos de abajo (estadistica, agentes, ingesta, watchdog) YA están en la plantilla empresa/parametros.yaml con estos mismos valores
+# (los grupos son idénticos: tests/contratos/test_ct3_lote_a.py lo verifica). Este overlay sigue siendo la fuente de las claves nuevas de landing.* y campana.* que la plantilla aún no trae.
+#
+# Orden de versiones de parametros.schema: 1.1.0 (esto) -> 1.2.0 (otra sesión: claves modelado_* bajo descubrimiento; NO integradas acá,
+# solo con aprobación del dueño). No cambiar el orden.
+#
+# Equivalencias docs/08 10 -> hogar vigente (una clave = un hogar; por eso NO están en estadistica):
+#   p_escala, ventana_no_decidir_h, p_fallida, p_cierre_tope -> testeo.* ; n_min_escala -> testeo.n_dec ; alfa_descarte_tope = 1 - testeo.p_cierre_tope
+#   validacion_n_val -> veredicto.compras_min ; validacion_max_dia_pct -> veredicto.max_dia_pct ; validacion_reembolso_max -> veredicto.reembolso_max_pct
+#   validacion_margen_madurez_dias -> veredicto.madurez_dias_extra ; dias_test_min -> campana.dias_test_min ; validacion_p_validada -> testeo.p_escala
+#   validacion_tasa_reembolso_esperada -> economia.tasa_reembolso_bp ; validacion_garantia_dias -> oferta.garantia.dias (no es parámetro)
+#   decision/entradas.py (B1) traduce *_pct (unidades de porcentaje) a fracción: es el único conversor.
+#
+# Retiro: infra.hc_latido_max_horas (2 h) desaparece; su hogar único es watchdog.latido_max_min (30 min, docs/07 9).
+schema_version: "1.1.0"
+grupos:
+  # Opcional. Protocolo estadístico de D8 (docs/08 10).
+  estadistica:
+    prior_conv_fuerza_clics: {valor: 50, unidad: clics, hipotesis: true, fuente: "docs/08 2", ultima_calibracion: null, rango: [10, 200]}
+    prior_cpc_fuerza_clics: {valor: 20, unidad: clics, hipotesis: true, fuente: "docs/08 2", ultima_calibracion: null, rango: [5, 100]}
+    alfa_descarte: {valor: "0.05", unidad: probabilidad, hipotesis: true, fuente: "docs/08 4.2, 5", ultima_calibracion: null, rango: ["0.01", "0.20"]}
+    k_min_matar: {valor: "2.0", unidad: x_cpa_equilibrio, hipotesis: true, fuente: "docs/08 2; D3 k=3", ultima_calibracion: null, rango: ["1.0", "3.0"]}
+    k_min_fallida: {valor: "5.0", unidad: x_cpa_equilibrio, hipotesis: true, fuente: "D8 FALLIDA (docs/08 10 validacion_k_min_fallida)", ultima_calibracion: null}
+    nodos_cpc: {valor: 5, unidad: puntos, hipotesis: true, fuente: "docs/08 2", ultima_calibracion: null}
+    potencia: {valor: "0.80", unidad: probabilidad, hipotesis: true, fuente: "docs/08 3.2", ultima_calibracion: null}
+    precision_relativa: {valor: "0.25", unidad: fraccion, hipotesis: true, fuente: "nota 16 3", ultima_calibracion: null}
+    confianza_precision: {valor: "0.95", unidad: probabilidad, hipotesis: true, fuente: "nota 16 3", ultima_calibracion: null}
+    meta_eventos_aprendizaje_semana: {valor: 50, unidad: eventos, hipotesis: false, fuente: "04 HC-1", ultima_calibracion: null}
+    meta_fraccion_min_purchase: {valor: "0.5", unidad: fraccion, hipotesis: true, fuente: "D7 3.2", ultima_calibracion: null}
+    control_fraccion: {valor: "0.15", unidad: fraccion, hipotesis: true, fuente: "docs/08 4.5 (0,10-0,20)", ultima_calibracion: null, rango: ["0.10", "0.20"]}
+    control_fraccion_presupuesto: {valor: "0.25", unidad: fraccion, hipotesis: true, fuente: "docs/08 4.5", ultima_calibracion: null}
+    control_gasto_max_k: {valor: "2.0", unidad: x_cpa_equilibrio, hipotesis: true, fuente: "docs/08 4.5", ultima_calibracion: null}
+    mercados_alfa: {valor: "0.10", unidad: probabilidad, hipotesis: true, fuente: "docs/08 7", ultima_calibracion: null}
+    mercados_p_diferencia: {valor: "0.90", unidad: probabilidad, hipotesis: true, fuente: "docs/08 7", ultima_calibracion: null}
+    dias_con_compras_min: {valor: 3, unidad: dias, hipotesis: true, fuente: "D8 veredicto (docs/08 10 validacion_dias_con_compras_min)", ultima_calibracion: null}
+    # Retraso clic->compra: medirlo en la primera oferta (postmortem.retraso_clic_compra) y recalibrar. Mientras tanto 3 días
+    # (crítica técnica M02): los últimos N días no entran en la evidencia (ni clics, ni gasto, ni compras). Debe ser < veredicto.dias_min.
+    dias_madurez_compra: {valor: 3, unidad: dias, hipotesis: true, fuente: "bases-critica-tecnica M02; docs/08 5.3", ultima_calibracion: null, rango: [1, 6]}
+
+  # Opcional. Runtime de agentes (docs/09 12.2). TODO null hasta calibrar con la corrida S-1: el runner en vivo falla cerrado.
+  agentes:
+    claude_version_min: {valor: null, unidad: semver, hipotesis: true, fuente: "docs/09 H1: el diseño exige 2.1.314 [VERIFICAR] (la máquina tiene 2.1.205)", ultima_calibracion: null}
+    modelo: {valor: null, unidad: id_de_modelo, hipotesis: true, fuente: "docs/09 12.2; decide el dueño", ultima_calibracion: null}
+    fallback_modelo: {valor: null, unidad: id_de_modelo, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    esfuerzo: {valor: null, unidad: nivel, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    tiempo_s_max: {valor: null, unidad: segundos_por_etapa_rol, hipotesis: true, fuente: "docs/09 12.2; calibrar en S-1", ultima_calibracion: null}
+    turnos_max: {valor: null, unidad: turnos_por_etapa_rol, hipotesis: true, fuente: "docs/09 12.2; calibrar en S-1", ultima_calibracion: null}
+    holgura_pct: {valor: null, unidad: porcentaje, hipotesis: true, fuente: "docs/09 T3", ultima_calibracion: null}
+    reintentos_transitorios_max: {valor: null, unidad: reintentos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    backoff_base_s: {valor: null, unidad: segundos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    reintentos_validacion_max: {valor: null, unidad: reintentos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    gracia_s: {valor: null, unidad: segundos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    pausa_poll_s: {valor: null, unidad: segundos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    bucle_repeticion_max: {valor: null, unidad: repeticiones, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    bucle_sin_progreso_turnos: {valor: null, unidad: turnos, hipotesis: true, fuente: "docs/09 12.2", ultima_calibracion: null}
+    estado_max_edad_h: {valor: null, unidad: horas, hipotesis: true, fuente: "docs/09 12.2; D-17: <= min(infra.hc_preflight_vigencia_horas, 6)", ultima_calibracion: null}
+    bash_timeout_defecto_ms: {valor: null, unidad: milisegundos, hipotesis: true, fuente: "docs/09 BASH_DEFAULT_TIMEOUT_MS", ultima_calibracion: null}
+    bash_timeout_max_ms: {valor: null, unidad: milisegundos, hipotesis: true, fuente: "docs/09 BASH_MAX_TIMEOUT_MS", ultima_calibracion: null}
+    hook_timeout_s: {valor: null, unidad: segundos, hipotesis: true, fuente: "docs/06 4.7 (GET /estado desde los hooks, fail-closed)", ultima_calibracion: null}
+
+  # Opcional. Ingesta Worker -> motor (docs/06 4.7).
+  ingesta:
+    tolerancia_seg: {valor: 120, unidad: segundos, hipotesis: true, fuente: "docs/07 9 (tolerancia de 120 s del latido)", ultima_calibracion: null, rango: [30, 300]}
+    cuerpo_max_bytes: {valor: 16384, unidad: bytes, hipotesis: true, fuente: "docs/06 4.3", ultima_calibracion: null}
+    contexto_ttl_seg: {valor: 3600, unidad: segundos, hipotesis: true, fuente: "bases-critica-completitud MA-07 (ctx de capi, solo con cmp=a)", ultima_calibracion: null}
+
+  # Opcional. Watchdog (docs/07 9). Sin valor el preflight es ROJO crítico.
+  watchdog:
+    latido_cada_min: {valor: 5, unidad: minutos, hipotesis: true, fuente: "docs/07 9.1", ultima_calibracion: null}
+    latido_max_min: {valor: 30, unidad: minutos, hipotesis: true, fuente: "docs/07 9.1; sustituye a infra.hc_latido_max_horas", ultima_calibracion: null, rango: [10, 60]}
+    # 480 = optimizacion.lectura_horas (6) x 60 + 120 de margen. Debe superar lectura_horas x 60 o pausaría entre ciclos sanos.
+    ciclo_max_min: {valor: 480, unidad: minutos, hipotesis: true, fuente: "docs/07 9.2 (parámetro nuevo; sin valor = ROJO)", ultima_calibracion: null}
+
+  # Claves nuevas OPCIONALES en grupos existentes (el resto del grupo no cambia).
+  landing:
+    max_sesiones_por_visitante: {valor: 5, unidad: sesiones_por_dia, hipotesis: true, fuente: "docs/06 4.3 (cuota diaria en el Durable Object)", ultima_calibracion: null, rango: [2, 10]}
+  campana:
+    # Meta documenta mínimo 100 USD (o equivalente local) para spend_cap de campaña; el monto local exacto es [VERIFICAR].
+    spend_cap_minimo_meta: {valor: {monto: 10000, moneda: USD}, unidad: dinero, hipotesis: false, fuente: "https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group (leída 2026-11-06); convertir con tipo_cambio registrado", ultima_calibracion: null}

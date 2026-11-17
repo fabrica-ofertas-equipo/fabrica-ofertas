@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "ts": "2026-11-12T09:00:00Z",
+  "emitida": false,
+  "nivel": "verde",
+  "motivo": "seguridad",
+  "metricas": {
+    "muestra_suficiente": false,
+    "pagos_ventana": 2,
+    "casos_disputa_efw": 0,
+    "disputas_efw_pct": "0",
+    "reembolsos_pct": "50",
+    "ventana_dias": 30
+  },
+  "umbrales_usados": {
+    "disputas_alerta_pct": "0.3",
+    "ratio_disputas_pausa": "0.006",
+    "reembolsos_alerta_pct": "8",
+    "reembolsos_pausa_pct": "12"
+  },
+  "accion_solicitada": "ninguna",
+  "consumida_por": null,
+  "sintetico": true
+}

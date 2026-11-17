@@ -1,0 +1,14 @@
+{
+  "/": "hueco-como-relato",
+  "/a/pregunta-de-entrevista": "pregunta-de-entrevista",
+  "/a/plan-en-una-tarde": "plan-en-una-tarde",
+  "/comprar": "dinamica:crear-sesion",
+  "/gracias": "estatica:gracias",
+  "/legal/vendedor": "legal:vendedor",
+  "/legal/terminos": "legal:terminos",
+  "/legal/privacidad": "legal:privacidad",
+  "/legal/reembolsos": "legal:reembolsos",
+  "/legal/cookies": "legal:cookies",
+  "/legal/aviso": "legal:aviso",
+  "/legal/entrega": "legal:entrega"
+}

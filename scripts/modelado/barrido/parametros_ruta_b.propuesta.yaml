@@ -1,0 +1,176 @@
+# PROPUESTA de parámetros de la RUTA B del barrido (`claude -p` sin pantalla con el conector de Meta Ads).
+# NO está integrada. Mismo formato que parametros_barrido.propuesta.yaml: se pega bajo `grupos.descubrimiento`
+# de empresa/parametros.yaml cuando el dueño apruebe los valores (y se amplía contratos/parametros.schema.json).
+# Todas son [HIPÓTESIS] calibradas con 3 consultas reales del 2026-11-06 (docs/_historial/barrido-ruta-b.md):
+# ninguna es una cifra aprobada. Ningún número de estos vive en el código: si falta una clave, `ruta_b.py`
+# falla cerrado (código 5). Sin float: los decimales van como cadena.
+# Toda clave NUMÉRICA debe llevar `rango` (null = error de carga, código 5); solo los textos y listas pueden llevar `rango: null`.
+#
+# Lo que NO se repite aquí: el tope de consultas por corrida es `modelado_max_consultas_por_corrida`
+# (parametros_modelado.propuesta.yaml) y `ruta_b.py` lo respeta, cuenta cada lanzamiento (también los reintentos).
+#
+# Aviso sobre los términos de Meta: la descripción del conector `ads_library_search` dice «Do NOT use for bulk
+# data extraction/scraping of the Ad Library». Estos topes son conservadores a propósito (pocas consultas,
+# espaciadas, de solo lectura) y se declaran ante el conector con `scheduled_task_run=true`. Subirlos exige que
+# el dueño lea de nuevo esos términos.
+
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    # --- Modelo y coste de cada consulta ---
+    # Alias del modelo que solo llama a la herramienta (los ids los toma el código del flujo, no el modelo).
+    # haiku cumplió 8 de 8 con el encargo en lenguaje natural; sonnet con el encargo «mecánico» cumplió 1 de 8 y
+    # cuesta ~4-5 veces más por la misma tarea.
+    barrido_b_modelo:
+      valor: "haiku"
+      unidad: alias_modelo
+      hipotesis: true
+      fuente: "Pruebas en vivo 2026-11-06 (docs/_historial/barrido-ruta-b.md §3); el código valida la llamada igual"
+      ultima_calibracion: null
+      rango: null
+    # Tope de gasto estimado por consulta (`--max-budget-usd`). Medido: 0,035-0,061 con haiku, 0,30 con sonnet
+    # y 5 turnos. Es una ESTIMACIÓN del cliente (con suscripción no se factura en USD: consume cuota de uso).
+    barrido_b_presupuesto_consulta_usd:
+      valor: "0.25"
+      unidad: usd
+      hipotesis: true
+      fuente: "Prueba en vivo 2026-11-06; docs/09-runtime-de-agentes.md §3.2 (total_cost_usd es estimación, puede excederse)"
+      ultima_calibracion: null
+      rango: ["0.05", "1.00"]
+    # Tope acumulado de la corrida (suma de lo gastado en todas las tandas; sale del registro, sobrevive a reinicios).
+    barrido_b_presupuesto_corrida_usd:
+      valor: "10.00"
+      unidad: usd
+      hipotesis: true
+      fuente: "[NUEVO] 120 consultas × ~0,06 USD medido = ~7 USD estimados con margen"
+      ultima_calibracion: null
+      rango: ["1.00", "50.00"]
+    # Turnos máximos del modelo por consulta (`--max-turns`): ToolSearch + llamada + respuesta = 3 medidos.
+    barrido_b_turnos_max:
+      valor: 5
+      unidad: turnos
+      hipotesis: true
+      fuente: "Prueba en vivo 2026-11-06: num_turns = 3 en las consultas correctas"
+      ultima_calibracion: null
+      rango: [3, 8]
+    # Plazo de cada proceso `claude -p`. Medido: 10-42 s (caché frío ~20 s).
+    barrido_b_timeout_consulta_seg:
+      valor: 180
+      unidad: segundos
+      hipotesis: true
+      fuente: "Prueba en vivo 2026-11-06: 10, 22 y 42 s"
+      ultima_calibracion: null
+      rango: [60, 600]
+    # Tiempo entre SIGTERM y SIGKILL cuando un proceso se pasa del plazo.
+    barrido_b_gracia_seg:
+      valor: 10
+      unidad: segundos
+      hipotesis: true
+      fuente: "docs/09-runtime-de-agentes.md §3.2 (señales)"
+      ultima_calibracion: null
+      rango: [2, 60]
+
+    # --- Ritmo y topes (cortesía con el conector; ver aviso de arriba) ---
+    # Pausa mínima entre dos lanzamientos, también ENTRE tandas (se mide contra el último registro).
+    barrido_b_pausa_entre_consultas_seg:
+      valor: 30
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] ~2 consultas por minuto como máximo; el conector no publica un límite"
+      ultima_calibracion: null
+      rango: [10, 600]
+    # Lanzamientos por ejecución del programa (una «tanda»): el cron/launchd la repite hasta completar el plan.
+    barrido_b_consultas_por_tanda_max:
+      valor: 40
+      unidad: consultas
+      hipotesis: true
+      fuente: "[NUEVO] ~40 consultas × (30 s pausa + ~20 s) ≈ 35 min por tanda"
+      ultima_calibracion: null
+      rango: [5, 120]
+    # Lanzamientos por día UTC sumando todas las corridas (freno contra un cron mal configurado).
+    barrido_b_max_consultas_por_dia:
+      valor: 120
+      unidad: consultas
+      hipotesis: true
+      fuente: "[NUEVO] igual que modelado_max_consultas_por_corrida: una corrida completa por día como máximo"
+      ultima_calibracion: null
+      rango: [10, 240]
+
+    # --- Errores ---
+    # Fallos seguidos (consulta agotados sus reintentos) tras los cuales la ejecución se detiene.
+    barrido_b_errores_consecutivos_max:
+      valor: 3
+      unidad: errores
+      hipotesis: true
+      fuente: "[NUEVO] tres seguidos = sesión caída, conector sin autorizar o cambio de formato, no mala suerte"
+      ultima_calibracion: null
+      rango: [2, 10]
+    # Fallos totales de la corrida (suma de todas las tandas) tras los cuales ya no se lanza nada más.
+    barrido_b_errores_corrida_max:
+      valor: 8
+      unidad: errores
+      hipotesis: true
+      fuente: "[NUEVO]"
+      ultima_calibracion: null
+      rango: [3, 30]
+    # Reintentos de una consulta fallida (CONTRATO §2: «no reintenta más de una vez»).
+    barrido_b_reintentos_por_consulta:
+      valor: 1
+      unidad: reintentos
+      hipotesis: true
+      fuente: "CONTRATO §2"
+      ultima_calibracion: null
+      rango: [0, 1]
+
+    # --- Superficie del proceso ---
+    # Herramienta del conector que se permite (es la ÚNICA herramienta MCP que recibe `--allowedTools`).
+    barrido_b_herramienta:
+      valor: "mcp__claude_ai_Meta_ADS__ads_library_search"
+      unidad: nombre_herramienta
+      hipotesis: false
+      fuente: "Prueba en vivo 2026-11-06 (ToolSearch la resolvió con ese nombre exacto)"
+      ultima_calibracion: null
+      rango: null
+    # Herramientas que el hijo NUNCA debe poder usar: segunda capa de defensa (la primera es la lista blanca
+    # `--allowedTools` = solo ToolSearch y la herramienta del conector, con `dontAsk`). El hijo SÍ lee texto de terceros
+    # (los títulos de los anuncios vuelven a él como resultado de la herramienta), así que un texto hostil podría
+    # intentar que escriba en la cuenta de Meta, lea archivos o salga a la red: todo eso se deniega por nombre.
+    # `ruta_b.py` EXIGE como mínimo los patrones de Meta (crear, actualizar, activar, impulsar, borrar, creativos,
+    # catálogos, píxel, experimentos) y las herramientas integradas Bash, Write, Edit, NotebookEdit, WebFetch,
+    # WebSearch, Read, Glob, Grep y Skill (revisión de seguridad M2); quitar una = ErrorLimite (5). Una denegación gana
+    # a una permisión, así que ninguna puede cubrir la herramienta permitida (también se comprueba).
+    # No usar `--tools ToolSearch`: rompe el cumplimiento del modelo (ver informe).
+    barrido_b_herramientas_excluidas:
+      valor:
+        - "mcp__claude_ai_Meta_ADS__ads_create_*"
+        - "mcp__claude_ai_Meta_ADS__ads_update_*"
+        - "mcp__claude_ai_Meta_ADS__ads_activate_entity"
+        - "mcp__claude_ai_Meta_ADS__ads_boost_ig_post"
+        - "mcp__claude_ai_Meta_ADS__ads_delete_*"
+        - "mcp__claude_ai_Meta_ADS__ads_creative_*"
+        - "mcp__claude_ai_Meta_ADS__ads_catalog_*"
+        - "mcp__claude_ai_Meta_ADS__ads_pixel_*"
+        - "mcp__claude_ai_Meta_ADS__ads_experiment_*"
+        - "mcp__claude_ai_Shopify__*"
+        - "mcp__claude_ai_Higgsfield__*"
+        - "mcp__claude_ai_Google_Drive__*"
+        - "mcp__claude_ai_Claude_Docs__*"
+        - "mcp__claude_ai_tuotroproyecto__*"
+        - "Bash"
+        - "Write"
+        - "Edit"
+        - "NotebookEdit"
+        - "WebFetch"
+        - "WebSearch"
+        - "Read"
+        - "Glob"
+        - "Grep"
+        - "Skill"
+        - "Task"
+        - "Agent"
+      unidad: patrones
+      hipotesis: false
+      fuente: "claude mcp list, 2026-11-06; revisión de seguridad M2 (docs/_historial/barrido-revision-seguridad.md); herramientas integradas de Claude Code 2.1.205"
+      ultima_calibracion: null
+      rango: null

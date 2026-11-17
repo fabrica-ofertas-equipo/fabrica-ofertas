@@ -1,0 +1,33 @@
+{
+  "id": "S09",
+  "descripcion": "Mejora automatica de texto de Meta activa en el paquete",
+  "check_id": "C09",
+  "severidad": "MAYOR",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "06-creativos/paquete.json",
+      "ruta": [
+        "politicas",
+        "meta_enhancements",
+        "generacion_texto"
+      ],
+      "valor": true
+    }
+  ],
+  "esperado": {
+    "check_id": "C09",
+    "codigo": "mejoras_meta_activas_en_paquete",
+    "severidad": "MAYOR"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C09",
+      "patron_clave": "mejora-meta-activa",
+      "severidad": "MAYOR"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

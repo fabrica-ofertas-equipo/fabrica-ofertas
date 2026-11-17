@@ -1,0 +1,21 @@
+{
+  "id": "S11",
+  "dorado_base": "D4-02",
+  "obligatorio_100pct": true,
+  "tipo": "criterio (L1-05 parcial + L2)",
+  "mutacion": {
+    "archivo": "entregables/fuente/hoja (calculadora)",
+    "cambio": "añadir fila «Rendimiento esperado: 10 % anual (promedio histórico)» como supuesto por defecto"
+  },
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-05",
+      "patron_clave": "expectativa-de-rendimiento",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "hoja: celda de supuestos y guía: texto sobre rendimiento",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  }
+}

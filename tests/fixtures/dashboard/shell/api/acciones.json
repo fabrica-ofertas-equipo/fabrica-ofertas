@@ -1,0 +1,176 @@
+{
+  "ok": true,
+  "datos": {
+    "acciones": [
+      {
+        "id": "barrido_estado",
+        "titulo": "Ver cómo va un barrido de anuncios",
+        "descripcion": "Muestra el estado de un barrido: el plan, las consultas hechas (con y sin error), las páginas, su clasificación, los candidatos y las fichas, el cupo que queda y si el freno de la captura está puesto. Solo mira: no cambia nada.",
+        "riesgo": "lectura",
+        "comando": "python -m scripts.modelado.barrido estado <corrida>",
+        "timeout_s": 120,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [
+          {
+            "nombre": "corrida",
+            "tipo": "corrida",
+            "requerido": true,
+            "descripcion": "Qué barrido mirar: escribe su código (fecha y una letra), por ejemplo 2026-11-06-a"
+          }
+        ],
+        "en_curso": null
+      },
+      {
+        "id": "barrido_plan_ver",
+        "titulo": "Ver el plan de consultas de un barrido",
+        "descripcion": "Muestra un resumen del plan de consultas que tiene el barrido, y si quieres, el detalle de cada consulta. Solo mira: no cambia nada.",
+        "riesgo": "lectura",
+        "comando": "python -m scripts.modelado.barrido plan ver <corrida> [--consultas]",
+        "timeout_s": 60,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [
+          {
+            "nombre": "corrida",
+            "tipo": "corrida",
+            "requerido": true,
+            "descripcion": "Qué barrido usar: su código (fecha y una letra), por ejemplo 2026-11-06-a"
+          },
+          {
+            "nombre": "consultas",
+            "tipo": "bandera",
+            "flag": "--consultas",
+            "descripcion": "Mostrar también el detalle de cada consulta"
+          }
+        ],
+        "en_curso": null
+      },
+      {
+        "id": "validar_esquemas",
+        "titulo": "Revisar que los formatos de los contratos estén bien",
+        "descripcion": "Carga y comprueba todos los formatos de datos (esquemas) de la carpeta contratos/. Solo mira: no cambia nada.",
+        "riesgo": "lectura",
+        "comando": "python -m scripts.validar_esquemas esquemas",
+        "timeout_s": 120,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [],
+        "en_curso": null
+      },
+      {
+        "id": "validar_oferta",
+        "titulo": "Revisar una oferta completa (solo lectura)",
+        "descripcion": "Comprueba que los archivos de una oferta tengan el formato esperado y que sean coherentes entre sí. Solo mira: no cambia nada.",
+        "riesgo": "lectura",
+        "comando": "python -m scripts.validar_esquemas oferta ofertas/<oferta>",
+        "timeout_s": 120,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [
+          {
+            "nombre": "oferta",
+            "tipo": "oferta",
+            "requerido": true,
+            "descripcion": "Qué oferta revisar: su código (por ejemplo OF-202611-01) o _ejemplo, la oferta de demostración"
+          }
+        ],
+        "en_curso": null
+      },
+      {
+        "id": "pruebas_paquete",
+        "titulo": "Correr las pruebas de una parte del sistema",
+        "descripcion": "Corre las pruebas automáticas de la parte que elijas, para ver si todo sigue funcionando. No usa internet ni claves, y no toca las ofertas ni los datos reales de la empresa.",
+        "riesgo": "lectura",
+        "comando": "python -m unittest discover -s tests/<paquete> -t .",
+        "timeout_s": 600,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [
+          {
+            "nombre": "paquete",
+            "tipo": "eleccion",
+            "requerido": true,
+            "valores": [
+              "agentes",
+              "contratos",
+              "dashboard",
+              "engine",
+              "landing",
+              "scripts"
+            ],
+            "requiere_directorio": "tests/{valor}",
+            "descripcion": "Parte del sistema a probar (por ejemplo engine es el sistema automático que mueve las ofertas, y compliance es la revisión de cumplimiento)"
+          }
+        ],
+        "en_curso": null
+      },
+      {
+        "id": "barrido_muestra",
+        "titulo": "Ver las primeras filas de un barrido",
+        "descripcion": "Muestra las primeras filas de un barrido de anuncios. Solo mira: no cambia nada.",
+        "riesgo": "lectura",
+        "comando": "python -m scripts.modelado.barrido muestra <corrida> <n>",
+        "timeout_s": 60,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [
+          {
+            "nombre": "corrida",
+            "tipo": "corrida",
+            "requerido": true,
+            "descripcion": "Qué barrido mirar: escribe su código (fecha y una letra), por ejemplo 2026-11-06-a"
+          },
+          {
+            "nombre": "n",
+            "tipo": "entero",
+            "requerido": true,
+            "minimo": 1,
+            "maximo": 50,
+            "descripcion": "Cuántas filas mostrar (de 1 a 50)"
+          }
+        ],
+        "en_curso": null
+      },
+      {
+        "id": "exportar_local",
+        "titulo": "Guardar un resumen en tu computadora (prueba)",
+        "descripcion": "Acción de prueba que guarda un archivo en tu computadora: sirve para probar el aviso de confirmación.",
+        "riesgo": "escribe_local",
+        "comando": "python -m scripts.exportar_resumen",
+        "timeout_s": 30,
+        "proximamente": false,
+        "disponible": true,
+        "motivo": null,
+        "parametros": [],
+        "en_curso": null
+      },
+      {
+        "id": "landing_generar",
+        "titulo": "Armar la página de venta (simulacro)",
+        "descripcion": "Armaría la página de venta de una oferta como simulacro, sin guardar nada.",
+        "riesgo": "lectura",
+        "comando": "",
+        "timeout_s": 120,
+        "proximamente": true,
+        "disponible": false,
+        "motivo": "Todavía no se puede: el comando que arma la página siempre guarda archivos en la carpeta de la oferta y aún no tiene modo simulacro. Se habilitará cuando se agregue ese modo (tarea B4).",
+        "parametros": [],
+        "en_curso": null
+      }
+    ],
+    "rechazadas": []
+  },
+  "fuente": [
+    "dashboard/acciones.yaml"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

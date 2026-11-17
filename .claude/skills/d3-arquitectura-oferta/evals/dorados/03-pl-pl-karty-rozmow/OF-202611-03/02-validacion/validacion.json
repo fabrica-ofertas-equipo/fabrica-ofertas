@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-03",
+  "version": "v1",
+  "origen_version": "maker",
+  "version_script": "1.0.0",
+  "candidato_id": "CAND-01",
+  "macro_nicho": "relaciones",
+  "consultas": [
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "plantilla currículum",
+      "pais": "PL",
+      "fecha": "2026-11-06T10:00:00Z",
+      "estimated_total_count": 14,
+      "truncado": false
+    }
+  ],
+  "metricas_mercado": {
+    "n_anuncios": 14,
+    "n_anunciantes": 6,
+    "n_sostenidos": 2,
+    "edad_mediana_dias": 60
+  },
+  "saturacion": {
+    "indice": 48,
+    "n_ind_sostenidos": 2,
+    "saturacion_mecanismo": "baja",
+    "detalle": "Ningún competidor nombra un mecanismo de turnos con niveles"
+  },
+  "convergencia": {
+    "estado": "media",
+    "detalle": "Dos fuentes independientes coinciden en el dolor"
+  },
+  "huecos": [
+    "Faltan juegos con niveles de profundidad y regla de turnos"
+  ],
+  "senales_demanda_organica": [
+    "Hilos de foro recurrentes sobre el hueco en el currículum"
+  ],
+  "restricciones_originalidad": [
+    "No copiar estructuras de plantillas de la competencia"
+  ],
+  "riesgo_politica": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": true,
+      "nivel_original": "rojo",
+      "descripcion": "El borrador «karty na randki» se leía como facilitación de citas (N2, LM-04); se reencuadró a «karty rozmów dla par, które mieszkają razem» (RE-10: del servicio al archivo) con el rol en tercera persona (RE-08). Se conserva el deseo: mejorar la conversación de la pareja."
+    },
+    "fuentes": [
+      "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+      "docs/_investigacion/22c-meta-politicas-relaciones.md"
+    ],
+    "categoria": "Relaciones de pareja: herramienta de conversación (N1 vigilada)",
+    "claims_a_evitar": [
+      "popraw swój związek",
+      "odzyskaj bliskość w 7 dni",
+      "terapia dla par",
+      "randki",
+      "diagnoza związku"
+    ],
+    "angulo_seguro": "Karty z pytaniami: narzędzie do rozmowy, nie rezultat w związku."
+  },
+  "veredicto": {
+    "calculado": "GO_CONDICIONAL",
+    "propuesto": "GO_CONDICIONAL",
+    "final": "GO_CONDICIONAL",
+    "confianza": {
+      "puntos": 62,
+      "detalle": "Evidencia de dolor sólida; la rentabilidad no es medible con la Biblioteca"
+    },
+    "razones": [
+      "Mecanismo no saturado",
+      "Dolor en voz propia"
+    ],
+    "evidencia_faltante": [
+      "Gasto y conversiones de competidores"
+    ]
+  },
+  "no_inferible": [
+    "Gasto, impresiones y conversiones de los anuncios de la competencia",
+    "Texto principal y fecha de fin de los anuncios"
+  ],
+  "hipotesis_para_d7": [
+    "Probar dos ángulos con el mismo precio"
+  ],
+  "handoff_d3": {
+    "angulos_candidatos": [
+      "pytanie-na-wieczor",
+      "rozmowa-poza-obowiazkami"
+    ],
+    "objeciones_top": [
+      "Są darmowe listy pytań"
+    ],
+    "rango_precios_por_moneda": [
+      {
+        "moneda": "PLN",
+        "min": 3900,
+        "max": 9900
+      }
+    ],
+    "entregables_tipicos": [
+      "karty do wydruku"
+    ],
+    "prohibido_copiar": [
+      "Tytuły konkurencji"
+    ]
+  }
+}

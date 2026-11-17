@@ -1,0 +1,23 @@
+<footer class="pie tono-profundo" id="pie">
+  <div class="contenedor pie__rejilla">
+    <div class="pie__marca">
+      <p class="pie__nombre">{{marca}}</p>
+      <p>{{{descripcion}}}</p>
+    </div>
+{{#si avisos}}
+    <div class="pie__avisos">
+{{#cada avisos}}
+      <p class="aviso aviso--{{tipo}}">{{{texto}}}</p>
+{{/cada}}
+    </div>
+{{/si}}
+    <nav class="pie__nav" aria-label="{{t.legal}}">
+      <ul role="list">
+{{#cada enlaces}}
+        <li><a href="{{href}}">{{texto}}</a></li>
+{{/cada}}
+      </ul>
+      <p><button type="button" class="enlace-boton" data-consent-abrir>{{preferencias}}</button></p>
+    </nav>
+  </div>
+</footer>

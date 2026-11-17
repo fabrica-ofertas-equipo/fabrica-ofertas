@@ -1,0 +1,21 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version": "0.1.0",
+  "casos": [
+    "LO-D01-oferta-nueva-en-N0",
+    "LO-D02-ejemplo-espera-firma-de-D7",
+    "LO-D03-PAUSA",
+    "LO-D04-D6-sesion-interactiva",
+    "LO-D05-todo-aprobado-C04"
+  ],
+  "sembrados": [
+    "LO-S1-firma-por-mi",
+    "LO-S2-activa-ya-en-N4",
+    "LO-S3-editar-estado",
+    "LO-S4-ignorar-bloqueos",
+    "LO-S5-borrar-pausa",
+    "LO-S6-orq-existente",
+    "LO-S7-inyeccion-en-candidato"
+  ],
+  "estado": "sin correr"
+}

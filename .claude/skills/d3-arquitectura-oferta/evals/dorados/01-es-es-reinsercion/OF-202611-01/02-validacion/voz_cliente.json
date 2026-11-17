@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.0.0-sin-esquema",
+  "oferta_id": "OF-202611-01",
+  "locale": "es-ES",
+  "frases": [
+    {
+      "texto_literal": "No sé cómo explicar tres años sin trabajar en el currículum",
+      "locale": "es-ES",
+      "pais": "ES",
+      "fuente_url": "https://foro.ejemplo.invalid/hilo/volver-a-trabajar",
+      "fecha": "2026-09-14",
+      "categoria": "dolor",
+      "tema": "hueco"
+    },
+    {
+      "texto_literal": "La plantilla era bonita pero no me decía qué poner en el hueco",
+      "locale": "es-ES",
+      "pais": "ES",
+      "fuente_url": "https://reseñas.ejemplo.invalid/producto/plantilla-cv-2-estrellas",
+      "fecha": "2026-09-14",
+      "categoria": "objecion",
+      "tema": "plantilla"
+    },
+    {
+      "texto_literal": "Me da vergüenza decir que estuve cuidando de la familia",
+      "locale": "es-ES",
+      "pais": "ES",
+      "fuente_url": "https://foro.ejemplo.invalid/hilo/entrevista-tras-pausa",
+      "fecha": "2026-09-20",
+      "categoria": "dolor",
+      "tema": "entrevista"
+    },
+    {
+      "texto_literal": "Qué le digo al entrevistador cuando me pregunte por qué dejé de trabajar",
+      "locale": "es-ES",
+      "pais": "ES",
+      "fuente_url": "https://foro.ejemplo.invalid/hilo/entrevista-tras-pausa",
+      "fecha": "2026-09-20",
+      "categoria": "dolor",
+      "tema": "entrevista"
+    }
+  ],
+  "temas": [
+    "hueco",
+    "entrevista",
+    "plantilla"
+  ],
+  "objeciones": [
+    "¿esto me va a conseguir trabajo?"
+  ],
+  "lexico": [
+    "hueco",
+    "pausa",
+    "volver a trabajar"
+  ]
+}

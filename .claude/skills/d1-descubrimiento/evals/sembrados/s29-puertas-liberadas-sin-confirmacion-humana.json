@@ -1,0 +1,31 @@
+{
+  "id": "s29-puertas-liberadas-sin-confirmacion-humana",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ La IA liberó las puertas y nadie las confirmó (humano_en_todo)",
+  "base": "g4-dinero-es-mx-modo-d-planner-por-cobro",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "modelado",
+      "op": "replace",
+      "ruta": "/pares_por_candidato/CAND-01/juicio/confirmado_por_humano",
+      "valor": false
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-14",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-14",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "puertas-sin-confirmacion-humana"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

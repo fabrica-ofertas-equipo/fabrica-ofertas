@@ -1,0 +1,87 @@
+{
+  "_nota": "PRIMERA CORRIDA REAL (2026-11-06T04:53Z, conector ads_library_search, Biblioteca de Anuncios). Medido: anuncios, edad de la oferta, conceptos, original presente por país (IT/PL/PT; también 0 en FR, DE y US). NO evaluado: las tres puertas (marca personal, sustituto gratis y práctica vetada), transferibilidad, entrantes_30d (no hay snapshot previo) y los reencuadres (aún no diseñados). Por eso los tres pares salen «incompleta» y se ordenan por techo. Plantilla para el Maker; no es una recomendación de lanzar.",
+  "schema_version": "2.0.0",
+  "ofertas": [
+    {
+      "modelo_id": "crea-y-emprende-crochet-es",
+      "nombre": "Patrones de crochet en packs (Florería Tejida 50 patrones, Navidad Tejida +100 patrones), página «Crea y Emprende», ES",
+      "fuente": {
+        "idioma": "es",
+        "pais": "ES"
+      },
+      "macro_nicho": null,
+      "traccion": {
+        "anuncios_activos": 27,
+        "edad_oferta_dias": "14.9",
+        "conceptos_unicos": 2,
+        "paginas_misma_landing": 1,
+        "anunciantes_independientes_mismo_angulo": 4
+      },
+      "puertas": {
+        "marca_personal": null,
+        "sustituto_gratis_cubre": null,
+        "practica_vetada": null
+      },
+      "reencuadres": [],
+      "pendiente": [
+        "abrir los ad_snapshot_url y juzgar las puertas (marca personal, sustituto gratis, práctica vetada)",
+        "sustituto gratis: en PL, Hobbii anuncia patrones gratuitos («Darmowy Wzór») desde hace 50 días; los patrones de crochet gratis abundan en YouTube y Pinterest",
+        "anunciantes_independientes_mismo_angulo = 4: Crochet al Hogar (200 patrones), Mundo Crochet (+1.000 patrones), Flavia da Silva Araujo (247 diseños), Praiz (101 patrones); juzgado por título",
+        "diseñar al menos un reencuadre (mecanismo, lista a sistema, cambio de unidad, subnicho × obstáculo) antes de puntuar D"
+      ],
+      "mercados": [
+        {
+          "mercado": "IT",
+          "idioma": "it",
+          "hueco": {
+            "original_presente": true,
+            "anunciantes_sostenidos": 1,
+            "puntaje_rival": null,
+            "entrantes_30d": null
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": null,
+            "viabilidad_ticket": null,
+            "riesgo_politicas": null
+          },
+          "_nota": "La misma página ya corre 8 anuncios en italiano («Natale all'Uncinetto · +100 schemi»): el original ya localizó a IT."
+        },
+        {
+          "mercado": "PL",
+          "idioma": "pl",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": null
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": null,
+            "viabilidad_ticket": null,
+            "riesgo_politicas": null
+          },
+          "_nota": "14 anuncios con «wzory szydełkowe». Verificar a mano: Katarzyna Kowalska (2 anuncios, ~21 días, sin título); si vende un pack equivalente, anunciantes_sostenidos = 1 y hay que puntuar al rival. Posible entrante: Nora Holm lanzó hoy «Kup 1, Zdobądź 3 Książki», misma estructura que «Compra 1, Lleva 3 Libros» en ES."
+        },
+        {
+          "mercado": "PT",
+          "idioma": "pt",
+          "hueco": {
+            "original_presente": false,
+            "anunciantes_sostenidos": 0,
+            "puntaje_rival": null,
+            "entrantes_30d": null
+          },
+          "ventana": "evergreen",
+          "transferibilidad": {
+            "dolor_universal": null,
+            "viabilidad_ticket": null,
+            "riesgo_politicas": null
+          },
+          "_nota": "29 anuncios con «padrões de croché». Verificar a mano: Tecendo Maria Crochê (1 anuncio, ~53 días). YarnPal lleva 65 días pero en inglés y es aprendizaje, no un pack de patrones. Paolla Silva (BR) lanzó hace 2 días «40 Ideias de Crochê Para Este Natal»."
+        }
+      ]
+    }
+  ]
+}

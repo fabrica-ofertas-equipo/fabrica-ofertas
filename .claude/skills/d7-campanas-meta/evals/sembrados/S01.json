@@ -1,0 +1,32 @@
+{
+  "id": "S01",
+  "descripcion": "URL de ejemplo resuelto con &asid= vacio (la union por IDs se rompe)",
+  "check_id": "C05",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "url",
+        "ejemplo_resuelto"
+      ],
+      "valor": "https://piano-pasti.example/?utm_source=meta&utm_medium=paid&utm_campaign=OF-202611-02_TEST_VENTAS_CBO_20261116&utm_content=c01-menu_img_h1_v1&utm_term=Amplia-IT_Automaticas_it-IT&oferta_id=OF-202611-02&cid=120000000000001&asid=&adid=120000000000003"
+    }
+  ],
+  "esperado": {
+    "check_id": "C05",
+    "codigo": "param_url_vacio",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C05",
+      "patron_clave": "url-param-vacio",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

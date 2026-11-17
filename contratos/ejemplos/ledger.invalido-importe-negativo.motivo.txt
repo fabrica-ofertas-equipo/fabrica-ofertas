@@ -1,0 +1,3 @@
+validador=minimum
+ruta=/importe/monto
+texto=el importe es >= 0; el sentido va aparte

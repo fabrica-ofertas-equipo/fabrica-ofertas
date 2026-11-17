@@ -1,0 +1,62 @@
+<section class="seccion bonus tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-extras">
+  <div class="contenedor">
+    <header class="encabezado">
+      <p class="kicker">{{t.bonus}}</p>
+      <h2 id="titulo-extras">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+{{#si rotulo_grupo}}
+    <p class="rotulo-grupo" data-rotulo="{{rotulo_grupo.tipos}}" data-para="grupo">{{rotulo_grupo.texto}}</p>
+{{/si}}
+{{#si bonos}}
+    <ul class="bonos-rejilla" role="list">
+{{#cada bonos}}
+      <li class="bono-tarjeta">
+        <div class="bono-tarjeta__portada">
+{{#si imagen}}
+          <img src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+          {{#si imagen.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}
+{{sino}}
+{{#si marcador}}
+          <div class="vp-marcador vp-marcador--portada" data-demo="imagen" role="img" aria-label="{{marcador}}"><span class="vp-marcador__etiqueta">{{marcador}}</span></div>
+{{sino}}
+          <span class="bono-tarjeta__icono icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#i-regalo"></use></svg></span>
+{{/si}}
+{{/si}}
+        </div>
+        <div class="bono-tarjeta__texto">
+          <p><span class="chip chip--marca">{{t.bonus}} #{{@n}}</span></p>
+          <h3><svg class="ico ico--insignia" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{nombre}}}</span></h3>
+          <p>{{{texto}}}</p>
+          <p class="bono-tarjeta__estado"><span class="chip">{{t.incluido}}</span></p>
+        </div>
+      </li>
+{{/cada}}
+    </ul>
+{{/si}}
+{{#si bump}}
+    <div class="tarjeta bump{{#si bump.imagen}} bump--con-imagen{{/si}}">
+{{#si bump.imagen}}
+      <div class="bump__img img-rotulada">
+        <img src="{{bump.imagen.url}}" width="{{bump.imagen.ancho}}" height="{{bump.imagen.alto}}" alt="{{bump.imagen.alt}}" data-slot="{{bump.imagen.slot}}"{{#si bump.imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si bump.imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+        {{#si bump.imagen.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{bump.imagen.tipos}}" data-para="{{bump.imagen.slot}}">{{bump.imagen.rotulo}}</span>{{/si}}
+      </div>
+{{sino}}
+{{#si bump.marcador}}
+      <div class="vp-marcador vp-marcador--bump" data-demo="imagen" role="img" aria-label="{{bump.marcador}}"><span class="vp-marcador__etiqueta">{{bump.marcador}}</span></div>
+{{/si}}
+{{/si}}
+      <span class="casilla" aria-hidden="true"></span>
+      <div>
+        <p class="bump__etiqueta"><span class="chip chip--suave">{{t.opcional}}</span></p>
+        <h3>{{{bump.nombre}}}</h3>
+        <p>{{{bump.texto}}}</p>
+        <p class="bump__casilla">{{{bump.etiqueta_casilla}}}</p>
+      </div>
+    </div>
+{{/si}}
+  </div>
+{{{cta_html}}}
+</section>

@@ -1,0 +1,67 @@
+# Semilla LOCAL de términos para el lint estructural de D3 (scripts/lint_d3.py).
+# [SUPUESTO] Hasta que X1 cargue empresa/compliance/terminos_sensibles/<locale>.yaml (propietario X1; hoy NO existe), D3 usa estas
+# listas para detectar lo evidente en nombre, subtítulo y bonus. NO sustituyen el lint de X1 (compliance.lint_claims) ni su veto:
+# solo cubren L1-12/L1-13 y avisan. Un acierto en el nombre DETIENE y decide una persona (L1-13 / X1-P07: el nombre es único por oferta
+# y las listas dan falsos positivos, p. ej. «tabla estable»). Fuente de las listas por idioma: docs/_investigacion/25 §10.3 (X1-P07, X1-E01)
+# y §5.1 («nunca decir»); los servicios prohibidos salen de departamentos/04-oferta.md §3.2 (bonus) y backbone 5.11 (EU sin servicio).
+# Sin hechos externos nuevos: todo es [SUPUESTO] pendiente de revisión nativa por locale (backbone 5.10). Formato: cadenas = palabra o
+# frase literal (insensible a mayúsculas, con límites de palabra); prefijo «re:» = expresión regular.
+version: 0.1.0
+fecha: "2026-11-06"
+
+# Independiente del idioma (departamentos/04-oferta.md §3.2 y prompt de Fer: sufijos de marca que NO van en el nombre del producto).
+sufijos_prohibidos_en_nombre: [Studio, Academy, Master, Pro, Lab, Creative]
+
+# Marcas de terceros que no pueden estar en marca, título ni subtítulo (05-legal P-03; Venzio por decisión 6 del backbone).
+marcas_terceros: [Venzio, CapCut, Premiere, Canva, Photoshop, ChatGPT, Notion]
+
+por_idioma:
+  es:
+    nombre_verbos_de_cambio: [baja, alivia, calma, equilibra, reinicia, limpia, activa, elimina, libra, multiplica, cura, sana]
+    nombre_estado_o_facilidad: [estable, cero, libre, total, reset, detox, boost, equilibrio, "sin experiencia", "sin inversión", "sin esfuerzo", garantizado, "ingresos pasivos", "libertad financiera"]
+    nombre_ganar: ["re:\\bgan(a|á|ar|arás|ando|ancia|ancias)\\b", "re:\\bgana(r)? dinero\\b"]
+    autopercepcion: [inútil, insuficiente, fracasada, fracasado, vergüenza]
+    servicios_prohibidos: [comunidad, "grupo privado", soporte, mentoría, mentoria, "clases en vivo", "clase en vivo", "sesión en vivo", "sesion en vivo", "1:1", "uno a uno", coaching, "asesoría personal", "asesoria personal", certificado, suscripción, suscripcion, "actualizaciones de por vida"]
+    ancla_falsa: ["precio normal", "valor real", "precio habitual", "re:\\bvalor de \\d"]
+  en:
+    nombre_verbos_de_cambio: [lowers, relieves, resets, cleanses, cures, heals, boosts]
+    nombre_estado_o_facilidad: [stable, zero, free, total, reset, detox, boost, balance, "no experience", "no investment", "effortless", guaranteed, "passive income", "financial freedom"]
+    nombre_ganar: ["re:\\bearn(s|ing)?\\b", "re:\\bmake money\\b"]
+    autopercepcion: ["not good enough", worthless, ashamed]
+    servicios_prohibidos: [community, "private group", support, mentoring, mentorship, "live class", "live classes", "live session", "live call", "1:1", "one-on-one", coaching, certificate, subscription, "lifetime updates"]
+    ancla_falsa: ["regular price", "normal price", "real value"]
+  it:
+    nombre_verbos_de_cambio: [abbassa, allevia, riequilibra, azzera, cura, guarisce]
+    nombre_estado_o_facilidad: [stabile, zero, libero, totale, reset, detox, equilibrio, "senza esperienza", "senza dieta", "senza sforzo", garantito, "rendita passiva", "libertà finanziaria"]
+    nombre_ganar: ["re:\\bguadagn(a|are|i|o)\\b"]
+    autopercepcion: [inutile, insufficiente, vergogna]
+    servicios_prohibidos: [comunità, "gruppo privato", supporto, mentoring, "lezioni dal vivo", "lezione dal vivo", "sessione dal vivo", "1:1", "uno a uno", coaching, certificato, abbonamento, "aggiornamenti a vita"]
+    ancla_falsa: ["prezzo normale", "valore reale", "prezzo di listino"]
+  pl:
+    nombre_verbos_de_cambio: [obniża, łagodzi, resetuje, oczyszcza, leczy, uzdrawia]
+    nombre_estado_o_facilidad: [stabilny, zero, wolny, "bez doświadczenia", "bez inwestycji", "bez wysiłku", gwarantowany, "dochód pasywny", "wolność finansowa", reset, detoks]
+    nombre_ganar: ["re:\\bzarabiaj\\w*\\b", "re:\\bzarób\\b"]
+    autopercepcion: [beznadziejna, beznadziejny, niewystarczająca, wstyd]
+    servicios_prohibidos: [społeczność, "grupa prywatna", wsparcie, mentoring, "zajęcia na żywo", "na żywo", "1:1", "indywidualne", coaching, certyfikat, subskrypcja, "aktualizacje na zawsze"]
+    ancla_falsa: ["cena normalna", "prawdziwa wartość", "cena regularna"]
+  ro:
+    nombre_verbos_de_cambio: [scade, calmează, resetează, curăță, vindecă]
+    nombre_estado_o_facilidad: ["fără experiență", "fără investiție", garantat, "venit pasiv", "libertate financiară", reset, detox]
+    nombre_ganar: ["re:\\bcâștig\\w*\\b"]
+    autopercepcion: [nepriceput, insuficient, rușine]
+    servicios_prohibidos: [comunitate, "grup privat", suport, mentorat, "cursuri live", "live", "1:1", coaching, certificat, abonament]
+    ancla_falsa: ["preț normal", "valoare reală"]
+  fr:
+    nombre_verbos_de_cambio: [abaisse, soulage, "réinitialise", guérit]
+    nombre_estado_o_facilidad: ["sans expérience", "sans effort", garanti, "revenu passif", "liberté financière", reset, détox]
+    nombre_ganar: ["re:\\bgagn(e|er|ez)\\b"]
+    autopercepcion: [nulle, "pas assez", honte]
+    servicios_prohibidos: [communauté, "groupe privé", assistance, mentorat, "cours en direct", "en direct", "1:1", coaching, certificat, abonnement]
+    ancla_falsa: ["prix normal", "valeur réelle"]
+  de:
+    nombre_verbos_de_cambio: [senkt, lindert, "setzt zurück", heilt]
+    nombre_estado_o_facilidad: ["ohne Erfahrung", "ohne Aufwand", garantiert, "passives Einkommen", "finanzielle Freiheit", reset, detox]
+    nombre_ganar: ["re:\\bverdien\\w*\\b"]
+    autopercepcion: [wertlos, "nicht gut genug", Scham]
+    servicios_prohibidos: [Community, Gemeinschaft, "private Gruppe", Betreuung, Mentoring, "Live-Kurs", live, "1:1", Coaching, Zertifikat, Abo]
+    ancla_falsa: ["Normalpreis", "echter Wert"]

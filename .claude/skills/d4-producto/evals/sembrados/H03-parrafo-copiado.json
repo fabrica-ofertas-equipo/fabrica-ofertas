@@ -1,0 +1,21 @@
+{
+  "id": "H03",
+  "dorado_base": "D4-02",
+  "obligatorio_100pct": false,
+  "mutacion": {
+    "archivo": "entregables/fuente/guia.html",
+    "cambio": "pegar 10 palabras seguidas de respaldo/fuentes/<snapshot>.txt sin comillas en el cap. 1"
+  },
+  "detector_determinista": "similitud_ngrama.py → copia-literal (BLOQUEANTE, tramo ≥ ngrama_copia_palabras)",
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-06",
+      "patron_clave": "copia-literal",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "guia.html y el snapshot de la fuente (tramo idéntico citado)",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  }
+}

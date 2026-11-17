@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "idioma": "es-ES",
+  "marca": {
+    "nombre": "Mi Regreso Laboral",
+    "color_fondo": "#fbf7f0",
+    "color_texto": "#1d1b19",
+    "color_acento": "#2f6f5e",
+    "fuente": "Helvetica Neue, Arial",
+    "fuentes_nota": "Con las WOFF2 de D5 (05-landing/fonts/, ver paleta.json#tipografia): 'fuente' = la familia de titulos y 'fuentes' = [{\"familia\": \"Source Sans 3\", \"peso\": 400, \"archivo\": \"05-landing/fonts/source-sans-3-400.woff2\", \"licencia_ref\": \"lic-source-sans-3\"}]; render_estatico.py --oferta-dir las incrusta. Cada familia lleva su entrada en licencias.json. Sin 'fuentes', pila del sistema (lic-fuente-sistema)."
+  },
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "texto_principal": "Una pausa laboral no es un hueco: es un relato que se puede contar. Guía con guion de 30 segundos y plantilla de currículum por competencias. Guía + plantilla: 19,90 €.",
+      "titular": "Guía + plantilla",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "Una pausa laboral no es un hueco: es un relato que se puede contar.",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    },
+    {
+      "ad_name": "c01-hueco_img_h2_v1",
+      "texto_principal": "¿Cómo se cuenta una pausa laboral en 30 segundos? Hay un orden para hacerlo: guion de 30 segundos y plantilla editable. Guía + plantilla: 19,90 €.",
+      "titular": "Guía + plantilla",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "¿Cómo se cuenta una pausa laboral en 30 segundos?",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    },
+    {
+      "ad_name": "c02-entrevista_img_h1_v1",
+      "texto_principal": "La fórmula del guion de 30 segundos, paso a paso. Se ve la hoja del guion completándose, con ejemplo resuelto. Guía + plantilla: 19,90 €.",
+      "titular": "Guía + guion",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "La fórmula del guion de 30 segundos, paso a paso.",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    },
+    {
+      "ad_name": "c02-entrevista_img_h2_v1",
+      "texto_principal": "Un guion de 30 segundos ya redactado, listo para ensayar en voz alta. Incluye un guion de 30 segundos para explicar la pausa y su fórmula. Guía + plantilla: 19,90 €.",
+      "titular": "Guía + guion",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "Un guion de 30 segundos ya redactado, listo para ensayar en voz alta.",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    },
+    {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "texto_principal": "Currículum por competencias: guía pensada para unos 90 minutos. Plantilla editable y pasos con su tiempo. Guía + plantilla: 19,90 €.",
+      "titular": "Guía de 90 minutos",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "Currículum por competencias: guía pensada para unos 90 minutos.",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    },
+    {
+      "ad_name": "c03-tarde_img_h2_v1",
+      "texto_principal": "Una mesa, una plantilla editable y unos 90 minutos. Pensado para completarlo en unos 90 minutos, con la plantilla de currículum incluida. Guía + plantilla: 19,90 €.",
+      "titular": "Plantilla + guion",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE",
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "texto_en_pieza": {
+        "gancho": "Una mesa, una plantilla editable y unos 90 minutos.",
+        "apoyo": "Guía + plantilla · 19,90 €",
+        "rotulo": "",
+        "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+      }
+    }
+  ],
+  "reserva": [
+    {
+      "concepto_id": "c04-ordenar",
+      "guion_ref": "guiones/c04-ordenar_reserva.md",
+      "texto_principal": "Ordenar la experiencia por competencias antes de explicar la pausa: guía y plantilla. Guía + plantilla: 19,90 €.",
+      "titular": "Guía + plantilla",
+      "descripcion": "Garantía de 14 días",
+      "cta": "LEARN_MORE"
+    }
+  ]
+}

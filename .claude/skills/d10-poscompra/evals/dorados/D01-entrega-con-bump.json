@@ -1,0 +1,81 @@
+{
+  "id": "D01",
+  "tipo": "dorado",
+  "capa": "script",
+  "auto": "plan_entrega",
+  "descripcion": "Compra con bump (oferta A, pl-PL, PLN): la sesión pagó principal + bump ⇒ se entregan AMBOS archivos y el correo E0 lleva un enlace por línea; la sesión que pagó solo el principal NO recibe el archivo del bump; la muestra (en_paquete=false) no se entrega nunca.",
+  "estado_del_codigo": "El contrato de entrega por línea es PROPUESTO (PEDIDOS P-03, A-02, A-03). Hoy `postcompra.publicar_producto` arma un único zip con todo `en_paquete` y `fulfill` firma un solo `producto_sha256`: con el código actual el QA debe registrar MAYOR «entrega por línea no cableada».",
+  "entrada": {
+    "oferta": {
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "bump": {
+        "id": "zestaw-fiszek"
+      },
+      "garantia": {
+        "dias": 30,
+        "texto_visible": "Jeśli to nie dla Ciebie, możesz poprosić o zwrot płatności w ciągu 30 dni od zakupu. Wystarczy napisać wiadomość na adres kontaktowy ze strony zakupu i podać numer zamówienia; zwrot wraca na tę samą metodę płatności, a powodu podawać nie trzeba."
+      }
+    },
+    "producto": {
+      "items": [
+        {
+          "id": "mapy-slownictwa-a1-c2",
+          "archivo": "entregables/mapy-a1-c2.pdf",
+          "sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "en_paquete": true
+        },
+        {
+          "id": "zestaw-fiszek",
+          "archivo": "entregables/fiszki.zip",
+          "sha256": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "en_paquete": true
+        },
+        {
+          "id": "muestra-gratis",
+          "archivo": "entregables/muestra.pdf",
+          "sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "en_paquete": false
+        }
+      ]
+    },
+    "casos": [
+      {
+        "lineas_pagadas": [
+          "principal",
+          "bump"
+        ],
+        "entregar_ids": [
+          "mapy-slownictwa-a1-c2",
+          "zestaw-fiszek"
+        ],
+        "no_entregar_ids": []
+      },
+      {
+        "lineas_pagadas": [
+          "principal"
+        ],
+        "entregar_ids": [
+          "mapy-slownictwa-a1-c2"
+        ],
+        "no_entregar_ids": [
+          "zestaw-fiszek"
+        ]
+      }
+    ],
+    "correo": {
+      "plantilla": "templates/correo-entrega.pl.txt",
+      "datos": "templates/correo-datos.ejemplo.json",
+      "debe_contener": [
+        "Mapy słownictwa A1-C2",
+        "Zestaw fiszek do druku i importu",
+        "Numer Twojego zamówienia",
+        "soporte@mapymysli-angielski.example"
+      ]
+    }
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "debe_citar_evidencia": "líneas pagadas y los dos enlaces del correo"
+  }
+}

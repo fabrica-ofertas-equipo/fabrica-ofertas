@@ -1,0 +1,3 @@
+validador=type
+ruta=/slots/0/archivo
+texto=un slot aprobado exige archivo

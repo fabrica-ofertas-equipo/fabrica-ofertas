@@ -1,0 +1,8 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "informe_ceguera",
+  "ok": true,
+  "n_paquetes": 143,
+  "n_secretos_buscados": 24,
+  "hallazgos": []
+}

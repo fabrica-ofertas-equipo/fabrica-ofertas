@@ -1,0 +1,104 @@
+[
+  {
+    "ejecucion_id": "RUN-20261110-01",
+    "oferta_id": "OF-202611-01",
+    "etapa": "D5",
+    "agente": "d5-maker",
+    "inicio": "2026-11-10T09:00:00Z",
+    "fin": "2026-11-10T09:07:30Z",
+    "estado": "ok",
+    "costo": {
+      "monto": 300,
+      "moneda": "EUR"
+    },
+    "modo": "dry_run",
+    "eventos": 3
+  },
+  {
+    "ejecucion_id": "RUN-20261110-02",
+    "oferta_id": "OF-202611-01",
+    "etapa": "D5",
+    "agente": "d5-qa",
+    "inicio": "2026-11-10T10:00:00Z",
+    "fin": "2026-11-10T10:03:00Z",
+    "estado": "ok",
+    "costo": {
+      "monto": 120,
+      "moneda": "EUR"
+    },
+    "modo": "dry_run",
+    "eventos": 2
+  },
+  {
+    "ejecucion_id": "RUN-20261111-01",
+    "oferta_id": "OF-202611-01",
+    "etapa": "D5",
+    "agente": "d5-qa",
+    "inicio": "2026-11-11T10:00:00Z",
+    "fin": "2026-11-11T10:02:00Z",
+    "estado": "ok",
+    "costo": {
+      "monto": 110,
+      "moneda": "EUR"
+    },
+    "modo": "dry_run",
+    "eventos": 2
+  },
+  {
+    "ejecucion_id": "RUN-20261112-01",
+    "oferta_id": "OF-202611-02",
+    "etapa": "D6",
+    "agente": "d6-maker",
+    "inicio": "2026-11-12T08:00:00Z",
+    "fin": "2026-11-12T08:40:00Z",
+    "estado": "error",
+    "costo": {
+      "monto": 1800,
+      "moneda": "EUR"
+    },
+    "modo": "live",
+    "eventos": 9
+  },
+  {
+    "ejecucion_id": "RUN-20261112-02",
+    "oferta_id": null,
+    "etapa": "F1",
+    "agente": "f1-maker",
+    "inicio": "2026-11-12T11:00:00Z",
+    "fin": "2026-11-12T11:00:00Z",
+    "estado": "ok",
+    "costo": null,
+    "modo": "dry_run",
+    "eventos": 1
+  },
+  {
+    "ejecucion_id": "RUN-20261113-01",
+    "oferta_id": "OF-202611-01",
+    "etapa": "D7",
+    "agente": "script:activar",
+    "inicio": "2026-11-13T07:00:00Z",
+    "fin": "2026-11-13T07:00:02Z",
+    "estado": "bloqueado",
+    "costo": {
+      "monto": 0,
+      "moneda": "EUR"
+    },
+    "modo": "dry_run",
+    "eventos": 1
+  },
+  {
+    "ejecucion_id": "RUN-20261114-01",
+    "oferta_id": "OF-202611-01",
+    "etapa": "D8",
+    "agente": "d8-maker",
+    "inicio": "2026-11-14T09:00:00Z",
+    "fin": "2026-11-14T09:05:00Z",
+    "estado": "ok",
+    "costo": {
+      "monto": 250,
+      "moneda": "USD"
+    },
+    "modo": "live",
+    "eventos": 4
+  }
+]

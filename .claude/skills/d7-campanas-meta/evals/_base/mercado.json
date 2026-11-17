@@ -1,0 +1,10 @@
+{
+  "_nota": "extracto minimo para los evals de D7",
+  "oferta_id": "OF-202611-02",
+  "locale": "it-IT",
+  "paises_segmentacion": [
+    "IT"
+  ],
+  "moneda_cobro": "EUR",
+  "estado_decision": "hipotesis"
+}

@@ -1,0 +1,106 @@
+{
+  "grupo": "Mayores: caracteres, zona segura, idioma mezclado, formato de precio",
+  "bloqueante": false,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s05-corrupto-pl",
+      "grupo": "s05",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Arkusz: koszt, cena minimalna i marÅ¼a w jednej tabeli. 49 zÅ‚.",
+        "titular": "Arkusz kosztów",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "«ż» y «ł» corruptas (mojibake)",
+      "check_id_esperado": "D6-L1-06",
+      "severidad_esperada": "MAYOR",
+      "patron_clave_esperado": "caracteres-corruptos",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "MAYOR: caracteres del locale corruptos; el hash del texto no cambia pero la pieza no es publicable",
+      "bloqueante": false
+    },
+    {
+      "variante_id": "s05-corrupto-es",
+      "grupo": "s05",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Planificador de comidas con lista de la compra. PDF: 9,90 €. DiseÃ±o imprimible.",
+        "titular": "Planificador",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "«ñ» corrupta",
+      "check_id_esperado": "D6-L1-06",
+      "severidad_esperada": "MAYOR",
+      "patron_clave_esperado": "caracteres-corruptos",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "MAYOR: «Ã±» en lugar de «ñ»",
+      "bloqueante": false
+    },
+    {
+      "variante_id": "s05-zona-segura",
+      "grupo": "s05",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Costo, precio mínimo y margen en una hoja. 14,90 €.",
+        "titular": "Hoja de costeo",
+        "ratio": "9:16",
+        "posicion_titular_y_pct": 88
+      },
+      "defecto": "titular a y = 88 % de 1920 (zona del 35 % inferior)",
+      "check_id_esperado": "D6-L1-01",
+      "severidad_esperada": "MAYOR",
+      "patron_clave_esperado": "titular-fuera-de-zona-segura",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "MAYOR: texto en la zona inferior que tapa la interfaz de Reels/Stories (zona segura 9:16)",
+      "bloqueante": false
+    },
+    {
+      "variante_id": "s05-idioma",
+      "grupo": "s05",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Hoja de costeo con precio mínimo y margen para cada producto: se completa en una tarde, con la plantilla incluida. 14,90 €.",
+        "titular": "Hoja de costeo",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "texto en español en una oferta it-IT",
+      "check_id_esperado": "D6-L1-06",
+      "severidad_esperada": "MAYOR",
+      "patron_clave_esperado": "idioma-distinto-del-locale",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "MAYOR: `copies.idioma = it-IT` pero el texto está en español",
+      "bloqueante": false
+    },
+    {
+      "variante_id": "s05-formato-precio",
+      "grupo": "s05",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Arkusz: koszt, cena minimalna i marża. Cena: $12.90.",
+        "titular": "Arkusz kosztów",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "precio con formato (y moneda) de otro país",
+      "check_id_esperado": "X1-K01",
+      "severidad_esperada": "MAYOR",
+      "patron_clave_esperado": "formato-de-precio-de-otro-pais",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "MAYOR (y BLOQUEANTE si la moneda difiere de la de cobro): en polaco el precio es `49 zł`",
+      "contexto": {
+        "landing_precio": "49 zł"
+      },
+      "bloqueante": false
+    }
+  ]
+}

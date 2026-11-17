@@ -1,0 +1,291 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-03",
+  "corrida_id": "RUN-20261106-02",
+  "fecha": "2026-11-06T10:00:00Z",
+  "modo": "pipeline",
+  "mercado": {
+    "locale": "es-AR",
+    "paises": [
+      "AR"
+    ]
+  },
+  "pesos": {
+    "ac_dolor_urgencia": "15",
+    "ac_disposicion_pago_precio": "14",
+    "ac_evidencia_demanda_pagada": "12",
+    "ac_competencia": "8",
+    "ac_huecos": "10",
+    "ac_producibilidad_ia_1dia": "12",
+    "ac_tiempo_primer_resultado": "8",
+    "ac_vida_util": "6",
+    "ac_riesgo": "10",
+    "ac_encaje_marca_mercado": "5"
+  },
+  "parametros_usados": {
+    "modo_busqueda": "C",
+    "umbral_score_min": 55,
+    "evidencia_min_fuentes": 2,
+    "evidencia_min_tipos": 2,
+    "nota": "modo_busqueda y formula_version viajan aquí hasta la MINOR candidatos 1.1.0 [PENDIENTE: CT-4]"
+  },
+  "consultas": [
+    {
+      "herramienta": "WebSearch",
+      "terminos": "cuánto cobrar por mis manualidades",
+      "pais": "AR",
+      "fecha": "2026-11-06T09:00:00Z",
+      "estimated_total_count": null
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "planilla de costos",
+      "pais": "AR",
+      "fecha": "2026-11-06T09:12:00Z",
+      "estimated_total_count": 18
+    }
+  ],
+  "candidatos": [
+    {
+      "candidato_id": "CAND-01",
+      "problema_id": "PRB-202611-0031",
+      "rango": 1,
+      "macro_nicho": "dinero",
+      "nicho_id": "empleo-e-ingresos-propios",
+      "microsegmento": "vender-manualidades-costeo",
+      "problema": "Vende manualidades pero no sabe qué precio poner: cobra solo el material y termina regalando su tiempo",
+      "prueba_una_frase": "Para quien vende lo que hace a mano y no sabe qué precio poner, el Precio Mínimo por Pieza es una hoja de cálculo que lleva de «cobro lo que me sale» a «un precio mínimo por pieza con mis horas incluidas» sin fórmulas que armar desde cero.",
+      "tesis": "El problema no es vender sino cobrar de menos por no contar las horas propias; una hoja que suma materiales, tiempo y gastos fijos da un precio mínimo defendible.",
+      "mecanismo": {
+        "causa_raiz": {
+          "texto": "Quien vende manualidades calcula el precio con el costo de los materiales y deja afuera sus horas y los gastos fijos, por eso cobra de menos.",
+          "senales": [
+            "d92b5ce12f32",
+            "7146ef28aab8"
+          ]
+        },
+        "nombre": "Precio Mínimo por Pieza",
+        "como_funciona": "Suma materiales, horas de trabajo y una parte de los gastos fijos y devuelve el precio mínimo por pieza y por lote.",
+        "diferencia": "Un chatbot calcula una cuenta suelta; la hoja ya trae horas, desperdicio y gastos fijos prorrateados y se reutiliza con cada pieza.",
+        "prueba_logica": "Ejemplo resuelto con una pieza ficticia; cada celda tiene su fórmula a la vista.",
+        "riesgo_de_claim": "No prometer ingresos, ganancias ni cuánto se vende; solo el cálculo del precio mínimo."
+      },
+      "entregable": {
+        "formato": "hoja_de_calculo",
+        "alcance": "Una hoja con costeo de materiales, horas y gastos fijos por pieza; entrega única, sin asesoramiento ni servicio posterior.",
+        "estado_a_b": {
+          "a": "No sé qué precio poner",
+          "b": "Tengo un precio mínimo por pieza con mis horas incluidas"
+        },
+        "tiempo_al_primer_resultado": 30,
+        "producibilidad": {
+          "nivel": "alta",
+          "notas": "Hoja propia; sin activos de terceros."
+        },
+        "licencias": [
+          "sin activos de terceros"
+        ]
+      },
+      "precio_plausible": {
+        "min": {
+          "monto": 500,
+          "moneda": "USD"
+        },
+        "max": {
+          "monto": 1200,
+          "moneda": "USD"
+        },
+        "razon": "Ticket bajo por poder adquisitivo local [HIPÓTESIS]; planillas del ranking EV-03 [VERIFICAR con la ficha de M1]; sin cotización registrada, no se convierte a pesos"
+      },
+      "puntajes": {
+        "dolor_urgencia": {
+          "s": 4,
+          "justificacion": "Pierde plata por no saber el precio mínimo: cobra de menos de forma recurrente (EV-01)",
+          "evidencia_ids": [
+            "EV-01"
+          ]
+        },
+        "disposicion_pago_precio": {
+          "s": 3,
+          "justificacion": "Se compran planillas de costos en el rango (EV-03); la gratuita confunde (EV-02)",
+          "evidencia_ids": [
+            "EV-02",
+            "EV-03"
+          ]
+        },
+        "evidencia_demanda_pagada": {
+          "s": 3,
+          "justificacion": "Ventas (E1) y anunciante persistente (E2); el conteo es contexto, no prueba",
+          "evidencia_ids": [
+            "EV-03",
+            "EV-04"
+          ]
+        },
+        "competencia": {
+          "s": 3,
+          "justificacion": "Pocos anunciantes con oferta equivalente; espacio en el costeo de horas propias",
+          "evidencia_ids": [
+            "EV-04"
+          ]
+        },
+        "huecos": {
+          "s": 4,
+          "justificacion": "La reseña 2★ evidencia el hueco: no cuenta las horas de trabajo (EV-02)",
+          "evidencia_ids": [
+            "EV-02"
+          ]
+        },
+        "producibilidad_ia_1dia": {
+          "s": 5,
+          "justificacion": "Hoja de cálculo con fórmulas visibles y verificables",
+          "evidencia_ids": [
+            "EV-02"
+          ]
+        },
+        "tiempo_primer_resultado": {
+          "s": 5,
+          "justificacion": "Primer precio mínimo en menos de una hora",
+          "evidencia_ids": [
+            "EV-01"
+          ]
+        },
+        "vida_util": {
+          "s": 4,
+          "justificacion": "Evergreen con picos de fechas de venta",
+          "evidencia_ids": [
+            "EV-03"
+          ]
+        },
+        "riesgo": {
+          "s": 5,
+          "justificacion": "Verde: P0, C0, E0, N1 (caso SAL-03 de la suite de frontera)",
+          "evidencia_ids": [
+            "EV-04"
+          ]
+        },
+        "encaje_marca_mercado": {
+          "s": 3,
+          "justificacion": "Neutral; el poder adquisitivo local exige un ticket bajo",
+          "evidencia_ids": [
+            "EV-03"
+          ]
+        }
+      },
+      "score_base": 78,
+      "score_ajustado": 66,
+      "confianza": "alta",
+      "evidencia": [
+        {
+          "id": "EV-01",
+          "tipo": "E3",
+          "url": "https://foro-emprendedoras.ejemplo.invalid/hilo/cuanto-cobrar",
+          "fecha_publicacion": "2026-09-12",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Hago velas y bolsos pero nunca sé cuánto cobrar y termino regalando mi trabajo",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:554ce3fd5fcdd87d9a913df5af372377f3d219de43c35560a90d7e6cd6b2ca29"
+        },
+        {
+          "id": "EV-02",
+          "tipo": "E3",
+          "url": "https://tienda-planillas.ejemplo.invalid/producto/planilla-costos/resenas",
+          "fecha_publicacion": "2026-06-25",
+          "fecha_consulta": "2026-11-06",
+          "cita": "La planilla era confusa y no incluía las horas de mi trabajo",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:d22c4fe672fb193eea66d345a275a941ac0b105ff545b4f68f43c28a14e4dd9f"
+        },
+        {
+          "id": "EV-03",
+          "tipo": "E1",
+          "url": "https://marketplace.ejemplo.invalid/ranking/planillas-costos-emprendedores",
+          "fecha_publicacion": "2026-10-02",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Planillas de costos para emprendedores entre lo más vendido de la categoría",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:e29f91860ba525925c5246efa899beddf66aa45363add3e585ce3358c9f54643"
+        },
+        {
+          "id": "EV-04",
+          "tipo": "E2",
+          "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000201",
+          "fecha_publicacion": "2026-08-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Calculá el precio justo de lo que hacés a mano",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:c8a1f5cae897a05de0934d9a2a9aaba0ed70e3f89a6c2af4080276250cd76ecb"
+        }
+      ],
+      "demanda_pagada": {
+        "n_anuncios": 9,
+        "n_anunciantes": 4,
+        "n_sostenidos": 1,
+        "n_conceptos_unicos": 4,
+        "antiguedad_max_dias": 70,
+        "consultas_ids": [
+          "Q-02"
+        ],
+        "senal_rentabilidad": "no medible"
+      },
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "reencuadre_aplicado": {
+          "aplicado": false
+        },
+        "fuentes": [
+          "lp-03",
+          "docs/_historial/hwr-semillas/casos-frontera.yaml (SAL-03)"
+        ],
+        "categoria": "Finanzas del emprendimiento: herramienta de cálculo, sin promesa de ingresos",
+        "claims_a_evitar": [
+          "ganá X por mes con manualidades",
+          "ingresos desde casa",
+          "sin experiencia ni inversión"
+        ],
+        "angulo_seguro": "Hoja de costeo y precio mínimo por pieza; el sujeto es la hoja, no el resultado de quien la usa."
+      },
+      "similitud_memoria": {
+        "max": "0.20",
+        "con": null
+      },
+      "viabilidad_cpa": {
+        "ratio_pes": "0.40",
+        "ratio_central": "1.12",
+        "ratio_opt": "2.10",
+        "bandera": "amarilla",
+        "supuestos": [
+          "CPM de AR del rango LatAm de 04-meta-ads §8.2; CTR y conversión sin fuente [HIPÓTESIS]",
+          "bump: hoja de cotización por encargo (supuesto)"
+        ]
+      },
+      "sensibilidad": {
+        "top3_estable_pct": 100
+      },
+      "ventana_estacional": "Previo a Día de la Madre y Navidad [HIPÓTESIS]",
+      "hipotesis_para_d2": [
+        "Los competidores prometen ingresos: etiquetar prohibido_copiar y no copiar el claim",
+        "Un gratuito de costeo cubre lo básico: medir el sustituto gratis (incluido el chatbot)"
+      ],
+      "que_la_mataria": [
+        "Una planilla gratuita con horas y gastos fijos ya resuelta",
+        "Poder adquisitivo local que vuelva inviable el CPA sin backend"
+      ],
+      "palabras_clave_voz_cliente": [
+        "cuánto cobrar",
+        "precio de mis productos",
+        "costos de materiales"
+      ]
+    }
+  ],
+  "descartados": [
+    {
+      "problema": "Ganá USD 1.500 al mes vendiendo manualidades desde casa",
+      "motivo": "claim_de_salud_o_ingresos",
+      "redencion": "reformular"
+    }
+  ]
+}

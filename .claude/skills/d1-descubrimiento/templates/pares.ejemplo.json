@@ -1,0 +1,217 @@
+{
+  "_nota": "SINTÉTICO (plantilla del contrato de entrada de scripts.descubrimiento.ficha_a_candidato mapear). `ficha.macro_nicho` va null (lo fija el módulo); un solo mercado por par; `evidencia[].locale` = ISO-2 del mercado destino; `senal_id` y `hash_copia_crudo` llevan marcadores hasta `validar_candidatos.py sellar`.",
+  "schema_version": "1.0.0",
+  "pares": [
+    {
+      "ficha": {
+        "modelo_id": "planner-presupuesto-quincenal-us",
+        "nombre": "Planner de presupuesto por cobro (original en inglés, SINTÉTICO)",
+        "fuente": {
+          "idioma": "en",
+          "pais": "US"
+        },
+        "macro_nicho": null,
+        "traccion": {
+          "anuncios_activos": 22,
+          "edad_oferta_dias": "16",
+          "conceptos_unicos": 4,
+          "paginas_misma_landing": 3,
+          "anunciantes_independientes_mismo_angulo": 2
+        },
+        "puertas": {
+          "marca_personal": false,
+          "sustituto_gratis_cubre": false,
+          "practica_vetada": false
+        },
+        "reencuadres": [
+          "lista_a_sistema"
+        ],
+        "mercados": [
+          {
+            "mercado": "MX",
+            "idioma": "es",
+            "hueco": {
+              "original_presente": false,
+              "anunciantes_sostenidos": 1,
+              "puntaje_rival": 40,
+              "entrantes_30d": 1
+            },
+            "ventana": "evergreen",
+            "transferibilidad": {
+              "dolor_universal": "0.8",
+              "viabilidad_ticket": "0.7",
+              "riesgo_politicas": "0.9"
+            },
+            "reencuadres_mercado": [
+              "localizacion_cultural"
+            ]
+          }
+        ],
+        "pendiente": []
+      },
+      "problema_id": "PRB-202611-0051",
+      "nicho_id": "presupuesto-y-ahorro-del-hogar",
+      "microsegmento": "presupuesto-por-cobro",
+      "juicio": {
+        "prueba_una_frase": "Para quien cobra por quincena y no sabe cómo repartir los gastos entre los dos cobros, el Planner por Cobro es una hoja de cálculo que lleva de «no sé con qué cobro pago esto» a «cada gasto asignado a su cobro» sin copiar el planner mensual de otro mercado.",
+        "problema": "Cobra por quincena y los planners que ve anunciados asumen un ingreso mensual: no sabe cómo repartir los gastos entre los dos cobros",
+        "tesis": "El modelo de origen vende un planner por cobro en inglés; en México el hueco es una versión nativa que se arme alrededor de la quincena, no una traducción.",
+        "senal_id_e3": "000000000003",
+        "ejes": {
+          "P": "P0",
+          "C": "C1",
+          "E": "E1",
+          "N": "N1"
+        },
+        "zona_gris": false,
+        "hay_reencuadre": false,
+        "riesgo_fuentes": [
+          "lp-03",
+          "docs/_investigacion/25-marco-salud-relaciones-dinero.md"
+        ],
+        "riesgo_categoria": "Finanzas personales: herramienta de registro, sin asesoría",
+        "riesgo_claims_a_evitar": [
+          "ahorrarás X",
+          "salir de deudas",
+          "copiar la urgencia o los testimonios del original"
+        ],
+        "riesgo_angulo_seguro": "Hoja para ordenar los gastos entre cobros; el riesgo del candidato se calcula sobre NUESTRA promesa, no sobre la del original.",
+        "mecanismo": {
+          "causa_raiz": {
+            "texto": "Los planners disponibles asumen un cobro mensual; quien cobra por quincena no ve qué gasto cae antes de cuál.",
+            "senales": [
+              "000000000003"
+            ]
+          },
+          "nombre": "Planner por Cobro",
+          "como_funciona": "Dos bloques por mes; cada gasto fijo se asigna al cobro que lo cubre y se deja un colchón entre cobros.",
+          "diferencia": "Frente al original en inglés, está armado alrededor de la quincena mexicana; frente a un chatbot, trae la estructura lista y reutilizable.",
+          "prueba_logica": "Vista previa con un mes ficticio y fórmulas visibles; sin testimonios.",
+          "riesgo_de_claim": "No prometer ahorros ni salir de deudas; el producto es propio y original, no una copia del texto ni de los creativos del modelo."
+        },
+        "entregable": {
+          "formato": "hoja_de_calculo",
+          "alcance": "Una hoja con dos bloques por mes y cinco categorías; entrega única, sin asesoramiento ni servicio posterior.",
+          "estado_a_b": {
+            "a": "No sé con qué cobro pago cada cosa",
+            "b": "Cada gasto fijo tiene su cobro asignado"
+          },
+          "tiempo_al_primer_resultado": 25,
+          "producibilidad": {
+            "nivel": "alta",
+            "notas": "Hoja propia; originalidad contra la fuente a comprobar con dedup.py [PENDIENTE: S-B]."
+          },
+          "licencias": [
+            "sin activos de terceros"
+          ]
+        },
+        "evidencia": [
+          {
+            "id": "EV-01",
+            "tipo": "E2",
+            "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000401",
+            "fecha_publicacion": "2026-10-18",
+            "fecha_consulta": "2026-11-06",
+            "cita": "Paycheck budget planner: instant PDF access",
+            "cita_literal_verificada": true,
+            "hash_copia_crudo": "sha256:7d99654c648f258c1696ff8d5bb280ad21b3bde084d3b0108331c6c2e0696ccf",
+            "locale": "US",
+            "senal_id": "000000000001"
+          },
+          {
+            "id": "EV-02",
+            "tipo": "E2",
+            "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000402",
+            "fecha_publicacion": "2026-10-30",
+            "fecha_consulta": "2026-11-06",
+            "cita": "Planner de presupuesto en PDF con acceso inmediato",
+            "cita_literal_verificada": true,
+            "hash_copia_crudo": "sha256:d0e7943e818b4be06d44d3cf2f74400de86a0798065f75695ded5de5275e6f5f",
+            "locale": "MX",
+            "senal_id": "000000000002"
+          },
+          {
+            "id": "EV-03",
+            "tipo": "E3",
+            "url": "https://tienda-planners.ejemplo.invalid/producto/planner-mensual/resenas",
+            "fecha_publicacion": "2026-09-22",
+            "fecha_consulta": "2026-11-06",
+            "cita": "No me sirve porque mi sueldo es quincenal y la plantilla es mensual",
+            "cita_literal_verificada": true,
+            "hash_copia_crudo": "sha256:9244883d6db176b426a6a998de9db2974a0524e1b1951d65530c75adfbf208f2",
+            "locale": "MX",
+            "senal_id": "000000000003"
+          }
+        ],
+        "similitud_memoria": {
+          "max": "0.22",
+          "con": null
+        },
+        "precio_plausible": {
+          "min": {
+            "monto": 700,
+            "moneda": "USD"
+          },
+          "max": {
+            "monto": 1500,
+            "moneda": "USD"
+          },
+          "razon": "Rango del brief [SUPUESTO]; sin cotización registrada; el precio del original se ve en la página de venta (dato ajeno)"
+        },
+        "puntajes": {
+          "traccion": {
+            "s": 5,
+            "justificacion": "T = 1,000: 22 anuncios, 16 días de edad de la oferta, 4 conceptos (puntaje_modelar; sello pm-2)",
+            "evidencia_ids": [
+              "EV-01"
+            ]
+          },
+          "hueco": {
+            "s": 2,
+            "justificacion": "H = 0,400, cuello de botella: un rival débil en es-MX (idioma 0,5) y 1 entrante en 30 días",
+            "evidencia_ids": [
+              "EV-02"
+            ]
+          },
+          "transferibilidad": {
+            "s": 4,
+            "justificacion": "X = 0,796: dolor universal 0,8, ticket 0,7, políticas 0,9 (dos jueces + confirmación humana)",
+            "evidencia_ids": [
+              "EV-03"
+            ]
+          },
+          "diferenciacion": {
+            "s": 5,
+            "justificacion": "D = 1,000: lista_a_sistema y localizacion_cultural (cobro quincenal)",
+            "evidencia_ids": [
+              "EV-03"
+            ]
+          }
+        },
+        "viabilidad_cpa": {
+          "ratio_pes": "0.50",
+          "ratio_central": "1.10",
+          "ratio_opt": "2.40",
+          "bandera": "amarilla",
+          "supuestos": [
+            "CPM de MX del rango LatAm de 04-meta-ads §8.2; CTR y conversión sin fuente [HIPÓTESIS]"
+          ]
+        },
+        "ventana_estacional": null,
+        "hipotesis_para_d2": [
+          "TRANSFERENCIA: la ausencia del original en es-MX (E2, muestra) es evidencia de oferta, no de demanda ni de dolor; confirmar con la pasada 3 y auditar al rival débil",
+          "La E3 de es-MX (EV-03) es una sola reseña: D2 repite pago y demanda en el destino"
+        ],
+        "que_la_mataria": [
+          "Que el rival débil de es-MX suba su calidad o aparezcan entrantes",
+          "Un gratuito de presupuesto por quincena",
+          "Que la puerta de práctica vetada se reabra tras ver la landing completa"
+        ],
+        "palabras_clave_voz_cliente": [
+          "presupuesto quincenal",
+          "cobro cada quincena"
+        ]
+      }
+    }
+  ]
+}

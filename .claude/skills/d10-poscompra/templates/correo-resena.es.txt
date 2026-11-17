@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: es
+# estado: v0.1 sin pulir; primera petición (día 3 tras la compra); sello de X1 pendiente
+Asunto: ¿Nos cuentas qué te parece? – pedido {{pedido_ref}}
+
+Hola,
+
+han pasado unos días desde tu compra en {{marca}}. Si quieres, valora los materiales con un clic: elige cuántas estrellas das, de 1 a 5.
+
+1 de 5: {{resena_url_1}}
+2 de 5: {{resena_url_2}}
+3 de 5: {{resena_url_3}}
+4 de 5: {{resena_url_4}}
+5 de 5: {{resena_url_5}}
+
+Al hacer clic verás una página donde confirmas tu valoración. Allí puedes añadir un comentario y decidir si lo podemos mostrar en la página de venta, con o sin tu nombre. No publicamos nada sin tu permiso.
+
+Queremos tu opinión sincera, sea la que sea. No hay respuestas buenas ni malas.
+
+Si algo no te funciona o prefieres que te devolvamos el dinero, escribe a {{soporte_email}}: no hace falta valorar nada.
+
+Si no quieres recibir más mensajes como este, puedes darte de baja aquí: {{baja_url}}
+
+Vendedor: {{vendedor}}
+Política de compra y devoluciones: {{politica_url}}

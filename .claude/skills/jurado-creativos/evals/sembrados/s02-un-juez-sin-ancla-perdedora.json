@@ -1,0 +1,10 @@
+{
+  "caso_id": "S02",
+  "titulo": "Un juez sin ancla perdedora",
+  "defecto_sembrado": "se borra el paquete de la ancla perdedora de un avatar",
+  "check_esperado": "JQ-04",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "paquetes.verificar → C-ARCHIVOS y C-ANCLAS",
+  "correccion_esperada": "rehacer la tanda con las anclas completas",
+  "automatizado": true
+}

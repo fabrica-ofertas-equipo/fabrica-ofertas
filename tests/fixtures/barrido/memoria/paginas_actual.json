@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "generado_en": "2026-11-06T11:58:00Z",
+  "paginas": [
+    {
+      "page_id": "1001",
+      "page_name": "Anna Martin",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 9,
+      "edad_oferta_dias": "50",
+      "edad_max_dias": "55",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Anna Martin"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1002",
+      "page_name": "Atril Estudio",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 3,
+      "edad_oferta_dias": "45",
+      "edad_max_dias": "48",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Atril Estudio"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1003",
+      "page_name": "Corpo Sem Dor",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 3,
+      "edad_oferta_dias": "35",
+      "edad_max_dias": "39",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Corpo Sem Dor"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1005",
+      "page_name": "Viajera",
+      "paises": [
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 4,
+      "edad_oferta_dias": "40",
+      "edad_max_dias": "44",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Viajera"
+      ],
+      "qids": [
+        "mx-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "MX",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1006",
+      "page_name": "Muestra truncada",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 50,
+      "edad_oferta_dias": "60",
+      "edad_max_dias": "90",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Muestra truncada"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": true,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "2001",
+      "page_name": "Nueva Real",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 6,
+      "edad_oferta_dias": "6",
+      "edad_max_dias": "10",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Nueva Real"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "2002",
+      "page_name": "Vieja Reaparecida",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 4,
+      "edad_oferta_dias": "50",
+      "edad_max_dias": "70",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Vieja Reaparecida"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "2003",
+      "page_name": "Nueva en dos países",
+      "paises": [
+        "ES",
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 5,
+      "edad_oferta_dias": "2",
+      "edad_max_dias": "3",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Nueva en dos países"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf",
+        "mx-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    }
+  ],
+  "advertencias": []
+}

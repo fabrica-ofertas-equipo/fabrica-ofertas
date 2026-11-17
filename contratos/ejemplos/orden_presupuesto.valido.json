@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "orden_id": "ORD-OF-202611-01-0001",
+  "oferta_id": "OF-202611-01",
+  "ts": "2026-11-12T09:10:00Z",
+  "emisor": "D8",
+  "plan_ref": null,
+  "accion": "mantener",
+  "objeto": {
+    "tipo": "campana",
+    "nombre": "OF-202611-01_TEST_VENTAS_CBO_20261110",
+    "id_meta": null
+  },
+  "antes": {
+    "monto": 2760,
+    "moneda": "EUR"
+  },
+  "despues": {
+    "monto": 2760,
+    "moneda": "EUR"
+  },
+  "delta_pct": "0",
+  "horas_desde_ultimo_aumento": null,
+  "regla_id": "G1",
+  "version_reglas": "1.0.0",
+  "hash_parametros": "sha256:02360afc311ece29ede4690bddf54488302341705b0f3d24600b2dbc443bc798",
+  "evidencia": {
+    "ventana": "24 h",
+    "gasto": {
+      "monto": 2760,
+      "moneda": "EUR"
+    },
+    "compras_stripe": 1,
+    "p": null,
+    "nota": "Dentro de la ventana de no decidir (72 h): solo rigen las reglas G y K1"
+  },
+  "gate": {
+    "accion_gate": "accion:aumentar_presupuesto_d8",
+    "nivel": "N2",
+    "gate": "NA"
+  },
+  "aprobado_por": null,
+  "estado": "ejecutada",
+  "ejecutor": "script",
+  "idempotency_key": "sha256:e07d70915c1617ef60eae2feead2eb9d4fad4b904178340f93e1bee050b16406",
+  "verificacion_post": null,
+  "sintetico": true
+}

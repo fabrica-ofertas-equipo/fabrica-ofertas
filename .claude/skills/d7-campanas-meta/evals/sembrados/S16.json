@@ -1,0 +1,33 @@
+{
+  "id": "S16",
+  "descripcion": "Pais fuera de limites.paises_permitidos (y de la matriz pais x nivel)",
+  "check_id": "C13",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "paises"
+      ],
+      "valor": [
+        "FR"
+      ]
+    }
+  ],
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "paises_permitidos_no_incluye",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C13",
+      "patron_clave": "pais-fuera-de-matriz",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

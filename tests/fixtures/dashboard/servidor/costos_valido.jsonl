@@ -1,0 +1,2 @@
+{"schema_version": "1.0.0", "ts": "2026-11-06T11:00:00Z", "oferta_id": "OF-202611-77", "etapa": "D1", "ejecucion_id": "RUN-20261106-01", "origen": "ia", "concepto": "tokens", "monto": {"monto": 500, "moneda": "EUR"}}
+{"schema_version": "1.0.0", "ts": "2026-11-06T11:00:00Z", "oferta_id": "OF-202611-77", "etapa": "D1", "ejecucion_id": "RUN-20261106-02", "origen": "ia", "concepto": "tokens", "monto": {"monto": 90, "moneda": "EUR"}}

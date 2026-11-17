@@ -1,0 +1,316 @@
+{
+  "schema_version": "0.1.0-propuesta",
+  "_aviso": "[PENDIENTE: esquema oficial pais_ficha (pedido a S-A)] Plantilla del Anexo A de departamentos/16. Toda hoja lleva {valor, fuente_url, fecha_lectura, confianza A/B/C}; sin dato: valor null + fuente_url '[VERIFICAR]' (la hoja se conserva, no se borra). Sin float: bp enteros, dinero {monto entero en unidad menor, moneda}. Esta plantilla incumple a proposito MQ-02 hasta que se rellene.",
+  "iso": "XX",
+  "ultima_verificacion": null,
+  "identidad": {
+    "locales": [
+      {
+        "locale": "xx-XX",
+        "idioma": "xx",
+        "obligacion_legal_idioma": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        }
+      }
+    ],
+    "moneda_local": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "monedas_cobro_posibles": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "alcance_meta_fb": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "estado": "candidato",
+    "incluye_quebec": false
+  },
+  "pagos": {
+    "metodos": [
+      {
+        "id": "card",
+        "cuota_bp": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "habilitado_dueno": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "elegible_cuenta_us": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "moneda_exigida": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "managed_payments_ok": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "comision_bp": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "fijo": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "disputas": {
+          "valor": null,
+          "fuente_url": "[VERIFICAR]",
+          "fecha_lectura": null,
+          "confianza": "C"
+        },
+        "incluir_en_cobertura": true,
+        "nota": "cuota sobre el total online del pais, con fuente; si la fuente agrega varios metodos (p. ej. Apple Pay + Google Pay + Link) se deja UN id y se dice en nota"
+      }
+    ],
+    "cobertura": {
+      "fase_estandar": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      },
+      "con_locales": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      }
+    },
+    "hueco_principal": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    }
+  },
+  "fiscal": {
+    "impuesto": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "tasa_bp": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "tasa_reducida_ebook_bp": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "mecanismo": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "umbral": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "desde_primera_venta": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "registro_estado": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "ventas_acum_12m": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    }
+  },
+  "consumo_y_datos": {
+    "desistimiento": {
+      "dias": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      },
+      "renuncia_digital": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      },
+      "funcion_online": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      }
+    },
+    "boton_arrepentimiento": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "privacidad": {
+      "ley": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      },
+      "cmp_modelo": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      }
+    },
+    "dsa": {
+      "beneficiario_pagador": {
+        "valor": null,
+        "fuente_url": "[VERIFICAR]",
+        "fecha_lectura": null,
+        "confianza": "C"
+      }
+    },
+    "identidad_vendedor": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    }
+  },
+  "meta": {
+    "cpm_bench": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "cpm_propio": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "recargo_meta_bp": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "verificacion_financiera": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "sonda": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    }
+  },
+  "por_macro": {
+    "origen": {
+      "archivo": "empresa/compliance/matriz_pais_nivel.yaml",
+      "hash": null
+    },
+    "salud": {
+      "exposicion": null,
+      "nivel_max_sin_gate": null,
+      "restricciones": [],
+      "descargos_obligatorios": [],
+      "ayuda_pais": {
+        "linea": null,
+        "verificada_por": null,
+        "fecha": null
+      }
+    },
+    "relaciones": {
+      "exposicion": null,
+      "nivel_max_sin_gate": null,
+      "restricciones": [],
+      "descargos_obligatorios": [],
+      "ayuda_pais": {
+        "linea": null,
+        "verificada_por": null,
+        "fecha": null
+      }
+    },
+    "dinero": {
+      "exposicion": null,
+      "nivel_max_sin_gate": null,
+      "restricciones": [],
+      "descargos_obligatorios": [],
+      "ayuda_pais": {
+        "linea": null,
+        "verificada_por": null,
+        "fecha": null
+      }
+    }
+  },
+  "localizacion_y_calidad": {
+    "registro": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "notas_culturales": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR]",
+      "fecha_lectura": null,
+      "confianza": "C"
+    },
+    "fuentes_locales": [],
+    "revisor_nativo": {
+      "estado": "ninguno"
+    }
+  },
+  "contradicciones": [],
+  "que_no_sabemos": [
+    "lista explicita de lo que la ficha NO sabe (R: Honestidad de la rubrica)"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "s36-reencuadre-sin-bajar-nivel",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Reencuadre aplicado cuyo nivel_original no es mayor que el resultante (D-12)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/reencuadre_aplicado/nivel_original",
+      "valor": "verde"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "reencuadre-sin-bajar"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

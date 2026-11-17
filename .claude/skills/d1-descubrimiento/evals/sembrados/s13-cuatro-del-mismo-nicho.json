@@ -1,0 +1,61 @@
+{
+  "id": "s13-cuatro-del-mismo-nicho",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Top-N con 3 del mismo nicho (máximo 2; D-08)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "copy",
+      "desde": "/candidatos/0",
+      "ruta": "/candidatos/-"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/2/candidato_id",
+      "valor": "CAND-03"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/2/rango",
+      "valor": 3
+    },
+    {
+      "en": "candidatos",
+      "op": "copy",
+      "desde": "/candidatos/0",
+      "ruta": "/candidatos/-"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/3/candidato_id",
+      "valor": "CAND-04"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/3/rango",
+      "valor": 4
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-08",
+  "severidad_esperada": "MAYOR",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-08",
+        "severidad": "MAYOR",
+        "patron_clave": "concentracion-de-nicho"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

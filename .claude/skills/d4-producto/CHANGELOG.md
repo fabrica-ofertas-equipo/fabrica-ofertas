@@ -1,0 +1,54 @@
+# CHANGELOG — d4-producto
+
+Formato SemVer. Skill (SKILL.md, references, rubric, templates, scripts, evals) y agentes (`.claude/agents/d4-maker.md`, `d4-qa.md`) versionan juntos.
+
+## 0.1.2 — 2026-11-07 — matriz palanca → entregable → prueba (PENDIENTES A7)
+Sigue siendo **v0.1 sin pulir**. Origen: `.claude/skills/modelado-oferta/PENDIENTES.md` sección A.
+**Aplicado**
+- **A7** `SKILL.md` paso 2: en una oferta modelada la matriz se extiende de promesa → entregable → prueba a **palanca → entregable → prueba** (`modelado/plan_mejora.json`). `references/anti-copia-y-fuentes.md` §2: el corpus de control de los n-gramas incluye **todo** el material de `modelado/referente/material/` y de su familia (QM-01); **nada del referente es entrada de D4**; PAL-12 se verifica con el control comparado contra un chatbot y, con muestra, contra el referente.
+**Falta (bloqueado: S-B)** `scripts/modelado/similitud.py` (D4 usa su propia copia del n-grama, F-40). Ver `modelado-oferta/PENDIENTES.md` B2.
+
+## 0.1.1 — 2026-11-06 — ajustes por la ingesta de S-A (SC-1…SC-9, SC-13)
+
+v0.1 sin pulir (sigue siendo borrador: 1.0.0 exige corrida manual del dueño, retro y DoD firmados). Fuente: `docs/_historial/ingesta-skills-cierre.md` §0, §1 (D4) y §3.2. Solo se aplicó lo cuya spec está CERRADA en el §1 de D4; lo derivado quedó en `references/dependencias.md` con su LT/SB. Cada afirmación se verificó contra el repositorio el 2026-11-06.
+
+**Aplicado**
+- **SC-13 `d4-maker.md`:** sin `WebFetch`/`WebSearch` ni sección web/MCP (`disallowedTools: Agent, WebFetch, WebSearch, NotebookEdit`; `tools: Read, Write, Edit, Glob, Grep, Bash`); Bash solo por lista blanca de `agentes/hooks/herramientas.yaml` (scripts de la skill incluido `render_pdf.py`, `scripts/producto/{render,lint,empaquetar}`, `-m scripts.validar_esquemas`, `-m scripts.nivel_riesgo`); escritura solo en el staging de la corrida (`04-producto/.staging/<run_id>/`); las fuentes llegan capturadas, sin Higgsfield (D4-01, D4-13, D4-45).
+- **SC-13 `d4-qa.md`:** sin «otra familia de modelo» (D4-05), sin `aplicar_parche` (D4-20) y sin «si `nivel_riesgo.py` no existe» (D4-22). Es solo lectura, recibe el L1 de `qa/.l1/d4-v<n>.json` y los informes del novato de `qa/.cold_run/<n>.json`; «evidencia ausente» es MAYOR o BLOQUEANTE según el check (SC-2); devuelve `correccion` por hallazgo (`devuelto_al_maker`) y `cambios_aplicados = []` (SC-1). `rubric.md` y `templates/qa-d4.ejemplo.json` alineados (el hallazgo `corregido_por_qa` pasó a `devuelto_al_maker`).
+- **SC-13 `SKILL.md`:** §4 regla 10 (staging, lista blanca, sin web ni MCP); §5 paso 3 (sin web: capturas por código), paso 4 (sin sandbox: archivos locales, `no_ejecutable_por_agente`), paso 5 (sin Higgsfield), paso 7 (render por script con `render_pdf.py`; subida a preproducción pendiente) y paso 8 (rol `novato`, `.cold_run`, QA sin corregir); §11 (gate H, H, S, S, A de `gates.json`, hoy N0 ⇒ H); §2 entradas de D2 (`voz_cliente`, `anuncios_competencia`; sin `corpus_competencia`) y kit visual (no está en `oferta.json`).
+- **SC-13 `references/`:** `dependencias.md` (§2 `nivel_riesgo`, `render`, `lint` y `empaquetar` de `scripts/producto/` existen y `sandbox_metodo`, `aplicar_parche`, `scripts/qa/*` retirados; §3 `plantillas_agentes/` no está vacía; §5 puntos 1, 2, 4, 5, 7, 8, 9 y 11 resueltos o derivados con su LT/SB); `imagenes-y-creditos.md` (sin Higgsfield en D4; el costo lo imputa el motor); `tiempo-y-novato.md` §3 paso 2 (el runner persiste `qa/.cold_run/<n>.json`); `checks-l1.md`, `entrega-vigencia-modos.md`, `respaldo-y-fuentes-de-hechos.md`, `anti-copia-y-fuentes.md`, `humano-vs-agente.md`, `formatos-de-producto.md`, `preguntas-abiertas.md`, `como-pulirla.md`, `glosario.md`, `ficha-eu-mu.md`, `politica-contenido-seguro.md`, `localizacion.md`, `scripts/README.md`.
+- **SC-3:** `python -m scripts.nivel_riesgo` (verificado: existe, `nivel` en minúscula, `subnivel` aparte) en el paso 1 del SOP, L1-16, `ficha-eu-mu.md` y los agentes. D4 no tiene tabla propia de niveles (los léxicos de `scripts/_patrones.py` son de claims, no de nivel). Sin `ejes_codigo` en la oferta (CT-3: LT-04/LT-42) los códigos se derivan de los colores (≥ 2 amarillos = B) [SUPUESTO]. `validar_esquemas.py` no lo importa.
+- **SC-4:** el Maker ya no tiene web ni MCP; el QA nunca los tuvo.
+- **SC-5 (lado D4):** `productor` ∈ {D4, D6, dueño}, `herramienta` y `etiqueta_ia_visible` (renombra `etiqueta_ia`) en `licencias.json` y en `formatos-de-producto.md §11`; `templates/licencias.ejemplo.json` (la imagen de IA la produce D6). Los productores `html_png`, `captura_producto`, `higgsfield`, `comprador_real` y `creditos_estimados`/`cotizacion_ref`/`prompt_ref` son de D5: no aplican a D4.
+- **SC-6:** libro de costos `empresa/costos.jsonl` lo escribe el motor; el Maker deja el borrador `04-producto/costos.jsonl` (solo si el dueño habilita imágenes generadas en D4).
+- **SC-7:** comandos reales solo los que D4 usa (`-m scripts.validar_esquemas`, `-m scripts.nivel_riesgo`); `engine.limites sellar` → `python -m engine.propuestas sellar` en `templates/limites.propuesta.ejemplo.yaml`. D4 no usa `orq`.
+- **SC-8:** la clave del QA es `producto.umbral_qa` (existe en `empresa/parametros.yaml`); D4 nunca usó `qa_pass_promedio_min` ni `umbral_pass_qa`.
+- **SC-9:** «v0.1 sin pulir» en `SKILL.md`, los dos agentes y este archivo; versión 0.1.1 en `SKILL.md`, `scripts/_comun.py`, agentes y plantillas.
+- **Sin Higgsfield en D4** (spec 05 §4.4): `cotizar_creditos.py` y el QA-A previo al gasto quedan dormidos (L1-GASTO inactivo).
+
+**No aplicado (con motivo)**
+- `.claude/skills/README.md` (SC-9): fuera de mi carpeta; lo pide S-C/coordinación.
+- Todo lo DERIVADO queda como `[PENDIENTE]` en `references/dependencias.md` con su LT/SB: esquemas y parámetros (CT-3: LT-26, LT-27, LT-46, LT-47; CT-4: D4-30/31), `capturar_fuente`, `l1_d4`, `lint_pdf`, `subir_preprod`, `calc_hoja`, `similitud_web` (SB-4, SB-6, SB-13), rol `novato` (SB-7), `contexto.py` de D4 y forma `-m` del hook (SB-4, SB-5), libro de costos (SB-8, SB-10), Chromium del runner (SB-18), datos de X1 (SB-14) y decisiones del dueño.
+- Sin acción de spec o ya resuelto: D4-12, D4-29 (`plantillas_agentes/` no está vacía: tiene d3 y d7, no d4), D4-34, D4-43 (RESUELTO); D4-02 (QA sin Write): `docs/02-arquitectura.md` es de S-A (SA-2).
+
+**Pruebas:** `.venv/bin/python -m unittest discover -s .claude/skills/d4-producto/scripts -p "test_*.py"`: 85 en verde (59 + 26).
+
+## 0.1.0 — 2026-11-06 — borrador (sin pulir)
+
+v0.1 sin pulir (borrador generado desde la spec; no promover a 1.0.0 hasta cumplir el DoD y una corrida manual del dueño con retro de 30-45 min).
+
+**Qué hay.** Generado desde `departamentos/05-producto.md` (§4 SOP, §4.1-§4.3, §5-§6, §10, Anexos A-C), `docs/_backbone.md` v2.2, `docs/contratos.md`, `contratos/{producto,oferta,candidatos,mercado,qa}.schema.json`, `ofertas/_ejemplo/`, notas 22f y 25, `docs/03` §2 y `docs/09` §9. SOP de 11 pasos con criterio de «listo»; cómo se construye cada formato (ebook/guía, plantilla, planificador, calculadora/hoja, recetario, biblioteca de N, checklist, pack; video fuera de v0.1); matriz promesas ↔ entregables en los dos sentidos; novato cronometrado (alternativas A/B/C); similitud n-grama contra fuentes; respaldo de hechos T1-T4 con snapshot; imágenes con cotización previa de créditos y qué hace un humano; render HTML→PDF con rutas A (Chrome sin pantalla, **probada**), B (WeasyPrint, pendiente de instalar) y C (hoja de cálculo o imprimir a PDF); rúbrica R1-R12; 10 dorados y 40 defectos sembrados con 3 juegos rotativos; 8 scripts offline con 59 pruebas (`scripts/test_scripts.py`); agentes `d4-maker` (herramientas: Read, Write, Edit, Glob, Grep, Bash acotado, WebFetch, WebSearch) y `d4-qa` (solo Read, Grep, Glob).
+
+**Añadido en 0.1.0 (2026-11-06): `scripts/render_pdf.py` + `scripts/test_render_pdf.py`.** Ruta A de render HTML→PDF con Chrome/Brave/Chromium sin pantalla, análoga a `render_estatico.py` de D6: solo archivos locales (URL `file://` calculada; rechaza `http(s)://` y HTML con recursos remotos), perfil temporal nuevo borrado al terminar, red bloqueada, entorno mínimo, timeout con terminación del grupo de procesos, no sobrescribe, verificación del PDF sin librerías (cabecera, páginas, fuentes embebidas, `/ToUnicode`, `/Title`, `/Lang`) y `--cronometrar` (prueba en frío del render, spec §4.4). Salida 0 · 2 · 3 · 5. 26 pruebas nuevas (las 59 de `test_scripts.py` siguen en verde: 85 en total). Prueba en frío medida con `templates/pdf_base.html` y Chrome 156.0.8078.80: 0,76-1,29 s en 5 corridas (primera 1,29 s, mediana 0,85 s), 5 páginas, 136.740 bytes, 14 fuentes embebidas. El tiempo del render NO se compara con `tiempo_prometido_min` (minutos del comprador; `tiempo-y-novato.md §5`): el QA lo registra aparte. Siguen pendientes las rutas B/C, el kit de marca, `lint_pdf`, `CHROME_BIN` para el runner y la lista blanca del hook de Bash para el Maker (`render_pdf.py` aún no consta en `.claude/agents/d4-maker.md`).
+
+**Qué NO se hizo** (ningún efecto externo): no se generó ninguna imagen ni se llamó a Higgsfield, Shopify, Meta, Drive ni Stripe; no se instaló nada; no se escribió fuera de `.claude/skills/d4-producto/` y `.claude/agents/d4-*.md` (salvo un render de prueba en el scratchpad de la sesión).
+
+**Qué falta para 1.0.0** (checklist completa en `references/como-pulirla.md §6`):
+- Corrida manual del dueño con una oferta real (hoy solo hay `ofertas/_ejemplo` y fixtures) y retro de 30-45 min; **ninguna corrida respalda aún esta versión**.
+- DoD de la spec §10.4 y de `docs/03` §2.6 (3 productos aprobados: 2 macro-nichos, uno sin GUI, y una variante en otro idioma; ≥ 9/10 sembrados; PASS a dorados; cold run de agentes y humano en tolerancia; retraducción sin discrepancias).
+- Evals CON y SIN skill en Sonnet y Haiku, y 3 corridas por caso (estabilidad); calibración del QA con el juego rotativo y los casos C de `casos-frontera.yaml`.
+- `[PENDIENTE]` de `references/dependencias.md`: `scripts/producto/*` (render de las rutas B/C y kit de marca, lint de PDF, captura de fuentes, subida a preproducción, sandbox del método, recálculo de hojas, aplicar_parche, `l1_d4`, `nivel_riesgo.py`), WeasyPrint/veraPDF/LibreOffice, `empresa/compliance/*` (X1), glosarios (M1), parámetros propuestos y esquemas de apoyo (CT-1), límites del dueño (`creditos_max_*`, `costo_max_producto`, `politica_divulgacion_ia`, `lineas_rojas`).
+- Decisiones del dueño de `references/preguntas-abiertas.md` (revisor nativo, quién hace checklist y cold run, divulgación de IA, estampa por pedido).
+- Léxicos interinos de `scripts/_patrones.py` reemplazados por `terminos_sensibles/<locale>.yaml` de X1; factor de lectura por locale.
+
+**Corrida que respalda esta versión:** ninguna (borrador generado desde la spec). Al congelar 1.0.0, anotar aquí oferta, fecha, ediciones por categoría y retro.

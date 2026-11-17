@@ -1,0 +1,4 @@
+validador=required
+ruta=
+contiene=retraso_clic_compra
+texto=retraso_clic_compra es obligatorio (D-24)

@@ -1,0 +1,119 @@
+# Lista blanca de PRUEBA para tests/dashboard/test_servidor_acciones.py (no es la lista real del panel).
+version: 1
+acciones:
+  - id: eco
+    titulo: "Eco"
+    descripcion: "Imprime un entero."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import sys; print('eco', sys.argv[1])", "{n}"]
+    parametros:
+      n: {tipo: entero, minimo: 0, maximo: 99, requerido: true}
+
+  - id: con_bandera
+    titulo: "Con bandera"
+    descripcion: "Imprime sus argumentos."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import sys; print(' '.join(sys.argv[1:]))", "fijo-{corrida}", "{modo}", "{ruidoso}"]
+    parametros:
+      corrida: {tipo: corrida, requerido: true}
+      modo: {tipo: eleccion, valores: [rapido, lento], defecto: rapido}
+      ruidoso: {tipo: bandera, flag: "--ruidoso"}
+
+  - id: dormir
+    titulo: "Dormir"
+    descripcion: "Supera el timeout."
+    riesgo: lectura
+    timeout_s: 1
+    argv: ["{python}", "-c", "import time; time.sleep(30)"]
+
+  - id: lento_corto
+    titulo: "Lento"
+    descripcion: "Tarda unos instantes (para probar un trabajo a la vez)."
+    riesgo: lectura
+    timeout_s: 20
+    argv: ["{python}", "-c", "import time; time.sleep(3); print('listo')"]
+
+  - id: inundar
+    titulo: "Inundar"
+    descripcion: "Imprime mucho más que el tope de salida."
+    riesgo: lectura
+    timeout_s: 20
+    argv: ["{python}", "-c", "import sys\nfor _ in range(400):\n    sys.stdout.write('x' * 1024 + '\\n')\n    sys.stdout.flush()"]
+
+  - id: falla
+    titulo: "Falla"
+    descripcion: "Sale con código 3."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import sys; print('mal'); sys.exit(3)"]
+
+  - id: entorno
+    titulo: "Entorno"
+    descripcion: "Imprime las variables de entorno visibles."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import os; print(sorted(os.environ))"]
+
+  - id: donde
+    titulo: "Dónde"
+    descripcion: "Imprime el directorio de trabajo y FABRICA_RAIZ."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import os; print(os.path.realpath(os.getcwd())); print(os.path.realpath(os.environ['FABRICA_RAIZ']))"]
+
+  - id: oferta_existente
+    titulo: "Oferta"
+    descripcion: "Valida un parámetro oferta."
+    riesgo: lectura
+    timeout_s: 10
+    argv: ["{python}", "-c", "import sys; print(sys.argv[1])", "ofertas/{oferta}"]
+    parametros:
+      oferta: {tipo: oferta, requerido: true}
+
+  # ---- entradas que el cargador DEBE rechazar ----
+  - id: mala_live
+    titulo: "Con --live"
+    descripcion: "Prohibida: lleva --live en el argv fijo."
+    riesgo: lectura
+    argv: ["{python}", "-m", "scripts.pausar", "--live"]
+
+  - id: mala_texto_libre
+    titulo: "Texto libre"
+    descripcion: "Prohibida: parámetro de texto libre."
+    riesgo: lectura
+    argv: ["{python}", "-c", "print(1)", "{mensaje}"]
+    parametros:
+      mensaje: {tipo: texto, requerido: true}
+
+  - id: mala_activar
+    titulo: "Activar"
+    descripcion: "Prohibida: activa una campaña."
+    riesgo: lectura
+    argv: ["{python}", "-m", "scripts.meta_activar", "activar"]
+
+  - id: mala_meta
+    titulo: "Meta con escritura"
+    descripcion: "Prohibida: módulo meta.*"
+    riesgo: lectura
+    argv: ["{python}", "-m", "meta.crear"]
+
+  - id: mala_riesgo
+    titulo: "Riesgo inventado"
+    descripcion: "Prohibida: riesgo fuera de la lista."
+    riesgo: peligro
+    argv: ["{python}", "-c", "print(1)"]
+
+  - id: mala_sin_python
+    titulo: "Sin python"
+    descripcion: "Prohibida: el primer elemento no es {python}."
+    riesgo: lectura
+    argv: ["/bin/sh", "-c", "echo hola"]
+
+  - id: pronto
+    titulo: "Próximamente"
+    descripcion: "Requiere algo que no existe."
+    riesgo: lectura
+    requiere: ["landing/validar.py"]
+    argv: ["{python}", "-m", "landing.validar"]

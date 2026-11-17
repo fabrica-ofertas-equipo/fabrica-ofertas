@@ -1,0 +1,643 @@
+# Defectos sembrados S1-S25 (departamentos/04-oferta.md, Anexo A.1) con su salida esperada del QA.
+# Cada entrada describe mutaciones sobre una oferta dorada (evals/dorados/<base>/OF-*/) que scripts/aplicar_sembrado.py aplica a una COPIA.
+# Cobertura: 3 macro-nichos (dinero, salud, relaciones) y 2+ idiomas (es-ES, it-IT, pl-PL). Severidad = la del Anexo A.1 (20 BLOQUEANTES: los 17 de siempre más S5, S17 y S21; 5 MAYORES: S2, S8, S9, S11 y S12; ningún MENOR).
+#   l1_esperado: detecciones DETERMINISTAS que la skill ya tiene (lint_d3:L1-xx o validar:X.._..): scripts/test_scripts.py las comprueba.
+#   qa_esperado: lo que debe devolver el QA (veredicto FAIL; hallazgos con check_id, severidad y patron_clave; ítems de la rúbrica que bajan).
+#                Donde l1_esperado está vacío, solo el juicio del QA (L2/L3) puede detectarlo.
+# Calibración: el QA debe detectar >= 90 % de los BLOQUEANTES (>= 18 de 20) y dar PASS a los dorados (backbone 6.6). Rotar el conjunto
+# (otra base, otro texto) al cambiar la skill para que no se memorice. Los textos son [SUPUESTO]; ninguno se probó ante un revisor de Meta.
+version: 0.1.1
+sembrados:
+  - id: S1
+    severidad: BLOQUEANTE
+    defecto: Promesa de ingresos con cifra y plazo («ganá USD 500 en 7 días»)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/subtitulo
+      valor: 'Gana 500 € al mes en 7 días con tu currículum: guía con plantilla editable'
+    l1_esperado:
+    - lint_d3:L1-03
+    - lint_d3:L1-13
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-03
+        severidad: BLOQUEANTE
+        patron_clave: promesa-de-ingresos
+      - check_id: L1-13
+        severidad: BLOQUEANTE
+        patron_clave: nombre-con-ganar
+      items_a_la_baja:
+      - R1
+      - R11
+  - id: S2
+    severidad: MAYOR
+    defecto: 'PDF de 60 páginas «en 20 minutos»: el tiempo prometido no alcanza ni para leer'
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /vehiculo/palabras_max
+      valor: 18000
+    l1_esperado:
+    - lint_d3:L1-02
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-02
+        severidad: MAYOR
+        patron_clave: tiempo-descalzado
+      items_a_la_baja:
+      - R4
+  - id: S3
+    severidad: BLOQUEANTE
+    defecto: «Solo 50 copias» sin contador real (escasez falsa)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /urgencia
+      valor:
+        tipo: Solo 50 copias disponibles
+        verificable_por: texto de la página
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 12. **Llamado a la acción.** «Descargar la guía y la plantilla».
+      a: '12. **Llamado a la acción.** «Descargar ya: últimas 50 unidades, solo 50 copias».'
+    l1_esperado:
+    - lint_d3:L1-03
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-06
+        severidad: BLOQUEANTE
+        patron_clave: escasez-sin-contador
+      items_a_la_baja:
+      - R5
+  - id: S4
+    severidad: BLOQUEANTE
+    defecto: cpa_be < cpa_real (NO_FACTIBLE) y el texto dice «rentable»
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/economia.json
+      op: copiar_desde
+      desde: s04-economia-no-factible.json
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 'veredicto: FACTIBLE
+
+        razon: "1.48"'
+      a: 'veredicto: NO_FACTIBLE
+
+        razon: "0.55"'
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: '- **Veredicto de factibilidad: FACTIBLE** (razón 1,48'
+      a: '- **Oferta rentable y lista para D4** (razón 1,48'
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-04
+        severidad: BLOQUEANTE
+        patron_clave: no-factible-pasa-a-d4
+      items_a_la_baja:
+      - R7
+    nota: 'Detección por juicio del QA: economia.json es consistente (el motor la reproduce) pero dice NO_FACTIBLE; una NO_FACTIBLE no pasa a D4 y el texto «rentable»
+      la contradice.'
+  - id: S5
+    severidad: BLOQUEANTE
+    defecto: Economía sin comisión fija ni IVA
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/economia.json
+      op: copiar_desde
+      desde: s05-economia-sin-iva-ni-fija.json
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 'razon: "1.48"'
+      a: 'razon: "1.84"'
+    l1_esperado:
+    - lint_d3:L1-04
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-04
+        severidad: BLOQUEANTE
+        patron_clave: economia-sin-iva-ni-fija
+      items_a_la_baja:
+      - R7
+  - id: S6
+    severidad: BLOQUEANTE
+    defecto: Testimonio sin fuente ni consentimiento
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: append
+      ruta: /prueba
+      valor:
+        tipo: testimonio_con_permiso
+        fuente: Cliente soddisfatta
+        consentimiento_ref: null
+    l1_esperado:
+    - lint_d3:L1-06
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-06
+        severidad: BLOQUEANTE
+        patron_clave: testimonio-sin-consentimiento
+      items_a_la_baja:
+      - R6
+  - id: S7
+    severidad: BLOQUEANTE
+    defecto: «Resultados garantizados» con otra política de reembolso (condicionada)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/subtitulo
+      valor: 'Guía con plantilla: resultados garantizados al ordenar la experiencia por competencias'
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /garantia/tipo
+      valor: reembolso_condicionado
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /garantia/texto_visible
+      valor: Devolución solo si completas todos los ejercicios y envías pruebas
+    l1_esperado:
+    - lint_d3:L1-03
+    - lint_d3:L1-05
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-03
+        severidad: BLOQUEANTE
+        patron_clave: garantia-absoluta
+      - check_id: L1-05
+        severidad: BLOQUEANTE
+        patron_clave: garantia-condicionada
+      items_a_la_baja:
+      - R1
+      - R5
+  - id: S8
+    severidad: MAYOR
+    defecto: 'Cita inventada: no figura en voz_cliente.json ni en la evidencia del candidato'
+    macro: relaciones
+    idioma: pl-PL
+    base: 03-pl-pl-karty-rozmow
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: append
+      ruta: /avatar/lo_dice
+      valor: Nigdy wcześniej nie rozmawialiśmy tak szczerze
+    l1_esperado:
+    - lint_d3:L1-07
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-07
+        severidad: MAYOR
+        patron_clave: cita-no-literal
+      items_a_la_baja:
+      - R10
+  - id: S9
+    severidad: MAYOR
+    defecto: Bump necesario para la promesa (sin él el guion no se completa)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /bump/descripcion
+      valor: Sin estas 12 respuestas el guion de 30 segundos no se puede completar
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-12
+        severidad: MAYOR
+        patron_clave: bump-requisito
+      items_a_la_baja:
+      - R8
+    nota: 'Juicio del QA (R8): el bump no puede ser requisito de la promesa.'
+  - id: S10
+    severidad: BLOQUEANTE
+    defecto: 'Gancho con atributo y pregunta («¿Estás endeudado?»): E2'
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /angulos/1/hook
+      valor: ¿Estás endeudado? Ordena tus pagos con una plantilla
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-11
+        severidad: BLOQUEANTE
+        patron_clave: encuadre-e2
+      items_a_la_baja:
+      - R9
+      - R11
+    nota: 'Juicio del QA: el riesgo declarado (E verde) no coincide con el ángulo; el LLM no baja un nivel que el lint subió.'
+  - id: S11
+    severidad: MAYOR
+    defecto: Auto-puntaje 92 sin prueba verificable
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /puntaje
+      valor:
+        total: 92
+        dimension_min: 5
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /prueba
+      valor: []
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L2-PUNTAJE
+        severidad: MAYOR
+        patron_clave: brecha-de-puntaje
+      items_a_la_baja:
+      - R6
+    nota: El QA puntúa a ciegas y vale el menor; brecha > 10 = MAYOR; sin prueba, confianza <= 3.
+  - id: S12
+    severidad: MAYOR
+    defecto: Depende de Venzio
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /angulos/0/hook
+      valor: 'Estudiar, cuidar o cambiar de rumbo también suma experiencia: así se escribe, compatible con Venzio'
+    l1_esperado:
+    - lint_d3:L1-09
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-09
+        severidad: MAYOR
+        patron_clave: dependencia-de-venzio
+      items_a_la_baja: []
+    nota: 'Anexo A.1 de la spec (cierre de la ingesta, D3-B4): S12 es MAYOR, igual que L1-09.'
+  - id: S13
+    severidad: BLOQUEANTE
+    defecto: «Valor real 197, hoy 17» sin historial de 30 días
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /precio/anclaje
+      valor:
+        monto: 19700
+        moneda: EUR
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 11. **Precio y garantía.** 24,90 EUR (IVA incluido)
+      a: 11. **Precio y garantía.** Valor real 197 EUR, hoy 24,90 EUR (IVA incluido)
+    l1_esperado:
+    - lint_d3:L1-10
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-10
+        severidad: BLOQUEANTE
+        patron_clave: ancla-sin-historial
+      items_a_la_baja:
+      - R7
+  - id: S14
+    severidad: BLOQUEANTE
+    defecto: CTR y conversión editados (sin fuente D2/M1) para que la razón dé 1,4
+    macro: relaciones
+    idioma: pl-PL
+    base: 03-pl-pl-karty-rozmow
+    muta:
+    - archivo: 03-oferta/economia.json
+      op: copiar_desde
+      desde: s14-economia-override-sin-fuente.json
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /precio/lista/monto
+      valor: 4900
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /bump/precio/monto
+      valor: 1960
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 'precio_lista: 8900'
+      a: 'precio_lista: 4900'
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 'bump_precio: 3560'
+      a: 'bump_precio: 1960'
+    - archivo: 03-oferta/oferta.md
+      op: reemplazar_texto
+      de: 'razon: "1.41"'
+      a: 'razon: "1.40"'
+    l1_esperado:
+    - lint_d3:L1-04
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-04
+        severidad: BLOQUEANTE
+        patron_clave: override-sin-fuente
+      items_a_la_baja:
+      - R7
+  - id: S15
+    severidad: BLOQUEANTE
+    defecto: Upsell off_session sin botón (de un clic)
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /upsell
+      valor:
+        id: upsell-un-clic
+        nombre: Pacchetto avanzato
+        precio:
+          monto: 1990
+          moneda: EUR
+    l1_esperado:
+    - lint_d3:L1-12
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-12
+        severidad: BLOQUEANTE
+        patron_clave: upsell-un-clic
+      items_a_la_baja:
+      - R8
+  - id: S16
+    severidad: BLOQUEANTE
+    defecto: Nombre que enuncia un estado («Cero Deudas», «Glucosa Estable»)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/titulo
+      valor: Cero Huecos en tu Currículum
+    l1_esperado:
+    - lint_d3:L1-13
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-13
+        severidad: BLOQUEANTE
+        patron_clave: nombre-de-estado
+      items_a_la_baja:
+      - R1
+      - R11
+  - id: S17
+    severidad: BLOQUEANTE
+    defecto: Nombre con sufijo Studio/Pro o en inglés en it-IT
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /marca/nombre
+      valor: Menù Studio
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/titulo
+      valor: Weekly Meal Planner Pro
+    l1_esperado:
+    - lint_d3:L1-13
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-13
+        severidad: BLOQUEANTE
+        patron_clave: nombre-con-sufijo
+      items_a_la_baja:
+      - R1
+    nota: 'Anexo A.1 de la spec (D3-B4): S17 es BLOQUEANTE, igual que L1-13 (detiene; decide una persona).'
+  - id: S18
+    severidad: BLOQUEANTE
+    defecto: Promesa con dos mecanismos (contraria a la ficha MU/EU)
+    macro: relaciones
+    idioma: pl-PL
+    base: 03-pl-pl-karty-rozmow
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/subtitulo
+      valor: 'Rytuał Jednego Pytania i Mapa Emocji: dwie metody w jednym zestawie kart'
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /mecanismo/como_funciona
+      valor: 'Dwie metody: jedna karta z pytaniem na wieczór oraz Mapa Emocji do rysowania nastrojów'
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-12
+        severidad: BLOQUEANTE
+        patron_clave: dos-mecanismos
+      items_a_la_baja:
+      - R3
+    nota: Juicio del QA contra la ficha MU/EU de candidatos.json; si no se sostiene, se devuelve a D1 (multi_mecanismo).
+  - id: S19
+    severidad: BLOQUEANTE
+    defecto: Bonus «grupo privado» y «sesión 1:1»
+    macro: relaciones
+    idioma: pl-PL
+    base: 03-pl-pl-karty-rozmow
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: append
+      ruta: /bonus
+      valor:
+        id: prywatna-grupa-par
+        descripcion: 'Wejście do wspólnoty par: grupa prywatna z wymianą doświadczeń i sesja 1:1 z doradcą'
+    l1_esperado:
+    - lint_d3:L1-12
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-12
+        severidad: BLOQUEANTE
+        patron_clave: bonus-con-servicio
+      items_a_la_baja:
+      - R3
+  - id: S20
+    severidad: BLOQUEANTE
+    defecto: BLIK con precio en EUR y fase = estandar_tarjeta_billeteras
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: mercado.json
+      op: append
+      ruta: /metodos_pago/activos
+      valor: blik
+    l1_esperado:
+    - lint_d3:L1-05
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-05
+        severidad: BLOQUEANTE
+        patron_clave: metodo-local-sin-moneda-local
+      items_a_la_baja:
+      - R7
+  - id: S21
+    severidad: BLOQUEANTE
+    defecto: Precio sin IVA para consumidor UE
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /precio/tax_behavior
+      valor: exclusive
+    l1_esperado:
+    - lint_d3:L1-05
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-05
+        severidad: BLOQUEANTE
+        patron_clave: precio-sin-iva
+      items_a_la_baja:
+      - R7
+    nota: 'Anexo A.1 de la spec (D3-B4): S21 es BLOQUEANTE, igual que L1-05.'
+  - id: S22
+    severidad: BLOQUEANTE
+    defecto: Garantía que oculta el desistimiento legal (UE)
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /garantia/texto_visible
+      valor: 'Rimborso entro 14 giorni: sostituisce il diritto di recesso previsto dalla legge'
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-14
+        severidad: BLOQUEANTE
+        patron_clave: garantia-oculta-desistimiento
+      items_a_la_baja:
+      - R5
+    nota: 'Juicio del QA (L2/L3 en italiano): la garantía comercial no sustituye ni oculta el derecho legal.'
+  - id: S23
+    severidad: BLOQUEANTE
+    defecto: Reseña con cifra de ahorro («ahorré 400 € el primer mes»)
+    macro: dinero
+    idioma: es-ES
+    base: 01-es-es-reinsercion
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: append
+      ruta: /prueba
+      valor:
+        tipo: testimonio_con_permiso
+        fuente: 'Reseña verificada: «Ahorré 400 € el primer mes»'
+        consentimiento_ref: CONS-0001
+    l1_esperado:
+    - lint_d3:L1-06
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-06
+        severidad: BLOQUEANTE
+        patron_clave: resena-con-cifra
+      items_a_la_baja:
+      - R6
+      - R11
+  - id: S24
+    severidad: BLOQUEANTE
+    defecto: Reencuadre que solo cambia sinónimos de un texto rechazado
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /promesa/subtitulo
+      valor: Perdi peso in un mese con cinque cene a blocchi e la lista della spesa
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /riesgo/reencuadre_aplicado/descripcion
+      valor: 'Si sostituisce «dimagrire» con «perdere peso» e «in 30 giorni» con «in un mese»: stesso risultato, parole diverse'
+    l1_esperado: []
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-11
+        severidad: BLOQUEANTE
+        patron_clave: reencuadre-de-sinonimos
+      items_a_la_baja:
+      - R11
+    nota: 'Juicio del QA: el eje P sigue en P2n (plazo de pérdida de peso); la skill no puede declarar verde.'
+  - id: S25
+    severidad: BLOQUEANTE
+    defecto: AMARILLO-B sin gate H del dueño
+    macro: salud
+    idioma: it-IT
+    base: 02-it-it-planner-pasti
+    muta:
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /riesgo/P
+      valor: amarillo
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /riesgo/C
+      valor: amarillo
+    - archivo: 03-oferta/oferta.json
+      op: set
+      ruta: /riesgo/nivel
+      valor: amarillo
+    l1_esperado:
+    - validar:X13_RIESGO
+    qa_esperado:
+      veredicto: FAIL
+      hallazgos:
+      - check_id: L1-11
+        severidad: BLOQUEANTE
+        patron_clave: amarillo-sin-gate-h
+      items_a_la_baja:
+      - R11

@@ -1,0 +1,2 @@
+# Extras de la skill d6-sketch-animado (convenciones §: un paquete por línea, versión mínima y razón).
+requests>=2.32  # clientes HTTP de Kie.ai, Gemini TTS y ElevenLabs (subida multipart)

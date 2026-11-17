@@ -1,0 +1,220 @@
+{
+  "kpi_dia": [
+    {
+      "schema_version": "1.0.0",
+      "generado_en": "2026-11-12T09:05:00Z",
+      "run_id": "RUN-20261112-01",
+      "version_esquema": "1.0.0",
+      "version_glosario": "1.0.0",
+      "ambito": "oferta",
+      "oferta_id": "OF-202611-01",
+      "fecha": "2026-11-11",
+      "fuentes": {
+        "meta": {
+          "frescura_h": "1.5",
+          "estado": "verde"
+        },
+        "stripe_eventos": {
+          "frescura_h": "0.5",
+          "estado": "verde"
+        },
+        "stripe_balance": {
+          "frescura_h": "9",
+          "estado": "verde"
+        }
+      },
+      "filas": [
+        {
+          "kpi_id": "gasto_meta",
+          "valor": 2760,
+          "unidad": "EUR_minor",
+          "n": 1,
+          "estado": "ok",
+          "rango": null,
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "impresiones",
+          "valor": 6133,
+          "unidad": "impresiones",
+          "n": 6133,
+          "estado": "ok",
+          "rango": null,
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "clics_enlace",
+          "valor": 98,
+          "unidad": "clics",
+          "n": 98,
+          "estado": "ok",
+          "rango": null,
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "ctr_enlace",
+          "valor": "1.60",
+          "unidad": "porcentaje",
+          "n": 6133,
+          "estado": "ok",
+          "rango": [
+            "1.30",
+            "1.95"
+          ],
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "compras_stripe",
+          "valor": 1,
+          "unidad": "compras",
+          "n": 1,
+          "estado": "gris",
+          "rango": null,
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "cpa",
+          "valor": 2760,
+          "unidad": "EUR_minor",
+          "n": 1,
+          "estado": "gris",
+          "rango": null,
+          "ventana": "24h"
+        },
+        {
+          "kpi_id": "razon_meta_stripe",
+          "valor": null,
+          "unidad": "razon",
+          "n": 1,
+          "estado": "gris",
+          "rango": null,
+          "ventana": "24h"
+        }
+      ],
+      "sintetico": true
+    }
+  ],
+  "decisiones": [
+    {
+      "schema_version": "1.0.0",
+      "decision_id": "sha256:88ba853cb47b9aec68c28e31b62c749c4096c0e3b04a3602789f87959830d722",
+      "oferta_id": "OF-202611-01",
+      "objeto_tipo": "anuncio",
+      "objeto_id": "120000000000003",
+      "lectura_ts": "2026-11-14T09:00:00Z",
+      "ts": "2026-11-14T09:00:05Z",
+      "nivel": "N2",
+      "gate": "A",
+      "accion": "MATAR",
+      "codigo": "K1_SIN_COMPRAS_TRAS_K_CPA",
+      "regla": "K1",
+      "version_reglas": "1.0.0",
+      "hash_parametros": "sha256:6c950274a1557ef2b5260795957039eacc44e0dbdd801153076ec634c68af3d5",
+      "evidencia": {
+        "gasto": {
+          "monto": 5520,
+          "moneda": "EUR"
+        },
+        "clics": 210,
+        "compras": 0,
+        "p_cpa_menor_equilibrio": "0.04"
+      },
+      "explicacion": "Ejemplo: 0 compras con 3 x CPA de equilibrio gastado y P(CPA <= equilibrio) = 0,04: se pausa el anuncio.",
+      "ejecutada": true
+    }
+  ],
+  "ordenes": [
+    {
+      "schema_version": "1.0.0",
+      "orden_id": "ORD-OF-202611-01-0001",
+      "oferta_id": "OF-202611-01",
+      "ts": "2026-11-12T09:10:00Z",
+      "emisor": "D8",
+      "plan_ref": null,
+      "accion": "mantener",
+      "objeto": {
+        "tipo": "campana",
+        "nombre": "OF-202611-01_TEST_VENTAS_CBO_20261110",
+        "id_meta": null
+      },
+      "antes": {
+        "monto": 2760,
+        "moneda": "EUR"
+      },
+      "despues": {
+        "monto": 2760,
+        "moneda": "EUR"
+      },
+      "delta_pct": "0",
+      "horas_desde_ultimo_aumento": null,
+      "regla_id": "G1",
+      "version_reglas": "1.0.0",
+      "hash_parametros": "sha256:02360afc311ece29ede4690bddf54488302341705b0f3d24600b2dbc443bc798",
+      "evidencia": {
+        "ventana": "24 h",
+        "gasto": {
+          "monto": 2760,
+          "moneda": "EUR"
+        },
+        "compras_stripe": 1,
+        "p": null,
+        "nota": "Dentro de la ventana de no decidir (72 h): solo rigen las reglas G y K1"
+      },
+      "gate": {
+        "accion_gate": "accion:aumentar_presupuesto_d8",
+        "nivel": "N2",
+        "gate": "NA"
+      },
+      "aprobado_por": null,
+      "estado": "ejecutada",
+      "ejecutor": "script",
+      "idempotency_key": "sha256:e07d70915c1617ef60eae2feead2eb9d4fad4b904178340f93e1bee050b16406",
+      "verificacion_post": null,
+      "sintetico": true
+    }
+  ],
+  "veredicto": {
+    "schema_version": "1.0.0",
+    "oferta_id": "OF-202611-01",
+    "ts": "2026-11-12T09:15:00Z",
+    "version": "v1",
+    "estado": "INCONCLUSA",
+    "regla": {
+      "id": "V59-INCONCLUSA",
+      "definicion": "backbone-5.9",
+      "version_reglas": "1.0.0",
+      "hash_parametros": "sha256:02360afc311ece29ede4690bddf54488302341705b0f3d24600b2dbc443bc798"
+    },
+    "evidencia": {
+      "fuente_compras": "stripe",
+      "compras_brutas": 1,
+      "reembolsos": 0,
+      "compras_netas": 1,
+      "compras_meta_referencia": 1,
+      "garantia_dias": 14,
+      "madurez_dias": 21,
+      "cohorte_madura_hasta": "2026-10-22",
+      "dias_con_datos": 1,
+      "gasto": {
+        "monto": 2760,
+        "moneda": "EUR"
+      },
+      "cpa_neto": {
+        "monto": 2760,
+        "moneda": "EUR"
+      },
+      "cpa_objetivo": {
+        "monto": 1098,
+        "moneda": "EUR"
+      },
+      "mc_real": null,
+      "razon_ms": null,
+      "reembolso_pct": "0"
+    },
+    "p": null,
+    "estabilidad": null,
+    "recomendacion": "seguir_test",
+    "gate": "A",
+    "sintetico": true
+  }
+}

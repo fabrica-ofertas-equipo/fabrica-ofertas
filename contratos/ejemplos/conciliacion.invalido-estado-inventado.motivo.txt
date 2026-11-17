@@ -1,0 +1,3 @@
+validador=enum
+ruta=/estado
+texto=CONCILIADO, DESCUADRE o INCOMPLETO

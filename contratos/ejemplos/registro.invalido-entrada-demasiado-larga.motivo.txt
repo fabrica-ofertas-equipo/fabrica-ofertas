@@ -1,0 +1,3 @@
+validador=maxLength
+ruta=/entrada_resumen
+texto=entrada_resumen admite 300 caracteres como máximo

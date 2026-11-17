@@ -1,0 +1,29 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-incluye">
+  <div class="contenedor">
+    <header class="encabezado">
+      <p class="kicker">{{{kicker}}}</p>
+      <h2 id="titulo-incluye">{{{titulo}}}</h2>
+    </header>
+    <ol class="modulos" role="list">
+{{#cada modulos}}
+      <li class="tarjeta modulo">
+        <span class="num num--c{{color}}" aria-hidden="true">{{num}}</span>
+        <div>
+          <h3>{{{titulo}}}</h3>
+          <p>{{{texto}}}</p>
+        </div>
+      </li>
+{{/cada}}
+    </ol>
+{{#si checklist}}
+    <div class="panel checklist">
+      <h3>{{{checklist.titulo}}}</h3>
+      <ul role="list">
+{{#cada checklist.items}}
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+      </ul>
+    </div>
+{{/si}}
+  </div>
+</section>

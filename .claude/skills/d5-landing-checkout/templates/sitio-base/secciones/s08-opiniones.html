@@ -1,0 +1,54 @@
+<section class="seccion opiniones tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-confianza">
+  <div class="contenedor">
+    <header class="encabezado">
+{{#si kicker}}
+      <p class="kicker">{{{kicker}}}</p>
+{{/si}}
+      <h2 id="titulo-confianza">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+{{#si aviso_demo}}
+    <p class="aviso-demo" data-demo="aviso" role="note">{{aviso_demo}}</p>
+{{/si}}
+{{#si resenas}}
+    <ul class="resenas" role="list">
+{{#cada resenas}}
+      <li class="resena{{#si chat}} resena--chat{{/si}}"{{#si demo}} data-demo="resena"{{/si}}>
+{{#si demo}}
+        <span class="cinta-demo">{{t.demo}}</span>
+{{/si}}
+        <div class="resena__cab">
+          <span class="avatar avatar--c{{color}}" aria-hidden="true">{{#si inicial}}{{inicial}}{{sino}}<svg class="ico"><use href="#i-persona"></use></svg>{{/si}}</span>
+          <div>
+{{#si nombre}}
+            <p class="resena__nombre">{{nombre}}</p>
+{{/si}}
+{{#si verificada}}
+            <p class="resena__verif"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{t.verificada}}</span></p>
+{{/si}}
+          </div>
+        </div>
+{{#si estrellas}}
+        <p class="estrellas" role="img" aria-label="5 {{t.estrellas}}"><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg></p>
+{{/si}}
+        <blockquote class="testimonio" data-fuente="{{fuente}}"><p>{{{texto}}}</p></blockquote>
+      </li>
+{{/cada}}
+    </ul>
+{{/si}}
+{{#si bloques}}
+    <ul class="confianza" role="list">
+{{#cada bloques}}
+      <li class="tarjeta confianza__item">
+        <span class="icono-caja icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#{{icono}}"></use></svg></span>
+        <h3>{{{titulo}}}</h3>
+        <p>{{{texto}}}</p>
+      </li>
+{{/cada}}
+    </ul>
+{{/si}}
+  </div>
+{{{cta_html}}}
+</section>

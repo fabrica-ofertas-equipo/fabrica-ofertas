@@ -1,0 +1,16 @@
+{
+  "skill": "o0-orquestador-portafolio",
+  "version": "0.1.0",
+  "casos": [
+    "O0-D01-brief-it-IT-dinero",
+    "O0-D02-rechazos-con-motivo",
+    "O0-D03-proceso-muerto-en-D6",
+    "O0-D04-cartera-mata-sigue-escala",
+    "O0-D05-texto-inyectado-en-el-banco",
+    "O0-D06-otro-macro-nicho-idioma-moneda-pl-PL",
+    "O0-D07-otro-macro-nicho-salud-en-US"
+  ],
+  "sembrados": "sembrados/O0-S1-S18.json",
+  "medir": "con skill vs sin skill (Sonnet y Haiku) por caso; aserciones discriminantes = salida_esperada.propiedades",
+  "estado": "sin correr"
+}

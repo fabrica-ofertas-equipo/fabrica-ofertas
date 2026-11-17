@@ -1,0 +1,31 @@
+{
+  "eval_id": "D4-03",
+  "titulo": "El mismo concepto en it-IT como oferta hija (Tetto per Categoria): redacción nativa, sin calco",
+  "origen": "spec §10.5 #2 (otro idioma, obligatorio)",
+  "macro_nicho": "dinero", "nivel_riesgo": "verde", "locale": "it-IT", "modo": "nuevo",
+  "entrada": {
+    "oferta": { "variante_de": "OF-AAAAMM-NN (madre es-ES, eval D4-02)", "moneda": "EUR", "paises_segmentacion": ["IT"], "tiempo_prometido_min": 60 },
+    "mercado": { "revision_linguistica": { "revisor_nativo": false, "metodos": ["retraduccion", "segunda_lectura_otro_modelo", "revision_humana_muestreo"], "obligacion_legal_idioma": false }, "primer_lanzamiento_en_locale": true, "requiere_gate_h": true },
+    "glosario": "empresa/mercados/glosarios/it-IT.md (fixture): registro, euro con punto de miles, cucchiaio ≠ cucchiaino, autoridades italianas",
+    "supuestos": ["[SUPUESTO] ayuda de Italia solo como enlace oficial si se menciona estrés financiero; sin teléfono de crisis"]
+  },
+  "salida_esperada": {
+    "estado_final": "entregado_a_qa",
+    "veredicto_qa_esperado": "PASS_CON_NOTAS",
+    "motivo_de_notas": "primer producto del idioma sin revisor nativo: revision_humana nativa queda pendiente (H)",
+    "estructura_heredada": ["matriz", "esquema por minutos", "fichas MU/EU"],
+    "contenido_regenerado": ["fuentes T1 de Italia", "ejemplos con importes y costumbres de Italia", "unidades y moneda de it-IT", "avisos del glosario"],
+    "archivos_reutilizados_de_la_madre": 0,
+    "hashes_reutilizados_de_la_madre": 0,
+    "localizacion": { "ruta_localizacion": "redaccion_nativa", "retraduccion_discrepancias": 0, "revision_humana": "pendiente" },
+    "checks_clave": { "L1-13": "pass", "L1-01": "pass (idioma de cada ítem = it-IT)" }
+  },
+  "aserciones": [
+    { "id": "A1", "tipo": "determinista", "texto": "Todos los items[].idioma = it-IT y ningún sha256 coincide con los de la madre" },
+    { "id": "A2", "tipo": "determinista", "texto": "lint_contenido.py --locale it-IT: un '1,500' sembrado junto a una unidad se detecta como separador-ajeno (L1-13); sin sembrado, 0 hallazgos" },
+    { "id": "A3", "tipo": "determinista", "texto": "verificar_respaldo.py: cualquier umbral fiscal es T1 de Italia (pais_fuente IT)" },
+    { "id": "A4", "tipo": "criterio", "texto": "Sin calco del español: sintaxis y modismos naturales en italiano (R12 ≥ 4); retraducción sin discrepancias de sentido" },
+    { "id": "A5", "tipo": "criterio", "texto": "El gate H del primer lanzamiento en el idioma queda registrado como pendiente humano, no como aprobado" }
+  ],
+  "sin_skill_deberia_fallar_en": ["traducir el archivo de la madre", "separador de miles inglés", "fuente española para un lector italiano"]
+}

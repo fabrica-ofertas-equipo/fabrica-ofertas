@@ -1,0 +1,88 @@
+{
+  "caso_id": "e02",
+  "titulo": "Salud, verde: planificador semanal de comidas",
+  "tipo": "maker",
+  "macro_nicho": "salud",
+  "locale": "es-ES",
+  "entrada": {
+    "oferta": {
+      "nombre_producto": "Planificador semanal de comidas",
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde"
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-lista-compra",
+          "texto": "Incluye una lista de la compra para cada semana"
+        },
+        {
+          "claim_id": "plan-4-semanas",
+          "texto": "Incluye 4 semanas de plantillas"
+        },
+        {
+          "claim_id": "formato-pdf-imprimible",
+          "texto": "Se entrega en PDF imprimible"
+        }
+      ],
+      "claims_prohibidos": [
+        "adelgaza",
+        "baja de peso",
+        "sin dieta",
+        "come sano en 7 días"
+      ],
+      "precio": {
+        "monto": 990,
+        "moneda": "EUR"
+      },
+      "angulos": [
+        "menu-sin-improvisar",
+        "lista-de-compra",
+        "hojas-imprimibles"
+      ]
+    },
+    "economia": {
+      "gasto_test_plan": {
+        "monto": 27600,
+        "moneda": "EUR"
+      },
+      "cpa_obj": {
+        "monto": 1098,
+        "moneda": "EUR"
+      }
+    },
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "presentador": "sin_rostro (en salud nunca avatar_ia)",
+    "visuales": "solo producto, hojas o manos; sin cuerpos, básculas, comida «antes/después» ni cifras de kilos",
+    "hooks_aprobables_ejemplo": [
+      "Un planificador semanal con la lista de la compra ya hecha. (resultado-artefacto)",
+      "¿Cómo se organiza el menú de la semana? (pregunta-tarea)"
+    ],
+    "textos_que_no_deben_aparecer": [
+      "adelgaza",
+      "kilos",
+      "sin dieta",
+      "detox",
+      "metabolismo",
+      "¿Quieres comer mejor?",
+      "en 7 días"
+    ],
+    "avisos": "«Contenido informativo; no sustituye el consejo de un profesional»; alérgenos y «qué no incluye» en el cuerpo",
+    "riesgo_pieza": "verde en todas"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia"
+  ]
+}

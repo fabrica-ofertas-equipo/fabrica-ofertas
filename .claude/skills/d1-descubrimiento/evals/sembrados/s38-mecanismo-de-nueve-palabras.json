@@ -1,0 +1,31 @@
+{
+  "id": "s38-mecanismo-de-nueve-palabras",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Nombre de mecanismo de más de 6 palabras (D-13)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/mecanismo/nombre",
+      "valor": "Método Integral y Completo de Reinserción Laboral"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-13",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-13",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "mecanismo-largo"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

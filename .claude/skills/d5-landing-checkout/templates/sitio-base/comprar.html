@@ -1,0 +1,31 @@
+<section class="seccion comprar tono-claro" aria-labelledby="titulo-comprar">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <h1 id="titulo-comprar">{{{titulo}}}</h1>
+    </header>
+    <div class="tarjeta">
+      <ul class="checklist-simple" role="list">
+{{#cada resumen}}
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+      </ul>
+      <p class="comprar__total">{{t.precio}}: <strong>{{precio}}</strong></p>
+    </div>
+    <form class="comprar__form" method="post" action="/api/sesion">
+      <input type="hidden" name="oferta_id" value="{{oferta_id}}">
+      <input type="hidden" name="locale" value="{{locale}}">
+{{#si bump}}
+      <label class="casillas__fila" for="bump"><input type="checkbox" id="bump" name="bump"><span>{{{bump.texto}}}</span></label>
+{{/si}}
+{{#si renuncia}}
+      <label class="casillas__fila" for="renuncia_desistimiento"><input type="checkbox" id="renuncia_desistimiento" name="renuncia_desistimiento"{{#si renuncia.version}} data-texto-version="{{renuncia.version}}"{{/si}} required><span>{{{renuncia.texto}}}</span></label>
+{{/si}}
+{{#si turnstile}}
+      <div class="cf-turnstile" data-sitekey="{{turnstile.sitekey}}"></div>
+{{/si}}
+      <button type="submit" class="boton boton--cta boton--grande boton--bloque"><span>{{boton}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></button>
+    </form>
+    <p class="comprar__legales">{{t.consulta}}: <span class="comprar__enlaces">{{#cada legales}}<a href="{{href}}">{{texto}}</a>{{/cada}}</span></p>
+    <p class="pago"><svg class="ico" aria-hidden="true"><use href="#i-candado"></use></svg><span>{{t.pago_seguro}}: {{metodos}}</span></p>
+  </div>
+</section>

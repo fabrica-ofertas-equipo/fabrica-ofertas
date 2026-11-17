@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "tramo": "A",
+  "reglas_version": "1.0.0",
+  "hash_textos": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "comando_lint": ".venv/bin/python -m compliance.lint_claims --archivo ofertas/OF-202611-01/06-creativos/copies.json --locale es-ES --macro-nicho dinero --json",
+  "cubierto_por_script": [
+    "general-urgencia_falsa",
+    "general-garantias_absolutas",
+    "general-prueba_social_fabricada",
+    "es-ES finanzas",
+    "es-ES salud"
+  ],
+  "revisado_a_mano": [
+    "X1-E01 atributo del espectador",
+    "X1-P07 verbos de cambio",
+    "X1-P02 cifras",
+    "X1-P05 escasez",
+    "autoridad falsa",
+    "menores",
+    "marcas"
+  ],
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "semaforo": "verde",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      },
+      "hallazgos": []
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "D6-L1-02",
+      "resultado": "pass",
+      "detalle": "lint_claims sin ROJO; el resto revisado a mano (ver revisado_a_mano)"
+    },
+    {
+      "check_id": "D6-L1-04",
+      "resultado": "pass",
+      "detalle": "riesgo_pieza: declarado >= recalculado con scripts.nivel_riesgo (ejes_codigo), recalculado <= oferta, P heredado si repite la promesa central"
+    }
+  ],
+  "lint_x1_por_anuncio": {
+    "c01-hueco_img_h1_v1": "PASS"
+  }
+}

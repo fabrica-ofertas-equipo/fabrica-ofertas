@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "ts": "2026-11-06T11:00:00Z",
+  "oferta_id": "OF-202611-01",
+  "etapa": "D1",
+  "ejecucion_id": "RUN-20261106-01",
+  "origen": "ia",
+  "concepto": "tokens D1 (estimado)",
+  "monto": {
+    "monto": 180,
+    "moneda": "EUR"
+  }
+}

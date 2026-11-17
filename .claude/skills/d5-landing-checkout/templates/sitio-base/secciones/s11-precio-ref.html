@@ -1,0 +1,47 @@
+<section class="seccion oferta oferta--ref tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-oferta">
+  <div class="contenedor">
+    <header class="encabezado">
+      <p class="kicker">{{t.precio}}</p>
+      <h2 id="titulo-oferta">{{{titulo}}}</h2>
+      <p class="lede">{{{descripcion}}}</p>
+    </header>
+    <div class="caja-oferta">
+{{#si imagen}}
+      <div class="img-rotulada"><img class="oferta__img" src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+      {{#si imagen.rotulo}}<span class="rotulo-img" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}</div>
+{{sino}}
+{{#si marcador}}
+      <div class="vp-marcador vp-marcador--compra" data-demo="imagen" role="img" aria-label="{{marcador}}"><span class="vp-marcador__etiqueta">{{marcador}}</span></div>
+{{/si}}
+{{/si}}
+      <div class="caja-oferta__precio">
+        <p class="precio-etiqueta">{{t.precio}}</p>
+        <p class="precio">{{precio}}</p>
+        <p class="precio-linea">{{{linea_precio}}}</p>
+        <ul class="pills pills--centro" role="list">
+{{#cada pills}}
+          <li>{{{.}}}</li>
+{{/cada}}
+        </ul>
+      </div>
+      <div class="caja-oferta__lista">
+{{#si imagen_mini}}
+        <div class="caja-oferta__pack img-rotulada">
+          <img src="{{imagen_mini.url}}" width="{{imagen_mini.ancho}}" height="{{imagen_mini.alto}}" alt="{{imagen_mini.alt}}" data-slot="{{imagen_mini.slot}}"{{#si imagen_mini.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen_mini.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+          {{#si imagen_mini.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{imagen_mini.tipos}}" data-para="{{imagen_mini.slot}}">{{imagen_mini.rotulo}}</span>{{/si}}
+        </div>
+{{/si}}
+        <div class="caja-oferta__recibes">
+          <p class="oferta__recibes"><svg class="ico" aria-hidden="true"><use href="#i-regalo"></use></svg><span>{{t.recibes}}</span></p>
+          <ul class="checklist-simple" role="list">
+{{#cada incluye}}
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+          </ul>
+        </div>
+      </div>
+      <a class="boton boton--cta boton--grande boton--bloque" href="/comprar"><span>{{cta.texto}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      <p class="pago"><svg class="ico" aria-hidden="true"><use href="#i-candado"></use></svg><span>{{t.pago_seguro}}: {{metodos}}</span></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+{
+  "id": "S06",
+  "descripcion": "aprobacion.json firmada sobre una version anterior de campana.json (hash distinto)",
+  "check_id": "C01",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "archivos_nuevos": [
+    {
+      "archivo": "07-campana/aprobacion.json",
+      "json": {
+        "oferta_id": "OF-202611-02",
+        "accion": "activar_campana",
+        "gate": "H",
+        "hash_objetivo": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    }
+  ],
+  "esperado": {
+    "check_id": "C01",
+    "codigo": "aprobacion_de_version_anterior",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C01",
+      "patron_clave": "aprobacion-version-anterior",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

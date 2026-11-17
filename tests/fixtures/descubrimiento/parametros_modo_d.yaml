@@ -1,0 +1,268 @@
+# Fixture de pruebas de D1c: los 36 modelado_* de tests/fixtures/modelado/parametros.yaml (NO se edita
+# ese archivo, es de otra sesión) + sim_dup_bloqueo de descubrimiento, en el MISMO grupo. No se valida
+# contra contratos/parametros.schema.json completo (additionalProperties:false en grupos.descubrimiento
+# hasta la MINOR 1.2.0 de patternProperties, interfaces §5.2): lo leen `puntaje_modelar.cargar_parametros`
+# y `ficha_a_candidato._leer_sim_dup_bloqueo`, ambos con lectura directa del YAML (mismo estilo).
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    sim_dup_bloqueo:
+      valor: "0.80"
+      unidad: similitud
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "0.9"]
+    modelado_anuncios_objetivo:
+      valor: 25
+      unidad: anuncios
+      hipotesis: true
+      fuente: "20a H1 (Matías >25), 20b H-O4 [CREADORES]"
+      ultima_calibracion: null
+      rango: [10, 40]
+    modelado_dias_objetivo:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "20a §9a, 20b H-O4 [CREADORES]"
+      ultima_calibracion: null
+      rango: [3, 30]
+    modelado_conceptos_objetivo:
+      valor: 3
+      unidad: conceptos
+      hipotesis: true
+      fuente: "04-meta-ads §1.4, 18d §7.2 [NUEVO]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    modelado_replica_baja:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20b H-O2 (varias fanpages = escala) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.8"]
+    modelado_entrantes_tope_30d:
+      valor: 5
+      unidad: anunciantes
+      hipotesis: true
+      fuente: "20a §5 (saturación), Woodcraft DH [NUEVO]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    modelado_sostenidos_cierre:
+      valor: 3
+      unidad: anunciantes
+      hipotesis: true
+      fuente: "20a H5 (original en IT/FR = saturado) [NUEVO]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    modelado_rival_debil_bajo:
+      valor: 50
+      unidad: puntaje_0_100
+      hipotesis: true
+      fuente: "20a H5 (auditor puntúa al rival, ej. 58/100) [CREADORES]"
+      ultima_calibracion: null
+      rango: [40, 60]
+    modelado_hueco_rival_debil:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a H2 (si la página rival es mala, vale) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.7"]
+    modelado_hueco_rival_fuerte:
+      valor: "0.25"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "[NUEVO] caso intermedio no cubierto por los mentores"
+      ultima_calibracion: null
+      rango: ["0.1", "0.4"]
+    modelado_ventana_cierra_pronto:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §5 (Navidad muere el 10-dic) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.7"]
+    modelado_dif_base:
+      valor: "0.4"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 ('no compitan por precio y bonus') [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.2", "0.5"]
+    modelado_dif_un_reencuadre:
+      valor: "0.7"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 M1-M10 [NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.5", "0.8"]
+    modelado_dif_dos_o_mas:
+      valor: "1.0"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 M1-M10 [NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.9", "1.0"]
+    modelado_peso_traccion:
+      valor: "0.25"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO] 15 §0 (anuncios ≠ ingresos)"
+      ultima_calibracion: null
+      rango: ["0.15", "0.35"]
+    modelado_peso_hueco:
+      valor: "0.35"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO] 20a H5 (hueco por país e idioma)"
+      ultima_calibracion: null
+      rango: ["0.25", "0.45"]
+    modelado_peso_transferibilidad:
+      valor: "0.20"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+    modelado_peso_diferenciacion:
+      valor: "0.20"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+    modelado_umbral_pasa:
+      valor: 55
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: "D1 3.4 umbral_score_min [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [45, 70]
+    modelado_sens_variacion:
+      valor: "0.30"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "D1 3.2 (sensibilidad ±30 %)"
+      ultima_calibracion: null
+      rango: ["0.1", "0.5"]
+    modelado_sens_cobertura_min:
+      valor: "0.80"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "D1 3.2 (top-1 en top-3 en ≥ 80 %)"
+      ultima_calibracion: null
+      rango: ["0.7", "0.95"]
+    modelado_sens_top:
+      valor: 3
+      unidad: posiciones
+      hipotesis: true
+      fuente: "D1 3.2"
+      ultima_calibracion: null
+      rango: [2, 5]
+    modelado_juicio_tolerancia:
+      valor: "0.20"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+    modelado_evidencia_min_caracteres:
+      valor: 20
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: [10, 80]
+    modelado_calibracion_min_casos:
+      valor: 20
+      unidad: casos
+      hipotesis: true
+      fuente: "20a §7 #5 (calibrar tras ~20 ofertas)"
+      ultima_calibracion: null
+      rango: [10, 50]
+    modelado_acuerdo_min:
+      valor: "0.90"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: ["0.8", "0.98"]
+    modelado_captura_pausa_seg:
+      valor: 20
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 120]
+    modelado_captura_max_por_dia:
+      valor: 30
+      unidad: capturas
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 100]
+    modelado_captura_espera_ms:
+      valor: 20000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14 (medido en la prueba del 2026-11-06)"
+      ultima_calibracion: null
+      rango: [10000, 40000]
+    modelado_captura_timeout_seg:
+      valor: 120
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [60, 240]
+    modelado_lectura_max_bytes:
+      valor: 1500000
+      unidad: bytes
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [500000, 5000000]
+    modelado_lectura_timeout_seg:
+      valor: 20
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 60]
+    modelado_lectura_max_caracteres:
+      valor: 20000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [5000, 60000]
+    modelado_lectura_max_redirecciones:
+      valor: 3
+      unidad: redirecciones
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [1, 5]
+    modelado_lectura_max_paginas:
+      valor: 4
+      unidad: paginas
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [1, 8]
+    modelado_lectura_pausa_seg:
+      valor: 5
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [2, 30]
+    modelado_max_consultas_por_corrida:
+      valor: 120
+      unidad: consultas
+      hipotesis: true
+      fuente: "análogo a max_consultas_ads_library_por_oferta (D6) [NUEVO]"
+      ultima_calibracion: null
+      rango: [60, 240]

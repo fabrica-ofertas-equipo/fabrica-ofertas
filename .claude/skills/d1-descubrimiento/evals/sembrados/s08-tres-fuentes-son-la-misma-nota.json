@@ -1,0 +1,49 @@
+{
+  "id": "s08-tres-fuentes-son-la-misma-nota",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ «Tres fuentes independientes» que son la misma nota replicada (D-10)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/1/url",
+      "valor": "https://sitio-b.ejemplo.invalid/copia-de-la-nota"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/2/url",
+      "valor": "https://sitio-c.ejemplo.invalid/repost-de-la-nota"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/1/cita",
+      "valor": "No sé qué poner en mi currículum de los cuatro años que no trabajé"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/2/cita",
+      "valor": "No sé qué poner en mi currículum de los cuatro años que no trabajé"
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-10",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-10",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "fuentes-no-independientes"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

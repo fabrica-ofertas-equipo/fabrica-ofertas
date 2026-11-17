@@ -1,0 +1,19 @@
+{
+  "id": "D05",
+  "nombre": "Dinero amarillo-a en UK/AU",
+  "spec": "departamentos/16 §10.5 eval 5",
+  "entrada": {
+    "GB": "etiqueta 'ingresos' en la promesa",
+    "AU": "producto de hogar sin cifra de ahorro, ingreso ni instrumento"
+  },
+  "salida_esperada": {
+    "GB": "R3 (J05: sin instrumento, ingresos ni inversion)",
+    "AU": "pasa R3 si producto_hogar; EXPO dinero R con amarillo-a = 0 y bandera gate_h_exposicion (verificacion financiera de Meta: regla de parada)"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D05)",
+    "L2": [
+      "la salida dice que la matriz es SEMILLA [SUPUESTO] hasta que X1 publique matriz_pais_nivel.yaml"
+    ]
+  }
+}

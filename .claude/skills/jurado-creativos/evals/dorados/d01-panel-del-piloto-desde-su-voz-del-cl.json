@@ -1,0 +1,29 @@
+{
+  "caso_id": "D01",
+  "titulo": "Panel del piloto desde su voz del cliente",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "voz": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+    "n": 10,
+    "semilla": 7
+  },
+  "salida_esperada": {
+    "avatares": "10 (+1 línea base sin perfil)",
+    "limite_n": "15 focos elegibles; N pedido 10 ≤ 15",
+    "advertencias": [
+      "5 de 10 avatares se apoyan en una sola fuente",
+      "edad, género y ocupación sin dato",
+      "nota de sesgo de la fuente (Wykop)"
+    ],
+    "demografia": "null en todos",
+    "citas": "cada frase_id existe en la voz con el texto idéntico",
+    "n_recomendado": "5 (focos con ≥ 2 fuentes)"
+  },
+  "aprobacion": [
+    "avatares.py validar --voz sale 0",
+    "ningún avatar con edad, género u oficio",
+    "el lexico_de_compra no funda ningún avatar",
+    "mismo panel con la misma semilla"
+  ]
+}

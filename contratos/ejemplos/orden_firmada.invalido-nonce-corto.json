@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "accion": "activar_campana",
+  "oferta_id": "OF-202611-01",
+  "hash_objetivo": "sha256:445cfcd889a7fe9ad2c0fdbc749378116c8f2592e8b5b4395c2eec550ef641c0",
+  "object_ids": [
+    "120000000000001",
+    "120000000000002",
+    "120000000000003",
+    "120000000000004",
+    "120000000000005",
+    "120000000000006",
+    "120000000000007"
+  ],
+  "ts": "2026-11-10T09:00:00Z",
+  "nonce": "corto",
+  "firma": "ed25519:xXWA3qlyZJEOGV9KKqYFHN0HhyvoyJKZn9t3W4J0aBOM3CUT7iEoFFMt2U9G+xCphPwNYArUizGTpz7vXgqEaQ=="
+}

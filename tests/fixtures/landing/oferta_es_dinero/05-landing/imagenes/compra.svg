@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img">
+<rect width="800" height="800" rx="44" fill="#12303B"/>
+<g transform="translate(400.0 416.0) rotate(-8) translate(-224.00000000000003 -288.0)"><rect width="448.00000000000006" height="576.0" rx="22" fill="#0F6E7E" opacity=".35"/></g>
+<g transform="translate(400.0 400.0) rotate(5) translate(-224.00000000000003 -288.0)"><rect width="448.00000000000006" height="576.0" rx="22" fill="#F5F7F8" opacity=".85"/></g>
+<g transform="translate(176.0 112.00000000000001)"><rect width="448.00000000000006" height="576.0" rx="22" fill="#F5F7F8"/>
+<rect width="448.00000000000006" height="28.000000000000004" rx="6" fill="#0F6E7E"/>
+<text x="36.0" y="80.0" font-family="Helvetica, Arial, sans-serif" font-size="20.8" font-weight="700" letter-spacing="3" fill="#0F6E7E">MI REGRESO LABORAL</text>
+<text x="36.0" y="344.0" font-family="Georgia, serif" font-size="46.400000000000006" font-weight="700" fill="#14262E">Guía y</text>
+<text x="36.0" y="400.0" font-family="Georgia, serif" font-size="46.400000000000006" font-weight="700" fill="#14262E">plantilla</text>
+<rect x="36.0" y="448.00000000000006" width="72.0" height="7" rx="3" fill="#0F6E7E"/>
+<text x="36.0" y="504.0" font-family="Helvetica, Arial, sans-serif" font-size="21.6" fill="#14262E">Un solo pago</text></g>
+</svg>

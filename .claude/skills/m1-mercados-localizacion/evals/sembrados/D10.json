@@ -1,0 +1,34 @@
+{
+  "id": "D10",
+  "bloqueante_star": false,
+  "severidad": "MAYOR",
+  "defecto": "Tarifa de ubicacion de Meta de Italia omitida",
+  "donde_se_siembra": "mercado.seleccion.json#/ranking/0/tarifa_meta_bp",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/ranking/0/tarifa_meta_bp",
+          "valor": 0
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-14"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-14",
+      "patron_clave": "tarifa-meta-omitida",
+      "severidad": "MAYOR",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "IT lleva recargo de ubicacion de Meta (ficha); r debe incluirlo"
+  }
+}

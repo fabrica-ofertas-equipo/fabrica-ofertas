@@ -1,0 +1,10 @@
+{
+  "caso_id": "S13",
+  "titulo": "Promoción sin los requisitos",
+  "defecto_sembrado": "promocion.json apunta a una calibración con estado_global = sombra",
+  "check_esperado": "JQ-07",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar --modo asesor → vuelve a sombra; jurado-qa lo reporta",
+  "correccion_esperada": "no promover; volver a sombra",
+  "automatizado": true
+}

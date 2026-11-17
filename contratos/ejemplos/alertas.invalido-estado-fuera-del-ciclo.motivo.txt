@@ -1,0 +1,3 @@
+validador=enum
+ruta=/estado
+texto=el estado sigue abierta, reconocida, cerrada (docs/04 5, Higiene)

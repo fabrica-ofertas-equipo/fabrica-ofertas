@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "clave_natural": "stripe:cs_test_a1b2c3d4e5",
+  "tipo": "pedido",
+  "oferta_id": "OF-202611-01",
+  "fecha": "2026-11-12",
+  "ts": "2026-11-12T10:15:00Z",
+  "sentido": "entrada",
+  "importe": {
+    "monto": 1990,
+    "moneda": "EUR"
+  },
+  "fuente": "stripe",
+  "es_prueba": false,
+  "adid": "120000000000003"
+}

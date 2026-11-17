@@ -1,0 +1,80 @@
+{
+  "id": "S24",
+  "descripcion": "lectura_viva.json de código sin effective_status ni DSA: «todo PAUSED» y el DSA UE no son verificables (evidencia incompleta)",
+  "check_id": "C03",
+  "severidad": "MAYOR",
+  "capa": "script-lint",
+  "archivos_nuevos": [
+    {
+      "archivo": "07-campana/ids_meta.json",
+      "hash_de_campana": "hash_config",
+      "json": {
+        "schema_version": "1.0.0",
+        "oferta_id": "OF-202611-02",
+        "ad_account_id": "act_100000000000001",
+        "campaign_id": "120000000000001",
+        "adset_ids": [
+          "120000000000002"
+        ],
+        "ad_ids": [
+          "120000000000100",
+          "120000000000101",
+          "120000000000102",
+          "120000000000103",
+          "120000000000104",
+          "120000000000105"
+        ],
+        "creative_ids": [
+          "120000000000200",
+          "120000000000201",
+          "120000000000202",
+          "120000000000203",
+          "120000000000204",
+          "120000000000205"
+        ],
+        "creado_en": "2026-11-16T09:00:00Z"
+      }
+    },
+    {
+      "archivo": "07-campana/lectura_viva.json",
+      "hash_de_campana": "hash_config",
+      "json": {
+        "oferta_id": "OF-202611-02",
+        "leido_en": "2026-11-16T09:30:00Z",
+        "campana": {
+          "id": "120000000000001",
+          "spend_cap": 31678,
+          "special_ad_categories": []
+        },
+        "conjunto": {
+          "id": "120000000000002",
+          "daily_budget": 4114,
+          "optimization_goal": "OFFSITE_CONVERSIONS"
+        },
+        "anuncios": [
+          {
+            "id": "120000000000100",
+            "creative": {
+              "id": "120000000000200"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "esperado": {
+    "check_id": "C03",
+    "codigo": "evidencia_viva_incompleta",
+    "severidad": "MAYOR"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C03",
+      "patron_clave": "evidencia-viva-incompleta",
+      "severidad": "MAYOR"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

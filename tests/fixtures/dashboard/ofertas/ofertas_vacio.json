@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "datos": [],
+ "fuente": [
+  "ofertas/*/estado.json"
+ ],
+ "generado_en": "2026-11-12T09:20:00Z",
+ "vacio": true,
+ "avisos": []
+}

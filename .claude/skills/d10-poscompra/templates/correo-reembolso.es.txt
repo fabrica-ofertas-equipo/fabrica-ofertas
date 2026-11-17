@@ -1,0 +1,15 @@
+# tipo: reembolso
+# locale: es
+# estado: v0.1 sin pulir; lo envía el código tras ejecutar el reembolso (postcompra.reembolsar / reembolso_manual); sello de X1 pendiente
+Asunto: Confirmación de tu reembolso – pedido {{pedido_ref}}
+
+Hola,
+
+hemos ordenado el reembolso de {{monto_texto}} del pedido {{pedido_ref}} en {{marca}}.
+
+El importe vuelve al mismo método de pago que usaste en la compra. {{tiempo_reembolso}}
+
+No tienes que hacer nada más. Si pasado ese plazo no lo ves reflejado, escribe a {{soporte_email}} con el número de pedido.
+
+Vendedor: {{vendedor}}
+Política de compra y devoluciones: {{politica_url}}

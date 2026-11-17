@@ -1,0 +1,41 @@
+{
+  "id": "S19",
+  "severidad": "MAYOR",
+  "defecto": "El precio de un competidor se guarda en la moneda de la cuenta publicitaria (BRL) en vez de la del precio visible (EUR).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[0].oferta.moneda_precio",
+      "valor": "BRL"
+    },
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[0].oferta.precio_texto_visible",
+      "valor": "€ 14,90"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D10",
+        "patron_clave": "moneda-de-la-cuenta-como-del-precio",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R6"
+    ],
+    "debe_citar": "€ 14,90"
+  },
+  "detecta_script": "ninguno (juicio del QA)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

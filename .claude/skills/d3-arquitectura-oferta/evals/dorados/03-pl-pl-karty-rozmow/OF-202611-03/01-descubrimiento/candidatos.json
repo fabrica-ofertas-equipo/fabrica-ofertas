@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-03",
+  "corrida_id": "RUN-20261106-01",
+  "fecha": "2026-11-06T09:00:00Z",
+  "modo": "pipeline",
+  "mercado": {
+    "locale": "pl-PL",
+    "paises": [
+      "PL"
+    ]
+  },
+  "pesos": {
+    "dolor": "0.35",
+    "pago": "0.35",
+    "mecanismo": "0.30"
+  },
+  "parametros_usados": {
+    "umbral_score_min": 55,
+    "evidencia_min_fuentes": 2
+  },
+  "consultas": [
+    {
+      "herramienta": "WebSearch",
+      "terminos": "volver a trabajar tras pausa cómo explicar hueco currículum",
+      "pais": "US",
+      "fecha": "2026-11-06T08:30:00Z",
+      "estimated_total_count": null
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "plantilla currículum",
+      "pais": "ES",
+      "fecha": "2026-11-06T08:40:00Z",
+      "estimated_total_count": 14
+    }
+  ],
+  "candidatos": [
+    {
+      "candidato_id": "CAND-01",
+      "problema_id": "PRB-202611-0007",
+      "rango": 1,
+      "macro_nicho": "relaciones",
+      "nicho_id": "convivencia-de-pareja",
+      "microsegmento": "conversaciones-en-pareja-que-conviven",
+      "problema": "Las parejas que viven juntas hablan sobre todo de obligaciones y cuentas, y les falta un comienzo sencillo para conversar por la noche",
+      "prueba_una_frase": "Dla par, które mieszkają razem i rozmawiają głównie o obowiązkach, Rytuał Jednego Pytania to zestaw 50 kart do wydruku, który prowadzi od «rozmawiamy tylko o rachunkach» do «mamy wieczór rozmowy raz w tygodniu» bez poradników i bez terapii.",
+      "tesis": "El obstáculo no es la falta de ganas sino la falta de un comienzo sencillo; una carta por noche con regla de turnos lo resuelve.",
+      "mecanismo": {
+        "causa_raiz": {
+          "texto": "Rozmowy o obowiązkach wypierają inne tematy, a bez prostego początku wieczór kończy się przed ekranem.",
+          "senales": [
+            "a1b2c3d4e5f6",
+            "0f9e8d7c6b5a"
+          ]
+        },
+        "nombre": "Rytuał Jednego Pytania",
+        "como_funciona": "Jedna karta z pytaniem na wieczór, trzy poziomy głębokości i zasada rozmowy na zmianę: każdy odpowiada po kolei, bez przerywania.",
+        "diferencia": "Darmowe listy pytań nie mają kolejności ani poziomów; ten zestaw prowadzi od lekkich pytań do głębszych i ma zasadę rozmowy na zmianę.",
+        "prueba_logica": "Podgląd zawiera pełną kartę z trzema poziomami; każda karta ma jedno pytanie i jedną zasadę.",
+        "riesgo_de_claim": "Nie obiecywać poprawy związku, bliskości ani rezultatów; tylko narzędzie do rozmowy."
+      },
+      "entregable": {
+        "formato": "pack",
+        "alcance": "50 kart z pytaniami do wydruku + krótka instrukcja rozmowy na zmianę; bez usługi, wspólnoty ani aktualizacji.",
+        "estado_a_b": {
+          "a": "Rozmawiamy głównie o obowiązkach i rachunkach",
+          "b": "Mamy kartę z pytaniem na każdy wieczór"
+        },
+        "tiempo_al_primer_resultado": 15,
+        "producibilidad": {
+          "nivel": "alta",
+          "notas": "Treść oryginalna; bez grafik ani czcionek stron trzecich."
+        },
+        "licencias": [
+          "sin activos de terceros"
+        ]
+      },
+      "precio_plausible": {
+        "min": {
+          "monto": 3900,
+          "moneda": "PLN"
+        },
+        "max": {
+          "monto": 9900,
+          "moneda": "PLN"
+        },
+        "razon": "Juegos de preguntas para parejas en venta entre 39 y 99 zł [SUPUESTO]; los tres niveles justifican la banda alta"
+      },
+      "puntajes": {
+        "dolor": {
+          "s": 4,
+          "justificacion": "Dolor expresado con palabras propias en foros",
+          "evidencia_ids": [
+            "EV-01"
+          ]
+        },
+        "pago": {
+          "s": 3,
+          "justificacion": "Se compran juegos de preguntas, sin niveles ni regla de turnos",
+          "evidencia_ids": [
+            "EV-02",
+            "EV-03"
+          ]
+        },
+        "mecanismo": {
+          "s": 4,
+          "justificacion": "Mecanismo nombrable y distinto de la lista gratuita",
+          "evidencia_ids": [
+            "EV-02"
+          ]
+        }
+      },
+      "score_base": 68,
+      "score_ajustado": 66,
+      "confianza": "media",
+      "evidencia": [
+        {
+          "id": "EV-01",
+          "tipo": "E3",
+          "url": "https://forum.przyklad.invalid/watek/rozmowy-o-rachunkach",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Rozmawiamy tylko o rachunkach i o tym, kto zmywa",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        {
+          "id": "EV-02",
+          "tipo": "E3",
+          "url": "https://forum.przyklad.invalid/watek/wieczory-w-telefonie",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Wieczorem każde siedzi w telefonie i nie wiemy, od czego zacząć rozmowę",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+        },
+        {
+          "id": "EV-03",
+          "tipo": "E1",
+          "url": "https://sklep.przyklad.invalid/ranking/karty-dla-par",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Karty z pytaniami dla par wśród najlepiej sprzedających się w kategorii",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      ],
+      "demanda_pagada": {
+        "n_anuncios": 14,
+        "n_anunciantes": 6,
+        "n_sostenidos": 2,
+        "n_conceptos_unicos": 5,
+        "antiguedad_max_dias": 120,
+        "consultas_ids": [
+          "Q-01",
+          "Q-02"
+        ],
+        "senal_rentabilidad": "no medible"
+      },
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "reencuadre_aplicado": {
+          "aplicado": true,
+          "nivel_original": "rojo",
+          "descripcion": "El borrador «karty na randki» se leía como facilitación de citas (N2, LM-04); se reencuadró a «karty rozmów dla par, które mieszkają razem» (RE-10: del servicio al archivo) con el rol en tercera persona (RE-08). Se conserva el deseo: mejorar la conversación de la pareja."
+        },
+        "fuentes": [
+          "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+          "docs/_investigacion/22c-meta-politicas-relaciones.md"
+        ],
+        "categoria": "Relaciones de pareja: herramienta de conversación (N1 vigilada)",
+        "claims_a_evitar": [
+          "popraw swój związek",
+          "odzyskaj bliskość w 7 dni",
+          "terapia dla par",
+          "randki",
+          "diagnoza związku"
+        ],
+        "angulo_seguro": "Karty z pytaniami: narzędzie do rozmowy, nie rezultat w związku."
+      },
+      "similitud_memoria": {
+        "max": "0.31",
+        "con": null
+      },
+      "viabilidad_cpa": {
+        "ratio_pes": "0.37",
+        "ratio_central": "1.44",
+        "ratio_opt": "3.03",
+        "supuestos": [
+          "CPM, CTR y conversión de ejemplo [SUPUESTO]"
+        ],
+        "bandera": "amarilla"
+      },
+      "sensibilidad": {
+        "top3_estable_pct": 85
+      },
+      "ventana_estacional": "Septiembre y enero (vuelta al trabajo y propósitos de año nuevo)",
+      "hipotesis_para_d2": [
+        "Las listas de preguntas gratuitas no tienen niveles ni regla de turnos",
+        "El tema «sin tema de conversación» aparece en comentarios de anuncios"
+      ],
+      "que_la_mataria": [
+        "Una lista gratuita con niveles",
+        "Que Meta lea «para parejas» como servicio de citas"
+      ],
+      "palabras_clave_voz_cliente": [
+        "rozmowy o rachunkach",
+        "pytania dla par",
+        "o czym rozmawiać"
+      ]
+    }
+  ],
+  "descartados": [
+    {
+      "problema": "Karty na randki: aplicaciones de citas",
+      "motivo": "requiere_servicio",
+      "redencion": "reformular"
+    },
+    {
+      "problema": "Terapia de pareja en línea",
+      "motivo": "requiere_servicio",
+      "redencion": "descartar"
+    },
+    {
+      "problema": "Grupo privado de parejas",
+      "motivo": "requiere_comunidad_o_en_vivo",
+      "redencion": "dividir"
+    }
+  ]
+}

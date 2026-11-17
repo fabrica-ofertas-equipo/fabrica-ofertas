@@ -1,0 +1,26 @@
+{
+  "locale": "pl-PL",
+  "demostracion": true,
+  "anclas": [
+    {
+      "ancla_id": "ctrl-demo-buena",
+      "veredicto_conocido": "ganadora",
+      "origen_resultado": "control_sintetico",
+      "tipo": "texto",
+      "texto_visible": "Mapa myśli z angielskim słownictwem na Twoim poziomie. Zobacz bezpłatną próbkę.",
+      "evidencia": {
+        "nota": "Control escrito para la demostración: pieza clara y sin promesas. No es un resultado de mercado."
+      }
+    },
+    {
+      "ancla_id": "ctrl-demo-mala",
+      "veredicto_conocido": "perdedora",
+      "origen_resultado": "control_sintetico",
+      "tipo": "texto",
+      "texto_visible": "KUP TERAZ!!! Najlepszy kurs na świecie. Zero wysiłku, 100% pewności.",
+      "evidencia": {
+        "nota": "Control escrito para la demostración: pieza deliberadamente defectuosa. No es un resultado de mercado."
+      }
+    }
+  ]
+}

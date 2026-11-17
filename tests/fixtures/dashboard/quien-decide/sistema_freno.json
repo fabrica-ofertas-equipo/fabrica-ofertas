@@ -1,0 +1,12 @@
+{
+ "pausa": {
+  "activa": false,
+  "desde": null,
+  "motivo": null
+ },
+ "freno_captura": {
+  "activo": true,
+  "ts": "2026-11-06T06:03:43Z",
+  "motivo": "HTTP 403 (Document)"
+ }
+}

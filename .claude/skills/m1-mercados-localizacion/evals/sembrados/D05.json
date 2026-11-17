@@ -1,0 +1,24 @@
+{
+  "id": "D05",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Regimen diferido sin exposicion_aceptada firmada (artefacto a sellar)",
+  "donde_se_siembra": "mercado.json#/fiscal/exposicion_aceptada",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-07",
+    "modo": "sellado"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-07",
+      "patron_clave": "diferido-sin-exposicion",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "diferido exige exposicion firmada por el dueño que cubra el cluster"
+  }
+}

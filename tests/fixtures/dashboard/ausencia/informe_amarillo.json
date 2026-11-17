@@ -1,0 +1,171 @@
+{
+ "ok": true,
+ "datos": {
+  "schema_version": "1.0.0",
+  "tipo": "informe_diario",
+  "generado_en": "2026-11-07T08:30:00Z",
+  "fecha": "2026-11-07",
+  "hora_objetivo": "08:30",
+  "dia_medido": "2026-11-06",
+  "semaforo": {
+   "nivel": "amarillo",
+   "titulo": "Te puedes ausentar, con cuidado",
+   "resumen": "Lo que protege tu dinero y te avisa está en orden, pero faltan 1 cosa (1 te toca a ti). Mientras estés fuera algunas cosas quedarán esperando.",
+   "faltan": 1,
+   "para_ti": 1
+  },
+  "alertas": {
+   "abiertas": 1,
+   "roja": 0,
+   "naranja": 0,
+   "amarilla": 1,
+   "info": 0
+  },
+  "ventas_gasto": {
+   "id": "ventas_gasto",
+   "titulo": "Ventas y gasto",
+   "estado": "sin_medir",
+   "hay_datos": false,
+   "dia": "2026-11-06",
+   "correo": [
+    "Todavía no hay datos de ventas ni de gasto del 06/11/2026: no hay ninguna campaña en prueba ni en escala."
+   ],
+   "celular": "sin datos todavía"
+  },
+  "avisos": [
+   {
+    "id": "pagos",
+    "titulo": "Pagos",
+    "estado": "sin_novedades",
+    "correo": [
+     "Cuenta de Meta y Stripe en orden según el último chequeo."
+    ],
+    "celular": "sin novedades"
+   },
+   {
+    "id": "importante",
+    "titulo": "Lo importante",
+    "estado": "sin_novedades",
+    "correo": [
+     "Ninguna alerta roja abierta."
+    ],
+    "celular": "sin alertas rojas"
+   },
+   {
+    "id": "cansancio",
+    "titulo": "Cansancio de anuncios",
+    "estado": "sin_medir",
+    "correo": [
+     "Todavía no se mide: la alarma de cansancio (08:05) no existe y no hay datos de anuncios por día para comparar los últimos 3 días con los 7 anteriores."
+    ],
+    "celular": "sin medir"
+   },
+   {
+    "id": "mercado_nuevo",
+    "titulo": "Mercado nuevo",
+    "estado": "sin_medir",
+    "correo": [
+     "Todavía no se mide: no hay versiones de una oferta en otros idiomas con ventas, ni tablero de países que avise cuándo un mercado nuevo empieza a vender."
+    ],
+    "celular": "sin medir"
+   },
+   {
+    "id": "no_aprobado",
+    "titulo": "Lo que no aprobaste",
+    "estado": "con_novedades",
+    "correo": [
+     "Espera tu firma: Validación de mercado de OF-202611-91 (la oferta no cambia hace 24 h)."
+    ],
+    "celular": "1 cosa sin resolver"
+   }
+  ],
+  "ceros": [
+   {
+    "id": "pagos_sin_aviso",
+    "texto": "Pagos frenados sin aviso al celular",
+    "esperado": 0,
+    "estado": "sin_medir",
+    "valor": null,
+    "detalle": "No se puede medir: todavía no hay vigía de pagos ni canal de avisos."
+   },
+   {
+    "id": "trabajos_sin_latido",
+    "texto": "Trabajos sin señal de vida",
+    "esperado": 0,
+    "estado": "cumple",
+    "valor": 0,
+    "detalle": "0 de 1 trabajos no dieron señal a tiempo."
+   },
+   {
+    "id": "graves_sin_aviso",
+    "texto": "Alertas graves que no llegaron al celular",
+    "esperado": 0,
+    "estado": "cumple",
+    "valor": 0,
+    "detalle": "No hay alertas graves abiertas."
+   },
+   {
+    "id": "gasto_sobre_tope",
+    "texto": "Gasto por encima del tope diario",
+    "esperado": 0,
+    "estado": "sin_medir",
+    "valor": null,
+    "detalle": "No se puede medir: no hay datos de gasto."
+   },
+   {
+    "id": "esperando_por_ti",
+    "texto": "Firmas y pendientes tuyos vencidos",
+    "esperado": 0,
+    "estado": "no_cumple",
+    "valor": 1,
+    "detalle": "1 cosa espera por ti."
+   }
+  ],
+  "te_toca": [
+   {
+    "tipo": "firma",
+    "titulo": "Firmar Validación de mercado de OF-202611-91",
+    "que_hacer": "Revísala y fírmala si estás de acuerdo.",
+    "enlace": "#/oferta/OF-202611-91",
+    "enlace_texto": "Abrir la oferta",
+    "comando": ".venv/bin/python -m engine.orq firmar --oferta OF-202611-91 --etapa D2 --hash-objetivo <HUELLA_DE_LO_QUE_FIRMAS> --clave-privada <RUTA_A_TU_CLAVE> --como dueno",
+    "nivel": "amarillo"
+   }
+  ],
+  "sin_datos": [
+   "Ventas y gasto del 06/11/2026",
+   "Pagos frenados sin aviso al celular",
+   "Gasto por encima del tope diario",
+   "Cansancio de anuncios (aviso)",
+   "Mercado nuevo (aviso)"
+  ],
+  "plantilla": "fija: sin texto libre de IA ni de terceros; los títulos de pendientes (texto de archivo) solo van en el correo, recortados y sin enlaces",
+  "avisos_lectura": [],
+  "versiones": {
+   "correo": {
+    "asunto": "[AMARILLO] Informe del día 07/11/2026: te puedes ausentar, con cuidado",
+    "texto": "INFORME DEL DÍA — 07/11/2026 · 08:30\nEstado: AMARILLO — Te puedes ausentar, con cuidado\nLo que protege tu dinero y te avisa está en orden, pero faltan 1 cosa (1 te toca a ti). Mientras estés fuera algunas cosas quedarán esperando.\nAlertas abiertas: 1 (0 rojas o naranjas · 1 amarilla · 0 de información)\n\n1. VENTAS Y GASTO (día medido: 06/11/2026)\n   Todavía no hay datos de ventas ni de gasto del 06/11/2026: no hay ninguna campaña en prueba ni en escala.\n\n2. LOS 5 AVISOS\n   a) Pagos — sin novedades\n      · Cuenta de Meta y Stripe en orden según el último chequeo.\n   b) Lo importante — sin novedades\n      · Ninguna alerta roja abierta.\n   c) Cansancio de anuncios — todavía no se mide\n      · Todavía no se mide: la alarma de cansancio (08:05) no existe y no hay datos de anuncios por día para comparar los últimos 3 días con los 7 anteriores.\n   d) Mercado nuevo — todavía no se mide\n      · Todavía no se mide: no hay versiones de una oferta en otros idiomas con ventas, ni tablero de países que avise cuándo un mercado nuevo empieza a vender.\n   e) Lo que no aprobaste — hay novedades\n      · Espera tu firma: Validación de mercado de OF-202611-91 (la oferta no cambia hace 24 h).\n\n3. LOS CEROS QUE IMPORTAN (la meta es 0)\n   · Pagos frenados sin aviso al celular: sin medir. No se puede medir: todavía no hay vigía de pagos ni canal de avisos.\n   · Trabajos sin señal de vida: 0 (cumple). 0 de 1 trabajos no dieron señal a tiempo.\n   · Alertas graves que no llegaron al celular: 0 (cumple). No hay alertas graves abiertas.\n   · Gasto por encima del tope diario: sin medir. No se puede medir: no hay datos de gasto.\n   · Firmas y pendientes tuyos vencidos: 1 (no cumple). 1 cosa espera por ti.\n\n4. LO QUE TE TOCA A TI\n   1. Firmar Validación de mercado de OF-202611-91 — Revísala y fírmala si estás de acuerdo. (Abrir la oferta)\n\n5. LO QUE TODAVÍA NO SE PUDO MEDIR\n   · Ventas y gasto del 06/11/2026\n   · Pagos frenados sin aviso al celular\n   · Gasto por encima del tope diario\n   · Cansancio de anuncios (aviso)\n   · Mercado nuevo (aviso)\n\nEste informe lo arma un programa con una plantilla fija y solo lee archivos de tu proyecto. No contiene texto escrito por una IA ni por terceros."
+   },
+   "celular": {
+    "texto": "INFORME 07/11 08:30\nAMARILLO: te puedes ausentar, con cuidado\nFaltan 1 (1 son tuyas)\nVentas y gasto: sin datos todavía\nPagos: sin novedades\nLo importante: sin alertas rojas\nCansancio de anuncios: sin medir\nMercado nuevo: sin medir\nLo que no aprobaste: 1 cosa sin resolver\nCeros: 2 de 5 cumplen · 1 no cumple · 2 sin medir\nTe toca: 0 del semáforo · 1 firma · 0 pendientes. Abre el panel."
+   }
+  }
+ },
+ "fuente": [
+  "empresa/PAUSA",
+  "empresa/captura/freno.json",
+  "empresa/infra/estado.json",
+  "empresa/limites.yaml",
+  "empresa/parametros.yaml",
+  "empresa/avisos.yaml",
+  "empresa/infra/latidos.json",
+  "empresa/robots.yaml",
+  "ofertas/*/estado.json",
+  "empresa/panel/pulido.jsonl",
+  "empresa/datos/alertas.jsonl",
+  "ofertas/*/08-operacion/diario/*/kpi_oferta_dia.json"
+ ],
+ "generado_en": "2026-11-07T08:30:00Z",
+ "vacio": false,
+ "avisos": []
+}

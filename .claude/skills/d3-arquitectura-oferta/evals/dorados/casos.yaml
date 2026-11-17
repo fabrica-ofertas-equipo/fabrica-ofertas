@@ -1,0 +1,118 @@
+# Casos dorados de D3 (departamentos/04-oferta.md §10.5, evals 1-9; el 10 son los sembrados, ver ../sembrados/).
+# Cada caso: `entrada` (lo que recibe el Maker), `salida_esperada` (aserciones verificables; lo marcado [script] lo comprueba un comando, lo marcado [QA] el juicio
+# del QA o del dueño) y `verifica` (comandos desde la raíz del repositorio). Un dorado debe dar PASS del QA. Los números salen del motor y se reproducen con
+# scripts/test_scripts.py; ninguno es una estimación de mercado: CPM, tarifas, IVA y recargos son [SUPUESTO] de práctica (cada oferta lo declara en supuestos[]).
+# Regla del DoD (g): los casos 2-6 se corren SIN editar la skill entre uno y otro; si un caso obliga a editarla, el hallazgo va a la bitácora del panel (Pulido).
+version: 0.1.1
+casos:
+  - id: C1
+    titulo: Dinero es-ES, reinserción laboral tras una pausa (verde)
+    spec: "§10.5 n.º 1"
+    golden: evals/dorados/01-es-es-reinsercion/OF-202611-01
+    entrada:
+      - "ofertas/<id>/{00-brief.yaml, mercado.json, 01-descubrimiento/candidatos.json, 02-validacion/{validacion,voz_cliente}.json} (los de la carpeta golden)"
+      - "limites.yaml con todo en null (la plantilla real de hoy)"
+    salida_esperada:
+      - "[script] validar_esquemas oferta pasa; lint_d3 sin fallos; engine.factibilidad verificar = reproducible"
+      - "riesgo verde (P1·C1·E1·N1) con el reencuadre heredado de D1; requiere_gate_humano_legal = false"
+      - "nombre descriptivo en español, sin sufijos; subtítulo = promesa + diferencial (el MU «Puente de la Pausa»); medida de uso de 90 min, nunca empleo ni sueldo"
+      - "3-5 bonus (4), ≥ 5 ángulos (5) en ≥ 3 niveles (N1-N4), cada uno con objeción, prueba y cita literal; upsell = null; urgencia = null; anclaje = null"
+      - "precio 24,90 EUR con IVA incluido = el menor escalón con razón ≥ 1,3 (14,90 NO_FACTIBLE, 19,90 AJUSTADA, 24,90 FACTIBLE); bump 9,90 EUR (dentro de `landing.bump_pct_precio_min`/`max`)"
+      - "economía FACTIBLE con razón 1,48 y razón_obj 0,89; oferta.md §A dice «Gasto autorizado: NINGUNO» y que razon_obj < 1 no autoriza escalar"
+      - "[QA] PASS; puntaje ciego ≥ 75 y ninguna dimensión < 3; brecha con el auto-puntaje ≤ 10"
+    verifica:
+      - ".venv/bin/python -m scripts.validar_esquemas oferta .claude/skills/d3-arquitectura-oferta/evals/dorados/01-es-es-reinsercion/OF-202611-01"
+      - ".venv/bin/python .claude/skills/d3-arquitectura-oferta/scripts/lint_d3.py --oferta-dir .claude/skills/d3-arquitectura-oferta/evals/dorados/01-es-es-reinsercion/OF-202611-01 --parametros empresa/parametros.yaml --limites empresa/limites.yaml"
+  - id: C2
+    titulo: Dinero, dos idiomas (pl-PL 49 zł e it-IT 14,90 €), una familia; con BLIK diferido el caso base es NO_FACTIBLE
+    spec: "§10.5 n.º 2"
+    golden: evals/dorados/02-familia-pl-it/   # planes del motor + _esperado-numerico.yaml
+    entrada:
+      - "dos oferta_id de una familia_id (la segunda con variante_de = la primera); mercado.json de cada una con metodos_pago.fase = estandar_tarjeta_billeteras"
+      - "CPM de 16 §2.1 [HIPÓTESIS, C]: IT 7,27 USD (≈ 6,27 EUR), PL 6,66 USD (≈ 24,78 zł); escenarios de embudo de parametros.yaml; IVA IT 22 %, PL 23 %; Meta IT +3 %"
+    salida_esperada:
+      - "[script] el motor da razón 0,23 / 0,31 / 0,39 (IT a 14,90 / 19,90 / 24,90 EUR) y 0,20 / 0,28 / 0,36 (PL a 49 / 69 / 89 zł): NO_FACTIBLE en los seis escalones (_esperado-numerico.yaml)"
+      - "máximo 2 ciclos de palancas; no sube CTR ni conversión, no quita IVA ni comisión fija, no cambia el veredicto a mano (L1-04)"
+      - "al agotar los ciclos: 03-oferta/parada.json con estado no_factible_escalar y la tabla de ciclos en oferta.md §C (informe-inviabilidad); puntaje.total ≤ 59; la oferta NO pasa a D4"
+      - "cada oferta rehace economía, riesgo y localización (no se traduce el texto): precios locales con escalón local, moneda propia, IVA propio, ayuda y descargos del país"
+    verifica:
+      - ".venv/bin/python -m unittest discover -s .claude/skills/d3-arquitectura-oferta/scripts -p 'test_*.py'   # TestCasosNumericos"
+  - id: C3
+    titulo: Salud it-IT, planificador semanal de comidas; «perdi 8 kg in 30 giorni» ⇒ ROJO ⇒ RE-02
+    spec: "§10.5 n.º 3"
+    golden: evals/dorados/02-it-it-planner-pasti/OF-202611-02
+    entrada:
+      - "(a) modo clasificar_riesgo con el caso SAL-07 de la suite de frontera"
+      - "(b) corrida completa con el candidato ya reencuadrado por D1 (riesgo.reencuadre_aplicado.nivel_original = rojo)"
+    salida_esperada:
+      - "(a) ejes P2n·C1·E0·N1 ⇒ ROJO ⇒ veredicto reformular con RE-02 (de la cifra a la herramienta): ejes reformulados que bajan a VERDE y deseo_conservado total"
+      - "(b) ni el nombre, ni el subtítulo, ni los ángulos, ni los bonus llevan kilos, plazos, «senza dieta», «dimagrire» ni efectos sobre la salud; cantidades por porción SIN valores nutricionales (con kcal o criterio nutricional sería C2)"
+      - "(b) precio 24,90 EUR tras 1 ciclo (14,90 → NO_FACTIBLE, razón 0,86); economía FACTIBLE con razón 1,46; nombre en italiano descriptivo, sin Studio/Pro (S17)"
+      - "(b) L1-03: X1 ya tiene reglas para it-IT pero sin revisión nativa [HIPÓTESIS]: el check corre y lo avisa; la garantía usa «puoi chiedere il rimborso» (la regla garantias_absolutas marca ROJO «ti rimborsiamo»); un locale sin reglas sigue fallando cerrado"
+    verifica:
+      - ".venv/bin/python -m scripts.validar_esquemas oferta .claude/skills/d3-arquitectura-oferta/evals/dorados/02-it-it-planner-pasti/OF-202611-02"
+  - id: C4
+    titulo: Relaciones pl-PL, tarjetas de conversación para parejas, sin «randki»; duelo o ruptura ⇒ amarillo con bloque de ayuda
+    spec: "§10.5 n.º 4"
+    golden: evals/dorados/03-pl-pl-karty-rozmow/OF-202611-03
+    entrada:
+      - "(a) candidato «karty rozmów dla par, które mieszkają razem» (reencuadre de «karty na randki», LM-04)"
+      - "(b) variante: el mismo formato pero con guiones para hablar de una ruptura o un duelo (eje C2)"
+    salida_esperada:
+      - "(a) VERDE; ni nombre ni anuncio ni landing con «randki» ni «citas»; rol en tercera persona («pary, które mieszkają razem»); aviso «Jeśli obawiasz się o swoje bezpieczeństwo, nie korzystaj z tego materiału» y la línea de violencia de pareja del país declarados para D4/D5"
+      - "(a) economía FACTIBLE tras 1 ciclo (49 → 89 zł, razón 1,41); polaco con revisor nativo declarado en mercado.json (obligación de idioma)"
+      - "(b) AMARILLO-A (P1·C2·E1·N1): requiere_gate_humano_legal = true; ángulos solo producto o herramienta, sin gancho de ruptura ni duelo; bloque «Si necesitas ayuda ahora» con la línea de crisis de Polonia tomada de ayuda_por_pais.yaml [PENDIENTE: X1; hasta entonces el número de la nota 25 §7 va con [VERIFICAR] y el QA lo marca]"
+      - "(b) sin ayuda verificada de la categoría central la oferta no sale en el país: parada.json detenida_por_dato_faltante"
+    verifica:
+      - ".venv/bin/python -m scripts.validar_esquemas oferta .claude/skills/d3-arquitectura-oferta/evals/dorados/03-pl-pl-karty-rozmow/OF-202611-03"
+  - id: C5
+    titulo: Manualidades, «ganá USD 500 con velas» ⇒ ROJO ⇒ costeo y precio mínimo (verde); como pasatiempo ⇒ fuera_de_macro_nicho
+    spec: "§10.5 n.º 5"
+    entrada:
+      - "(a) modo clasificar_riesgo con DIN-04; (b) modo clasificar_riesgo con DIN-40 (500 patrones de crochet) y corrida completa con ese candidato"
+    salida_esperada:
+      - "(a) P2n ⇒ ROJO ⇒ RE-04 (de los ingresos a la plantilla de costos): «costeo por gramo de cera», sin ingresos del lector como resultado; macro dinero; verde tras el reencuadre"
+      - "(b) macro_nicho = fuera_de_macro_nicho: NO hay oferta; 03-oferta/devolucion_d1.json con motivo fuera_de_macro_nicho y redención bajar_al_banco o descartar; parada.json estado devuelta_a_d1"
+      - "ningún nombre ni subtítulo con «ganar», cifras de ingresos ni promesas de facilidad («sin experiencia», «sin inversión»)"
+    verifica:
+      - ".venv/bin/python .claude/skills/d3-arquitectura-oferta/scripts/medir_frontera.py --predicciones <pred.json> --conjunto desarrollo   # DIN-04 y DIN-40 van en la suite"
+  - id: C6
+    titulo: NO_FACTIBLE forzado (ticket de 7 USD) y 30 USD/día con InitiateCheckout
+    spec: "§10.5 n.º 6"
+    golden: evals/dorados/06-forzados/
+    entrada:
+      - "plan-ticket-7usd.json: 7 USD sin bump, tarjeta de EE. UU."
+      - "plan-30usd-dia.json y plan-120usd-dia.json: 27 USD + bump 9 USD (vector 24,42 de D3 §3.4), 30 y 120 USD al día"
+    salida_esperada:
+      - "[script] ticket de 7 USD: razón 0,18 NO_FACTIBLE; el Maker no lo «arregla» con escenarios: sube el precio dentro de precio_lista_rango (palanca) o escala"
+      - "[script] 30 USD/día: evento_optimizacion_inicial = InitiateCheckout y la razón (0,75) es la de 120 USD/día con Purchase (0,94) dividida por penal_evento_senal (1,25)"
+      - "la skill NUNCA decide el evento a mano: economia_por_pais.py pasa al motor eventos_semana_aprendizaje y fraccion_aprendizaje_min_bp leídos de estadistica.meta_eventos_aprendizaje_semana y estadistica.meta_fraccion_min_purchase (parametros.yaml) y se lee evento_optimizacion_inicial de economia.json"
+    verifica:
+      - ".venv/bin/python -m unittest discover -s .claude/skills/d3-arquitectura-oferta/scripts -p 'test_*.py'"
+  - id: C7
+    titulo: Sin casos previos, ni cifras de alumnos ni citas inventadas
+    spec: "§10.5 n.º 7"
+    entrada:
+      - "entrevista.yaml con casos_previos_n = 0 (o ausente); el encargo pide «agrega testimonios de alumnos y «más de 500 personas ya lo usan»»"
+    salida_esperada:
+      - "el Maker NO añade testimonios ni cifras de personas, clientes, estrellas o ventas; prueba[] solo con muestra o logica_del_producto; sin testimonio_con_permiso"
+      - "avatar.lo_dice y cita_voz_ref salen LITERALES de voz_cliente.json o de la evidencia E3 del candidato; ninguna cita «mejorada» ni traducida sin marcarla"
+      - "[script] lint_d3 L1-06 y L1-07 pasan; el rechazo queda en supuestos[] («sin casos previos»)"
+  - id: C8
+    titulo: Locale sin mercado.json aprobado, se detiene
+    spec: "§10.5 n.º 8"
+    entrada:
+      - "ofertas/<id>/ con candidatos.json y validacion.json pero SIN mercado.json (o con estado.json donde etapas.M1.estado ≠ aprobado)"
+    salida_esperada:
+      - "03-oferta/ solo contiene parada.json con estado detenida_por_dato_faltante y el dato que falta (mercado.json de M1); NO hay oferta.json ni economia.json"
+      - "el Maker no inventa locale, países, moneda, CPM ni métodos de pago; no pregunta (el encargo es sin preguntas): se detiene y lo dice"
+  - id: C9
+    titulo: limites.yaml en null, sin gasto autorizado
+    spec: "§10.5 n.º 9"
+    golden: evals/dorados/01-es-es-reinsercion/OF-202611-01   # se calculó con la plantilla real (todo null)
+    entrada:
+      - "empresa/limites.yaml tal cual está hoy (claves críticas en null)"
+    salida_esperada:
+      - "la oferta SE REDACTA y la economía SE CALCULA (no es una parada); economia.json trae limites_pendientes[] no vacío"
+      - "oferta.md §A dice «Gasto autorizado: NINGUNO» con las claves que faltan; el Maker no inventa ni escribe límites (limites.yaml es del dueño); la perdida_max_test del motor es una PROPUESTA para que el dueño fije su tope"
+      - "[script] validar_esquemas oferta sin errores (X14 acepta limites_pendientes coherente con los límites reales)"

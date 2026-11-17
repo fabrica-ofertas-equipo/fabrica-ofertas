@@ -1,0 +1,15 @@
+# tipo: reembolso
+# locale: en
+# estado: v0.1 sin pulir; lo envía el código tras ejecutar el reembolso (postcompra.reembolsar / reembolso_manual); sello de X1 pendiente
+Asunto: Refund confirmation – order {{pedido_ref}}
+
+Hello,
+
+we have ordered a refund of {{monto_texto}} for order {{pedido_ref}} at {{marca}}.
+
+The money goes back to the same payment method you used for the purchase. {{tiempo_reembolso}}
+
+You do not need to do anything else. If you do not see it after that time, write to {{soporte_email}} with your order number.
+
+Seller: {{vendedor}}
+Purchase and refund policy: {{politica_url}}

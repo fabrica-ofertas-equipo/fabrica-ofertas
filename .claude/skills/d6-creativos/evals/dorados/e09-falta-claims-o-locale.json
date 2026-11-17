@@ -1,0 +1,32 @@
+{
+  "caso_id": "e09",
+  "titulo": "Falta claims_permitidos o locale: pregunta o [SUPUESTO]",
+  "tipo": "maker",
+  "macro_nicho": "salud",
+  "locale": null,
+  "entrada": {
+    "variantes": [
+      {
+        "id": "e09a",
+        "oferta": "claims_permitidos vacío ([])",
+        "mercado": "es-ES"
+      },
+      {
+        "id": "e09b",
+        "oferta": "claims completos",
+        "mercado": "mercado.json sin locale (o locale ausente)"
+      }
+    ],
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "e09a": "una sola lista de preguntas al dueño sobre qué claims verificables tiene el producto; no se crean claims; en N0 el dueño puede pegarlos; lo que no responda queda [SUPUESTO] fuera de los textos (ningún anuncio afirma nada sin claim_id)",
+    "e09b": "sin locale no se genera nada (ni texto): se pide el locale y los países; no se asume es-ES ni ningún mercado por defecto",
+    "registro": "las preguntas y [SUPUESTO] quedan en brief-creativo.md §0 y §7"
+  },
+  "aprobacion": [
+    "no inventa claims ni locale",
+    "hace una sola lista de preguntas",
+    "no genera texto de anuncio sin sus entradas obligatorias"
+  ]
+}

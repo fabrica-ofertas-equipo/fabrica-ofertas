@@ -1,0 +1,22 @@
+# PLANTILLA de empresa/compliance/reglas_claims.yaml (spec 14 §3.3): formato de regla propuesta por X1.
+# OJO (dependencias.md D-02b): el linter REAL lee compliance/reglas_sensibles.yaml (autosellado con hash_contenido). El Maker escribe esto
+# en empresa/compliance/ como PROPUESTA; integrarlo al linter y resellar lo hace S-B/dueño. El Maker no relaja reglas ni edita compliance/.
+reglas_version: 0.1.0-borrador
+fecha: "2026-11-06"
+reglas:
+  - id: r-peso-plazo
+    linea_roja: lp-02
+    eje: P
+    severidad: ROJO
+    patron:                       # por locale; regex Python; probar contra evals/adversarial/corpus.json (rojos) y evals/dorados/legitimos-deben-pasar.json (verdes)
+      es-AR: ['\b(perd[eé]|baj[aá])\s+\d+\s*(kg|kilos?)\b']
+      es-MX: ['\bb[aá]jale\s+\d+\s*(kg|kilos?)\b']     # jerga; faltan «quémate la panza en N días» y similares: ampliar con revisor nativo
+      es-ES: ['\b(pierde|adelgaza)\s+\d+\s*(kg|kilos?|tallas?)\b']
+      it-IT: ['\b(perdi|dimagrisci)\s+\d+\s*(kg|chili)\b']
+      pl-PL: ['\b(schudnij|zrzuć)\s+\d+\s*(kg|kilogramów)\b']
+    alternativa_segura: "RE-02: planificador semanal de comidas con porciones y lista de compras (P0/C1/E1/N1)"
+    fuente: ["https://www.facebook.com/business/help/2489235377779939", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02006R1924-20121129"]
+    fecha_lectura: null            # AAAA-MM-DD de la lectura real; sin fecha = [VERIFICAR]
+    prueba: {rojos_vistos: null, falsos_positivos_en_dorados: null}   # llenar con la corrida real
+    estado: borrador
+  # Cada rechazo real de Meta o Stripe agrega una regla candidata y un caso a la suite (por claim).

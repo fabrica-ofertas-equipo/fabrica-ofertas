@@ -1,0 +1,22 @@
+{
+  "cpa_be": {
+    "monto": 1830,
+    "moneda": "EUR"
+  },
+  "cpa_be_visto": {
+    "monto": 1830,
+    "moneda": "EUR"
+  },
+  "cpa_obj": {
+    "monto": 1098,
+    "moneda": "EUR"
+  },
+  "aov": {
+    "monto": 2069,
+    "moneda": "EUR"
+  },
+  "mc": {
+    "monto": 1830,
+    "moneda": "EUR"
+  }
+}

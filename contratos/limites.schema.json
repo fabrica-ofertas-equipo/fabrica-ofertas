@@ -1,0 +1,846 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/limites.schema.json",
+  "title": "Límites (techos duros)",
+  "description": "Techos duros del dueño. Una clave necesaria en null (o lista vacía donde se exige) bloquea gasto y activación. SOLO el dueño escribe este archivo. (1.1.0: factor const 1.75, importes críticos >= 1, gates H mínimos, sello.firma opcional) (1.3.0, CT-3 lote A: claves de la decisión 13 y del botón, nota 25 §10.1: hojas_pausadas, nivel_max_lanzable, cuota_gasto_amarillo_max_pct, cuota_gasto_amarillo_b_max_pct, envios_amarillo_a_semana, envios_amarillo_b_mes, dias_limpios_para_subir_cuota, edad_minima_audiencia, reserva_dias_stripe, zonas_grises; OBLIGATORIAS (pueden ser null) solo con schema_version >= 1.3.0. null en nivel_max_lanzable o en las cuotas de amarillo = SOLO VERDE (fail-closed; no es 'falta un dato': evaluar_limites no cambia).)",
+  "x-version": "1.3.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Versión del archivo de límites (entero creciente)"
+    },
+    "moneda_limites": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/moneda"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Moneda de TODOS los importes de este archivo (enteros en su unidad menor). Debe ser la moneda de la única cuenta publicitaria de Meta; otra moneda exige tipo de cambio registrado."
+    },
+    "capital_en_riesgo_total": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Capital total que el dueño acepta arriesgar (anuncios + reservas). Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "reserva_no_publicitaria_pct": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/porcentaje"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Parte del capital que NO es presupuesto de anuncios (Stripe, herramientas, créditos de IA, reembolsos)."
+    },
+    "gasto_diario_global": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Techo del MÁXIMO TEÓRICO diario de gasto de toda la empresa (factor_techo_teorico_diario x presupuestos diarios). Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "gasto_diario_por_oferta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Techo del máximo teórico diario de una oferta. Alias antiguos: gasto_diario_oferta, gasto_diario_por_oferta_usd. Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "gasto_total_test_por_oferta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Gasto total máximo del test de una oferta. Alias antiguos: gasto_test_oferta, gasto_total_test_por_oferta_usd. Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "perdida_max_test_por_oferta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Pérdida máxima aceptada por oferta en test. DIFERIDO por el dueño (2026-11-06): se fijará a partir de los presupuestos de testeo; mientras sea null nada gasta. Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "perdida_neta_acumulada_max": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Pérdida neta acumulada máxima de toda la cartera."
+    },
+    "stop_loss_escala": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Pérdida de contribución acumulada máxima de UNA oferta en fase de escala (D9; antes confundido con perdida_neta_acumulada_max)."
+    },
+    "ofertas_en_test_simultaneas_max": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Ofertas en test a la vez. Alias antiguos: ofertas_test_simultaneas, ofertas_en_test_simultaneas_max."
+    },
+    "limite_gasto_cuenta_meta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Segundo candado: límite de gasto fijado en la cuenta de Meta (vitalicio; pausa todo al alcanzarse). Nunca por encima del capital. Cero no es un valor válido: 'no gastar' se expresa con null o con PAUSA."
+    },
+    "factor_techo_teorico_diario": {
+      "anyOf": [
+        {
+          "const": "1.75"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Meta puede gastar hasta 1,75x el presupuesto diario (investigación 04, HC-26). Hecho de plataforma: no es una decisión del dueño. Constante del esquema (1.75): si Meta cambia se cambia el esquema con MINOR, no el archivo del dueño. [VERIFICAR el texto oficial HC-26]"
+    },
+    "aumento_presupuesto_max_pct_por_paso": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/porcentaje"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Aumento máximo de presupuesto por paso (referencia del backbone 5.6: 20 %). Nulo hasta que el dueño lo fije. Unidades de porcentaje (20 = 20 %), NO fracción; decision.entradas es el único sitio que convierte (M01)."
+    },
+    "horas_min_entre_aumentos": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Horas mínimas entre aumentos (referencia del backbone 5.6: 72 h; resuelve el 48 h de D0/D8 y el 72 h de O0/D9). Nulo hasta que el dueño lo fije."
+    },
+    "max_cambios_presupuesto_por_hora_por_conjunto": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Límite de la API de Meta (investigación 04). Hecho de plataforma."
+    },
+    "segundos_min_entre_ediciones": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Separación mínima entre ediciones del mismo objeto (investigación 04). Hecho de plataforma."
+    },
+    "cuentas_permitidas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Cuentas publicitarias permitidas (lista cerrada; una sola en esta fase)."
+    },
+    "paises_permitidos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Países ISO 3166 permitidos para geotargeting. Alias antiguo: mercados_permitidos. Ningún país es prior: se decide con datos propios."
+    },
+    "locales_permitidos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Locales BCP-47 en los que se puede lanzar (el idioma es la unidad de lanzamiento)."
+    },
+    "macro_nichos_permitidos": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/macro_nicho"
+      },
+      "const": [
+        "salud",
+        "relaciones",
+        "dinero"
+      ],
+      "description": "FIJO por la decisión 13: salud, relaciones, dinero. El esquema no admite otro valor."
+    },
+    "subnichos_prohibidos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Sub-nichos que el dueño excluye por completo (vacío por defecto: ningún tema queda excluido por sí mismo). Alias antiguo: nichos_prohibidos."
+    },
+    "lineas_rojas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "tipo": {
+            "enum": [
+              "promesa",
+              "contenido",
+              "modelo_negocio"
+            ]
+          },
+          "descripcion": {
+            "type": "string",
+            "minLength": 5
+          }
+        },
+        "required": [
+          "id",
+          "tipo",
+          "descripcion"
+        ],
+        "additionalProperties": false
+      },
+      "uniqueItems": true,
+      "description": "Líneas rojas del dueño: PROMESAS, CONTENIDOS y MODELOS DE NEGOCIO prohibidos (no temas). Vacío hasta que el dueño confirme o recorte la propuesta de docs/00-decisiones-y-tareas-del-dueno.md."
+    },
+    "precio_neto_minimo": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Precio neto mínimo por pedido para lanzar una oferta."
+    },
+    "autoaprobar_hasta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Importe hasta el cual una acción de dinero puede aprobarse sin humano (N3+)."
+    },
+    "reembolso_auto_max": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Reembolso automático máximo por pedido (D10). Alias antiguo: reembolso_auto_max_usd."
+    },
+    "reembolsos_auto_max_por_dia": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Reembolsos automáticos máximos por día."
+    },
+    "ratio_disputas_pausa": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/fraccion"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Pausa dura: fracción (0.005 = 0,5 %) de disputas+EFW sobre pagos de 30 días a partir de la cual se pausa todo. Es el único umbral de pausa vigente (reconciliación R06). [DUEÑO] D-01: la nota 25 §9/§10.1 propone \"0.005\" (la plantilla anterior decía 0.006); el valor lo fija el dueño. (Es FRACCIÓN, a diferencia de los *_pct.)"
+    },
+    "cupon_descuento_max_pct": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/porcentaje"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Descuento máximo de un cupón."
+    },
+    "politica_reembolso_dias": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Días de garantía/reembolso de la política (>= parametros.landing.garantia_dias_min)."
+    },
+    "creditos_max_pieza": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Créditos de generación máximos por pieza creativa (unidad: créditos, no dinero)."
+    },
+    "creditos_max_oferta": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Créditos de generación máximos por oferta."
+    },
+    "max_budget_por_corrida_agente": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Costo máximo de IA por corrida de un agente."
+    },
+    "costo_max_validacion": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Costo máximo de herramientas pagas en la validación de D2 (los tokens van a costos.jsonl)."
+    },
+    "costo_max_producto": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Costo máximo de producción de un producto (créditos de imagen/video + tokens)."
+    },
+    "max_costo_por_barrido": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Costo máximo por barrido del radar de D1."
+    },
+    "politica_divulgacion_ia": {
+      "anyOf": [
+        {
+          "enum": [
+            "declarar_siempre",
+            "declarar_si_corresponde",
+            "no_declarar_donde_legal"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Política de divulgación de IA en creativos (decisión del dueño)."
+    },
+    "dias_cobertura_caja": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Días de cobertura de caja exigidos antes de subir presupuesto (payout_lag_dias + 7)."
+    },
+    "correos_max_por_dia": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Correos máximos por día."
+    },
+    "correos_max_por_semana": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Correos máximos por semana."
+    },
+    "max_consultas_biblioteca": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Consultas máximas a la Biblioteca de Anuncios por oferta/corrida."
+    },
+    "ventana_veto_min": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Ventana de veto (minutos) del dueño en N4."
+    },
+    "fuentes_permitidas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Fuentes de D1 permitidas (fuente_id). Vacío = D1 no recolecta."
+    },
+    "fuentes_prohibidas": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "description": "Fuentes de D1 prohibidas (fuente_id)."
+    },
+    "max_busquedas_por_barrido": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Búsquedas web máximas por barrido de D1."
+    },
+    "max_barridos_por_semana": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Barridos máximos por semana de D1."
+    },
+    "acciones_gate_humano": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "activar_campana",
+          "reactivar_tras_pausa",
+          "subir_presupuesto",
+          "subir_presupuesto_sobre_tope",
+          "cambiar_limites",
+          "cambiar_entidad_stripe",
+          "lanzamiento_pais_idioma_nuevo",
+          "pais_nuevo",
+          "elegir_candidato",
+          "aprobar_oferta",
+          "publicar_landing",
+          "retirar_oferta",
+          "cambiar_skill"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Acciones que SIEMPRE exigen gate H, en cualquier nivel. Se pueden AGREGAR; las seis mínimas (activar_campana, reactivar_tras_pausa, subir_presupuesto_sobre_tope, cambiar_limites, cambiar_entidad_stripe, lanzamiento_pais_idioma_nuevo) NO se pueden quitar, ni con firma del dueño: lo impiden este esquema (contains), scripts.validar_esquemas.ACCIONES_GATE_MINIMAS y engine.guard. Gate efectivo = el más estricto entre contratos/gates.json, autonomia.yaml, esta lista y las seis mínimas: que gates.json ponga S en N3/N4 para activar_campana describe el máximo que permitiría la tabla, no lo que el guard aplica (validar_esquemas avisa GATE_ACTIVAR_H). Que el botón active sin clic en N3/N4 exige cambiar validador, esquema y guard: decisión del dueño D-02.",
+      "allOf": [
+        {
+          "contains": {
+            "const": "activar_campana"
+          }
+        },
+        {
+          "contains": {
+            "const": "reactivar_tras_pausa"
+          }
+        },
+        {
+          "contains": {
+            "const": "subir_presupuesto_sobre_tope"
+          }
+        },
+        {
+          "contains": {
+            "const": "cambiar_limites"
+          }
+        },
+        {
+          "contains": {
+            "const": "cambiar_entidad_stripe"
+          }
+        },
+        {
+          "contains": {
+            "const": "lanzamiento_pais_idioma_nuevo"
+          }
+        }
+      ]
+    },
+    "hojas_pausadas": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/kebab"
+      },
+      "uniqueItems": true,
+      "description": "Ids (kebab) de hojas del árbol de nichos que el dueño pausa por un motivo operativo (se registra en decisiones_dueno.jsonl; nunca por tema). Vacío = ninguna. Lo leen D1 y D7 (skills)."
+    },
+    "nivel_max_lanzable": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "salud": {
+          "$ref": "comunes.schema.json#/$defs/nivel_lanzable"
+        },
+        "relaciones": {
+          "$ref": "comunes.schema.json#/$defs/nivel_lanzable"
+        },
+        "dinero": {
+          "$ref": "comunes.schema.json#/$defs/nivel_lanzable"
+        }
+      },
+      "required": [
+        "salud",
+        "relaciones",
+        "dinero"
+      ],
+      "additionalProperties": false,
+      "description": "Nivel de riesgo máximo que puede lanzarse por macro-nicho (verde | amarillo-a | amarillo-b, en minúsculas). null = SOLO VERDE (fail-closed; semántica ya implementada por las skills D1, M1 y D7: no es un dato faltante y evaluar_limites no lo exige). [DUEÑO] decide; propuesta [HIPÓTESIS] de la nota 25 §10.1: amarillo-a en los tres (amarillo-b solo con decisión H y ayuda verificada)."
+    },
+    "cuota_gasto_amarillo_max_pct": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Parte máxima del gasto diario que puede ir a ofertas amarillo (unidades de porcentaje, entero 0-100). null = solo verde. [DUEÑO]; propuesta [HIPÓTESIS] nota 25 §10.1: 30."
+    },
+    "cuota_gasto_amarillo_b_max_pct": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Parte máxima del gasto diario que puede ir a ofertas amarillo-b (entero 0-100; no puede superar cuota_gasto_amarillo_max_pct: coherencia_limites). null = sin amarillo-b. [DUEÑO]; propuesta [HIPÓTESIS] nota 25 §10.1: 10."
+    },
+    "envios_amarillo_a_semana": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "description": "Ofertas amarillo-a que pueden enviarse a test por semana (entero >= 1). null = ninguna (solo verde). [DUEÑO]; propuesta [HIPÓTESIS] nota 25 §10.1 (F16): 3."
+    },
+    "envios_amarillo_b_mes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "description": "Ofertas amarillo-b que pueden enviarse a test por mes (entero >= 1). null = ninguna. [DUEÑO]; propuesta [HIPÓTESIS] nota 25 §10.1 (F16): 1."
+    },
+    "dias_limpios_para_subir_cuota": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "description": "Días sin rechazos ni incidentes exigidos antes de subir la cuota de amarillo (entero >= 1). null = no se sube. [DUEÑO]; propuesta [HIPÓTESIS] nota 25 §10.1 (F16): 60."
+    },
+    "edad_minima_audiencia": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "defecto": {
+          "type": "integer",
+          "minimum": 13,
+          "maximum": 65,
+          "description": "Edad mínima por defecto de la audiencia (años). El mínimo que admite Meta para anuncios es [VERIFICAR] contra su referencia de la API; el esquema pone 13 como piso."
+        }
+      },
+      "required": [
+        "defecto"
+      ],
+      "additionalProperties": false,
+      "description": "Edad mínima de la audiencia de las campañas. null = D7 usa 18. Segmentar por encima de `defecto` es una prueba A/B con gate H, no una regla (nota 25 §10.1). [DUEÑO]; propuesta [HIPÓTESIS]: {defecto: 18}."
+    },
+    "reserva_dias_stripe": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "description": "Días de reserva que Stripe puede retener de los cobros (hecho de plataforma, nota 22d; entero >= 1). null hasta que el dueño lo fije. [HIPÓTESIS] nota 25 §10.1: 120 [VERIFICAR contra Stripe]."
+    },
+    "zonas_grises": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]{0,39}$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]{0,39}$"
+      },
+      "description": "Zonas grises del marco de riesgo: id en minúsculas (con guion bajo, p. ej. z1_planner_peso) -> decisión del dueño (cadena; la propuesta de la nota 25 §10.1 usa solo 'cerrado'). {} = ninguna decidida."
+    },
+    "sello": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "hash": {
+              "$ref": "comunes.schema.json#/$defs/sha256"
+            },
+            "firmado_por": {
+              "type": "string"
+            },
+            "firmado_en": {
+              "$ref": "comunes.schema.json#/$defs/timestamp"
+            },
+            "firma": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/ed25519"
+                },
+                {
+                  "$ref": "comunes.schema.json#/$defs/hmac"
+                }
+              ],
+              "description": "Firma de sello.hash. Producción: ed25519 con la clave privada solo en el equipo del dueño (el motor y los hooks tienen la PÚBLICA). hmac-sha256 solo para pruebas (B01). Opcional en el esquema; evaluar_limites la exige con FABRICA_ENTORNO=produccion."
+            },
+            "clave_id": {
+              "type": "string",
+              "description": "Identificador de la clave pública que verifica la firma (rotación)"
+            }
+          },
+          "required": [
+            "hash",
+            "firmado_por",
+            "firmado_en"
+          ],
+          "additionalProperties": false,
+          "description": "Sello del dueño: hash del JSON canónico del contenido SIN este campo. Sin sello válido, ningún script gasta ni activa (fail-closed)."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Sello del dueño (hash del contenido sin este campo). Sin sello válido, ningún script gasta ni activa (fail-closed)."
+    }
+  },
+  "required": [
+    "schema_version",
+    "version",
+    "moneda_limites",
+    "capital_en_riesgo_total",
+    "reserva_no_publicitaria_pct",
+    "gasto_diario_global",
+    "gasto_diario_por_oferta",
+    "gasto_total_test_por_oferta",
+    "perdida_max_test_por_oferta",
+    "perdida_neta_acumulada_max",
+    "stop_loss_escala",
+    "ofertas_en_test_simultaneas_max",
+    "limite_gasto_cuenta_meta",
+    "factor_techo_teorico_diario",
+    "aumento_presupuesto_max_pct_por_paso",
+    "horas_min_entre_aumentos",
+    "max_cambios_presupuesto_por_hora_por_conjunto",
+    "segundos_min_entre_ediciones",
+    "cuentas_permitidas",
+    "paises_permitidos",
+    "locales_permitidos",
+    "macro_nichos_permitidos",
+    "subnichos_prohibidos",
+    "lineas_rojas",
+    "precio_neto_minimo",
+    "autoaprobar_hasta",
+    "reembolso_auto_max",
+    "reembolsos_auto_max_por_dia",
+    "ratio_disputas_pausa",
+    "cupon_descuento_max_pct",
+    "politica_reembolso_dias",
+    "creditos_max_pieza",
+    "creditos_max_oferta",
+    "max_budget_por_corrida_agente",
+    "costo_max_validacion",
+    "costo_max_producto",
+    "max_costo_por_barrido",
+    "politica_divulgacion_ia",
+    "dias_cobertura_caja",
+    "correos_max_por_dia",
+    "correos_max_por_semana",
+    "max_consultas_biblioteca",
+    "ventana_veto_min",
+    "fuentes_permitidas",
+    "fuentes_prohibidas",
+    "max_busquedas_por_barrido",
+    "max_barridos_por_semana",
+    "acciones_gate_humano",
+    "sello"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "pattern": "^1\\.([3-9]|[1-9][0-9]+)\\."
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "hojas_pausadas",
+          "nivel_max_lanzable",
+          "cuota_gasto_amarillo_max_pct",
+          "cuota_gasto_amarillo_b_max_pct",
+          "envios_amarillo_a_semana",
+          "envios_amarillo_b_mes",
+          "dias_limpios_para_subir_cuota",
+          "edad_minima_audiencia",
+          "reserva_dias_stripe",
+          "zonas_grises"
+        ]
+      }
+    }
+  ]
+}

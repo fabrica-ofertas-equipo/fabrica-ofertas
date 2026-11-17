@@ -1,0 +1,154 @@
+# PLANTILLA de límites (todo null) copiada de empresa/limites.yaml el 2026-11-06 para probar el fail-closed. NO es la del dueño.
+# empresa/limites.yaml - TECHOS DUROS. Solo el dueño escribe este archivo (deny + hash firmado).
+# Esquema: contratos/limites.schema.json. Importes = enteros en la unidad menor (centavos) de `moneda_limites`.
+# Regla de diseño (fail-closed): si una clave NECESARIA para una operación está en null (o la lista exigida está vacía) o falta el `sello`,
+# ningún script gasta ni activa (código de salida 5). Funcion de comprobación: scripts/validar_esquemas.py::evaluar_limites.
+# null = OBLIGATORIO DEL DUEÑO. Los valores no nulos son hechos de plataforma o el marco fijo (decisión 13).
+# La pérdida máxima por oferta se define a partir de los presupuestos de testeo (decisión del dueño, 2026-11-06).
+
+schema_version: "1.0.0"
+version: 1
+
+# Moneda de TODOS los importes de este archivo (enteros en su unidad menor). Debe ser la moneda de la única cuenta publicitaria de Meta; otra moneda exige tipo de cambio registrado. [O0 3.1; reconciliación R01]
+moneda_limites: null  # OBLIGATORIO DEL DUEÑO
+
+# Capital total que el dueño acepta arriesgar (anuncios + reservas). [D0 3.1-A]
+capital_en_riesgo_total: null  # OBLIGATORIO DEL DUEÑO
+
+# Parte del capital que NO es presupuesto de anuncios (Stripe, herramientas, créditos de IA, reembolsos). [D0 3.1-A]
+reserva_no_publicitaria_pct: null  # OBLIGATORIO DEL DUEÑO
+
+# Techo del MÁXIMO TEÓRICO diario de gasto de toda la empresa (factor_techo_teorico_diario x presupuestos diarios). [D0 3.1-B]
+gasto_diario_global: null  # OBLIGATORIO DEL DUEÑO
+
+# Techo del máximo teórico diario de una oferta. Alias antiguos: gasto_diario_oferta, gasto_diario_por_oferta_usd. [D0 3.1-B; R01]
+gasto_diario_por_oferta: null  # OBLIGATORIO DEL DUEÑO
+
+# Gasto total máximo del test de una oferta. Alias antiguos: gasto_test_oferta, gasto_total_test_por_oferta_usd. [D0 3.1-B; R01]
+gasto_total_test_por_oferta: null  # OBLIGATORIO DEL DUEÑO
+
+# Pérdida máxima aceptada por oferta en test. DIFERIDO por el dueño (2026-11-06): se fijará a partir de los presupuestos de testeo; mientras sea null nada gasta. [dueño 2026-11-06]
+perdida_max_test_por_oferta: null  # OBLIGATORIO DEL DUEÑO
+
+# Pérdida neta acumulada máxima de toda la cartera. [O0; backbone 5.6]
+perdida_neta_acumulada_max: null  # OBLIGATORIO DEL DUEÑO
+
+# Pérdida de contribución acumulada máxima de UNA oferta en fase de escala (D9; antes confundido con perdida_neta_acumulada_max). [D9 3.4; R01]
+stop_loss_escala: null  # OBLIGATORIO DEL DUEÑO
+
+# Ofertas en test a la vez. Alias antiguos: ofertas_test_simultaneas, ofertas_en_test_simultaneas_max. [D0 3.1-B; R01]
+ofertas_en_test_simultaneas_max: null  # OBLIGATORIO DEL DUEÑO
+
+# Segundo candado: límite de gasto fijado en la cuenta de Meta (vitalicio; pausa todo al alcanzarse). Nunca por encima del capital. [D0 3.4; backbone 5.6]
+limite_gasto_cuenta_meta: null  # OBLIGATORIO DEL DUEÑO
+
+# Meta puede gastar hasta 1,75x el presupuesto diario (investigación 04, HC-26 [VERIFICAR texto oficial]). Hecho de plataforma, constante del esquema (const "1.75"): no es una decisión del dueño. [inv. 04 HC-26]
+factor_techo_teorico_diario: "1.75"
+
+# Aumento máximo de presupuesto por paso (referencia del backbone 5.6: 20 %). UNIDADES DE PORCENTAJE (20 = 20 %), no fracción; solo decision/entradas.py convierte. Nulo hasta que el dueño lo fije. [backbone 5.6; R02]
+aumento_presupuesto_max_pct_por_paso: null  # OBLIGATORIO DEL DUEÑO
+
+# Horas mínimas entre aumentos (referencia del backbone 5.6: 72 h; resuelve el 48 h de D0/D8 y el 72 h de O0/D9). Nulo hasta que el dueño lo fije. [backbone 5.6; R02]
+horas_min_entre_aumentos: null  # OBLIGATORIO DEL DUEÑO
+
+# Límite de la API de Meta (investigación 04). Hecho de plataforma. [inv. 04]
+max_cambios_presupuesto_por_hora_por_conjunto: 4
+
+# Separación mínima entre ediciones del mismo objeto (investigación 04). Hecho de plataforma. [inv. 04]
+segundos_min_entre_ediciones: 30
+
+# Cuentas publicitarias permitidas (lista cerrada; una sola en esta fase). [D0 3.1-B]
+cuentas_permitidas: []
+
+# Países ISO 3166 permitidos para geotargeting. Alias antiguo: mercados_permitidos. Ningún país es prior: se decide con datos propios. [backbone 5.6; R01]
+paises_permitidos: []
+
+# Locales BCP-47 en los que se puede lanzar (el idioma es la unidad de lanzamiento). [backbone 3.1]
+locales_permitidos: []
+
+# FIJO por la decisión 13: salud, relaciones, dinero. El esquema no admite otro valor. [backbone 2 (13)]
+macro_nichos_permitidos: ["salud", "relaciones", "dinero"]
+
+# Sub-nichos que el dueño excluye por completo (vacío por defecto: ningún tema queda excluido por sí mismo). Alias antiguo: nichos_prohibidos. [backbone 5.6; R01]
+subnichos_prohibidos: []
+
+# Líneas rojas del dueño: PROMESAS, CONTENIDOS y MODELOS DE NEGOCIO prohibidos (no temas). Vacío hasta que el dueño confirme o recorte la propuesta de docs/00-decisiones-y-tareas-del-dueno.md. [decisión 13]
+lineas_rojas: []
+
+# Precio neto mínimo por pedido para lanzar una oferta. [backbone 5.6]
+precio_neto_minimo: null  # OBLIGATORIO DEL DUEÑO
+
+# Importe hasta el cual una acción de dinero puede aprobarse sin humano (N3+). [backbone 5.6]
+autoaprobar_hasta: null  # OBLIGATORIO DEL DUEÑO
+
+# Reembolso automático máximo por pedido (D10). Alias antiguo: reembolso_auto_max_usd. [D0/D10; R01]
+reembolso_auto_max: null  # OBLIGATORIO DEL DUEÑO
+
+# Reembolsos automáticos máximos por día. El "día" es UTC (dia_utc). [D0/D10]
+reembolsos_auto_max_por_dia: null  # OBLIGATORIO DEL DUEÑO
+
+# Pausa dura: fracción (0.006 = 0,6 %) de disputas+EFW sobre pagos de 30 días a partir de la cual se pausa todo. Es el único umbral de pausa (reconciliación R06). [backbone 5.6; R06]
+ratio_disputas_pausa: null  # OBLIGATORIO DEL DUEÑO
+
+# Descuento máximo de un cupón. [D0 3.1-B]
+cupon_descuento_max_pct: null  # OBLIGATORIO DEL DUEÑO
+
+# Días de garantía/reembolso de la política (>= parametros.landing.garantia_dias_min). [D0/O0]
+politica_reembolso_dias: null  # OBLIGATORIO DEL DUEÑO
+
+# Créditos de generación máximos por pieza creativa (unidad: créditos, no dinero). [D6]
+creditos_max_pieza: null  # OBLIGATORIO DEL DUEÑO
+
+# Créditos de generación máximos por oferta. [D6]
+creditos_max_oferta: null  # OBLIGATORIO DEL DUEÑO
+
+# Costo máximo de IA por corrida de un agente. [backbone 5.6]
+max_budget_por_corrida_agente: null  # OBLIGATORIO DEL DUEÑO
+
+# Costo máximo de herramientas pagas en la validación de D2 (los tokens van a costos.jsonl). [D2]
+costo_max_validacion: null  # OBLIGATORIO DEL DUEÑO
+
+# Costo máximo de producción de un producto (créditos de imagen/video + tokens). [D4]
+costo_max_producto: null  # OBLIGATORIO DEL DUEÑO
+
+# Costo máximo por barrido del radar de D1. [backbone 5.6]
+max_costo_por_barrido: null  # OBLIGATORIO DEL DUEÑO
+
+# Política de divulgación de IA en creativos (decisión del dueño). [D0/O0/D7]
+politica_divulgacion_ia: null  # OBLIGATORIO DEL DUEÑO
+
+# Días de cobertura de caja exigidos antes de subir presupuesto (payout_lag_dias + 7). [D9]
+dias_cobertura_caja: null  # OBLIGATORIO DEL DUEÑO
+
+# Correos máximos por día. [D10]
+correos_max_por_dia: null  # OBLIGATORIO DEL DUEÑO
+
+# Correos máximos por semana. [D10]
+correos_max_por_semana: null  # OBLIGATORIO DEL DUEÑO
+
+# Consultas máximas a la Biblioteca de Anuncios por oferta/corrida. [D2/D6]
+max_consultas_biblioteca: null  # OBLIGATORIO DEL DUEÑO
+
+# Ventana de veto (minutos) del dueño en N4. [O0]
+ventana_veto_min: null  # OBLIGATORIO DEL DUEÑO
+
+# Fuentes de D1 permitidas (fuente_id). Vacío = D1 no recolecta. [backbone 5.6]
+fuentes_permitidas: []
+
+# Fuentes de D1 prohibidas (fuente_id). [backbone 5.6]
+fuentes_prohibidas: []
+
+# Búsquedas web máximas por barrido de D1. [backbone 5.6]
+max_busquedas_por_barrido: null  # OBLIGATORIO DEL DUEÑO
+
+# Barridos máximos por semana de D1. [backbone 5.6]
+max_barridos_por_semana: null  # OBLIGATORIO DEL DUEÑO
+
+# Acciones que SIEMPRE exigen gate H, en cualquier nivel (se pueden agregar, no quitar sin firma). [D0 3.1-B]
+acciones_gate_humano: ["activar_campana", "reactivar_tras_pausa", "subir_presupuesto_sobre_tope", "cambiar_limites", "cambiar_entidad_stripe", "lanzamiento_pais_idioma_nuevo"]
+
+# Sello del dueño: hash sha256 del JSON canónico de este contenido sin `sello` + `firma` Ed25519 (clave privada solo en el equipo del dueño; el motor tiene la pública) + `clave_id`.
+# Lo calcula y escribe `python -m engine.limites sellar --como dueno` (único escritor, B1). El hash vigente también va a LIMITES_HASH_ANCLA (fuera del volumen).
+# Coherencia exigida por evaluar_limites: gasto_diario_por_oferta <= gasto_diario_global; perdida_max <= gasto_total <= limite_gasto_cuenta_meta <= capital_en_riesgo_total;
+# perdida_neta_acumulada_max <= capital; ofertas_simultaneas x gasto_diario_por_oferta <= gasto_diario_global; topes críticos >= 1 (cero = null o PAUSA).
+sello: null

@@ -1,0 +1,31 @@
+{
+  "id": "s06-pesos-suman-105",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Pesos que suman 105 (D-02)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/pesos/ac_dolor_urgencia",
+      "valor": "20"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-02",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-02",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "pesos-no-suman-100"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

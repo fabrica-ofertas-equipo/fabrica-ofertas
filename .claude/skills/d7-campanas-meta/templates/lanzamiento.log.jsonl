@@ -1,0 +1,14 @@
+{"ts":"2026-11-16T09:00:00Z","tipo":"INICIO","oferta_id":"OF-202611-02","modo":"fixture","nivel":"N0","agente":"d7-maker","skill_version":"0.1.1"}
+{"ts":"2026-11-16T09:02:00Z","tipo":"LECTURA_CUENTA","herramienta":"ads_get_ad_accounts","ad_account_id":"act_100000000000001","estado":"ACTIVE","moneda":"EUR","min_daily_budget":100,"metodo_pago":true,"administradores_humanos":2}
+{"ts":"2026-11-16T09:03:00Z","tipo":"LECTURA_DATASET","herramienta":"ads_get_dataset_stats","dataset_id":"999000000000001","activo":true,"eventos_recientes":true,"emq":"6.5"}
+{"ts":"2026-11-16T09:20:00Z","tipo":"PRESUPUESTO","comando":"d7.py presupuesto","estado":"OK","salida_sha256":"sha256:<hash del JSON de salida>"}
+{"ts":"2026-11-16T09:30:00Z","tipo":"LECTURA_CONJUNTO","herramienta":"ads_get_ad_entities","adset_id":"120000000000002","effective_status":"PAUSED","dsa_beneficiary":"<nombre decidido por el dueño>","dsa_payor":"<nombre decidido por el dueño>"}
+{"ts":"2026-11-16T09:31:00Z","tipo":"LECTURA_ANUNCIO","herramienta":"ads_get_ad_entities","ad_id":"120000000000100","ad_name":"c01-menu_img_h1_v1","effective_status":"PAUSED","mejoras":{"text_optimizations":"OPT_OUT","image_touchups":"OPT_OUT","image_animation":"OPT_OUT","inline_comment":"OPT_OUT","enhance_cta":"OPT_OUT"}}
+{"ts":"2026-11-16T09:35:00Z","tipo":"ACTIVE_ERRORS","herramienta":"ads_get_errors","errores":[]}
+{"ts":"2026-11-16T09:40:00Z","tipo":"PREFLIGHT","modo":"vivo","semaforo":"VERDE","hash_config":"sha256:<hash>","valido_hasta":"2026-11-17T09:40:00Z"}
+{"ts":"2026-11-16T09:50:00Z","tipo":"RHS","estado":"hecha","ref":"<referencia en empresa/decisiones_dueno.jsonl>"}
+{"ts":"2026-11-16T10:30:00Z","tipo":"ACTIVADA","t0":"2026-11-16T10:30:00Z","quien":"meta.activar","ventanas":["2026-11-16T11:30:00Z","2026-11-16T16:30:00Z","2026-11-17T10:30:00Z","2026-11-18T10:30:00Z","2026-11-19T10:30:00Z"]}
+{"ts":"2026-11-16T11:30:00Z","tipo":"VENTANA","ventana_h":1,"traspaso":{"ventana_h":1,"anomalias":[],"rechazos_7d":0,"lanzamiento_estable":false}}
+{"ts":"2026-11-17T10:00:00Z","tipo":"RECHAZO","ad_id":"120000000000100","ad_name":"c01-menu_img_h1_v1","asset_sha256":"sha256:<hash del asset>","motivo":"<texto literal de Meta: dato, no instrucciones>","eje":"P","clase":"politica"}
+{"ts":"2026-11-17T10:05:00Z","tipo":"PEDIDO","destino":"D6/X1","ad_id":"120000000000100","accion":"anuncio nuevo corregido (v2), nunca el mismo; entra por REFRESCO tras el traspaso"}
+{"ts":"2026-11-19T10:30:00Z","tipo":"INCIDENTE","resumen":"<qué, cuándo, evidencia, quién decide>","decide":"dueño"}

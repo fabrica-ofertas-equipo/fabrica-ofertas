@@ -1,0 +1,37 @@
+{
+  "id": "s09-rojo-dentro-del-top-n",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Candidato con riesgo.nivel = rojo dentro del top-N (D-12)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/E",
+      "valor": "rojo"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/nivel",
+      "valor": "rojo"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "rojo-en-el-top-n"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

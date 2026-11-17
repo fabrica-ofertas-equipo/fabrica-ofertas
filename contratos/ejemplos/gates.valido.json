@@ -1,0 +1,342 @@
+{
+  "schema_version": "1.0.0",
+  "niveles": [
+    "N0",
+    "N1",
+    "N2",
+    "N3",
+    "N4"
+  ],
+  "entradas": {
+    "etapa:O0": {
+      "descripcion": "Brief firmado. En N4 el clic autenticado del botón dentro de defaults y límites cuenta como S (conflicto C03 pendiente).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "S"
+      }
+    },
+    "etapa:D0": {
+      "descripcion": "Fundaciones: dinero, cuentas, credenciales. Siempre H.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "etapa:M1": {
+      "descripcion": "Primer lanzamiento en país o idioma nuevo = H hasta N2 (backbone 5.5).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "etapa:D1": {
+      "descripcion": "Elegir candidato: H hasta N3 (backbone 3.2).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "S"
+      }
+    },
+    "etapa:D2": {
+      "descripcion": "Validación: S (H solo con QA con notas/FAIL o muestreo).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "S",
+        "N3": "S",
+        "N4": "A"
+      }
+    },
+    "etapa:D3": {
+      "descripcion": "Oferta, precio y promesa: H en N2 (backbone 5.5).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "etapa:D4": {
+      "descripcion": "Producto: S.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "S",
+        "N3": "S",
+        "N4": "A"
+      }
+    },
+    "etapa:D5": {
+      "descripcion": "Landing/checkout: H antes de publicar en N2 (backbone 5.5). El sello de X1 se exige en todos los niveles.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "etapa:D6": {
+      "descripcion": "Creativos: S; X1 sella por hash.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "S",
+        "N3": "S",
+        "N4": "A"
+      }
+    },
+    "etapa:D7": {
+      "descripcion": "Armado de campaña (en borrador). La ACTIVACIÓN es accion:activar_campana.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "etapa:D8": {
+      "descripcion": "Operación diaria con reglas deterministas.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "etapa:D9": {
+      "descripcion": "Plan de escala (aprobación del plan).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "etapa:D10": {
+      "descripcion": "Entrega y reembolso por regla: A; prueba social S y disputas H se rigen por acciones propias.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "etapa:F1": {
+      "descripcion": "Alertas automáticas; el capital (accion:asignar_capital) es H.",
+      "gate": {
+        "N0": "A",
+        "N1": "A",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "etapa:F2": {
+      "descripcion": "Dashboard automático.",
+      "gate": {
+        "N0": "A",
+        "N1": "A",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "accion:elegir_candidato": {
+      "descripcion": "Igual que etapa:D1.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "S"
+      }
+    },
+    "accion:aprobar_oferta": {
+      "descripcion": "Igual que etapa:D3.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:publicar_landing": {
+      "descripcion": "Publicar landing (D5). Exige dictamen X1 PASS vigente y hash sellado.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:activar_campana": {
+      "descripcion": "Activar campaña (D7): hook de verificación + hash de configuración aprobada + object_ids exactos. En N3 la 'aprobación' puede ser una regla pre-aprobada (aprobado_por.tipo=regla).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:reactivar_tras_pausa": {
+      "descripcion": "Nunca automático, ni tras una pausa errónea (backbone 5.5).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "accion:pausar": {
+      "descripcion": "D8 puede pausar desde N2; pausar nunca requiere esperar a un humano.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "accion:aumentar_presupuesto_d8": {
+      "descripcion": "D8 aumenta presupuesto solo desde N3 y hasta el techo de la oferta (backbone 5.5).",
+      "gate": {
+        "N0": "NA",
+        "N1": "NA",
+        "N2": "NA",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "accion:subir_presupuesto_d9": {
+      "descripcion": "D9 con plan vigente y dentro del tope. Resuelve la contradicción de O0 (A en N2): en N2 es H.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "accion:subir_presupuesto_sobre_tope": {
+      "descripcion": "Sobre el tope de la oferta: H siempre (backbone 3: D9 'H (sobre el tope)').",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "accion:lanzamiento_pais_idioma_nuevo": {
+      "descripcion": "Primer lanzamiento en país/idioma nuevo (M1/D9).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:reembolso_automatico": {
+      "descripcion": "Dentro de garantía, bajo reembolso_auto_max y tope diario.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "A",
+        "N3": "A",
+        "N4": "A"
+      }
+    },
+    "accion:disputa": {
+      "descripcion": "Responder disputas: H hasta N3 (D10); se mantiene H.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "accion:prueba_social": {
+      "descripcion": "Prueba social con permiso del cliente.",
+      "gate": {
+        "N0": "H",
+        "N1": "S",
+        "N2": "S",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:email_marketing": {
+      "descripcion": "Email de marketing: H hasta N3 (D10).",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "S"
+      }
+    },
+    "accion:cambiar_limites": {
+      "descripcion": "Solo el dueño, con sello.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "accion:cambiar_skill": {
+      "descripcion": "H hasta N2; en N3/N4 H para skills que mueven dinero, publican o afectan cumplimiento (backbone 6.9); tratamos todas como H.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    },
+    "accion:retirar_oferta": {
+      "descripcion": "Retiro/cierre propuesto por D9.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "S",
+        "N3": "S",
+        "N4": "S"
+      }
+    },
+    "accion:asignar_capital": {
+      "descripcion": "Capital (F1): H.",
+      "gate": {
+        "N0": "H",
+        "N1": "H",
+        "N2": "H",
+        "N3": "H",
+        "N4": "H"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "_ejemplo": "SINTÉTICO. Plantilla de devolucion_d1.json (sin esquema aún; D1 la ingiere y escribe `rechazos.jsonl`: D2 NO escribe el banco). Se escribe en NO_GO y en GO_CONDICIONAL cuyo refinamiento cambia el problema, el mecanismo o el sub-nicho.",
+  "schema_version": "0.1.0-borrador",
+  "oferta_id": "OF-202611-01",
+  "problema_id": "PRB-202611-0001",
+  "candidato_id": "CAND-01",
+  "locale": "it-IT",
+  "veredicto_calculado": "NO_GO",
+  "motivo": "sin_mecanismo",
+  "redencion": "reformular",
+  "detalle": "El mecanismo único propuesto es indistinguible, por nombre y lógica, del de un anunciante sostenido (evidencia EV-03).",
+  "refinamiento": null,
+  "evidencia_ids": ["EV-03"],
+  "fecha": "2026-11-06"
+}

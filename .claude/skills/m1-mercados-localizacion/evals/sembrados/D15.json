@@ -1,0 +1,50 @@
+{
+  "id": "D15",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Test de 700 clics presentado como decision de mercado",
+  "donde_se_siembra": "mercado.seleccion.json#/presupuesto_test_sugerido",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/presupuesto_test_sugerido/clics_por_mercado",
+          "valor": 700
+        },
+        {
+          "op": "set",
+          "ruta": "/presupuesto_test_sugerido/por_mercado",
+          "valor": {
+            "monto": 50400,
+            "moneda": "USD"
+          }
+        },
+        {
+          "op": "set",
+          "ruta": "/presupuesto_test_sugerido/total",
+          "valor": {
+            "monto": 50400,
+            "moneda": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-19"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-19",
+      "patron_clave": "test-corto-como-decision",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "por debajo de clics_min_decidir_mercado la salida dice señal de proceso"
+  }
+}

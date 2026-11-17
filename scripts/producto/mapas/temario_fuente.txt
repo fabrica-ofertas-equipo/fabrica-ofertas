@@ -1,0 +1,606 @@
+# Temario fuente de Slowomapa: 520 mapas mentales de vocabulario de ingles para hablantes de polaco.
+# Formato: "@ NIVEL | bloque-id | descripcion" abre un bloque; cada mapa va en una linea "tema_en | tema_pl".
+# El orden de las lineas es el orden de la ruta de estudio dentro de cada nivel.
+# Reparto: A1 70, A2 80, B1 90, B2 100, C1 90, C2 90 (total 520).
+#
+# ===================== A1 (70) =====================
+@ A1 | a1-arranque | Los dos temas de arranque: comida y familia
+Food | Jedzenie
+Family | Rodzina
+@ A1 | a1-presentarse | Saludar, presentarse y preguntar lo básico
+Greetings and goodbyes | Powitania i pożegnania
+Polite expressions | Zwroty grzecznościowe
+Personal details | Dane osobowe
+Countries and nationalities | Kraje i narodowości
+Question words | Słowa pytające
+@ A1 | a1-numeros-colores | Números, ordinales, colores y formas
+Numbers to twenty | Liczby do dwudziestu
+Tens and hundreds | Dziesiątki i setki
+Ordinal numbers | Liczebniki porządkowe
+Colours | Kolory
+Shapes | Kształty
+@ A1 | a1-comida | Alimentos, bebidas y vajilla de todos los días
+Fruit | Owoce
+Vegetables | Warzywa
+Meat and fish | Mięso i ryby
+Bread and dairy | Pieczywo i nabiał
+Drinks | Napoje
+Sweets and snacks | Słodycze i przekąski
+Cutlery and crockery | Sztućce i naczynia
+@ A1 | a1-personas | Personas, profesiones, aspecto y emociones básicas
+People | Ludzie
+Jobs | Zawody
+Appearance | Wygląd
+Basic feelings | Podstawowe uczucia
+@ A1 | a1-cuerpo-ropa | Cuerpo, cara, ropa y calzado
+The body | Ciało
+Face and head | Twarz i głowa
+Clothes | Ubrania
+Shoes and accessories | Buty i dodatki
+@ A1 | a1-casa | La casa: habitaciones, jardín y objetos cotidianos
+Rooms in a house | Pomieszczenia w domu
+Living room | Salon
+Bedroom | Sypialnia
+Kitchen | Kuchnia
+Bathroom | Łazienka
+Garden | Ogród
+Everyday objects | Przedmioty codziennego użytku
+@ A1 | a1-tiempo | Días, meses, horas, frecuencia y tiempo atmosférico
+Days of the week | Dni tygodnia
+Months and seasons | Miesiące i pory roku
+Telling the time | Zegar i godziny
+Parts of the day | Pory dnia
+Frequency words | Określenia częstotliwości
+Weather | Pogoda
+@ A1 | a1-rutina-verbos | Rutina diaria y verbos esenciales de acción
+Daily routine | Codzienne czynności
+Everyday verbs | Podstawowe czasowniki
+Verbs of movement | Czasowniki ruchu
+Actions with hands | Czynności wykonywane rękami
+Speaking and listening | Mówienie i słuchanie
+Wants and likes | Chcę i lubię
+@ A1 | a1-ciudad | Lugares, tiendas, transporte y cómo orientarse
+Places in town | Miejsca w mieście
+Shops | Sklepy
+On the street | Na ulicy
+Directions | Wskazywanie drogi
+Where things are | Gdzie co jest
+Transport | Środki transportu
+@ A1 | a1-escuela-tecnologia | Clase, asignaturas y aparatos de uso diario
+Classroom objects | Przedmioty w klasie
+School subjects | Przedmioty szkolne
+Computer and phone | Komputer i telefon
+@ A1 | a1-animales-naturaleza | Animales, plantas y paisajes
+Pets | Zwierzęta domowe
+Farm animals | Zwierzęta gospodarskie
+Wild animals | Dzikie zwierzęta
+Birds | Ptaki
+Insects | Owady
+Trees and flowers | Drzewa i kwiaty
+Landscape | Krajobraz
+@ A1 | a1-ocio | Deportes, aficiones, música, juegos y cumpleaños
+Sports | Dyscypliny sportowe
+Hobbies | Hobby
+Musical instruments | Instrumenty muzyczne
+Toys and games | Zabawki i gry
+Birthday party | Przyjęcie urodzinowe
+@ A1 | a1-utiles | Dinero, contrarios y cantidades
+Money and prices | Pieniądze i ceny
+Opposites | Przeciwieństwa
+Quantities and containers | Ilości i opakowania
+#
+# ===================== A2 (80) =====================
+@ A2 | a2-arranque | Los dos temas de arranque: viajes y compras
+Travel | Podróże
+Shopping | Zakupy
+@ A2 | a2-viajes | Aeropuertos, transporte, alojamiento y vacaciones
+At the airport | Na lotnisku
+Public transport | Komunikacja miejska
+Cars and driving | Samochody i jazda
+Luggage and packing | Bagaż i pakowanie
+At the hotel | W hotelu
+Sightseeing | Zwiedzanie
+Beach holiday | Wakacje nad morzem
+Camping | Biwakowanie
+Mountains and hiking | Góry i wędrówki
+@ A2 | a2-compras | Tiendas, pagos, servicios y regalos
+In a clothes shop | W sklepie odzieżowym
+At the supermarket | W supermarkecie
+Cash, cards and receipts | Gotówka, karty i paragony
+Gifts | Prezenty
+Electronic devices | Urządzenia elektroniczne
+At the post office | Na poczcie
+At the bank | W banku
+At the hairdresser's | U fryzjera
+@ A2 | a2-comer-fuera | Restaurantes, cocina, recetas y sabores
+At the restaurant | W restauracji
+At the coffee shop | W kawiarni
+Cooking verbs | Czasowniki kulinarne
+Recipes and ingredients | Przepisy i składniki
+Kitchen utensils | Przybory kuchenne
+Herbs and spices | Zioła i przyprawy
+Tastes and flavours | Smaki
+Desserts and cakes | Ciasta i desery
+@ A2 | a2-salud | Salud básica: médico, enfermedades y sentidos
+At the doctor's | U lekarza
+Common illnesses | Częste choroby
+At the pharmacy | W aptece
+Injuries and accidents | Urazy i wypadki
+Inside the body | Organy wewnętrzne
+The senses | Zmysły
+@ A2 | a2-trabajo-estudios | Trabajo y estudios sencillos
+Office life | Praca w biurze
+Workplaces | Miejsca pracy
+Working hours and pay | Godziny pracy i płaca
+Looking for a job | Szukanie pracy
+School life | Życie szkolne
+Exams and homework | Egzaminy i zadania domowe
+Learning a language | Nauka języka obcego
+@ A2 | a2-ocio | Cine, música, lectura, deportes y juegos
+Cinema and films | Kino i filmy
+Television | Telewizja
+Music and concerts | Muzyka i koncerty
+Books and reading | Książki i czytanie
+Museums and galleries | Muzea i galerie
+Team sports | Sporty drużynowe
+Water sports | Sporty wodne
+Winter sports | Sporty zimowe
+Video games | Gry komputerowe
+Board and card games | Gry planszowe i karciane
+@ A2 | a2-comunicacion | Teléfono, cartas, mensajes, citas y opiniones
+Phone calls | Rozmowy telefoniczne
+Letters and emails | Listy i e-maile
+Text messages | Wiadomości tekstowe
+Appointments | Umawianie spotkań
+Giving opinions | Wyrażanie opinii
+@ A2 | a2-personas | Familia ampliada, amistades, carácter y celebraciones
+Extended family | Dalsza rodzina
+Friends and neighbours | Przyjaciele i sąsiedzi
+Life stages | Etapy życia
+Personality | Charakter
+Moods | Nastroje
+Weddings and parties | Wesela i przyjęcia
+Festivals and traditions | Święta i tradycje
+@ A2 | a2-hogar | Tareas, aparatos, reparaciones, materiales y medidas
+Housework | Prace domowe
+Home appliances | Sprzęt AGD
+Home repairs | Naprawy w domu
+Materials | Materiały
+Patterns and fabrics | Wzory i tkaniny
+Measurements | Miary i wymiary
+@ A2 | a2-naturaleza | Clima, cosmos, bosque, mar y plantas
+Weather forecast | Prognoza pogody
+Space and planets | Kosmos i planety
+In the forest | W lesie
+Sea creatures | Zwierzęta morskie
+Plants and gardening | Rośliny i ogrodnictwo
+@ A2 | a2-ciudad | Vida urbana, edificios y servicios de emergencia
+City life | Życie w mieście
+Buildings and monuments | Budynki i zabytki
+Emergency services | Służby ratunkowe
+@ A2 | a2-lengua | Verbos de pensar, adverbios, expresiones de tiempo y préstamos
+Verbs of thinking | Czasowniki myślenia
+Adverbs of manner | Przysłówki sposobu
+Time expressions | Określenia czasu
+Lending and borrowing | Pożyczanie i oddawanie
+#
+# ===================== B1 (90) =====================
+@ B1 | b1-arranque | Los dos temas de arranque: trabajo y salud
+Work | Praca
+Health | Zdrowie
+@ B1 | b1-carrera | Carrera profesional, empleo y vida laboral
+Career paths | Ścieżki kariery
+Job interview | Rozmowa kwalifikacyjna
+Contracts and employment | Umowy i zatrudnienie
+Skills and qualifications | Umiejętności i kwalifikacje
+Teamwork | Praca zespołowa
+Meetings and presentations | Spotkania i prezentacje
+Employee benefits | Świadczenia pracownicze
+Working from home | Praca zdalna
+Unemployment | Bezrobocie
+Skilled trades | Zawody rzemieślnicze
+Self-employment | Własna działalność gospodarcza
+@ B1 | b1-educacion | Sistema educativo, estudios y formación
+Education system | System edukacji
+University degrees | Stopnie i tytuły naukowe
+Student life | Życie studenckie
+Study skills | Techniki uczenia się
+Courses and training | Kursy i szkolenia
+Grades and results | Oceny i wyniki
+@ B1 | b1-salud-estilo-vida | Salud, hábitos, hospital y especialistas
+Healthy lifestyle | Zdrowy styl życia
+Nutrition and diets | Odżywianie i diety
+Fitness and exercise | Kondycja i ćwiczenia
+Mental wellbeing | Zdrowie psychiczne
+Hospital and treatment | Szpital i leczenie
+Symptoms | Objawy chorobowe
+First aid | Pierwsza pomoc
+At the dentist's | U dentysty
+Ageing | Starzenie się
+Medical specialists | Specjaliści medyczni
+@ B1 | b1-viajes | Viajes, trámites, alojamiento y vida en el extranjero
+Travel problems | Problemy w podróży
+Travel documents | Dokumenty podróżne
+Border control | Kontrola graniczna
+Accommodation types | Rodzaje noclegów
+Tourist attractions | Atrakcje turystyczne
+Adventure travel | Podróże przygodowe
+Culture shock | Szok kulturowy
+Living abroad | Życie za granicą
+@ B1 | b1-relaciones-emociones | Amistad, pareja, emociones y comportamiento
+Friendship | Przyjaźń
+Love and dating | Miłość i randki
+Marriage and divorce | Małżeństwo i rozwód
+Quarrels and conflict | Kłótnie i konflikty
+Positive emotions | Pozytywne emocje
+Negative emotions | Negatywne emocje
+Behaviour and attitudes | Zachowanie i postawy
+Parenting | Wychowanie dzieci
+Teenage life | Życie nastolatków
+Manners and etiquette | Dobre maniery
+@ B1 | b1-medios-tecnologia | Redes, prensa, publicidad, móviles y seguridad en línea
+Social media | Media społecznościowe
+News and journalism | Wiadomości i dziennikarstwo
+Advertising | Reklama
+Radio and podcasts | Radio i podcasty
+Smartphones and apps | Smartfony i aplikacje
+Online shopping | Zakupy internetowe
+Computer problems | Problemy z komputerem
+Online safety | Bezpieczeństwo w internecie
+@ B1 | b1-sociedad | Problemas sociales, seguridad, desastres y comunidad
+Crime and police | Przestępczość i policja
+Poverty and homelessness | Ubóstwo i bezdomność
+Volunteering and charity | Wolontariat i dobroczynność
+Urban problems | Problemy miejskie
+Road safety | Bezpieczeństwo drogowe
+Natural disasters | Klęski żywiołowe
+Community life | Życie lokalnej społeczności
+@ B1 | b1-medio-ambiente | Contaminación, recursos naturales, animales y vida ecológica
+Pollution | Zanieczyszczenie środowiska
+Recycling and waste | Recykling i odpady
+Endangered species | Gatunki zagrożone
+Natural resources | Zasoby naturalne
+National parks | Parki narodowe
+Farming | Rolnictwo
+Eco-friendly living | Ekologiczny styl życia
+Pets and animal care | Opieka nad zwierzętami
+@ B1 | b1-dinero-consumo | Banca, gastos, impuestos y derechos del consumidor
+Bank accounts and loans | Konta i kredyty
+Saving and spending | Oszczędzanie i wydatki
+Taxes and bills | Podatki i rachunki
+Consumer rights | Prawa konsumenta
+Customer service | Obsługa klienta
+Cost of living | Koszty życia
+Renting and buying | Wynajem i kupno mieszkania
+@ B1 | b1-cultura-ocio | Arte, literatura, música, historia, moda y competiciones
+Art and artists | Sztuka i artyści
+Literature | Literatura
+Theatre and performance | Teatr i przedstawienia
+Music genres | Gatunki muzyczne
+Making films | Produkcja filmowa
+Architecture | Architektura
+History and heritage | Historia i dziedzictwo
+Fashion trends | Trendy w modzie
+Myths and legends | Mity i legendy
+Sports competitions | Zawody sportowe
+Crafts and collecting | Rękodzieło i kolekcjonowanie
+@ B1 | b1-lengua | Dos recursos de lengua: verbos de habla y adjetivos en -ed/-ing
+Reporting verbs | Czasowniki wprowadzające wypowiedzi
+Adjectives in -ed and -ing | Przymiotniki z końcówką -ed i -ing
+#
+# ===================== B2 (100) =====================
+@ B2 | b2-arranque | Los dos temas de arranque: tecnología y entorno
+Technology and the internet | Technologia i internet
+The environment | Środowisko naturalne
+@ B2 | b2-negocios | Empresa, gestión, marketing, comercio y economía
+Business and management | Biznes i zarządzanie
+Starting a company | Zakładanie firmy
+Marketing and sales | Marketing i sprzedaż
+Finance and accounting | Finanse i księgowość
+Trade and exports | Handel i eksport
+Economic growth | Wzrost gospodarczy
+Inflation and prices | Inflacja i ceny
+Industry and manufacturing | Przemysł i produkcja
+Company structure | Struktura firmy
+Negotiation | Negocjacje
+Leadership styles | Style przywództwa
+Supply chains | Łańcuchy dostaw
+@ B2 | b2-ciencia-tecnologia | Ciencia, investigación e ingeniería
+The scientific method | Metoda naukowa
+Medical research | Badania medyczne
+Genetics | Genetyka
+Artificial intelligence | Sztuczna inteligencja
+Robotics and automation | Robotyka i automatyzacja
+Space exploration | Eksploracja kosmosu
+Cybersecurity | Cyberbezpieczeństwo
+Data and privacy | Dane i prywatność
+Engineering | Inżynieria
+Telecommunications | Telekomunikacja
+Basic chemistry | Podstawy chemii
+@ B2 | b2-sociedad-instituciones | Hechos e instituciones de la sociedad, sin partidos
+Government and parliament | Rząd i parlament
+Local government | Samorząd lokalny
+Elections and voting | Wybory i głosowanie
+International organisations | Organizacje międzynarodowe
+Human rights | Prawa człowieka
+Social services | Pomoc społeczna
+Public health systems | Systemy ochrony zdrowia
+Transport and infrastructure | Transport i infrastruktura
+Urban planning | Planowanie przestrzenne
+Demographics | Demografia
+Citizenship | Obywatelstwo
+Diplomacy | Dyplomacja
+@ B2 | b2-medios-comunicacion | Medios, periodismo, edición y comunicación pública
+Mass media | Środki masowego przekazu
+Newspapers and magazines | Gazety i czasopisma
+Digital content | Treści cyfrowe
+Journalism and ethics | Etyka dziennikarska
+Misinformation | Dezinformacja
+Broadcasting | Nadawanie programów
+Publishing | Wydawnictwa
+Public speaking | Wystąpienia publiczne
+Interviews | Wywiady
+Reputation and image | Reputacja i wizerunek
+@ B2 | b2-psicologia-salud | Psicología, mente y salud
+Psychology basics | Podstawy psychologii
+Memory and learning | Pamięć i uczenie się
+Motivation | Motywacja
+Personality types | Typy osobowości
+Anxiety and stress | Lęk i stres
+Emotional intelligence | Inteligencja emocjonalna
+Chronic illness | Choroby przewlekłe
+Medicine and surgery | Medycyna i chirurgia
+Sleep and the body clock | Sen i rytm dobowy
+@ B2 | b2-energia-ambiente | Energía, clima y recursos del planeta
+Renewable energy | Energia odnawialna
+Fossil fuels | Paliwa kopalne
+Electricity supply | Sieć elektryczna
+Climate change | Zmiany klimatu
+Biodiversity | Bioróżnorodność
+Deforestation | Wylesianie
+Sustainable development | Zrównoważony rozwój
+Oceans and marine life | Oceany i życie morskie
+@ B2 | b2-educacion | Métodos de enseñanza y aprendizaje
+Teaching methods | Metody nauczania
+Curriculum and assessment | Programy nauczania i ocenianie
+Lifelong learning | Uczenie się przez całe życie
+Online learning | Nauka online
+Studying abroad | Studia za granicą
+@ B2 | b2-phrasal-verbs | Phrasal verbs agrupados por tema de uso
+Phrasal verbs for work | Czasowniki frazowe w pracy
+Phrasal verbs for travel | Czasowniki frazowe w podróży
+Phrasal verbs for relationships | Czasowniki frazowe w relacjach
+Phrasal verbs for money | Czasowniki frazowe o pieniądzach
+Phrasal verbs for technology | Czasowniki frazowe w technologii
+Phrasal verbs for the home | Czasowniki frazowe w domu
+Phrasal verbs for communication | Czasowniki frazowe w komunikacji
+Phrasal verbs for health | Czasowniki frazowe o zdrowiu
+Phrasal verbs for feelings | Czasowniki frazowe o uczuciach
+Phrasal verbs for daily routine | Czasowniki frazowe w codzienności
+Phrasal verbs for learning | Czasowniki frazowe w nauce
+@ B2 | b2-colocaciones | Colocaciones y familias de palabras
+Collocations with make and do | Kolokacje z make i do
+Collocations with take and have | Kolokacje z take i have
+Collocations with get and go | Kolokacje z get i go
+Time and money collocations | Kolokacje o czasie i pieniądzach
+Adjective and noun pairs | Przymiotniki z rzeczownikami
+Intensifiers and softeners | Wyrażenia wzmacniające i łagodzące
+Noun suffixes | Przyrostki rzeczownikowe
+Adjective suffixes | Przyrostki przymiotnikowe
+Negative prefixes | Przedrostki przeczące
+Compound nouns | Rzeczowniki złożone
+@ B2 | b2-discurso | Lenguaje abstracto y organización del discurso
+Cause and effect | Przyczyna i skutek
+Comparing and contrasting | Porównywanie i kontrast
+Giving examples | Podawanie przykładów
+Agreeing and disagreeing | Zgoda i niezgoda
+Certainty and doubt | Pewność i wątpliwość
+Possibility and probability | Możliwość i prawdopodobieństwo
+Advantages and disadvantages | Zalety i wady
+Success and failure | Sukces i porażka
+Risk and uncertainty | Ryzyko i niepewność
+Describing trends | Opisywanie trendów
+#
+# ===================== C1 (90) =====================
+@ C1 | c1-arranque | Los dos temas de arranque: debate y derecho
+Argument and debate | Argumentacja i debata
+Law and justice | Prawo i wymiar sprawiedliwości
+@ C1 | c1-academico | Vocabulario académico y de investigación
+Research methods | Metody badawcze
+Hypotheses and evidence | Hipotezy i dowody
+Academic writing | Pisanie akademickie
+Statistics and data analysis | Statystyka i analiza danych
+Citing sources | Cytowanie źródeł
+Peer review and publishing | Recenzja naukowa i publikacja
+Conferences and seminars | Konferencje i seminaria
+Experiments and trials | Eksperymenty i próby badawcze
+Theories and models | Teorie i modele
+Critical thinking | Myślenie krytyczne
+Describing data and graphs | Opisywanie danych i wykresów
+Verbs of analysis | Czasowniki analizy
+@ C1 | c1-derecho-gobierno | Derecho, gobierno e instituciones
+Contracts and obligations | Umowy i zobowiązania
+Ownership and inheritance | Własność i dziedziczenie
+Constitutional principles | Zasady konstytucyjne
+Legislation and regulation | Prawodawstwo i regulacje
+Public administration | Administracja publiczna
+International treaties | Traktaty międzynarodowe
+Intellectual property | Własność intelektualna
+Criminal procedure | Postępowanie karne
+Civil liberties | Wolności obywatelskie
+Legal professions | Zawody prawnicze
+Dispute resolution | Rozstrzyganie sporów
+Ethics in public office | Etyka w urzędzie
+@ C1 | c1-economia-finanzas | Conceptos de economía y finanzas, sin consejos
+Macroeconomics | Makroekonomia
+Supply and demand | Podaż i popyt
+Financial markets | Rynki finansowe
+Central banking | Bankowość centralna
+Fiscal policy | Polityka fiskalna
+Business cycles | Cykle koniunkturalne
+Globalisation and trade | Globalizacja i handel
+The labour market | Rynek pracy
+Corporate finance | Finanse przedsiębiorstw
+Insurance and risk | Ubezpieczenia i ryzyko
+Mergers and takeovers | Fuzje i przejęcia
+@ C1 | c1-conectores | Conectores y matices de argumentación
+Concession and contrast | Ustępstwo i kontrast
+Adding and emphasising | Dodawanie i podkreślanie
+Result and consequence | Wynik i konsekwencja
+Hedging language | Ostrożne formułowanie opinii
+Stance adverbs | Przysłówki postawy autora
+Conditions and exceptions | Warunki i wyjątki
+Refuting claims | Obalanie twierdzeń
+Summing up and concluding | Podsumowanie i wnioski
+Attributing views | Przywoływanie cudzych opinii
+Persuasion | Perswazja
+Introducing and linking topics | Wprowadzanie i łączenie tematów
+@ C1 | c1-psicologia | Psicología y emociones matizadas
+Complex emotions | Złożone emocje
+Cognitive biases | Błędy poznawcze
+Resilience and coping | Odporność psychiczna
+Identity and self-image | Tożsamość i obraz siebie
+Moral dilemmas | Dylematy moralne
+Empathy and compassion | Empatia i współczucie
+Ambition and drive | Ambicja i determinacja
+Social influence | Wpływ społeczny
+Group dynamics | Dynamika grupowa
+@ C1 | c1-artes-literatura | Artes, literatura y crítica
+Literary genres | Gatunki literackie
+Narrative techniques | Techniki narracyjne
+Poetry and verse | Poezja i wiersz
+Literary criticism | Krytyka literacka
+Visual arts | Sztuki wizualne
+Art movements | Kierunki w sztuce
+Classical music | Muzyka klasyczna
+Film criticism | Krytyka filmowa
+Theatre craft | Warsztat teatralny
+Architectural styles | Style architektoniczne
+@ C1 | c1-modismos | Modismos agrupados por tema
+Idioms about money | Idiomy o pieniądzach
+Idioms about time | Idiomy o czasie
+Idioms about work | Idiomy o pracy
+Idioms about emotions | Idiomy o emocjach
+Idioms about success and failure | Idiomy o sukcesie i porażce
+Idioms about weather | Idiomy o pogodzie
+Idioms about animals | Idiomy o zwierzętach
+Idioms about body parts | Idiomy o częściach ciała
+Idioms about communication | Idiomy o komunikacji
+@ C1 | c1-registro | Registro formal e informal, giros y jerga
+Formal and informal verbs | Czasowniki formalne i potoczne
+Formal email phrases | Formalne zwroty w e-mailach
+Slang and colloquialisms | Slang i kolokwializmy
+Euphemisms | Eufemizmy
+Transatlantic word differences | Różnice w słownictwie brytyjskim i amerykańskim
+Prepositional phrases | Wyrażenia przyimkowe
+Fixed word pairs | Utarte pary wyrazów
+Business jargon | Żargon biznesowy
+@ C1 | c1-colocaciones | Colocaciones avanzadas y phrasal verbs de organización
+Adverb and adjective pairs | Przysłówki z przymiotnikami
+Collocations of change | Kolokacje zmiany
+Collocations of crisis and conflict | Kolokacje kryzysu i konfliktu
+Collocations of power and influence | Kolokacje władzy i wpływu
+Collocations of decision and judgement | Kolokacje decyzji i oceny
+Phrasal verbs for organising | Czasowniki frazowe w organizacji
+#
+# ===================== C2 (90) =====================
+@ C2 | c2-apertura | Los dos temas de arranque: carácter y modos de andar
+Subtle character traits | Subtelne cechy charakteru
+Ways of walking | Sposoby chodzenia
+@ C2 | c2-verbos-matiz | Verbos casi sinónimos con matiz de manera
+Ways of looking | Sposoby patrzenia
+Ways of speaking | Sposoby mówienia
+Shouting and screaming | Krzyk i wrzask
+Smiling and laughing | Uśmiech i śmiech
+Weeping and sobbing | Płacz i szloch
+Ways of running | Sposoby biegania
+Ways of eating | Sposoby jedzenia
+Ways of drinking | Sposoby picia
+Ways of holding | Sposoby trzymania
+Ways of cutting | Sposoby cięcia
+Ways of touching | Sposoby dotykania
+Ways of shining | Sposoby świecenia
+Ways of falling | Sposoby upadania
+Breaking and shattering | Łamanie i kruszenie
+Pulling and pushing | Ciągnięcie i pchanie
+Ways of sitting | Sposoby siedzenia
+Ways of thinking | Sposoby myślenia
+@ C2 | c2-adjetivos-matiz | Adjetivos casi sinónimos ordenados por grado
+Shades of anger | Odcienie gniewu
+Degrees of happiness | Stopnie szczęścia
+Shades of sadness | Odcienie smutku
+Degrees of fear | Stopnie strachu
+Degrees of tiredness | Stopnie zmęczenia
+Degrees of cleanliness | Stopnie czystości
+Degrees of danger | Stopnie niebezpieczeństwa
+Shades of beauty | Odcienie piękna
+Degrees of importance | Stopnie ważności
+Degrees of difficulty | Stopnie trudności
+Degrees of wetness | Stopnie wilgotności
+Degrees of heat and cold | Stopnie ciepła i zimna
+Shades of humour | Odcienie humoru
+Strange and unusual | Dziwne i niezwykłe
+Dull and ordinary | Nudne i zwyczajne
+Wealth and poverty | Bogactwo i ubóstwo
+Extremes of size | Skrajności wielkości
+@ C2 | c2-sentidos | Vocabulario sensorial fino: color, tacto, olor, sabor, sonido
+Subtle colour names | Subtelne nazwy kolorów
+Textures and surfaces | Faktury i powierzchnie
+Smells and aromas | Zapachy i aromaty
+Flavour vocabulary | Słownictwo smakowe
+Sounds and noises | Dźwięki i odgłosy
+@ C2 | c2-proverbios-modismos | Proverbios y modismos por tema
+Proverbs about time | Przysłowia o czasie
+Proverbs about wisdom | Przysłowia o mądrości
+Proverbs about friendship | Przysłowia o przyjaźni
+Proverbs about thrift | Przysłowia o oszczędności
+Proverbs about patience | Przysłowia o cierpliwości
+Proverbs about appearances | Przysłowia o pozorach
+Proverbs about luck | Przysłowia o szczęściu i pechu
+Idioms from the sea | Idiomy morskie
+Idioms from sport and games | Idiomy ze sportu i gier
+Idioms from farming | Idiomy rolnicze
+Idioms from the workshop | Idiomy warsztatowe
+Idioms about travel and roads | Idiomy o podróży i drodze
+Idioms about secrets and truth | Idiomy o tajemnicy i prawdzie
+Idioms with colours | Idiomy z kolorami
+@ C2 | c2-literario | Vocabulario literario y poco frecuente
+Archaic and literary words | Słownictwo archaiczne i literackie
+Poetic vocabulary | Słownictwo poetyckie
+Rare adjectives | Rzadkie przymiotniki
+Rare verbs | Rzadkie czasowniki
+Dawn, dusk and twilight | Świt, zmierzch i zmrok
+Heroes and epic quests | Epos i bohaterstwo
+Fate and destiny | Los i przeznaczenie
+Latin phrases | Zwroty łacińskie
+@ C2 | c2-especializados | Dominios especializados: ciencia, filosofía, derecho, arte y lengua
+Philosophical concepts | Pojęcia filozoficzne
+Logic and reasoning | Logika i rozumowanie
+Linguistics | Językoznawstwo
+Grammar terminology | Terminologia gramatyczna
+Phonetics and pronunciation | Fonetyka i wymowa
+Medical terminology | Terminologia medyczna
+Legal drafting | Język aktów prawnych
+Geology and earth science | Geologia i nauki o Ziemi
+Astronomy | Astronomia
+Mathematics | Matematyka
+Art history terms | Terminy z historii sztuki
+Music theory | Teoria muzyki
+@ C2 | c2-retorica-registro | Retórica, ironía, juegos de palabras y tono
+Figures of speech | Figury retoryczne
+Irony and sarcasm | Ironia i sarkazm
+Wordplay and puns | Gra słów i kalambury
+Tone and register | Ton i rejestr
+Oratory and eloquence | Oratorstwo i elokwencja
+@ C2 | c2-formacion-palabras | Formación de palabras y préstamos
+Classical word roots | Klasyczne rdzenie wyrazów
+Prefixes of degree and place | Przedrostki stopnia i miejsca
+Nouns used as verbs | Rzeczowniki użyte jako czasowniki
+Blends and neologisms | Neologizmy i skrzyżowania wyrazów
+Foreign loanwords | Zapożyczenia z obcych języków
+@ C2 | c2-falsos-amigos | Falsos amigos polaco e inglés avanzados
+Everyday false friends | Fałszywi przyjaciele w życiu codziennym
+Study and work false friends | Fałszywi przyjaciele w nauce i pracy
+Business and law false friends | Fałszywi przyjaciele w biznesie i prawie
+Deceptive adjectives | Zwodnicze przymiotniki
+Deceptive verbs | Zwodnicze czasowniki

@@ -1,0 +1,44 @@
+{
+  "id": "D11",
+  "descripcion": "Contraejemplo A3 (CPA esperado 22 > cpa_be 16): NO_FACTIBLE; el Maker advierte y escala sin gastar.",
+  "capa": "script-presupuesto",
+  "entrada_presupuesto": {
+    "moneda": "EUR",
+    "cpa_be": 1600,
+    "cpa_esperado": 2000,
+    "tarifa_meta_bp": 300,
+    "n_anuncios_paquete": 4,
+    "dias_test": 10,
+    "evento_economia": "InitiateCheckout",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": 9300,
+    "inicio": "2026-11-16T00:00:00Z",
+    "limites": {
+      "moneda_limites": "EUR",
+      "gasto_diario_por_oferta": 8000,
+      "gasto_total_test_por_oferta": 40000,
+      "perdida_max_test_por_oferta": 40000,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "NO_FACTIBLE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "ESCALAR",
+    "nota": "04 §8.3: no se arma"
+  }
+}

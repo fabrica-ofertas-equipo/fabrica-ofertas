@@ -1,0 +1,57 @@
+{
+  "grupos": {
+    "dashboard": {
+      "frescura_meta_amarillo_h": {
+        "valor": 6
+      },
+      "frescura_meta_rojo_h": {
+        "valor": 12
+      },
+      "frescura_stripe_eventos_amarillo_h": {
+        "valor": 2
+      },
+      "frescura_stripe_eventos_rojo_h": {
+        "valor": 6
+      },
+      "frescura_stripe_balance_amarillo_h": {
+        "valor": 26
+      },
+      "frescura_stripe_balance_rojo_h": {
+        "valor": 36
+      },
+      "pedidos_min_verde": {
+        "valor": 5
+      },
+      "gasto_min_decision_x_cpa": {
+        "valor": "2.0"
+      },
+      "costo_ia_max_pct": {
+        "valor": 15
+      }
+    },
+    "testeo": {
+      "cobertura_adid_min_pct": {
+        "valor": 90
+      }
+    },
+    "veredicto": {
+      "compras_min": {
+        "valor": 15
+      },
+      "dias_min": {
+        "valor": 7
+      },
+      "reembolso_max_pct": {
+        "valor": 8
+      }
+    },
+    "finanzas": {
+      "gasto_vs_tope_amarilla_pct": {
+        "valor": 80
+      },
+      "gasto_vs_tope_roja_pct": {
+        "valor": 100
+      }
+    }
+  }
+}

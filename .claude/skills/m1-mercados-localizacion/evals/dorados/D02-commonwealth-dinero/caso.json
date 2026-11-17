@@ -1,0 +1,23 @@
+{
+  "id": "D02",
+  "nombre": "Ingles Commonwealth: CA sin Quebec, NZ, AU, IE; GB",
+  "spec": "departamentos/16 §10.5 eval 2",
+  "entrada": {
+    "contexto": "D02-commonwealth-dinero/contexto.json"
+  },
+  "salida_esperada": {
+    "orden": "CA, NZ antes que AU/IE (por EXPO de dinero y verificacion financiera de Meta); GB excluido por R9 (r_b > r_max)",
+    "bloques": "un bloque por (locale, moneda): en-CA, en-NZ, en-AU, en-IE no se mezclan",
+    "banderas": [
+      "expo_heredada_no_evaluado en NZ (gate H)",
+      "cpm_vencido"
+    ],
+    "IE": "solo con OSS (R8 si diferido sin firma)"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D02)",
+    "L2": [
+      "el QA comprueba que en dinero no se coloca AU/IE/GB/US delante de CA/NZ sin explicar la verificacion financiera de Meta"
+    ]
+  }
+}

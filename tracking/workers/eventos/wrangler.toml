@@ -1,0 +1,19 @@
+# Worker `eventos` (docs/06 4.3).
+# Pedido a B8 (ver README "Pedidos"): este Worker no figura todavia en
+# infra/plantillas/variables-entorno.yaml (solo crear-sesion, webhook-stripe,
+# fulfill, capi, descarga, watchdog). Falta agregar su bloque con
+# INGEST_HMAC_SECRET (secreto) e INGESTA_EVENTO_URL (config).
+name = "fabrica-eventos"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# Firmar HMAC y reenviar es liviano.
+# [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releido]
+cpu_ms = 50
+
+# Variables de configuracion (no secretas):
+#   INGESTA_EVENTO_URL -- https://api.<dominio_infra>/ingesta/evento
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   INGEST_HMAC_SECRET

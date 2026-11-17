@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.2.0",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "estado": "borrador",
+  "fase": "TEST",
+  "estructura": "CBO",
+  "objetivo": "VENTAS",
+  "evento_optimizacion": "PURCHASE",
+  "atribucion": {
+    "ventana": "7d_click",
+    "fuente_de_verdad_ingresos": "stripe",
+    "fuente_de_verdad_gasto": "meta"
+  },
+  "paises": [
+    "IT"
+  ],
+  "idioma": "it-IT",
+  "presupuesto": {
+    "moneda": "EUR",
+    "decimales": 2,
+    "diario": 4114,
+    "total_test": 28798,
+    "dias": 7,
+    "spend_cap": 31678,
+    "spend_cap_minimo_meta": 9300,
+    "candado_alternativo": null,
+    "max_teorico_diario": 7200
+  },
+  "economia": {
+    "cpa_equilibrio": 1600,
+    "cpa_objetivo": 932,
+    "cpa_max": 1600,
+    "k_corte": 3,
+    "n_anuncios": 6
+  },
+  "special_ad_categories": [],
+  "audiencia": {
+    "tipo": "amplia",
+    "edad_min": 18,
+    "edad_max": 65,
+    "genero": "todos",
+    "intereses": [],
+    "excluye_categorias_sensibles": true
+  },
+  "ubicaciones": "automaticas",
+  "nombres": {
+    "campana": "OF-202611-02_TEST_VENTAS_CBO_20261116",
+    "conjunto": "Amplia-IT_Automaticas_it-IT",
+    "anuncios": [
+      "c01-menu_img_h1_v1",
+      "c01-menu_img_h2_v1",
+      "c02-spesa_img_h1_v1",
+      "c02-spesa_img_h2_v1",
+      "c03-tempo_img_h1_v1",
+      "c03-tempo_img_h2_v1"
+    ]
+  },
+  "url": {
+    "plantilla": "https://piano-pasti.example/?utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-02&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "ejemplo_resuelto": "https://piano-pasti.example/?utm_source=meta&utm_medium=paid&utm_campaign=OF-202611-02_TEST_VENTAS_CBO_20261116&utm_content=c01-menu_img_h1_v1&utm_term=Amplia-IT_Automaticas_it-IT&oferta_id=OF-202611-02&cid=120000000000001&asid=120000000000002&adid=120000000000003"
+  },
+  "anuncios": [
+    {
+      "ad_name": "c01-menu_img_h1_v1",
+      "concepto_id": "c01-menu",
+      "asset_sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    },
+    {
+      "ad_name": "c01-menu_img_h2_v1",
+      "concepto_id": "c01-menu",
+      "asset_sha256": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    },
+    {
+      "ad_name": "c02-spesa_img_h1_v1",
+      "concepto_id": "c02-spesa",
+      "asset_sha256": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    },
+    {
+      "ad_name": "c02-spesa_img_h2_v1",
+      "concepto_id": "c02-spesa",
+      "asset_sha256": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    },
+    {
+      "ad_name": "c03-tempo_img_h1_v1",
+      "concepto_id": "c03-tempo",
+      "asset_sha256": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    },
+    {
+      "ad_name": "c03-tempo_img_h2_v1",
+      "concepto_id": "c03-tempo",
+      "asset_sha256": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "claim_ids": [
+        "menu-settimanale"
+      ]
+    }
+  ],
+  "reglas_parada": {
+    "k_corte": 3,
+    "hash_parametros": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "pausa_global_si": [
+      "empresa/PAUSA existe",
+      "infra/estado.json no VERDE",
+      "rechazos de Meta >= parametros.compliance.rechazos_congelar en 7 dias"
+    ]
+  },
+  "criterio_validada": {
+    "definicion": "backbone-5.9",
+    "n_dec": 15,
+    "dias_max": 14
+  },
+  "ids_meta": null,
+  "hash_config": "sha256:0f06f9db46ef2a7194b4d59a5178ec0db72e9f36e64565925355df94058f8bc4"
+}

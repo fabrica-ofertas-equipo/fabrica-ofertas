@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.2.0",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "moneda": "PLN",
+  "precio": {
+    "monto": 3900,
+    "moneda": "PLN"
+  },
+  "price_ids": {
+    "test": "price_fixture_pl_test_principal",
+    "live": null
+  },
+  "bump": {
+    "modo": "casilla_en_checkout",
+    "price_id": "price_fixture_pl_test_bump",
+    "copy": "Dodaj zeszyt do notatek za 19,00 zł",
+    "precio": {
+      "monto": 1900,
+      "moneda": "PLN"
+    }
+  },
+  "upsell": null,
+  "precios_por_moneda": [],
+  "impuestos": {
+    "modo": "diferido",
+    "pais": null,
+    "tax_behavior": "inclusive",
+    "tax_code": null
+  },
+  "metodos": [
+    "card",
+    "apple_pay",
+    "google_pay",
+    "link"
+  ],
+  "descriptor": "ROZMOWYPRZYSTOLE",
+  "success_url": "https://rozmowyprzystole.example/gracias",
+  "return_url": "https://rozmowyprzystole.example/comprar",
+  "garantia_dias": 14,
+  "consentimientos": [
+    {
+      "id": "terminos-y-desistimiento",
+      "texto_version": "v1",
+      "obligatorio": true
+    },
+    {
+      "id": "renuncia-entrega-inmediata",
+      "texto_version": "v1",
+      "obligatorio": true
+    }
+  ],
+  "metadata_esquema": [
+    "oferta_id",
+    "adid",
+    "asid",
+    "cid",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "locale",
+    "visitor_id",
+    "consent_marketing",
+    "landing_version",
+    "event_source_url"
+  ],
+  "ui_mode": "hosted",
+  "expires_at_min": 30,
+  "sesion_en_servidor": true,
+  "compra": {
+    "ruta": "/comprar",
+    "metodo": "post",
+    "bump_modo": "casilla_en_checkout",
+    "renuncia": {
+      "requerido": true,
+      "texto_version": "v1"
+    },
+    "landing_version": "v1"
+  }
+}

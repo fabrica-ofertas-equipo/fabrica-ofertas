@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/kpi.schema.json",
+  "title": "Snapshot de KPI (F2)",
+  "description": "Snapshot de KPI de F2 (kpi_oferta_dia.json / kpi_blended_dia.json). Umbrales de semáforo: parametros.dashboard y parametros.salud_operativa.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "version_esquema": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "version_glosario": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "ambito": {
+      "enum": [
+        "oferta",
+        "blended"
+      ]
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fecha": {
+      "$ref": "comunes.schema.json#/$defs/fecha"
+    },
+    "fuentes": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "frescura_h": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "estado": {
+              "enum": [
+                "verde",
+                "amarillo",
+                "rojo"
+              ]
+            }
+          },
+          "required": [
+            "frescura_h",
+            "estado"
+          ],
+          "additionalProperties": false
+        },
+        "stripe_eventos": {
+          "type": "object",
+          "properties": {
+            "frescura_h": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "estado": {
+              "enum": [
+                "verde",
+                "amarillo",
+                "rojo"
+              ]
+            }
+          },
+          "required": [
+            "frescura_h",
+            "estado"
+          ],
+          "additionalProperties": false
+        },
+        "stripe_balance": {
+          "type": "object",
+          "properties": {
+            "frescura_h": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "estado": {
+              "enum": [
+                "verde",
+                "amarillo",
+                "rojo"
+              ]
+            }
+          },
+          "required": [
+            "frescura_h",
+            "estado"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "meta",
+        "stripe_eventos",
+        "stripe_balance"
+      ],
+      "additionalProperties": false
+    },
+    "filas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kpi_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "valor": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "$ref": "comunes.schema.json#/$defs/decimal"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unidad": {
+            "type": "string"
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "estado": {
+            "enum": [
+              "ok",
+              "gris",
+              "provisional",
+              "stale"
+            ]
+          },
+          "rango": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "comunes.schema.json#/$defs/decimal"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ventana": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kpi_id",
+          "valor",
+          "unidad",
+          "n",
+          "estado",
+          "rango",
+          "ventana"
+        ],
+        "additionalProperties": false,
+        "description": "Cada cifra con valor, n, estado y rango; sin n suficiente el estado es gris"
+      },
+      "minItems": 1
+    },
+    "sintetico": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "generado_en",
+    "run_id",
+    "version_esquema",
+    "version_glosario",
+    "ambito",
+    "oferta_id",
+    "fecha",
+    "fuentes",
+    "filas"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ambito": {
+            "const": "oferta"
+          }
+        },
+        "required": [
+          "ambito"
+        ]
+      },
+      "then": {
+        "properties": {
+          "oferta_id": {
+            "$ref": "comunes.schema.json#/$defs/oferta_id"
+          }
+        }
+      }
+    }
+  ]
+}

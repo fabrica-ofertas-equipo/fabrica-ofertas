@@ -1,0 +1,34 @@
+{
+  "id": "D16",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Hipotesis de transferencia de D1 declarada valida sin barrido local",
+  "donde_se_siembra": "emparejamientos/AAAA-MM-DD.json#/pares/0/estado",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "emparejamiento",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/pares/0/estado",
+          "valor": "valido"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-22"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-22",
+      "patron_clave": "transferencia-valida-sin-evidencia",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "un problema no se asume valido en otro idioma (backbone 3.2)"
+  }
+}

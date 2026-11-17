@@ -1,0 +1,74 @@
+# Plantilla normativa de N01b "D0 Alta de oferta" (docs/06 §2 nodo N01b; docs/07 §3.4, §9.1).
+# 11 pasos entre D4 y D5 (D5 necesita pixel_id, dataset_id y dominio_verificado para cerrar).
+# La ejecuta `infra.alta_oferta` (B8): en seco imprime esta lista; con `--ejecutar` (solo en modo
+# prueba, sobre una raíz temporal/fixture) verifica en solo lectura y escribe
+# ofertas/<id>/infra/alta.json. NINGÚN paso con dinero o escritura real lo hace un agente: "quien"
+# distingue dueno (acción humana que cuesta dinero o exige 2FA) de infra (sonda de solo lectura).
+version: 1
+pasos:
+  - paso: 1
+    id: dominio-compra
+    que: "Elegir y comprar el dominio de la oferta (cuesta dinero; nunca lo hace un agente)."
+    quien: dueno
+    como_se_comprueba: "DNS del dominio resuelve y el registrador lo lista como propio (panel)."
+    item_preflight: C-05
+  - paso: 2
+    id: cloudflare-zona-pages
+    que: "Crear la zona de Cloudflare del dominio y el proyecto Pages de la landing."
+    quien: dueno
+    como_se_comprueba: "GET zona: status=active; proyecto Pages existe y apunta al dominio."
+    item_preflight: C-02
+  - paso: 3
+    id: meta-dataset
+    que: "Crear el dataset DS_<oferta_id> en el portfolio de Meta (irreversible; máx. 100 por portfolio)."
+    quien: dueno
+    como_se_comprueba: "GET /<dataset_id>: existe y pertenece al portfolio y a la cuenta permitida."
+    item_preflight: M-05
+  - paso: 4
+    id: meta-capi-token
+    que: "Generar el token CAPI del dataset y cargarlo como secreto del Worker capi de la oferta."
+    quien: dueno
+    como_se_comprueba: "wrangler secret list del Worker capi incluye META_CAPI_TOKEN__<oferta_id> (solo el NOMBRE, nunca el valor)."
+    item_preflight: M-05
+  - paso: 5
+    id: meta-dominio-verificado
+    que: "Verificar el dominio en el portfolio de Meta (TXT en DNS o meta-tag)."
+    quien: dueno
+    como_se_comprueba: "GET dominios del portfolio: el dominio aparece verificado."
+    item_preflight: M-06
+  - paso: 6
+    id: correo-envio
+    que: "Dar de alta el dominio de envío transaccional (subdominio envio.<dominio>) con SPF, DKIM y DMARC."
+    quien: dueno
+    como_se_comprueba: "DNS tiene SPF, DKIM y DMARC (p=none inicial); el proveedor marca el dominio verificado."
+    item_preflight: C-04
+  - paso: 7
+    id: stripe-catalogo-prueba
+    que: "Crear Product y Price de PRUEBA en Stripe para la oferta (precio, moneda y garantía de oferta.json)."
+    quien: dueno
+    como_se_comprueba: "GET Price de prueba: activo, moneda y unit_amount coinciden con oferta.json."
+    item_preflight: S-05
+  - paso: 8
+    id: stripe-catalogo-vivo
+    que: "Crear Product y Price VIVOS idénticos, tras la compra manual de prueba (N08)."
+    quien: dueno
+    como_se_comprueba: "GET Price vivo: activo, mismo precio/moneda/garantía que el de prueba y que el HTML."
+    item_preflight: S-05
+  - paso: 9
+    id: ruta-sesion
+    que: "Añadir la ruta /api/sesion* de la zona de la oferta al Worker crear-sesion."
+    quien: dueno
+    como_se_comprueba: "Lista de rutas de la zona incluye <dominio_oferta>/api/sesion*."
+    item_preflight: C-03
+  - paso: 10
+    id: secretos-por-oferta
+    que: "Cargar los secretos de la oferta (token CAPI, claves de Stripe de la oferta si aplica)."
+    quien: dueno
+    como_se_comprueba: "Variables esperadas por NOMBRE presentes en cada Worker/servicio (sin leer valores)."
+    item_preflight: R-05
+  - paso: 11
+    id: spend-cap
+    que: "Recalcular limite_gasto_cuenta_meta (valor paramétrico, docs/07 §9.1) y subir el spend_cap de la cuenta (máx. 10 cambios/día, solo administradores)."
+    quien: dueno
+    como_se_comprueba: "GET act_<id>: spend_cap > amount_spent y spend_cap <= limite_gasto_cuenta_meta recalculado."
+    item_preflight: M-03

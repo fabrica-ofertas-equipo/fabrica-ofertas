@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/gates.schema.json",
+  "title": "Tabla de gates por etapa y nivel",
+  "description": "Tabla única de gates por etapa/acción y nivel (coherente con backbone 5.5)",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "niveles": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+      },
+      "minItems": 5,
+      "maxItems": 5
+    },
+    "entradas": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^(etapa|accion):[A-Za-z0-9_]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "descripcion": {
+            "type": "string"
+          },
+          "gate": {
+            "type": "object",
+            "properties": {
+              "N0": {
+                "$ref": "comunes.schema.json#/$defs/gate_tabla"
+              },
+              "N1": {
+                "$ref": "comunes.schema.json#/$defs/gate_tabla"
+              },
+              "N2": {
+                "$ref": "comunes.schema.json#/$defs/gate_tabla"
+              },
+              "N3": {
+                "$ref": "comunes.schema.json#/$defs/gate_tabla"
+              },
+              "N4": {
+                "$ref": "comunes.schema.json#/$defs/gate_tabla"
+              }
+            },
+            "required": [
+              "N0",
+              "N1",
+              "N2",
+              "N3",
+              "N4"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "descripcion",
+          "gate"
+        ],
+        "additionalProperties": false,
+        "description": "Gate por nivel"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "niveles",
+    "entradas"
+  ],
+  "additionalProperties": false
+}

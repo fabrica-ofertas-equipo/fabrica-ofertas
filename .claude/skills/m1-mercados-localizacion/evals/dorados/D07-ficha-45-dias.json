@@ -1,0 +1,16 @@
+{
+  "id": "D07",
+  "nombre": "Ficha con tarifas de 45 dias",
+  "spec": "departamentos/16 §10.5 eval 7",
+  "entrada": {
+    "ficha": "tarifa leida hace 45 dias (> vigencia_tarifas_dias)"
+  },
+  "salida_esperada": {
+    "regla": "R10 bloquea el par; reabre al reverificar con fuente oficial",
+    "cpm": "el CPM vencido NO bloquea: MAYOR + etiqueta [SUPUESTO]"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba de vigencia con 47 dias)",
+    "L2": []
+  }
+}

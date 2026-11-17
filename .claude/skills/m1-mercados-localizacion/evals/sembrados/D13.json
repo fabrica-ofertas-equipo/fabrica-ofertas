@@ -1,0 +1,69 @@
+{
+  "id": "D13",
+  "bloqueante_star": false,
+  "severidad": "MAYOR",
+  "defecto": "Managed Payments elegido sin descontar BLIK en Polonia",
+  "donde_se_siembra": "mercado.seleccion.json#/decision_managed_payments y ranking",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/decision_managed_payments",
+          "valor": "si"
+        },
+        {
+          "op": "append",
+          "ruta": "/ranking",
+          "valor": {
+            "posicion": 2,
+            "pais": "PL",
+            "locale": "pl-PL",
+            "moneda_cobro": "PLN",
+            "total": "49.8",
+            "puntajes": {
+              "PA": 3,
+              "CAC": 3,
+              "COMP": 3,
+              "PAGO": 4,
+              "FISC": 2,
+              "LOC": 3,
+              "FRAUD": 4,
+              "EXPO": 3,
+              "ESC": 4
+            },
+            "cobertura": {
+              "fase_vigente_pct": "67.0",
+              "estandar_pct": "17.0",
+              "con_locales_pct": "67.0",
+              "valor_desbloqueo_pp": "50.0",
+              "hueco_paypal_pp": "6.0",
+              "suman": [
+                "card",
+                "apple_pay",
+                "blik"
+              ]
+            },
+            "banderas": []
+          }
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-13"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-13",
+      "patron_clave": "managed-payments-sin-descontar-blik",
+      "severidad": "MAYOR",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "con Managed Payments BLIK y Przelewy24 salen (PL ≈ 17 %)"
+  }
+}

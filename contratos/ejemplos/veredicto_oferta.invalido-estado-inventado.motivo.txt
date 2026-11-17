@@ -1,0 +1,3 @@
+validador=enum
+ruta=/estado
+texto=el estado es VALIDADA, PROMETEDORA, FALLIDA o INCONCLUSA

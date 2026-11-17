@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img">
+<rect width="1280" height="720" fill="#F9F0F6"/>
+<rect width="1280" height="72.0" fill="#2E1F3B"/>
+<text x="102.4" y="48.96" font-family="Helvetica, Arial, sans-serif" font-size="24.48" font-weight="700" letter-spacing="2" fill="#F9F0F6">KARTA</text>
+<text x="102.4" y="144.0" font-family="Georgia, serif" font-size="33.12" font-weight="700" fill="#2A1B33">Jedno pytanie na dziś</text>
+<rect x="102.4" y="176.4" width="153.6" height="6" rx="3" fill="#8F2F5F"/>
+<rect x="102.4" y="244.8" width="1024.0" height="15.84" rx="6" fill="#2A1B33" opacity=".16"/><rect x="102.4" y="298.8" width="793.6" height="15.84" rx="6" fill="#2A1B33" opacity=".16"/><rect x="102.4" y="352.8" width="640.0" height="15.84" rx="6" fill="#2A1B33" opacity=".16"/>
+<rect x="102.4" y="576.0" width="1075.2" height="86.39999999999999" rx="14" fill="#8F2F5F" opacity=".16"/>
+<text x="140.8" y="624.96" font-family="Helvetica, Arial, sans-serif" font-size="23.04" fill="#2A1B33">Wskazówka: zapytaj spokojnie i daj czas na odpowiedź.</text>
+</svg>

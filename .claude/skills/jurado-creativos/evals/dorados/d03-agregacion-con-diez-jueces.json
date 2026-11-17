@@ -1,0 +1,21 @@
+{
+  "caso_id": "D03",
+  "titulo": "Agregación con diez jueces",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "votos": "4 piezas con 9, 7, 3 y 0 «sí» de 10; anclas 10 y 0"
+  },
+  "salida_esperada": {
+    "orden": "1: 9/10, 2: 7/10, 3: 3/10, 4: 0/10",
+    "banda": "Wilson 95 % (7/10 → 0,40-0,89)",
+    "separable": "7/10 y 6/10 NO son separables",
+    "anclas": "discrimina: true",
+    "modo": "sombra, aplica_orden false"
+  },
+  "aprobacion": [
+    "las anclas no aparecen en votos ni en orden",
+    "el desempate lo decide la semilla",
+    "sello válido"
+  ]
+}

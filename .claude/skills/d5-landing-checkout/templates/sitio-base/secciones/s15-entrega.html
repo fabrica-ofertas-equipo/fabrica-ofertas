@@ -1,0 +1,24 @@
+<section class="seccion entrega tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-entrega">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+{{#si kicker}}
+      <p class="kicker">{{{kicker}}}</p>
+{{/si}}
+      <h2 id="titulo-entrega">{{{titulo}}}</h2>
+    </header>
+    <ol class="pasos" role="list">
+{{#cada pasos}}
+      <li class="paso">
+        <span class="paso__num" aria-hidden="true">{{num}}</span>
+        <div>
+          <h3>{{{titulo}}}</h3>
+{{#si texto}}
+          <p>{{{texto}}}</p>
+{{/si}}
+        </div>
+      </li>
+{{/cada}}
+    </ol>
+{{{cta_html}}}
+  </div>
+</section>

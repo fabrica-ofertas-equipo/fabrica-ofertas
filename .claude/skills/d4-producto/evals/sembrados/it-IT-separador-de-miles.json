@@ -1,0 +1,25 @@
+{
+  "id": "it-IT-miles",
+  "origen": "spec §10.5 #2 (L1-13 debe detectar el separador de miles sembrado)",
+  "dorado_base": "D4-03",
+  "mutacion": {
+    "archivo": "entregables/fuente/guida.html",
+    "antes": "la soglia è 1.500 euro all'anno",
+    "despues": "la soglia è 1,500 euro all'anno"
+  },
+  "detectores_deterministas": [
+    "lint_contenido.py --locale it-IT → separador-ajeno (BLOQUEANTE, porque lleva unidad)",
+    "verificar_respaldo.py → cifra-distinta-de-fuente (lee 1,5 y la fuente dice 1500)"
+  ],
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-13",
+      "patron_clave": "separador-ajeno",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "guida.html y afirmaciones.jsonl (valor_normalizado 1500)",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  }
+}

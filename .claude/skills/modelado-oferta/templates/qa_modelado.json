@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Informe del QA de modelado (MOD-6). Hermano `0.1.0-borrador`: contratos/qa.schema.json aun no tiene etapa de modelado (PENDIENTES.md D); usa los mismos nombres de campo para migrarlo sin reescribir. Lo escribe el QA INDEPENDIENTE (solo lectura; no corrige; devuelve `correccion` por hallazgo). Los QM que puede correr el codigo van con `ejecutor: codigo`; mientras scripts/modelado/similitud.py no exista, el Maker deja el metodo y el QA repite una muestra. Borra las claves que empiezan por `_`.",
+  "ambito": "oferta",
+  "oferta_id": "OF-AAAAMM-NN",
+  "etapa_de_referencia": "D3",
+  "subetapa": "modelado",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "AAAA-MM-DDThh:mm:ssZ",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefactos": ["modelado/desarme_referente.json", "modelado/plan_mejora.json", "modelado/antes_despues.json", "modelado/esqueleto_funnel.json", "modelado/esqueleto_html.json", "modelado/mapa_ranuras.json"],
+  "veredicto": "PASS | PASS_CON_NOTAS | FAIL | ESCALAR",
+  "puntaje_global": "0.00",
+  "umbral": "4.00",
+  "items": [
+    {"item_id": "R1", "nombre": "Fidelidad de la oferta (misma oferta)", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R2", "nombre": "Mejoras pequenas con evidencia", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R3", "nombre": "Expresion propia (impronta)", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R4", "nombre": "Estructura y funnel heredados", "critico": false, "puntaje": null, "evidencia": ""},
+    {"item_id": "R5", "nombre": "Desarme honesto", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R6", "nombre": "Voz del mercado e idioma", "critico": false, "puntaje": null, "evidencia": ""},
+    {"item_id": "R7", "nombre": "Antes y despues integro", "critico": true, "puntaje": null, "evidencia": ""},
+    {"item_id": "R8", "nombre": "Sin datos inventados y cumplimiento", "critico": true, "puntaje": null, "evidencia": ""}
+  ],
+  "checks_qm": [
+    {"check_id": "QM-01", "resultado": "pass|fail|no_aplica", "ejecutor": "codigo|qa", "metodo": "", "detalle": ""},
+    {"check_id": "QM-02", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-03", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-04", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-05", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-06", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-07", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-08", "resultado": null, "ejecutor": null, "metodo": "", "detalle": "", "misma_oferta": "si|parcial|no", "misma_expresion": "si|parcial|no"},
+    {"check_id": "QM-09", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-10", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-11", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-12", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-13", "resultado": null, "ejecutor": null, "metodo": "", "detalle": ""},
+    {"check_id": "QM-14", "resultado": null, "ejecutor": null, "metodo": "", "detalle": "", "capas": {"1_glosario_y_dossier": null, "2_lint_x1": null, "3_retraduccion": null, "4_segunda_lectura_otro_modelo": null, "5_cobertura_cruzada": null}}
+  ],
+  "antes_despues_recalculado": {"suma_referente": null, "suma_nuestra": null, "delta": null, "a": null, "b": null, "c": null, "coincide_con_el_maker": null},
+  "simulaciones": [
+    {"nombre": "intercambio", "resultado": "puede un competidor usar el texto cambiando el nombre?"},
+    {"nombre": "hero_en_5_segundos", "resultado": ""},
+    {"nombre": "dueno_en_15_minutos", "resultado": "la tarjeta basta para decidir sin pedir mas contexto?"}
+  ],
+  "hallazgos": [
+    {"check_id": "QM-xx", "patron_clave": "kebab-estable", "severidad": "BLOQUEANTE|MAYOR|MENOR|MEJORA", "descripcion": "", "evidencia": "cita o ruta + campo", "correccion": "obligatoria si exige cambio", "estado": "devuelto_al_maker|aceptado_con_nota"}
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "riesgos_residuales": [],
+  "aprendizajes_para_skill": []
+}

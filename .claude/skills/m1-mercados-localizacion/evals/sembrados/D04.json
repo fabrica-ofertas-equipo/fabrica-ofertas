@@ -1,0 +1,39 @@
+{
+  "id": "D04",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "El ajuste de creadores decide el desempate (peso != 0)",
+  "donde_se_siembra": "mercado.seleccion.json#/parametros_usados/peso_ajuste_creadores",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/parametros_usados/peso_ajuste_creadores",
+          "valor": 5
+        },
+        {
+          "op": "set",
+          "ruta": "/ranking/0/desempate_por",
+          "valor": "ajuste_creadores"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-09"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-09",
+      "patron_clave": "creadores-deciden",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "peso de creadores = 0 (decision del dueño 2026-11-06); solo informativo"
+  }
+}

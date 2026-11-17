@@ -1,0 +1,64 @@
+{
+  "id": "S22",
+  "descripcion": "Presupuesto armado sin tarifa de ubicacion: spend_cap x (1 + 3 %) rebasa el techo en Italia",
+  "check_id": "C04",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "diario"
+      ],
+      "valor": 3545
+    },
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "total_test"
+      ],
+      "valor": 35450
+    },
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "dias"
+      ],
+      "valor": 10
+    },
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "spend_cap"
+      ],
+      "valor": 38995
+    },
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "max_teorico_diario"
+      ],
+      "valor": 6204
+    }
+  ],
+  "esperado": {
+    "check_id": "C04",
+    "codigo": "facturado_con_tarifa_sobre_techo",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C04",
+      "patron_clave": "techo-sin-tarifa",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

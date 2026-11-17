@@ -1,0 +1,31 @@
+{
+  "id": "s21-rentabilidad-ajena-en-hipotesis",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Hipótesis que deduce ganancias del conteo de anuncios (D-07)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "append",
+      "ruta": "/candidatos/0/hipotesis_para_d2",
+      "valor": "Este anunciante factura mucho porque tiene 160 anuncios activos."
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-07",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-07",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "rentabilidad-ajena-por-conteo"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

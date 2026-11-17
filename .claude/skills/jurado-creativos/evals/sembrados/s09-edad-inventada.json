@@ -1,0 +1,10 @@
+{
+  "caso_id": "S09",
+  "titulo": "Edad inventada",
+  "defecto_sembrado": "avatares.json: demografia.edad_rango = «25-34» sin fuente",
+  "check_esperado": "JQ-09",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "avatares.validar → «edad_rango tiene valor pero no cita»",
+  "correccion_esperada": "null / sin_dato, o citar la fuente",
+  "automatizado": true
+}

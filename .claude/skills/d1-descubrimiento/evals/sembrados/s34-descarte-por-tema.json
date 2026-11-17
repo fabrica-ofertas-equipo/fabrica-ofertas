@@ -1,0 +1,35 @@
+{
+  "id": "s34-descarte-por-tema",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Candidato válido descartado por su tema («embarazo») y no por su promesa (decisión 13)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "append",
+      "ruta": "/descartados",
+      "valor": {
+        "problema": "Guía para volver al trabajo tras el embarazo",
+        "motivo": "fuera_de_macro_nicho",
+        "redencion": "descartar"
+      }
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-14",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-14",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "descarte-por-tema"
+      }
+    ],
+    "nota": "El tema no es un filtro: la reinserción laboral es dinero (deseo central = empleo) y el riesgo se calcula por promesa, contenido, encuadre y negocio."
+  }
+}

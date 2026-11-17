@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/traspaso.schema.json",
+  "title": "Traspaso de D7 a D8",
+  "description": "ofertas/<id>/07-campana/traspaso.json: monitoreo T+1/6/24/48/72 h tras activar (meta.monitor). lanzamiento_estable solo con la ventana de 72 h, sin anomalías ni rechazos; un anuncio DISAPPROVED se pausa, cuenta en rechazos_7d y nunca se reenvía el mismo hash.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "ventana_h": {
+      "enum": [
+        1,
+        6,
+        24,
+        48,
+        72
+      ]
+    },
+    "medido_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "campana": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "$ref": "comunes.schema.json#/$defs/id_meta"
+        },
+        "effective_status": {
+          "type": "string",
+          "pattern": "^[A-Z_]{3,40}$",
+          "description": "effective_status / estado de Meta tal cual, sin interpretarlo"
+        }
+      },
+      "required": [
+        "campaign_id",
+        "effective_status"
+      ],
+      "additionalProperties": false
+    },
+    "anuncios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "ad_id": {
+            "$ref": "comunes.schema.json#/$defs/id_meta"
+          },
+          "effective_status": {
+            "type": "string",
+            "pattern": "^[A-Z_]{3,40}$",
+            "description": "effective_status / estado de Meta tal cual, sin interpretarlo"
+          },
+          "rechazado": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ad_id",
+          "effective_status",
+          "rechazado"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "gasto": {
+      "type": "object",
+      "properties": {
+        "real": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "esperado": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "real",
+        "esperado"
+      ],
+      "additionalProperties": false
+    },
+    "estado_aprendizaje": {
+      "type": "string",
+      "pattern": "^[A-Z_]{3,40}$",
+      "description": "learning_stage_info.status del conjunto, tal cual"
+    },
+    "rechazos_7d": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "adid_capturado_bp": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/proporcion_bp"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "clics_enlace": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "vistas_landing": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "anomalias": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/kebab"
+      },
+      "uniqueItems": true
+    },
+    "lanzamiento_estable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "ventana_h",
+    "medido_en",
+    "campana",
+    "anuncios",
+    "gasto",
+    "estado_aprendizaje",
+    "rechazos_7d",
+    "adid_capturado_bp",
+    "clics_enlace",
+    "vistas_landing",
+    "anomalias",
+    "lanzamiento_estable"
+  ],
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "lanzamiento_estable": {
+        "const": true
+      }
+    },
+    "required": [
+      "lanzamiento_estable"
+    ]
+  },
+  "then": {
+    "properties": {
+      "ventana_h": {
+        "const": 72
+      },
+      "anomalias": {
+        "maxItems": 0
+      },
+      "rechazos_7d": {
+        "const": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "s11-macro-asignado-por-el-formato",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ macro_nicho asignado por el formato (patrones de crochet como «dinero» sin cita E3)",
+  "base": "g2-dinero-es-ar-manualidades-costeo-sin-promesa",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/problema",
+      "valor": "Quiere tejer amigurumis y no encuentra patrones claros para empezar"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/prueba_una_frase",
+      "valor": "Para quien quiere tejer amigurumis y no encuentra patrones claros, 500 Patrones de Crochet es un pack que lleva de «no sé empezar» a «mi primer amigurumi» sin patrones confusos."
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/mecanismo/nombre",
+      "valor": "500 Patrones de Crochet"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/microsegmento",
+      "valor": "vender-manualidades-costeo"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/entregable/alcance",
+      "valor": "Pack de 500 patrones de crochet en PDF; entrega única, sin servicio posterior."
+    },
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/motivo_macro",
+      "valor": "se asignó dinero porque es un producto digital que se vende"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "macro-por-formato"
+      }
+    ],
+    "nota": "El macro sale del deseo central (tejer = hobby → fuera_de_macro_nicho); con cita E3 de «qué precio poner» sería el costeo, otro candidato."
+  }
+}

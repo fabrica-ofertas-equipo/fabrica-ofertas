@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.2.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "es-ES",
+  "nota": "EJEMPLO: las referencias son ilustrativas; en una corrida real salen de anuncios_competencia.json (D2; D6 no consulta la Biblioteca de Anuncios), del orgánico en el idioma, del dossier de voz del cliente y de la biblioteca de ganchos. J13: la idea se hereda, la forma se transforma, la expresión no se toca. Se guarda la ficha, nunca el activo.",
+  "fuentes": [
+    {
+      "fuente_id": "F-01",
+      "concepto_id": "c01-hueco",
+      "tipo": "biblioteca_anuncios",
+      "ref": "anuncios_competencia.json#A-03 (ad_snapshot_url del anuncio A-03, leído en D2)",
+      "pais": "ES",
+      "fecha_consulta": "2026-11-06",
+      "ficha": {
+        "estructura": "hook de tercera persona, cuerpo de 3 beneficios, CTA",
+        "ritmo": "estático con titular grande",
+        "hook_tipo": "curiosidad",
+        "angulo": "plantilla de currículum",
+        "duracion_s": null,
+        "formato": "imagen"
+      },
+      "se_toma": "estructura hook→3 puntos→CTA y titular grande",
+      "cambia": "mecanismo (guion de la pausa), oferta, visuales, texto íntegro",
+      "activo_descartado": true,
+      "se_hereda": "idea y estructura: hook de tercera persona, cuerpo de 3 beneficios, CTA, titular grande",
+      "se_transforma": "mecanismo (guion de la pausa), oferta, composición, orden y selección de piezas, visuales",
+      "expresion_protegida": [
+        "titular y texto del anuncio de la fuente",
+        "nombre del producto y de la marca",
+        "imágenes",
+        "cifras o estrellas de prueba social"
+      ]
+    },
+    {
+      "fuente_id": "VC-EV-01",
+      "concepto_id": "c01-hueco",
+      "tipo": "voz_cliente",
+      "ref": "validacion/voz_cliente.json#EV-01",
+      "pais": "ES",
+      "fecha_consulta": "2026-11-06",
+      "ficha": {
+        "estructura": "vocabulario y situación (no se cita en primera persona)",
+        "ritmo": null,
+        "hook_tipo": "escena-pov",
+        "angulo": "hueco como relato",
+        "duracion_s": null,
+        "formato": "imagen"
+      },
+      "se_toma": "palabras «pausa», «hueco», «volver a trabajar»",
+      "cambia": "se convierte en situación impersonal",
+      "activo_descartado": true,
+      "se_hereda": "vocabulario y situación (no se cita en primera persona)",
+      "se_transforma": "se convierte en situación impersonal o pregunta sobre la tarea",
+      "expresion_protegida": []
+    },
+    {
+      "fuente_id": "G-0001",
+      "concepto_id": "c01-hueco",
+      "tipo": "banco_de_ganchos",
+      "ref": "datos/ganchos.jsonl#G-0001 (ganchos.py rechazar: aceptado; similitud máxima 0,41 con G-0007)",
+      "pais": "ES",
+      "fecha_consulta": "2026-11-07",
+      "ficha": {
+        "estructura": "gancho con cita del dossier (cita_id) y palanca de la oferta",
+        "ritmo": null,
+        "hook_tipo": "escena-pov",
+        "angulo": "hueco como relato",
+        "duracion_s": null,
+        "formato": "imagen"
+      },
+      "se_hereda": "forma: situación + salida concreta del producto",
+      "se_transforma": "texto íntegro y ángulo",
+      "expresion_protegida": [],
+      "se_toma": "tipo de hook y ángulo ya probados en la biblioteca",
+      "cambia": "redacción, claim y visual",
+      "activo_descartado": true
+    }
+  ],
+  "reglas": [
+    "≥3 fuentes por concepto, de ≥2 tipos; el banco de hooks de X2 vacío no cuenta (el de datos/ganchos.jsonl sí, con su fuente)",
+    "J13: la idea se hereda, la forma se transforma, la expresión no se toca; ante la duda, se cambia",
+    "ningún texto, nombre, imagen, clip, voz, música o testimonio ajeno entra en un anuncio; tampoco su traducción",
+    "n-grama ≥ compliance.ngrama_copia_palabras contra el corpus de D2 y los referentes = copia (también ganchos.py rechazar)"
+  ]
+}

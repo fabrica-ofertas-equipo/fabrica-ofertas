@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.0.0",
+  "juez": "A",
+  "ofertas": [
+    {
+      "modelo_id": "crea-y-emprende-crochet-es",
+      "puertas": {
+        "marca_personal": {
+          "valor": false,
+          "evidencia": "AUSENCIA: busqué fundador, nombre propio, foto o credenciales en anuncios y en las dos páginas; solo hay marca de empresa (Academia Creadora). Una sola historia en primera persona, anónima, aparece en un anuncio."
+        },
+        "sustituto_gratis_cubre": {
+          "valor": null,
+          "evidencia": "Buscas de video en video. Y nadie lo explica completo."
+        },
+        "practica_vetada": {
+          "valor": true,
+          "evidencia": "En un finde vendí casi 300 mil pesos en adornos navideños que tejí en mi casa"
+        }
+      },
+      "reencuadres": [
+        {
+          "id": "lista_a_sistema",
+          "evidencia": "Más de 100 patrones navideños en crochet y macramé, ordenados en 10 carpetas"
+        },
+        {
+          "id": "cambio_de_unidad",
+          "evidencia": "Navidad Tejida · +100 patrones"
+        }
+      ],
+      "mercados": [
+        {
+          "mercado": "PL",
+          "transferibilidad": {
+            "dolor_universal": {
+              "valor": "0.7",
+              "evidencia": "Cada año dices «este año sí» y llega el 24 sin nada tejido"
+            },
+            "viabilidad_ticket": {
+              "valor": null,
+              "evidencia": "AUSENCIA: el precio está en pesos (AR$ 19.990 y $19.990) con «pago único en tu moneda». No hay precio ni equivalencia en moneda de Polonia."
+            },
+            "riesgo_politicas": {
+              "valor": "0.5",
+              "evidencia": "Si vendes 10 ramos, recuperas tu inversión diez veces."
+            }
+          },
+          "reencuadres_mercado": [
+            {
+              "id": "localizacion_cultural",
+              "evidencia": "¿Y si en mi país los puntos tienen otro nombre?"
+            }
+          ]
+        },
+        {
+          "mercado": "PT",
+          "transferibilidad": {
+            "dolor_universal": {
+              "valor": "0.7",
+              "evidencia": "Quieres regalar algo que no se compra en ningún lado"
+            },
+            "viabilidad_ticket": {
+              "valor": null,
+              "evidencia": "AUSENCIA: el precio está en pesos (AR$ 19.990 y $19.990) con «pago único en tu moneda». No hay precio ni equivalencia en euros para Portugal."
+            },
+            "riesgo_politicas": {
+              "valor": "0.5",
+              "evidencia": "Teje, arma y vende tus primeros ramos en 7 días"
+            }
+          },
+          "reencuadres_mercado": [
+            {
+              "id": "localizacion_cultural",
+              "evidencia": "¿Y si en mi país los puntos tienen otro nombre?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

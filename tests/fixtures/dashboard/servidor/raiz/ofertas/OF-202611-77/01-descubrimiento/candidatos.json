@@ -1,0 +1,8 @@
+{
+  "candidatos": [
+    {
+      "id": "CAND-01",
+      "titulo": "<script>alert('x')</script> <img src=x onerror=alert(1)> ‮gnp.exe"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: pl-PL
+# estado: v0.1 sin pulir; único recordatorio (día 7); no se envía si ya respondió, se dio de baja, pidió reembolso, abrió una disputa o tiene un ticket abierto; sello de X1 pendiente
+Asunto: Jedno przypomnienie: Twoja ocena – zamówienie {{pedido_ref}}
+
+Dzień dobry,
+
+kilka dni temu wysłaliśmy prośbę o ocenę materiałów ze sklepu {{marca}}. To jedyne przypomnienie – więcej wiadomości w tej sprawie nie wyślemy.
+
+Jeśli chcesz, wybierz liczbę gwiazdek od 1 do 5:
+
+1 z 5: {{resena_url_1}}
+2 z 5: {{resena_url_2}}
+3 z 5: {{resena_url_3}}
+4 z 5: {{resena_url_4}}
+5 z 5: {{resena_url_5}}
+
+Na następnej stronie potwierdzisz ocenę i zdecydujesz, czy wolno nam pokazać Twój komentarz. Niczego nie publikujemy bez Twojej zgody. Zależy nam na szczerej opinii, jakakolwiek by była.
+
+Jeśli wolisz nie oceniać, nie musisz nic robić. Gdyby coś nie działało, napisz na {{soporte_email}}.
+
+Wypisz się z takich wiadomości: {{baja_url}}
+
+Sprzedawca: {{vendedor}}
+Zasady zakupu i zwrotów: {{politica_url}}

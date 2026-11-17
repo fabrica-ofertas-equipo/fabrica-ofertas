@@ -1,0 +1,104 @@
+{
+  "oferta_id": "OF-202612-02",
+  "version": "v1",
+  "fecha": "2026-12-10",
+  "activos": [
+    {
+      "activo_id": "portada-01",
+      "archivo": "entregables/fuente/img/portada-01.png",
+      "origen": "ia_generativa",
+      "herramienta": "Higgsfield · gpt_image_2_6 (la genera D6, con su cotización previa y el permiso del dueño; D4 no llama a Higgsfield)",
+      "plan": "[VERIFICAR: plan de la cuenta y términos vigentes el día de la generación, comprobados por una persona]",
+      "licencia_url": "https://licencia-ejemplo.example.invalid/terminos",
+      "licencia_evidencia": "respaldo/licencias/terminos-higgsfield-2026-12-10.txt (snapshot con sha256)",
+      "alcance": {
+        "comercial": true,
+        "redistribucion": true,
+        "uso_del_comprador": "uso personal y comercial propio del contenido; sin reventa del archivo"
+      },
+      "prompt_ref": "entregables/fuente/prompts/portada-01.txt",
+      "semilla_o_job": "[job_id de la herramienta]",
+      "creditos": 3,
+      "sin_artistas_marcas_ni_patrones_ajenos": true,
+      "c2pa": "preservado",
+      "rotulo_ia": "visible en el colofón: «Imagen generada con IA» (política de divulgación de IA del dueño)",
+      "es_foto_de_un_resultado_real": false,
+      "productor": "D6",
+      "slot_id": null,
+      "etiqueta_ia_visible": true,
+      "creditos_imputados_por": "motor (empresa/costos.jsonl); borrador en 04-producto/costos.jsonl"
+    },
+    {
+      "activo_id": "tipografia-titulos",
+      "archivo": "entregables/fuente/fonts/Fuente-Titulos.woff2",
+      "origen": "ofl",
+      "herramienta": null,
+      "plan": null,
+      "licencia_url": "https://licencia-ejemplo.example.invalid/OFL.txt",
+      "licencia_evidencia": "respaldo/licencias/OFL-Fuente-Titulos.txt",
+      "alcance": {
+        "comercial": true,
+        "redistribucion": true,
+        "uso_del_comprador": "embebida en el PDF; el comprador no recibe el archivo de la fuente"
+      },
+      "prompt_ref": null,
+      "semilla_o_job": null,
+      "creditos": 0,
+      "sin_artistas_marcas_ni_patrones_ajenos": true,
+      "c2pa": "no_aplica",
+      "rotulo_ia": "no_aplica",
+      "es_foto_de_un_resultado_real": false,
+      "productor": "D4",
+      "slot_id": null,
+      "etiqueta_ia_visible": false
+    },
+    {
+      "activo_id": "texto-propio",
+      "archivo": "entregables/fuente/guida.html",
+      "origen": "propio",
+      "herramienta": "Claude (redacción asistida) + revisión editorial",
+      "plan": null,
+      "licencia_url": null,
+      "licencia_evidencia": "trazabilidad.md (aporte humano y de IA)",
+      "alcance": {
+        "comercial": true,
+        "redistribucion": true,
+        "uso_del_comprador": "uso personal; sin reventa"
+      },
+      "prompt_ref": null,
+      "semilla_o_job": null,
+      "creditos": 0,
+      "sin_artistas_marcas_ni_patrones_ajenos": true,
+      "c2pa": "no_aplica",
+      "rotulo_ia": "divulgación general del producto",
+      "es_foto_de_un_resultado_real": false,
+      "productor": "D4",
+      "slot_id": null,
+      "etiqueta_ia_visible": false
+    },
+    {
+      "activo_id": "muestra-pagina-cap2",
+      "archivo": "entregables/muestras/pagina-cap2-v1.png",
+      "origen": "propio",
+      "herramienta": "captura del PDF final aprobado (Chrome sin pantalla)",
+      "plan": null,
+      "licencia_url": null,
+      "licencia_evidencia": "captura veraz del entregable real; no es un mockup de contenido inexistente",
+      "alcance": {
+        "comercial": true,
+        "redistribucion": true,
+        "uso_del_comprador": "muestra pública en la landing"
+      },
+      "prompt_ref": null,
+      "semilla_o_job": null,
+      "creditos": 0,
+      "sin_artistas_marcas_ni_patrones_ajenos": true,
+      "c2pa": "no_aplica",
+      "rotulo_ia": "no_aplica",
+      "es_foto_de_un_resultado_real": false,
+      "productor": "D4",
+      "slot_id": "producto-muestra-1",
+      "etiqueta_ia_visible": false
+    }
+  ]
+}

@@ -1,0 +1,950 @@
+{
+ "ok": true,
+ "datos": {
+  "estado": {
+   "schema_version": "1.0.0",
+   "oferta_id": "OF-1'; rm -rf / #",
+   "familia_id": "FAM-202611-01",
+   "revision": 16,
+   "nivel": "N2",
+   "pausa": false,
+   "fase": "en_construccion",
+   "skills_pin": {
+    "D1": "0.1.0",
+    "D2": "0.1.0",
+    "D3": "0.1.0",
+    "D4": "0.1.0",
+    "D5": "0.1.0",
+    "D6": "0.1.0",
+    "D7": "0.1.0"
+   },
+   "etapas": {
+    "M1": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:9e6375ffed9832239351f98c14b1f17de1074dd2586b0f764bae449002698fa9",
+     "entradas": {
+      "D1": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "H",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "humano",
+      "id": "dueno",
+      "fecha": "2026-11-06T12:30:00Z",
+      "firma": "hmac-sha256:d3769e026d5dd847a3b2aa4c0cd5d99a964466fc9403e07cf4cc3c25bd612a0c"
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:8ba70960f4e58ccba7a6a7c7a96ca8bd3263f1f268e86158ef5f6310a94eb697",
+     "obsoleta": false
+    },
+    "D1": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1",
+     "entradas": {},
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "H",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "humano",
+      "id": "dueno",
+      "fecha": "2026-11-06T11:30:00Z",
+      "firma": "hmac-sha256:b74cc2ecb1d997b05e106f64ddd7c1b56f9484dae195a83a5673de2df8ba56e4"
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:5b35589ffb1284b2409bf8d8c7ed6ac1451a958a1e59eab528b87403f7fd8b33",
+     "obsoleta": false
+    },
+    "D2": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:339aa6ea77a01bb98aa2bde942d6fa44e7b0a79d29f980c129cacf8a5a6def5c",
+     "entradas": {
+      "D1": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1",
+      "M1": "sha256:9e6375ffed9832239351f98c14b1f17de1074dd2586b0f764bae449002698fa9"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "S",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "qa_pass",
+      "id": "d2-qa",
+      "fecha": "2026-11-06T14:30:00Z",
+      "firma": null
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:062a29ed4a0d6f5c16f0bdf6c5e3feb0aade255cc6e1a54b5db036653d5b3467",
+     "obsoleta": false
+    },
+    "D3": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:85e9d02090bbd2e6bf8c3512e53ba88fe31821b7c2ef02b4ab14095f24079b40",
+     "entradas": {
+      "D2": "sha256:339aa6ea77a01bb98aa2bde942d6fa44e7b0a79d29f980c129cacf8a5a6def5c"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "H",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "humano",
+      "id": "dueno",
+      "fecha": "2026-11-07T11:00:00Z",
+      "firma": "hmac-sha256:0746ead3b464016dbc21ae6ec6d355a1a6f65293d1127c580f98b00520fb5d56"
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:dcbceb92bdf1e154c8d1750ab043b0cfb7ecf9a41ee0138fc33c777ce3eaf472",
+     "obsoleta": false
+    },
+    "D4": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:71a782c35ccf024b36b69bc156c2e9227d17915b80b46a1df1bb9ea473394c15",
+     "entradas": {
+      "D3": "sha256:85e9d02090bbd2e6bf8c3512e53ba88fe31821b7c2ef02b4ab14095f24079b40"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "S",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "qa_pass",
+      "id": "d4-qa",
+      "fecha": "2026-11-07T17:00:00Z",
+      "firma": null
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:d11007cb2515ee003b09678ede539a857b14242613c286f6976b2dceca681014",
+     "obsoleta": false
+    },
+    "D5": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:b3acb68bce7768d4f51831bfb433d760ed0083b5fee363c0f5c61fed2f6a4023",
+     "entradas": {
+      "D3": "sha256:85e9d02090bbd2e6bf8c3512e53ba88fe31821b7c2ef02b4ab14095f24079b40",
+      "D4": "sha256:71a782c35ccf024b36b69bc156c2e9227d17915b80b46a1df1bb9ea473394c15"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "H",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "humano",
+      "id": "dueno",
+      "fecha": "2026-11-08T11:00:00Z",
+      "firma": "hmac-sha256:8adfcf2336466a9206344dbedc6b21a86478279be7f0bf5f97f581b57ecd1826"
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:8ed055a8f46a092b9bde10b2b4860459a9484e6c185518ad0ec75b80fa9a6bde",
+     "obsoleta": false
+    },
+    "D6": {
+     "estado": "aprobado",
+     "version_aprobada": "v1",
+     "hash_salida": "sha256:1bccf562f7e42fc825caffed2b9b3e3806c8247fb13184425451cc9717337420",
+     "entradas": {
+      "D3": "sha256:85e9d02090bbd2e6bf8c3512e53ba88fe31821b7c2ef02b4ab14095f24079b40",
+      "D5": "sha256:b3acb68bce7768d4f51831bfb433d760ed0083b5fee363c0f5c61fed2f6a4023"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "S",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": {
+      "tipo": "qa_pass",
+      "id": "d6-qa",
+      "fecha": "2026-11-08T16:00:00Z",
+      "firma": null
+     },
+     "bloqueo": null,
+     "idempotency_key": "sha256:d59eca9d3d36cdc8ce8ae359bc973d8c2bec4aea1974df7f0fb25fad29b396d4",
+     "obsoleta": false
+    },
+    "D7": {
+     "estado": "en_QA",
+     "version_aprobada": null,
+     "hash_salida": "sha256:bcefe720b689e10359afec7083533401be5f2e2e3870094bcf112c6ef653f574",
+     "entradas": {
+      "D5": "sha256:b3acb68bce7768d4f51831bfb433d760ed0083b5fee363c0f5c61fed2f6a4023",
+      "D6": "sha256:1bccf562f7e42fc825caffed2b9b3e3806c8247fb13184425451cc9717337420"
+     },
+     "ronda_qa": 1,
+     "intentos": 1,
+     "gate": "H",
+     "gate_pendiente": true,
+     "nivel": "N2",
+     "aprobado_por": null,
+     "bloqueo": null,
+     "idempotency_key": "sha256:610f29bbd9d9d276c472b764b05845bc37c0fdbb85d94f12a51cb1ed2089c98b",
+     "obsoleta": false
+    },
+    "D8": {
+     "estado": "pendiente",
+     "version_aprobada": null,
+     "hash_salida": null,
+     "entradas": {},
+     "ronda_qa": 0,
+     "intentos": 0,
+     "gate": "A",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": null,
+     "bloqueo": null,
+     "idempotency_key": null,
+     "obsoleta": false
+    },
+    "D9": {
+     "estado": "pendiente",
+     "version_aprobada": null,
+     "hash_salida": null,
+     "entradas": {},
+     "ronda_qa": 0,
+     "intentos": 0,
+     "gate": "H",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": null,
+     "bloqueo": null,
+     "idempotency_key": null,
+     "obsoleta": false
+    },
+    "D10": {
+     "estado": "pendiente",
+     "version_aprobada": null,
+     "hash_salida": null,
+     "entradas": {},
+     "ronda_qa": 0,
+     "intentos": 0,
+     "gate": "A",
+     "gate_pendiente": false,
+     "nivel": "N2",
+     "aprobado_por": null,
+     "bloqueo": null,
+     "idempotency_key": null,
+     "obsoleta": false
+    }
+   },
+   "candidato_elegido": {
+    "candidato_id": "CAND-01",
+    "fecha": "2026-11-06T11:20:00Z",
+    "motivo": "Mecanismo no saturado y riesgo verde tras reencuadre",
+    "editado_por_dueno": false
+   },
+   "gasto": {
+    "acumulado": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "hoy": {
+     "monto": 0,
+     "moneda": "EUR"
+    }
+   },
+   "costo_ia": {
+    "monto": 412,
+    "moneda": "EUR"
+   },
+   "actualizado_en": "2026-11-09T10:30:00Z"
+  },
+  "etapas": [
+   {
+    "id": "M1",
+    "nombre": "Mercado",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "H",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:9e6375ffed9832239351f98c14b1f17de1074dd2586b0f764bae449002698fa9",
+    "aprobado_por": {
+     "tipo": "humano",
+     "id": "dueno",
+     "fecha": "2026-11-06T12:30:00Z",
+     "firma": "hmac-sha256:d3769e026d5dd847a3b2aa4c0cd5d99a964466fc9403e07cf4cc3c25bd612a0c"
+    },
+    "bloqueo": {
+     "tipo": "<img src=x onerror=alert(1)>",
+     "motivo": "‮gpj.exe falta credencial"
+    },
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "mercado.json",
+      "tipo": "json",
+      "bytes": 1808,
+      "mtime": "2026-11-06T12:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/m1-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "nombre": "Descubrimiento",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "H",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1",
+    "aprobado_por": {
+     "tipo": "humano",
+     "id": "dueno",
+     "fecha": "2026-11-06T11:30:00Z",
+     "firma": "hmac-sha256:b74cc2ecb1d997b05e106f64ddd7c1b56f9484dae195a83a5673de2df8ba56e4"
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "01-descubrimiento/candidatos.json",
+      "tipo": "json",
+      "bytes": 14085,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/crudo/EV-01.txt",
+      "tipo": "texto",
+      "bytes": 107,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/crudo/EV-02.txt",
+      "tipo": "texto",
+      "bytes": 108,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/crudo/EV-03.txt",
+      "tipo": "texto",
+      "bytes": 108,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/crudo/EV-04.txt",
+      "tipo": "texto",
+      "bytes": 100,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/crudo/EV-05.txt",
+      "tipo": "texto",
+      "bytes": 98,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "01-descubrimiento/informe.md",
+      "tipo": "md",
+      "bytes": 210,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d1-v1.json",
+      "veredicto": "PASS_CON_NOTAS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.6",
+       "hallazgos": 4
+      }
+     }
+    ]
+   },
+   {
+    "id": "D2",
+    "nombre": "Validación",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "S",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:339aa6ea77a01bb98aa2bde942d6fa44e7b0a79d29f980c129cacf8a5a6def5c",
+    "aprobado_por": {
+     "tipo": "qa_pass",
+     "id": "d2-qa",
+     "fecha": "2026-11-06T14:30:00Z",
+     "firma": null
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "02-validacion/validacion.json",
+      "tipo": "json",
+      "bytes": 3390,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d2-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D3",
+    "nombre": "Oferta",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "H",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:85e9d02090bbd2e6bf8c3512e53ba88fe31821b7c2ef02b4ab14095f24079b40",
+    "aprobado_por": {
+     "tipo": "humano",
+     "id": "dueno",
+     "fecha": "2026-11-07T11:00:00Z",
+     "firma": "hmac-sha256:0746ead3b464016dbc21ae6ec6d355a1a6f65293d1127c580f98b00520fb5d56"
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "03-oferta/economia.json",
+      "tipo": "json",
+      "bytes": 2871,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "03-oferta/oferta.json",
+      "tipo": "json",
+      "bytes": 6879,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "03-oferta/oferta.md",
+      "tipo": "md",
+      "bytes": 163,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d3-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D4",
+    "nombre": "Producto",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "S",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:71a782c35ccf024b36b69bc156c2e9227d17915b80b46a1df1bb9ea473394c15",
+    "aprobado_por": {
+     "tipo": "qa_pass",
+     "id": "d4-qa",
+     "fecha": "2026-11-07T17:00:00Z",
+     "firma": null
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "04-producto/entregables/muestras/muestra-guia-v1.md",
+      "tipo": "md",
+      "bytes": 451,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "04-producto/entregables/plantilla-cv-puente-v1.md",
+      "tipo": "md",
+      "bytes": 758,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "04-producto/entregables/puente-de-la-pausa-v1-guia.md",
+      "tipo": "md",
+      "bytes": 2543,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "04-producto/producto.json",
+      "tipo": "json",
+      "bytes": 3220,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "04-producto/trazabilidad.md",
+      "tipo": "md",
+      "bytes": 141,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d4-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D5",
+    "nombre": "Landing y checkout",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "H",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:b3acb68bce7768d4f51831bfb433d760ed0083b5fee363c0f5c61fed2f6a4023",
+    "aprobado_por": {
+     "tipo": "humano",
+     "id": "dueno",
+     "fecha": "2026-11-08T11:00:00Z",
+     "firma": "hmac-sha256:8adfcf2336466a9206344dbedc6b21a86478279be7f0bf5f97f581b57ecd1826"
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "05-landing/assets.json",
+      "tipo": "json",
+      "bytes": 1148,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/brief.md",
+      "tipo": "md",
+      "bytes": 238,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/checkout.json",
+      "tipo": "json",
+      "bytes": 1417,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/imagenes/hero-placeholder.png",
+      "tipo": "imagen",
+      "bytes": 220,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/imagenes/og-placeholder.png",
+      "tipo": "imagen",
+      "bytes": 168,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/rutas.json",
+      "tipo": "json",
+      "bytes": 479,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/a/plan-en-una-tarde.html",
+      "tipo": "html",
+      "bytes": 3391,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/a/pregunta-de-entrevista.html",
+      "tipo": "html",
+      "bytes": 3432,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/css/estilos.css",
+      "tipo": "texto",
+      "bytes": 769,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/gracias.html",
+      "tipo": "html",
+      "bytes": 1293,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/index.html",
+      "tipo": "html",
+      "bytes": 3410,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/js/consentimiento.js",
+      "tipo": "texto",
+      "bytes": 6637,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/js/pixel.js",
+      "tipo": "texto",
+      "bytes": 2482,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/aviso.html",
+      "tipo": "html",
+      "bytes": 1355,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/cookies.html",
+      "tipo": "html",
+      "bytes": 1483,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/entrega.html",
+      "tipo": "html",
+      "bytes": 1412,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/privacidad.html",
+      "tipo": "html",
+      "bytes": 1951,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/reembolsos.html",
+      "tipo": "html",
+      "bytes": 1619,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/terminos.html",
+      "tipo": "html",
+      "bytes": 1499,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/sitio/legal/vendedor.html",
+      "tipo": "html",
+      "bytes": 1447,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "05-landing/tracking.json",
+      "tipo": "json",
+      "bytes": 1860,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d5-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     },
+     {
+      "archivo": "qa/x1-d5-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D6",
+    "nombre": "Creativos",
+    "estado": "aprobado",
+    "version": "v1",
+    "gate": "S",
+    "gate_pendiente": false,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:1bccf562f7e42fc825caffed2b9b3e3806c8247fb13184425451cc9717337420",
+    "aprobado_por": {
+     "tipo": "qa_pass",
+     "id": "d6-qa",
+     "fecha": "2026-11-08T16:00:00Z",
+     "firma": null
+    },
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "06-creativos/assets/c01-hueco_img_h1_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/assets/c01-hueco_img_h2_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/assets/c02-entrevista_img_h1_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/assets/c02-entrevista_img_h2_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/assets/c03-tarde_img_h1_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/assets/c03-tarde_img_h2_v1.png",
+      "tipo": "imagen",
+      "bytes": 250,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "06-creativos/paquete.json",
+      "tipo": "json",
+      "bytes": 9342,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d6-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     },
+     {
+      "archivo": "qa/x1-d6-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D7",
+    "nombre": "Campaña",
+    "estado": "en_QA",
+    "version": null,
+    "gate": "H",
+    "gate_pendiente": true,
+    "ronda_qa": 1,
+    "intentos": 1,
+    "hash": "sha256:bcefe720b689e10359afec7083533401be5f2e2e3870094bcf112c6ef653f574",
+    "aprobado_por": null,
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "07-campana/README.md",
+      "tipo": "md",
+      "bytes": 124,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "07-campana/campana.json",
+      "tipo": "json",
+      "bytes": 3775,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": [
+     {
+      "archivo": "qa/d7-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     },
+     {
+      "archivo": "qa/x1-d7-v1.json",
+      "veredicto": "PASS",
+      "resumen": {
+       "puntaje_global": "4.40",
+       "umbral": "3.8",
+       "hallazgos": 3
+      }
+     }
+    ]
+   },
+   {
+    "id": "D8",
+    "nombre": "Operación",
+    "estado": "pendiente",
+    "version": null,
+    "gate": "A",
+    "gate_pendiente": false,
+    "ronda_qa": 0,
+    "intentos": 0,
+    "hash": null,
+    "aprobado_por": null,
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "08-operacion/README.md",
+      "tipo": "md",
+      "bytes": 196,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "08-operacion/diario/2026-11-11/kpi_oferta_dia.json",
+      "tipo": "json",
+      "bytes": 1791,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "08-operacion/ordenes_presupuesto.jsonl",
+      "tipo": "texto",
+      "bytes": 1047,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "08-operacion/veredicto_oferta.json",
+      "tipo": "json",
+      "bytes": 1001,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": []
+   },
+   {
+    "id": "D9",
+    "nombre": "Escalado",
+    "estado": "pendiente",
+    "version": null,
+    "gate": "H",
+    "gate_pendiente": false,
+    "ronda_qa": 0,
+    "intentos": 0,
+    "hash": null,
+    "aprobado_por": null,
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [],
+    "qa": []
+   },
+   {
+    "id": "D10",
+    "nombre": "Postcompra",
+    "estado": "pendiente",
+    "version": null,
+    "gate": "A",
+    "gate_pendiente": false,
+    "ronda_qa": 0,
+    "intentos": 0,
+    "hash": null,
+    "aprobado_por": null,
+    "bloqueo": null,
+    "obsoleta": false,
+    "artefactos": [
+     {
+      "ruta": "10-postcompra/README.md",
+      "tipo": "md",
+      "bytes": 130,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "10-postcompra/entregas.jsonl",
+      "tipo": "texto",
+      "bytes": 638,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "10-postcompra/reembolsos.jsonl",
+      "tipo": "texto",
+      "bytes": 562,
+      "mtime": "2026-11-09T10:00:00Z"
+     },
+     {
+      "ruta": "10-postcompra/senal_pausa.json",
+      "tipo": "json",
+      "bytes": 590,
+      "mtime": "2026-11-09T10:00:00Z"
+     }
+    ],
+    "qa": []
+   }
+  ],
+  "proximo_paso": {
+   "titulo": "<script>alert(1)</script>",
+   "comando": "x"
+  },
+  "brief": {
+   "slug": "reinsercion-laboral-madres",
+   "mercado_objetivo": {
+    "locale": "es-ES",
+    "paises_segmentacion": [
+     "ES"
+    ],
+    "moneda_cobro": "EUR"
+   }
+  },
+  "mercado": {
+   "locale": "es-ES",
+   "moneda_cobro": "EUR",
+   "estado_decision": "hipotesis"
+  }
+ },
+ "fuente": [],
+ "generado_en": "2026-11-09T10:31:00Z",
+ "vacio": false,
+ "avisos": []
+}

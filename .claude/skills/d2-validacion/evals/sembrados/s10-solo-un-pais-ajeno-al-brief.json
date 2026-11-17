@@ -1,0 +1,43 @@
+{
+  "id": "S10",
+  "severidad": "MAYOR",
+  "defecto": "El plan consulta solo Alemania aunque el mercado del brief es Italia.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "plan_busqueda.json",
+      "ruta": "paises_consulta",
+      "valor": [
+        "DE"
+      ]
+    },
+    {
+      "archivo": "plan_busqueda.json",
+      "ruta": "pais_principal",
+      "valor": "DE"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-R2",
+        "patron_clave": "pais-ajeno-al-brief",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R2"
+    ],
+    "debe_citar": "\"DE\""
+  },
+  "detecta_script": "ninguno (juicio del QA-A)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

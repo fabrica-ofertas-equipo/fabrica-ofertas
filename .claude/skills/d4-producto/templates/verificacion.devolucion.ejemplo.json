@@ -1,0 +1,28 @@
+{
+  "oferta_id": "OF-202612-03",
+  "version": "v1",
+  "verificado_el": "2026-12-10",
+  "origen_version": "maker",
+  "eu": {
+    "formato": "pack",
+    "alcance": "Guía de conversaciones difíciles y una «sesión 1:1 de 30 minutos» como bonus",
+    "estado_a_b": { "a": "evitar la conversación", "b": "guion escrito de la conversación" },
+    "tiempo_primer_resultado": { "declarado_min": 20, "estimado_min": 20, "medido_min": null, "base": "estimado" },
+    "licencias": ["sin activos de terceros"],
+    "sin_servicio_ni_comunidad": false,
+    "resultado": "devuelve",
+    "rechazo": {
+      "motivo": "requiere_servicio",
+      "detalle": "El bonus «sesión 1:1 de 30 minutos» exige a una persona en cada compra: no es un entregable autocontenido (backbone 5.11).",
+      "destino": "D3",
+      "redencion": "Reformular quitando el bonus (o sustituirlo por un guion descargable); D4 no recorta en silencio ni produce el servicio."
+    }
+  },
+  "mu": { "nombre": "Guion Hecho-Necesidad-Pedido", "visible_en": [], "operable": { "verificado_por": "no_evaluado", "evidencia": "no aplica: devuelto en el paso 1", "no_verificado_por_agente": [] } },
+  "riesgo_contenido": {
+    "C": "verde",
+    "ejes_heredados": { "P": "verde", "C": "verde", "E": "verde", "N": "amarillo", "nivel": "amarillo" },
+    "banderas": ["N sube a amarillo si el bonus es un servicio humano (N2 si fuera coaching): lo decide X1; D4 solo puede subir, no bajar"],
+    "rhs": { "requerida": false, "hecha_por": null, "fecha": null }
+  }
+}

@@ -1,0 +1,104 @@
+# PLANTILLA de empresa/compliance/limites.propuesta.yaml: lo ÚNICO que X1 entrega para `limites.yaml` (nunca lo escribe).
+# Solo el dueño aprueba y carga estos campos (limites.yaml lo sella él con `python -m engine.propuestas sellar --como dueno --propuesta RUTA`, dry-run salvo `--live` con su clave; `engine.limites` solo tiene `estado`; [VERIFICAR] si `sellar` admite esta propuesta de X1: `engine.propuestas proponer` genera otra, de topes de gasto).
+# `lineas_rojas` sigue el esquema contratos/limites.schema.json (id kebab, tipo promesa|contenido|modelo_negocio, descripcion >= 5 caracteres).
+# Fuente: nota 25 §3.3 / casos-frontera.yaml (resumen; texto completo y URL allí). `subnichos_prohibidos` queda VACÍO por diseño (ningún tema se excluye por sí mismo).
+version: 0.1.0-borrador
+propuesto_por: x1-maker
+estado: pendiente_de_aprobacion_del_dueno
+macro_nichos_permitidos: [salud, relaciones, dinero]     # fijo
+subnichos_prohibidos: []
+politica_divulgacion_ia_propuesta: "solo narrador etiquetado + C2PA; sin primera persona de experiencia"   # [DUEÑO] decide; hoy null en limites.yaml
+nivel_max_lanzable_propuesto: amarillo-a                 # B solo con gate H. [PENDIENTE: la clave no existe aún en limites.schema.json (MINOR de S-A)]
+paises_permitidos: []                                    # se llenan SOLO desde paises.yaml aprobado por el dueño
+locales_permitidos: []
+lineas_rojas:
+  - id: lp-01
+    tipo: promesa
+    descripcion: Curar, sanar, eliminar, revertir o prevenir una enfermedad; en particular diabetes, herpes, tiroides, psoriasis, ébola, cáncer, autismo, alzhéimer, párkinson, ELA y VIH, aunque lo diga un profesional. Solo «manejo de síntomas» queda fuera de la lista de Meta; nuestro lint es más estricto y se…
+  - id: lp-02
+    tipo: promesa
+    descripcion: Cifra, ritmo o plazo de pérdida de peso («8 kg en 30 días»)
+  - id: lp-03
+    tipo: promesa
+    descripcion: Ingreso, ahorro o retorno prometido, con o sin cifra, con o sin plazo, garantizado o no; promesas de facilidad sobre dinero («sin inversión», «sin experiencia», «fácil», «rápido», «con poco esfuerzo»); «ingresos pasivos», «libertad financiera», «renunciá a tu trabajo»; rendimiento pasado como…
+  - id: lp-04
+    tipo: promesa
+    descripcion: Controlar o recuperar la voluntad de un tercero (ex, pareja) con plazo o garantía; esoterismo de resultado (rituales, amarres); garantía de reembolso atada a un resultado sobre otra persona
+  - id: lp-05
+    tipo: promesa
+    descripcion: Testimonios falsos o sintéticos, antes/después, capturas de resultados, reseñas generadas, escasez o precio de referencia ficticios, venta de alta presión
+  - id: lp-06
+    tipo: promesa
+    descripcion: Afirmar o insinuar un atributo del espectador (condición física o mental, deuda o situación financiera vulnerable, estado familiar, edad, orientación), también como pregunta
+  - id: lp-07
+    tipo: promesa
+    descripcion: Claims fisiológicos sin evidencia competente (metabolismo, hormonas, cortisol, nervio vago, detox, «activa tu…»)
+  - id: lp-08
+    tipo: promesa
+    descripcion: Aval o credencial sanitaria o financiera falsa o aparente (bata, logos de organismos, «avalado por médicos», avatar «asesor»)
+  - id: lp-09
+    tipo: promesa
+    descripcion: 'Incoherencia anuncio-landing-producto-descriptor (camuflaje): el producto real promete algo que el anuncio no dice'
+  - id: lc-01
+    tipo: contenido
+    descripcion: Dosis, suplementos, medicación, fármacos para bajar de peso; interpretar análisis o IMC con umbrales diagnósticos
+  - id: lc-02
+    tipo: contenido
+    descripcion: Conductas alimentarias extremas o de trastorno alimentario, ayuno prolongado, dietas muy bajas en calorías, detox con ayuno
+  - id: lc-03
+    tipo: contenido
+    descripcion: Diagnóstico a distancia (del lector o de terceros), terapia, EMDR o trauma, cuestionarios clínicos
+  - id: lc-04
+    tipo: contenido
+    descripcion: Planes de salida o seguridad ante abuso; confrontación del abusador o de quien ejerce control; contacto con quien pidió no ser contactado; abuso como gancho. (La preparación de conversaciones difíciles NO es esta línea.)
+  - id: lc-05
+    tipo: contenido
+    descripcion: Vigilancia o monitoreo de pareja o hijos sin consentimiento
+  - id: lc-06
+    tipo: contenido
+    descripcion: Asesoramiento personalizado de inversión; recomendar instrumentos, emisores o cripto; documentos legales «listos para firmar». En Alemania, además, ayuda fiscal personalizada (veto, StBerG §5). En el resto, una hoja o calculadora fiscal que reproduce una fórmula u hoja de trabajo oficial…
+  - id: lc-07
+    tipo: contenido
+    descripcion: Contenido sexual para gratificación (incluida IA) y productos de excitación
+  - id: lc-08
+    tipo: contenido
+    descripcion: Dieta, ejercicio o suplementos PRESCRITOS (qué comer, cuánto, qué ejercicio hacer, qué dar al bebé) en embarazo, posparto, lactancia, menores o salud infantil clínica. Los registros que el comprador completa con lo que indica su médico o pediatra, las listas de compras y la reproducción literal,…
+  - id: lc-09
+    tipo: contenido
+    descripcion: Datos de salud, ciclo, deuda, ruptura, ingresos o impuestos en píxel, API de Conversiones, audiencias, URL, UTM, nombres de evento, quizzes con puntaje que infieren un estado, listas de compradores subidas a cualquier plataforma, etiquetas o segmentos del proveedor de correo, ítem del recibo,…
+  - id: lc-10
+    tipo: contenido
+    descripcion: 'Prácticas con riesgo físico agudo: hiperventilación o retención del aliento, apnea, inmersión en agua fría o caliente, sauna, ayuno de más de 24 h, carga máxima sin supervisión, calor o frío extremos'
+  - id: lm-01
+    tipo: modelo_negocio
+    descripcion: Multinivel, pirámide, comisión por reclutar o por referidos de referidos, reventa del pack, «oportunidad de negocio» con clientes o ubicaciones
+  - id: lm-02
+    tipo: modelo_negocio
+    descripcion: Reparación de crédito, liquidación, negociación o consolidación de deudas, asesoría de deuda, agencias de cobro; contenido que promueve servicios de consolidación, perdón o refinanciación de préstamos estudiantiles (Meta, HC 1695974997209192, según la crítica red team; para guías informativas es…
+  - id: lm-03
+    tipo: modelo_negocio
+    descripcion: Inversión y corretaje, CFD y binarias, ICO, funded prop trading, señales; exchanges y afiliados cripto; crédito, hipoteca o seguro sin autorización; comisiones por derivar a proveedores
+  - id: lm-04
+    tipo: modelo_negocio
+    descripcion: Servicios que conectan personas (citas, matchmaking, clubes de solteros), agencias matrimoniales; facilitación de citas (perfiles, biografías y mensajes de apertura para aplicaciones de citas). La literatura o el entretenimiento sobre relaciones y las tarjetas para una cita en persona no lo son…
+  - id: lm-05
+    tipo: modelo_negocio
+    descripcion: Servicio humano personalizado (coaching 1:1, consultas por mensaje, telemedicina) o comunidad en vivo
+  - id: lm-06
+    tipo: modelo_negocio
+    descripcion: Tratamiento de adicciones, recetados y telemedicina (LegitScript y permiso)
+  - id: lm-07
+    tipo: modelo_negocio
+    descripcion: Menores como destinatarios o uso de su imagen; exhortación directa a niños
+  - id: lm-08
+    tipo: modelo_negocio
+    descripcion: 'Elusión de la aplicación: cuentas o páginas paralelas, cloaking, re-subir texto rechazado con cambios cosméticos'
+  - id: lm-09
+    tipo: modelo_negocio
+    descripcion: Cobrar con Stripe productos no declarados en la solicitud, o repartir ventas entre descriptores para esconder disputas
+  - id: lm-10
+    tipo: modelo_negocio
+    descripcion: Empaquetar o revender información, trámites, formularios o ayudas oficiales gratuitos sin valor añadido demostrable por el propio producto, o tramitarlos en nombre del cliente
+  - id: lm-11
+    tipo: modelo_negocio
+    descripcion: 'Guías, calculadoras o asesoría hipotecaria: «Mortgage consulting» está restringido en general y prohibido en EE. UU. y Canadá; qué entiende Stripe por «consulting» es [VERIFICAR]: hasta tener respuesta escrita de Stripe es N2 y no sale'

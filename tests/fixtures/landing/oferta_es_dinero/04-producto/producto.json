@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "producto_id": "PROD-OF-202611-01",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "qa",
+  "estado": "aprobado",
+  "items": [
+    {
+      "id": "guia-puente",
+      "tipo": "guia_md",
+      "archivo": "entregables/puente-de-la-pausa-v1-guia.md",
+      "paginas": null,
+      "peso_mb": "0.01",
+      "formato": "markdown",
+      "idioma": "es-ES",
+      "en_paquete": true,
+      "sha256": "sha256:fb99dd1299e2dc079039594c0a476d89a50de164e635d19e0fcdb55de0ad3780"
+    },
+    {
+      "id": "plantilla-cv",
+      "tipo": "plantilla_md",
+      "archivo": "entregables/plantilla-cv-puente-v1.md",
+      "paginas": null,
+      "peso_mb": "0.01",
+      "formato": "markdown",
+      "idioma": "es-ES",
+      "en_paquete": true,
+      "sha256": "sha256:1cef3c693ebeed3f5568b59bf62754249d9679b7582a86ad4ec200aa0bb1dfac"
+    },
+    {
+      "id": "muestra-guion",
+      "tipo": "muestra",
+      "archivo": "entregables/muestras/muestra-guia-v1.md",
+      "paginas": null,
+      "peso_mb": "0.01",
+      "formato": "markdown",
+      "idioma": "es-ES",
+      "en_paquete": false,
+      "sha256": "sha256:91bd3d2e7a23d36682b7fc0c6d7ef64b72f47e84d49836de03904ecaceddce13"
+    }
+  ],
+  "matriz_promesas": [
+    {
+      "promesa_id": "plantilla-cv",
+      "texto": "Incluye una plantilla editable de currículum con enfoque en competencias",
+      "entregable_id": "plantilla-cv",
+      "prueba": "Archivo plantilla-cv-puente-v1.md",
+      "estado": "cumplida"
+    },
+    {
+      "promesa_id": "guion-pausa",
+      "texto": "Incluye un guion para explicar tu pausa en 30 segundos",
+      "entregable_id": "guia-puente",
+      "prueba": "Sección «Paso 4» de la guía",
+      "estado": "cumplida"
+    },
+    {
+      "promesa_id": "tiempo-90-min",
+      "texto": "Pensado para completarlo en unos 90 minutos",
+      "entregable_id": "guia-puente",
+      "prueba": "Suma de tiempos de los pasos 1 a 5 (15+20+25+15+15 = 90 min de ejecución estimada)",
+      "estado": "cumplida"
+    }
+  ],
+  "tiempos": {
+    "lectura_min": 25,
+    "ejecucion_min": 55,
+    "total_min": 80,
+    "prometido_min": 90,
+    "base": "estimado"
+  },
+  "pasos": [
+    {
+      "id": "paso-1-inventario",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 15
+    },
+    {
+      "id": "paso-2-competencias",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 20
+    },
+    {
+      "id": "paso-3-cv-puente",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 25
+    },
+    {
+      "id": "paso-4-guion",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 15
+    },
+    {
+      "id": "paso-5-preguntas",
+      "ejecutable_por_agente": false,
+      "t_humano_min": 15
+    }
+  ],
+  "vigencia": {
+    "verificado_el": "2026-11-05",
+    "revisar_antes_de": "2027-05-04",
+    "items_volatiles": []
+  },
+  "entrega": {
+    "estrategia": "enlace_firmado_email",
+    "vence_dias": 7,
+    "max_descargas": 5
+  },
+  "ia_divulgacion": "Contenido redactado con asistencia de IA y revisado por una persona (política de divulgación del dueño).",
+  "changelog": [
+    {
+      "version": "v1",
+      "fecha": "2026-11-05",
+      "cambio": "Primera versión aprobada (ejemplo)"
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+reglas_version: 1.1.0
+vigente_desde: '2026-11-06'
+fuente: G-13 (docs/05), docs/06 §4.5/N09 [HIPOTESIS]; ampliacion nocturna B6b (ola
+  2) para it-IT/pl-PL/ro-RO/fr-FR/de-DE/es-AR/es-MX y la categoria relaciones [HIPOTESIS].
+  Medido contra .claude/skills/x1-compliance/evals/adversarial/corpus.json y dorados/legitimos-deben-pasar.json.
+aplicado_a:
+- dominio
+- rutas
+- title
+- og
+- eventos
+- parametros
+claves_lista_negra:
+- claims_prohibidos
+- claims_a_evitar
+- campos_prohibidos
+revision_nativa:
+  it-IT: false
+  pl-PL: false
+  ro-RO: false
+  fr-FR: false
+  de-DE: false
+generales:
+  urgencia_falsa:
+    rojo:
+    - \boferta termina en\b
+    - \bsolo hoy\b
+    - \b[uú]ltim[oa]s?\s+\d+\s*(unidad(es)?|plazas?|cupos?|lugar(es)?)\b
+    - \bsolo\s+quedan?\s+\d+\s*(unidad(es)?|plazas?|cupos?|lugar(es)?)\b
+    - \bquedan\s+(solo\s+)?\d+\s*(unidad(es)?|plazas?|cupos?|lugar(es)?)\b
+    - \bel\s+contador\s+no\s+se\s+detiene\b
+    - \boferta\s+rel[áa]mpago\b
+    - \b\d+\s*minutos?\s+para\s+aprovechar\b
+    - \bel\s+precio\s+se\s+(triplica|duplica)\b
+    - \bonly \d+ (left|spots?)\b
+    - \bends? (today|tonight)\b
+    - \bsolo\s+oggi\b
+    - \bultimi\s+\d+\s*(posti|pezzi)\b
+    - \baffrettati\b
+    - \bl['’]offerta termina tra\b
+    - \btylko\s+dzi[śs]\b
+    - \bzosta[łl]y?\s+\d+\s*(miejsc|sztuk)\b
+    - \bpo[śs]piesz\s+si[eę]\b
+    - \boferta\s+kończy\s+się\s+za\b
+  garantias_absolutas:
+    rojo:
+    - \bresultados? garantizados?\b
+    - \b100\s?%\s?garantizado\b
+    - \bgarantizamos (que )?(consegu|encontr|cur)
+    - \b(te |os )?(devolvemos|regresamos)\s+(tu\s+|el\s+|todo\s+)?(dinero|plata|todo)\b
+    - \breembolso\s+del\s+doble\b
+    - \bo\s+te\s+devolvemos\b
+    - \b(ahorr[aá]s?|consegu[ií]s?)\s+o\s+te\s+devolvemos\b
+    - \bguaranteed results?\b
+    - \b100\s?%\s?guaranteed\b
+    - \bwe guarantee (you( will|'ll)|that)\b
+    - \bmoney[- ]back guaranteed?\b
+    - \brisultati\s+garantiti\b
+    - \bti\s+rimbors(iamo|o)\b
+    - \bsoldi\s+indietro\b
+    - \bgwarantowane\s+rezultaty\b
+    - \bzwrot\s+pieni[ęe]dzy\b
+    - \boddamy\s+pieni[ąa]dze\b
+  prueba_social_fabricada:
+    rojo:
+    - \b\d{1,3}([.,]\d{3})*\+?\s*(personas|clientes|usuarios|people|customers|users)\s*(ya|han|already|have)\b
+    - \btestimoni[oa]s? (real(es)?|verificados?)\b
+    - \bverified testimonials?\b
+    - \bcliente\s+verificad[oa]\b
+    - \b(ahorr[eé]|gan[eé]|he\s+ahorrado|he\s+ganado|me\s+hice\s+de)\b.{0,60}\b([\d.,]+\s*)?(mil\s+)?(euros?|d[óo]lar(es)?|usd|pesos|libras?|zł|lei|€|\$)\b
+    - \by\s+(vos|tu|t[úu])\s+tambi[eé]n\s+pod[eé]s\b
+    - \by\s+t[úu]\s+tambi[eé]n\s+puedes\b
+    - \bho\s+risparmiato\b.{0,40}\bgrazie\b
+    - \bzaoszcz[ęe]dzi[łl]am?\b.{0,40}\bdzi[ęe]ki\b
+    - \bclientes?\s+satisfech[oa]s?\b
+    - \b\d\s*estrellas\b
+    - \bmiles\s+de\s+(personas|clientes|usuarios)\b.{0,20}\bya\b
+    amarillo:
+    - \bmiles de\b
+    - \bthousands of\b
+  atributos_personales:
+    rojo:
+    - \b[¿?]?(est[áa]s|andas?|sufres?|tienes)\s+(bien\s+)?endeudad[oa]\b
+    - \b[¿?]?eres?\s+zadłu[żz]ony\b
+    - \bsei\s+indebitato\b
+    - \bjeste[śs]\s+zad[łl]u[żz]ony\b
+    - \bsi\s+(sos|eres)\s+madre\s+soltera\b
+    - \bmam[áa]s\s+agotadas?\b
+    - \b[¿?]?sufres?\s+de\s+ansiedad\b
+    - \bsi\s+tienes\s+más\s+de\s+\d+\s+años\s+y\s+(te\s+duele|sufres)\b
+    - \bse\s+hai\s+pi[uù]\s+di\s+\d+\s+anni\s+e\s+soffri\b
+    - \bjeste[śs]\s+zad[łl]u[żz]ony\b
+    - \bjeśli\s+masz\s+depresj[ęe]\b
+    - \bsi\s+tienes\s+depresi[óo]n\b
+locales:
+  es-ES:
+    salud:
+      rojo:
+      - \bcura(r|rte|mos|rá|rás)?\b
+      - \bcur[áa](te|los|las)?\b
+      - \bsan[aá](r|rte|mos|rá|rás)\b|\bsan[aá]\s+(tu|tus|el|la|los|las|mi|mis)\b
+      - \brevert[ií](r|ís|imos|iste)?\b.{0,15}\b(tu|tus)\b.{0,15}\b(diabetes|hipertensi[óo]n|colesterol)\b
+      - \belimin[aá](r)?\s+(el|la|los|las|tu|tus)?\s*(dolor|psoriasis|acn[eé]|ansiedad|estr[eé]s|insomnio|migra[nñ]a|celulitis)\b
+      - \badelgaz\w*\b
+      - \bqu[ií]tate\s+(el|la|los|las)\s+\w+\s+para\s+siempre\b
+      - \bqu[eé]mate\s+(la\s+)?(panza|grasa|barriga)\b
+      - \b(pierd[ea]s?|perd[eé]s?|b[áa]jale|baja\w*|baj[áa]\w*|adelgaz\w*|quem\w*|qu[eé]mate|desinflam\w*)\b.{0,30}\b(\d+|un|una|dos|tres|cuatro|cinco)\s*(kg|kilos?|libras?|tallas?)\b.{0,30}\ben\s+(\d+|un|una|dos|tres|cuatro)\s*(d[ií]as?|semanas?|mes(es)?)\b
+      - \bbaja(r)?\s+de\s+peso\b
+      - \bdiagnostic
+      - \btratamiento\b
+      - \bcero\s+ansiedad\b
+      - \bansiedad\s+cero\b
+      - \bcura definitiva\b
+      - \bglucosa\s+estable\b
+      - \b[¿?]?sufr[ií]e?s?\s+de\s+\w+\b
+      amarillo:
+      - \bmejora tu salud\b
+      - \bbienestar\b
+    finanzas:
+      rojo:
+      - \bingresos?\s+(garantizados?|pasivos?\s+garantizados?)\b
+      - \bingresos?\s+pasivos?\b
+      - \bdinero\s+mientras\s+(descans\w*|duermes?|dorm[ií]s)\b
+      - \bduplica(r)?\s+tu\s+dinero\b
+      - \bh[aá](z|ce)te\s+ric[oa]\b
+      - \b\d+\s?(€|eur|euros|usd|\$)\s?(al|por|/)\s?(mes|d[ií]a|semana)\b
+      - \bgan[aá]\s+(usd\s+)?[\d.,]+\s*(€|eur|euros?|usd|\$|pesos?)?\s*(al|por|a la)\s*(mes|semana|d[ií]a)\b
+      - \bh[aá]zte\s+de\s+[\d.,]+\s*mil\s+pesos\b
+      - \blibertad\s+financiera\s+en\s+\d+\s*meses\b
+      - \bretorno\s+garantizado\b
+      - \bconseguir[áa]s\s+(un\s+)?(trabajo|empleo)\b
+      - \blibertad\s+financiera\s+garantizada\b
+      - \bcero\s+deudas\b
+      - \bm[eé]todo\s+cero\s+deudas\b
+      - \bdeuda\s+libre\b
+      - \bsal(í|i)\s+de\s+las\s+deudas\b
+      - \bsale(s)?\s+de\s+tus\s+deudas\b
+      - \b[¿?]?andas\s+bien\s+endeudad[oa]\b
+      amarillo:
+      - \blibertad financiera\b
+      - \bingresos? extra\b
+    relaciones:
+      rojo:
+      - \brecuper[aá](r|te)?\s+a\s+tu\s+ex\b
+      - \breconquist[aá](r)?\s+a\s+tu\s+ex\b
+      - \bhaz(le)?\s+volver\b
+      - \bque\s+vuelva\s+contigo\b
+      - \bsi\s+tu\s+ex\s+no\s+regresa\b
+  es-AR:
+    salud:
+      rojo:
+      - \bcura(r|rte|mos|rá|rás)?\b
+      - \bcur[áa](te|los|las)?\b
+      - \bsan[aá](r|rte|mos|rá|rás)\b|\bsan[aá]\s+(tu|tus|el|la|los|las|mi|mis)\b
+      - \brevert[ií](r|ís|imos|iste)?\b.{0,15}\btu\b.{0,15}\b(diabetes|hipertensi[óo]n|colesterol)\b
+      - \belimin[aá](r)?\s+(el|la|los|las|tu|tus)?\s*(dolor|psoriasis|acn[eé]|ansiedad|estr[eé]s|insomnio|migra[nñ]a|celulitis)\b
+      - \badelgaz\w*\b
+      - \b(perd[eé]s?|baj[áa]\w*|pierd[ea]s?|adelgaz\w*|quem\w*|qu[eé]mate|desinflam\w*)\b.{0,30}\b(\d+|un|una|dos|tres|cuatro|cinco)\s*(kg|kilos?|libras?|tallas?)\b.{0,30}\ben\s+(\d+|un|una|dos|tres|cuatro)\s*(d[ií]as?|semanas?|mes(es)?)\b
+      - \bbaja(r)?\s+de\s+peso\b
+      - \bdiagnostic
+      - \btratamiento\b
+      - \bcero\s+ansiedad\b
+      - \bansiedad\s+cero\b
+      - \bglucosa\s+estable\b
+      - \b[¿?]sufr[ií]s\s+de\s+\w+\b
+      amarillo:
+      - \bmejora tu salud\b
+      - \bbienestar\b
+    finanzas:
+      rojo:
+      - \bingresos?\s+(garantizados?|pasivos?\s+garantizados?)\b
+      - \bingresos?\s+pasivos?\b.{0,30}\b(mientras|desde|sin)\b
+      - \bduplica(r)?\s+tu\s+dinero\b
+      - \bhacete\s+ric[oa]\b
+      - \bgan[áa]\s+(usd\s+)?[\d.,]+\s*(€|eur|euros?|usd|\$|pesos?)?\s*(al|por|a la)\s*(mes|semana|d[ií]a)\b
+      - \blibertad\s+financiera\s+en\s+\d+\s*meses\b
+      - \bretorno\s+garantizado\b
+      - \bconseguir[áa]s\s+(un\s+)?(trabajo|empleo)\b
+      - \bcero\s+deudas\b
+      - \bm[eé]todo\s+cero\s+deudas\b
+      - \bsal[ií]\s+de\s+las\s+deudas\b
+      amarillo:
+      - \blibertad financiera\b
+      - \bingresos? extra\b
+    relaciones:
+      rojo:
+      - \brecuper[áa](r|te)?\s+a\s+tu\s+ex\b
+      - \breconquist[áa](r)?\s+a\s+tu\s+ex\b
+      - \bhaz(le)?\s+volver\b
+      - \bque\s+vuelva\s+contigo\b
+      - \bsi\s+tu\s+ex\s+no\s+regresa\b
+  es-MX:
+    salud:
+      rojo:
+      - \bcura(r|rte|mos|rá|rás)?\b
+      - \bcur[áa](te|los|las)?\b
+      - \bsan[aá](r|rte|mos|rá|rás)\b|\bsan[aá]\s+(tu|tus|el|la|los|las|mi|mis)\b
+      - \bqu[ií]tate\s+(el|la|los|las)\s+\w+\s+para\s+siempre\b
+      - \bqu[eé]mate\s+(la\s+)?(panza|grasa|barriga)\b
+      - \belimin[aá](r)?\s+(el|la|los|las|tu|tus)?\s*(dolor|psoriasis|acn[eé]|ansiedad|estr[eé]s|insomnio|migra[nñ]a|celulitis)\b
+      - \badelgaz\w*\b
+      - \b(b[áa]jale|pierd[ea]s?|baja\w*|adelgaz\w*|qu[eé]mate|desinflam\w*)\b.{0,30}\b(\d+|un|una|dos|tres|cuatro|cinco)\s*(kg|kilos?|libras?|tallas?)\b.{0,30}\ben\s+(\d+|un|una|dos|tres|cuatro)\s*(d[ií]as?|semanas?|mes(es)?)\b
+      - \bbaja(r)?\s+de\s+peso\b
+      - \bdiagnostic
+      - \btratamiento\b
+      - \bcero\s+ansiedad\b
+      - \bansiedad\s+cero\b
+      - \bglucosa\s+estable\b
+      amarillo:
+      - \bmejora tu salud\b
+      - \bbienestar\b
+    finanzas:
+      rojo:
+      - \bingresos?\s+(garantizados?|pasivos?\s+garantizados?)\b
+      - \bingresos?\s+pasivos?\b.{0,30}\b(mientras|desde|sin|genera)\b
+      - \bduplica(r)?\s+tu\s+dinero\b
+      - \bh[áa]zte\s+ric[oa]\b
+      - \bh[áa]zte\s+de\s+[\d.,]+\s*mil\s+pesos\b
+      - \bretorno\s+garantizado\b
+      - \bconseguir[áa]s\s+(un\s+)?(trabajo|empleo)\b
+      - \bcero\s+deudas\b
+      - \bdeuda\s+libre\b
+      - \b[¿?]?andas\s+bien\s+endeudad[oa]\b
+      - \bsales\s+de\s+tus\s+deudas\b
+      amarillo:
+      - \blibertad financiera\b
+      - \bingresos? extra\b
+    relaciones:
+      rojo:
+      - \brecuper[aá](r|te)?\s+a\s+tu\s+ex\b
+      - \breconquist[aá](r)?\s+a\s+tu\s+ex\b
+      - \bhaz(le)?\s+volver\b
+      - \bque\s+vuelva\s+contigo\b
+      - \bsi\s+tu\s+ex\s+no\s+regresa\b
+  en-US:
+    salud:
+      rojo:
+      - \bcure[sd]?\b
+      - \bheal(s|ing|ed)?\b
+      - \blose weight\b
+      - \bdiagnos
+      - \btreatment\b
+      - \bzero anxiety\b
+      amarillo:
+      - \bimprove your health\b
+      - \bwellness\b
+    finanzas:
+      rojo:
+      - \bguaranteed income\b
+      - \bpassive income guaranteed\b
+      - \bdouble your money\b
+      - \bget rich\b
+      - \$\d+\s?(a|per)\s?(month|day|week)\b
+      - \bguaranteed returns?\b
+      - \byou will land (a|the) job\b
+      amarillo:
+      - \bfinancial freedom\b
+      - \bextra income\b
+    relaciones:
+      rojo:
+      - \bget your ex back\b
+      - \bmake (him|her) come back\b
+  it-IT:
+    salud:
+      rojo:
+      - \bguarisc[io]\b
+      - \beliminare?\s+l['’]ansia\s+per\s+sempre\b
+      - \bperdi?\s+\d+\s*kg\s+in\s+\d+\s*giorni\b
+      - \bdimagris[ci]\w*\s+\d+\s*chili\s+in\s+\d+\s*settiman[ei]\b
+      - \bsenza\s+farmaci\b
+      - \bdiagnos
+      - \btrattamento\b
+      - \bglicemia\s+stabile\b
+      amarillo:
+      - \bbenessere\b
+    finanzas:
+      rojo:
+      - \bguadagna\s+[\d.,]+\s*€?\s*al\s+mese\b
+      - \breddito\s+passivo\s+garantito\b
+      - \bsenza\s+esperienza\b
+      - \bzero\s+debiti\b
+      amarillo:
+      - \blibert[àa]\s+finanziaria\b
+    relaciones:
+      rojo:
+      - \briconquist[ao]\s+il\s+tuo\s+ex\b
+      - \bsei\s+indebitato\b
+  pl-PL:
+    salud:
+      rojo:
+      - \bwylecz\w*\b
+      - \bpozb[ąa]d[źz]\s+si[ęe]\b
+      - \bschudnij\s+\d+\s*kg\s+w\s+miesi[ąa]c\b
+      - \bzrzu[ćc]\s+\d+\s*kilogram\w*\s+w\s+dwa\s+tygodni\w*\b
+      - \bbez\s+diety\b
+      - \bbez\s+lek[óo]w\b
+      - \bstabilny\s+cukier\b
+      amarillo:
+      - \bdobre\s+samopoczucie\b
+    finanzas:
+      rojo:
+      - \bzarabiaj\s+[\d.,]+\s*z[łl]\s+miesi[ęe]cznie\b
+      - \bdoch[óo]d\s+pasywny\b
+      - \bbez\s+doświadczenia\b
+      - \bzero\s+d[łl]ug[óo]w\b
+      - \bjeste[śs]\s+zad[łl]u[żz]ony\b
+      amarillo:
+      - \bwolno[śs][ćc]\s+finansowa\b
+    relaciones:
+      rojo:
+      - \bodzyskaj\s+by[łl]ego\b
+  ro-RO:
+    salud:
+      rojo:
+      - \bvindec[ăa]\w*\b
+      - \bf[ăa]r[ăa]\s+medicamente\b
+      amarillo:
+      - \bst[ăa]re\s+de\s+bine\b
+    finanzas:
+      rojo:
+      - \bcâștig[ăa]\s+[\d.,]+\s*lei\s+pe\s+lun[ăa]\b
+      - \bvenit\s+passiv\s+garantat\b
+      amarillo:
+      - \blibertate\s+financiar[ăa]\b
+    relaciones:
+      rojo:
+      - \brecâștig[ăa]\s+ex[- ]ul\b
+  fr-FR:
+    salud:
+      rojo:
+      - \bgu[ée]rir\w*\b
+      - \bsans\s+m[ée]dicaments\b
+      amarillo:
+      - \bbien[- ]être\b
+    finanzas:
+      rojo:
+      - \bgagnez\s+[\d.,]+\s*€\s+par\s+mois\b
+      - \brevenu\s+passif\s+garanti\b
+      amarillo:
+      - \blibert[ée]\s+financi[èe]re\b
+    relaciones:
+      rojo:
+      - \brecup[ée]rer\s+ton\s+ex\b
+  de-DE:
+    salud:
+      rojo:
+      - \bheilen?\b
+      - \bohne\s+medikamente\b
+      amarillo:
+      - \bwohlbefinden\b
+    finanzas:
+      rojo:
+      - \bverdiene\s+[\d.,]+\s*€\s+im\s+monat\b
+      - \bgarantiertes\s+passives\s+einkommen\b
+      amarillo:
+      - \bfinanzielle\s+freiheit\b
+    relaciones:
+      rojo:
+      - \bdeine\s+ex\s+zur[üu]ckgewinnen\b
+hash_contenido: sha256:615bac609781f8ea71df458938d8e76a7c6c7fef76d1df14e7b15044350a7bb4

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "slots": [
+    {
+      "slot_id": "hero",
+      "seccion": "hero",
+      "tipo": "imagen",
+      "ratio": "16:9",
+      "proposito": "Imagen principal de la cabecera",
+      "alt": "Escritorio con un currículum y una taza",
+      "estado": "aprobado",
+      "peso_max_kb": 150,
+      "archivo": null,
+      "sha256": "sha256:2d1d3f1d7c98b409371d0804b07c2516110394d7a86c5075e0d2d864ac1880a3",
+      "origen": "placeholder_de_ejemplo",
+      "ia_generado": false,
+      "licencia_ref": null
+    },
+    {
+      "slot_id": "og",
+      "seccion": "og",
+      "tipo": "imagen",
+      "ratio": "16:9",
+      "proposito": "Imagen para compartir en redes",
+      "alt": "Portada de la guía El Puente de la Pausa",
+      "estado": "aprobado",
+      "peso_max_kb": 150,
+      "archivo": "imagenes/og-placeholder.png",
+      "sha256": "sha256:600af164cbcf971fdcf532d5db036cef0e4ffce7284a7d058f4e4620d6702cc4",
+      "origen": "placeholder_de_ejemplo",
+      "ia_generado": false,
+      "licencia_ref": null
+    }
+  ]
+}

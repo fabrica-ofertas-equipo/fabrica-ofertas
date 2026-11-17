@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "modo": "manual",
+  "ts": "2026-11-06T12:00:00Z",
+  "nota": "Forma MANUAL de lo que `python -m scripts.creativos.preflight_d6 --salida …` (S-B; ítems VERDE|ROJO|NO_DISPONIBLE) no cubre o deja NO_DISPONIBLE (p. ej. la landing responde 200: no hace red). Se anota cada chequeo con su evidencia; nunca verde sin comprobar.",
+  "chequeos": [
+    {
+      "id": "sellos_vigentes",
+      "resultado": "verde",
+      "evidencia": "estado.json: D3, D5, M1 aprobado, obsoleta=false, entradas == hash_salida"
+    },
+    {
+      "id": "locale_permitido",
+      "resultado": "rojo",
+      "evidencia": "limites.locales_permitidos vacío (lista vacía = no permitido)"
+    },
+    {
+      "id": "sin_pausa",
+      "resultado": "verde",
+      "evidencia": "no existe empresa/PAUSA"
+    },
+    {
+      "id": "limites_generar_creativos",
+      "resultado": "rojo",
+      "evidencia": "validar_esquemas limites --operacion generar_creativos salió 5"
+    },
+    {
+      "id": "infra_verde",
+      "resultado": "rojo",
+      "evidencia": "empresa/infra/estado.json no existe"
+    },
+    {
+      "id": "landing_200",
+      "resultado": "verde",
+      "evidencia": "preflight de D5 vigente"
+    },
+    {
+      "id": "herramientas_de_la_ruta",
+      "resultado": "verde",
+      "evidencia": "Chrome headless disponible (Ruta A)"
+    }
+  ],
+  "resultado": "rojo",
+  "puede_continuar": {
+    "fase_1_texto": true,
+    "fase_2_piezas": false
+  }
+}

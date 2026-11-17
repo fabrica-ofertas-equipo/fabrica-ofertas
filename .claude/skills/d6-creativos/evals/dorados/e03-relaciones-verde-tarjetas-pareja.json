@@ -1,0 +1,83 @@
+{
+  "caso_id": "e03",
+  "titulo": "Relaciones, verde: tarjetas de conversación para parejas, con aviso de seguridad",
+  "tipo": "maker",
+  "macro_nicho": "relaciones",
+  "locale": "en-US",
+  "entrada": {
+    "oferta": {
+      "nombre_producto": "Conversation cards for couples",
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde"
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "includes-40-cards",
+          "texto": "Includes 40 printable conversation cards"
+        },
+        {
+          "claim_id": "printable-pdf",
+          "texto": "Delivered as a printable PDF"
+        }
+      ],
+      "claims_prohibidos": [
+        "save your relationship",
+        "fix your marriage",
+        "get closer in 7 days"
+      ],
+      "precio": {
+        "monto": 1200,
+        "moneda": "USD"
+      },
+      "angulos": [
+        "quiet-evening",
+        "first-date-questions",
+        "weekly-check-in"
+      ]
+    },
+    "economia": {
+      "gasto_test_plan": {
+        "monto": 24000,
+        "moneda": "USD"
+      },
+      "cpa_obj": {
+        "monto": 1000,
+        "moneda": "USD"
+      }
+    },
+    "pedido": "v1 nuevo"
+  },
+  "salida_esperada": {
+    "avisos": "«Educational; not therapy, diagnosis or legal advice» y «If you fear for your safety, do not use this material» + línea de ayuda del país (`ayuda_por_pais.yaml`; si no existe, [PENDIENTE] y se pide a X1) en la landing y, si cabe, en el anuncio",
+    "visuales": "solo tarjetas, hojas o manos adultas; sin parejas, rostros, menores ni escenas de conflicto",
+    "presentador": "sin_rostro",
+    "hooks_aprobables_ejemplo": [
+      "Forty conversation cards for a quiet evening together. (lista-numero)",
+      "Which question would you ask first? (pregunta-tarea)"
+    ],
+    "textos_que_no_deben_aparecer": [
+      "Is your partner...",
+      "your ex",
+      "save your marriage",
+      "in 7 days",
+      "closer",
+      "intimacy"
+    ],
+    "riesgo_pieza": "verde en todas"
+  },
+  "aprobacion": [
+    "0 ROJO y 0 claims sin claim_id",
+    "riesgo_pieza: nivel declarado >= el recalculado con scripts.nivel_riesgo (menor = falso verde, BLOQUEANTE); recalculado <= nivel de la oferta (mayor = MAYOR); una pieza menor que la oferta NO es defecto; si repite la promesa central, su eje P >= el de la oferta",
+    "n_anuncios <= n_anuncios_max y >= campana.n_anuncios_min",
+    ">=3 ángulos y 0 pares iguales de ángulo+hook_tipo+formato",
+    "precio y moneda iguales a los de la landing",
+    "OCR/lectura visual y retraducción limpios",
+    "costo <= tope (0 créditos en Ruta A)",
+    ">=3 hallazgos de autorrevisión o justificación con evidencia",
+    "el aviso de seguridad y la ayuda del país aparecen, o el caso queda pendiente con el PENDIENTE declarado"
+  ]
+}

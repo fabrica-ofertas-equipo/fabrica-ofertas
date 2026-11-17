@@ -1,0 +1,3 @@
+validador=pattern
+ruta=/nonce
+texto=nonce aleatorio de 16 a 64 caracteres

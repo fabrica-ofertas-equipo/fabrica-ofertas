@@ -1,0 +1,70 @@
+<section class="seccion niveles niveles--pestanas tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-incluye">
+  <div class="contenedor">
+    <header class="encabezado">
+{{#si kicker}}
+      <p class="kicker">{{{kicker}}}</p>
+{{/si}}
+      <h2 id="titulo-incluye">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+    <div class="pestanas">
+{{#cada modulos}}
+      <span class="pestanas__ancla" id="nivel-{{@n}}"></span>
+{{/cada}}
+      <nav class="pestanas__lista pestanas--n{{n_modulos}}" aria-label="{{t.elige_nivel}}">
+{{#cada modulos}}
+        <a class="pestana" href="#nivel-{{@n}}" aria-controls="panel-nivel-{{@n}}">
+          <span class="pestana__num icono-caja--c{{color}}" aria-hidden="true">{{@n}}</span>
+          <span class="pestana__nombre">{{{titulo}}}</span>
+{{#si etiqueta}}
+          <span class="pestana__sub">{{{etiqueta}}}</span>
+{{/si}}
+        </a>
+{{/cada}}
+      </nav>
+      <div class="pestanas__pista">
+        <span class="pestanas__puntero" aria-hidden="true"><svg class="ico"><use href="#i-abajo"></use></svg></span>
+        <h3>{{t.elige_nivel}}</h3>
+      </div>
+{{#cada modulos}}
+      <div class="pestanas__panel" id="panel-nivel-{{@n}}" data-nivel="{{@n}}">
+        <div class="nivel-cab">
+{{#si etiqueta}}
+          <span class="chip chip--marca">{{{etiqueta}}}</span>
+{{/si}}
+          <h3>{{{titulo}}}</h3>
+          <p>{{{texto}}}</p>
+        </div>
+{{#si categorias}}
+{{#cada categorias}}
+        <div class="categoria">
+          <h4>{{{titulo}}}</h4>
+{{#si texto}}
+          <p class="categoria__texto">{{{texto}}}</p>
+{{/si}}
+{{#si temas}}
+          <ul class="temas" role="list">
+{{#cada temas}}
+            <li>{{{.}}}</li>
+{{/cada}}
+          </ul>
+{{/si}}
+        </div>
+{{/cada}}
+{{sino}}
+{{#si temas}}
+        <ul class="temas" role="list">
+{{#cada temas}}
+          <li>{{{.}}}</li>
+{{/cada}}
+        </ul>
+{{/si}}
+{{/si}}
+      </div>
+{{/cada}}
+    </div>
+  </div>
+{{{cta_html}}}
+</section>

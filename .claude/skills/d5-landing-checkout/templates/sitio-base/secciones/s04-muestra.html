@@ -1,0 +1,24 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-muestra">
+  <div class="contenedor">
+    <header class="encabezado">
+      <p class="kicker">{{{kicker}}}</p>
+      <h2 id="titulo-muestra">{{{titulo}}}</h2>
+    </header>
+{{#si rotulo_grupo}}
+    <p class="rotulo-grupo" data-rotulo="{{rotulo_grupo.tipos}}" data-para="grupo">{{rotulo_grupo.texto}}</p>
+{{/si}}
+    <div class="galeria galeria--{{n_figuras}}">
+{{#cada figuras}}
+      <figure class="figura{{#si principal}} figura--principal{{/si}}">
+{{#si imagen}}
+        <div class="img-rotulada"><img src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async"></div>
+        {{#si imagen.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}
+{{sino}}
+        <div class="vp-marcador vp-marcador--captura" data-demo="imagen" role="img" aria-label="{{marcador}}"><span class="vp-marcador__etiqueta">{{marcador}}</span></div>
+{{/si}}
+        <figcaption>{{{texto}}}</figcaption>
+      </figure>
+{{/cada}}
+    </div>
+  </div>
+</section>

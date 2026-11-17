@@ -1,0 +1,4 @@
+grupos:
+  watchdog:
+    latido_cada_min: {valor: 5}
+    ciclo_max_min: {valor: 480}

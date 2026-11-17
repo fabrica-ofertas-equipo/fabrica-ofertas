@@ -1,0 +1,1061 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "panel_avatares",
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "generado_en": "2026-11-08T07:00:00Z",
+  "semilla": "demo-OF-202611-91-2026-11-08",
+  "fuente": {
+    "ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+    "sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+    "n_frases": 35,
+    "n_frases_validas": 35,
+    "fuentes_distintas": 13
+  },
+  "limite_n": {
+    "pedido": 10,
+    "generado": 10,
+    "focos_elegibles": 15,
+    "motivo": "N pedido ≤ focos con evidencia"
+  },
+  "frases_descartadas": [],
+  "advertencias": [
+    "5 de 10 avatares se apoyan en una sola fuente (nivel_evidencia «debil»).",
+    "Nota de la fuente: [PRÁCTICA] frases literales del dossier de inmersión PL (J12), grado 'parcial' (extractor de WebFetch, sin captura cruda). Excluidas por vigencia (>18 meses) o fecha desconocida: W39145045 (~2019), A268848 (2024), OtLand (2013), SE (2022), antyweb (sin fecha). Sin nombres, @handles ni PII. Solo léxico y objeciones: nunca testimonio ni atribución. Sesgo: Wykop (joven, masculino, tecnológico) y un foro; las 5 frases de taniaksiazka.pl son texto de vendedor (léxico de compra), no voz de cliente.",
+    "Edad, género y ocupación están sin dato: ninguna fuente los aporta con cita y el generador no los inventa."
+  ],
+  "registro_ref": "registro_avatares.jsonl",
+  "avatares": [
+    {
+      "avatar_id": "av-pl-PL-01",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "esceptico",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "ya-probe-apps",
+        "categorias": [
+          "alternativa",
+          "objecion"
+        ],
+        "frase_ids": [
+          "f-01",
+          "f-10",
+          "f-13"
+        ],
+        "n_fuentes": 3
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "olvido",
+          "frase_ids": [
+            "f-18",
+            "f-29"
+          ]
+        },
+        {
+          "tema": "constancia",
+          "frase_ids": [
+            "f-07"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "ya-probe-apps",
+          "frase_ids": [
+            "f-01",
+            "f-10",
+            "f-13"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-01",
+          "texto": "Próbowałem jakichś apek, ale ciężko z regularnością.",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "ya-probe-apps"
+        },
+        {
+          "frase_id": "f-10",
+          "texto": "Duolingo odpada bo szukałbym czegoś żeby poćwiczyć wymowę i się trochę w tym wyrobić.",
+          "fuente_url": "https://wykop.pl/wpis/87994191/naukaangielskiego-naukajezykow-angielskizwykopem-a",
+          "tema": "ya-probe-apps"
+        },
+        {
+          "frase_id": "f-13",
+          "texto": "miałem na duolingo streak 3 lata i wiem, że to nie dla mnie",
+          "fuente_url": "https://wykop.pl/wpis/87765053/mirki-jakie-teraz-appki-spoko-do-nauki-jezyka-konk",
+          "tema": "ya-probe-apps"
+        },
+        {
+          "frase_id": "f-18",
+          "texto": "Przez ten czas prawie całkowicie zapomniałem języka.",
+          "fuente_url": "https://wykop.pl/wpis/87767939/jak-nauczyc-sie-angielskiego-po-latach-przerwy-htt",
+          "tema": "olvido"
+        },
+        {
+          "frase_id": "f-07",
+          "texto": "zdarza mi się pominąć dzień czy dwa",
+          "fuente_url": "https://wykop.pl/wpis/87897451/comiesieczna-aktualizacja-mojej-nauki-angielskiego",
+          "tema": "constancia"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "alta",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-02",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "impulsivo",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "bloqueo-al-hablar",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-08",
+          "f-14",
+          "f-22"
+        ],
+        "n_fuentes": 3
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "desconfianza-cursos",
+          "frase_ids": [
+            "f-30"
+          ]
+        },
+        {
+          "tema": "olvido",
+          "frase_ids": [
+            "f-18",
+            "f-29"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "desconfianza-cursos",
+          "frase_ids": [
+            "f-30"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-08",
+          "texto": "kiedy musze mówic to jest kali jeść kali pić",
+          "fuente_url": "https://wykop.pl/wpis/87954983/nauka-naukajezykow-angielskizwykopem-angielski-czy",
+          "tema": "bloqueo-al-hablar"
+        },
+        {
+          "frase_id": "f-14",
+          "texto": "Rozumiemy tekst pisany, ale boimy się odezwać",
+          "fuente_url": "https://wykop.pl/link/8027615/jak-opanowac-dowolny-jezyk-w-rok-algorytm-hiperpoligloty-niszczy-szkolne-mity",
+          "tema": "bloqueo-al-hablar"
+        },
+        {
+          "frase_id": "f-22",
+          "texto": "Mówienie to jest najtrudniejsza część ,najtrudniejsza sprawność w języku",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269444",
+          "tema": "bloqueo-al-hablar"
+        },
+        {
+          "frase_id": "f-30",
+          "texto": "Dla osób początkujących nie sprawdzają się żadne kursy żadne szkoły językowe",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269472",
+          "tema": "desconfianza-cursos"
+        },
+        {
+          "frase_id": "f-18",
+          "texto": "Przez ten czas prawie całkowicie zapomniałem języka.",
+          "fuente_url": "https://wykop.pl/wpis/87767939/jak-nauczyc-sie-angielskiego-po-latach-przerwy-htt",
+          "tema": "olvido"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "alta",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-03",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "analitico",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "estancamiento",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-02",
+          "f-19"
+        ],
+        "n_fuentes": 2
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "siguiente-paso-por-nivel",
+          "frase_ids": [
+            "f-03"
+          ]
+        },
+        {
+          "tema": "palabras-sin-contexto",
+          "frase_ids": [
+            "f-25",
+            "f-26"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "palabras-sin-contexto",
+          "frase_ids": [
+            "f-25",
+            "f-26"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-02",
+          "texto": "Już od dłuższego czasu tkwię w tym samym miejscu.",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "estancamiento"
+        },
+        {
+          "frase_id": "f-19",
+          "texto": "no jest to bardzo frustrujące.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269444",
+          "tema": "estancamiento"
+        },
+        {
+          "frase_id": "f-03",
+          "texto": "chciałbym wejść na takie solidne C1 i nie wiem jak",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "siguiente-paso-por-nivel"
+        },
+        {
+          "frase_id": "f-25",
+          "texto": "Ja nie wiem dlaczego ludzie tak uparcie uczą się słówek bez kontekstu.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269277",
+          "tema": "palabras-sin-contexto"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "media",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-04",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "visual",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "faltan-palabras",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-04",
+          "f-06"
+        ],
+        "n_fuentes": 2
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "bloqueo-al-hablar",
+          "frase_ids": [
+            "f-08",
+            "f-14",
+            "f-22"
+          ]
+        },
+        {
+          "tema": "desconfianza-promesas",
+          "frase_ids": [
+            "f-15",
+            "f-16"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "desconfianza-promesas",
+          "frase_ids": [
+            "f-15",
+            "f-16"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-04",
+          "texto": "czasem mi zabraknie jakiegoś słówka i musze kombinować",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "faltan-palabras"
+        },
+        {
+          "frase_id": "f-06",
+          "texto": "Jak rozmowa robi się bardziej szczegółowa dalej się gubię.",
+          "fuente_url": "https://wykop.pl/wpis/87897451/comiesieczna-aktualizacja-mojej-nauki-angielskiego",
+          "tema": "faltan-palabras"
+        },
+        {
+          "frase_id": "f-08",
+          "texto": "kiedy musze mówic to jest kali jeść kali pić",
+          "fuente_url": "https://wykop.pl/wpis/87954983/nauka-naukajezykow-angielskizwykopem-angielski-czy",
+          "tema": "bloqueo-al-hablar"
+        },
+        {
+          "frase_id": "f-15",
+          "texto": "Dowolny język w rok? Zakop za żałosny clickbait.",
+          "fuente_url": "https://wykop.pl/link/8027615/jak-opanowac-dowolny-jezyk-w-rok-algorytm-hiperpoligloty-niszczy-szkolne-mity",
+          "tema": "desconfianza-promesas"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "media",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-05",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "esceptico",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "desconfianza-promesas",
+        "categorias": [
+          "objecion"
+        ],
+        "frase_ids": [
+          "f-15",
+          "f-16"
+        ],
+        "n_fuentes": 1
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "siguiente-paso-por-nivel",
+          "frase_ids": [
+            "f-03"
+          ]
+        },
+        {
+          "tema": "ia-conversacional-gratis",
+          "frase_ids": [
+            "f-12"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "desconfianza-promesas",
+          "frase_ids": [
+            "f-15",
+            "f-16"
+          ]
+        },
+        {
+          "tema": "ia-conversacional-gratis",
+          "frase_ids": [
+            "f-12"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-15",
+          "texto": "Dowolny język w rok? Zakop za żałosny clickbait.",
+          "fuente_url": "https://wykop.pl/link/8027615/jak-opanowac-dowolny-jezyk-w-rok-algorytm-hiperpoligloty-niszczy-szkolne-mity",
+          "tema": "desconfianza-promesas"
+        },
+        {
+          "frase_id": "f-16",
+          "texto": "Ogólnikowe pierdu pierdu, jakiego pełno w Internecie.",
+          "fuente_url": "https://wykop.pl/link/8027615/jak-opanowac-dowolny-jezyk-w-rok-algorytm-hiperpoligloty-niszczy-szkolne-mity",
+          "tema": "desconfianza-promesas"
+        },
+        {
+          "frase_id": "f-03",
+          "texto": "chciałbym wejść na takie solidne C1 i nie wiem jak",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "siguiente-paso-por-nivel"
+        },
+        {
+          "frase_id": "f-12",
+          "texto": "Jest jakaś spoko apka ai etc w której można gadać jak z native speakerem?",
+          "fuente_url": "https://wykop.pl/wpis/87927601/jest-jakas-spoko-apka-ai-etc-w-ktorej-mozna-gadac-",
+          "tema": "ia-conversacional-gratis"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "debil",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-06",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "impulsivo",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "olvido",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-18",
+          "f-29"
+        ],
+        "n_fuentes": 2
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "ia-conversacional-gratis",
+          "frase_ids": [
+            "f-12"
+          ]
+        },
+        {
+          "tema": "palabras-sin-contexto",
+          "frase_ids": [
+            "f-25",
+            "f-26"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "ia-conversacional-gratis",
+          "frase_ids": [
+            "f-12"
+          ]
+        },
+        {
+          "tema": "palabras-sin-contexto",
+          "frase_ids": [
+            "f-25",
+            "f-26"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-18",
+          "texto": "Przez ten czas prawie całkowicie zapomniałem języka.",
+          "fuente_url": "https://wykop.pl/wpis/87767939/jak-nauczyc-sie-angielskiego-po-latach-przerwy-htt",
+          "tema": "olvido"
+        },
+        {
+          "frase_id": "f-29",
+          "texto": "coś tam wiem, słówka pouciekały, czasy umarły itp.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269472",
+          "tema": "olvido"
+        },
+        {
+          "frase_id": "f-12",
+          "texto": "Jest jakaś spoko apka ai etc w której można gadać jak z native speakerem?",
+          "fuente_url": "https://wykop.pl/wpis/87927601/jest-jakas-spoko-apka-ai-etc-w-ktorej-mozna-gadac-",
+          "tema": "ia-conversacional-gratis"
+        },
+        {
+          "frase_id": "f-25",
+          "texto": "Ja nie wiem dlaczego ludzie tak uparcie uczą się słówek bez kontekstu.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269277",
+          "tema": "palabras-sin-contexto"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "media",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-07",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "analitico",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "abrumado-por-sinonimos",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-24"
+        ],
+        "n_fuentes": 1
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "tiempo",
+          "frase_ids": [
+            "f-20"
+          ]
+        },
+        {
+          "tema": "faltan-palabras",
+          "frase_ids": [
+            "f-04",
+            "f-06"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "tiempo",
+          "frase_ids": [
+            "f-20"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-24",
+          "texto": "Przeraża mnie ilośc tych odpowieników w angielskim.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269277",
+          "tema": "abrumado-por-sinonimos"
+        },
+        {
+          "frase_id": "f-20",
+          "texto": "pisanie wielu słówek w pełnych zdaniach jest mocno czasochłonne",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269444",
+          "tema": "tiempo"
+        },
+        {
+          "frase_id": "f-04",
+          "texto": "czasem mi zabraknie jakiegoś słówka i musze kombinować",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "faltan-palabras"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "debil",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-08",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "visual",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "constancia",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-07"
+        ],
+        "n_fuentes": 1
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "faltan-palabras",
+          "frase_ids": [
+            "f-04",
+            "f-06"
+          ]
+        },
+        {
+          "tema": "estancamiento",
+          "frase_ids": [
+            "f-02",
+            "f-19"
+          ]
+        }
+      ],
+      "objeciones": [],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-07",
+          "texto": "zdarza mi się pominąć dzień czy dwa",
+          "fuente_url": "https://wykop.pl/wpis/87897451/comiesieczna-aktualizacja-mojej-nauki-angielskiego",
+          "tema": "constancia"
+        },
+        {
+          "frase_id": "f-04",
+          "texto": "czasem mi zabraknie jakiegoś słówka i musze kombinować",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "faltan-palabras"
+        },
+        {
+          "frase_id": "f-02",
+          "texto": "Już od dłuższego czasu tkwię w tym samym miejscu.",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "estancamiento"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "debil",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-09",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "esceptico",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "palabras-sin-contexto",
+        "categorias": [
+          "objecion"
+        ],
+        "frase_ids": [
+          "f-25",
+          "f-26"
+        ],
+        "n_fuentes": 1
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "estancamiento",
+          "frase_ids": [
+            "f-02",
+            "f-19"
+          ]
+        },
+        {
+          "tema": "sin-dinero-para-clases",
+          "frase_ids": [
+            "f-09"
+          ]
+        }
+      ],
+      "objeciones": [
+        {
+          "tema": "palabras-sin-contexto",
+          "frase_ids": [
+            "f-25",
+            "f-26"
+          ]
+        },
+        {
+          "tema": "sin-dinero-para-clases",
+          "frase_ids": [
+            "f-09"
+          ]
+        }
+      ],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-25",
+          "texto": "Ja nie wiem dlaczego ludzie tak uparcie uczą się słówek bez kontekstu.",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269277",
+          "tema": "palabras-sin-contexto"
+        },
+        {
+          "frase_id": "f-26",
+          "texto": "Po pierwsze pojedynczych słów się nie zapamiętuje dobrze",
+          "fuente_url": "https://www.ang.pl/forum/nauka-jezyka/269277",
+          "tema": "palabras-sin-contexto"
+        },
+        {
+          "frase_id": "f-02",
+          "texto": "Już od dłuższego czasu tkwię w tym samym miejscu.",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "estancamiento"
+        },
+        {
+          "frase_id": "f-09",
+          "texto": "Nie stać mnie chwilowo na jakieś lekcje",
+          "fuente_url": "https://wykop.pl/wpis/87954983/nauka-naukajezykow-angielskizwykopem-angielski-czy",
+          "tema": "sin-dinero-para-clases"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "debil",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-10",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "idioma": "pl",
+      "baseline": false,
+      "estilo_decision": "impulsivo",
+      "estilo_origen": "supuesto: JPS [V 13:30] describe perfiles distintos (desconfiado, comprador, artístico, analítico); su prompt no es público",
+      "preocupacion_principal": {
+        "tema": "siguiente-paso-por-nivel",
+        "categorias": [
+          "dolor"
+        ],
+        "frase_ids": [
+          "f-03"
+        ],
+        "n_fuentes": 1
+      },
+      "preocupaciones_secundarias": [
+        {
+          "tema": "olvido",
+          "frase_ids": [
+            "f-18",
+            "f-29"
+          ]
+        },
+        {
+          "tema": "estancamiento",
+          "frase_ids": [
+            "f-02",
+            "f-19"
+          ]
+        }
+      ],
+      "objeciones": [],
+      "en_sus_palabras": [
+        {
+          "frase_id": "f-03",
+          "texto": "chciałbym wejść na takie solidne C1 i nie wiem jak",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "siguiente-paso-por-nivel"
+        },
+        {
+          "frase_id": "f-18",
+          "texto": "Przez ten czas prawie całkowicie zapomniałem języka.",
+          "fuente_url": "https://wykop.pl/wpis/87767939/jak-nauczyc-sie-angielskiego-po-latach-przerwy-htt",
+          "tema": "olvido"
+        },
+        {
+          "frase_id": "f-02",
+          "texto": "Już od dłuższego czasu tkwię w tym samym miejscu.",
+          "fuente_url": "https://wykop.pl/wpis/88083229/mircy-jak-mam-poprawic-swoj-angielski-generalnie-o",
+          "tema": "estancamiento"
+        }
+      ],
+      "vocabulario": [
+        "słówka",
+        "słownictwo",
+        "mapy myśli",
+        "skojarzenia",
+        "fiszki",
+        "poziom A2 / B1 / B2 / C1",
+        "apka",
+        "lektor",
+        "ciężko z regularnością",
+        "tkwić w tym samym miejscu"
+      ],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "debil",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    },
+    {
+      "avatar_id": "av-pl-PL-rubrica",
+      "oferta_id": "OF-202611-91",
+      "locale": "pl-PL",
+      "pais": null,
+      "idioma": "pl",
+      "baseline": true,
+      "estilo_decision": "rubrica",
+      "estilo_origen": "línea base: un juez sin perfil que aplica solo los criterios de gancho, claridad y CTA de la rúbrica del QA de D6 (R1-R3); mide si los perfiles aportan algo sobre un único evaluador",
+      "preocupacion_principal": null,
+      "preocupaciones_secundarias": [],
+      "objeciones": [],
+      "en_sus_palabras": [],
+      "vocabulario": [],
+      "demografia": {
+        "edad_rango": null,
+        "genero": null,
+        "ocupacion": null,
+        "origen": "sin_dato",
+        "fuente": null
+      },
+      "nivel_evidencia": "n/a",
+      "estado": "activo",
+      "procedencia": {
+        "voz_cliente_ruta": "ofertas/OF-202611-91/02-validacion/voz_cliente.json",
+        "voz_cliente_sha256": "06a584a6334494d5093d5deae538323ba73113a2ea40ec3518e5f6db84eec730",
+        "generador": "scripts/jurado/avatares.py 0.1.0",
+        "semilla": "demo-OF-202611-91-2026-11-08",
+        "min_frases_por_foco": 1,
+        "min_fuentes_por_foco": 1
+      }
+    }
+  ],
+  "demostracion": true
+}

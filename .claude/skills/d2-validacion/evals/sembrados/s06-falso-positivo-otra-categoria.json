@@ -1,0 +1,41 @@
+{
+  "id": "S06",
+  "severidad": "MAYOR",
+  "defecto": "Un competidor clasificado producto_digital es en realidad una app por suscripción (software): no debe sumar a N_ind_sost.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[2].dominio",
+      "valor": "app-presupuesto.ejemplo.invalid"
+    },
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[2].oferta.entregables",
+      "valor": "suscripción mensual a una app de presupuesto"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D7",
+        "patron_clave": "tipo-anunciante-mal-clasificado",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R3"
+    ],
+    "debe_citar": "suscripción mensual"
+  },
+  "detecta_script": "ninguno (clasificación ciega del QA)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

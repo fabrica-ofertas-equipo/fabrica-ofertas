@@ -1,0 +1,31 @@
+{
+  "id": "s35-texto-integro-de-persona-en-relaciones",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Relaciones: se guardó el texto íntegro de una persona en crudo/ (solo resúmenes)",
+  "base": "g3-relaciones-pl-pl-tarjetas-conversacion-parejas",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "crudo",
+      "op": "set",
+      "ruta": "EV-01",
+      "valor": "[E3] Mi marido y yo llevamos once años casados y desde que nació nuestra hija casi no hablamos de nada que no sea el colegio, las facturas y quién saca al perro; el otro día lloré en el baño porque sentí que vivimos como compañeros de piso y le conté a mi madre que no sé si él sigue enamorado de mí.\n"
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "PRIVACIDAD",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "PRIVACIDAD",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "texto-integro-en-salud-o-relaciones"
+      }
+    ],
+    "nota": "En salud y relaciones solo se guardan resúmenes en tercera persona o reseñas públicas del producto; nunca el texto íntegro de una persona."
+  }
+}

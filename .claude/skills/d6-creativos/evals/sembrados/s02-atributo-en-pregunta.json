@@ -1,0 +1,102 @@
+{
+  "grupo": "★ Atributo del espectador, también en pregunta (X1-E01)",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s02-es-es",
+      "grupo": "s02",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "¿Estás endeudado y sin trabajo? Esta hoja ordena tus pagos pendientes.",
+        "titular": "¿Estás endeudado?",
+        "hook_tipo": "pregunta-tarea"
+      },
+      "defecto": "pregunta con atributo (deuda y empleo)",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-en-pregunta",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2: afirma o pregunta situación financiera vulnerable; reencuadre RE-01 «método de 4 pasos para ordenar pagos pendientes»",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s02-pl-pl",
+      "grupo": "s02",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Jesteś zadłużony? Ten arkusz pomaga uporządkować zobowiązania.",
+        "titular": "Jesteś zadłużony?",
+        "hook_tipo": "pregunta-tarea"
+      },
+      "defecto": "pregunta con atributo",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-en-pregunta",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2 en polaco («Jesteś zadłużony?»)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s02-it-it",
+      "grupo": "s02",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Sei indebitato e non sai da dove iniziare? Un metodo in una pagina.",
+        "titular": "Sei indebitato?",
+        "hook_tipo": "pregunta-tarea"
+      },
+      "defecto": "pregunta con atributo",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-en-pregunta",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2 en italiano",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s02-en-us",
+      "grupo": "s02",
+      "locale": "en-US",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Are you struggling with debt? Here is a one-page method.",
+        "titular": "Struggling with debt?",
+        "hook_tipo": "pregunta-tarea"
+      },
+      "defecto": "pregunta con atributo",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-en-pregunta",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2: «Are you…» + situación financiera",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s02-fr-fr",
+      "grupo": "s02",
+      "locale": "fr-FR",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Vous êtes surendetté ? Une méthode en 4 étapes sur une page.",
+        "titular": "Vous êtes surendetté ?",
+        "hook_tipo": "pregunta-tarea"
+      },
+      "defecto": "pregunta con atributo",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-en-pregunta",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2 en francés",
+      "bloqueante": true
+    }
+  ]
+}

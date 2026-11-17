@@ -1,0 +1,21 @@
+# Fixture mínimo de pruebas (forma de la semilla docs/_historial/d1-v2-semillas/fuentes.yaml, que NO
+# se copia a empresa/descubrimiento/: es una propuesta pendiente de aprobación del dueño).
+fuentes:
+  - id: youtube-comentarios
+    nombre: "Comentarios de YouTube (captura asistida)"
+    familia: dolor
+    tipo_evidencia: E3
+    modo: captura_asistida
+    retencion_dias: 30
+  - id: reseñas-marketplace
+    nombre: "Reseñas 2-3 estrellas en marketplaces"
+    familia: dolor
+    tipo_evidencia: E3
+    modo: captura_asistida
+    retencion_dias: 90
+  - id: foro-privado-vetado
+    nombre: "Foro privado (no autorizado)"
+    familia: dolor
+    tipo_evidencia: E3
+    modo: no_usar
+    retencion_dias: null

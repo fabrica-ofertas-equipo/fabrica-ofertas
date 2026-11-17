@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.2.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "script_version": "1.2.0",
+  "entradas_usadas": {
+    "tarifas_fecha": "2026-11-06",
+    "tarifas_fuente": "[SUPUESTO] 03-stripe §4.1: tarjeta 2,9 % + 0,30 USD, +1,5 % internacional, +1 % conversión, disputa 15 USD, Stripe Tax 0,5 %; [SUPUESTO] sin IVA ni comisión fija (defecto sembrado S5)",
+    "moneda": "EUR",
+    "precio": {
+      "monto": 2490,
+      "moneda": "EUR"
+    },
+    "precio_bump": {
+      "monto": 990,
+      "moneda": "EUR"
+    },
+    "tasa_bump_bp": 1000,
+    "tasa_reembolso_bp": 700,
+    "tasa_disputa_bp": 50,
+    "comision_pct_bp": 290,
+    "comision_fija": {
+      "monto": 0,
+      "moneda": "EUR"
+    },
+    "tarifa_disputa": {
+      "monto": 1293,
+      "moneda": "EUR"
+    },
+    "costo_variable": {
+      "monto": 20,
+      "moneda": "EUR"
+    },
+    "factor_cpa_objetivo_bp": 6000,
+    "escenarios": {
+      "pes": {
+        "cpm": {
+          "monto": 210,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 80,
+        "clic_compra_bp": 70
+      },
+      "central": {
+        "cpm": {
+          "monto": 210,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 120,
+        "clic_compra_bp": 150
+      },
+      "opt": {
+        "cpm": {
+          "monto": 210,
+          "moneda": "EUR"
+        },
+        "ctr_enlace_bp": 200,
+        "clic_compra_bp": 250
+      }
+    },
+    "tasa_iva_bp": 0,
+    "stripe_tax": {
+      "pct_bp": 50,
+      "fijo": {
+        "monto": 0,
+        "moneda": "EUR"
+      }
+    },
+    "tarifa_meta_bp": 300,
+    "recargos_bp": 150,
+    "conversion_bp": 100,
+    "tarifas_origen": "supuesto",
+    "costos_fijos_oferta": {
+      "monto": 0,
+      "moneda": "EUR"
+    }
+  },
+  "aov": {
+    "monto": 2589,
+    "moneda": "EUR"
+  },
+  "mc": {
+    "monto": 2216,
+    "moneda": "EUR"
+  },
+  "cpa_be": {
+    "monto": 2216,
+    "moneda": "EUR"
+  },
+  "cpa_obj": {
+    "monto": 1291,
+    "moneda": "EUR"
+  },
+  "roas_be": "1.17",
+  "cpa_real": {
+    "pes": {
+      "monto": 3750,
+      "moneda": "EUR"
+    },
+    "central": {
+      "monto": 1167,
+      "moneda": "EUR"
+    },
+    "opt": {
+      "monto": 420,
+      "moneda": "EUR"
+    }
+  },
+  "razon": "1.84",
+  "razon_obj": "1.11",
+  "veredicto": "FACTIBLE",
+  "presupuesto_test_min": {
+    "monto": 33240,
+    "moneda": "EUR"
+  },
+  "dias_test": 8,
+  "gasto_test_plan": {
+    "monto": 33600,
+    "moneda": "EUR"
+  },
+  "perdida_max_test": {
+    "monto": 33600,
+    "moneda": "EUR"
+  },
+  "evento_optimizacion_inicial": "Purchase",
+  "criterios_corte": {
+    "k": 3,
+    "n_dec": 15,
+    "validada": "backbone 5.9 (parametros.veredicto)"
+  },
+  "conv_central": "0.015",
+  "cpc_esperado": {
+    "monto": "17.5",
+    "moneda": "EUR"
+  },
+  "cpa_be_visto": {
+    "monto": 2151,
+    "moneda": "EUR"
+  },
+  "limites_pendientes": [
+    "moneda_limites",
+    "capital_en_riesgo_total",
+    "gasto_diario_global",
+    "gasto_diario_por_oferta",
+    "gasto_total_test_por_oferta",
+    "perdida_max_test_por_oferta",
+    "perdida_neta_acumulada_max",
+    "ofertas_en_test_simultaneas_max",
+    "limite_gasto_cuenta_meta",
+    "cuentas_permitidas",
+    "paises_permitidos",
+    "locales_permitidos"
+  ],
+  "resultado_esperado_central": {
+    "monto": 28349,
+    "moneda": "EUR"
+  }
+}

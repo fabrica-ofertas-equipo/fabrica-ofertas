@@ -1,0 +1,31 @@
+{
+  "id": "s16-tesis-dirigida-a-un-atributo",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Tesis dirigida a un atributo personal («para personas endeudadas»; E2)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/1/tesis",
+      "valor": "Para personas endeudadas que no pueden salir adelante, esta hoja ordena los cobros y las deudas."
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "R-7",
+  "severidad_esperada": "MAYOR",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "R-7",
+        "severidad": "MAYOR",
+        "patron_clave": "atributo-personal-en-la-tesis"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

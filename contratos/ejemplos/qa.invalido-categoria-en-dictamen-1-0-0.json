@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "X1",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-09T09:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "07-campana/campana.json",
+  "artefacto_sha256": "sha256:d797662d77e2e097990106b66907d02295efb4dae1dacbb08061c7954f9cd69c",
+  "entradas": {},
+  "veredicto": "PASS",
+  "puntaje_global": "4.40",
+  "umbral": "3.8",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Coherencia con el contrato de la etapa",
+      "puntaje": 5,
+      "evidencia": "07-campana/campana.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia citada",
+      "puntaje": 4,
+      "evidencia": "07-campana/campana.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Claims y cumplimiento",
+      "puntaje": 5,
+      "evidencia": "07-campana/campana.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Claridad para el siguiente agente",
+      "puntaje": 4,
+      "evidencia": "07-campana/campana.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Reproducibilidad",
+      "puntaje": 4,
+      "evidencia": "07-campana/campana.json: revisado campo por campo contra el contrato"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-ESQUEMA",
+      "resultado": "pass",
+      "detalle": "validar_esquemas.py sin errores"
+    },
+    {
+      "check_id": "L1-HASHES",
+      "resultado": "pass",
+      "detalle": "hashes coinciden"
+    }
+  ],
+  "simulaciones_l3": [],
+  "hallazgos": [
+    {
+      "check_id": "X1-H1",
+      "patron_clave": "formato",
+      "severidad": "MENOR",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "Mayúsculas inconsistentes en un título",
+      "evidencia": "07-campana/campana.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "X1-H2",
+      "patron_clave": "unidades",
+      "severidad": "MENOR",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "Falta aclarar una unidad en un campo",
+      "evidencia": "07-campana/campana.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "X1-H3",
+      "patron_clave": "evidencia",
+      "severidad": "MEJORA",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "Se podría añadir una segunda fuente",
+      "evidencia": "07-campana/campana.json",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir una segunda muestra gratuita",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Datos de ejemplo: no hay evidencia real de mercado"
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": null,
+  "etapa_objetivo": "D7",
+  "reglas_version": "1.0.0",
+  "politicas_fecha_min": "2026-10-25",
+  "semaforo": "verde",
+  "vigencia_hasta": "2026-12-05",
+  "claims_trazados": [
+    {
+      "claim_id": "incluye-plantilla-cv",
+      "evidencia_ref": "04-producto/entregables/plantilla-cv-puente-v1.md"
+    },
+    {
+      "claim_id": "guion-explicar-pausa",
+      "evidencia_ref": "04-producto/entregables/puente-de-la-pausa-v1-guia.md"
+    },
+    {
+      "claim_id": "tiempo-90-min",
+      "evidencia_ref": "04-producto/producto.json#tiempos"
+    },
+    {
+      "claim_id": "garantia-14-dias",
+      "evidencia_ref": "03-oferta/oferta.json#garantia"
+    }
+  ],
+  "firma_motor": "hmac-sha256:619645537900e72398a8a9a1ec9747dd0893e9cd13513230ec781e707b1a05f2",
+  "categoria_especial_requerida": [
+    "FINANCIAL_PRODUCTS_SERVICES"
+  ]
+}

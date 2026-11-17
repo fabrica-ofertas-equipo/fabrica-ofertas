@@ -1,0 +1,4 @@
+# Dependencias de runtime del sistema (Python 3.15). No editar: los componentes
+# declaran extras en <componente>/requirements-extra.txt (ver docs/convenciones-de-codigo.md).
+PyYAML>=6.0.3
+jsonschema>=4.26.0

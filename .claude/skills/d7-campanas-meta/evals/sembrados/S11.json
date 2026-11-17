@@ -1,0 +1,32 @@
+{
+  "id": "S11",
+  "descripcion": "Presupuesto en CLP con decimales de EUR (monto x100): offset de Meta mal aplicado",
+  "check_id": "C04",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "moneda"
+      ],
+      "valor": "CLP"
+    }
+  ],
+  "esperado": {
+    "check_id": "C04",
+    "codigo": "decimales_no_iso",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C04",
+      "patron_clave": "monto-fuera-de-offset",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

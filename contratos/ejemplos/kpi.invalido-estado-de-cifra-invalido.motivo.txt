@@ -1,0 +1,3 @@
+validador=enum
+ruta=/filas/0/estado
+texto=cada cifra es ok, gris, provisional o stale

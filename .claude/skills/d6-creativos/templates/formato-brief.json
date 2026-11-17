@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "nota": "PROPUESTA de contrato común de productores de formato (references/contrato-comun-de-formatos.md). EJEMPLO: los textos son ilustrativos; en una corrida real salen de copies.json y matriz.json congelados.",
+  "oferta_id": "OF-202611-01",
+  "locale": "es-ES",
+  "macro_nicho": "dinero",
+  "ad_name": "c01-hueco_img_h1_v1",
+  "concepto_id": "c01-hueco",
+  "hook_id": "h1",
+  "hook_tipo": "escena-pov",
+  "formato": "imagen",
+  "variante_formato": "estatico-html",
+  "presentador": "sin_rostro",
+  "duracion_s": null,
+  "v": 1,
+  "copy": {
+    "texto_principal": "Una pausa laboral no es un hueco: es un relato que se puede contar.",
+    "titular": "Guía + plantilla",
+    "descripcion": "Garantía de 14 días",
+    "cta": "LEARN_MORE",
+    "texto_en_pieza": {
+      "gancho": "Una pausa laboral no es un hueco: es un relato que se puede contar.",
+      "apoyo": "Guía + plantilla · 19,90 €",
+      "rotulo": "",
+      "aviso": "Contenido informativo. No garantiza entrevistas ni empleo."
+    }
+  },
+  "guion_ref": "06-creativos/guiones/c01-hueco_img_h1_v1.md",
+  "hash_textos": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "claim_ids": ["guion-explicar-pausa", "incluye-plantilla-cv", "garantia-14-dias"],
+  "claims_prohibidos": ["conseguirás trabajo", "garantizamos entrevistas"],
+  "riesgo_pieza": {"nivel": "verde", "ejes_codigo": {"P": "P1", "C": "C1", "E": "E0", "N": "N1"}},
+  "marca": {"paleta_ref": "05-landing/paleta.json", "fuentes_woff2": []},
+  "limites": {"creditos_max_pieza": null, "creditos_max_oferta": null, "politica_divulgacion_ia": null},
+  "ruta": "A",
+  "cotizacion": null
+}

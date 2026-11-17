@@ -1,0 +1,31 @@
+{
+  "id": "s40-reencuadre-sin-claims-a-evitar",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Reencuadre aplicado sin claims a evitar (R-7)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/claims_a_evitar",
+      "valor": []
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "R-7",
+  "severidad_esperada": "MAYOR",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "R-7",
+        "severidad": "MAYOR",
+        "patron_clave": "claims-a-evitar-vacio"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

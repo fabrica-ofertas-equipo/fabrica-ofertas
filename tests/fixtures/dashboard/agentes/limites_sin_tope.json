@@ -1,0 +1,10 @@
+{
+  "valores": {
+    "moneda_limites": null,
+    "max_budget_por_corrida_agente": null
+  },
+  "nulos": [
+    "moneda_limites",
+    "max_budget_por_corrida_agente"
+  ]
+}

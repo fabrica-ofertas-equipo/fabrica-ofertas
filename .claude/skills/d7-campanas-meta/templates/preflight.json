@@ -1,0 +1,106 @@
+{
+  "checks": {
+    "P01": {
+      "estado": "VERDE",
+      "evidencia": "sin PAUSA"
+    },
+    "P02": {
+      "estado": "VERDE",
+      "evidencia": "cuenta ACTIVE"
+    },
+    "P03": {
+      "estado": "VERDE",
+      "evidencia": "método de pago configurado"
+    },
+    "P04": {
+      "estado": "VERDE",
+      "evidencia": "cuenta saludable"
+    },
+    "P05": {
+      "estado": "VERDE",
+      "evidencia": "límite diario de Meta 20000 >= 7199.50"
+    },
+    "P06": {
+      "estado": "VERDE",
+      "evidencia": "límite de gasto de cuenta fijado por el dueño"
+    },
+    "P07": {
+      "estado": "VERDE",
+      "evidencia": "página vinculada (2 administrador(es) humano(s), informativo)"
+    },
+    "P08": {
+      "estado": "VERDE",
+      "evidencia": "dataset activo con eventos recientes"
+    },
+    "P09": {
+      "estado": "VERDE",
+      "evidencia": "EMQ 6.5 >= 6.0"
+    },
+    "P10": {
+      "estado": "VERDE",
+      "evidencia": "event_id coincide en navegador y servidor"
+    },
+    "P11": {
+      "estado": "VERDE",
+      "evidencia": "dominio verificado"
+    },
+    "P12": {
+      "estado": "VERDE",
+      "evidencia": "landing 200 sin redirecciones"
+    },
+    "P13": {
+      "estado": "VERDE",
+      "evidencia": "URL sin vacíos, con macros"
+    },
+    "P14": {
+      "estado": "VERDE",
+      "evidencia": "landing_hash, precio y moneda coinciden"
+    },
+    "P15": {
+      "estado": "VERDE",
+      "evidencia": "copys = paquete y lint_claims OK"
+    },
+    "P16": {
+      "estado": "VERDE",
+      "evidencia": "mejoras de Meta en OPT_OUT"
+    },
+    "P17": {
+      "estado": "VERDE",
+      "evidencia": "self_ai_disclosure = política"
+    },
+    "P18": {
+      "estado": "VERDE",
+      "evidencia": "locale y países = mercado.json"
+    },
+    "P19": {
+      "estado": "VERDE",
+      "evidencia": "nombres 5.2 válidos"
+    },
+    "P20": {
+      "estado": "VERDE",
+      "evidencia": "presupuesto y spend_cap dentro de los límites, con offset de Meta"
+    },
+    "P21": {
+      "estado": "VERDE",
+      "evidencia": "active_errors vacío, 0 objetos ajenos"
+    },
+    "P22": {
+      "estado": "VERDE",
+      "evidencia": "vistas previas revisadas"
+    },
+    "P23": {
+      "estado": "VERDE",
+      "evidencia": "0 ofertas en test (máximo 1)"
+    },
+    "P24": {
+      "estado": "VERDE",
+      "evidencia": "hash_config sellado"
+    }
+  },
+  "generado_en": "2026-11-16T08:00:00Z",
+  "hash_config": "sha256:0f06f9db46ef2a7194b4d59a5178ec0db72e9f36e64565925355df94058f8bc4",
+  "oferta_id": "OF-202611-02",
+  "schema_version": "1.0.0",
+  "semaforo": "VERDE",
+  "valido_hasta": "2026-11-17T08:00:00Z"
+}

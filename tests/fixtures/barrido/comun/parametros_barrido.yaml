@@ -1,0 +1,100 @@
+# Fixture de pruebas de comun.cargar_parametros_barrido: NO son los valores de la fábrica.
+# Misma estructura que la propuesta real: {clave: {valor, unidad, hipotesis, fuente, ultima_calibracion, rango}}.
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    barrido_limite_por_consulta:
+      valor: 50
+      unidad: anuncios
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [10, 50]
+    barrido_paises_origen:
+      valor: [US, BR, MX, ES, IT]
+      unidad: paises
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: null
+    barrido_pasadas_max:
+      valor: 3
+      unidad: pasadas
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [1, 3]
+    barrido_titulos_por_pagina_max:
+      valor: 8
+      unidad: titulos
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [3, 20]
+    barrido_paginas_por_lote_etiquetado:
+      valor: 25
+      unidad: paginas
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [5, 60]
+    barrido_partir_si_total_supera:
+      valor: 200
+      unidad: anuncios
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [50, 1000]
+    memoria_ventana_min_dias:
+      valor: 21
+      unidad: dias
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [7, 60]
+    barrido_agentes_paralelos_max:
+      valor: 6
+      unidad: agentes
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [1, 12]
+    barrido_exportador_monedas_pais:
+      valor: {BRL: BR, MXN: MX, ARS: AR}
+      unidad: mapa moneda -> pais
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: null
+    barrido_consultas_por_agente_max:
+      valor: 15
+      unidad: consultas
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [5, 40]
+    # Clave extra (el contrato permite agregar): debe devolverse y validarse contra su rango.
+    barrido_extra_decimal:
+      valor: "0.25"
+      unidad: razon
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: ["0", "1"]
+    # Revisión de seguridad m7: tope de largo de todo texto de la Biblioteca y hosts permitidos en ad_snapshot_url.
+    # Valores de PRUEBA (el real observado máximo es 743 caracteres; aquí 800 para probar el borde 800/801).
+    barrido_texto_max_caracteres:
+      valor: 800
+      unidad: caracteres
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: [750, 5000]
+    barrido_hosts_snapshot:
+      valor: [www.facebook.com]
+      unidad: hosts
+      hipotesis: true
+      fuente: "fixture de pruebas"
+      ultima_calibracion: null
+      rango: null

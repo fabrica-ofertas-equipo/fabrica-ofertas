@@ -1,0 +1,8 @@
+{
+  "accion": "reembolsar",
+  "checkout_session_id": "cs_test_ejemplo0001",
+  "motivo": "dentro_de_garantia",
+  "categoria": "C5",
+  "mensaje_ref": "MSG-20261120-0007",
+  "nota": "Pide la devolución a los 6 días; el código comprueba garantía, disputa y topes."
+}

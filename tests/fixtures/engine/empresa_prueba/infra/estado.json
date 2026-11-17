@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.1.0",
+  "modo": "prueba",
+  "semaforo": "VERDE",
+  "generado_en": "2026-11-09T06:00:00Z",
+  "valido_hasta": "2026-11-09T12:00:00Z",
+  "commit": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+  "hash_scripts": "sha256:deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+  "items": [
+    {
+      "id": "M-02",
+      "bloque": "meta",
+      "critico": true,
+      "estado": "VERDE",
+      "mensaje": "fixture: cuenta activa",
+      "evidencia_ruta": "empresa/infra/healthcheck/20261109-0600.json",
+      "medido_en": "2026-11-09T06:00:00Z",
+      "expira_en": "2026-11-10T06:00:00Z",
+      "latencia_ms": 0
+    },
+    {
+      "id": "S-01",
+      "bloque": "stripe",
+      "critico": true,
+      "estado": "VERDE",
+      "mensaje": "fixture: clave de lectura",
+      "evidencia_ruta": "empresa/infra/healthcheck/20261109-0600.json",
+      "medido_en": "2026-11-09T06:00:00Z",
+      "expira_en": "2026-11-10T06:00:00Z",
+      "latencia_ms": 0
+    },
+    {
+      "id": "K-01",
+      "bloque": "seguridad",
+      "critico": true,
+      "estado": "VERDE",
+      "mensaje": "fixture: PAUSA ausente",
+      "evidencia_ruta": "empresa/infra/healthcheck/20261109-0600.json",
+      "medido_en": "2026-11-09T06:00:00Z",
+      "expira_en": "2026-11-10T06:00:00Z",
+      "latencia_ms": 0
+    }
+  ],
+  "firma": "hmac-sha256:3a75795ffb5ac6cda47b20343059fae0b5f75ec70dd14091615b976214140be2"
+}

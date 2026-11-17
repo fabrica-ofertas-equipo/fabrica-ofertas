@@ -1,0 +1,13 @@
+{
+  "permiso_dueno": true,
+  "gastado_antes": 0,
+  "piezas": [
+    { "id": "guia-estilo-ref-01", "creditos": 3, "modelo": "gpt_image_2_6", "prompt_ref": "entregables/fuente/prompts/guia-estilo-ref-01.txt" },
+    { "id": "piloto-ficha-01", "creditos": 3, "modelo": "gpt_image_2_6", "prompt_ref": "entregables/fuente/prompts/piloto-ficha-01.txt" },
+    { "id": "piloto-ficha-02", "creditos": 3, "modelo": "gpt_image_2_6", "prompt_ref": "entregables/fuente/prompts/piloto-ficha-02.txt" },
+    { "id": "piloto-ficha-03", "creditos": 3, "modelo": "gpt_image_2_6", "prompt_ref": "entregables/fuente/prompts/piloto-ficha-03.txt" }
+  ],
+  "costo_tokens_estimado": null,
+  "use_unlim": false,
+  "permiso_unlim_dueno": false
+}

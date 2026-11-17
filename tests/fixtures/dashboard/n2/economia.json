@@ -1,0 +1,31 @@
+{
+ "schema_version": "1.2.0",
+ "oferta_id": "OF-202611-01",
+ "version": "v1",
+ "veredicto": "FACTIBLE",
+ "aov": {
+  "monto": 2069,
+  "moneda": "EUR"
+ },
+ "mc": {
+  "monto": 1830,
+  "moneda": "EUR"
+ },
+ "cpa_be": {
+  "monto": 1830,
+  "moneda": "EUR"
+ },
+ "entradas_usadas": {
+  "moneda": "EUR",
+  "precio": {
+   "monto": 1990,
+   "moneda": "EUR"
+  },
+  "precio_bump": {
+   "monto": 790,
+   "moneda": "EUR"
+  },
+  "tasa_bump_bp": 1000,
+  "tarifas_origen": "supuesto"
+ }
+}

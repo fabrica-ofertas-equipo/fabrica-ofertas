@@ -1,0 +1,19 @@
+<section class="seccion cierre tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-cierre">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <h2 id="titulo-cierre">{{{titulo}}}</h2>
+    </header>
+    <div class="sin-con">
+      <p class="sin-con__cab sin-con__cab--sin">{{t.sin}}</p>
+      <p class="sin-con__cab sin-con__cab--con">{{t.con}}</p>
+{{#cada filas}}
+      <p class="sin-con__celda sin-con__celda--sin"><svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg><span><span class="solo-lectores">{{t.sin}}: </span>{{{sin}}}</span></p>
+      <p class="sin-con__celda sin-con__celda--con"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span><span class="solo-lectores">{{t.con}}: </span>{{{con}}}</span></p>
+{{/cada}}
+    </div>
+    <div class="cierre__accion">
+      <a class="boton boton--cta boton--grande" href="/comprar"><span>{{cta.texto}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      <p class="microcopy">{{{microcopy}}}</p>
+    </div>
+  </div>
+</section>

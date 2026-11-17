@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "version_script": "1.0.0",
+  "candidato_id": "CAND-03",
+  "macro_nicho": "dinero",
+  "consultas": [],
+  "metricas_mercado": {
+    "n_anuncios": 50,
+    "n_anunciantes": 10,
+    "n_sostenidos": 4,
+    "edad_mediana_dias": 120
+  },
+  "saturacion": {
+    "indice": 40,
+    "n_ind_sostenidos": 4,
+    "saturacion_mecanismo": "baja",
+    "detalle": "4 anunciantes sostenidos, mecanismo M3 con baja saturación (fixture de prueba)"
+  },
+  "convergencia": {
+    "estado": "media",
+    "detalle": "solapamiento de ángulo moderado (fixture de prueba)"
+  },
+  "huecos": [
+    "ningún competidor leído explica cómo automatizar el primer depósito"
+  ],
+  "senales_demanda_organica": [],
+  "restricciones_originalidad": [],
+  "riesgo_politica": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {"aplicado": false},
+    "fuentes": ["https://example.com/politicas-finanzas-personales"],
+    "categoria": "finanzas personales",
+    "claims_a_evitar": ["ingresos garantizados"],
+    "angulo_seguro": "ahorro con constancia, sin promesas de ingresos"
+  },
+  "no_inferible": [],
+  "hipotesis_para_d7": [],
+  "handoff_d3": {
+    "angulos_candidatos": ["ahorro con constancia"],
+    "objeciones_top": ["no tengo tiempo para llevar la cuenta"],
+    "rango_precios_por_moneda": [{"moneda": "USD", "min": 1200, "max": 2900}],
+    "entregables_tipicos": ["guía pdf"],
+    "prohibido_copiar": ["nombre de marca de un competidor"]
+  },
+  "lectura_snapshots": "humano_muestreo",
+  "voz": {"frases_total": 35, "fuentes_distintas": 4},
+  "evidencia_locale_e1_o_e2": 0,
+  "sustituto_gratis": "no_dominante",
+  "angulo_seguro_existe": true,
+  "reencuadre_verificable_x1": false,
+  "x1_dictamen": "PASS",
+  "confianza": {"puntos": 60, "nivel": "media"},
+  "n_competidores": 10,
+  "riesgo_subnivel": null
+}

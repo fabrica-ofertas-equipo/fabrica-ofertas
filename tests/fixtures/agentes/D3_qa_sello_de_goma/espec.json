@@ -1,0 +1,27 @@
+{
+  "rol": "qa",
+  "etapa": "D3",
+  "oferta_id": "OF-202611-01",
+  "agente": "d3-qa",
+  "prompt_base": "Revisa oferta.json contra el contrato y la rúbrica.",
+  "entradas": [
+    "ofertas/OF-202611-01/D3/oferta.json"
+  ],
+  "contrato_salida": "contratos/qa.schema.json",
+  "artefactos_esperados": [],
+  "herramientas": [
+    "Read",
+    "Grep",
+    "Glob"
+  ],
+  "allow": [],
+  "rutas_escribibles": [],
+  "presupuesto": {
+    "usd_centavos_max": 300,
+    "tiempo_s_max": 900,
+    "turnos_max": 20
+  },
+  "modelo": "claude-sonnet-5",
+  "esfuerzo": "high",
+  "ronda": 1
+}

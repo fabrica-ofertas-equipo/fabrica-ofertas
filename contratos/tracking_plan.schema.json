@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/tracking_plan.schema.json",
+  "title": "Plan de tracking",
+  "description": "Plan de tracking (D5)",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "pixel_id": {
+      "type": "string",
+      "pattern": "^[0-9]{5,20}$",
+      "description": "Un píxel/dataset por oferta"
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[0-9]{5,20}$"
+    },
+    "dominio_verificado": {
+      "type": "string",
+      "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$"
+    },
+    "eventos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "enum": [
+              "PageView",
+              "ViewContent",
+              "InitiateCheckout",
+              "Purchase"
+            ]
+          },
+          "canal": {
+            "enum": [
+              "pixel",
+              "capi",
+              "ambos"
+            ]
+          },
+          "event_id_regla": {
+            "type": "string"
+          },
+          "parametros_permitidos": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "fbp",
+                "fbc",
+                "value",
+                "currency",
+                "content_ids",
+                "content_type",
+                "num_items",
+                "event_id"
+              ]
+            },
+            "description": "Lista cerrada: nada que revele una condición de salud o financiera (content_name y content_category prohibidos; M10)."
+          }
+        },
+        "required": [
+          "nombre",
+          "canal",
+          "event_id_regla",
+          "parametros_permitidos"
+        ],
+        "additionalProperties": false,
+        "description": "Evento de Meta"
+      },
+      "minItems": 1
+    },
+    "utm_esquema": {
+      "type": "object",
+      "properties": {
+        "plantilla": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Query de los enlaces de anuncio (backbone 5.3)"
+        },
+        "parametros_obligatorios": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 9,
+          "allOf": [
+            {
+              "contains": {
+                "const": "oferta_id"
+              }
+            },
+            {
+              "contains": {
+                "const": "adid"
+              }
+            },
+            {
+              "contains": {
+                "const": "asid"
+              }
+            },
+            {
+              "contains": {
+                "const": "cid"
+              }
+            },
+            {
+              "contains": {
+                "const": "utm_source"
+              }
+            },
+            {
+              "contains": {
+                "const": "utm_medium"
+              }
+            },
+            {
+              "contains": {
+                "const": "utm_campaign"
+              }
+            },
+            {
+              "contains": {
+                "const": "utm_content"
+              }
+            },
+            {
+              "contains": {
+                "const": "utm_term"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "plantilla",
+        "parametros_obligatorios"
+      ],
+      "additionalProperties": false
+    },
+    "consent_gating": {
+      "type": "object",
+      "properties": {
+        "requerido_ue_uk": {
+          "type": "boolean"
+        },
+        "plataforma": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tolerar_trafico_sin_consentimiento": {
+          "type": "boolean",
+          "description": "Stripe sigue siendo la fuente de verdad"
+        }
+      },
+      "required": [
+        "requerido_ue_uk",
+        "plataforma",
+        "tolerar_trafico_sin_consentimiento"
+      ],
+      "additionalProperties": false
+    },
+    "emq_objetivo": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "modo_prueba": {
+      "type": "boolean"
+    },
+    "datos_sensibles": {
+      "type": "object",
+      "properties": {
+        "permitidos": {
+          "const": false,
+          "description": "Ningún dato de salud viaja al píxel ni a los eventos, ni en nombres de landing o evento"
+        },
+        "campos_prohibidos": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "permitidos",
+        "campos_prohibidos"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "pixel_id",
+    "dataset_id",
+    "dominio_verificado",
+    "eventos",
+    "utm_esquema",
+    "consent_gating",
+    "emq_objetivo",
+    "modo_prueba",
+    "datos_sensibles"
+  ],
+  "additionalProperties": false
+}

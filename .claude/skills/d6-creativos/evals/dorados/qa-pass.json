@@ -1,0 +1,411 @@
+{
+  "descripcion": "Piezas que el QA debe aprobar (0 falsos bloqueos). Anexo B dorados + pares de la nota 25 §5.2. [SUPUESTO]: ninguna probada ante Meta; las piezas son texto de anuncio, no el paquete completo. 0.2.0: g17 (pl-PL sin revisor nativo, J11).",
+  "piezas": [
+    {
+      "pieza_id": "g01",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Se lee en 20 minutos: una hoja de costeo con el precio mínimo ya calculado. Guía + plantilla: 19,90 €.",
+        "titular": "Hoja de costeo",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "tiempo-20-min",
+          "texto": "Se lee en 20 minutos"
+        },
+        {
+          "claim_id": "incluye-hoja-costeo",
+          "texto": "Incluye una hoja de costeo"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "«Se lee en 20 minutos» con claim_id verificado no es un plazo de resultado"
+    },
+    {
+      "pieza_id": "g02",
+      "locale": "es-ES",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "lista-numero",
+        "texto_principal": "Un plan de 14 días con la lista de la compra de cada semana. PDF imprimible: 9,90 €.",
+        "titular": "Plan de 14 días",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "plan-14-dias",
+          "texto": "Plan de 14 días"
+        },
+        {
+          "claim_id": "incluye-lista-compra",
+          "texto": "Incluye lista de la compra"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "«plan de 14 días» describe el artefacto (RE-07), no un resultado del lector"
+    },
+    {
+      "pieza_id": "g03",
+      "locale": "es-AR",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Plantilla lista para completar: costo por producto, precio mínimo y margen. Hoja de cálculo: US$ 14,90.",
+        "titular": "Plantilla lista para completar",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "plantilla-lista-completar",
+          "texto": "Plantilla lista para completar"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "«lista para completar» acota al artefacto; «lista para ganar» sería rojo"
+    },
+    {
+      "pieza_id": "g04",
+      "locale": "es-AR",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "pregunta-tarea",
+        "texto_principal": "¿Cómo armás tu menú de la semana? Un planificador con lista de compras incluida. PDF imprimible: US$ 9,90.",
+        "titular": "Planificador semanal",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-lista-compra",
+          "texto": "Incluye lista de compras"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "pregunta sobre la TAREA, no sobre la persona (dorado del Anexo B)"
+    },
+    {
+      "pieza_id": "g05",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "demostracion",
+        "texto_principal": "Presentador generado con IA: te muestra cómo se completa la hoja de costeo paso a paso. Hoja: 14,90 €.",
+        "titular": "Hoja de costeo paso a paso",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-hoja-costeo",
+          "texto": "Incluye una hoja de costeo"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "avatar IA etiquetado que solo presenta el producto (dinero verde); sin «yo lo usé»",
+      "presentador": "avatar_ia",
+      "etiqueta_ia_visible": true,
+      "etiqueta_texto": "Presentador generado con IA"
+    },
+    {
+      "pieza_id": "g06",
+      "locale": "es-ES",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "amarillo",
+      "texto": {
+        "hook_tipo": "lista-numero",
+        "texto_principal": "10 preguntas para ordenar las ideas antes de decidir si escribir a un ex. Cuaderno imprimible: 11,90 €. Educativo; no es terapia.",
+        "titular": "10 preguntas antes de escribir",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-10-preguntas",
+          "texto": "Incluye 10 preguntas"
+        },
+        {
+          "claim_id": "no-es-terapia",
+          "texto": "Educativo; no es terapia"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "amarillo-a aprobable (RE-06); «un ex» no «tu ex»; RHS de la primera pieza, no bloqueo",
+      "requiere_rhs": true
+    },
+    {
+      "pieza_id": "g07",
+      "locale": "it-IT",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Planner settimanale dei pasti con la lista della spesa già pronta. PDF stampabile: 9,90 €.",
+        "titular": "Planner settimanale dei pasti",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "include-lista-spesa",
+          "texto": "Include la lista della spesa"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "dorado del Anexo B en italiano; «senza dieta» no aparece"
+    },
+    {
+      "pieza_id": "g08",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Modello Excel per costi, prezzo e margine: ogni costo in una riga, il prezzo minimo calcolato. Modello: 14,90 €.",
+        "titular": "Modello Excel per costi e margine",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "include-modello-excel",
+          "texto": "Include un modello Excel"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "dorado del Anexo B en italiano; el precio minimo es del modelo, no del lector"
+    },
+    {
+      "pieza_id": "g09",
+      "locale": "pl-PL",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Tygodniowy planer posiłków z listą zakupów w PDF do wydruku. 39 zł.",
+        "titular": "Tygodniowy planer posiłków",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "zawiera-liste-zakupow",
+          "texto": "Zawiera listę zakupów"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "polaco sin «cud», «leczy» ni plazos; precio `39 zł` con formato del país"
+    },
+    {
+      "pieza_id": "g10",
+      "locale": "pl-PL",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "amarillo",
+      "texto": {
+        "hook_tipo": "lista-numero",
+        "texto_principal": "Arkusz 10 pytań przed decyzją o rozmowie. Materiał edukacyjny, nie terapia. 49 zł.",
+        "titular": "Arkusz 10 pytań",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "zawiera-10-pytan",
+          "texto": "Zawiera 10 pytań"
+        },
+        {
+          "claim_id": "nie-jest-terapia",
+          "texto": "Materiał edukacyjny, nie terapia"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "par aprobable de la nota 25 §5.2 (pl, relaciones); amarillo-a con RHS",
+      "requiere_rhs": true
+    },
+    {
+      "pieza_id": "g11",
+      "locale": "en-US",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "lista-numero",
+        "texto_principal": "Weekly meal-prep planner with grocery lists: four printable weeks. PDF: $9.90.",
+        "titular": "Weekly meal-prep planner",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "four-printable-weeks",
+          "texto": "Four printable weeks"
+        },
+        {
+          "claim_id": "includes-grocery-lists",
+          "texto": "Includes grocery lists"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "par aprobable en inglés; sin «lose weight»"
+    },
+    {
+      "pieza_id": "g12",
+      "locale": "en-US",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Zero-based budget template: every dollar gets a line. Spreadsheet: $12.90. Illustrative figures; not financial advice.",
+        "titular": "Zero-based budget template",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "spreadsheet-template",
+          "texto": "Spreadsheet template"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "«zero-based» es el método, no «cero deudas»; aviso presente"
+    },
+    {
+      "pieza_id": "g13",
+      "locale": "fr-FR",
+      "macro_nicho": "salud",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "lista-numero",
+        "texto_principal": "Des fiches de mobilité de 10 minutes pour les pauses. PDF à imprimer : 9,90 €.",
+        "titular": "Fiches de mobilité de 10 minutes",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "fiches-10-minutes",
+          "texto": "Fiches de 10 minutes"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "par aprobable en francés (nota 25 §5.2); sin lenguaje terapéutico"
+    },
+    {
+      "pieza_id": "g14",
+      "locale": "ro-RO",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Tabel pentru calculul costurilor unui produs handmade: cost, preț minim și marjă. 49 lei.",
+        "titular": "Tabel de costuri handmade",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "tabel-costuri",
+          "texto": "Tabel pentru costuri"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "par aprobable en rumano; sin «câștigă»; precio `49 lei`"
+    },
+    {
+      "pieza_id": "g15",
+      "locale": "de-DE",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "pregunta-tarea",
+        "texto_principal": "Arbeitsmappe als PDF: Fragen, die man vor einem schwierigen Gespräch ordnen kann. 12,90 €.",
+        "titular": "Arbeitsmappe als PDF",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "arbeitsmappe-pdf",
+          "texto": "Arbeitsmappe als PDF"
+        }
+      ],
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "alemán sin «Kurs mit Betreuung» (FernUSG) ni «gegen» + dolencia"
+    },
+    {
+      "pieza_id": "g16",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "amarillo",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Plantilla de costos para calcular el precio mínimo de un producto artesanal. Hoja de cálculo editable: 14,90 €.",
+        "titular": "Plantilla de costos",
+        "descripcion": ""
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "incluye-plantilla-costos",
+          "texto": "Incluye una plantilla de costos editable"
+        }
+      ],
+      "riesgo_pieza_declarado": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "repite_promesa_central": false
+      },
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "oferta amarilla (P2s: cifra ilustrativa en la landing) con una pieza solo-producto, verde y sin la promesa central: una pieza MENOR que la oferta no es defecto (SC-15); el recalculado con scripts.nivel_riesgo coincide con el declarado"
+    },
+    {
+      "pieza_id": "g17",
+      "locale": "pl-PL",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "texto": {
+        "hook_tipo": "resultado-artefacto",
+        "texto_principal": "Arkusz: koszt, cena minimalna i marża w jednej tabeli. Wersja edytowalna: 49 zł.",
+        "titular": "Arkusz kosztów",
+        "descripcion": "Gwarancja zwrotu 14 dni"
+      },
+      "claims_permitidos": [
+        {
+          "claim_id": "arkusz-kosztow",
+          "texto": "Zawiera edytowalny arkusz kosztów"
+        },
+        {
+          "claim_id": "garantia-14-dias",
+          "texto": "Gwarancja zwrotu 14 dni"
+        }
+      ],
+      "riesgo_pieza_declarado": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "repite_promesa_central": false
+      },
+      "contexto": {
+        "mercado": {
+          "locale": "pl-PL",
+          "revision_linguistica": {
+            "revisor_nativo": false,
+            "obligacion_legal_idioma": true
+          }
+        }
+      },
+      "veredicto_esperado": "PASS",
+      "falsos_bloqueos_a_evitar": "J11: sin revisor nativo y con obligacion_legal_idioma = true NO es ROJO ni bloqueante; el idioma se asegura con las 5 capas de linguistico.json (la falta de revisor, a lo sumo, se anota). La pieza es verde y trazable"
+    }
+  ]
+}

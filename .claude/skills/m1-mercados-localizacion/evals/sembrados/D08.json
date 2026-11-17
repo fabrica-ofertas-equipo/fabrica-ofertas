@@ -1,0 +1,34 @@
+{
+  "id": "D08",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "PayPal contado como metodo habilitable",
+  "donde_se_siembra": "mercado.seleccion.json#/ranking/0/cobertura/suman",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "append",
+          "ruta": "/ranking/0/cobertura/suman",
+          "valor": "paypal"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-13"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-13",
+      "patron_clave": "paypal-contado",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "PayPal no es activable via Stripe para una LLC de EE. UU.: es hueco, no cobertura"
+  }
+}

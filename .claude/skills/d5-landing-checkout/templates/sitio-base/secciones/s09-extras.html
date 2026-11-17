@@ -1,0 +1,49 @@
+<section class="seccion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-extras">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <h2 id="titulo-extras">{{{titulo}}}</h2>
+    </header>
+{{#si rotulo_grupo}}
+    <p class="rotulo-grupo" data-rotulo="{{rotulo_grupo.tipos}}" data-para="grupo">{{rotulo_grupo.texto}}</p>
+{{/si}}
+{{#si bonos}}
+    <ul class="bonos" role="list">
+{{#cada bonos}}
+      <li class="tarjeta bono">
+{{#si imagen}}
+        <img class="bono__img" src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+{{sino}}
+        <span class="icono-caja icono-caja--c{{color}}" aria-hidden="true"><svg class="ico"><use href="#i-regalo"></use></svg></span>
+{{/si}}
+        <div>
+          <h3>{{{nombre}}}</h3>
+          <p>{{{texto}}}</p>
+        </div>
+        <span class="chip">{{t.incluido}}</span>
+      </li>
+{{/cada}}
+    </ul>
+{{/si}}
+{{#si bump}}
+    <div class="tarjeta bump{{#si bump.imagen}} bump--con-imagen{{/si}}">
+{{#si bump.imagen}}
+      <div class="bump__img img-rotulada">
+        <img src="{{bump.imagen.url}}" width="{{bump.imagen.ancho}}" height="{{bump.imagen.alto}}" alt="{{bump.imagen.alt}}" data-slot="{{bump.imagen.slot}}"{{#si bump.imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si bump.imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async">
+        {{#si bump.imagen.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{bump.imagen.tipos}}" data-para="{{bump.imagen.slot}}">{{bump.imagen.rotulo}}</span>{{/si}}
+      </div>
+{{sino}}
+{{#si bump.marcador}}
+      <div class="vp-marcador vp-marcador--bump" data-demo="imagen" role="img" aria-label="{{bump.marcador}}"><span class="vp-marcador__etiqueta">{{bump.marcador}}</span></div>
+{{/si}}
+{{/si}}
+      <span class="casilla" aria-hidden="true"></span>
+      <div>
+        <p class="bump__etiqueta"><span class="chip chip--suave">{{t.opcional}}</span></p>
+        <h3>{{{bump.nombre}}}</h3>
+        <p>{{{bump.texto}}}</p>
+        <p class="bump__casilla">{{{bump.etiqueta_casilla}}}</p>
+      </div>
+    </div>
+{{/si}}
+  </div>
+</section>

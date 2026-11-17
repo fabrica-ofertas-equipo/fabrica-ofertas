@@ -1,0 +1,3 @@
+validador=required
+ruta=/checks
+texto=P01 a P24 son obligatorios

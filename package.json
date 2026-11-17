@@ -1,0 +1,11 @@
+{
+  "name": "fabrica-de-ofertas",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "description": "Workers de Cloudflare (JavaScript sin dependencias).",
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/economia.schema.json",
+  "title": "Economía de la oferta",
+  "description": "Economía unitaria de la oferta, generada por scripts/factibilidad.py (engine.factibilidad.calcular, única implementación, D-01). Importes en la moneda de la oferta. 1.1.0 (D-02): entradas tasa_iva_bp, stripe_tax, tarifa_meta_bp, recargos_bp, conversion_bp, tarifas_origen; salidas conv_central, cpc_esperado, cpa_be_visto, limites_pendientes, resultado_esperado_central. Con schema_version >= 1.1.0 son obligatorias; en 1.0.0 no existen. 1.2.0 (revisión CT-2): entradas_usadas.costos_fijos_oferta (obligatorio desde 1.2.0; X14 reproduce perdida_max_test = gasto_test_plan + costos_fijos_oferta) y resultado_esperado_central = gasto_test_plan x (cpa_be_visto / cpa_central - 1), con gasto_test_plan = gasto facturado (incluye la tarifa de Meta): su signo coincide con el de razon - 1.",
+  "x-version": "1.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1); con >= 1.1.0 rigen los campos D-02"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "script_version": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "entradas_usadas": {
+      "type": "object",
+      "properties": {
+        "tarifas_fecha": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "tarifas_fuente": {
+          "type": "string",
+          "minLength": 1,
+          "description": "tarifas.json de F1 o [SUPUESTO]"
+        },
+        "moneda": {
+          "$ref": "comunes.schema.json#/$defs/moneda"
+        },
+        "precio": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "precio_bump": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "tasa_bump_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+        },
+        "tasa_reembolso_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+        },
+        "tasa_disputa_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+        },
+        "comision_pct_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+        },
+        "comision_fija": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "tarifa_disputa": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "costo_variable": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "factor_cpa_objetivo_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+        },
+        "escenarios": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "cpm": {
+                "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+              },
+              "ctr_enlace_bp": {
+                "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+              },
+              "clic_compra_bp": {
+                "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+              }
+            },
+            "required": [
+              "cpm",
+              "ctr_enlace_bp",
+              "clic_compra_bp"
+            ],
+            "additionalProperties": false
+          },
+          "description": "pes|central|opt"
+        },
+        "tasa_iva_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos",
+          "description": "IVA del mercado sobre el precio con impuesto incluido, en puntos básicos (0 = no modelado)"
+        },
+        "stripe_tax": {
+          "type": "object",
+          "properties": {
+            "pct_bp": {
+              "$ref": "comunes.schema.json#/$defs/puntos_basicos"
+            },
+            "fijo": {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            }
+          },
+          "required": [
+            "pct_bp",
+            "fijo"
+          ],
+          "additionalProperties": false,
+          "description": "Stripe Tax: pct sobre el AOV + fijo por transacción (0/0 = no se usa)"
+        },
+        "tarifa_meta_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos",
+          "description": "Recargo fiscal de Meta sobre el gasto; el CPA visto en Ads Manager = CPA equilibrio / (1 + tarifa)"
+        },
+        "recargos_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos",
+          "description": "Recargo de tarjeta internacional de Stripe sobre el AOV (LLC de EE. UU. [SUPUESTO]: 150 bp); se suma a comision_pct_bp"
+        },
+        "conversion_bp": {
+          "$ref": "comunes.schema.json#/$defs/puntos_basicos",
+          "description": "Recargo de conversión de moneda de Stripe sobre el AOV (LLC de EE. UU. [SUPUESTO]: 100 bp); 0 si cobra en la moneda de liquidación"
+        },
+        "tarifas_origen": {
+          "enum": [
+            "supuesto",
+            "tarifas_json_f1"
+          ],
+          "description": "supuesto = [SUPUESTO] hasta que exista tarifas.json de F1 con fecha dentro de finanzas.tarifas_antiguedad_max_dias (30). Tarifas de LLC de EE. UU. supuestas: 2,9 % + 0,30 USD tarjeta doméstica, +1,5 % internacional, +1 % conversión, disputa 15 USD (https://stripe.com/pricing, nota 03 4.1, leída 2026-11-05)"
+        },
+        "costos_fijos_oferta": {
+          "$ref": "comunes.schema.json#/$defs/dinero",
+          "description": "Costos fijos de la oferta que suman a la pérdida máxima del test (0 si no hay): perdida_max_test = gasto_test_plan + costos_fijos_oferta. Obligatorio desde 1.2.0"
+        }
+      },
+      "required": [
+        "tarifas_fecha",
+        "tarifas_fuente",
+        "moneda",
+        "precio",
+        "precio_bump",
+        "tasa_bump_bp",
+        "tasa_reembolso_bp",
+        "tasa_disputa_bp",
+        "comision_pct_bp",
+        "comision_fija",
+        "tarifa_disputa",
+        "costo_variable",
+        "factor_cpa_objetivo_bp",
+        "escenarios"
+      ],
+      "additionalProperties": false
+    },
+    "aov": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "mc": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "cpa_be": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "cpa_obj": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "roas_be": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "cpa_real": {
+      "type": "object",
+      "properties": {
+        "pes": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "central": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "opt": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "pes",
+        "central",
+        "opt"
+      ],
+      "additionalProperties": false
+    },
+    "razon": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "razon_obj": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "veredicto": {
+      "enum": [
+        "FACTIBLE",
+        "AJUSTADA",
+        "NO_FACTIBLE"
+      ]
+    },
+    "presupuesto_test_min": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "dias_test": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "gasto_test_plan": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "perdida_max_test": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "evento_optimizacion_inicial": {
+      "enum": [
+        "Purchase",
+        "InitiateCheckout"
+      ]
+    },
+    "criterios_corte": {
+      "type": "object",
+      "properties": {
+        "k": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "n_dec": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "validada": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Remite a la definición única de backbone 5.9 (parámetros del grupo veredicto)"
+        }
+      },
+      "required": [
+        "k",
+        "n_dec",
+        "validada"
+      ],
+      "additionalProperties": false
+    },
+    "conv_central": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo",
+      "description": "Conversión clic->compra central como fracción (clic_compra_bp / 10000), cadena decimal"
+    },
+    "cpc_esperado": {
+      "$ref": "comunes.schema.json#/$defs/dinero_decimal",
+      "description": "CPC esperado del escenario central en unidad menor con fracción: cpm / (1000 x ctr_enlace)"
+    },
+    "cpa_be_visto": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+      "description": "CPA de equilibrio visto en Ads Manager = round(cpa_be x 10000 / (10000 + tarifa_meta_bp))"
+    },
+    "limites_pendientes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "uniqueItems": true,
+      "description": "Claves de limites.yaml aún null que la operación siguiente necesitará (X14 la compara con los límites vigentes: al sellar limites.yaml hay que regenerar economia.json); la factibilidad NO sale con 5 por ellas (el dueño las fija con engine.limites proponer/sellar)"
+    },
+    "resultado_esperado_central": {
+      "$ref": "comunes.schema.json#/$defs/dinero",
+      "description": "Resultado esperado del test en el escenario central (puede ser negativo) = round_half_even(gasto_test_plan x (cpa_be_visto / cpa_central - 1)) con cpa_central sin redondear; gasto_test_plan es el gasto facturado (incluye la tarifa de Meta) y el signo coincide con el de razon - 1 (1.2.0; en 1.1.0 usaba cpa_be)"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "script_version",
+    "entradas_usadas",
+    "aov",
+    "mc",
+    "cpa_be",
+    "cpa_obj",
+    "roas_be",
+    "cpa_real",
+    "razon",
+    "razon_obj",
+    "veredicto",
+    "presupuesto_test_min",
+    "dias_test",
+    "gasto_test_plan",
+    "perdida_max_test",
+    "evento_optimizacion_inicial",
+    "criterios_corte"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "pattern": "^1\\.([1-9][0-9]*)\\."
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "conv_central",
+          "cpc_esperado",
+          "cpa_be_visto",
+          "limites_pendientes",
+          "resultado_esperado_central"
+        ],
+        "properties": {
+          "entradas_usadas": {
+            "required": [
+              "tasa_iva_bp",
+              "stripe_tax",
+              "tarifa_meta_bp",
+              "recargos_bp",
+              "conversion_bp",
+              "tarifas_origen"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "pattern": "^1\\.([2-9]|[1-9][0-9]+)\\."
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "properties": {
+          "entradas_usadas": {
+            "required": [
+              "costos_fijos_oferta"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

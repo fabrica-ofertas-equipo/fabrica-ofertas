@@ -1,0 +1,8 @@
+{
+ "pausa": {
+  "activa": true,
+  "desde": "2026-11-09T12:00:00Z",
+  "motivo": "perdida neta acumulada alcanzada"
+ },
+ "freno_captura": null
+}

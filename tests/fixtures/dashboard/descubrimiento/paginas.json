@@ -1,0 +1,296 @@
+{
+ "schema_version": "1.0.0",
+ "corrida_id": "2026-11-06-a",
+ "generado_en": "2026-11-06T06:25:41Z",
+ "paginas": [
+  {
+   "page_id": "108605787440965",
+   "page_name": "Federico Picchianti",
+   "paises": [
+    "IT"
+   ],
+   "monedas": [
+    "EUR"
+   ],
+   "anuncios_activos_en_muestra": 82,
+   "edad_oferta_dias": "36.77724537037037037037037037",
+   "edad_max_dias": "36.79025462962962962962962963",
+   "conceptos_unicos": 29,
+   "titulos": [
+    "Prima scrivevo io. Ora chiama lui",
+    "“GLI EVITANTI. Tour «Ti richiamo…” · 29,90 €",
+    "“Se torna, digli che ho da fare.” · 29,90 €",
+    "“Fatta la legge, trovato il blocco.” · 29,90 €",
+    "“Chi trova un'amica non cerca lui.” · 29,90 €",
+    "“Fidarsi è bene. Bloccarlo è meglio.” · 29,90 €",
+    "“Ho osservato a lungo: il…” · 29,90 €",
+    "“Ponti con lui: bruciati.” · 29,90 €",
+    "“Scuse accettate. Numero…” · 29,90 €",
+    "“Tra il dire e il fare c'è lui…” · 29,90 €"
+   ],
+   "qids": [
+    "it-garanzia-7-giorni",
+    "it-pag-c48b3dc7"
+   ],
+   "exportador": {
+    "señal": false,
+    "moneda": "EUR",
+    "pais_anuncio": "IT",
+    "motivo": "la moneda EUR no figura en el mapa de monedas con país: no implica país, sin indicio de exportador"
+   },
+   "medicion": {
+    "estado": "parcial",
+    "por_pais": {
+     "IT": {
+      "fuente": "pagina",
+      "anuncios_vistos": 50,
+      "total_declarado": 744,
+      "completa": false
+     }
+    }
+   },
+   "anuncios_activos_medidos": 744,
+   "anuncios_activos_medidos_es_piso": true,
+   "muestra_truncada": true,
+   "edad_es_piso": true
+  },
+  {
+   "page_id": "100000000000008",
+   "page_name": "Referente M",
+   "paises": [
+    "ES",
+    "MX"
+   ],
+   "monedas": [
+    "ARS",
+    "USD"
+   ],
+   "anuncios_activos_en_muestra": 51,
+   "edad_oferta_dias": "12.08537037037037037037037037",
+   "edad_max_dias": "12.08954861111111111111111111",
+   "conceptos_unicos": 5,
+   "titulos": [
+    "La mente de los 6 mayores genios",
+    "Vuelve a elegirte, hoy",
+    "35 moldes para armar una ciudad",
+    "Dos libros. Cuatro regalos.",
+    "Volver a encontrarte contigo"
+   ],
+   "qids": [
+    "es-descarga-inmediata",
+    "mx-descarga-inmediata",
+    "mx-pag-3c14b3f9"
+   ],
+   "exportador": {
+    "señal": true,
+    "moneda": "ARS",
+    "pais_anuncio": "ES",
+    "motivo": "cuenta publicitaria en ARS (moneda de AR) que anuncia en ES: probable exportador (indicio, no hecho) (y 1 combinación(es) moneda × país más con el mismo indicio)"
+   },
+   "medicion": {
+    "estado": "parcial",
+    "por_pais": {
+     "ES": {
+      "fuente": "muestra",
+      "anuncios_vistos": 1,
+      "total_declarado": null,
+      "completa": false
+     },
+     "MX": {
+      "fuente": "pagina",
+      "anuncios_vistos": 50,
+      "total_declarado": 100,
+      "completa": false
+     }
+    }
+   },
+   "anuncios_activos_medidos": 101,
+   "anuncios_activos_medidos_es_piso": true,
+   "muestra_truncada": true,
+   "edad_es_piso": true
+  },
+  {
+   "page_id": "614770848385168",
+   "page_name": "<script>alert(2)</script> Ana‮ Pérez",
+   "paises": [
+    "ES"
+   ],
+   "monedas": [
+    "COP"
+   ],
+   "anuncios_activos_en_muestra": 2,
+   "edad_oferta_dias": "0.7452893518518518518518518519",
+   "edad_max_dias": "0.7666319444444444444444444444",
+   "conceptos_unicos": 2,
+   "titulos": [
+    "<b onmouseover=alert(3)>Gana 5000€ ya</b>‮",
+    "Título normal ✅ 👩‍💻",
+    "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   ],
+   "qids": [
+    "es-mas-100-plantillas"
+   ],
+   "exportador": {
+    "señal": true,
+    "moneda": "COP",
+    "pais_anuncio": "ES",
+    "motivo": "cuenta publicitaria en COP (moneda de CO) que anuncia en ES: probable exportador (indicio, no hecho)"
+   },
+   "medicion": {
+    "estado": "muestra",
+    "por_pais": {
+     "ES": {
+      "fuente": "muestra",
+      "anuncios_vistos": 2,
+      "total_declarado": null,
+      "completa": false
+     }
+    }
+   },
+   "anuncios_activos_medidos": 2,
+   "anuncios_activos_medidos_es_piso": true,
+   "muestra_truncada": true,
+   "edad_es_piso": true
+  },
+  {
+   "page_id": "1076938925508814",
+   "page_name": "Didattica Pratica",
+   "paises": [
+    "IT"
+   ],
+   "monedas": [
+    "BRL"
+   ],
+   "anuncios_activos_en_muestra": 1,
+   "edad_oferta_dias": "0",
+   "edad_max_dias": "1.791944444444444444444444444",
+   "conceptos_unicos": 1,
+   "titulos": [
+    "Il Maxi Kit di Lettura e Comprensione per Bambini! 📖✨"
+   ],
+   "qids": [
+    "it-kit-completo"
+   ],
+   "exportador": {
+    "señal": true,
+    "moneda": "BRL",
+    "pais_anuncio": "IT",
+    "motivo": "cuenta publicitaria en BRL (moneda de BR) que anuncia en IT: probable exportador (indicio, no hecho)"
+   },
+   "medicion": {
+    "estado": "muestra",
+    "por_pais": {
+     "IT": {
+      "fuente": "muestra",
+      "anuncios_vistos": 1,
+      "total_declarado": null,
+      "completa": false
+     }
+    }
+   },
+   "anuncios_activos_medidos": 1,
+   "anuncios_activos_medidos_es_piso": true,
+   "muestra_truncada": true,
+   "edad_es_piso": true
+  },
+  {
+   "page_id": "1082096414994262",
+   "page_name": "Edulabs Risorse",
+   "paises": [
+    "IT"
+   ],
+   "monedas": [
+    "USD"
+   ],
+   "anuncios_activos_en_muestra": 30,
+   "edad_oferta_dias": "7.075092592592592592592592593",
+   "edad_max_dias": "7.081388888888888888888888889",
+   "conceptos_unicos": 24,
+   "titulos": [
+    "Basta improvvisare. Entra in ogni lezione pronto.",
+    "Entra in ogni lezione pronto in 5 minuti",
+    "Sai esattamente cosa insegnare questa settimana",
+    "Tutta una stagione di pattinaggio – pronta",
+    "Docente di Scienze? Riprenditi la Domenica Sera 🔬",
+    "Docente di Scienze? Tutto l'Anno Già Pronto",
+    "Docenti di Religione: Un Anno Intero Già Pronto",
+    "Il Tuo Anno di Scienze. Già Pronto. 🔬",
+    "Insegni batteria? Il tuo anno di lezioni, già pianificato",
+    "Insegni chitarra? Il tuo anno di lezioni, già pianificato"
+   ],
+   "qids": [
+    "it-download-immediato",
+    "it-oltre-100-schede",
+    "it-pag-96c51bd1"
+   ],
+   "exportador": {
+    "señal": false,
+    "moneda": "USD",
+    "pais_anuncio": "IT",
+    "motivo": "la moneda USD no figura en el mapa de monedas con país: no implica país, sin indicio de exportador"
+   },
+   "medicion": {
+    "estado": "completa",
+    "por_pais": {
+     "IT": {
+      "fuente": "pagina",
+      "anuncios_vistos": 30,
+      "total_declarado": 30,
+      "completa": true
+     }
+    }
+   },
+   "anuncios_activos_medidos": 30,
+   "anuncios_activos_medidos_es_piso": false,
+   "muestra_truncada": false,
+   "edad_es_piso": false
+  },
+  {
+   "page_id": "1150006728199098",
+   "page_name": "Risorse Digitali Online",
+   "paises": [
+    "IT"
+   ],
+   "monedas": [
+    "USD"
+   ],
+   "anuncios_activos_en_muestra": 17,
+   "edad_oferta_dias": "36.04890046296296296296296296",
+   "edad_max_dias": "37.04498842592592592592592593",
+   "conceptos_unicos": 2,
+   "titulos": [
+    "267+ attività di comprensione del testo",
+    "Risorse Digitali Online | 267+ attività di comprensione del testo | 267+ attività di comprensione del testo | 267+ attività di comprensione del testo | 267+ attività di comprensione del testo | 267+ attività di comprensione del testo | 267+ attività di comprensione del testo"
+   ],
+   "qids": [
+    "it-accesso-immediato-pdf",
+    "it-pag-9c9eeb30"
+   ],
+   "exportador": {
+    "señal": false,
+    "moneda": "USD",
+    "pais_anuncio": "IT",
+    "motivo": "la moneda USD no figura en el mapa de monedas con país: no implica país, sin indicio de exportador"
+   },
+   "medicion": {
+    "estado": "completa",
+    "por_pais": {
+     "IT": {
+      "fuente": "pagina",
+      "anuncios_vistos": 17,
+      "total_declarado": 17,
+      "completa": true
+     }
+    }
+   },
+   "anuncios_activos_medidos": 17,
+   "anuncios_activos_medidos_es_piso": false,
+   "muestra_truncada": false,
+   "edad_es_piso": false
+  }
+ ],
+ "advertencias": [
+  "consulta br-acesso-imediato-pdf truncada: 50 anuncios recibidos (de 5347 declarados); las páginas que solo se ven por esta muestra llevan un conteo que es un PISO, no el total",
+  "consulta br-apostila-pdf truncada: 50 anuncios recibidos (de 1980 declarados); las páginas que solo se ven por esta muestra llevan un conteo que es un PISO, no el total"
+ ]
+}

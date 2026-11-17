@@ -1,0 +1,41 @@
+{
+  "id": "D05",
+  "descripcion": "Amarillo-A con la revision humana de seguridad (RHS) pendiente: no se pasa a crear; escala a H para hacer la RHS.",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "P"
+      ],
+      "valor": "amarillo"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "nivel"
+      ],
+      "valor": "amarillo"
+    }
+  ],
+  "limites_override": {
+    "nivel_max_lanzable": {
+      "salud": "amarillo-a"
+    },
+    "hojas_pausadas": [],
+    "cuota_gasto_amarillo_max_pct": 30,
+    "envios_amarillo_a_semana": 3
+  },
+  "check_id": "C13",
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "amarillo_a_sin_rhs",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "ESCALAR",
+    "nota": "el Maker no arma; pide RHS al dueno (primer lanzamiento de la hoja x idioma)"
+  }
+}

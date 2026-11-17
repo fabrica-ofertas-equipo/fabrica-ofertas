@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/postmortem.schema.json",
+  "title": "Post-mortem de la oferta",
+  "description": "ofertas/<id>/08-operacion/postmortem.json, para X2. Lo redacta el Maker de cierre sobre salidas del motor y lo confirma el dueño (H). retraso_clic_compra es obligatorio; orq cerrar agrega una línea a empresa/memoria/eventos.jsonl.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "veredicto": {
+      "enum": [
+        "VALIDADA",
+        "PROMETEDORA",
+        "FALLIDA",
+        "INCONCLUSA"
+      ]
+    },
+    "veredicto_sha256": {
+      "$ref": "comunes.schema.json#/$defs/sha256",
+      "description": "Hash de veredicto_oferta.json"
+    },
+    "causa_principal": {
+      "$ref": "comunes.schema.json#/$defs/kebab"
+    },
+    "causas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "descripcion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "nivel_evidencia": {
+            "enum": [
+              "alto",
+              "medio",
+              "bajo",
+              "hipotesis"
+            ]
+          }
+        },
+        "required": [
+          "codigo",
+          "descripcion",
+          "nivel_evidencia"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "aprendizajes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      }
+    },
+    "parametros_a_calibrar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parametro": {
+            "type": "string",
+            "pattern": "^[a-z_]+\\.[a-z0-9_]+$",
+            "description": "grupo.clave de parametros.yaml"
+          },
+          "motivo": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "parametro",
+          "motivo"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "retraso_clic_compra": {
+      "type": "object",
+      "properties": {
+        "n_compras": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mediana_h": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "p90_h": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fuente": {
+          "enum": [
+            "stripe_vs_evento_clic",
+            "no_medible"
+          ]
+        }
+      },
+      "required": [
+        "n_compras",
+        "mediana_h",
+        "p90_h",
+        "fuente"
+      ],
+      "additionalProperties": false,
+      "description": "OBLIGATORIO (D-24, docs/08 9.2 pedido 8): horas desde el clic hasta la compra, medidas con Stripe y el evento de clic. Es la calibración de estadistica.dias_madurez_compra"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "generado_en",
+    "origen_version",
+    "veredicto",
+    "veredicto_sha256",
+    "causa_principal",
+    "causas",
+    "aprendizajes",
+    "parametros_a_calibrar",
+    "retraso_clic_compra"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "retraso_clic_compra": {
+            "properties": {
+              "n_compras": {
+                "const": 0
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "retraso_clic_compra": {
+            "properties": {
+              "mediana_h": {
+                "type": "null"
+              },
+              "p90_h": {
+                "type": "null"
+              },
+              "fuente": {
+                "const": "no_medible"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "retraso_clic_compra": {
+            "properties": {
+              "mediana_h": {
+                "type": "integer"
+              },
+              "p90_h": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

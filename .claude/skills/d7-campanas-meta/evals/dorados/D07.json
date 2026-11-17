@@ -1,0 +1,31 @@
+{
+  "id": "D07",
+  "descripcion": "Tracking caido: dataset sin eventos recientes y event_id distinto entre navegador y servidor.",
+  "capa": "script-preflight",
+  "mutaciones_entradas": [
+    {
+      "ruta": [
+        "dataset",
+        "eventos_recientes"
+      ],
+      "valor": false
+    },
+    {
+      "ruta": [
+        "evento_prueba",
+        "servidor_event_id"
+      ],
+      "valor": "purchase_otro"
+    }
+  ],
+  "check_id": "C07",
+  "esperado": {
+    "P08": "ROJO",
+    "P10": "ROJO"
+  },
+  "semaforo": "ROJO",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "nota": "vuelve a D5; el Maker no activa ni 'arregla' el dato"
+  }
+}

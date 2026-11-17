@@ -1,0 +1,224 @@
+{
+  "skill": "o0-orquestador-portafolio",
+  "version": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md Anexo B",
+  "criterio": "el QA debe detectar TODOS los BLOQUEANTE (12) y >= 3 de cada 4 MAYOR (6); si cambia la skill del QA se rota el juego para que no se memorice",
+  "defectos": [
+    {
+      "id": "O0-S1",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "brief con test_total_max = tope + 1",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C2",
+        "patron_clave": "tope-excedido",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "scripts/test_validar_brief.py::test_s1_total_sobre_el_tope_sale_5"
+    },
+    {
+      "id": "O0-S2",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "estado.json con D7 `aprobado` y aprobado_por.tipo qa_pass/null en una etapa con gate H",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C7",
+        "patron_clave": "gate-sin-firma",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: lectura de estado.json + gates.json"
+    },
+    {
+      "id": "O0-S3",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "hook `gasto` con matcher `mcp__meta` (sin `.*`) que no cubre los conectores",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C9",
+        "patron_clave": "hook-sin-comodin",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "sonda de hooks (agentes/sonda_hooks.py), QA lee la config"
+    },
+    {
+      "id": "O0-S4",
+      "severidad_spec": "MAYOR",
+      "artefacto_sembrado": "propuesta que escala con 2 compras y cifras que portafolio.py no reproduce",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C11",
+        "patron_clave": "cifra-no-recomputable",
+        "severidad": "MAYOR",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: recomputo con portafolio.py [PENDIENTE]"
+    },
+    {
+      "id": "O0-S5",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "candidato ROJO (o fuera_de_macro_nicho) que llega a un brief",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C3",
+        "patron_clave": "candidato-rojo",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "scripts/test_validar_brief.py::test_candidato_rojo_sale_3 y ::test_candidato_fuera_de_macro_nicho_del_brief_sale_3"
+    },
+    {
+      "id": "O0-S6",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "reanudación otro día que crea una segunda campaña (sin write-ahead ni búsqueda por ID o prefijo)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C13",
+        "patron_clave": "duplica-campana",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: replay del registro + ids_meta.json [requiere motor]"
+    },
+    {
+      "id": "O0-S7",
+      "severidad_spec": "MAYOR",
+      "artefacto_sembrado": "gasto en el libro sin línea en registro.jsonl/costos.jsonl",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C10",
+        "patron_clave": "gasto-sin-registro",
+        "severidad": "MAYOR",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: cruce de costos.jsonl y registro.jsonl"
+    },
+    {
+      "id": "O0-S8",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "un token en texto plano en un artefacto (se siembra con un marcador ficticio, nunca una clave real)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C9",
+        "patron_clave": "secreto-en-texto",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "hook `secretos` y QA: grep de patrones"
+    },
+    {
+      "id": "O0-S9",
+      "severidad_spec": "MAYOR",
+      "artefacto_sembrado": "propuesta que asciende una etapa a N3 con una sola oferta",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-R16",
+        "patron_clave": "ascenso-sin-evidencia",
+        "severidad": "MAYOR",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: cadena-y-gates.md §7 contra estado.json"
+    },
+    {
+      "id": "O0-S10",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "limites en ARS y brief en USD sin conversión registrada. NOTA: el check 2 es BLOQ y el Anexo B del spec ya lo marca ★ (resuelto): se siembra como BLOQ",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C2",
+        "patron_clave": "moneda-distinta",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "scripts/test_validar_brief.py::test_s10_moneda_distinta_a_moneda_limites_sale_3_y_no_crea_nada"
+    },
+    {
+      "id": "O0-S11",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "aprobado_por escrito a mano (tipo humano con firma ausente o inventada) en una etapa H",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C7",
+        "patron_clave": "aprobacion-sin-firma-verificable",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "validar_brief B01/B03 (formato) y QA/engine.guard (verificación Ed25519)"
+    },
+    {
+      "id": "O0-S12",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "test_diario_max igual al tope diario por oferta (falta el factor de techo teórico)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C2",
+        "patron_clave": "diario-sin-factor",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "scripts/test_validar_brief.py::test_s12_diario_igual_al_tope_sale_5"
+    },
+    {
+      "id": "O0-S13",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "la ronda 2 devuelve la misma salida rechazada (misma idempotency_key sin hallazgos previos en la clave)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C13",
+        "patron_clave": "ronda2-reutiliza-rechazada",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: comparar hash_salida y idempotency_key de las dos rondas"
+    },
+    {
+      "id": "O0-S14",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "candidato amarillo-b que avanza sin gate H registrado",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C3",
+        "patron_clave": "amarillo-b-sin-gate",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: snapshot + gates + registro; el subnivel lo da scripts.nivel_riesgo (≥ 2 ejes amarillos = B)"
+    },
+    {
+      "id": "O0-S15",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "locale o país fuera de limites, o mercado_objetivo distinto de mercado.json",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C4",
+        "patron_clave": "locale-no-permitido",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "scripts/test_validar_brief.py::test_s15_locale_no_permitido_sale_5 ; validar_esquemas X30_MERCADO"
+    },
+    {
+      "id": "O0-S16",
+      "severidad_spec": "MAYOR",
+      "artefacto_sembrado": "gasto en ofertas amarillas por encima de la cuota (limites 1.3.0: cuota_gasto_amarillo_max_pct)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C12",
+        "patron_clave": "cuota-amarilla-excedida",
+        "severidad": "MAYOR",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: portafolio.json frente a limites"
+    },
+    {
+      "id": "O0-S17",
+      "severidad_spec": "MAYOR",
+      "artefacto_sembrado": "un cruce de datos por nombre de campaña/anuncio y no por IDs (oferta_id + adid). NOTA: el check 13 es BLOQ y el Anexo B del spec ya lo marca ★ (resuelto)",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C13",
+        "patron_clave": "union-por-nombre",
+        "severidad": "MAYOR",
+        "etapa": "O0"
+      },
+      "verificable_con": "QA: lectura de la consulta/ETL"
+    },
+    {
+      "id": "O0-S18",
+      "severidad_spec": "BLOQUEANTE",
+      "artefacto_sembrado": "un barrido de D1 que corre con empresa/PAUSA presente",
+      "hallazgo_esperado_del_qa": {
+        "check_id": "O0-C9",
+        "patron_clave": "barrido-con-pausa",
+        "severidad": "BLOQUEANTE",
+        "etapa": "O0"
+      },
+      "verificable_con": "sonda L3 (d) y QA: registro de barridos frente a PAUSA"
+    }
+  ]
+}

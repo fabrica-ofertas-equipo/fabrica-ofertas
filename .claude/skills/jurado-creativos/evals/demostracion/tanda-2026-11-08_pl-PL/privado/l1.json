@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "l1_jurado",
+  "ok": true,
+  "checks_l1": [
+    {
+      "check_id": "J-L1-01",
+      "resultado": "pass",
+      "detalle": "el sello coincide con el contenido"
+    },
+    {
+      "check_id": "J-L1-02",
+      "resultado": "pass",
+      "detalle": "modo=sombra aplica_orden=False: en sombra el orden NO se aplica"
+    },
+    {
+      "check_id": "J-L1-03",
+      "resultado": "pass",
+      "detalle": "la marca de demostración coincide con el manifiesto"
+    },
+    {
+      "check_id": "J-L1-04",
+      "resultado": "pass",
+      "detalle": "semilla y hash del orden coinciden con el manifiesto"
+    },
+    {
+      "check_id": "J-L1-05",
+      "resultado": "pass",
+      "detalle": "ninguna ancla aparece en los votos ni en el orden y todo ad_name existe en la llave"
+    },
+    {
+      "check_id": "J-L1-06",
+      "resultado": "pass",
+      "detalle": "las posiciones son 1..k sin saltos"
+    },
+    {
+      "check_id": "J-L1-07",
+      "resultado": "pass",
+      "detalle": "los votos son booleanos"
+    },
+    {
+      "check_id": "J-L1-08",
+      "resultado": "pass",
+      "detalle": "lleva el aviso de uso interno"
+    },
+    {
+      "check_id": "J-L1-09",
+      "resultado": "pass",
+      "detalle": "aceptados + cuarentena + faltantes no superan las llamadas esperadas"
+    },
+    {
+      "check_id": "J-L1-10",
+      "resultado": "pass",
+      "detalle": "sin marcas de voto sintético dentro de los votos"
+    }
+  ]
+}

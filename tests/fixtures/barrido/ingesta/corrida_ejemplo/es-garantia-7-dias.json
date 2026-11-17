@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "qid": "es-garantia-7-dias",
+  "consulta": {"search_terms": "Garantía de 7 días", "countries": ["ES"], "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null},
+  "capturado_en": "2026-11-06T05:51:03Z",
+  "ruta": "A",
+  "estimated_total_count": 3,
+  "ads": [
+    {"id": "1736210814961162", "page_id": 1431294770063492, "page_name": "Anna Martin", "ad_creative_link_title": "Profe, ¿qué trabaja cada postura?", "ad_creation_time": 1793936411, "ad_delivery_start_time": 1793942244, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=1736210814961162", "currency": "USD"},
+    {"id": "9100000000000001", "page_id": "900000000000001", "page_name": "Pagina Sintetica Uno", "ad_creative_link_title": "Plantillas listas para usar", "ad_delivery_start_time": 1792929600, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=9100000000000001", "currency": "USD"},
+    {"id": "9100000000000002", "page_id": 900000000000001, "page_name": "Pagina Sintetica Uno", "ad_creative_link_title": "plantillas  listas para usar", "ad_delivery_start_time": 1793707200, "ad_snapshot_url": "https://www.facebook.com/ads/library/?id=9100000000000002", "currency": "USD"}
+  ]
+}

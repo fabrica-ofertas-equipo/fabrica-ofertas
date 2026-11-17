@@ -1,0 +1,20 @@
+{
+  "id": "D09",
+  "nombre": "Ventana de diciembre con CPM de julio",
+  "spec": "departamentos/16 §10.5 eval 9",
+  "entrada": {
+    "ventana_test": [
+      "2026-12-10",
+      "2026-12-20"
+    ],
+    "cpm_fecha_lectura": "2026-07-27"
+  },
+  "salida_esperada": {
+    "sin_mult_cpm": "MAYOR/BLOQ por MQ-18 (sembrado D17)",
+    "con_mult_cpm": "central y estres informados con sensibilidad; lectura 'Q4', no comparable con enero"
+  },
+  "verificacion": {
+    "automatica": "sembrado D17 y plantilla con mult_cpm_efectivo",
+    "L2": []
+  }
+}

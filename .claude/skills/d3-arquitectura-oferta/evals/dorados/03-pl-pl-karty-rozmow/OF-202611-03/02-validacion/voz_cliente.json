@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.0.0-sin-esquema",
+  "oferta_id": "OF-202611-03",
+  "locale": "pl-PL",
+  "frases": [
+    {
+      "texto_literal": "Rozmawiamy tylko o rachunkach i o tym, kto zmywa",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "fuente_url": "https://forum.przyklad.invalid/watek/rozmowy-o-rachunkach",
+      "fecha": "2026-09-14",
+      "categoria": "dolor",
+      "tema": "rachunki"
+    },
+    {
+      "texto_literal": "Wieczorem każde siedzi w telefonie i nie wiemy, od czego zacząć rozmowę",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "fuente_url": "https://forum.przyklad.invalid/watek/wieczory-w-telefonie",
+      "fecha": "2026-09-14",
+      "categoria": "dolor",
+      "tema": "wieczory"
+    },
+    {
+      "texto_literal": "Darmowe listy pytań są bez ładu i szybko się nudzą",
+      "locale": "pl-PL",
+      "pais": "PL",
+      "fuente_url": "https://opinie.przyklad.invalid/produkt/lista-pytan",
+      "fecha": "2026-09-18",
+      "categoria": "objecion",
+      "tema": "lista"
+    }
+  ],
+  "temas": [
+    "rachunki",
+    "wieczory",
+    "lista"
+  ],
+  "objeciones": [
+    "są darmowe listy pytań"
+  ],
+  "lexico": [
+    "rozmowy",
+    "pytania dla par"
+  ]
+}

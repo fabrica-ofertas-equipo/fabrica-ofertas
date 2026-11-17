@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Esqueleto del funnel completo del referente y plano modelado de NUESTRA landing (J17/J20). `tramos` dice que se ve y que no; `plano_objetivo[]` es el orden de bloques que reproduce D5 con expresion propia. El borrador de los bloques sale de esqueleto_html.json (secciones[]): aqui se CONFIRMA cada tipo. 'Funciona' es una inferencia: se ve la inversion sostenida en anuncios, no ventas. Borra las claves que empiezan por `_`.",
+  "oferta_id": "OF-AAAAMM-NN",
+  "referente_id": "ref-01",
+  "fuentes": {"esqueleto_html": "esqueleto_html.json", "mapa_ranuras": "mapa_ranuras.json", "desarme": "desarme_referente.json"},
+  "tramos": {
+    "anuncios": {"visto": "visto", "como": "Biblioteca de Anuncios; texto y captura del dueño"},
+    "landing": {"visto": "visto", "como": "HTML guardado por el dueño"},
+    "checkout": {"visto": "no_visible", "como": "capturas del dueño de la pantalla de pago SIN pagar", "plataforma": null, "medios_de_pago": [], "bump": null},
+    "upsell_postpago": {"visto": "no_visible", "como": "solo comprando; estandar propio rotulado 'propio, no modelado'"},
+    "gracias": {"visto": "no_visible", "como": "idem"},
+    "correo_de_entrega": {"visto": "no_visible", "como": "idem"},
+    "producto": {"visto": "no_visible", "como": "idem; PAL-12 se prueba con muestra propia"}
+  },
+  "arco_comun": [
+    {"n": 1, "elemento": "heroe con propuesta concreta + CTA + garantia en el microcopy", "por_que_funciona_hipotesis": ""}
+  ],
+  "plano_objetivo": [
+    {
+      "orden": 1,
+      "bloque_referente": {"tipo": "barra_superior", "confianza": "alta", "ref": "esqueleto_html.json#/secciones/0", "elementos": []},
+      "funcion_de_venta": "",
+      "por_que_funciona_hipotesis": "",
+      "igual_que_el_referente": "orden, existencia y proporcion del bloque",
+      "mejora_palanca": null,
+      "version_legitima": "barra informativa; la de lanzamiento solo con checkout.precio_programado real",
+      "dato_que_lo_alimenta": "copy.barra_superior",
+      "seccion_d5": "barra_superior",
+      "cta_tras_el_bloque": false,
+      "se_omite": false,
+      "motivo_si_se_omite": null
+    }
+  ],
+  "ctas": {"texto_unico_del_referente": null, "repeticiones": null, "destinos": {"ancla": null, "checkout": null}, "nuestro_patron": "misma cadencia, textos propios"},
+  "tacticas_no_heredadas": [
+    {"tactica": "oferta solo hoy / cuenta atras sin plazo real", "alerta_script": "A-FECHA-VACIA", "version_legitima": "barra de lanzamiento con fecha real, o informativa"}
+  ],
+  "lo_que_anade_nuestro_plano": ["identidad del vendedor y paginas legales", "garantia con procedimiento", "medios de pago locales", "comparacion con el mercado con fuente y fecha"],
+  "diferencias_frente_al_referente": [
+    {"que": "", "palanca": "PAL-14", "aprobada_por_dueno": null, "_ayuda": "toda diferencia de estructura es una palanca aprobada (QM-03)"}
+  ],
+  "fidelidad_de_estructura": {"_ayuda": "QM-03: bloques del plano propio presentes en el mismo orden / bloques del referente; tolerancias en `modelado.fidelidad_estructura_min` [HIPOTESIS]", "bloques_referente": null, "bloques_propios_en_orden": null, "ratio": null}
+}

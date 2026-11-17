@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "M1",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-06T12:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "mercado.json",
+  "artefacto_sha256": "sha256:d857cd75d2d9389319d9418db6c11e9befae47417b6bb8db355e890143e2ccac",
+  "entradas": {
+    "01-descubrimiento/candidatos.json": "sha256:347a83278e92f5458e40d463f21521fb2e78a9255261f70cd634f69de862bd85"
+  },
+  "veredicto": "PASS",
+  "puntaje_global": "4.40",
+  "umbral": "3.8",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Coherencia con el contrato de la etapa",
+      "puntaje": 5,
+      "evidencia": "mercado.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia citada",
+      "puntaje": 4,
+      "evidencia": "mercado.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Claims y cumplimiento",
+      "puntaje": 5,
+      "evidencia": "mercado.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Claridad para el siguiente agente",
+      "puntaje": 4,
+      "evidencia": "mercado.json: revisado campo por campo contra el contrato"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Reproducibilidad",
+      "puntaje": 4,
+      "evidencia": "mercado.json: revisado campo por campo contra el contrato"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-ESQUEMA",
+      "resultado": "pass",
+      "detalle": "validar_esquemas.py sin errores"
+    },
+    {
+      "check_id": "L1-HASHES",
+      "resultado": "pass",
+      "detalle": "hashes coinciden"
+    }
+  ],
+  "simulaciones_l3": [],
+  "hallazgos": [
+    {
+      "check_id": "M1-H1",
+      "patron_clave": "formato",
+      "severidad": "MENOR",
+      "etapa": "M1",
+      "skill_version": "0.1.0",
+      "descripcion": "Mayúsculas inconsistentes en un título",
+      "evidencia": "mercado.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "M1-H2",
+      "patron_clave": "unidades",
+      "severidad": "MENOR",
+      "etapa": "M1",
+      "skill_version": "0.1.0",
+      "descripcion": "Falta aclarar una unidad en un campo",
+      "evidencia": "mercado.json",
+      "estado": "corregido_por_qa"
+    },
+    {
+      "check_id": "M1-H3",
+      "patron_clave": "evidencia",
+      "severidad": "MEJORA",
+      "etapa": "M1",
+      "skill_version": "0.1.0",
+      "descripcion": "Se podría añadir una segunda fuente",
+      "evidencia": "mercado.json",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir una segunda muestra gratuita",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Datos de ejemplo: no hay evidencia real de mercado"
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": null
+}

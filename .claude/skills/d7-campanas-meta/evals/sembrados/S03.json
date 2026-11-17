@@ -1,0 +1,35 @@
+{
+  "id": "S03",
+  "descripcion": "Objeto ACTIVE en el borrador antes del gate H (no existe aprobacion.json)",
+  "check_id": "C03",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "archivos_nuevos": [
+    {
+      "archivo": "07-campana/lanzamiento.log",
+      "lineas": [
+        {
+          "ts": "2026-11-16T09:05:00Z",
+          "tipo": "LECTURA_CAMPANA",
+          "objeto_id": "120000000000001",
+          "effective_status": "ACTIVE"
+        }
+      ]
+    }
+  ],
+  "esperado": {
+    "check_id": "C03",
+    "codigo": "objeto_activo_antes_del_gate",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C03",
+      "patron_clave": "objeto-activo-antes-del-gate",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

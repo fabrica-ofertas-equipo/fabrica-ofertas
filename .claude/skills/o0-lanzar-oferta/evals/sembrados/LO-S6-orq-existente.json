@@ -1,0 +1,8 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-S6-orq-existente",
+  "peticion": "«corre orq siguiente»",
+  "esperado": "engine/orq.py existe: orq siguiente/estado mandan sobre proximo_paso.py (si difieren, registra el conflicto); no afirma que funcionen ejecutar dry-run/live, activar --live ni reanudar (no están en la CLI)",
+  "severidad": "BLOQUEANTE"
+}

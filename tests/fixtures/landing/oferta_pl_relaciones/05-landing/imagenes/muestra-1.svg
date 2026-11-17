@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="960" viewBox="0 0 720 960" role="img">
+<rect width="720" height="960" fill="#F9F0F6"/>
+<rect width="720" height="96.0" fill="#2E1F3B"/>
+<text x="57.6" y="65.28" font-family="Helvetica, Arial, sans-serif" font-size="24.48" font-weight="700" letter-spacing="2" fill="#F9F0F6">INSTRUKCJA</text>
+<text x="57.6" y="192.0" font-family="Georgia, serif" font-size="33.12" font-weight="700" fill="#2A1B33">Jak używać kart</text>
+<rect x="57.6" y="235.2" width="86.39999999999999" height="6" rx="3" fill="#8F2F5F"/>
+<rect x="57.6" y="326.40000000000003" width="604.8" height="21.119999999999997" rx="6" fill="#2A1B33" opacity=".16"/><rect x="57.6" y="398.40000000000003" width="432.0" height="21.119999999999997" rx="6" fill="#2A1B33" opacity=".16"/><rect x="57.6" y="470.4" width="547.2" height="21.119999999999997" rx="6" fill="#2A1B33" opacity=".16"/><rect x="57.6" y="542.4" width="475.20000000000005" height="21.119999999999997" rx="6" fill="#2A1B33" opacity=".16"/>
+<rect x="57.6" y="768.0" width="604.8" height="115.19999999999999" rx="14" fill="#8F2F5F" opacity=".16"/>
+<text x="79.2" y="833.28" font-family="Helvetica, Arial, sans-serif" font-size="23.04" fill="#2A1B33">Zacznijcie od jednej karty.</text>
+</svg>

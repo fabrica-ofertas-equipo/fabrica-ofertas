@@ -1,0 +1,32 @@
+{
+  "id": "S12",
+  "descripcion": "Sin spend_cap ni stop_time (candado alternativo)",
+  "check_id": "C04",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "presupuesto",
+        "spend_cap"
+      ],
+      "valor": null
+    }
+  ],
+  "esperado": {
+    "check_id": "C04",
+    "codigo": "sin_spend_cap_ni_candado",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C04",
+      "patron_clave": "sin-tope-de-gasto",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

@@ -1,0 +1,3 @@
+validador=anyOf
+ruta=/valor
+texto=valor y umbral son cadena decimal, entero, dinero o null; nunca float

@@ -1,0 +1,38 @@
+{
+  "id": "D17",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "CPM de julio sin mult_cpm en una ventana de diciembre",
+  "donde_se_siembra": "mercado.seleccion.json#/parametros_usados/mult_cpm_efectivo",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/parametros_usados/mult_cpm_efectivo",
+          "valor": "1.0"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-18",
+    "ventana_test": [
+      "2026-12-10",
+      "2026-12-20"
+    ]
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-18",
+      "patron_clave": "cpm-julio-en-diciembre",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "ventana nov-dic exige mult_cpm >= central (Black Friday 2026-11-27)"
+  }
+}

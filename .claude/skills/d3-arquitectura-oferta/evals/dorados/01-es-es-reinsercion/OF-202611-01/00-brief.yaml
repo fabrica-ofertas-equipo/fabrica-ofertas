@@ -1,0 +1,55 @@
+# Brief FICTICIO de práctica (firma con clave de prueba, no real)
+schema_version: 1.1.0
+oferta_id: OF-202611-01
+familia_id: FAM-202611-01
+slug: reinsercion-laboral-madres
+version: v1
+origen_version: humano
+creado_en: '2026-11-06T08:00:00Z'
+mercado_objetivo:
+  locale: es-ES
+  paises_segmentacion:
+  - ES
+  moneda_cobro: EUR
+  es_hipotesis: true
+nichos:
+  permitidos:
+  - salud
+  - relaciones
+  - dinero
+  subnichos_prohibidos: []
+tema_semilla: reincorporación laboral tras una pausa larga
+precio_rango:
+  min:
+    monto: 900
+    moneda: EUR
+  max:
+    monto: 2900
+    moneda: EUR
+presupuesto:
+  test_total_max:
+    monto: 30000
+    moneda: EUR
+  test_diario_max:
+    monto: 5000
+    moneda: EUR
+  ia_max:
+    monto: 3000
+    moneda: EUR
+apetito_riesgo: conservador
+ventana_test_dias: 10
+nivel_autonomia: N2
+reembolso_dias: 14
+politica_ia_creativos: declarar_siempre
+cuenta_meta_id: act_100000000000001
+dominio: miregresolaboral.example
+canal_alertas: correo del dueño
+ventana_veto_min: 60
+supuestos:
+- '[SUPUESTO] los importes del brief son de ejemplo; los reales salen de limites.yaml'
+hash: sha256:2e70d5333c6f9bfbfb0962679f733cdedab43d9da4e05a95abe464f9d8a3054b
+aprobado_por:
+  tipo: humano
+  id: dueno
+  fecha: '2026-11-06T08:30:00Z'
+  firma: hmac-sha256:b11f331c363ad7843938cbcca3045735a18cadb3e2c5880a4b5a730605d500bd

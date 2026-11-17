@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "lote_id": "lote-001",
+  "generado_en": "2026-11-06T12:00:00Z",
+  "paginas": [
+    {
+      "page_id": "1171760232680161",
+      "page_name": "Corpo Sem Dor",
+      "paises": [
+        "ES"
+      ],
+      "titulos": []
+    },
+    {
+      "page_id": "1282575998279080",
+      "page_name": "Atril Estudio",
+      "paises": [
+        "ES"
+      ],
+      "titulos": [
+        "⭐⭐⭐⭐⭐ Atlas Visual de Puntos Gatillo",
+        "Mapas musculares para fisioterapeutas"
+      ]
+    },
+    {
+      "page_id": "1431294770063492",
+      "page_name": "Anna Martin",
+      "paises": [
+        "ES",
+        "US"
+      ],
+      "titulos": [
+        "Profe, ¿qué trabaja cada postura?",
+        "Yoga para profes: 120 posturas explicadas en PDF"
+      ]
+    }
+  ]
+}

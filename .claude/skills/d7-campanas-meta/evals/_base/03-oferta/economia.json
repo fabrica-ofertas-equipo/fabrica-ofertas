@@ -1,0 +1,29 @@
+{
+  "_nota": "extracto minimo",
+  "oferta_id": "OF-202611-02",
+  "entradas_usadas": {
+    "tarifa_meta_bp": 300,
+    "moneda": "EUR"
+  },
+  "cpa_be": {
+    "monto": 1600,
+    "moneda": "EUR"
+  },
+  "cpa_obj": {
+    "monto": 932,
+    "moneda": "EUR"
+  },
+  "cpa_real": {
+    "central": {
+      "monto": 1000,
+      "moneda": "EUR"
+    }
+  },
+  "evento_optimizacion_inicial": "Purchase",
+  "veredicto": "FACTIBLE",
+  "dias_test": 7,
+  "criterios_corte": {
+    "k": 3,
+    "n_dec": 15
+  }
+}

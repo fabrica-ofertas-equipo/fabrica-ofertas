@@ -1,0 +1,15 @@
+{
+  "_comentario": "FIXTURE DE PRUEBA [SUPUESTO]. Las claves escalado.compras_min_ventana, cpa_subir_factor, revertir_cpa_factor, max_campanas_escala, testeo.p_escala y testeo.k_corte existen en empresa/parametros.yaml con estos valores. Las demás (campeon_*, cpa_3d_factor, suba_presupuesto_gastado_min_pct, escalera_multiplo_max, reduccion_pct) NO existen todavía: son pedidos a S-A (PEDIDOS.md P-02) y aquí llevan el valor que proponen las fuentes (mapeo.md §3.2 y §12; brechas 02 E-01; spec 10-escalado §3.4) solo para probar el código.",
+  "escalado.campeon_compras_min": 10,
+  "escalado.campeon_cpa_max_x_be": "0.40",
+  "escalado.cpa_3d_factor": "1.15",
+  "escalado.suba_presupuesto_gastado_min_pct": 90,
+  "escalado.escalera_multiplo_max": 2,
+  "escalado.reduccion_pct": 30,
+  "escalado.compras_min_ventana": 8,
+  "escalado.cpa_subir_factor": "1.0",
+  "escalado.revertir_cpa_factor": "1.5",
+  "escalado.max_campanas_escala": 2,
+  "testeo.p_escala": "0.80",
+  "testeo.k_corte": 3
+}

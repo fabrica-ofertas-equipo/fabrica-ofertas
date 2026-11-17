@@ -1,0 +1,14 @@
+[project]
+name = "fabrica-de-ofertas"
+version = "0.1.0"
+description = "Fábrica autónoma de ofertas digitales de bajo ticket (Maker + QA, Meta, Stripe)."
+requires-python = ">=3.12"
+readme = "README.md"
+license = "AGPL-3.0-only"
+
+[tool.pytest.ini_options]
+# Raíz del repositorio en sys.path para importar engine, datos, meta, etc.
+pythonpath = ["."]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

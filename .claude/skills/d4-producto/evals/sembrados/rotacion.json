@@ -1,0 +1,144 @@
+{
+  "version": "0.1.0",
+  "regla": "Cada juego trae ≥ 10 BLOQUEANTES e incluye S1, S6, S10 y S11. «dorado» = eval donde se siembra. Rotar el juego (A→B→C) en cada calibración y variar la «variante» de S1, S6, S10 y S11.",
+  "juegos": {
+    "A": {
+      "S1": [
+        "D4-04",
+        "variante 0"
+      ],
+      "S6": [
+        "D4-04",
+        "variante 0"
+      ],
+      "S10": [
+        "D4-10",
+        "variante 0"
+      ],
+      "S11": [
+        "D4-02",
+        "variante 0"
+      ],
+      "H03": [
+        "D4-02",
+        null
+      ],
+      "H05": [
+        "D4-02",
+        null
+      ],
+      "H07": [
+        "D4-02",
+        null
+      ],
+      "S15": [
+        "D4-03",
+        null
+      ],
+      "S9": [
+        "D4-05",
+        null
+      ],
+      "N1": [
+        "D4-01",
+        null
+      ],
+      "S8": [
+        "D4-05",
+        null
+      ]
+    },
+    "B": {
+      "S1": [
+        "D4-04",
+        "variante 1"
+      ],
+      "S6": [
+        "D4-04",
+        "variante 1"
+      ],
+      "S10": [
+        "D4-10",
+        "variante 1"
+      ],
+      "S11": [
+        "D4-03",
+        "variante 1"
+      ],
+      "H01": [
+        "D4-01",
+        null
+      ],
+      "H09": [
+        "D4-02",
+        null
+      ],
+      "S13": [
+        "D4-04",
+        null
+      ],
+      "S12": [
+        "D4-02",
+        null
+      ],
+      "S5": [
+        "D4-09",
+        null
+      ],
+      "N2": [
+        "D4-07",
+        null
+      ],
+      "N8": [
+        "D4-07",
+        null
+      ]
+    },
+    "C": {
+      "S1": [
+        "D4-09",
+        "variante 2"
+      ],
+      "S6": [
+        "D4-04",
+        "variante 2"
+      ],
+      "S10": [
+        "D4-05",
+        "variante 2"
+      ],
+      "S11": [
+        "D4-02",
+        "variante 2"
+      ],
+      "H04": [
+        "D4-02",
+        null
+      ],
+      "H08": [
+        "D4-03",
+        null
+      ],
+      "S3": [
+        "D4-04",
+        null
+      ],
+      "S7": [
+        "D4-09",
+        null
+      ],
+      "S16": [
+        "D4-10",
+        null
+      ],
+      "N3": [
+        "D4-03",
+        null
+      ],
+      "N5": [
+        "D4-02",
+        null
+      ]
+    }
+  }
+}

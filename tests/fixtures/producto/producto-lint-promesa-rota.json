@@ -1,0 +1,9 @@
+{
+  "items": [
+    {"id": "guia-md", "tipo": "guia_md"}
+  ],
+  "matriz_promesas": [
+    {"promesa_id": "ahorro-constante", "texto": "Aprenderás a ahorrar un monto fijo cada semana",
+     "entregable_id": "entregable-que-no-existe", "prueba": "paso 1 y paso 2 de la guía", "estado": "cumplida"}
+  ]
+}

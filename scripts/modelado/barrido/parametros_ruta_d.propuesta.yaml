@@ -1,0 +1,76 @@
+# Parámetros PROPIOS de la ruta D del barrido (Chrome limpio sobre las páginas de BÚSQUEDA de la Biblioteca).
+# Mismo estilo que parametros_modelado.propuesta.yaml: {valor, unidad, hipotesis, fuente, ultima_calibracion, rango}.
+# Todo es [HIPÓTESIS] hasta que el dueño apruebe y se calibre con la primera corrida real.
+#
+# Estos topes se SUMAN a los compartidos con captura.py (modelado_captura_pausa_seg, modelado_captura_max_por_dia,
+# modelado_captura_espera_ms, modelado_captura_timeout_seg): el tope diario compartido cuenta CADA paso de una
+# búsqueda (la carga inicial y cada desplazamiento) en empresa/captura/capturas.jsonl, así que el efectivo es
+# siempre el más estricto de los dos. Ningún número vive en el código: si falta uno, la ruta D no corre (código 5).
+schema_version: "1.0.0"
+version: 1
+grupos:
+  ruta_d:
+    # Desplazamientos (scrolls) máximos por búsqueda, sin contar la carga inicial.
+    ruta_d_max_desplazamientos_por_busqueda:
+      valor: 10
+      unidad: desplazamientos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14.7; un humano que mira resultados rara vez baja más de unas pantallas seguidas"
+      ultima_calibracion: null
+      rango: [1, 30]
+    # Búsquedas (cargas iniciales) máximas por día UTC. El tope diario compartido de captura.py puede cortar antes.
+    ruta_d_max_busquedas_por_dia:
+      valor: 6
+      unidad: busquedas
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14.7; un barrido hace muchas más peticiones que abrir una ficha"
+      ultima_calibracion: null
+      rango: [1, 20]
+    # Anuncios máximos que se conservan por búsqueda (se corta al llegar; ya no se desplaza más).
+    ruta_d_max_anuncios_por_busqueda:
+      valor: 300
+      unidad: anuncios
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §17.1 (el conector da 50; la web da cientos por búsqueda)"
+      ultima_calibracion: null
+      rango: [50, 1000]
+    # Espera real tras cada desplazamiento para que la página cargue el lote siguiente.
+    ruta_d_espera_desplazamiento_ms:
+      valor: 5000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14.7 (a medir en la primera visita real)"
+      ultima_calibracion: null
+      rango: [2000, 15000]
+    # Desplazamientos seguidos sin anuncios nuevos que se toleran antes de dar la lista por terminada.
+    ruta_d_desplazamientos_sin_nuevos_max:
+      valor: 1
+      unidad: desplazamientos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14.7"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Tamaño máximo (caracteres) del DOM que se analiza; más allá la página se trata como «rara» y se frena.
+    ruta_d_dom_max_caracteres:
+      valor: 30000000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] la ficha pesó 1,9 MB (spec D1 §14.2); una lista con cientos de anuncios pesa mucho más"
+      ultima_calibracion: null
+      rango: [5000000, 100000000]
+    # Caracteres de texto visible que se guardan por anuncio en <qid>.extra.json (el resto se descarta).
+    ruta_d_texto_anuncio_max_caracteres:
+      valor: 3000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] el texto es dato ajeno para el etiquetado; no hace falta guardarlo entero"
+      ultima_calibracion: null
+      rango: [500, 10000]
+    # Largo máximo de campos cortos que vienen de la página (nombre de la página, título): dato no confiable.
+    ruta_d_campo_corto_max_caracteres:
+      valor: 300
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] defensa contra datos ajenos desmesurados"
+      ultima_calibracion: null
+      rango: [100, 1000]

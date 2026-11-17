@@ -1,0 +1,10 @@
+{
+  "caso_id": "S06",
+  "titulo": "Sello roto",
+  "defecto_sembrado": "jurado.json: orden[0].posicion = 99",
+  "check_esperado": "JQ-06",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar.verificar → J-L1-01",
+  "correccion_esperada": "re-agregar desde los votos",
+  "automatizado": true
+}

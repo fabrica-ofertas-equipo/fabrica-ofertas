@@ -1,0 +1,22 @@
+{
+  "eval_id": "D4-09",
+  "titulo": "Secuencia de 5 Pausas (salud, verde): calendario de fichas de 10 minutos con reglas de parada",
+  "origen": "docs/_investigacion/25-marco-salud-relaciones-dinero.md §6.2 caso 1; spec §6.4 (≥ 2 dorados por macro-nicho)",
+  "macro_nicho": "salud", "nivel_riesgo": "verde (C1: pausas activas sin carga con reglas de parada)", "locale": "es-ES", "modo": "nuevo",
+  "entrada": {
+    "oferta": { "formato": "plantilla", "entregables": ["calendario semanal de 5 pausas de 10 minutos (planificador imprimible + hoja)"], "tiempo_prometido_min": 30,
+      "mecanismo": "Secuencia de 5 Pausas", "claims_prohibidos": ["alivia el dolor de espalda", "mejora tu salud", "quema calorías"] }
+  },
+  "salida_esperada": {
+    "estado_final": "entregado_a_qa", "veredicto_qa_esperado": "PASS",
+    "requisitos": ["ninguna carga ni ejercicio con riesgo; reglas de parada con disparadores concretos (mareo, dolor)", "sin metas ni resultados de salud", "cualquier cifra de actividad con T1 o sin cifra", "aviso de alcance"],
+    "reclasificacion": "si el Maker introduce ejercicios con carga o estiramiento profundo, el eje C sube a C2 → amarillo-a → RHS en el primer lanzamiento (D4 puede subir)"
+  },
+  "aserciones": [
+    { "id": "A1", "tipo": "determinista", "texto": "lint_contenido.py sin claims de salud (alivia, mejora, quema)" },
+    { "id": "A2", "tipo": "determinista", "texto": "tiempo_total.py: total ≤ prometido; pasos de ejecución tipados" },
+    { "id": "A3", "tipo": "criterio", "texto": "«Cuándo parar» concreto y no repetido en cada página (R11)" },
+    { "id": "A4", "tipo": "criterio", "texto": "Si introduce carga o intensidad, el Maker SUBE el eje C a amarillo-a y pide RHS; no lo deja en verde" }
+  ],
+  "sin_skill_deberia_fallar_en": ["prometer alivio o mejora", "dejar en verde un ejercicio con carga", "«consulta a tu médico» genérico en cada página"]
+}

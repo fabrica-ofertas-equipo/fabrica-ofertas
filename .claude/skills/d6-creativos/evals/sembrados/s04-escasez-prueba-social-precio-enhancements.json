@@ -1,0 +1,136 @@
+{
+  "grupo": "★ Escasez, prueba social o aval sin respaldo; precio o moneda ≠ landing; enhancements activos",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s04-cupos",
+      "grupo": "s04",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Quedan 3 cupos a este precio: guía + plantilla 19,90 €.",
+        "titular": "Quedan 3 cupos",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "escasez sin respaldo (`oferta.urgencia: null`)",
+      "check_id_esperado": "X1-P05",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "escasez-sin-respaldo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: «quedan 3 cupos» sobre un producto digital sin cupo real verificable por código",
+      "contexto": {
+        "oferta": {
+          "urgencia": null
+        }
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s04-compradores",
+      "grupo": "s04",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Más de 10.000 compradores ya la usan: guía + plantilla 19,90 €.",
+        "titular": "+10.000 compradores",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "cifra de clientes escrita a mano",
+      "check_id_esperado": "X1-P08",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "prueba-social-sin-fuente",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: toda cifra de clientes sale de un script (Stripe); aquí no hay origen",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s04-aprobado-meta",
+      "grupo": "s04",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Aprobado por Meta: la guía de costeo recomendada por la plataforma. 14,90 €.",
+        "titular": "Aprobado por Meta",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "aval falso de plataforma",
+      "check_id_esperado": "D6-L1-02",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "aval-de-plataforma-falso",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: autoridad falsa (LP-08); ninguna plataforma aprueba el producto",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s04-precio",
+      "grupo": "s04",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Guía y plantilla por 24,90 €.",
+        "titular": "Guía + plantilla",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "precio distinto al de la landing (19,90 €)",
+      "check_id_esperado": "X1-K01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "precio-distinto-de-la-landing",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: el precio del anuncio ≠ `oferta.precio.lista` y la landing",
+      "contexto": {
+        "landing_precio": "19,90 €"
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s04-moneda",
+      "grupo": "s04",
+      "locale": "en-US",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Budget template: €12.90.",
+        "titular": "Budget template",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "moneda distinta a la de cobro (USD)",
+      "check_id_esperado": "X1-K01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "moneda-distinta-de-la-landing",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: moneda del anuncio ≠ moneda de cobro",
+      "contexto": {
+        "landing_precio": "$12.90"
+      },
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s04-enhancements",
+      "grupo": "s04",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "paquete_politicas": {
+          "meta_enhancements": {
+            "generacion_texto": true,
+            "mejoras_creativas": false
+          },
+          "divulgacion_ia": "declarar_siempre"
+        }
+      },
+      "defecto": "meta_enhancements.generacion_texto en true (o ausente)",
+      "check_id_esperado": "D6-L1-10",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "meta-enhancements-activos",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE: Meta puede inyectar texto no revisado; ambos deben ser false",
+      "bloqueante": true
+    }
+  ]
+}

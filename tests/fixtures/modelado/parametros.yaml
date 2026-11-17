@@ -1,0 +1,299 @@
+# Copia de pruebas de los parámetros de Modo D (independiente de la propuesta: las pruebas no deben cambiar si se recalibra).
+
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    # --- T: tracción en el origen ---
+    # Anuncios activos de la misma oferta que dan T-volumen = 1. Mentores: 10-40; se adopta el estricto (20a §9a).
+    modelado_anuncios_objetivo:
+      valor: 25
+      unidad: anuncios
+      hipotesis: true
+      fuente: "20a H1 (Matías >25), 20b H-O4 [CREADORES]"
+      ultima_calibracion: null
+      rango: [10, 40]
+    # Edad de la oferta (antigüedad del 2.º anuncio activo más viejo) que da T-edad = 1. Mentores: 3-15 días; estricto 14.
+    modelado_dias_objetivo:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "20a §9a, 20b H-O4 [CREADORES]"
+      ultima_calibracion: null
+      rango: [3, 30]
+    # Conceptos creativos únicos que dan T-conceptos = 1.
+    modelado_conceptos_objetivo:
+      valor: 3
+      unidad: conceptos
+      hipotesis: true
+      fuente: "04-meta-ads §1.4, 18d §7.2 [NUEVO]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Valor de T-réplica cuando hay una sola página y ningún anunciante independiente con el mismo ángulo.
+    modelado_replica_baja:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20b H-O2 (varias fanpages = escala) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.8"]
+
+    # --- H: hueco en el destino ---
+    # Entrantes nuevos en 30 días que llevan H-entrantes a 0 ("todos lo van a lanzar").
+    modelado_entrantes_tope_30d:
+      valor: 5
+      unidad: anunciantes
+      hipotesis: true
+      fuente: "20a §5 (saturación), Woodcraft DH [NUEVO]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Anunciantes sostenidos con oferta equivalente en el destino que cierran el hueco (H-idioma = 0).
+    modelado_sostenidos_cierre:
+      valor: 3
+      unidad: anunciantes
+      hipotesis: true
+      fuente: "20a H5 (original en IT/FR = saturado) [NUEVO]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Puntaje del auditor (0-100) por debajo del cual el rival se considera débil.
+    modelado_rival_debil_bajo:
+      valor: 50
+      unidad: puntaje_0_100
+      hipotesis: true
+      fuente: "20a H5 (auditor puntúa al rival, ej. 58/100) [CREADORES]"
+      ultima_calibracion: null
+      rango: [40, 60]
+    # H-idioma con 1-2 rivales sostenidos y rival débil.
+    modelado_hueco_rival_debil:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a H2 (si la página rival es mala, vale) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.7"]
+    # H-idioma con 1-2 rivales sostenidos y rival fuerte (hueco estrecho).
+    modelado_hueco_rival_fuerte:
+      valor: "0.25"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "[NUEVO] caso intermedio no cubierto por los mentores"
+      ultima_calibracion: null
+      rango: ["0.1", "0.4"]
+    # H-ventana cuando la ventana estacional cierra pronto.
+    modelado_ventana_cierra_pronto:
+      valor: "0.5"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §5 (Navidad muere el 10-dic) [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.3", "0.7"]
+
+    # --- D: diferenciación ---
+    modelado_dif_base:
+      valor: "0.4"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 ('no compitan por precio y bonus') [CREADORES]"
+      ultima_calibracion: null
+      rango: ["0.2", "0.5"]
+    modelado_dif_un_reencuadre:
+      valor: "0.7"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 M1-M10 [NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.5", "0.8"]
+    modelado_dif_dos_o_mas:
+      valor: "1.0"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "20a §4 M1-M10 [NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.9", "1.0"]
+
+    # --- Pesos (deben sumar exactamente 1). H pesa más: es la señal que más coincide entre mentores y la menos inflable. ---
+    modelado_peso_traccion:
+      valor: "0.25"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO] 15 §0 (anuncios ≠ ingresos)"
+      ultima_calibracion: null
+      rango: ["0.15", "0.35"]
+    modelado_peso_hueco:
+      valor: "0.35"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO] 20a H5 (hueco por país e idioma)"
+      ultima_calibracion: null
+      rango: ["0.25", "0.45"]
+    modelado_peso_transferibilidad:
+      valor: "0.20"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+    modelado_peso_diferenciacion:
+      valor: "0.20"
+      unidad: peso
+      hipotesis: true
+      fuente: "[NUEVO]"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+
+    # --- Decisión ---
+    # PM mínimo para pasar (alineado con umbral_score_min de D1).
+    modelado_umbral_pasa:
+      valor: 55
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: "D1 3.4 umbral_score_min [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [45, 70]
+    # Sensibilidad: variación relativa de cada peso, cobertura mínima y tamaño del top (D1 §3.2).
+    modelado_sens_variacion:
+      valor: "0.30"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "D1 3.2 (sensibilidad ±30 %)"
+      ultima_calibracion: null
+      rango: ["0.1", "0.5"]
+    modelado_sens_cobertura_min:
+      valor: "0.80"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "D1 3.2 (top-1 en top-3 en ≥ 80 %)"
+      ultima_calibracion: null
+      rango: ["0.7", "0.95"]
+    modelado_sens_top:
+      valor: 3
+      unidad: posiciones
+      hipotesis: true
+      fuente: "D1 3.2"
+      ultima_calibracion: null
+      rango: [2, 5]
+
+    # --- Juicio por IA: dos jueces independientes con evidencia; la IA propone, el código dispone ---
+    # Diferencia máxima entre dos jueces en un componente de transferibilidad; si es mayor, queda sin evaluar.
+    modelado_juicio_tolerancia:
+      valor: "0.20"
+      unidad: factor_0_1
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: ["0.1", "0.3"]
+    # Largo mínimo (caracteres) de la evidencia que respalda un juicio; sin ella el juicio no cuenta.
+    modelado_evidencia_min_caracteres:
+      valor: 20
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: [10, 80]
+    # Casos con etiqueta humana necesarios para pasar de «humano en todo» a «muestreo».
+    modelado_calibracion_min_casos:
+      valor: 20
+      unidad: casos
+      hipotesis: true
+      fuente: "20a §7 #5 (calibrar tras ~20 ofertas)"
+      ultima_calibracion: null
+      rango: [10, 50]
+    # Acuerdo mínimo IA-humano en puertas para pasar de nivel (además de 0 «falsos libres»).
+    modelado_acuerdo_min:
+      valor: "0.90"
+      unidad: fraccion
+      hipotesis: true
+      fuente: "[NUEVO] consolidación de jueces IA (spec D1 §13)"
+      ultima_calibracion: null
+      rango: ["0.8", "0.98"]
+
+    # --- Captura y lectura automáticas (decisión del dueño 2026-11-06: automatizar de todas maneras, con frenos) ---
+    # Espera mínima entre dos capturas en Meta (ritmo humano).
+    modelado_captura_pausa_seg:
+      valor: 20
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 120]
+    # Tope diario de capturas en Meta (UTC).
+    modelado_captura_max_por_dia:
+      valor: 30
+      unidad: capturas
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 100]
+    # Tiempo virtual que Chrome deja correr la página antes de volcarla.
+    modelado_captura_espera_ms:
+      valor: 20000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14 (medido en la prueba del 2026-11-06)"
+      ultima_calibracion: null
+      rango: [10000, 40000]
+    # Tiempo máximo real de una captura.
+    modelado_captura_timeout_seg:
+      valor: 120
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [60, 240]
+    # Tope de bytes que se leen de una página de venta.
+    modelado_lectura_max_bytes:
+      valor: 1500000
+      unidad: bytes
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [500000, 5000000]
+    # Tiempo máximo por petición a una página de venta.
+    modelado_lectura_timeout_seg:
+      valor: 20
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [10, 60]
+    # Caracteres de texto visible que se entregan a los jueces por página.
+    modelado_lectura_max_caracteres:
+      valor: 20000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [5000, 60000]
+    # Redirecciones que se siguen (cada una se revalida).
+    modelado_lectura_max_redirecciones:
+      valor: 3
+      unidad: redirecciones
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [1, 5]
+    # Páginas de venta distintas que se leen por oferta.
+    modelado_lectura_max_paginas:
+      valor: 4
+      unidad: paginas
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [1, 8]
+    # Espera entre dos lecturas de páginas de venta.
+    modelado_lectura_pausa_seg:
+      valor: 5
+      unidad: segundos
+      hipotesis: true
+      fuente: "[NUEVO] spec D1 §14"
+      ultima_calibracion: null
+      rango: [2, 30]
+
+    # --- Lo usa el Maker (no el script): tope de consultas a la Biblioteca por corrida de Modo D. ---
+    modelado_max_consultas_por_corrida:
+      valor: 120
+      unidad: consultas
+      hipotesis: true
+      fuente: "análogo a max_consultas_ads_library_por_oferta (D6) [NUEVO]"
+      ultima_calibracion: null
+      rango: [60, 240]

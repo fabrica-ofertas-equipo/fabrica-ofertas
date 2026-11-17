@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/reembolso.schema.json",
+  "title": "Reembolso",
+  "description": "Línea de reembolsos.jsonl. La clave de idempotencia se envía a Stripe.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "reembolso_id": {
+      "type": "string",
+      "pattern": "^RF-[0-9a-f]{12}$"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "checkout_session_id": {
+      "type": "string",
+      "pattern": "^cs_[A-Za-z0-9_]+$"
+    },
+    "adid": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/id_meta"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stripe_refund_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^re_[A-Za-z0-9_]+$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "monto": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "motivo": {
+      "enum": [
+        "dentro_de_garantia",
+        "producto_no_recibido",
+        "duplicado",
+        "fraude",
+        "otro"
+      ]
+    },
+    "regla_aplicada": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]{1,20}$"
+    },
+    "dentro_garantia": {
+      "type": "boolean"
+    },
+    "dias_desde_compra": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "estado": {
+      "enum": [
+        "solicitado",
+        "aprobado",
+        "ejecutado",
+        "rechazado",
+        "escalado"
+      ]
+    },
+    "ejecutor": {
+      "enum": [
+        "script",
+        "humano"
+      ]
+    },
+    "gate": {
+      "$ref": "comunes.schema.json#/$defs/gate_tabla"
+    },
+    "idempotency_key": {
+      "$ref": "comunes.schema.json#/$defs/idempotency_key"
+    },
+    "sintetico": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "reembolso_id",
+    "ts",
+    "oferta_id",
+    "checkout_session_id",
+    "adid",
+    "stripe_refund_id",
+    "monto",
+    "motivo",
+    "regla_aplicada",
+    "dentro_garantia",
+    "dias_desde_compra",
+    "estado",
+    "ejecutor",
+    "gate",
+    "idempotency_key"
+  ],
+  "additionalProperties": false
+}

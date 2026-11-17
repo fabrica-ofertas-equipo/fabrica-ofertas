@@ -1,0 +1,26 @@
+# tipo: entrega
+# locale: pl-PL
+# estado: v0.1 sin pulir; sin revisor nativo (J11): falta retraducción y segunda lectura de IA; sello de X1 pendiente
+Asunto: Twój dostęp do materiałów – zamówienie {{pedido_ref}}
+
+Dzień dobry,
+
+dziękujemy za zakup w sklepie {{marca}}. Oto Twoje materiały:
+
+{{lista_enlaces}}
+
+Jak to działa
+· Linki są ważne przez {{vence_dias}} dni, a każdy z nich pozwala pobrać plik maksymalnie {{max_descargas}} razy. Zapisz pliki na swoim urządzeniu.
+· Pierwszy krok: {{primer_paso}}
+
+Numer Twojego zamówienia: {{pedido_ref}}
+
+Gwarancja zwrotu pieniędzy: {{garantia_dias}} dni
+{{garantia_texto}}
+Pełne zasady: {{politica_url}}
+
+{{bloque_renuncia}}
+
+Jeśli link się nie otwiera albo przestał działać, odpisz na tę wiadomość lub napisz na {{soporte_email}} – wyślemy nowy.
+
+Sprzedawca: {{vendedor}}

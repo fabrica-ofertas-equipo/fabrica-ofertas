@@ -1,0 +1,2 @@
+Nota de ejemplo sin datos personales: usar IDs pseudónimos (visitor_id, checkout_session_id).
+oferta_id = OF-202611-01

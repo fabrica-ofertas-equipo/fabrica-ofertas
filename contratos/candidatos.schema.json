@@ -1,0 +1,1021 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/candidatos.schema.json",
+  "title": "Candidatos de la oferta",
+  "description": "Candidatos congelados por oferta (D1).",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "corrida_id": {
+      "type": "string",
+      "pattern": "^RUN-[0-9]{8}-[0-9]{2}$"
+    },
+    "fecha": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "modo": {
+      "enum": [
+        "pipeline",
+        "dirigido"
+      ],
+      "description": "pipeline: congelado por oferta tras elegir; dirigido: barrido bajo demanda"
+    },
+    "mercado": {
+      "type": "object",
+      "properties": {
+        "locale": {
+          "$ref": "comunes.schema.json#/$defs/locale"
+        },
+        "paises": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/pais"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "locale",
+        "paises"
+      ],
+      "additionalProperties": false
+    },
+    "pesos": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+      }
+    },
+    "parametros_usados": {
+      "type": "object",
+      "additionalProperties": {},
+      "description": "Copia de los parámetros de D1 usados (trazabilidad)"
+    },
+    "consultas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "herramienta": {
+            "type": "string"
+          },
+          "terminos": {
+            "type": "string"
+          },
+          "pais": {
+            "anyOf": [
+              {
+                "$ref": "comunes.schema.json#/$defs/pais"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fecha": {
+            "$ref": "comunes.schema.json#/$defs/timestamp"
+          },
+          "estimated_total_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "herramienta",
+          "terminos",
+          "pais",
+          "fecha",
+          "estimated_total_count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "candidatos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "candidato_id": {
+            "$ref": "comunes.schema.json#/$defs/candidato_id"
+          },
+          "problema_id": {
+            "$ref": "comunes.schema.json#/$defs/problema_id"
+          },
+          "rango": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "macro_nicho": {
+            "$ref": "comunes.schema.json#/$defs/macro_nicho"
+          },
+          "nicho_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "microsegmento": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "problema": {
+            "type": "string",
+            "minLength": 1,
+            "description": "«[audiencia] quiere [resultado] pero [obstáculo]» en voz del cliente"
+          },
+          "prueba_una_frase": {
+            "type": "string",
+            "minLength": 1,
+            "description": "«Para [audiencia] que [problema], [MECANISMO] es [ENTREGABLE] que lleva de [A] a [B] sin [obstáculo]»"
+          },
+          "tesis": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400,
+            "description": "Tesis de <= 40 palabras"
+          },
+          "mecanismo": {
+            "type": "object",
+            "properties": {
+              "causa_raiz": {
+                "type": "object",
+                "properties": {
+                  "texto": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "senales": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "comunes.schema.json#/$defs/senal_id"
+                    },
+                    "minItems": 1,
+                    "description": "senal_id que respaldan la causa"
+                  }
+                },
+                "required": [
+                  "texto",
+                  "senales"
+                ],
+                "additionalProperties": false
+              },
+              "nombre": {
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 60,
+                "description": "Nombre del mecanismo único: 2 a 6 palabras"
+              },
+              "como_funciona": {
+                "type": "string",
+                "minLength": 1
+              },
+              "diferencia": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Diferencia con la alternativa genérica/gratuita (incluido un chatbot) y con los competidores"
+              },
+              "prueba_logica": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Se demuestra con la lógica del producto, nunca con testimonios inventados"
+              },
+              "riesgo_de_claim": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "causa_raiz",
+              "nombre",
+              "como_funciona",
+              "diferencia",
+              "prueba_logica",
+              "riesgo_de_claim"
+            ],
+            "additionalProperties": false,
+            "description": "Ficha de mecanismo único (backbone 5.11)"
+          },
+          "entregable": {
+            "type": "object",
+            "properties": {
+              "formato": {
+                "enum": [
+                  "guia_pdf",
+                  "plantilla",
+                  "biblioteca",
+                  "hoja_de_calculo",
+                  "checklist",
+                  "minicurso_video_corto",
+                  "pack"
+                ],
+                "description": "Formato del entregable único"
+              },
+              "alcance": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Alcance cerrado"
+              },
+              "estado_a_b": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "b": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              },
+              "tiempo_al_primer_resultado": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Minutos hasta el primer resultado"
+              },
+              "producibilidad": {
+                "type": "object",
+                "properties": {
+                  "nivel": {
+                    "enum": [
+                      "alta",
+                      "media",
+                      "baja"
+                    ]
+                  },
+                  "notas": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "nivel",
+                  "notas"
+                ],
+                "additionalProperties": false
+              },
+              "licencias": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": "Licencias o 'sin activos de terceros'"
+              }
+            },
+            "required": [
+              "formato",
+              "alcance",
+              "estado_a_b",
+              "tiempo_al_primer_resultado",
+              "producibilidad",
+              "licencias"
+            ],
+            "additionalProperties": false,
+            "description": "Ficha de entregable único (backbone 5.11): sin servicio humano, comunidad, vivo, suscripción ni mantenimiento"
+          },
+          "precio_plausible": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+              },
+              "max": {
+                "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+              },
+              "razon": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "min",
+              "max",
+              "razon"
+            ],
+            "additionalProperties": false
+          },
+          "puntajes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "s": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "justificacion": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidencia_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^EV-[0-9]{2,3}$"
+                  }
+                }
+              },
+              "required": [
+                "s",
+                "justificacion",
+                "evidencia_ids"
+              ],
+              "additionalProperties": false
+            },
+            "description": "criterio -> puntaje con justificación y evidencia"
+          },
+          "score_base": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "score_ajustado": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "confianza": {
+            "enum": [
+              "alta",
+              "media",
+              "baja"
+            ]
+          },
+          "evidencia": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^EV-[0-9]{2,3}$"
+                },
+                "tipo": {
+                  "$ref": "comunes.schema.json#/$defs/tipo_evidencia"
+                },
+                "url": {
+                  "$ref": "comunes.schema.json#/$defs/url"
+                },
+                "fecha_publicacion": {
+                  "$ref": "comunes.schema.json#/$defs/fecha"
+                },
+                "fecha_consulta": {
+                  "$ref": "comunes.schema.json#/$defs/fecha"
+                },
+                "cita": {
+                  "$ref": "comunes.schema.json#/$defs/cita_corta"
+                },
+                "cita_literal_verificada": {
+                  "type": "boolean"
+                },
+                "hash_copia_crudo": {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                }
+              },
+              "required": [
+                "id",
+                "tipo",
+                "url",
+                "fecha_publicacion",
+                "fecha_consulta",
+                "cita",
+                "cita_literal_verificada",
+                "hash_copia_crudo"
+              ],
+              "additionalProperties": false,
+              "description": "Evidencia citada; la cita se confirma sobre el texto crudo"
+            },
+            "minItems": 1
+          },
+          "demanda_pagada": {
+            "type": "object",
+            "properties": {
+              "n_anuncios": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "n_anunciantes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "n_sostenidos": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "n_conceptos_unicos": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "antiguedad_max_dias": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "consultas_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "senal_rentabilidad": {
+                "const": "no medible"
+              }
+            },
+            "required": [
+              "n_anuncios",
+              "n_anunciantes",
+              "n_sostenidos",
+              "n_conceptos_unicos",
+              "antiguedad_max_dias",
+              "consultas_ids",
+              "senal_rentabilidad"
+            ],
+            "additionalProperties": false
+          },
+          "riesgo": {
+            "type": "object",
+            "properties": {
+              "P": {
+                "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+                "description": "Eje Promesa: qué afirman el anuncio, la landing y el nombre"
+              },
+              "C": {
+                "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+                "description": "Eje Contenido: qué instruye y qué daño podría causar"
+              },
+              "E": {
+                "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+                "description": "Eje Encuadre: cómo se dirige al espectador (atributos personales, urgencia, miedo)"
+              },
+              "N": {
+                "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+                "description": "Eje categoría de Negocio: Meta, Stripe, leyes de consumo, salud y finanzas"
+              },
+              "nivel": {
+                "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+                "description": "Nivel resultante = el MÁXIMO de los cuatro ejes (después del reencuadre). Regla verificada por validar_esquemas.py"
+              },
+              "reencuadre_aplicado": {
+                "type": "object",
+                "properties": {
+                  "aplicado": {
+                    "type": "boolean"
+                  },
+                  "nivel_original": {
+                    "$ref": "comunes.schema.json#/$defs/nivel_riesgo"
+                  },
+                  "descripcion": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Qué se cambió en promesa/contenido/encuadre/negocio"
+                  }
+                },
+                "required": [
+                  "aplicado"
+                ],
+                "additionalProperties": false,
+                "description": "Si aplicado=true, nivel_original y descripcion son obligatorios y nivel_original > nivel"
+              },
+              "fuentes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 3
+                },
+                "minItems": 1,
+                "description": "Fuentes de la política o regla aplicada (URL o ID de empresa/compliance/politicas_plataforma.yaml)"
+              },
+              "categoria": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Categoría de política más cercana (p. ej. 'empleo', 'finanzas personales', 'salud')"
+              },
+              "claims_a_evitar": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": "Claims que no pueden usarse aguas abajo"
+              },
+              "angulo_seguro": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Ángulo recomendado que mantiene el candidato en verde"
+              }
+            },
+            "required": [
+              "P",
+              "C",
+              "E",
+              "N",
+              "nivel",
+              "reencuadre_aplicado",
+              "fuentes",
+              "categoria",
+              "claims_a_evitar",
+              "angulo_seguro"
+            ],
+            "additionalProperties": false,
+            "description": "Riesgo de políticas del CANDIDATO (decisión 13): por promesa, contenido, encuadre y negocio; el tema solo aporta un prior.",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "reencuadre_aplicado": {
+                      "properties": {
+                        "aplicado": {
+                          "const": true
+                        }
+                      },
+                      "required": [
+                        "aplicado"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "reencuadre_aplicado"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "reencuadre_aplicado": {
+                      "required": [
+                        "aplicado",
+                        "nivel_original",
+                        "descripcion"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "similitud_memoria": {
+            "type": "object",
+            "properties": {
+              "max": {
+                "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+              },
+              "con": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "max",
+              "con"
+            ],
+            "additionalProperties": false
+          },
+          "viabilidad_cpa": {
+            "type": "object",
+            "properties": {
+              "ratio_pes": {
+                "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+              },
+              "ratio_central": {
+                "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+              },
+              "ratio_opt": {
+                "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+              },
+              "supuestos": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "bandera": {
+                "enum": [
+                  "verde",
+                  "amarilla",
+                  "roja"
+                ]
+              }
+            },
+            "required": [
+              "ratio_pes",
+              "ratio_central",
+              "ratio_opt",
+              "supuestos",
+              "bandera"
+            ],
+            "additionalProperties": false
+          },
+          "sensibilidad": {
+            "type": "object",
+            "properties": {
+              "top3_estable_pct": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "top3_estable_pct"
+            ],
+            "additionalProperties": false
+          },
+          "ventana_estacional": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "hipotesis_para_d2": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "que_la_mataria": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "palabras_clave_voz_cliente": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "candidato_id",
+          "problema_id",
+          "rango",
+          "macro_nicho",
+          "nicho_id",
+          "microsegmento",
+          "problema",
+          "prueba_una_frase",
+          "tesis",
+          "mecanismo",
+          "entregable",
+          "precio_plausible",
+          "puntajes",
+          "score_base",
+          "score_ajustado",
+          "confianza",
+          "evidencia",
+          "demanda_pagada",
+          "riesgo",
+          "similitud_memoria",
+          "viabilidad_cpa",
+          "sensibilidad",
+          "ventana_estacional",
+          "hipotesis_para_d2",
+          "que_la_mataria",
+          "palabras_clave_voz_cliente"
+        ],
+        "additionalProperties": false,
+        "description": "Candidato con filtro MU/EU superado (D1)"
+      },
+      "minItems": 1,
+      "description": "Candidatos que superaron el filtro MU/EU y NO son rojos"
+    },
+    "descartados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "problema": {
+            "type": "string",
+            "minLength": 1
+          },
+          "motivo": {
+            "$ref": "comunes.schema.json#/$defs/motivo_rechazo"
+          },
+          "redencion": {
+            "enum": [
+              "dividir",
+              "reformular",
+              "bajar_al_banco",
+              "descartar"
+            ],
+            "description": "Cómo se podría recuperar"
+          }
+        },
+        "required": [
+          "problema",
+          "motivo",
+          "redencion"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "corrida_id",
+    "fecha",
+    "modo",
+    "mercado",
+    "pesos",
+    "parametros_usados",
+    "consultas",
+    "candidatos",
+    "descartados"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "riesgo": {
+      "type": "object",
+      "properties": {
+        "P": {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+          "description": "Eje Promesa: qué afirman el anuncio, la landing y el nombre"
+        },
+        "C": {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+          "description": "Eje Contenido: qué instruye y qué daño podría causar"
+        },
+        "E": {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+          "description": "Eje Encuadre: cómo se dirige al espectador (atributos personales, urgencia, miedo)"
+        },
+        "N": {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+          "description": "Eje categoría de Negocio: Meta, Stripe, leyes de consumo, salud y finanzas"
+        },
+        "nivel": {
+          "$ref": "comunes.schema.json#/$defs/nivel_riesgo",
+          "description": "Nivel resultante = el MÁXIMO de los cuatro ejes (después del reencuadre). Regla verificada por validar_esquemas.py"
+        },
+        "reencuadre_aplicado": {
+          "type": "object",
+          "properties": {
+            "aplicado": {
+              "type": "boolean"
+            },
+            "nivel_original": {
+              "$ref": "comunes.schema.json#/$defs/nivel_riesgo"
+            },
+            "descripcion": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Qué se cambió en promesa/contenido/encuadre/negocio"
+            }
+          },
+          "required": [
+            "aplicado"
+          ],
+          "additionalProperties": false,
+          "description": "Si aplicado=true, nivel_original y descripcion son obligatorios y nivel_original > nivel"
+        },
+        "fuentes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 3
+          },
+          "minItems": 1,
+          "description": "Fuentes de la política o regla aplicada (URL o ID de empresa/compliance/politicas_plataforma.yaml)"
+        },
+        "categoria": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Categoría de política más cercana (p. ej. 'empleo', 'finanzas personales', 'salud')"
+        },
+        "claims_a_evitar": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Claims que no pueden usarse aguas abajo"
+        },
+        "angulo_seguro": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Ángulo recomendado que mantiene el candidato en verde"
+        }
+      },
+      "required": [
+        "P",
+        "C",
+        "E",
+        "N",
+        "nivel",
+        "reencuadre_aplicado",
+        "fuentes",
+        "categoria",
+        "claims_a_evitar",
+        "angulo_seguro"
+      ],
+      "additionalProperties": false,
+      "description": "Riesgo de políticas del CANDIDATO (decisión 13): por promesa, contenido, encuadre y negocio; el tema solo aporta un prior.",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "reencuadre_aplicado": {
+                "properties": {
+                  "aplicado": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "aplicado"
+                ]
+              }
+            },
+            "required": [
+              "reencuadre_aplicado"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reencuadre_aplicado": {
+                "required": [
+                  "aplicado",
+                  "nivel_original",
+                  "descripcion"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "mecanismo": {
+      "type": "object",
+      "properties": {
+        "causa_raiz": {
+          "type": "object",
+          "properties": {
+            "texto": {
+              "type": "string",
+              "minLength": 1
+            },
+            "senales": {
+              "type": "array",
+              "items": {
+                "$ref": "comunes.schema.json#/$defs/senal_id"
+              },
+              "minItems": 1,
+              "description": "senal_id que respaldan la causa"
+            }
+          },
+          "required": [
+            "texto",
+            "senales"
+          ],
+          "additionalProperties": false
+        },
+        "nombre": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 60,
+          "description": "Nombre del mecanismo único: 2 a 6 palabras"
+        },
+        "como_funciona": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diferencia": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Diferencia con la alternativa genérica/gratuita (incluido un chatbot) y con los competidores"
+        },
+        "prueba_logica": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Se demuestra con la lógica del producto, nunca con testimonios inventados"
+        },
+        "riesgo_de_claim": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "causa_raiz",
+        "nombre",
+        "como_funciona",
+        "diferencia",
+        "prueba_logica",
+        "riesgo_de_claim"
+      ],
+      "additionalProperties": false,
+      "description": "Ficha de mecanismo único (backbone 5.11)"
+    },
+    "entregable": {
+      "type": "object",
+      "properties": {
+        "formato": {
+          "enum": [
+            "guia_pdf",
+            "plantilla",
+            "biblioteca",
+            "hoja_de_calculo",
+            "checklist",
+            "minicurso_video_corto",
+            "pack"
+          ],
+          "description": "Formato del entregable único"
+        },
+        "alcance": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Alcance cerrado"
+        },
+        "estado_a_b": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "string",
+              "minLength": 1
+            },
+            "b": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "a",
+            "b"
+          ],
+          "additionalProperties": false
+        },
+        "tiempo_al_primer_resultado": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Minutos hasta el primer resultado"
+        },
+        "producibilidad": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "enum": [
+                "alta",
+                "media",
+                "baja"
+              ]
+            },
+            "notas": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "nivel",
+            "notas"
+          ],
+          "additionalProperties": false
+        },
+        "licencias": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Licencias o 'sin activos de terceros'"
+        }
+      },
+      "required": [
+        "formato",
+        "alcance",
+        "estado_a_b",
+        "tiempo_al_primer_resultado",
+        "producibilidad",
+        "licencias"
+      ],
+      "additionalProperties": false,
+      "description": "Ficha de entregable único (backbone 5.11): sin servicio humano, comunidad, vivo, suscripción ni mantenimiento"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "dorados": [
+    "dorados/D4-01-ejemplo-es-ES-dinero-regresion.json",
+    "dorados/D4-02-dinero-hoja-presupuesto-es-ES.json",
+    "dorados/D4-03-dinero-variante-it-IT.json",
+    "dorados/D4-04-salud-recetario-amarillo-a.json",
+    "dorados/D4-05-relaciones-tarjetas-pl-PL.json",
+    "dorados/D4-06-frenos-y-devoluciones.json",
+    "dorados/D4-07-biblioteca-40-fichas-costeo.json",
+    "dorados/D4-08-revision-vigencia.json",
+    "dorados/D4-09-salud-secuencia-5-pausas-es-ES.json",
+    "dorados/D4-10-relaciones-reunion-semanal-es-ES.json"
+  ],
+  "sembrados": {
+    "catalogo": "sembrados/catalogo.json",
+    "rotacion": "sembrados/rotacion.json",
+    "ejemplos": [
+      "sembrados/H03-parrafo-copiado.json",
+      "sembrados/H07-tiempo-55-vs-20.json",
+      "sembrados/N1-servicio-humano-en-bonus.json",
+      "sembrados/S1-dosis-x10.json",
+      "sembrados/S10-confrontar-sin-exclusion.json",
+      "sembrados/S11-expectativa-de-rendimiento.json",
+      "sembrados/S15-it-IT-cucchiaio-por-cucchiaino.json",
+      "sembrados/S9-ayuda-de-otro-pais.json",
+      "sembrados/it-IT-separador-de-miles.json"
+    ]
+  },
+  "regla": "Cada eval se corre CON y SIN la skill (Sonnet y Haiku); con skill debe superar la línea base. Dorados: PASS. Sembrados: ≥ 90 % y 100 % de S1, S6, S10, S11. Cobertura mínima: ≥ 2 dorados por macro-nicho (salud D4-04 y D4-09; relaciones D4-05 y D4-10; dinero D4-01, D4-02, D4-03 y D4-07), ≥ 1 en otro idioma (it-IT D4-03; pl-PL D4-05), frenos D4-06 y vigencia D4-08.",
+  "scripts_de_calibracion": ".venv/bin/python .claude/skills/d4-producto/scripts/test_scripts.py"
+}

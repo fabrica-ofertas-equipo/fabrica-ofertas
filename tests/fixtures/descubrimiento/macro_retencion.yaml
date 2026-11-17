@@ -1,0 +1,101 @@
+# Suite de RETENCIÓN del clasificador de macro-nicho (scripts/descubrimiento/macro.py).
+# Etiquetado a mano para D1c (nota 25 §1.2-1.3; interfaces d1-v2 §0 n.8, §8.2 n.1).
+# Invariantes: 0 falsos verdes (ningún caso "fuera_de_macro_nicho"/"sin_prueba_frase" sale
+# clasificado dentro de un macro) y tasa de falsos rojos sobre los positivos <= 5 %.
+# macro_nicho_esperado ∈ {salud, relaciones, dinero, fuera_de_macro_nicho, sin_prueba_frase}.
+schema: macro_retencion
+version: 1
+casos:
+  # --- SALUD (24) ---
+  - {id: sal-es-01, idioma: es-AR, prueba_una_frase: "de sufrir dolor de espalda a moverme sin dolor cada dia", macro_nicho_esperado: salud}
+  - {id: sal-es-02, idioma: es-AR, prueba_una_frase: "de no dormir bien a dormir profundamente toda la noche", macro_nicho_esperado: salud}
+  - {id: sal-es-03, idioma: es-AR, prueba_una_frase: "de vivir con ansiedad constante a sentir calma en el dia", macro_nicho_esperado: salud}
+  - {id: sal-es-04, idioma: es-AR, prueba_una_frase: "de no tener energia por la tarde a tener energia estable todo el dia", macro_nicho_esperado: salud}
+  - {id: sal-es-05, idioma: es-MX, prueba_una_frase: "de cargar kilos de mas a bajar de peso de forma sostenible", macro_nicho_esperado: salud}
+  - {id: sal-es-06, idioma: es-MX, prueba_una_frase: "de descuidar la salud por el estres del trabajo a mejorar la salud con rutinas simples", macro_nicho_esperado: salud}
+  - {id: sal-es-07, idioma: es-ES, prueba_una_frase: "de respirar agitado a respirar con calma en segundos", macro_nicho_esperado: salud}
+  - {id: sal-es-08, idioma: es-ES, prueba_una_frase: "de tener migranas frecuentes a reducir el dolor de cabeza con una rutina simple", macro_nicho_esperado: salud}
+  - {id: sal-es-09, idioma: es-AR, prueba_una_frase: "de ansiedad antes de dormir a sueño tranquilo cada noche", macro_nicho_esperado: salud}
+  - {id: sal-en-01, idioma: en-US, prueba_una_frase: "from struggling with back pain to moving without pain", macro_nicho_esperado: salud}
+  - {id: sal-en-02, idioma: en-US, prueba_una_frase: "from losing sleep every night to sleeping deeply again", macro_nicho_esperado: salud}
+  - {id: sal-en-03, idioma: en-US, prueba_una_frase: "from feeling anxious all day to feeling calm after work", macro_nicho_esperado: salud}
+  - {id: sal-en-04, idioma: en-US, prueba_una_frase: "from low energy in the afternoon to steady energy all day", macro_nicho_esperado: salud}
+  - {id: sal-en-05, idioma: en-US, prueba_una_frase: "from skipping exercise to exercising three times a week", macro_nicho_esperado: salud}
+  - {id: sal-en-06, idioma: en-US, prueba_una_frase: "from constant back pain to pain-free mornings", macro_nicho_esperado: salud}
+  - {id: sal-en-07, idioma: en-US, prueba_una_frase: "from anxious evenings to calm evenings before bed", macro_nicho_esperado: salud}
+  - {id: sal-it-01, idioma: it-IT, prueba_una_frase: "da soffrire di ansia continua a sentire calma ogni giorno", macro_nicho_esperado: salud}
+  - {id: sal-it-02, idioma: it-IT, prueba_una_frase: "da dormire male ogni notte a dormire profondamente", macro_nicho_esperado: salud}
+  - {id: sal-it-03, idioma: it-IT, prueba_una_frase: "da avere poca energia a sentire energia stabile tutto il giorno", macro_nicho_esperado: salud}
+  - {id: sal-it-04, idioma: it-IT, prueba_una_frase: "da un sonno agitato a un sonno riposante ogni notte", macro_nicho_esperado: salud}
+  - {id: sal-it-05, idioma: it-IT, prueba_una_frase: "da ansia da prestazione a calma prima di parlare in pubblico", macro_nicho_esperado: salud}
+  - {id: sal-pl-01, idioma: pl-PL, prueba_una_frase: "od ciagłego bolu kregoslupa do zycia bez bolu", macro_nicho_esperado: salud}
+  - {id: sal-pl-02, idioma: pl-PL, prueba_una_frase: "od bezsennych nocy do spokojnego snu kazdej nocy", macro_nicho_esperado: salud}
+  - {id: sal-pl-03, idioma: pl-PL, prueba_una_frase: "od lekow przed wystapieniami do spokoju przed wystapieniami", macro_nicho_esperado: salud}
+
+  # --- RELACIONES (21) ---
+  - {id: rel-es-01, idioma: es-AR, prueba_una_frase: "de discutir todo el dia con mi pareja a mejorar la comunicacion con mi pareja", macro_nicho_esperado: relaciones}
+  - {id: rel-es-02, idioma: es-AR, prueba_una_frase: "de no saber que decirle a mi hijo a mejorar la relacion con mi hijo", macro_nicho_esperado: relaciones}
+  - {id: rel-es-03, idioma: es-MX, prueba_una_frase: "de sentirme sola a tener mas amistad en mi vida", macro_nicho_esperado: relaciones}
+  - {id: rel-es-04, idioma: es-MX, prueba_una_frase: "de peleas constantes en el matrimonio a una convivencia mas tranquila", macro_nicho_esperado: relaciones}
+  - {id: rel-es-05, idioma: es-ES, prueba_una_frase: "de conflictos diarios en familia a una familia mas unida", macro_nicho_esperado: relaciones}
+  - {id: rel-es-06, idioma: es-ES, prueba_una_frase: "de no tener tiempo para mis amigos a cultivar mas amistad cada semana", macro_nicho_esperado: relaciones}
+  - {id: rel-es-07, idioma: es-AR, prueba_una_frase: "de discusiones con mi hija a una mejor relacion con mi hija", macro_nicho_esperado: relaciones}
+  - {id: rel-en-01, idioma: en-US, prueba_una_frase: "from constant fights with my partner to real communication with my partner", macro_nicho_esperado: relaciones}
+  - {id: rel-en-02, idioma: en-US, prueba_una_frase: "from feeling distant from my child to a stronger relationship with my child", macro_nicho_esperado: relaciones}
+  - {id: rel-en-03, idioma: en-US, prueba_una_frase: "from being alone most weekends to building real friendship with new people", macro_nicho_esperado: relaciones}
+  - {id: rel-en-04, idioma: en-US, prueba_una_frase: "from daily conflict at home to a stronger family bond", macro_nicho_esperado: relaciones}
+  - {id: rel-en-05, idioma: en-US, prueba_una_frase: "from awkward silences with my partner to open communication with my partner", macro_nicho_esperado: relaciones}
+  - {id: rel-en-06, idioma: en-US, prueba_una_frase: "from constant conflict with my teenager to a stronger relationship with my teenager", macro_nicho_esperado: relaciones}
+  - {id: rel-it-01, idioma: it-IT, prueba_una_frase: "da litigare sempre con il partner a una comunicazione serena con il partner", macro_nicho_esperado: relaciones}
+  - {id: rel-it-02, idioma: it-IT, prueba_una_frase: "da sentirsi sola a costruire una vera amicizia", macro_nicho_esperado: relaciones}
+  - {id: rel-it-03, idioma: it-IT, prueba_una_frase: "da incomprensioni con i figli a una relazione piu serena con i figli", macro_nicho_esperado: relaciones}
+  - {id: rel-it-04, idioma: it-IT, prueba_una_frase: "da liti frequenti in famiglia a una famiglia piu unita", macro_nicho_esperado: relaciones}
+  - {id: rel-pl-01, idioma: pl-PL, prueba_una_frase: "od ciaglych konfliktow z partnerem do lepszej komunikacji z partnerem", macro_nicho_esperado: relaciones}
+  - {id: rel-pl-02, idioma: pl-PL, prueba_una_frase: "od samotnosci do prawdziwej przyjazni z innymi", macro_nicho_esperado: relaciones}
+  - {id: rel-pl-03, idioma: pl-PL, prueba_una_frase: "od chlodnych relacji z rodzina do cieplejszej relacji z rodzina", macro_nicho_esperado: relaciones}
+  - {id: rel-pl-04, idioma: pl-PL, prueba_una_frase: "od czestych konfliktow w rodzinie do zgodniejszej rodziny", macro_nicho_esperado: relaciones}
+
+  # --- DINERO (24) ---
+  - {id: din-es-01, idioma: es-AR, prueba_una_frase: "de gastar sin control cada mes a ahorrar de forma constante", macro_nicho_esperado: dinero}
+  - {id: din-es-02, idioma: es-AR, prueba_una_frase: "de no saber en que se va el dinero a tener un presupuesto claro cada mes", macro_nicho_esperado: dinero}
+  - {id: din-es-03, idioma: es-MX, prueba_una_frase: "de acumular deudas a pagar mis deudas en seis meses", macro_nicho_esperado: dinero}
+  - {id: din-es-04, idioma: es-MX, prueba_una_frase: "de cobrar poco por mi trabajo a cobrar un precio justo por mi trabajo", macro_nicho_esperado: dinero}
+  - {id: din-es-05, idioma: es-ES, prueba_una_frase: "de estar desempleada a conseguir un empleo estable", macro_nicho_esperado: dinero}
+  - {id: din-es-06, idioma: es-ES, prueba_una_frase: "de pagar impuestos sin entenderlos a declarar impuestos sin errores", macro_nicho_esperado: dinero}
+  - {id: din-es-07, idioma: es-AR, prueba_una_frase: "de no llegar a fin de mes a tener ahorros cada mes", macro_nicho_esperado: dinero}
+  - {id: din-es-08, idioma: es-AR, prueba_una_frase: "de cobrar tarde a mis clientes a cobrar a tiempo cada mes", macro_nicho_esperado: dinero}
+  - {id: din-en-01, idioma: en-US, prueba_una_frase: "from overspending every month to saving steadily every month", macro_nicho_esperado: dinero}
+  - {id: din-en-02, idioma: en-US, prueba_una_frase: "from carrying credit card debt to paying off debt in a year", macro_nicho_esperado: dinero}
+  - {id: din-en-03, idioma: en-US, prueba_una_frase: "from undercharging clients to charging a fair price for my work", macro_nicho_esperado: dinero}
+  - {id: din-en-04, idioma: en-US, prueba_una_frase: "from being unemployed to landing a stable job", macro_nicho_esperado: dinero}
+  - {id: din-en-05, idioma: en-US, prueba_una_frase: "from guessing my budget to tracking every expense with a clear budget", macro_nicho_esperado: dinero}
+  - {id: din-en-06, idioma: en-US, prueba_una_frase: "from living paycheck to paycheck to building real savings", macro_nicho_esperado: dinero}
+  - {id: din-en-07, idioma: en-US, prueba_una_frase: "from underpricing my services to charging the right price", macro_nicho_esperado: dinero}
+  - {id: din-it-01, idioma: it-IT, prueba_una_frase: "da spendere senza controllo a risparmiare ogni mese", macro_nicho_esperado: dinero}
+  - {id: din-it-02, idioma: it-IT, prueba_una_frase: "da accumulare debiti a pagare i debiti in un anno", macro_nicho_esperado: dinero}
+  - {id: din-it-03, idioma: it-IT, prueba_una_frase: "da un lavoro instabile a un lavoro stabile", macro_nicho_esperado: dinero}
+  - {id: din-it-04, idioma: it-IT, prueba_una_frase: "da non arrivare a fine mese a risparmiare ogni mese", macro_nicho_esperado: dinero}
+  - {id: din-it-05, idioma: it-IT, prueba_una_frase: "da sottovalutare il mio lavoro a un prezzo giusto per il mio lavoro", macro_nicho_esperado: dinero}
+  - {id: din-pl-01, idioma: pl-PL, prueba_una_frase: "od wydawania bez kontroli do oszczedzania kazdego miesiaca", macro_nicho_esperado: dinero}
+  - {id: din-pl-02, idioma: pl-PL, prueba_una_frase: "od dlugow na karcie do spłaty dlugu w rok", macro_nicho_esperado: dinero}
+  - {id: din-pl-03, idioma: pl-PL, prueba_una_frase: "od zycia od wyplaty do wyplaty do oszczedzania co miesiac", macro_nicho_esperado: dinero}
+  - {id: din-pl-04, idioma: pl-PL, prueba_una_frase: "od niedoszacowanej pracy do uczciwej ceny za prace", macro_nicho_esperado: dinero}
+
+  # --- NEGATIVOS: fuera de marco (10) ---
+  - {id: fue-hobby-es, idioma: es-AR, prueba_una_frase: "de no saber tejer a crear mis propios patrones de crochet", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: hobby}
+  - {id: fue-hobby-en, idioma: en-US, prueba_una_frase: "from a blank canvas to finishing my first watercolor painting", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: hobby}
+  - {id: fue-hobby-it, idioma: it-IT, prueba_una_frase: "da non saper cucire a creare i miei primi progetti di uncinetto", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: hobby}
+  - {id: fue-hobby-pl, idioma: pl-PL, prueba_una_frase: "od nieumiejetnosci szydelkowania do wlasnych wzorow szydelkowych", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: hobby}
+  - {id: fue-estetica-es, idioma: es-ES, prueba_una_frase: "de no saber maquillarme a dominar mi rutina de maquillaje", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: estetica}
+  - {id: fue-estetica-en, idioma: en-US, prueba_una_frase: "from basic hairstyles to mastering elegant hairstyle looks", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: estetica}
+  - {id: fue-estetica-it, idioma: it-IT, prueba_una_frase: "da un trucco semplice a un trucco da sera perfetto", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: estetica}
+  - {id: fue-profesional-es, idioma: es-AR, prueba_una_frase: "de improvisar las sesiones a tener fichas para psicologos listas para usar", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: deseo_del_comprador_es_profesional}
+  - {id: fue-profesional-en, idioma: en-US, prueba_una_frase: "from generic worksheets to ready to use materials for therapists", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: deseo_del_comprador_es_profesional}
+  - {id: fue-ninguna-es, idioma: es-AR, prueba_una_frase: "de improvisar la cena cada noche a tener un menu variado cada semana", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: ninguna_bandera}
+  - {id: fue-ninguna-en, idioma: en-US, prueba_una_frase: "from random dinners every night to a varied weekly meal plan", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: ninguna_bandera}
+  - {id: fue-ninguna-it, idioma: it-IT, prueba_una_frase: "da cene improvvisate a un menu settimanale vario", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: ninguna_bandera}
+  - {id: fue-ninguna-pl, idioma: pl-PL, prueba_una_frase: "od przypadkowych kolacji do zroznicowanego menu na tydzien", macro_nicho_esperado: fuera_de_macro_nicho, motivo_macro_esperado: ninguna_bandera}
+
+  # --- NEGATIVOS: sin "de A a B" reconocible (2) ---
+  - {id: sinfrase-es, idioma: es-AR, prueba_una_frase: "quiero mejorar mis finanzas personales", macro_nicho_esperado: sin_prueba_frase}
+  - {id: sinfrase-en, idioma: en-US, prueba_una_frase: "I want better sleep habits", macro_nicho_esperado: sin_prueba_frase}

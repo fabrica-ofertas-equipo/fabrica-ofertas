@@ -1,0 +1,5483 @@
+{
+ "_meta": {
+  "fecha": "2026-11-06",
+  "generado_por": "scripts/mercados/rank.py --exportar",
+  "nota": "Salida determinista; no editar a mano."
+ },
+ "escenarios": {
+  "08_publicado": {
+   "descripcion": "Reproducción de 08 §2.2 con los puntajes publicados (CAC y PAGO publicados).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.0,
+     "base": 76.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 69.0,
+     "base": 65.0,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 1.0,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "08_derivado": {
+   "descripcion": "Modelo de 08 con CAC y PAGO derivados de sus reglas y parámetros (§2.1).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.0,
+     "base": 76.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 69.0,
+     "base": 65.0,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 1.0,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "neto_completo_pct": {
+   "descripcion": "Neto completo: Stripe Tax 0,5 %, reembolsos 8 %, disputas 0,6 % x 15 USD (16 H1).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 75.0,
+     "base": 73.0,
+     "ajuste": 2,
+     "r": 1.836,
+     "pos_r": 9,
+     "cac": 1,
+     "cpa": 39.8,
+     "neto": 21.67
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 73.0,
+     "base": 72.0,
+     "ajuste": 1,
+     "r": 1.594,
+     "pos_r": 5,
+     "cac": 2,
+     "cpa": 31.27,
+     "neto": 19.62
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 72.0,
+     "base": 71.0,
+     "ajuste": 1,
+     "r": 1.959,
+     "pos_r": 11,
+     "cac": 1,
+     "cpa": 40.36,
+     "neto": 20.6
+    },
+    {
+     "pos": 4,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.712,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 15.46
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.371,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 55.8,
+     "neto": 23.53
+    },
+    {
+     "pos": 6,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.49,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 11.64
+    },
+    {
+     "pos": 7,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.637,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 19.1
+    },
+    {
+     "pos": 8,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.421,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 11.77
+    },
+    {
+     "pos": 9,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.233,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 41.8,
+     "neto": 18.72
+    },
+    {
+     "pos": 10,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.236,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 10.61
+    },
+    {
+     "pos": 11,
+     "codigo": "PL",
+     "total": 59.0,
+     "base": 59.0,
+     "ajuste": 0,
+     "r": 1.517,
+     "pos_r": 4,
+     "cac": 2,
+     "cpa": 13.47,
+     "neto": 8.88
+    },
+    {
+     "pos": 12,
+     "codigo": "BE",
+     "total": 56.0,
+     "base": 56.0,
+     "ajuste": 0,
+     "r": 1.842,
+     "pos_r": 10,
+     "cac": 1,
+     "cpa": 22.11,
+     "neto": 12.0
+    },
+    {
+     "pos": 13,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.753,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 13.31
+    },
+    {
+     "pos": 14,
+     "codigo": "SE",
+     "total": 52.0,
+     "base": 53.0,
+     "ajuste": -1,
+     "r": 1.992,
+     "pos_r": 12,
+     "cac": 1,
+     "cpa": 22.56,
+     "neto": 11.32
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 1.62,
+     "pos_r": 6,
+     "cac": 2,
+     "cpa": 19.03,
+     "neto": 11.74
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "IE",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.943,
+    "pos_IT": 6,
+    "pos_PL": 11,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 6.0
+   }
+  },
+  "neto_completo_api": {
+   "descripcion": "Neto completo con Stripe Tax por API (0,50 USD fijos).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 75.0,
+     "base": 73.0,
+     "ajuste": 2,
+     "r": 1.868,
+     "pos_r": 9,
+     "cac": 1,
+     "cpa": 39.8,
+     "neto": 21.31
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 73.0,
+     "base": 72.0,
+     "ajuste": 1,
+     "r": 1.624,
+     "pos_r": 5,
+     "cac": 2,
+     "cpa": 31.27,
+     "neto": 19.25
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 72.0,
+     "base": 71.0,
+     "ajuste": 1,
+     "r": 1.995,
+     "pos_r": 11,
+     "cac": 1,
+     "cpa": 40.36,
+     "neto": 20.23
+    },
+    {
+     "pos": 4,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.755,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 15.07
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.409,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 55.8,
+     "neto": 23.17
+    },
+    {
+     "pos": 6,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.692,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 18.71
+    },
+    {
+     "pos": 7,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.472,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 11.36
+    },
+    {
+     "pos": 8,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.278,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 41.8,
+     "neto": 18.35
+    },
+    {
+     "pos": 9,
+     "codigo": "IT",
+     "total": 61.0,
+     "base": 56.0,
+     "ajuste": 5,
+     "r": 1.545,
+     "pos_r": 3,
+     "cac": 2,
+     "cpa": 17.34,
+     "neto": 11.22
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 59.0,
+     "base": 59.0,
+     "ajuste": 0,
+     "r": 1.595,
+     "pos_r": 4,
+     "cac": 2,
+     "cpa": 13.47,
+     "neto": 8.44
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 56.0,
+     "base": 56.0,
+     "ajuste": 0,
+     "r": 1.908,
+     "pos_r": 10,
+     "cac": 1,
+     "cpa": 22.11,
+     "neto": 11.59
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 56.0,
+     "base": 56.0,
+     "ajuste": 0,
+     "r": 1.286,
+     "pos_r": 1,
+     "cac": 3,
+     "cpa": 13.1,
+     "neto": 10.19
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 52.0,
+     "base": 53.0,
+     "ajuste": -1,
+     "r": 2.068,
+     "pos_r": 12,
+     "cac": 1,
+     "cpa": 22.56,
+     "neto": 10.91
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 1.679,
+     "pos_r": 6,
+     "cac": 2,
+     "cpa": 19.03,
+     "neto": 11.33
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 50.0,
+     "base": 50.0,
+     "ajuste": 0,
+     "r": 1.809,
+     "pos_r": 8,
+     "cac": 1,
+     "cpa": 23.33,
+     "neto": 12.9
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "IE",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.957,
+    "pos_IT": 9,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "cpm_q4_x1_2": {
+   "descripcion": "CPM de Q4 x1.2 (Black Friday 2026-11-27; 16 M1), resto como 08.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 75.0,
+     "base": 73.0,
+     "ajuste": 2,
+     "r": 1.994,
+     "pos_r": 10,
+     "cac": 1,
+     "cpa": 47.76,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 73.0,
+     "base": 72.0,
+     "ajuste": 1,
+     "r": 1.727,
+     "pos_r": 5,
+     "cac": 2,
+     "cpa": 37.52,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 72.0,
+     "base": 71.0,
+     "ajuste": 1,
+     "r": 2.125,
+     "pos_r": 11,
+     "cac": 1,
+     "cpa": 48.43,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.584,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 66.96,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.87,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 60.44,
+     "neto": 21.06
+    },
+    {
+     "pos": 6,
+     "codigo": "IE",
+     "total": 63.0,
+     "base": 62.0,
+     "ajuste": 1,
+     "r": 1.85,
+     "pos_r": 7,
+     "cac": 1,
+     "cpa": 31.75,
+     "neto": 17.16
+    },
+    {
+     "pos": 7,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.418,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 50.16,
+     "neto": 20.74
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 61.0,
+     "base": 56.0,
+     "ajuste": 5,
+     "r": 1.607,
+     "pos_r": 3,
+     "cac": 2,
+     "cpa": 20.81,
+     "neto": 12.95
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 59.0,
+     "base": 59.0,
+     "ajuste": 0,
+     "r": 1.64,
+     "pos_r": 4,
+     "cac": 2,
+     "cpa": 16.16,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 59.0,
+     "base": 57.0,
+     "ajuste": 2,
+     "r": 1.535,
+     "pos_r": 2,
+     "cac": 2,
+     "cpa": 20.07,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 56.0,
+     "base": 56.0,
+     "ajuste": 0,
+     "r": 1.992,
+     "pos_r": 9,
+     "cac": 1,
+     "cpa": 26.53,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 56.0,
+     "base": 56.0,
+     "ajuste": 0,
+     "r": 1.331,
+     "pos_r": 1,
+     "cac": 3,
+     "cpa": 15.72,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 52.0,
+     "base": 53.0,
+     "ajuste": -1,
+     "r": 2.147,
+     "pos_r": 12,
+     "cac": 1,
+     "cpa": 27.07,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 1.748,
+     "pos_r": 6,
+     "cac": 2,
+     "cpa": 22.83,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 50.0,
+     "base": 50.0,
+     "ajuste": 0,
+     "r": 1.896,
+     "pos_r": 8,
+     "cac": 1,
+     "cpa": 28.0,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "HUS"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.979,
+    "pos_IT": 8,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "cpm_q4_x1_5": {
+   "descripcion": "CPM de Q4 x1.5 (Black Friday 2026-11-27; 16 M1), resto como 08.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 2.492,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 59.71,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 69.0,
+     "base": 68.0,
+     "ajuste": 1,
+     "r": 2.159,
+     "pos_r": 5,
+     "cac": 1,
+     "cpa": 46.9,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 68.0,
+     "base": 67.0,
+     "ajuste": 1,
+     "r": 2.657,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 60.54,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 3.23,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 83.7,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 3.587,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 75.55,
+     "neto": 21.06
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 3.023,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 62.7,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IE",
+     "total": 59.0,
+     "base": 58.0,
+     "ajuste": 1,
+     "r": 2.313,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 39.68,
+     "neto": 17.16
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 57.0,
+     "base": 52.0,
+     "ajuste": 5,
+     "r": 2.009,
+     "pos_r": 3,
+     "cac": 1,
+     "cpa": 26.01,
+     "neto": 12.95
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 2.051,
+     "pos_r": 4,
+     "cac": 1,
+     "cpa": 20.2,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 55.0,
+     "base": 53.0,
+     "ajuste": 2,
+     "r": 1.919,
+     "pos_r": 2,
+     "cac": 1,
+     "cpa": 25.08,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 2.489,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 33.17,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 1.664,
+     "pos_r": 1,
+     "cac": 2,
+     "cpa": 19.66,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 48.0,
+     "base": 49.0,
+     "ajuste": -1,
+     "r": 2.684,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 33.83,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 47.0,
+     "base": 47.0,
+     "ajuste": 0,
+     "r": 2.185,
+     "pos_r": 6,
+     "cac": 1,
+     "cpa": 28.54,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 46.0,
+     "base": 46.0,
+     "ajuste": 0,
+     "r": 2.37,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 35.0,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "HUS"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.975,
+    "pos_IT": 8,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "ctr_1_0": {
+   "descripcion": "CTR de enlace 1,0 % (08 usa 1,8 %; 16 M2 recomienda 1,3 %).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 2.991,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 71.65,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 68.0,
+     "base": 67.0,
+     "ajuste": 1,
+     "r": 3.188,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 72.65,
+     "neto": 22.79
+    },
+    {
+     "pos": 3,
+     "codigo": "NZ",
+     "total": 65.0,
+     "base": 64.0,
+     "ajuste": 1,
+     "r": 2.591,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 56.28,
+     "neto": 21.72
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 3.876,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 100.44,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 4.305,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 90.67,
+     "neto": 21.06
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 3.628,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 75.25,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IE",
+     "total": 59.0,
+     "base": 58.0,
+     "ajuste": 1,
+     "r": 2.776,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 47.62,
+     "neto": 17.16
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 53.0,
+     "base": 48.0,
+     "ajuste": 5,
+     "r": 2.411,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 31.21,
+     "neto": 12.95
+    },
+    {
+     "pos": 9,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 2.987,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 39.8,
+     "neto": 13.32
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 2.461,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 24.24,
+     "neto": 9.85
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 51.0,
+     "base": 49.0,
+     "ajuste": 2,
+     "r": 2.302,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 30.1,
+     "neto": 13.07
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 48.0,
+     "base": 49.0,
+     "ajuste": -1,
+     "r": 3.221,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 40.6,
+     "neto": 12.61
+    },
+    {
+     "pos": 13,
+     "codigo": "GR",
+     "total": 48.0,
+     "base": 48.0,
+     "ajuste": 0,
+     "r": 1.996,
+     "pos_r": 1,
+     "cac": 1,
+     "cpa": 23.59,
+     "neto": 11.81
+    },
+    {
+     "pos": 14,
+     "codigo": "CH",
+     "total": 46.0,
+     "base": 46.0,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 42.0,
+     "neto": 14.77
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 43.0,
+     "base": 43.0,
+     "ajuste": 0,
+     "r": 2.622,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 34.25,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "AU",
+     "NZ"
+    ],
+    "top5": [
+     "CA",
+     "AU",
+     "NZ",
+     "US",
+     "HUS"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.954,
+    "pos_IT": 8,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "ctr_1_3": {
+   "descripcion": "CTR de enlace 1,3 % (08 usa 1,8 %; 16 M2 recomienda 1,3 %).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 2.301,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 55.11,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 69.0,
+     "base": 68.0,
+     "ajuste": 1,
+     "r": 1.993,
+     "pos_r": 5,
+     "cac": 1,
+     "cpa": 43.29,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 68.0,
+     "base": 67.0,
+     "ajuste": 1,
+     "r": 2.452,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 55.88,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.981,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 77.26,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 3.311,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 69.74,
+     "neto": 21.06
+    },
+    {
+     "pos": 6,
+     "codigo": "IE",
+     "total": 63.0,
+     "base": 62.0,
+     "ajuste": 1,
+     "r": 2.135,
+     "pos_r": 7,
+     "cac": 1,
+     "cpa": 36.63,
+     "neto": 17.16
+    },
+    {
+     "pos": 7,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.791,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 57.88,
+     "neto": 20.74
+    },
+    {
+     "pos": 8,
+     "codigo": "PT",
+     "total": 59.0,
+     "base": 57.0,
+     "ajuste": 2,
+     "r": 1.771,
+     "pos_r": 2,
+     "cac": 2,
+     "cpa": 23.15,
+     "neto": 13.07
+    },
+    {
+     "pos": 9,
+     "codigo": "IT",
+     "total": 57.0,
+     "base": 52.0,
+     "ajuste": 5,
+     "r": 1.854,
+     "pos_r": 3,
+     "cac": 1,
+     "cpa": 24.01,
+     "neto": 12.95
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.893,
+     "pos_r": 4,
+     "cac": 1,
+     "cpa": 18.65,
+     "neto": 9.85
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 2.298,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 30.62,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 1.536,
+     "pos_r": 1,
+     "cac": 2,
+     "cpa": 18.14,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "CH",
+     "total": 50.0,
+     "base": 50.0,
+     "ajuste": 0,
+     "r": 2.187,
+     "pos_r": 8,
+     "cac": 1,
+     "cpa": 32.31,
+     "neto": 14.77
+    },
+    {
+     "pos": 14,
+     "codigo": "SE",
+     "total": 48.0,
+     "base": 49.0,
+     "ajuste": -1,
+     "r": 2.477,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 31.23,
+     "neto": 12.61
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 47.0,
+     "base": 47.0,
+     "ajuste": 0,
+     "r": 2.017,
+     "pos_r": 6,
+     "cac": 1,
+     "cpa": 26.34,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "HUS"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.954,
+    "pos_IT": 9,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "ctr_1_8": {
+   "descripcion": "CTR 1,8 % (valor de 08) con CAC derivado: referencia para los demás CTR.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.0,
+     "base": 76.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 69.0,
+     "base": 65.0,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 1.0,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "ticket_ingles_17": {
+   "descripcion": "Ticket de 17 USD en CA/NZ/AU/US/GB (IE conserva 23); 08 §2.5.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 75.0,
+     "base": 73.0,
+     "ajuste": 2,
+     "r": 2.109,
+     "pos_r": 11,
+     "cac": 1,
+     "cpa": 31.58,
+     "neto": 14.97
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 69.0,
+     "base": 68.0,
+     "ajuste": 1,
+     "r": 1.829,
+     "pos_r": 10,
+     "cac": 1,
+     "cpa": 24.81,
+     "neto": 13.56
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 68.0,
+     "base": 67.0,
+     "ajuste": 1,
+     "r": 2.249,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 32.02,
+     "neto": 14.24
+    },
+    {
+     "pos": 4,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 6,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.732,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 44.28,
+     "neto": 16.21
+    },
+    {
+     "pos": 6,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 7,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 8,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 9,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 10,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.562,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 33.17,
+     "neto": 12.95
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "IE",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.961,
+    "pos_IT": 6,
+    "pos_PL": 8,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "ticket_ingles_17_con_IE": {
+   "descripcion": "Ticket de 17 USD en el bloque inglés incluida Irlanda (borde: IE cae de 2 a 1).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 75.0,
+     "base": 73.0,
+     "ajuste": 2,
+     "r": 2.109,
+     "pos_r": 11,
+     "cac": 1,
+     "cpa": 31.58,
+     "neto": 14.97
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 69.0,
+     "base": 68.0,
+     "ajuste": 1,
+     "r": 1.829,
+     "pos_r": 10,
+     "cac": 1,
+     "cpa": 24.81,
+     "neto": 13.56
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 68.0,
+     "base": 67.0,
+     "ajuste": 1,
+     "r": 2.249,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 32.02,
+     "neto": 14.24
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 61.0,
+     "ajuste": 4,
+     "r": 2.732,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 44.28,
+     "neto": 16.21
+    },
+    {
+     "pos": 5,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 6,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 7,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 8,
+     "codigo": "IE",
+     "total": 63.0,
+     "base": 62.0,
+     "ajuste": 1,
+     "r": 1.805,
+     "pos_r": 9,
+     "cac": 1,
+     "cpa": 22.74,
+     "neto": 12.6
+    },
+    {
+     "pos": 9,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 10,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 2.562,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 33.17,
+     "neto": 12.95
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 6,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IT"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.932,
+    "pos_IT": 5,
+    "pos_PL": 7,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "sin_pagos": {
+   "descripcion": "Sin el criterio de pagos, pesos reescalados a 100 (equivale a rank_sin_pagos.py; CAC publicado).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "NZ",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 74.8,
+     "base": 73.8,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 3,
+     "codigo": "CA",
+     "total": 73.2,
+     "base": 71.2,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.2,
+     "base": 61.2,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 61.8,
+     "base": 58.8,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "SE",
+     "total": 60.2,
+     "base": 61.2,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 59.5,
+     "base": 57.5,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 58.8,
+     "base": 58.8,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "IE",
+     "total": 58.5,
+     "base": 57.5,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 58.2,
+     "base": 56.2,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 12,
+     "codigo": "CH",
+     "total": 57.5,
+     "base": 57.5,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    },
+    {
+     "pos": 13,
+     "codigo": "BE",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 14,
+     "codigo": "GR",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 53.8,
+     "base": 53.8,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "NZ",
+     "AU",
+     "CA"
+    ],
+    "top5": [
+     "NZ",
+     "AU",
+     "CA",
+     "US",
+     "IT"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.839,
+    "pos_IT": 5,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 6.2
+   }
+  },
+  "sin_pagos_comision_tarjeta": {
+   "descripcion": "Sin pagos y sin comisiones por método local (BLIK/MB WAY/Bancontact -> tarjeta); CAC derivado.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "NZ",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 74.8,
+     "base": 73.8,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 3,
+     "codigo": "CA",
+     "total": 73.2,
+     "base": 71.2,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.2,
+     "base": 61.2,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 61.8,
+     "base": 58.8,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "SE",
+     "total": 60.2,
+     "base": 61.2,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 59.5,
+     "base": 57.5,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 58.8,
+     "base": 58.8,
+     "ajuste": 0,
+     "r": 1.386,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.72
+    },
+    {
+     "pos": 10,
+     "codigo": "IE",
+     "total": 58.5,
+     "base": 57.5,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 58.2,
+     "base": 56.2,
+     "ajuste": 2,
+     "r": 1.303,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 12.83
+    },
+    {
+     "pos": 12,
+     "codigo": "CH",
+     "total": 57.5,
+     "base": 57.5,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    },
+    {
+     "pos": 13,
+     "codigo": "BE",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.693,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.06
+    },
+    {
+     "pos": 14,
+     "codigo": "GR",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 53.8,
+     "base": 53.8,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "NZ",
+     "AU",
+     "CA"
+    ],
+    "top5": [
+     "NZ",
+     "AU",
+     "CA",
+     "US",
+     "IT"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.839,
+    "pos_IT": 5,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 6.2
+   }
+  },
+  "sin_ajuste_creadores": {
+   "descripcion": "Sin ajuste de creadores (08 §2.5).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 77.0,
+     "base": 77.0,
+     "ajuste": 0,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 76.0,
+     "base": 76.0,
+     "ajuste": 0,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 75.0,
+     "base": 75.0,
+     "ajuste": 0,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "IE",
+     "total": 66.0,
+     "base": 66.0,
+     "ajuste": 0,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 65.0,
+     "base": 65.0,
+     "ajuste": 0,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 62.0,
+     "base": 62.0,
+     "ajuste": 0,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PT",
+     "total": 61.0,
+     "base": 61.0,
+     "ajuste": 0,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 10,
+     "codigo": "IT",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 57.0,
+     "base": 57.0,
+     "ajuste": 0,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "IE",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.971,
+    "pos_IT": 10,
+    "pos_PL": 7,
+    "IT_sobre_PL": false,
+    "dif_IT_menos_PL": -3.0
+   }
+  },
+  "ajuste_en_regla": {
+   "descripcion": "Ajuste de creadores solo con valores de la regla de 08 §2.1 (US +3; NZ/AU/IE 0; SE 0).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 76.0,
+     "base": 76.0,
+     "ajuste": 0,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 75.0,
+     "base": 75.0,
+     "ajuste": 0,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 68.0,
+     "base": 65.0,
+     "ajuste": 3,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 66.0,
+     "base": 66.0,
+     "ajuste": 0,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 57.0,
+     "base": 57.0,
+     "ajuste": 0,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 1.0,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "escala_10": {
+   "descripcion": "Criterio de escala (población) con peso 10 %, resto de pesos x0,9 (16 H2).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.3,
+     "base": 77.3,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 74.5,
+     "base": 73.5,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 3,
+     "codigo": "US",
+     "total": 72.5,
+     "base": 68.5,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 4,
+     "codigo": "NZ",
+     "total": 71.4,
+     "base": 70.4,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 5,
+     "codigo": "GB",
+     "total": 69.7,
+     "base": 66.7,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 6,
+     "codigo": "IT",
+     "total": 69.0,
+     "base": 64.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 7,
+     "codigo": "HUS",
+     "total": 67.8,
+     "base": 65.8,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 8,
+     "codigo": "PL",
+     "total": 64.7,
+     "base": 64.7,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 9,
+     "codigo": "IE",
+     "total": 62.4,
+     "base": 61.4,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 60.9,
+     "base": 58.9,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "ES",
+     "total": 57.5,
+     "base": 57.5,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 14,
+     "codigo": "SE",
+     "total": 54.3,
+     "base": 55.3,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 52.6,
+     "base": 52.6,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "AU",
+     "US"
+    ],
+    "top5": [
+     "CA",
+     "AU",
+     "US",
+     "NZ",
+     "GB"
+    ],
+    "top3_igual_a_base": false,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.95,
+    "pos_IT": 6,
+    "pos_PL": 8,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 4.3
+   }
+  },
+  "comp_5": {
+   "descripcion": "Peso de COMP bajado a 5 % (16 H7), resto reescalado a 100.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 80.9,
+     "base": 78.9,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.8,
+     "base": 76.8,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 76.8,
+     "base": 75.8,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 71.4,
+     "base": 67.4,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 68.4,
+     "base": 67.4,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 67.2,
+     "base": 64.2,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 66.1,
+     "base": 61.1,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.1,
+     "base": 62.1,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.2,
+     "base": 63.2,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.1,
+     "base": 61.1,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "ES",
+     "total": 56.8,
+     "base": 56.8,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    },
+    {
+     "pos": 14,
+     "codigo": "SE",
+     "total": 54.8,
+     "base": 55.8,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.7,
+     "base": 54.7,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.996,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.9
+   }
+  },
+  "pesos_iguales_sin_creadores": {
+   "descripcion": "Pesos iguales y sin creadores (08 §2.5).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 77.1,
+     "base": 77.1,
+     "ajuste": 0,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.1,
+     "base": 77.1,
+     "ajuste": 0,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 77.1,
+     "base": 77.1,
+     "ajuste": 0,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 65.7,
+     "base": 65.7,
+     "ajuste": 0,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "HUS",
+     "total": 65.7,
+     "base": 65.7,
+     "ajuste": 0,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 6,
+     "codigo": "IE",
+     "total": 65.7,
+     "base": 65.7,
+     "ajuste": 0,
+     "r": 1.542,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 7,
+     "codigo": "GB",
+     "total": 65.7,
+     "base": 65.7,
+     "ajuste": 0,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 8,
+     "codigo": "PL",
+     "total": 62.9,
+     "base": 62.9,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 9,
+     "codigo": "IT",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 13,
+     "codigo": "GR",
+     "total": 57.1,
+     "base": 57.1,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 14,
+     "codigo": "CH",
+     "total": 54.3,
+     "base": 54.3,
+     "ajuste": 0,
+     "r": 1.58,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 23.33,
+     "neto": 14.77
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 54.3,
+     "base": 54.3,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "HUS"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.964,
+    "pos_IT": 9,
+    "pos_PL": 8,
+    "IT_sobre_PL": false,
+    "dif_IT_menos_PL": -2.9
+   }
+  },
+  "suiza_sin_iva": {
+   "descripcion": "Lectura alternativa de Suiza (sin IVA, r = 1,45 -> CAC 3).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 1.661,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 39.8,
+     "neto": 23.96
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 77.0,
+     "base": 76.0,
+     "ajuste": 1,
+     "r": 1.44,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 31.27,
+     "neto": 21.72
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 76.0,
+     "base": 75.0,
+     "ajuste": 1,
+     "r": 1.771,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 40.36,
+     "neto": 22.79
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 69.0,
+     "base": 65.0,
+     "ajuste": 4,
+     "r": 2.153,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 55.8,
+     "neto": 25.92
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 67.0,
+     "base": 66.0,
+     "ajuste": 1,
+     "r": 1.542,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 26.46,
+     "neto": 17.16
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 2.015,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 41.8,
+     "neto": 20.74
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 1.339,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 17.34,
+     "neto": 12.95
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 2.392,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 50.37,
+     "neto": 21.06
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 1.367,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 13.47,
+     "neto": 9.85
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 1.279,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 16.72,
+     "neto": 13.07
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.66,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 22.11,
+     "neto": 13.32
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 1.109,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 13.1,
+     "neto": 11.81
+    },
+    {
+     "pos": 13,
+     "codigo": "CH",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 1.452,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 23.33,
+     "neto": 16.07
+    },
+    {
+     "pos": 14,
+     "codigo": "SE",
+     "total": 56.0,
+     "base": 57.0,
+     "ajuste": -1,
+     "r": 1.789,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 22.56,
+     "neto": 12.61
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 1.456,
+     "pos_r": 7,
+     "cac": 3,
+     "cpa": 19.03,
+     "neto": 13.06
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 0.989,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "corregido": {
+   "descripcion": "CORREGIDO (central): neto completo + CTR 1,3 % + CPM x1,2 (Q4) + creadores en regla; ticket anglo 27 como 08.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 3.051,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 66.13,
+     "neto": 21.67
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 67.0,
+     "base": 67.0,
+     "ajuste": 0,
+     "r": 3.255,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 67.06,
+     "neto": 20.6
+    },
+    {
+     "pos": 3,
+     "codigo": "NZ",
+     "total": 64.0,
+     "base": 64.0,
+     "ajuste": 0,
+     "r": 2.648,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 51.95,
+     "neto": 19.62
+    },
+    {
+     "pos": 4,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 4.381,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 83.69,
+     "neto": 19.1
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 64.0,
+     "base": 61.0,
+     "ajuste": 3,
+     "r": 3.94,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 92.72,
+     "neto": 23.53
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 3.711,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 69.46,
+     "neto": 18.72
+    },
+    {
+     "pos": 7,
+     "codigo": "IE",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 43.96,
+     "neto": 15.46
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 53.0,
+     "base": 48.0,
+     "ajuste": 5,
+     "r": 2.476,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 28.81,
+     "neto": 11.64
+    },
+    {
+     "pos": 9,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 3.061,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 36.74,
+     "neto": 12.0
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 2.521,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 22.38,
+     "neto": 8.88
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 51.0,
+     "base": 49.0,
+     "ajuste": 2,
+     "r": 2.36,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 27.78,
+     "neto": 11.77
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 49.0,
+     "base": 49.0,
+     "ajuste": 0,
+     "r": 3.31,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 37.48,
+     "neto": 11.32
+    },
+    {
+     "pos": 13,
+     "codigo": "GR",
+     "total": 48.0,
+     "base": 48.0,
+     "ajuste": 0,
+     "r": 2.053,
+     "pos_r": 1,
+     "cac": 1,
+     "cpa": 21.77,
+     "neto": 10.61
+    },
+    {
+     "pos": 14,
+     "codigo": "CH",
+     "total": 46.0,
+     "base": 46.0,
+     "ajuste": 0,
+     "r": 2.912,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 38.77,
+     "neto": 13.31
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 43.0,
+     "base": 43.0,
+     "ajuste": 0,
+     "r": 2.692,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 31.61,
+     "neto": 11.74
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "AU",
+     "NZ"
+    ],
+    "top5": [
+     "CA",
+     "AU",
+     "NZ",
+     "HUS",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.939,
+    "pos_IT": 8,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "corregido_ticket17": {
+   "descripcion": "Corregido con ticket anglo de 17 USD (estrés del bloque inglés).",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 3.887,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 52.48,
+     "neto": 13.5
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 67.0,
+     "base": 67.0,
+     "ajuste": 0,
+     "r": 4.149,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 53.21,
+     "neto": 12.83
+    },
+    {
+     "pos": 3,
+     "codigo": "NZ",
+     "total": 64.0,
+     "base": 64.0,
+     "ajuste": 0,
+     "r": 3.377,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 41.22,
+     "neto": 12.21
+    },
+    {
+     "pos": 4,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 4.381,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 83.69,
+     "neto": 19.1
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 64.0,
+     "base": 61.0,
+     "ajuste": 3,
+     "r": 5.014,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 73.57,
+     "neto": 14.67
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 4.735,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 55.11,
+     "neto": 11.64
+    },
+    {
+     "pos": 7,
+     "codigo": "IE",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 43.96,
+     "neto": 15.46
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 53.0,
+     "base": 48.0,
+     "ajuste": 5,
+     "r": 2.476,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 28.81,
+     "neto": 11.64
+    },
+    {
+     "pos": 9,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 3.061,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 36.74,
+     "neto": 12.0
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 2.521,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 22.38,
+     "neto": 8.88
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 51.0,
+     "base": 49.0,
+     "ajuste": 2,
+     "r": 2.36,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 27.78,
+     "neto": 11.77
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 49.0,
+     "base": 49.0,
+     "ajuste": 0,
+     "r": 3.31,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 37.48,
+     "neto": 11.32
+    },
+    {
+     "pos": 13,
+     "codigo": "GR",
+     "total": 48.0,
+     "base": 48.0,
+     "ajuste": 0,
+     "r": 2.053,
+     "pos_r": 1,
+     "cac": 1,
+     "cpa": 21.77,
+     "neto": 10.61
+    },
+    {
+     "pos": 14,
+     "codigo": "CH",
+     "total": 46.0,
+     "base": 46.0,
+     "ajuste": 0,
+     "r": 2.912,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 38.77,
+     "neto": 13.31
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 43.0,
+     "base": 43.0,
+     "ajuste": 0,
+     "r": 2.692,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 31.61,
+     "neto": 11.74
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "AU",
+     "NZ"
+    ],
+    "top5": [
+     "CA",
+     "AU",
+     "NZ",
+     "HUS",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.939,
+    "pos_IT": 8,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "corregido_cac_relativo": {
+   "descripcion": "Corregido con CAC relativo [NUEVO]: bandas de r reancladas por mediana(r)/mediana(r de 08), para que el CAC siga discriminando cuando todo r > 2,2.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 79.0,
+     "base": 77.0,
+     "ajuste": 2,
+     "r": 3.051,
+     "pos_r": 9,
+     "cac": 2,
+     "cpa": 66.13,
+     "neto": 21.67
+    },
+    {
+     "pos": 2,
+     "codigo": "NZ",
+     "total": 76.0,
+     "base": 76.0,
+     "ajuste": 0,
+     "r": 2.648,
+     "pos_r": 5,
+     "cac": 3,
+     "cpa": 51.95,
+     "neto": 19.62
+    },
+    {
+     "pos": 3,
+     "codigo": "AU",
+     "total": 75.0,
+     "base": 75.0,
+     "ajuste": 0,
+     "r": 3.255,
+     "pos_r": 11,
+     "cac": 2,
+     "cpa": 67.06,
+     "neto": 20.6
+    },
+    {
+     "pos": 4,
+     "codigo": "US",
+     "total": 68.0,
+     "base": 65.0,
+     "ajuste": 3,
+     "r": 3.94,
+     "pos_r": 14,
+     "cac": 1,
+     "cpa": 92.72,
+     "neto": 23.53
+    },
+    {
+     "pos": 5,
+     "codigo": "IE",
+     "total": 66.0,
+     "base": 66.0,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 7,
+     "cac": 2,
+     "cpa": 43.96,
+     "neto": 15.46
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 66.0,
+     "base": 63.0,
+     "ajuste": 3,
+     "r": 3.711,
+     "pos_r": 13,
+     "cac": 1,
+     "cpa": 69.46,
+     "neto": 18.72
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 65.0,
+     "base": 60.0,
+     "ajuste": 5,
+     "r": 2.476,
+     "pos_r": 3,
+     "cac": 3,
+     "cpa": 28.81,
+     "neto": 11.64
+    },
+    {
+     "pos": 8,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 4.381,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 83.69,
+     "neto": 19.1
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 63.0,
+     "base": 63.0,
+     "ajuste": 0,
+     "r": 2.521,
+     "pos_r": 4,
+     "cac": 3,
+     "cpa": 22.38,
+     "neto": 8.88
+    },
+    {
+     "pos": 10,
+     "codigo": "PT",
+     "total": 63.0,
+     "base": 61.0,
+     "ajuste": 2,
+     "r": 2.36,
+     "pos_r": 2,
+     "cac": 3,
+     "cpa": 27.78,
+     "neto": 11.77
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 3.061,
+     "pos_r": 10,
+     "cac": 2,
+     "cpa": 36.74,
+     "neto": 12.0
+    },
+    {
+     "pos": 12,
+     "codigo": "GR",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 2.053,
+     "pos_r": 1,
+     "cac": 4,
+     "cpa": 21.77,
+     "neto": 10.61
+    },
+    {
+     "pos": 13,
+     "codigo": "SE",
+     "total": 57.0,
+     "base": 57.0,
+     "ajuste": 0,
+     "r": 3.31,
+     "pos_r": 12,
+     "cac": 2,
+     "cpa": 37.48,
+     "neto": 11.32
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 55.0,
+     "base": 55.0,
+     "ajuste": 0,
+     "r": 2.692,
+     "pos_r": 6,
+     "cac": 3,
+     "cpa": 31.61,
+     "neto": 11.74
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 54.0,
+     "base": 54.0,
+     "ajuste": 0,
+     "r": 2.912,
+     "pos_r": 8,
+     "cac": 2,
+     "cpa": 38.77,
+     "neto": 13.31
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "NZ",
+     "AU"
+    ],
+    "top5": [
+     "CA",
+     "NZ",
+     "AU",
+     "US",
+     "IE"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 5,
+    "spearman_vs_base": 1.0,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  },
+  "corregido_escala": {
+   "descripcion": "Corregido + criterio de escala 10 %.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 72.1,
+     "base": 70.1,
+     "ajuste": 2,
+     "r": 3.051,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 66.13,
+     "neto": 21.67
+    },
+    {
+     "pos": 2,
+     "codigo": "US",
+     "total": 67.9,
+     "base": 64.9,
+     "ajuste": 3,
+     "r": 3.94,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 92.72,
+     "neto": 23.53
+    },
+    {
+     "pos": 3,
+     "codigo": "HUS",
+     "total": 67.8,
+     "base": 65.8,
+     "ajuste": 2,
+     "r": 4.381,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 83.69,
+     "neto": 19.1
+    },
+    {
+     "pos": 4,
+     "codigo": "AU",
+     "total": 66.3,
+     "base": 66.3,
+     "ajuste": 0,
+     "r": 3.255,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 67.06,
+     "neto": 20.6
+    },
+    {
+     "pos": 5,
+     "codigo": "GB",
+     "total": 66.1,
+     "base": 63.1,
+     "ajuste": 3,
+     "r": 3.711,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 69.46,
+     "neto": 18.72
+    },
+    {
+     "pos": 6,
+     "codigo": "NZ",
+     "total": 59.6,
+     "base": 59.6,
+     "ajuste": 0,
+     "r": 2.648,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 51.95,
+     "neto": 19.62
+    },
+    {
+     "pos": 7,
+     "codigo": "IT",
+     "total": 58.2,
+     "base": 53.2,
+     "ajuste": 5,
+     "r": 2.476,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 28.81,
+     "neto": 11.64
+    },
+    {
+     "pos": 8,
+     "codigo": "IE",
+     "total": 54.2,
+     "base": 54.2,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 43.96,
+     "neto": 15.46
+    },
+    {
+     "pos": 9,
+     "codigo": "PL",
+     "total": 53.9,
+     "base": 53.9,
+     "ajuste": 0,
+     "r": 2.521,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 22.38,
+     "neto": 8.88
+    },
+    {
+     "pos": 10,
+     "codigo": "BE",
+     "total": 50.8,
+     "base": 50.8,
+     "ajuste": 0,
+     "r": 3.061,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 36.74,
+     "neto": 12.0
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 50.1,
+     "base": 48.1,
+     "ajuste": 2,
+     "r": 2.36,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 27.78,
+     "neto": 11.77
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 48.1,
+     "base": 48.1,
+     "ajuste": 0,
+     "r": 3.31,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 37.48,
+     "neto": 11.32
+    },
+    {
+     "pos": 13,
+     "codigo": "GR",
+     "total": 47.2,
+     "base": 47.2,
+     "ajuste": 0,
+     "r": 2.053,
+     "pos_r": 1,
+     "cac": 1,
+     "cpa": 21.77,
+     "neto": 10.61
+    },
+    {
+     "pos": 14,
+     "codigo": "ES",
+     "total": 46.7,
+     "base": 46.7,
+     "ajuste": 0,
+     "r": 2.692,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 31.61,
+     "neto": 11.74
+    },
+    {
+     "pos": 15,
+     "codigo": "CH",
+     "total": 45.4,
+     "base": 45.4,
+     "ajuste": 0,
+     "r": 2.912,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 38.77,
+     "neto": 13.31
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "US",
+     "HUS"
+    ],
+    "top5": [
+     "CA",
+     "US",
+     "HUS",
+     "AU",
+     "GB"
+    ],
+    "top3_igual_a_base": false,
+    "top5_solapamiento": 3,
+    "spearman_vs_base": 0.893,
+    "pos_IT": 7,
+    "pos_PL": 9,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 4.3
+   }
+  },
+  "corregido_sin_pagos": {
+   "descripcion": "Corregido sin criterio de pagos y con comisión de tarjeta.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "AU",
+     "total": 63.8,
+     "base": 63.8,
+     "ajuste": 0,
+     "r": 3.255,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 67.06,
+     "neto": 20.6
+    },
+    {
+     "pos": 2,
+     "codigo": "CA",
+     "total": 63.2,
+     "base": 61.2,
+     "ajuste": 2,
+     "r": 3.051,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 66.13,
+     "neto": 21.67
+    },
+    {
+     "pos": 3,
+     "codigo": "NZ",
+     "total": 60.0,
+     "base": 60.0,
+     "ajuste": 0,
+     "r": 2.648,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 51.95,
+     "neto": 19.62
+    },
+    {
+     "pos": 4,
+     "codigo": "HUS",
+     "total": 59.5,
+     "base": 57.5,
+     "ajuste": 2,
+     "r": 4.381,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 83.69,
+     "neto": 19.1
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 59.2,
+     "base": 56.2,
+     "ajuste": 3,
+     "r": 3.94,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 92.72,
+     "neto": 23.53
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 56.8,
+     "base": 53.8,
+     "ajuste": 3,
+     "r": 3.711,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 69.46,
+     "neto": 18.72
+    },
+    {
+     "pos": 7,
+     "codigo": "SE",
+     "total": 51.2,
+     "base": 51.2,
+     "ajuste": 0,
+     "r": 3.31,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 37.48,
+     "neto": 11.32
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 50.0,
+     "base": 45.0,
+     "ajuste": 5,
+     "r": 2.476,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 28.81,
+     "neto": 11.64
+    },
+    {
+     "pos": 9,
+     "codigo": "CH",
+     "total": 47.5,
+     "base": 47.5,
+     "ajuste": 0,
+     "r": 2.912,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 38.77,
+     "neto": 13.31
+    },
+    {
+     "pos": 10,
+     "codigo": "IE",
+     "total": 47.5,
+     "base": 47.5,
+     "ajuste": 0,
+     "r": 2.844,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 43.96,
+     "neto": 15.46
+    },
+    {
+     "pos": 11,
+     "codigo": "BE",
+     "total": 45.0,
+     "base": 45.0,
+     "ajuste": 0,
+     "r": 3.129,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 36.74,
+     "neto": 11.74
+    },
+    {
+     "pos": 12,
+     "codigo": "PL",
+     "total": 43.8,
+     "base": 43.8,
+     "ajuste": 0,
+     "r": 2.559,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 22.38,
+     "neto": 8.74
+    },
+    {
+     "pos": 13,
+     "codigo": "PT",
+     "total": 43.2,
+     "base": 41.2,
+     "ajuste": 2,
+     "r": 2.41,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 27.78,
+     "neto": 11.53
+    },
+    {
+     "pos": 14,
+     "codigo": "GR",
+     "total": 40.0,
+     "base": 40.0,
+     "ajuste": 0,
+     "r": 2.053,
+     "pos_r": 1,
+     "cac": 1,
+     "cpa": 21.77,
+     "neto": 10.61
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 38.8,
+     "base": 38.8,
+     "ajuste": 0,
+     "r": 2.692,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 31.61,
+     "neto": 11.74
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "AU",
+     "CA",
+     "NZ"
+    ],
+    "top5": [
+     "AU",
+     "CA",
+     "NZ",
+     "HUS",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.743,
+    "pos_IT": 8,
+    "pos_PL": 12,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 6.2
+   }
+  },
+  "corregido_estres": {
+   "descripcion": "Estrés: neto completo (Tax por API) + CTR 1,0 % + CPM x1,5 + creadores en regla.",
+   "orden": [
+    {
+     "pos": 1,
+     "codigo": "CA",
+     "total": 71.0,
+     "base": 69.0,
+     "ajuste": 2,
+     "r": 5.043,
+     "pos_r": 9,
+     "cac": 0,
+     "cpa": 107.47,
+     "neto": 21.31
+    },
+    {
+     "pos": 2,
+     "codigo": "AU",
+     "total": 67.0,
+     "base": 67.0,
+     "ajuste": 0,
+     "r": 5.385,
+     "pos_r": 11,
+     "cac": 0,
+     "cpa": 108.97,
+     "neto": 20.23
+    },
+    {
+     "pos": 3,
+     "codigo": "NZ",
+     "total": 64.0,
+     "base": 64.0,
+     "ajuste": 0,
+     "r": 4.385,
+     "pos_r": 5,
+     "cac": 0,
+     "cpa": 84.42,
+     "neto": 19.25
+    },
+    {
+     "pos": 4,
+     "codigo": "HUS",
+     "total": 64.0,
+     "base": 62.0,
+     "ajuste": 2,
+     "r": 7.268,
+     "pos_r": 15,
+     "cac": 0,
+     "cpa": 136.0,
+     "neto": 18.71
+    },
+    {
+     "pos": 5,
+     "codigo": "US",
+     "total": 64.0,
+     "base": 61.0,
+     "ajuste": 3,
+     "r": 6.503,
+     "pos_r": 14,
+     "cac": 0,
+     "cpa": 150.66,
+     "neto": 23.17
+    },
+    {
+     "pos": 6,
+     "codigo": "GB",
+     "total": 62.0,
+     "base": 59.0,
+     "ajuste": 3,
+     "r": 6.15,
+     "pos_r": 13,
+     "cac": 0,
+     "cpa": 112.87,
+     "neto": 18.35
+    },
+    {
+     "pos": 7,
+     "codigo": "IE",
+     "total": 58.0,
+     "base": 58.0,
+     "ajuste": 0,
+     "r": 4.74,
+     "pos_r": 7,
+     "cac": 0,
+     "cpa": 71.43,
+     "neto": 15.07
+    },
+    {
+     "pos": 8,
+     "codigo": "IT",
+     "total": 53.0,
+     "base": 48.0,
+     "ajuste": 5,
+     "r": 4.172,
+     "pos_r": 3,
+     "cac": 0,
+     "cpa": 46.81,
+     "neto": 11.22
+    },
+    {
+     "pos": 9,
+     "codigo": "BE",
+     "total": 52.0,
+     "base": 52.0,
+     "ajuste": 0,
+     "r": 5.151,
+     "pos_r": 10,
+     "cac": 0,
+     "cpa": 59.7,
+     "neto": 11.59
+    },
+    {
+     "pos": 10,
+     "codigo": "PL",
+     "total": 51.0,
+     "base": 51.0,
+     "ajuste": 0,
+     "r": 4.307,
+     "pos_r": 4,
+     "cac": 0,
+     "cpa": 36.36,
+     "neto": 8.44
+    },
+    {
+     "pos": 11,
+     "codigo": "PT",
+     "total": 51.0,
+     "base": 49.0,
+     "ajuste": 2,
+     "r": 3.975,
+     "pos_r": 2,
+     "cac": 0,
+     "cpa": 45.15,
+     "neto": 11.36
+    },
+    {
+     "pos": 12,
+     "codigo": "SE",
+     "total": 49.0,
+     "base": 49.0,
+     "ajuste": 0,
+     "r": 5.583,
+     "pos_r": 12,
+     "cac": 0,
+     "cpa": 60.9,
+     "neto": 10.91
+    },
+    {
+     "pos": 13,
+     "codigo": "CH",
+     "total": 46.0,
+     "base": 46.0,
+     "ajuste": 0,
+     "r": 4.884,
+     "pos_r": 8,
+     "cac": 0,
+     "cpa": 63.0,
+     "neto": 12.9
+    },
+    {
+     "pos": 14,
+     "codigo": "GR",
+     "total": 44.0,
+     "base": 44.0,
+     "ajuste": 0,
+     "r": 3.473,
+     "pos_r": 1,
+     "cac": 0,
+     "cpa": 35.38,
+     "neto": 10.19
+    },
+    {
+     "pos": 15,
+     "codigo": "ES",
+     "total": 43.0,
+     "base": 43.0,
+     "ajuste": 0,
+     "r": 4.534,
+     "pos_r": 6,
+     "cac": 0,
+     "cpa": 51.37,
+     "neto": 11.33
+    }
+   ],
+   "estabilidad": {
+    "top3": [
+     "CA",
+     "AU",
+     "NZ"
+    ],
+    "top5": [
+     "CA",
+     "AU",
+     "NZ",
+     "HUS",
+     "US"
+    ],
+    "top3_igual_a_base": true,
+    "top5_solapamiento": 4,
+    "spearman_vs_base": 0.929,
+    "pos_IT": 8,
+    "pos_PL": 10,
+    "IT_sobre_PL": true,
+    "dif_IT_menos_PL": 2.0
+   }
+  }
+ },
+ "rejilla": {
+  "derivado": {
+   "n": 216,
+   "cac_modo": "derivado",
+   "frecuencia": {
+    "CA": {
+     "top3": 214,
+     "top5": 216,
+     "top8": 216
+    },
+    "NZ": {
+     "top3": 216,
+     "top5": 216,
+     "top8": 216
+    },
+    "AU": {
+     "top3": 214,
+     "top5": 216,
+     "top8": 216
+    },
+    "US": {
+     "top3": 0,
+     "top5": 194,
+     "top8": 215
+    },
+    "IE": {
+     "top3": 0,
+     "top5": 18,
+     "top8": 118
+    },
+    "GB": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 198
+    },
+    "IT": {
+     "top3": 4,
+     "top5": 22,
+     "top8": 146
+    },
+    "HUS": {
+     "top3": 0,
+     "top5": 194,
+     "top8": 215
+    },
+    "PL": {
+     "top3": 0,
+     "top5": 1,
+     "top8": 14
+    },
+    "PT": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 33
+    },
+    "BE": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 18
+    },
+    "GR": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 0
+    },
+    "SE": {
+     "top3": 0,
+     "top5": 3,
+     "top8": 90
+    },
+    "ES": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 0
+    },
+    "CH": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 33
+    }
+   },
+   "IT_sobre_PL": 184,
+   "posicion_mediana": {
+    "CA": 1,
+    "NZ": 3,
+    "AU": 2,
+    "US": 5,
+    "IE": 7,
+    "GB": 6,
+    "IT": 8,
+    "HUS": 4,
+    "PL": 10,
+    "PT": 11,
+    "BE": 11,
+    "GR": 14,
+    "SE": 11,
+    "ES": 15,
+    "CH": 13
+   },
+   "posicion_min_max": {
+    "CA": [
+     1,
+     4
+    ],
+    "NZ": [
+     1,
+     3
+    ],
+    "AU": [
+     1,
+     4
+    ],
+    "US": [
+     4,
+     10
+    ],
+    "IE": [
+     4,
+     12
+    ],
+    "GB": [
+     6,
+     14
+    ],
+    "IT": [
+     2,
+     12
+    ],
+    "HUS": [
+     4,
+     9
+    ],
+    "PL": [
+     5,
+     13
+    ],
+    "PT": [
+     7,
+     13
+    ],
+    "BE": [
+     8,
+     14
+    ],
+    "GR": [
+     9,
+     15
+    ],
+    "SE": [
+     4,
+     14
+    ],
+    "ES": [
+     14,
+     15
+    ],
+    "CH": [
+     6,
+     15
+    ]
+   }
+  },
+  "relativo": {
+   "n": 216,
+   "cac_modo": "relativo",
+   "frecuencia": {
+    "CA": {
+     "top3": 216,
+     "top5": 216,
+     "top8": 216
+    },
+    "NZ": {
+     "top3": 216,
+     "top5": 216,
+     "top8": 216
+    },
+    "AU": {
+     "top3": 180,
+     "top5": 216,
+     "top8": 216
+    },
+    "US": {
+     "top3": 0,
+     "top5": 144,
+     "top8": 198
+    },
+    "IE": {
+     "top3": 0,
+     "top5": 108,
+     "top8": 108
+    },
+    "GB": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 108
+    },
+    "IT": {
+     "top3": 36,
+     "top5": 108,
+     "top8": 180
+    },
+    "HUS": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 198
+    },
+    "PL": {
+     "top3": 0,
+     "top5": 18,
+     "top8": 144
+    },
+    "PT": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 18
+    },
+    "BE": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 0
+    },
+    "GR": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 0
+    },
+    "SE": {
+     "top3": 0,
+     "top5": 54,
+     "top8": 108
+    },
+    "ES": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 0
+    },
+    "CH": {
+     "top3": 0,
+     "top5": 0,
+     "top8": 18
+    }
+   },
+   "IT_sobre_PL": 180,
+   "posicion_mediana": {
+    "CA": 1,
+    "NZ": 2,
+    "AU": 3,
+    "US": 5,
+    "IE": 9,
+    "GB": 10,
+    "IT": 6,
+    "HUS": 8,
+    "PL": 8,
+    "PT": 10,
+    "BE": 12,
+    "GR": 13,
+    "SE": 13,
+    "ES": 15,
+    "CH": 15
+   },
+   "posicion_min_max": {
+    "CA": [
+     1,
+     3
+    ],
+    "NZ": [
+     1,
+     2
+    ],
+    "AU": [
+     2,
+     4
+    ],
+    "US": [
+     4,
+     10
+    ],
+    "IE": [
+     4,
+     12
+    ],
+    "GB": [
+     6,
+     14
+    ],
+    "IT": [
+     3,
+     10
+    ],
+    "HUS": [
+     6,
+     9
+    ],
+    "PL": [
+     5,
+     9
+    ],
+    "PT": [
+     8,
+     12
+    ],
+    "BE": [
+     10,
+     13
+    ],
+    "GR": [
+     11,
+     14
+    ],
+    "SE": [
+     4,
+     13
+    ],
+    "ES": [
+     14,
+     15
+    ],
+    "CH": [
+     8,
+     15
+    ]
+   }
+  }
+ }
+}

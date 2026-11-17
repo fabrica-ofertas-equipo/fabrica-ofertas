@@ -1,0 +1,2441 @@
+schema_version: "1.1.0"
+version: 1
+grupos:
+  orquestador:
+    max_rondas_qa:
+      valor: 2
+      unidad: rondas
+      hipotesis: true
+      fuente: backbone 6.5 [HIPÓTESIS]
+      ultima_calibracion: null
+    reintentos_tecnicos:
+      valor: 2
+      unidad: reintentos
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 3
+    espera_reintento_min:
+      valor:
+      - 1
+      - 5
+      unidad: minutos
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    timeout_etapa_min:
+      valor:
+        D1: 30
+        D2: 45
+        D3: 20
+        D4: 60
+        D5: 60
+        D6: 90
+        D7: 30
+        QA: 25
+      unidad: minutos
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    umbral_pass_o0:
+      valor: '4.0'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.5'
+      - '4.5'
+    umbral_item_min_o0:
+      valor: 3
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    p_viable_descartar:
+      valor: '0.05'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: O0 3.4 + reconciliación R07 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.02'
+      - '0.10'
+    p_viable_escalar:
+      valor: '0.80'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.70'
+      - '0.95'
+    exploracion_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: O0/F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 40
+    paralelas_max_por_nivel:
+      valor:
+        N0: 1
+        N1: 1
+        N2: 1
+        N3: 2
+        N4: 3
+      unidad: ofertas
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    gasto_alarma_pct:
+      valor: 80
+      unidad: porcentaje_del_tope_diario
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    freno_pct:
+      valor: 100
+      unidad: porcentaje_del_tope_diario
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    frescura_datos_max_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 48
+    pausa_global_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 15
+    propuesta_vence_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 24
+      - 168
+  infra:
+    hc_hora_diaria:
+      valor: 06:00
+      unidad: hora_utc
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    hc_preflight_vigencia_horas:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: backbone 5.6 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 12
+    hc_sonda_ligera_min:
+      valor: 15
+      unidad: minutos
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 60
+    hc_reintentos_antes_de_pausa:
+      valor: 2
+      unidad: reintentos
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    hc_evidencia_max_antiguedad_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 90
+    token_alerta_dias_antes:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 30
+    secretos_rotacion_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 60
+      - 180
+    webhook_respuesta_max_ms:
+      valor: 1000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 300
+      - 3000
+    email_entrega_prueba_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 15
+    tls_dias_min_restantes:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 30
+    dominio_dias_min_renovacion:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: D0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 90
+  entrega:
+    enlace_vence_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D0/D4/D5/D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 14
+    enlace_max_descargas:
+      valor: 5
+      unidad: descargas
+      hipotesis: true
+      fuente: D0/D4/D5/D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+  descubrimiento:
+    n_semillas_crudas:
+      valor: 40
+      unidad: problemas
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 80
+    n_finalistas_con_evidencia:
+      valor: 15
+      unidad: problemas
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 25
+    umbral_score_min:
+      valor: 55
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 45
+      - 70
+    evidencia_min_fuentes:
+      valor: 2
+      unidad: fuentes
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 4
+    evidencia_min_tipos:
+      valor: 2
+      unidad: tipos
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 4
+    antiguedad_max_evidencia_meses:
+      valor: 18
+      unidad: meses
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 36
+    sim_dup_bloqueo:
+      valor: '0.80'
+      unidad: similitud
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.7'
+      - '0.9'
+    sim_penalizacion_desde:
+      valor: '0.50'
+      unidad: similitud
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.4'
+      - '0.6'
+    top1_estable_min_pct:
+      valor: 80
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 60
+      - 95
+    lambda_diversidad:
+      valor: '0.3'
+      unidad: peso
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0'
+      - '0.6'
+    max_por_nicho_topn:
+      valor: 2
+      unidad: candidatos
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    cuota_min_exploracion_por_macro_nicho_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D1 + decisión 13 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 34
+    umbral_pass_qa:
+      valor: '3.6'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.4'
+      - '4.2'
+    ventana_veto_tacito_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 12
+      - 72
+    caducidad_banco_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 180
+    anunciante_sostenido_conceptos_min:
+      valor: 3
+      unidad: conceptos
+      hipotesis: true
+      fuente: D1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    anunciante_sostenido_dias_min:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: D1/D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 90
+  validacion:
+    max_consultas_qa:
+      valor: 15
+      unidad: consultas
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 25
+    umbral_ss:
+      valor: '0.60'
+      unidad: puntaje
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.50'
+      - '0.75'
+    sim_concepto:
+      valor: '0.8'
+      unidad: similitud
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.7'
+      - '0.9'
+    n_competidores_profundos:
+      valor: 5
+      unidad: competidores
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 8
+    min_frases_voz:
+      valor: 30
+      unidad: frases
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 20
+      - 60
+    min_fuentes_voz:
+      valor: 3
+      unidad: fuentes
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 5
+    umbral_hueco_ausencia:
+      valor: '0.70'
+      unidad: puntaje
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.5'
+      - '0.85'
+    n_ind_sost_go:
+      valor: 3
+      unidad: anunciantes
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    is_go_max:
+      valor: 70
+      unidad: puntos
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 55
+      - 75
+    is_nogo_min:
+      valor: 85
+      unidad: puntos
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 80
+      - 95
+    relectura_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 14
+    max_palabras_cita:
+      valor: 25
+      unidad: palabras
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    max_iteraciones_refinar:
+      valor: 2
+      unidad: iteraciones
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    muestreo_no_go_pct:
+      valor: 10
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 20
+  economia:
+    razon_min_factible:
+      valor: '1.3'
+      unidad: razon
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.1'
+      - '1.6'
+    factor_cpa_objetivo:
+      valor: '0.6'
+      unidad: factor
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.4'
+      - '0.8'
+    tasa_bump_bp:
+      valor: 1000
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 500
+      - 2500
+    tasa_upsell_bp:
+      valor: 0
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 800
+    tasa_reembolso_bp:
+      valor: 700
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 300
+      - 1200
+    tasa_disputa_bp:
+      valor: 50
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 20
+      - 100
+    escenarios_embudo:
+      valor:
+        pes:
+          ctr_enlace_bp: 80
+          clic_compra_bp: 70
+        central:
+          ctr_enlace_bp: 120
+          clic_compra_bp: 150
+        opt:
+          ctr_enlace_bp: 200
+          clic_compra_bp: 250
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    penal_evento_senal:
+      valor: '1.25'
+      unidad: factor
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.1'
+      - '1.6'
+    precio_lista_rango:
+      valor:
+        min:
+          monto: 1200
+          moneda: USD
+        max:
+          monto: 2900
+          moneda: USD
+      unidad: dinero_equivalente
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    puntaje_min_oferta:
+      valor: 75
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 70
+      - 85
+    puntaje_dim_min_oferta:
+      valor: 3
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 4
+    lectura_wpm_diseno:
+      valor: 200
+      unidad: palabras_por_min
+      hipotesis: true
+      fuente: D3 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 150
+      - 250
+    tiempo_diseno_max_factor:
+      valor: '1.10'
+      unidad: factor
+      hipotesis: true
+      fuente: D3 3.4 + R10 [HIPÓTESIS]
+      ultima_calibracion: null
+  producto:
+    lectura_wpm:
+      valor: 180
+      unidad: palabras_por_min
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 150
+      - 220
+    lectura_max_pct_prometido:
+      valor: 40
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 25
+      - 60
+    cold_run_tolerancia:
+      valor: '1.25'
+      unidad: factor
+      hipotesis: true
+      fuente: D4 3.4 + R10 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.0'
+      - '1.5'
+    cold_run_agentes:
+      valor: 2
+      unidad: agentes
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+    min_fuentes_por_tema:
+      valor: 3
+      unidad: fuentes
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    t_paso_humano_min:
+      valor:
+        abrir_copiar_pegar: 1
+        configurar_herramienta: 3
+        esperar_render_exportar: 5
+        decidir_ajustar: 2
+      unidad: minutos
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    peso_max_mb_pdf:
+      valor: 15
+      unidad: MB
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 25
+    peso_max_mb_paquete:
+      valor: 100
+      unidad: MB
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    paginas_vs_prometido_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 30
+    hechos_fuente_max_dias:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 30
+    prompts_exito_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 80
+      - 100
+    contraste_min:
+      valor: '4.5'
+      unidad: razon_wcag
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    volatilidad_revision_dias:
+      valor:
+        alta: 30
+        media: 90
+        baja: 180
+      unidad: dias
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    umbral_qa:
+      valor: '4.0'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: D4 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.8'
+      - '4.3'
+  landing:
+    lcp_max_ms:
+      valor: 2500
+      unidad: milisegundos
+      hipotesis: true
+      fuente: D5 3.4 (web.dev) [HIPÓTESIS]
+      ultima_calibracion: null
+    inp_max_ms:
+      valor: 200
+      unidad: milisegundos
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    cls_max:
+      valor: '0.1'
+      unidad: indice
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    lighthouse_rendimiento_min:
+      valor: 85
+      unidad: puntos
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 80
+      - 95
+    lighthouse_accesibilidad_min:
+      valor: 95
+      unidad: puntos
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    lighthouse_mejores_practicas_min:
+      valor: 90
+      unidad: puntos
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    peso_landing_max_kb:
+      valor: 1024
+      unidad: KB
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 600
+      - 1500
+    peso_hero_max_kb:
+      valor: 150
+      unidad: KB
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    garantia_dias_min:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 30
+    bump_pct_precio_min:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    bump_pct_precio_max:
+      valor: 60
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    bump_aceptacion_objetivo_pct:
+      valor: 15
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 15
+      - 30
+    checkout_expira_min:
+      valor: 30
+      unidad: minutos
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 1440
+    captura_adid_min_pct:
+      valor: 95
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D0/D5/D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 90
+      - 100
+    emq_min_purchase:
+      valor: '6.0'
+      unidad: emq
+      hipotesis: true
+      fuente: D0/D5/D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '5'
+      - '8'
+    dedup_min_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D0/D5/D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 80
+      - 100
+    sesiones_min_variante:
+      valor: 1500
+      unidad: sesiones
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 800
+      - 3000
+    umbral_qa:
+      valor: '4.0'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: D5 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.8'
+      - '4.3'
+  creativos:
+    n_anuncios_max:
+      valor: 8
+      unidad: anuncios
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 8
+    n_conceptos_test:
+      valor: 4
+      unidad: conceptos
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 6
+    hooks_por_concepto:
+      valor: 2
+      unidad: hooks
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    reserva_conceptos:
+      valor: 2
+      unidad: conceptos
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 4
+    refresco_dias_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 21
+    refresco_dias_max:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 21
+    sla_pedido_h:
+      valor: 48
+      unidad: horas
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 24
+      - 96
+    max_consultas_ads_library_por_oferta:
+      valor: 10
+      unidad: consultas
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 20
+    umbral_rubrica_media:
+      valor: '3.8'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    calibracion_bloqueantes_sembrados_min:
+      valor: 20
+      unidad: casos
+      hipotesis: true
+      fuente: D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+  campana:
+    n_anuncios_tope:
+      valor: 6
+      unidad: anuncios
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 8
+    n_anuncios_min:
+      valor: 3
+      unidad: anuncios
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    dias_test_defecto:
+      valor: 10
+      unidad: dias
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 14
+    dias_test_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    dias_test_max:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    spend_cap_factor:
+      valor: '1.10'
+      unidad: factor
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.0'
+      - '1.2'
+    vistas_landing_sobre_clics_min:
+      valor: '0.6'
+      unidad: razon
+      hipotesis: true
+      fuente: D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.5'
+      - '0.8'
+    preflight_vigencia_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: D7 3.3 [HIPÓTESIS]
+      ultima_calibracion: null
+  testeo:
+    k_corte:
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: D3/D7/D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 4
+    n_dec:
+      valor: 15
+      unidad: compras
+      hipotesis: true
+      fuente: D3/D7/D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 25
+    ventana_no_decidir_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: D7/D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 48
+      - 96
+    impr_min_diag:
+      valor: 3000
+      unidad: impresiones
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2000
+      - 8000
+    clics_min_diag:
+      valor: 100
+      unidad: clics
+      hipotesis: true
+      fuente: D8/O0 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 60
+      - 200
+    p_kill:
+      valor: '0.90'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.85'
+      - '0.95'
+    p_fallida:
+      valor: '0.95'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.85'
+      - '0.95'
+    p_escala:
+      valor: '0.80'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.70'
+      - '0.95'
+    p_ganador:
+      valor: '0.80'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.7'
+      - '0.9'
+    p_cierre_tope:
+      valor: '0.20'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    tasa_conexion_min:
+      valor: '0.70'
+      unidad: razon
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.60'
+      - '0.85'
+    tasa_ic_min_pct:
+      valor: 3
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    tasa_compra_ic_min_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 15
+      - 30
+    cpm_alto_factor:
+      valor: '1.5'
+      unidad: factor
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.3'
+      - '2'
+    freq_alerta_7d:
+      valor: '2.5'
+      unidad: frecuencia
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '2'
+      - '4'
+    fatiga_caida_ctr_pct:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 20
+      - 40
+    fatiga_factor_cpa:
+      valor: '1.5'
+      unidad: factor
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.3'
+      - '2'
+    fatiga_senales_min:
+      valor: 2
+      unidad: senales_de_3
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    razon_meta_stripe_min:
+      valor: '0.8'
+      unidad: razon
+      hipotesis: true
+      fuente: D0/D7/D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    razon_meta_stripe_max:
+      valor: '1.3'
+      unidad: razon
+      hipotesis: true
+      fuente: D0/D7/D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    cobertura_adid_min_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    razon_ventana_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    razon_n_min:
+      valor: 10
+      unidad: compras
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    k_ciego:
+      valor: '2'
+      unidad: multiplo
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.5'
+      - '3'
+    chequeos_rojos_g8:
+      valor: 2
+      unidad: chequeos
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+  veredicto:
+    compras_min:
+      valor: 15
+      unidad: compras
+      hipotesis: true
+      fuente: backbone 5.9; D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 25
+    dias_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: backbone 5.9; D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 10
+    dias_max:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 30
+    madurez_dias_extra:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: backbone 5.9 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 14
+    estabilidad_tol_pct:
+      valor: 15
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 25
+    max_dia_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    reembolso_max_pct:
+      valor: 8
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+  optimizacion:
+    lectura_horas:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 12
+    hora_decision:
+      valor: 09:00
+      unidad: hora_zona_cuenta
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    max_pausas_dia_conjunto:
+      valor: 2
+      unidad: pausas
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    anuncios_sin_entrega_pct:
+      valor: 5
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    max_pedidos_abiertos:
+      valor: 1
+      unidad: pedidos
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 2
+    dias_entre_pedidos:
+      valor: 5
+      unidad: dias
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    cantidad_max_pedido:
+      valor: 5
+      unidad: anuncios
+      hipotesis: true
+      fuente: D8 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 7
+  escalado:
+    dias_datos_maduros_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 10
+    ventana_evaluacion_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 48
+      - 96
+    lectura_post_paso_h:
+      valor: 96
+      unidad: horas
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    vigencia_plan_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 48
+    compras_min_ventana:
+      valor: 8
+      unidad: compras
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 12
+    cpa_subir_factor:
+      valor: '1.0'
+      unidad: factor
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.9'
+      - '1.2'
+    cpam_min_delta_compras:
+      valor: 3
+      unidad: compras
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    cpam_max_factor:
+      valor: '0.9'
+      unidad: factor
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.7'
+      - '1.0'
+    revertir_cpa_factor:
+      valor: '1.5'
+      unidad: factor
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.3'
+      - '2'
+    congelar_tras_reversion_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 14
+    salto_grande_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 60
+    laboratorio_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 10
+      - 30
+    max_campanas_escala:
+      valor: 2
+      unidad: campanas
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    saturacion_cpa_factor:
+      valor: '1.3'
+      unidad: factor
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.2'
+      - '1.5'
+    promocion_min_compras:
+      valor: 5
+      unidad: compras
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    reinversion_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D9/F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 100
+    ltv_credito_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 70
+    mercado_test_gasto_max_x_cpa:
+      valor: 8
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 12
+    retiro_semanas_margen_neg:
+      valor: 3
+      unidad: semanas
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 6
+    retiro_conceptos_fallidos:
+      valor: 6
+      unidad: conceptos
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 4
+      - 10
+    clon_evidencia_min_compras:
+      valor: 25
+      unidad: compras
+      hipotesis: true
+      fuente: D9 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+  salud_operativa:
+    reembolsos_objetivo_pct:
+      valor: 7
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 12
+    reembolsos_alerta_pct:
+      valor: 8
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 8
+      - 15
+    reembolsos_pausa_pct:
+      valor: 12
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    reembolsos_n_min:
+      valor: 20
+      unidad: pedidos
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    disputas_alerta_pct:
+      valor: '0.3'
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1/D10/X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.2'
+      - '0.5'
+    disputas_muestra_min_pagos:
+      valor: 50
+      unidad: pagos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 100
+    disputas_casos_alerta:
+      valor: 2
+      unidad: casos
+      hipotesis: true
+      fuente: F1/D10/X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    disputas_casos_pausa:
+      valor: 3
+      unidad: casos
+      hipotesis: true
+      fuente: F1/X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+    disputas_ventana_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: F1/X1 3.4 + R06 [HIPÓTESIS]
+      ultima_calibracion: null
+    disputas_madurez_dias:
+      valor: 60
+      unidad: dias
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 120
+  postcompra:
+    entrega_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 15
+    entrega_alerta_min:
+      valor: 10
+      unidad: minutos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 30
+    entrega_reintentos:
+      valor: 3
+      unidad: reintentos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    soporte_primera_respuesta_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 48
+    reembolso_ejecucion_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 48
+    soporte_ia_confianza_min:
+      valor: '0.8'
+      unidad: probabilidad
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.7'
+      - '0.95'
+    reembolso_abuso_flag:
+      valor: 2
+      unidad: reembolsos_previos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+    evidencia_retencion_dias:
+      valor: 180
+      unidad: dias
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 150
+      - 400
+    disputa_contestar_min:
+      valor:
+        monto: 2000
+        moneda: USD
+      unidad: dinero
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    meta_descarga_24h_pct:
+      valor: 85
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    meta_activacion_72h_pct:
+      valor: 40
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    meta_resultado_14d_pct:
+      valor: 25
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    tickets_por_100_max:
+      valor: 8
+      unidad: tickets
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    email_queja_max_pct:
+      valor: '0.1'
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    email_rebote_max_pct:
+      valor: 2
+      unidad: porcentaje
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    crosssell_min_dia:
+      valor: 15
+      unidad: dias
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 8
+      - 30
+    marketing_max_por_semana:
+      valor: 1
+      unidad: correos
+      hipotesis: true
+      fuente: D10 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 2
+  finanzas:
+    reserva_reembolsos_modo:
+      valor: r_esperado_sobre_neto_no_maduro
+      unidad: regla
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    reserva_disputas_pct:
+      valor: '1'
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.5'
+      - '3'
+    reserva_impuesto_indirecto_pct:
+      valor: 100
+      unidad: porcentaje_del_amount_tax
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    reserva_renta_pct:
+      valor: 25
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 15
+      - 35
+    reserva_stripe_pct:
+      valor: 0
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 25
+    impuesto_meta_pct:
+      valor: 0
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 25
+    alerta_enfriamiento_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 72
+    presupuesto_test_x_cpa_obj:
+      valor: 15
+      unidad: multiplo_de_cpa_obj
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 8
+      - 25
+    concentracion_max_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 70
+    payout_lag_dias:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 14
+    comision_desvio_pp:
+      valor: '1.5'
+      unidad: puntos_porcentuales
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1'
+      - '3'
+    datos_frescura_roja_h:
+      valor: 26
+      unidad: horas
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    caja_libre_dias_amarilla:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    tarifas_antiguedad_max_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: F1 3.3 [HIPÓTESIS]
+      ultima_calibracion: null
+    gasto_vs_tope_amarilla_pct:
+      valor: 80
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    gasto_vs_tope_roja_pct:
+      valor: 100
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+  dashboard:
+    etl_meta_cada_h:
+      valor: 3
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 6
+    etl_stripe_backfill_hora:
+      valor: 03:00
+      unidad: hora_utc
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    meta_ventana_reproceso_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 28
+    meta_dias_inmaduros:
+      valor: 2
+      unidad: dias
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    frescura_meta_amarillo_h:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 24
+    frescura_meta_rojo_h:
+      valor: 12
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 24
+    frescura_stripe_eventos_amarillo_h:
+      valor: 2
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 12
+    frescura_stripe_eventos_rojo_h:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 12
+    frescura_stripe_balance_amarillo_h:
+      valor: 26
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 24
+      - 48
+    frescura_stripe_balance_rojo_h:
+      valor: 36
+      unidad: horas
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 24
+      - 48
+    recon_tol_stripe_balance:
+      valor: 0
+      unidad: unidades_menores
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 0
+      - 1
+    recon_tol_gasto_meta_pct:
+      valor: '1'
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.5'
+      - '2'
+    cobertura_atribucion_min_pct:
+      valor: 70
+      unidad: porcentaje
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 50
+      - 90
+    gasto_min_decision_x_cpa:
+      valor: '2.0'
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1'
+      - '4'
+    pedidos_min_verde:
+      valor: 5
+      unidad: pedidos
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    recon_min_pedidos:
+      valor: 10
+      unidad: pedidos
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 30
+    alerta_gasto_sobre_presupuesto_x:
+      valor: '1.75'
+      unidad: factor
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.2'
+      - '2'
+    costo_ia_max_pct:
+      valor: 15
+      unidad: porcentaje_del_bruto
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 25
+    mer_verde_factor:
+      valor: '1.2'
+      unidad: factor_sobre_mer_be
+      hipotesis: true
+      fuente: F2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '1.1'
+      - '1.5'
+    compras_internas_ids:
+      valor: []
+      unidad: lista_de_session_id
+      hipotesis: true
+      fuente: F2 3.3 [HIPÓTESIS]
+      ultima_calibracion: null
+  compliance:
+    rechazos_congelar:
+      valor: 2
+      unidad: rechazos
+      hipotesis: true
+      fuente: X1/D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    rechazos_ventana_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: X1/D7 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    apelaciones_max_por_activo:
+      valor: 1
+      unidad: apelaciones
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 2
+    edad_max_politica_dias:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 30
+      - 90
+    reverif_plataformas_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 14
+      - 45
+    reverif_leyes_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 60
+      - 180
+    ngrama_copia_palabras:
+      valor: 8
+      unidad: palabras
+      hipotesis: true
+      fuente: X1/D6 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 12
+    ngrama_alerta_temprana_palabras:
+      valor: 6
+      unidad: palabras
+      hipotesis: true
+      fuente: D2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    edad_max_evidencia_claim_dias:
+      valor: 180
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 90
+      - 365
+    estado_meta_requerido_para_lanzar:
+      valor: Saludable
+      unidad: estado
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    max_anuncios_nuevos_dia:
+      valor: 5
+      unidad: anuncios
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    umbral_rubrica_pass:
+      valor: '4.0'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.8'
+      - '4.3'
+    salud_max_antiguedad_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 6
+      - 24
+    vigencia_dictamen_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 7
+      - 60
+    declaracion_calidad_cuenta_max_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 14
+    anticipacion_preaprobacion_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: X1 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 12
+      - 48
+    nivel_riesgo_bloquea_autonomia:
+      valor: rojo
+      unidad: nivel_riesgo
+      hipotesis: true
+      fuente: backbone 2 (13) [HIPÓTESIS]
+      ultima_calibracion: null
+  memoria:
+    n_min_patron_eventos:
+      valor: 3
+      unidad: eventos
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 5
+    n_min_patron_ofertas:
+      valor: 2
+      unidad: ofertas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+    tasa_min_patron_pct:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 20
+      - 50
+    ventana_patron_entregas:
+      valor: 10
+      unidad: entregas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 20
+    eps_sin_edicion_pct:
+      valor: 2
+      unidad: porcentaje
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 5
+    ofertas_min_para_descartar_nicho:
+      valor: 2
+      unidad: ofertas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 3
+    min_clics_celda:
+      valor: 100
+      unidad: clics
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 50
+      - 300
+    min_gasto_celda_x_cpa:
+      valor: '1.0'
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '0.5'
+      - '2'
+    vida_util_dias:
+      valor:
+        hook: 90
+        angulo: 180
+        precio: 270
+        nicho: 365
+      unidad: dias
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    vida_media_recencia_dias:
+      valor: 120
+      unidad: dias
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 60
+      - 240
+    sim_relevante:
+      valor: '0.60'
+      unidad: similitud
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    sim_dup:
+      valor: '0.80'
+      unidad: similitud
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    k_ficha:
+      valor: 8
+      unidad: items
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    max_tokens_ficha:
+      valor: 1500
+      unidad: tokens
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    cuarentena_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    max_reglas_graduadas_por_skill:
+      valor: 25
+      unidad: reglas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 15
+      - 40
+    max_pc_por_skill_por_ciclo:
+      valor: 1
+      unidad: propuestas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 2
+    ventana_canary_entregas:
+      valor: 5
+      unidad: entregas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 3
+      - 10
+    umbral_revertir_pp:
+      valor: 10
+      unidad: puntos_porcentuales
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 5
+      - 15
+    k_corridas_eval:
+      valor: 3
+      unidad: corridas
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 2
+      - 5
+    tope_costo_eval:
+      valor:
+        monto: 500
+        moneda: USD
+      unidad: dinero
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    umbral_pass_qa:
+      valor: '4.0'
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - '3.5'
+      - '4.5'
+    retencion_eventos_meses:
+      valor: 24
+      unidad: meses
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+    min_n_kpi:
+      valor: 5
+      unidad: casos
+      hipotesis: true
+      fuente: X2 3.4 [HIPÓTESIS]
+      ultima_calibracion: null
+  mercados:
+    clics_min_decidir_mercado:
+      valor: 2400
+      unidad: clics
+      hipotesis: true
+      fuente: inv. 16 [VERIFICAR] [HIPÓTESIS]
+      ultima_calibracion: null
+    mercados_test_paralelos_max:
+      valor: 1
+      unidad: mercados
+      hipotesis: true
+      fuente: M1 + decisión 2026-11-06 [HIPÓTESIS]
+      ultima_calibracion: null
+      rango:
+      - 1
+      - 3
+    primer_lanzamiento_requiere_h:
+      valor: true
+      unidad: booleano
+      hipotesis: true
+      fuente: backbone 5.5 [HIPÓTESIS]
+      ultima_calibracion: null
+    prior_de_mercado:
+      valor: ninguno
+      unidad: regla
+      hipotesis: true
+      fuente: dueño 2026-11-06 [HIPÓTESIS]
+      ultima_calibracion: null

@@ -1,0 +1,250 @@
+# agentes/hooks/herramientas.yaml - clasificación de herramientas para pretooluse_gasto.py (docs/09 §14.2).
+# Ruta PROTEGIDA (igual que el resto de agentes/hooks/): el agente no la edita (deny en el piso).
+# Regla de diseño fail-closed: una herramienta que no aparece en "lectura" ni en "neutra" es "escritura"
+# (lo desconocido es escritura, §14.2). Los patrones usan comodines estilo fnmatch ("*", "?").
+#
+# "escritura" no necesita enumerar TODO lo que se deniega (eso ya lo hace el default): aquí se nombran
+# las herramientas de mayor riesgo para que la sonda de hooks (agentes/sonda_hooks.py) las pruebe una
+# por una, y como documentación para quien lea el archivo.
+
+schema_version: "1.0.0"
+
+lectura:
+  - "Read"
+  - "Grep"
+  - "Glob"
+  - "mcp__*__ads_get_*"
+  - "mcp__*__ads_insights_*"
+  - "mcp__*__ads_library_search"
+  - "mcp__*__ads_account_get_activity_logs"
+  - "mcp__*__ads_get_errors"
+  - "mcp__*__get*"
+  - "mcp__*__list*"
+  - "mcp__*__balance"
+  - "mcp__*__models_explore"
+  - "mcp__*__ads_studio_quote"
+  - "mcp__*__ads_studio_get_cost"
+
+neutra:
+  - "WebSearch"
+  - "WebFetch"
+
+# Documentadas a propósito (defensivo: ya caerían en "escritura" por el default); la sonda de hooks
+# (m07) las nombra una por una.
+escritura:
+  - "mcp__*__ads_activate_entity"
+  - "mcp__*__ads_update_entity"
+  - "mcp__*__ads_boost_ig_post"
+  - "mcp__*__ads_delete_*"
+  - "mcp__*__ads_creative_*"
+  - "mcp__*__ads_experiment_*"
+  - "mcp__*__ads_update_custom_audience*"
+  - "mcp__*__ads_pixel_*"
+  - "mcp__*__ads_catalog_*"
+  - "mcp__*__ads_finalize_local_ad_image_upload"
+  - "mcp__*__ads_create_*"
+  - "mcp__*__create-*"
+  - "mcp__*__publish-*"
+  - "mcp__*__publish_*"
+  - "mcp__*__update-*"
+  - "mcp__*__bulk-update-*"
+  - "mcp__*__upload*"
+  - "mcp__*__graphql_mutation"
+  - "mcp__*__set-inventory"
+  - "mcp__*__deploy_website"
+  - "mcp__*__create_website"
+  - "mcp__*__tiktok_*"
+  - "mcp__*__delete_*"
+  - "mcp__*__sandbox_exec"
+  - "mcp__*__share_file"
+  - "mcp__*__trash_file"
+  - "mcp__*__create_file"
+  - "mcp__*__update_file"
+  - "mcp__*__generate_*"
+  - "mcp__*__ads_studio_generate"
+  - "mcp__*__ai_influencer_generate"
+  - "mcp__*__execute_preset"
+  - "Write"
+  - "Edit"
+  - "NotebookEdit"
+
+# Herramientas de créditos (generación de piezas): exigen AGENT_COSTO_PREVIO y topes de
+# limites.yaml (creditos_max_pieza, creditos_max_oferta). Subconjunto de "escritura".
+creditos:
+  - "mcp__*__generate_*"
+  - "mcp__*__ads_studio_generate"
+  - "mcp__*__ai_influencer_generate"
+  - "mcp__*__execute_preset"
+
+# Scripts Bash permitidos por nombre exacto y sus flags en lista blanca (pretooluse_bash.py, §14.5b).
+# Cualquier flag fuera de esta lista, o cualquier script fuera de esta lista, se deniega.
+#
+# A8 (ola 2, B5b): las banderas de abajo son las del CLI REAL de cada script (comprobado contra
+# meta/{crear,activar,pausar,subir_presupuesto}.py y meta/_cli_comun.agregar_argumentos_comunes).
+# `--live` y `--object-ids` NUNCA existieron en estos 4 CLI (el modo se elige con `--modo
+# {dry-run,fixture,live}`, convenciones §9); listarlos aquí era una lista blanca que no protegía
+# nada real. Ningún agente (D7 Maker incluido) tiene hoy un `allow` que invoque estos 4 scripts
+# (son código post-QA, no herramientas de un Maker: ver `agentes/plantillas_agentes/d7-maker.md`,
+# «Prohibido»); esta lista es defensa en profundidad para si algún día se wire-ara mal.
+# Lectura por bandera (SB-4): el valor de estas banderas puede ser EXACTAMENTE uno de estos archivos de empresa/ (solo
+# lectura de parámetros/límites); cualquier otra ruta sigue sujeta a ofertas/<AGENT_OFERTA_ID>/ (pretooluse_bash.py).
+rutas_lectura_por_bandera:
+  "--parametros": ["empresa/parametros.yaml"]
+  "--limites": ["empresa/limites.yaml"]
+
+bash_scripts:
+  "scripts/validar_esquemas.py":
+    flags: ["esquemas", "ejemplos", "oferta", "limites", "parametros", "--limites", "--operacion"]
+  "scripts/lint_claims.py":
+    flags: ["--archivo", "--etapa", "--json", "--locale", "--macro-nicho", "--oferta", "--raiz", "--reglas"]
+  "scripts/meta_crear.py":
+    flags: ["--oferta", "--campana", "--creativos", "--ad-account", "--pixel-id", "--salida", "--modo",
+            "--fixture", "--raiz", "--ahora", "--json"]
+  "scripts/meta_activar.py":
+    flags: ["--oferta", "--campana", "--ids-meta", "--hash-config", "--sello", "--cuenta", "--monto",
+            "--moneda", "--creativos", "--modo", "--fixture", "--raiz", "--ahora", "--json"]
+  "scripts/pausar.py":
+    flags: ["--ad-account", "--campana-id", "--modo", "--fixture", "--raiz", "--ahora", "--json"]
+  "scripts/subir_presupuesto.py":
+    flags: ["--oferta", "--object-id", "--campo", "--monto", "--moneda", "--cuenta", "--modo",
+            "--fixture", "--raiz", "--ahora", "--json"]
+  # Skill D7 (ajena, solo lectura de código): scripts/d7.py reúne hechos y corre cálculos puros
+  # (presupuesto, nombres, lint, preflight PX1-PX4) y SIEMPRE en fixture/dry-run; nunca llama a Meta.
+  ".claude/skills/d7-campanas-meta/scripts/d7.py":
+    flags: ["--entrada", "--salida", "--campana", "--archivo", "--esquema", "--dir", "--terminos",
+            "--entradas", "--ahora", "--limites", "--parametros"]
+  ".claude/skills/d7-campanas-meta/scripts/probar_evals.py":
+    flags: ["--solo"]
+
+  # ---------------------------------------------------------------------------------------------
+  # Generado desde los CLI REALES (`<script> [subcomando] --help`) de los scripts de las skills
+  # (lista de docs/_historial/skills-clis-para-hooks.md) y de scripts/ propios; 2026-11-06. Fuente de
+  # verdad = el script: si cambia un CLI, se regenera. Estos scripts son offline y de validación (o
+  # escriben solo en la carpeta de la oferta que reciben): el hook exige además que toda ruta caiga
+  # bajo ofertas/<AGENT_OFERTA_ID>/. Que un agente concreto pueda INVOCARLOS lo decide su perfil
+  # (`allow` de su plantilla), no esta lista: aquí solo se acotan banderas y rutas. Excluidas a propósito:
+  # `--chrome` (ruta de un binario: no se deja elegir al agente).
+  # ---------------------------------------------------------------------------------------------
+  ".claude/skills/d1-descubrimiento/scripts/preflight.py":
+    flags: ["--json", "--locale", "--modo", "--raiz", "--sello-esperado"]
+  ".claude/skills/d1-descubrimiento/scripts/validar_candidatos.py":
+    flags: ["barrido", "candidatos", "entrada", "sellar", "--escribir", "--informe", "--json", "--limites", "--lint", "--moneda-cobro", "--nichos", "--oferta-dir", "--parametros", "--sello-esperado"]
+  ".claude/skills/d2-validacion/scripts/metricas.py":
+    flags: ["--parametros", "--salida"]
+  ".claude/skills/d2-validacion/scripts/normalizar_biblioteca.py":
+    flags: ["--ahora", "--excluir", "--parametros", "--salida", "--semilla"]
+  ".claude/skills/d2-validacion/scripts/qa_recomputar.py":
+    flags: ["--metricas", "--parametros"]
+  ".claude/skills/d2-validacion/scripts/veredicto.py":
+    flags: ["calcular", "comprobar", "--parametros"]
+  ".claude/skills/d2-validacion/scripts/verificar_citas.py":
+    flags: ["--base", "--locale", "--parametros", "--pii"]
+  ".claude/skills/d2-validacion/scripts/verificar_competidores.py":
+    flags: ["--crudo", "--parametros"]
+  ".claude/skills/d3-arquitectura-oferta/scripts/aplicar_sembrado.py":
+    flags: ["--destino", "--dorados", "--listar", "--sembrado", "--sembrados"]
+  ".claude/skills/d3-arquitectura-oferta/scripts/economia_por_pais.py":
+    flags: ["--json", "--limites", "--parametros", "--plan", "--salida-economia", "--salida-tabla"]
+  ".claude/skills/d3-arquitectura-oferta/scripts/lint_d3.py":
+    flags: ["--hoy", "--json", "--limites", "--oferta-dir", "--parametros", "--semilla-provisional"]
+  ".claude/skills/d3-arquitectura-oferta/scripts/medir_frontera.py":
+    flags: ["--alcance", "--conjunto", "--cota-max", "--exportar-lote", "--json", "--min-positivos", "--predicciones", "--retencion", "--sello", "--suite"]
+  ".claude/skills/d4-producto/scripts/cobertura_matriz.py":
+    flags: ["--oferta-dir", "--permitir-pendientes", "--salida"]
+  ".claude/skills/d4-producto/scripts/cotizar_creditos.py":
+    flags: ["--ahora", "--cotizacion", "--limites", "--raiz", "--salida"]
+  ".claude/skills/d4-producto/scripts/empaquetar.py":
+    flags: ["--actualizar", "--max-mb-paquete", "--max-mb-pdf", "--oferta-dir", "--parametros", "--salida", "--terminos"]
+  ".claude/skills/d4-producto/scripts/lint_contenido.py":
+    flags: ["--ayuda-numeros", "--cita-max-palabras", "--locale", "--producto", "--reglas-x1", "--requiere", "--salida"]
+  ".claude/skills/d4-producto/scripts/lint_hoja.py":
+    flags: ["--hoja", "--permitir-autor", "--salida"]
+  ".claude/skills/d4-producto/scripts/similitud_ngrama.py":
+    flags: ["--alerta", "--cita-max-palabras", "--fuentes", "--muestrear", "--n", "--parametros", "--permitir-literal", "--producto", "--salida", "--semilla"]
+  ".claude/skills/d4-producto/scripts/tiempo_total.py":
+    flags: ["--autoprueba", "--desvio-max-pct", "--estimado-primer-paso-min", "--factor-locale", "--ignorar-secciones", "--lectura", "--lectura-max-pct", "--medido-primer-paso-min", "--oferta", "--palabras", "--parametros", "--producto", "--salida", "--tolerancia", "--wpm"]
+  ".claude/skills/d4-producto/scripts/verificar_respaldo.py":
+    flags: ["--hoy", "--locale", "--max-dias", "--min-fuentes", "--paises", "--parametros", "--producto", "--respaldo-dir", "--salida"]
+  ".claude/skills/d5-landing-checkout/scripts/contraste_paleta.py":
+    flags: ["--json", "--paleta"]
+  ".claude/skills/d5-landing-checkout/scripts/lint_copy.py":
+    flags: ["--assets", "--copy", "--json", "--mercado", "--oferta"]
+  ".claude/skills/d5-landing-checkout/scripts/prechequeo.py":
+    flags: ["--alta-oferta", "--ayuda-por-pais", "--datos-legales", "--empresa-dir", "--json", "--oferta-dir"]
+  ".claude/skills/d6-creativos/scripts/prueba_en_frio.py":
+    flags: ["--conservar", "--json", "--locale"]
+  ".claude/skills/d6-creativos/scripts/render_estatico.py":
+    flags: ["--ad-name", "--copies", "--html", "--html-salida", "--json", "--plantilla", "--png-salida", "--ratio"]
+  ".claude/skills/d6-creativos/scripts/validar_d6.py":
+    flags: ["assets", "evals", "matriz", "nmax", "ranuras", "textos", "todo", "--json", "--k", "--oferta-dir", "--qa-a", "--raiz"]
+  ".claude/skills/m1-mercados-localizacion/scripts/autoprueba.py":
+    flags: ["--json", "--solo-sembrados"]
+  ".claude/skills/m1-mercados-localizacion/scripts/chequeos_l1.py":
+    flags: ["--brief", "--emparejamiento", "--fichas", "--hoy", "--limites", "--mercado", "--modo", "--parametros", "--salida", "--seleccion", "--ventana-test"]
+  ".claude/skills/m1-mercados-localizacion/scripts/lint_locale.py":
+    flags: ["--moneda-cobro", "--monedas-adicionales", "--reglas"]
+  ".claude/skills/m1-mercados-localizacion/scripts/puntaje.py":
+    flags: ["cobertura", "excluir", "reproducir", "seleccionar", "--decision-mp", "--hoy", "--parametros"]
+  ".claude/skills/m1-mercados-localizacion/scripts/vigencia.py":
+    flags: ["--hoy", "--parametros"]
+  ".claude/skills/o0-lanzar-oferta/scripts/bloqueos_dueno.py":
+    flags: ["--estricto", "--json", "--oferta", "--raiz"]
+  ".claude/skills/o0-lanzar-oferta/scripts/proximo_paso.py":
+    flags: ["--autonomia", "--estado", "--json", "--oferta", "--raiz"]
+  ".claude/skills/o0-orquestador-portafolio/scripts/validar_brief.py":
+    flags: ["--autonomia", "--calcular-hash", "--candidato", "--candidatos", "--json", "--limites", "--presupuesto-test-min"]
+  ".claude/skills/x1-compliance/scripts/correr_evals.py":
+    flags: ["codigo", "cota", "estructura", "retencion", "suite", "suite-entrada", "--falsos", "--incluir-rt", "--manifiesto", "--n", "--respuestas", "--salida"]
+  ".claude/skills/x1-compliance/scripts/ngrama_copia.py":
+    flags: ["--n", "--propio", "--referencia"]
+  ".claude/skills/x1-compliance/scripts/nivel_ejes.py":
+    flags: ["--C", "--E", "--N", "--P", "--fuera-de-macro", "--json", "--reencuadre", "--suite", "--zona-gris"]
+  ".claude/skills/x1-compliance/scripts/regla_salud.py":
+    flags: ["--series"]
+  ".claude/skills/x1-compliance/scripts/validar_dictamen.py":
+    flags: ["--post-motor", "--sin-nombre", "--umbral"]
+  "scripts/html_checks.py":
+    flags: ["--archivo", "--json", "--locale", "--macro-nicho", "--reglas"]
+  "scripts/nivel_riesgo.py":
+    flags: ["--C", "--E", "--N", "--P", "--fuera-de-macro", "--json", "--reencuadre", "--suite", "--zona-gris"]
+  "scripts/producto/empaquetar.py":
+    flags: ["--prometido-min", "--raiz", "--salida"]
+  "scripts/producto/lint.py":
+    flags: ["--fuente", "--parametros"]
+  "scripts/producto/render.py":
+    flags: ["--html", "--json", "--salida", "--timeout"]
+  "scripts/validacion/veredicto_d2.py":
+    flags: ["calcular", "comprobar", "--parametros", "--salida"]
+
+  # Añadidos en una segunda pasada (D1 y render_pdf de D4 se forjaron después), mismo criterio que arriba.
+  ".claude/skills/d4-producto/scripts/render_pdf.py":
+    flags: ["--cronometrar", "--html", "--json", "--salida", "--timeout"]
+
+  # Tercera pasada: scripts promovidos a scripts/ por la ola 2 (X1 salud, D6). Mismo criterio que arriba.
+  "scripts/creativos/cost_preflight.py":
+    flags: ["--aplicar", "--ejecucion-id", "--json", "--oferta", "--plan", "--raiz"]
+  "scripts/creativos/match_landing.py":
+    flags: ["--json", "--oferta", "--pieza", "--raiz"]
+  "scripts/creativos/ocr_check.py":
+    flags: ["--ad-name", "--copies", "--ffmpeg", "--fotogramas", "--json", "--locale", "--macro-nicho"]
+  "scripts/creativos/preflight_d6.py":
+    flags: ["--ahora", "--fuente", "--json", "--navegador", "--oferta", "--raiz", "--salida", "--url-landing"]
+  "scripts/creativos/riesgo_pieza.py":
+    flags: ["--json", "--nivel-max-lanzable", "--nivel-oferta", "--piezas"]
+  "scripts/x1_salud.py":
+    flags: ["evaluar", "pausa", "--ahora", "--aplicar", "--estado", "--json", "--limites", "--no-sintetico", "--oferta", "--parametros", "--raiz", "--salida", "--sintetico"]
+
+  # Segunda tanda de SB-4: CLI que se invocan como módulo (`python -m <modulo>`; la forma por archivo falla sin PYTHONPATH).
+  # Los de meta.* son los de solo lectura/cálculo; activar/crear/subir_presupuesto NO están aquí (los gobierna pretooluse_activacion).
+  "engine/factibilidad.py":
+    flags: ["calcular", "verificar", "--economia", "--entradas", "--limites", "--parametros", "--salida"]
+  "compliance/lint_claims.py":
+    flags: ["--archivo", "--etapa", "--json", "--locale", "--macro-nicho", "--oferta", "--raiz", "--reglas"]
+  "compliance/html_checks.py":
+    flags: ["--archivo", "--json", "--locale", "--macro-nicho", "--reglas"]
+  "meta/nombres.py":
+    flags: ["anuncio", "campana", "conjunto", "resolver", "url", "--ad-id", "--ad-name", "--adset-id", "--adset-name", "--audiencia", "--base", "--campaign-id", "--campaign-name", "--concepto", "--estructura", "--fase", "--fecha", "--formato", "--hook", "--idioma", "--json", "--objetivo", "--oferta", "--plantilla", "--ubicaciones", "--version"]
+  "meta/payloads.py":
+    flags: ["presupuesto", "--ahora", "--dias", "--economia", "--escenario", "--json", "--n-anuncios-paquete", "--raiz", "--spend-cap-minimo-meta"]
+  "meta/preflight.py":
+    flags: ["--ahora", "--campana", "--entradas", "--hash-config", "--json", "--oferta", "--raiz", "--salida"]

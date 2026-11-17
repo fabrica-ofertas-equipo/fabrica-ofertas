@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/veredicto_oferta.schema.json",
+  "title": "Veredicto de la oferta",
+  "description": "Veredicto de la oferta (D8), consumido por D9, O0 y F1.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "estado": {
+      "enum": [
+        "VALIDADA",
+        "PROMETEDORA",
+        "FALLIDA",
+        "INCONCLUSA"
+      ],
+      "description": "Definición única de backbone 5.9"
+    },
+    "regla": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "definicion": {
+          "const": "backbone-5.9"
+        },
+        "version_reglas": {
+          "$ref": "comunes.schema.json#/$defs/semver"
+        },
+        "hash_parametros": {
+          "$ref": "comunes.schema.json#/$defs/sha256"
+        }
+      },
+      "required": [
+        "id",
+        "definicion",
+        "version_reglas",
+        "hash_parametros"
+      ],
+      "additionalProperties": false
+    },
+    "evidencia": {
+      "type": "object",
+      "properties": {
+        "fuente_compras": {
+          "const": "stripe"
+        },
+        "compras_brutas": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reembolsos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compras_netas": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compras_meta_referencia": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Solo informativo: no valida por sí solo"
+        },
+        "garantia_dias": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "madurez_dias": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "garantia_dias + parametros.veredicto.madurez_dias_extra"
+        },
+        "cohorte_madura_hasta": {
+          "$ref": "comunes.schema.json#/$defs/fecha"
+        },
+        "dias_con_datos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gasto": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "cpa_neto": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cpa_objetivo": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "mc_real": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/dinero"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "razon_ms": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reembolso_pct": {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        }
+      },
+      "required": [
+        "fuente_compras",
+        "compras_brutas",
+        "reembolsos",
+        "compras_netas",
+        "compras_meta_referencia",
+        "garantia_dias",
+        "madurez_dias",
+        "cohorte_madura_hasta",
+        "dias_con_datos",
+        "gasto",
+        "cpa_neto",
+        "cpa_objetivo",
+        "mc_real",
+        "razon_ms",
+        "reembolso_pct"
+      ],
+      "additionalProperties": false
+    },
+    "p": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "estabilidad": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tolerancia_pct": {
+              "$ref": "comunes.schema.json#/$defs/porcentaje"
+            },
+            "estable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "tolerancia_pct",
+            "estable"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "recomendacion": {
+      "enum": [
+        "seguir_test",
+        "escalar",
+        "cerrar",
+        "extender_test",
+        "corregir_antes"
+      ]
+    },
+    "gate": {
+      "$ref": "comunes.schema.json#/$defs/gate_tabla"
+    },
+    "sintetico": {
+      "type": "boolean",
+      "description": "true: dato de ejemplo, no real"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "ts",
+    "version",
+    "estado",
+    "regla",
+    "evidencia",
+    "p",
+    "estabilidad",
+    "recomendacion",
+    "gate"
+  ],
+  "additionalProperties": false
+}

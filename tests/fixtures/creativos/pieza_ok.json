@@ -1,0 +1,11 @@
+{
+  "ad_name": "c01-hueco_img_h1_v1",
+  "claim_ids": ["guion-explicar-pausa", "incluye-plantilla-cv"],
+  "copy": {
+    "texto_principal": "Tu pausa no es un hueco: es un relato que puedes contar.",
+    "titular": "Guía + plantilla",
+    "descripcion": "Garantía de 14 días",
+    "cta": "LEARN_MORE",
+    "idioma": "es-ES"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "paquete_id": "K-c320d615",
+  "avatar_id": "av-pl-PL-10",
+  "pieza_id": "P-0d58c6e1",
+  "voto": false,
+  "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+  "puntaje_gancho": 4,
+  "puntaje_claridad": 3,
+  "puntaje_cta": null,
+  "puntaje_general": 3,
+  "idea": null,
+  "alerta_ceguera": null,
+  "origen": "sintetico_demo"
+}

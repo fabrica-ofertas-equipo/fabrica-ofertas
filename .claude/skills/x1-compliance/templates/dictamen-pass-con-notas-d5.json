@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "X1",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-06T12:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "entradas": {},
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "reglas_version": "1.0.0",
+  "politicas_fecha_min": "2026-11-06",
+  "vigencia_hasta": "2026-12-06",
+  "firma_motor": null,
+  "x1": null,
+  "etapa_objetivo": "D5",
+  "artefacto_ref": "05-landing/sitio",
+  "artefacto_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "veredicto": "PASS_CON_NOTAS",
+  "semaforo": "verde",
+  "puntaje_global": "4.25",
+  "umbral": "4.0",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Cobertura",
+      "puntaje": 5,
+      "evidencia": "[PLANTILLA] Claims, legales, país/idioma, IA, privacidad y datos revisados en 05-landing/sitio"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Cada hallazgo cita «texto literal» y su regla con fecha"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Calibración",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Sin falsos verdes en el corpus; sobre-bloqueo medido en 0 de 6 controles"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Corrección segura",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Correcciones que conservan el deseo y no cambian promesa, precio ni claims"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Zona gris",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Zona gris con mitigación, responsable y cierre"
+    },
+    {
+      "item_id": "R6",
+      "nombre": "Honestidad",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Fuente o [VERIFICAR] por cada norma; norma, política y prudencia separadas"
+    },
+    {
+      "item_id": "R7",
+      "nombre": "Salud y contingencia",
+      "puntaje": 4,
+      "evidencia": "[PLANTILLA] Salud de cuenta leída hoy; regla y runbook citados"
+    },
+    {
+      "item_id": "R8",
+      "nombre": "Coherencia",
+      "puntaje": 5,
+      "evidencia": "[PLANTILLA] claim_id → evidencia → producto → post-compra coherentes con el anuncio"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-HASH",
+      "resultado": "pass",
+      "detalle": "artefacto_sha256 recalculado = hash de 05-landing/sitio"
+    },
+    {
+      "check_id": "L1-LINT",
+      "resultado": "pass",
+      "detalle": "compliance.lint_claims y html_checks sin ROJO (corrida del script, no del LLM)"
+    },
+    {
+      "check_id": "L1-NIVEL",
+      "resultado": "pass",
+      "detalle": "ejes asignados: P=P0 C=C1 E=E0 N=N1 -> nivel calculado por scripts.nivel_riesgo: verde (pasa)"
+    },
+    {
+      "check_id": "L1-PUB",
+      "resultado": "pass",
+      "detalle": "grep EJEMPLO|DEMOSTRACI|lorem sin coincidencias, tampoco en comentarios HTML"
+    },
+    {
+      "check_id": "L1-08",
+      "resultado": "pass",
+      "detalle": "siete páginas legales presentes y 200 (preflight D5)"
+    }
+  ],
+  "simulaciones_l3": [
+    {
+      "nombre": "Revisor de Meta",
+      "resultado": "Sin riesgo de rechazo: sin salud, ingresos ni atributos del espectador"
+    },
+    {
+      "nombre": "Consumidor escéptico (es-ES)",
+      "resultado": "Responde quién vende, precio total, cómo desistir y qué pasa con sus datos en la primera pantalla y el pie"
+    },
+    {
+      "nombre": "Riesgo de Stripe",
+      "resultado": "Descriptor y producto coherentes; entrega inmediata sin servicio humano"
+    },
+    {
+      "nombre": "Espectador ajeno (E)",
+      "resultado": "Todas las frases son verdaderas y neutras para cualquiera"
+    }
+  ],
+  "hallazgos": [
+    {
+      "check_id": "L1-HWR-J07",
+      "patron_clave": "texto-garantia-comercial-ambiguo",
+      "severidad": "MENOR",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] La garantía comercial no distingue el derecho legal de desistimiento",
+      "evidencia": "«Garantía de 14 días» — 05-landing/sitio/index.html (sección garantía)",
+      "estado": "aceptado_con_nota",
+      "correccion": "Añadir «además de tu derecho legal de desistimiento»"
+    },
+    {
+      "check_id": "X1-AVISO",
+      "patron_clave": "aviso-de-alcance-poco-visible",
+      "severidad": "MENOR",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] El aviso de alcance está solo en el pie",
+      "evidencia": "«Material informativo; no constituye asesoramiento financiero» — 05-landing/sitio/index.html (footer)",
+      "estado": "aceptado_con_nota",
+      "correccion": "Repetir el aviso bajo el precio"
+    },
+    {
+      "check_id": "X1-FUENTE",
+      "patron_clave": "segunda-fuente-sugerida",
+      "severidad": "MEJORA",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] Una cifra del PDF mejoraría con una segunda fuente T1",
+      "evidencia": "04-producto/trazabilidad.md#cifra-3",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Repetir el aviso de alcance bajo el precio",
+      "impacto": "bajo",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "PLANTILLA ilustrativa: no es un dictamen real ni sirve para sellar",
+    "Riesgo residual aceptado por el dueño (decisión 14): sin revisión legal humana; lo fiscal, con el contador"
+  ],
+  "aprendizajes_para_skill": [],
+  "claims_trazados": [
+    {
+      "claim_id": "incluye-plantilla-cv",
+      "evidencia_ref": "04-producto/producto.json#items"
+    }
+  ]
+}

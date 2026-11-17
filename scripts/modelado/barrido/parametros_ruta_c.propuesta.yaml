@@ -1,0 +1,153 @@
+# PROPUESTA de parámetros de la RUTA C del barrido (API oficial de la Biblioteca de Anuncios, `ads_archive`). NO está integrada.
+# Mismo formato que parametros_barrido.propuesta.yaml: cuando el dueño apruebe los valores, estas claves se pegan bajo
+# `grupos.descubrimiento` (y se amplía contratos/parametros.schema.json). Mientras tanto las lee
+# `ruta_c.cargar_parametros_ruta_c()`, que falla cerrado (código 5) si falta una clave o sale de su `rango`.
+# Todas son [HIPÓTESIS]: ninguna está calibrada con una corrida real (hace falta el token del dueño, ver
+# docs/_historial/barrido-ruta-c.md). Ningún número de estos vive en el código. Sin float: decimales como cadena.
+# Los códigos de país van entre comillas (en YAML sin comillas «NO» se lee como falso).
+
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    # Versión de la Graph API en la URL (https://graph.facebook.com/<versión>/ads_archive).
+    # La página oficial de ads_archive mostraba «v27.0» el 2026-11-06. Meta retira versiones con el tiempo.
+    ruta_c_version_api:
+      valor: "v27.0"
+      unidad: texto
+      hipotesis: true
+      fuente: "developers.facebook.com/docs/graph-api/reference/ads_archive/ (leída 2026-11-06) [VERIFICAR vigencia]"
+      ultima_calibracion: null
+      rango: null
+    # Anuncios pedidos por solicitud. La referencia oficial NO documenta un máximo para `limit` en ads_archive.
+    # Guías de terceros dicen que «unos cientos» es lo fiable antes de que aparezcan timeouts [VERIFICAR].
+    ruta_c_limite_pagina:
+      valor: 50
+      unidad: anuncios
+      hipotesis: true
+      fuente: "Prudencia: igual al tope del conector; máximo de la API no documentado [VERIFICAR]"
+      ultima_calibracion: null
+      rango: [1, 250]
+    # Tope de páginas por consulta (corta la paginación aunque haya más; el crudo queda marcado como incompleto).
+    ruta_c_max_paginas:
+      valor: 20
+      unidad: paginas
+      hipotesis: true
+      fuente: "20 × 50 = 1000 anuncios: cubre «Acceso inmediato en PDF» en España (932 el 2026-11-06, spec §17.1)"
+      ultima_calibracion: null
+      rango: [1, 100]
+    # Pausa entre dos solicitudes seguidas (no se pausa antes de la primera ni después de la última).
+    ruta_c_pausa_ms:
+      valor: 2000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "Prudencia: Meta no publica el límite de tasa de ads_archive [VERIFICAR]"
+      ultima_calibracion: null
+      rango: [500, 60000]
+    # Tiempo máximo de una solicitud HTTP.
+    ruta_c_tiempo_max_seg:
+      valor: 30
+      unidad: segundos
+      hipotesis: true
+      fuente: "Prudencia"
+      ultima_calibracion: null
+      rango: [5, 120]
+    # Tope de bytes de una respuesta (defensa contra respuestas anómalas).
+    ruta_c_max_bytes_respuesta:
+      valor: 8000000
+      unidad: bytes
+      hipotesis: true
+      fuente: "Prudencia: 50 anuncios con texto y segmentación pesan ~0,2-1 MB"
+      ultima_calibracion: null
+      rango: [100000, 50000000]
+    # Reintentos ante «límite de tasa» (código 613/429): SIEMPRE 0. Un límite de tasa es freno: la ruta C se detiene, escribe
+    # el freno compartido empresa/captura/freno.json y no vuelve a intentar ni espera (revisión de seguridad m4). El rango
+    # [0, 0] y el código lo hacen cumplir; subirlo requiere cambiar el código, no solo este valor.
+    ruta_c_reintentos_tasa:
+      valor: 0
+      unidad: reintentos
+      hipotesis: false
+      fuente: "Revisión de seguridad m4 (docs/_historial/barrido-revision-seguridad.md); spec D1 §14.3: ante límite se frena"
+      ultima_calibracion: null
+      rango: [0, 0]
+    # Tope de solicitudes HTTP a la API por corrida (cada página cuenta una; suma todas las consultas de la corrida).
+    # Mismo criterio que los topes de las rutas B y D. Meta no publica su límite de tasa [VERIFICAR]: empezar bajo y
+    # subirlo solo después de la consulta de humo del dueño.
+    ruta_c_max_solicitudes_por_corrida:
+      valor: 100
+      unidad: solicitudes
+      hipotesis: true
+      fuente: "Prudencia; análogo a barrido_b_max_consultas_por_dia y modelado_captura_max_por_dia [VERIFICAR el límite de Meta]"
+      ultima_calibracion: null
+      rango: [1, 1000]
+    # Tope diario (día UTC) de solicitudes, sumando TODAS las corridas (freno contra un cron mal configurado).
+    ruta_c_max_solicitudes_por_dia:
+      valor: 200
+      unidad: solicitudes
+      hipotesis: true
+      fuente: "Prudencia; dos corridas completas como máximo por día [VERIFICAR el límite de Meta]"
+      ultima_calibracion: null
+      rango: [1, 2000]
+    # Anuncios por archivo crudo. El contrato exige len(ads) <= limit <= 50: un resultado mayor se parte en
+    # <qid>-c01, <qid>-c02, ... (CONTRATO §2, LIMITE_MAX_CONECTOR).
+    ruta_c_anuncios_por_archivo:
+      valor: 50
+      unidad: anuncios
+      hipotesis: false
+      fuente: "CONTRATO §2 (máx. 50 por archivo crudo)"
+      ultima_calibracion: null
+      rango: [1, 50]
+    # Tipo de búsqueda de `search_terms`: KEYWORD_UNORDERED (por defecto de la API) o KEYWORD_EXACT_PHRASE.
+    # Qué hace el conector `ads_library_search` internamente no está documentado [VERIFICAR].
+    ruta_c_tipo_busqueda:
+      valor: "KEYWORD_UNORDERED"
+      unidad: texto
+      hipotesis: true
+      fuente: "Referencia oficial ads_archive (search_type), leída 2026-11-06"
+      ultima_calibracion: null
+      rango: null
+    # Campos pedidos con `fields`. `currency` solo está documentado para anuncios políticos: se pide por si la API
+    # lo entrega también en anuncios comerciales de la UE; si no llega, el crudo usa «XXX» (ISO 4217: sin moneda).
+    # Si la API rechazara un campo (error 100), quítelo de esta lista.
+    # `beneficiary_payers` (beneficiario y pagador, solo UE) NO se pide por defecto: son nombres que pueden ser de personas
+    # físicas (minimización de datos, RGPD). Es la mejor pista de quién opera una cuenta; añádalo solo si el dueño lo decide.
+    ruta_c_campos:
+      valor:
+        - id
+        - page_id
+        - page_name
+        - ad_creation_time
+        - ad_delivery_start_time
+        - ad_delivery_stop_time
+        - ad_snapshot_url
+        - ad_creative_bodies
+        - ad_creative_link_titles
+        - ad_creative_link_descriptions
+        - ad_creative_link_captions
+        - languages
+        - publisher_platforms
+        - currency
+        - eu_total_reach
+        - total_reach_by_location
+        - target_ages
+        - target_gender
+        - target_locations
+      unidad: lista_campos
+      hipotesis: true
+      fuente: "Referencia oficial de ArchivedAd (developers.facebook.com/docs/marketing-api/reference/archived-ad/), leída 2026-11-06"
+      ultima_calibracion: null
+      rango: null
+    # Países donde la API devuelve anuncios COMERCIALES (UE y Reino Unido). Fuera de esta lista solo devuelve anuncios
+    # sobre temas sociales, elecciones o política: una consulta ahí se rechaza para no mezclarlos con ofertas.
+    # La referencia oficial dice «Ads that did not reach any location in the EU will only return if they are about
+    # social issues, elections or politics»; el Reino Unido figura en la descripción general pero la nota del
+    # parámetro solo nombra a la UE [VERIFICAR con una consulta real a GB]. Noruega, Islandia y Liechtenstein (EEE): no
+    # confirmados [VERIFICAR].
+    ruta_c_paises_cobertura:
+      valor: ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT",
+              "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE", "GB"]
+      unidad: iso2_lista
+      hipotesis: true
+      fuente: "developers.facebook.com/docs/graph-api/reference/ads_archive/ (nota de ad_reached_countries), 2026-11-06"
+      ultima_calibracion: null
+      rango: null

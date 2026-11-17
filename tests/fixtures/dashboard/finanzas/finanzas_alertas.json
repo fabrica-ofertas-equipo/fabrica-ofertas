@@ -1,0 +1,427 @@
+{
+ "ledger": [
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "stripe:cs_live_a1",
+   "tipo": "pedido",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-12",
+   "ts": "2026-11-12T10:00:00Z",
+   "sentido": "entrada",
+   "importe": {
+    "monto": 1990,
+    "moneda": "EUR"
+   },
+   "fuente": "stripe",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "stripe:cs_live_a2",
+   "tipo": "pedido",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-13",
+   "ts": "2026-11-13T10:00:00Z",
+   "sentido": "entrada",
+   "importe": {
+    "monto": 2069,
+    "moneda": "EUR"
+   },
+   "fuente": "stripe",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "stripe:cs_test_zz",
+   "tipo": "pedido",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-13",
+   "ts": "2026-11-13T10:00:00Z",
+   "sentido": "entrada",
+   "importe": {
+    "monto": 1990,
+    "moneda": "EUR"
+   },
+   "fuente": "stripe",
+   "es_prueba": true
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "meta:ad_120000000000003_20261112",
+   "tipo": "gasto",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-12",
+   "ts": "2026-11-12T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 2760,
+    "moneda": "EUR"
+   },
+   "fuente": "meta",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "meta:ad_120000000000003_20261113",
+   "tipo": "gasto",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-13",
+   "ts": "2026-11-13T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 3000,
+    "moneda": "EUR"
+   },
+   "fuente": "meta",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "meta:ad_120000000000003_20261113",
+   "tipo": "gasto",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-13",
+   "ts": "2026-11-14T03:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 3050,
+    "moneda": "EUR"
+   },
+   "fuente": "meta",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "costos:RUN-20261106-01:D1",
+   "tipo": "costo",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-06",
+   "ts": "2026-11-06T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 180,
+    "moneda": "EUR"
+   },
+   "fuente": "costos",
+   "es_prueba": false
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "costos:RUN-20261106-01:D4",
+   "tipo": "costo",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-07",
+   "ts": "2026-11-07T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 232,
+    "moneda": "EUR"
+   },
+   "fuente": "costos",
+   "es_prueba": false
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "stripe:re_live_b1",
+   "tipo": "reembolso",
+   "oferta_id": "OF-202611-01",
+   "fecha": "2026-11-14",
+   "ts": "2026-11-14T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 1990,
+    "moneda": "EUR"
+   },
+   "fuente": "stripe",
+   "es_prueba": false,
+   "adid": "120000000000003"
+  },
+  {
+   "schema_version": "1.0.0",
+   "clave_natural": "costos:empresa-herramienta-nov",
+   "tipo": "costo",
+   "oferta_id": "empresa",
+   "fecha": "2026-11-01",
+   "ts": "2026-11-01T10:00:00Z",
+   "sentido": "salida",
+   "importe": {
+    "monto": 500,
+    "moneda": "EUR"
+   },
+   "fuente": "costos",
+   "es_prueba": false
+  },
+  {
+   "clave_natural": "mala",
+   "tipo": "raro"
+  }
+ ],
+ "pnl": {
+  "schema_version": "1.0.0",
+  "generado_en": "2026-11-21T03:30:00Z",
+  "periodo": {
+   "desde": "2026-11-10",
+   "hasta": "2026-11-20"
+  },
+  "vista": "devengado",
+  "moneda_base": "EUR",
+  "fx_ref": null,
+  "por_oferta": [
+   {
+    "oferta_id": "OF-202611-01",
+    "bloque": {
+     "lineas": {
+      "ingresos_brutos": {
+       "monto": 24828,
+       "moneda": "EUR"
+      },
+      "impuestos": {
+       "monto": 0,
+       "moneda": "EUR"
+      },
+      "reembolsos": {
+       "monto": 1990,
+       "moneda": "EUR"
+      },
+      "comisiones": {
+       "monto": 670,
+       "moneda": "EUR"
+      },
+      "tarifas_disputa": {
+       "monto": 0,
+       "moneda": "EUR"
+      },
+      "disputas_perdidas": {
+       "monto": 0,
+       "moneda": "EUR"
+      },
+      "gasto_meta": {
+       "monto": 27600,
+       "moneda": "EUR"
+      },
+      "costo_ia": {
+       "monto": 412,
+       "moneda": "EUR"
+      },
+      "otros_costos": {
+       "monto": 0,
+       "moneda": "EUR"
+      }
+     },
+     "resultado_operativo": {
+      "monto": -5844,
+      "moneda": "EUR"
+     },
+     "kpis": {
+      "pedidos": 12,
+      "aov": {
+       "monto": 2069,
+       "moneda": "EUR"
+      },
+      "mc": null,
+      "cpa": {
+       "monto": 2300,
+       "moneda": "EUR"
+      },
+      "roas_neto": "0.85",
+      "mer": "0.90"
+     },
+     "madurez": "provisional"
+    }
+   }
+  ],
+  "consolidado": {
+   "lineas": {
+    "ingresos_brutos": {
+     "monto": 24828,
+     "moneda": "EUR"
+    },
+    "impuestos": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "reembolsos": {
+     "monto": 1990,
+     "moneda": "EUR"
+    },
+    "comisiones": {
+     "monto": 670,
+     "moneda": "EUR"
+    },
+    "tarifas_disputa": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "disputas_perdidas": {
+     "monto": 0,
+     "moneda": "EUR"
+    },
+    "gasto_meta": {
+     "monto": 27600,
+     "moneda": "EUR"
+    },
+    "costo_ia": {
+     "monto": 412,
+     "moneda": "EUR"
+    },
+    "otros_costos": {
+     "monto": 0,
+     "moneda": "EUR"
+    }
+   },
+   "resultado_operativo": {
+    "monto": -5844,
+    "moneda": "EUR"
+   },
+   "kpis": {
+    "pedidos": 12,
+    "aov": {
+     "monto": 2069,
+     "moneda": "EUR"
+    },
+    "mc": null,
+    "cpa": {
+     "monto": 2300,
+     "moneda": "EUR"
+    },
+    "roas_neto": "0.85",
+    "mer": "0.90"
+   },
+   "madurez": "provisional"
+  },
+  "frescura": {
+   "datos_hasta": "2026-11-21T02:00:00Z",
+   "estado": "ok"
+  }
+ },
+ "conciliacion": {
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "periodo": {
+   "desde": "2026-11-10",
+   "hasta": "2026-11-20"
+  },
+  "generado_en": "2026-11-17T06:00:00Z",
+  "moneda": "EUR",
+  "stripe_vs_ledger": {
+   "izquierda": {
+    "monto": 19900,
+    "moneda": "EUR"
+   },
+   "derecha": {
+    "monto": 19900,
+    "moneda": "EUR"
+   },
+   "diferencia": {
+    "monto": 0,
+    "moneda": "EUR"
+   }
+  },
+  "gasto_meta_vs_ledger": {
+   "izquierda": {
+    "monto": 19320,
+    "moneda": "EUR"
+   },
+   "derecha": {
+    "monto": 19320,
+    "moneda": "EUR"
+   },
+   "diferencia": {
+    "monto": 0,
+    "moneda": "EUR"
+   }
+  },
+  "compras": {
+   "meta": 10,
+   "stripe": 10,
+   "razon_meta_stripe": "1.00"
+  },
+  "cobertura_adid_bp": 9800,
+  "excluidos": {
+   "pruebas": 1,
+   "internas": 0
+  },
+  "pendientes_asincronos": 0,
+  "estado": "CONCILIADO",
+  "cifras_tachadas": false
+ },
+ "alertas": [
+  {
+   "id": "F1-A02:OF-202611-01:7d",
+   "ts": "2026-11-14T08:00:00Z",
+   "severidad": "naranja",
+   "regla_id": "F1-A02",
+   "origen": "F1",
+   "oferta_id": "OF-202611-01",
+   "macro_nicho": "dinero",
+   "nivel": "verde",
+   "valor": {
+    "monto": 21000,
+    "moneda": "EUR"
+   },
+   "umbral": {
+    "monto": 15000,
+    "moneda": "EUR"
+   },
+   "accion_sugerida": "Pausar la oferta OF-202611-01 y revisar la pérdida del test",
+   "estado": "abierta",
+   "schema_version": "1.0.0"
+  },
+  {
+   "id": "F1-A01:OF-202611-01:24h",
+   "ts": "2026-11-14T06:00:00Z",
+   "severidad": "roja",
+   "regla_id": "F1-A01",
+   "origen": "F1",
+   "oferta_id": "OF-202611-01",
+   "macro_nicho": null,
+   "nivel": null,
+   "valor": {
+    "monto": 5200,
+    "moneda": "EUR"
+   },
+   "umbral": {
+    "monto": 5000,
+    "moneda": "EUR"
+   },
+   "accion_sugerida": "Gasto diario sobre el tope: revisar con el dueño",
+   "estado": "reconocida",
+   "schema_version": "1.0.0"
+  },
+  {
+   "id": "F1-A05:empresa:7d",
+   "ts": "2026-11-13T06:00:00Z",
+   "severidad": "amarilla",
+   "regla_id": "F1-A05",
+   "origen": "F1",
+   "oferta_id": null,
+   "macro_nicho": null,
+   "nivel": null,
+   "valor": "4",
+   "umbral": null,
+   "accion_sugerida": "Fijar el umbral de caja en los parámetros",
+   "estado": "abierta",
+   "schema_version": "1.0.0"
+  },
+  {
+   "id": "F2-A03:empresa:1d",
+   "ts": "2026-11-12T06:00:00Z",
+   "severidad": "info",
+   "regla_id": "F2-A03",
+   "origen": "F2",
+   "oferta_id": null,
+   "macro_nicho": null,
+   "nivel": null,
+   "valor": "1",
+   "umbral": "2",
+   "accion_sugerida": "Sin acción: volvió al rango",
+   "estado": "cerrada",
+   "schema_version": "1.0.0"
+  }
+ ]
+}

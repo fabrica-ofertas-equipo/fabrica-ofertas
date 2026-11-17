@@ -1,0 +1,19 @@
+{
+  "estado": {},
+  "etapas": [
+    {
+      "id": "D5",
+      "nombre": "Landing",
+      "estado": "aprobado",
+      "ronda_qa": 2,
+      "intentos": 2,
+      "qa": [
+        {
+          "archivo": "qa/d5-v1.json",
+          "veredicto": "PASS_CON_NOTAS",
+          "resumen": "4 hallazgos menores"
+        }
+      ]
+    }
+  ]
+}

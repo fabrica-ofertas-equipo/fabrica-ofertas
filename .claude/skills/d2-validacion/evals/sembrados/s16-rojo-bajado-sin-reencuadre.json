@@ -1,0 +1,43 @@
+{
+  "id": "S16",
+  "severidad": "BLOQUEANTE",
+  "defecto": "El riesgo heredado de D1 es amarillo-b y D2 lo da por verde sin reencuadre verificable ni dictamen de X1.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "riesgo.heredado",
+      "valor": {
+        "P": "verde",
+        "C": "amarillo",
+        "E": "verde",
+        "N": "amarillo",
+        "nivel": "amarillo",
+        "subnivel": "B"
+      }
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D10",
+        "patron_clave": "nivel-de-riesgo-bajado",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R7"
+    ],
+    "debe_citar": "riesgo"
+  },
+  "detecta_script": "metricas.py (sale con código 3: «BAJA el nivel heredado»)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

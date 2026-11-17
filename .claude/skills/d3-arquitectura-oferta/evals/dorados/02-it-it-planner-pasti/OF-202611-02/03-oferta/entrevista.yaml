@@ -1,0 +1,12 @@
+# Entrevista OPCIONAL del dueño: solo lo que aportó, con su origen. Sin preguntas bloqueantes: lo que falta toma el valor por defecto.
+credencial_honesta: ninguna        # default: ninguna
+casos_previos_n: 0                 # default: 0 -> ni cifras de personas ni testimonios
+capacidad_demo: null
+vetos_dueno: []
+insight_propio: null
+origen:                            # dueno | default (nunca inventado)
+  credencial_honesta: default
+  casos_previos_n: default
+  capacidad_demo: default
+  vetos_dueno: default
+  insight_propio: default

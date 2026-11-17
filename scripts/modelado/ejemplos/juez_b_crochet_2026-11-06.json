@@ -1,0 +1,85 @@
+{
+  "schema_version": "2.0.0",
+  "juez": "B",
+  "ofertas": [
+    {
+      "modelo_id": "crea-y-emprende-crochet-es",
+      "puertas": {
+        "marca_personal": {
+          "valor": false,
+          "evidencia": "© 2026 Academia Creadora"
+        },
+        "sustituto_gratis_cubre": {
+          "valor": false,
+          "evidencia": "Buscas de video en video. Y nadie lo explica completo."
+        },
+        "practica_vetada": {
+          "valor": false,
+          "evidencia": "Producto digital con patrones de crochet y macramé. No incluye piezas físicas ni materiales."
+        }
+      },
+      "reencuadres": [
+        {
+          "id": "lista_a_sistema",
+          "evidencia": "Más de 100 patrones navideños en crochet y macramé, ordenados en 10 carpetas"
+        },
+        {
+          "id": "cambio_de_unidad",
+          "evidencia": "Ramos para Armar 26 ramos con su mapa: de novia, con restos de hilo, para regalar…"
+        },
+        {
+          "id": "subnicho_x_obstaculo",
+          "evidencia": "Sabes tejer crochet, pero nunca hiciste una flor y te da miedo empezar y que no te salga."
+        }
+      ],
+      "mercados": [
+        {
+          "mercado": "PL",
+          "transferibilidad": {
+            "dolor_universal": {
+              "valor": "0.8",
+              "evidencia": "patrones navideños en crochet y macramé para decorar, regalar o vender"
+            },
+            "viabilidad_ticket": {
+              "valor": "0.7",
+              "evidencia": "Antes AR$ 147.000 AR$ 19.990 pago único"
+            },
+            "riesgo_politicas": {
+              "valor": "0.7",
+              "evidencia": "En un finde vendí casi 300 mil pesos en adornos navideños que tejí en mi casa"
+            }
+          },
+          "reencuadres_mercado": [
+            {
+              "id": "localizacion_cultural",
+              "evidencia": "¿Y si en mi país los puntos tienen otro nombre?"
+            }
+          ]
+        },
+        {
+          "mercado": "PT",
+          "transferibilidad": {
+            "dolor_universal": {
+              "valor": "0.8",
+              "evidencia": "Quieres regalar algo que no se compra en ningún lado"
+            },
+            "viabilidad_ticket": {
+              "valor": "0.7",
+              "evidencia": "Hoy pagas solo $19.990"
+            },
+            "riesgo_politicas": {
+              "valor": "0.7",
+              "evidencia": "Teje, arma y vende tus primeros ramos en 7 días"
+            }
+          },
+          "reencuadres_mercado": [
+            {
+              "id": "localizacion_cultural",
+              "evidencia": "Tu pesebre, tejido con tus manos. El nacimiento es el corazón de la Navidad."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

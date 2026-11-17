@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/brief.schema.json",
+  "title": "Brief de la oferta",
+  "description": "Brief de oferta firmado por el dueño; el hash cubre todo salvo `hash` y `aprobado_por`. 1.1.0: presupuesto.test_total/test_diario pasan a test_total_max/test_diario_max (TECHOS, no el plan: el plan real sale de economia.gasto_test_plan y se exige plan <= techo). Ruptura aplicada como MINOR por la política de preproducción (docs/contratos.md 8): no existe ningún brief firmado fuera de ofertas/_ejemplo; desde el primer limites.yaml sellado toda ruptura es MAJOR.",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.([1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "description": "Versión SemVer del esquema (MAJOR 1, MINOR >= 1): una versión anterior debe migrarse (docs/contratos.md 8)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "familia_id": {
+      "$ref": "comunes.schema.json#/$defs/familia_id"
+    },
+    "slug": {
+      "$ref": "comunes.schema.json#/$defs/kebab"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "creado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "mercado_objetivo": {
+      "type": "object",
+      "properties": {
+        "locale": {
+          "$ref": "comunes.schema.json#/$defs/locale"
+        },
+        "paises_segmentacion": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/pais"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "moneda_cobro": {
+          "$ref": "comunes.schema.json#/$defs/moneda"
+        },
+        "es_hipotesis": {
+          "type": "boolean",
+          "description": "true: el mercado es una hipótesis a decidir con datos propios, no un prior"
+        }
+      },
+      "required": [
+        "locale",
+        "paises_segmentacion",
+        "moneda_cobro",
+        "es_hipotesis"
+      ],
+      "additionalProperties": false
+    },
+    "nichos": {
+      "type": "object",
+      "properties": {
+        "permitidos": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/macro_nicho"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "subnichos_prohibidos": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          }
+        }
+      },
+      "required": [
+        "permitidos",
+        "subnichos_prohibidos"
+      ],
+      "additionalProperties": false,
+      "description": "Solo restringe limites.yaml, nunca lo amplía"
+    },
+    "tema_semilla": {
+      "type": "string",
+      "minLength": 1
+    },
+    "precio_rango": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "max": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "min",
+        "max"
+      ],
+      "additionalProperties": false
+    },
+    "presupuesto": {
+      "type": "object",
+      "properties": {
+        "test_total_max": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+          "description": "Techo del gasto total del test; economia.gasto_test_plan y campana.presupuesto.total_test deben ser <= este techo y caber en limites.yaml"
+        },
+        "test_diario_max": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo",
+          "description": "Techo del gasto diario del test; campana.presupuesto.diario <= este techo y cabe en limites.yaml"
+        },
+        "ia_max": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "test_total_max",
+        "test_diario_max",
+        "ia_max"
+      ],
+      "additionalProperties": false,
+      "description": "Techos que el dueño acepta para el test (no el plan). Deben caber en limites.yaml; mismas monedas que moneda_limites o hará falta un tipo_cambio registrado"
+    },
+    "apetito_riesgo": {
+      "enum": [
+        "conservador",
+        "moderado",
+        "agresivo"
+      ]
+    },
+    "ventana_test_dias": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 30
+    },
+    "nivel_autonomia": {
+      "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+    },
+    "reembolso_dias": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "politica_ia_creativos": {
+      "enum": [
+        "declarar_siempre",
+        "declarar_si_corresponde",
+        "no_declarar_donde_legal"
+      ]
+    },
+    "cuenta_meta_id": {
+      "type": "string",
+      "pattern": "^act_[0-9]{5,20}$"
+    },
+    "dominio": {
+      "type": "string",
+      "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$"
+    },
+    "canal_alertas": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ventana_veto_min": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "supuestos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "[SUPUESTO] explícitos"
+    },
+    "hash": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "aprobado_por": {
+      "$ref": "comunes.schema.json#/$defs/firma_humana"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "familia_id",
+    "slug",
+    "version",
+    "origen_version",
+    "creado_en",
+    "mercado_objetivo",
+    "nichos",
+    "precio_rango",
+    "presupuesto",
+    "apetito_riesgo",
+    "ventana_test_dias",
+    "nivel_autonomia",
+    "reembolso_dias",
+    "politica_ia_creativos",
+    "cuenta_meta_id",
+    "dominio",
+    "canal_alertas",
+    "supuestos",
+    "hash",
+    "aprobado_por"
+  ],
+  "additionalProperties": false
+}

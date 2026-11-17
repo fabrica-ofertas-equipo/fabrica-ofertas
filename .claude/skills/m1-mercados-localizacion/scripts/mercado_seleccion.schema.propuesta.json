@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/mercado_seleccion.schema.propuesta.json",
+  "title": "Seleccion ampliada de mercado (PROPUESTA de M1; no es contrato)",
+  "description": "[PENDIENTE: lo construye S-A como contratos/mercado_seleccion.schema.json] departamentos/16 §3.3 dice que mercado.seleccion.json no tiene esquema. Esta propuesta fija los campos que los chequeos MQ de la skill necesitan. Dinero = {monto entero en unidad menor, moneda}; decimales = cadena; sin float. Cuando exista el esquema oficial, manda el oficial.",
+  "x-version": "0.1.0-propuesta",
+  "type": "object",
+  "required": ["schema_version", "oferta_id", "familia_id", "version", "origen_version", "fase_pagos", "decision_managed_payments",
+               "candidato", "parametros_usados", "ranking", "excluidos", "sensibilidad", "elegido", "precio_referencia",
+               "metodos_locales_recomendados", "carga_fiscal", "rama_managed_payments", "riesgos", "presupuesto_test_sugerido",
+               "pendientes_dueno", "evidencia_externa", "fuentes"],
+  "properties": {
+    "schema_version": {"const": "0.1.0-propuesta"},
+    "oferta_id": {"type": "string", "pattern": "^OF-[0-9]{6}-[0-9]{2}$"},
+    "familia_id": {"type": "string", "pattern": "^FAM-[0-9]{6}-[0-9]{2}$"},
+    "version": {"type": "string", "pattern": "^v[1-9][0-9]*$"},
+    "origen_version": {"enum": ["maker", "qa", "humano"]},
+    "fase_pagos": {"enum": ["estandar_tarjeta_billeteras", "con_locales"]},
+    "decision_managed_payments": {"enum": ["no_decidido", "si", "no"]},
+    "candidato": {"type": "object", "required": ["candidato_id", "macro_nicho", "nivel"], "properties": {
+      "candidato_id": {"type": "string"}, "macro_nicho": {"enum": ["salud", "relaciones", "dinero"]},
+      "nivel": {"enum": ["verde", "amarillo-a", "amarillo-b"]}, "etiquetas": {"type": "array", "items": {"type": "string"}}}},
+    "parametros_usados": {"type": "object", "required": ["pesos", "peso_ajuste_creadores", "ctr_enlace", "mult_cpm_efectivo", "neto_completo", "origen"], "properties": {
+      "pesos": {"type": "object"}, "peso_ajuste_creadores": {"const": 0}, "ctr_enlace": {"type": "string"},
+      "mult_cpm_efectivo": {"type": "string"}, "cpm_vencido": {"type": "boolean"}, "neto_completo": {"const": true},
+      "reembolso_bp": {"type": "integer"}, "disputa_bp": {"type": "integer"}, "stripe_tax": {"type": "string"},
+      "clics_min_decidir_mercado": {"type": "integer"}, "origen": {"type": "string"}}},
+    "ranking": {"type": "array", "maxItems": 5, "items": {"type": "object", "required": ["posicion", "pais", "locale", "moneda_cobro", "total", "puntajes", "cobertura", "banderas"], "properties": {
+      "posicion": {"type": "integer", "minimum": 1}, "pais": {"type": "string", "pattern": "^[A-Z]{2}$"}, "locale": {"type": "string"},
+      "moneda_cobro": {"type": "string"}, "total": {"type": "string"}, "puntajes": {"type": "object"}, "r": {"type": "string"}, "r_b": {"type": "string"},
+      "cobertura": {"type": "object", "required": ["fase_vigente_pct", "estandar_pct", "con_locales_pct", "valor_desbloqueo_pp", "hueco_paypal_pp", "suman"]},
+      "tarifa_meta_bp": {"type": "integer"}, "banderas": {"type": "array", "items": {"type": "string"}},
+      "desempate_por": {"enum": [null, "menor_carga_fiscal", "base_sin_ajuste"]}, "ficha_ref": {"type": "string"}}}},
+    "excluidos": {"type": "array", "items": {"type": "object", "required": ["pais", "regla", "motivo"], "properties": {
+      "pais": {"type": "string"}, "locale": {"type": "string"}, "regla": {"enum": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10"]}, "motivo": {"type": "string"}, "reabre_con": {"type": "string"}}}},
+    "sensibilidad": {"type": "object", "required": ["escenarios", "elegido_sigue_en_top3"], "properties": {
+      "escenarios": {"type": "array", "items": {"type": "object", "required": ["escenario", "top3"]}}, "elegido_sigue_en_top3": {"type": ["boolean", "null"]}}},
+    "elegido": {"type": "object", "required": ["locale", "paises", "moneda_cobro", "motivo", "alternativas"], "properties": {
+      "locale": {"type": "string"}, "paises": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "moneda_cobro": {"type": "string"},
+      "motivo": {"type": "string"}, "alternativas": {"type": "array", "maxItems": 2}, "exploracion": {"type": ["object", "null"]},
+      "n_mercados_test": {"type": "integer", "minimum": 1}}},
+    "precio_referencia": {"type": "array", "items": {"type": "object", "required": ["moneda", "min", "max", "fija"], "properties": {
+      "moneda": {"type": "string"}, "min": {"type": "object"}, "max": {"type": "object"}, "fija": {"const": "D3"}}}},
+    "metodos_locales_recomendados": {"type": "array", "items": {"type": "object", "required": ["metodo", "pais", "moneda_requerida", "valor_desbloqueo_pp", "requiere"], "properties": {
+      "metodo": {"type": "string"}, "pais": {"type": "string"}, "moneda_requerida": {"type": "string"}, "valor_desbloqueo_pp": {"type": "string"}, "requiere": {"type": "array", "items": {"type": "string"}}}}},
+    "carga_fiscal": {"type": "object", "required": ["regimen_propuesto", "paises"], "properties": {
+      "regimen_propuesto": {"enum": ["diferido", "stripe_tax", "merchant_of_record", "otro"]},
+      "paises": {"type": "array", "items": {"type": "object", "required": ["pais", "tasa_bp", "desde_primera_venta"]}}}},
+    "rama_managed_payments": {"type": "object", "required": ["si", "no"], "properties": {
+      "si": {"type": "object", "required": ["pago_pct", "delta_neto", "fisc", "r8_aplica"]}, "no": {"type": "object", "required": ["pago_pct", "delta_neto", "fisc", "r8_aplica"]},
+      "rama_estandar_resta_metodos": {"type": "boolean"}}},
+    "riesgos": {"type": "array", "items": {"type": "object", "required": ["id", "descripcion", "mitigacion"]}},
+    "presupuesto_test_sugerido": {"type": "object", "required": ["mercados", "clics_por_mercado", "cpc_central", "por_mercado", "total", "etiqueta", "limites_pendientes"], "properties": {
+      "mercados": {"type": "integer", "minimum": 1}, "clics_por_mercado": {"type": "integer", "minimum": 0},
+      "cpc_central": {"type": "object"}, "cpc_incluye_f_meta_una_vez": {"const": true}, "por_mercado": {"type": "object"}, "total": {"type": "object"},
+      "tope_limites": {"type": ["object", "null"]}, "limites_pendientes": {"type": "array", "items": {"type": "string"}},
+      "etiqueta": {"enum": ["decide_mercado", "senal_de_proceso"]}}},
+    "pendientes_dueno": {"type": "array", "items": {"type": "string"}},
+    "evidencia_externa": {"type": "object", "required": ["creadores"], "properties": {
+      "creadores": {"type": "object", "required": ["peso_en_decision"], "properties": {"peso_en_decision": {"const": 0}}},
+      "barrido": {"type": ["object", "null"]}}},
+    "matriz_ref": {"type": "object", "properties": {"archivo": {"type": "string"}, "sha256": {"type": ["string", "null"]}, "estado": {"type": "string"}}},
+    "contradicciones": {"type": "array", "items": {"type": "string"}},
+    "fuentes": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

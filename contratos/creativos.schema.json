@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/creativos.schema.json",
+  "title": "Paquete de creativos",
+  "description": "Paquete de creativos aprobado por QA y por X1 (D6)",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "estado": {
+      "enum": [
+        "borrador",
+        "listo_para_d7"
+      ]
+    },
+    "qa_ref": {
+      "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+    },
+    "x1_ref": {
+      "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+    },
+    "destino": {
+      "type": "object",
+      "properties": {
+        "url_base": {
+          "$ref": "comunes.schema.json#/$defs/url"
+        },
+        "plantilla_utm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "landing_hash": {
+          "$ref": "comunes.schema.json#/$defs/sha256"
+        },
+        "precio": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "url_base",
+        "plantilla_utm",
+        "landing_hash",
+        "precio"
+      ],
+      "additionalProperties": false
+    },
+    "politicas": {
+      "type": "object",
+      "properties": {
+        "meta_enhancements": {
+          "type": "object",
+          "properties": {
+            "generacion_texto": {
+              "const": false
+            },
+            "mejoras_creativas": {
+              "const": false
+            }
+          },
+          "required": [
+            "generacion_texto",
+            "mejoras_creativas"
+          ],
+          "additionalProperties": false,
+          "description": "Mejoras automáticas de Meta apagadas"
+        },
+        "divulgacion_ia": {
+          "enum": [
+            "declarar_siempre",
+            "declarar_si_corresponde",
+            "no_declarar_donde_legal"
+          ]
+        }
+      },
+      "required": [
+        "meta_enhancements",
+        "divulgacion_ia"
+      ],
+      "additionalProperties": false
+    },
+    "conceptos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concepto_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "angulo_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "nivel_conciencia": {
+            "enum": [
+              "N1",
+              "N2",
+              "N3",
+              "N4",
+              "N5"
+            ]
+          },
+          "hipotesis": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Qué se aprende"
+          },
+          "fuentes_inspiracion": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 3
+          }
+        },
+        "required": [
+          "concepto_id",
+          "angulo_id",
+          "nivel_conciencia",
+          "hipotesis",
+          "fuentes_inspiracion"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 3
+    },
+    "anuncios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ad_name": {
+            "$ref": "comunes.schema.json#/$defs/nombre_meta_anuncio"
+          },
+          "concepto_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "formato": {
+            "enum": [
+              "imagen",
+              "video",
+              "carrusel"
+            ]
+          },
+          "hook_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "hook_tipo": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "v": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "copy": {
+            "type": "object",
+            "properties": {
+              "texto_principal": {
+                "type": "string",
+                "minLength": 1
+              },
+              "titular": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "descripcion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "cta": {
+                "enum": [
+                  "LEARN_MORE",
+                  "SHOP_NOW",
+                  "DOWNLOAD",
+                  "GET_OFFER",
+                  "SIGN_UP"
+                ]
+              },
+              "idioma": {
+                "$ref": "comunes.schema.json#/$defs/locale"
+              }
+            },
+            "required": [
+              "texto_principal",
+              "titular",
+              "descripcion",
+              "cta",
+              "idioma"
+            ],
+            "additionalProperties": false
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "archivo": {
+                  "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+                },
+                "ratio": {
+                  "enum": [
+                    "1:1",
+                    "4:5",
+                    "9:16",
+                    "16:9",
+                    "3:4"
+                  ],
+                  "description": "Relación de aspecto (Higgsfield no ofrece 4:5)"
+                },
+                "sha256": {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                "herramienta": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "modelo": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "job_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "ia_generado": {
+                  "type": "boolean"
+                },
+                "c2pa_origen": {
+                  "enum": [
+                    "si",
+                    "no",
+                    "n.a."
+                  ]
+                },
+                "c2pa_final": {
+                  "enum": [
+                    "si",
+                    "no"
+                  ]
+                },
+                "etiqueta_ia_visible": {
+                  "type": "boolean"
+                },
+                "copy_hash": {
+                  "anyOf": [
+                    {
+                      "$ref": "comunes.schema.json#/$defs/sha256"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "licencia_ref": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "costo_creditos": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "archivo",
+                "ratio",
+                "sha256",
+                "herramienta",
+                "modelo",
+                "job_id",
+                "ia_generado",
+                "c2pa_origen",
+                "c2pa_final",
+                "etiqueta_ia_visible",
+                "copy_hash",
+                "licencia_ref",
+                "costo_creditos"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "comunes.schema.json#/$defs/kebab"
+            }
+          },
+          "lint_x1": {
+            "enum": [
+              "PASS",
+              "PASS_CON_NOTAS",
+              "FAIL"
+            ]
+          },
+          "virality": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "costo_creditos": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "ad_name",
+          "concepto_id",
+          "formato",
+          "hook_id",
+          "hook_tipo",
+          "v",
+          "copy",
+          "assets",
+          "claim_ids",
+          "lint_x1",
+          "virality",
+          "costo_creditos"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 3
+    },
+    "reserva": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "concepto_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "guion_ref": {
+            "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+          },
+          "copy": {
+            "type": "object",
+            "properties": {
+              "texto_principal": {
+                "type": "string",
+                "minLength": 1
+              },
+              "titular": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "descripcion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 30
+              },
+              "cta": {
+                "enum": [
+                  "LEARN_MORE",
+                  "SHOP_NOW",
+                  "DOWNLOAD",
+                  "GET_OFFER",
+                  "SIGN_UP"
+                ]
+              },
+              "idioma": {
+                "$ref": "comunes.schema.json#/$defs/locale"
+              }
+            },
+            "required": [
+              "texto_principal",
+              "titular",
+              "descripcion",
+              "cta",
+              "idioma"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "concepto_id",
+          "guion_ref",
+          "copy"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Guiones aprobados sin assets"
+    },
+    "costo_total_creditos": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pedidos_atendidos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "estado",
+    "qa_ref",
+    "x1_ref",
+    "destino",
+    "politicas",
+    "conceptos",
+    "anuncios",
+    "reserva",
+    "costo_total_creditos",
+    "pedidos_atendidos"
+  ],
+  "additionalProperties": false
+}

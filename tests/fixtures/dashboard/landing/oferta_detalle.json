@@ -1,0 +1,89 @@
+{
+ "estado": {
+  "oferta_id": "OF-202611-01"
+ },
+ "etapas": [
+  {
+   "id": "D5",
+   "nombre": "Landing, checkout y tracking",
+   "estado": "aprobado",
+   "version": "v1",
+   "gate": "H",
+   "gate_pendiente": false,
+   "ronda_qa": 1,
+   "intentos": 1,
+   "hash": "sha256:b3acb68bce7768d4f51831bfb433d760ed0083b5fee363c0f5c61fed2f6a4023",
+   "aprobado_por": {
+    "tipo": "humano",
+    "id": "dueno",
+    "fecha": "2026-11-08T11:00:00Z"
+   },
+   "bloqueo": null,
+   "obsoleta": false,
+   "artefactos": [
+    {
+     "ruta": "05-landing/checkout.json",
+     "tipo": "json",
+     "bytes": 1500,
+     "mtime": "2026-11-08T10:00:00Z"
+    },
+    {
+     "ruta": "05-landing/sitio/index.html",
+     "tipo": "html",
+     "bytes": 4000,
+     "mtime": "2026-11-08T10:00:00Z"
+    },
+    {
+     "ruta": "05-landing/sitio/legal/vendedor.html",
+     "tipo": "html",
+     "bytes": 900,
+     "mtime": "2026-11-08T10:00:00Z"
+    },
+    {
+     "ruta": "05-landing/sitio/legal/terminos.html",
+     "tipo": "html",
+     "bytes": 900,
+     "mtime": "2026-11-08T10:00:00Z"
+    }
+   ],
+   "qa": [
+    {
+     "archivo": "qa/d5-v1.json",
+     "veredicto": "FAIL",
+     "resumen": "x"
+    },
+    {
+     "archivo": "qa/d5-v2.json",
+     "veredicto": "PASS",
+     "resumen": "y"
+    },
+    {
+     "archivo": "qa/x1-d5-v1.json",
+     "veredicto": "PASS",
+     "resumen": "z"
+    },
+    {
+     "archivo": "qa/x1-d5-v10.json",
+     "veredicto": "PASS",
+     "resumen": "z"
+    },
+    {
+     "archivo": "qa/d6-v1.json",
+     "veredicto": "PASS",
+     "resumen": "otro"
+    }
+   ]
+  },
+  {
+   "id": "D6",
+   "estado": "aprobado"
+  },
+  {
+   "id": "D7",
+   "estado": "en_QA",
+   "gate": "H",
+   "gate_pendiente": true
+  }
+ ],
+ "proximo_paso": null
+}

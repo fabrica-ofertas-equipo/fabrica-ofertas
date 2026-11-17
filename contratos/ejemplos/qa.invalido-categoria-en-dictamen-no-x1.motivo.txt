@@ -1,0 +1,3 @@
+validador=not
+ruta=
+texto=categoria_especial_requerida existe solo en el dictamen de X1 (etapa = X1) y desde 1.1.0

@@ -1,0 +1,1 @@
+{"schema_version": "1.0.0", "ts": "2026-11-06T12:00:00Z", "oferta_id": "OF-202611-01", "etapa": "D6", "ejecucion_id": "RUN-20261106-D6-01", "origen": "creditos", "concepto": "generate_video c01-hueco_vid_h1_v1 cotizado=0 job=pendiente (EJEMPLO: una línea por pieza, escrita ANTES de enviarla)", "monto": {"monto": 0, "moneda": "EUR"}, "tokens": null, "creditos": 0}

@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-02",
+  "familia_id": "FAM-202611-02",
+  "variante_de": null,
+  "version": "v1",
+  "origen_version": "maker",
+  "slug": "karty-do-rozmow-dla-par",
+  "marca": {
+    "nombre": "Rozmowy Przy Stole",
+    "dominio": "rozmowyprzystole.example"
+  },
+  "candidato_ref": {
+    "candidato_id": "CAND-02",
+    "problema_id": "PRB-202611-0012"
+  },
+  "macro_nicho": "relaciones",
+  "locale": "pl-PL",
+  "paises_segmentacion": [
+    "PL"
+  ],
+  "moneda": "PLN",
+  "riesgo": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": false,
+      "nivel_original": "verde",
+      "descripcion": "Sin reencuadre: el producto son preguntas para imprimir, sin estado ni atributo del lector."
+    },
+    "fuentes": [
+      "docs/_investigacion/22d-stripe-restricciones-salud-relaciones-dinero.md"
+    ],
+    "categoria": "Relaciones: material educativo, no terapia",
+    "claims_a_evitar": [
+      "poprawi waszą relację",
+      "terapia",
+      "diagnoza"
+    ],
+    "angulo_seguro": "Herramienta práctica: una pregunta por noche para empezar la conversación."
+  },
+  "requiere_gate_humano_legal": false,
+  "cliente_ideal": "Pary, które mieszkają razem i chcą mieć stały pomysł na rozmowę",
+  "prueba_una_frase": "Dla par, które mieszkają razem i nie wiedzą, od czego zacząć rozmowę, karty to zestaw pytań do druku, który prowadzi od ciszy przy stole do rozmowy z początkiem.",
+  "mecanismo": {
+    "nombre": "Jedna karta, jedna rozmowa",
+    "como_funciona": "Każda karta ma jedno pytanie i krótką wskazówkę, jak je zadać; kolejność wybieracie wspólnie."
+  },
+  "promesa": {
+    "titulo": "Karty do rozmów dla par",
+    "subtitulo": "Zestaw kart z pytaniami do druku, które porządkują początek rozmowy",
+    "tiempo_prometido_min": 20,
+    "claims_permitidos": [
+      {
+        "claim_id": "zestaw-kart",
+        "texto": "Zestaw kart z pytaniami do druku",
+        "evidencia_ref": "04-producto/producto.json"
+      },
+      {
+        "claim_id": "czas-20-min",
+        "texto": "Jedna rozmowa to około 20 minut",
+        "evidencia_ref": "04-producto/producto.json#tiempos"
+      }
+    ],
+    "claims_prohibidos": [
+      "poprawi waszą relację",
+      "terapia",
+      "gwarantowany efekt"
+    ]
+  },
+  "vehiculo": {
+    "formato": "pack",
+    "tiempo_consumo_min": 20,
+    "palabras_max": 3000
+  },
+  "entregables": [
+    {
+      "id": "karty",
+      "tipo": "karty do druku",
+      "cantidad": 36,
+      "formato": "PDF"
+    },
+    {
+      "id": "instrukcja",
+      "tipo": "instrukcja",
+      "cantidad": 1,
+      "formato": "PDF"
+    }
+  ],
+  "bonus": [],
+  "garantia": {
+    "tipo": "reembolso_incondicional",
+    "dias": 14,
+    "texto_visible": "Jeśli materiał Ci nie odpowiada, zwrócimy pieniądze w ciągu 14 dni. Bez pytań."
+  },
+  "urgencia": null,
+  "prueba": [
+    {
+      "tipo": "muestra",
+      "fuente": "04-producto/entregables/muestras/karta-przyklad.pdf",
+      "consentimiento_ref": null
+    },
+    {
+      "tipo": "logica_del_producto",
+      "fuente": "Każda karta ma jedno pytanie i jedną wskazówkę",
+      "consentimiento_ref": null
+    }
+  ],
+  "precio": {
+    "lista": {
+      "monto": 3900,
+      "moneda": "PLN"
+    },
+    "tax_behavior": "inclusive",
+    "anclaje": null
+  },
+  "bump": {
+    "id": "zeszyt-notatek",
+    "nombre": "Zeszyt do notatek po rozmowach",
+    "precio": {
+      "monto": 1900,
+      "moneda": "PLN"
+    },
+    "descripcion": "Strony do druku na notatki po każdej rozmowie"
+  },
+  "upsell": null,
+  "angulos": [
+    {
+      "angulo_id": "jedno-pytanie",
+      "nivel_conciencia": "N2",
+      "hook": "Jedno pytanie na wieczór wystarczy, by zacząć rozmowę",
+      "objecion": "Nie wiemy, od czego zacząć",
+      "prueba": "Karta pokazana na stronie",
+      "claims_ref": [
+        "zestaw-kart"
+      ],
+      "cita_voz_ref": "EV-01"
+    }
+  ],
+  "avatar": {
+    "quiere": [
+      "Rozmawiać spokojnie"
+    ],
+    "cree": [
+      "Że brakuje czasu"
+    ],
+    "siente": [
+      "Dystans przy stole"
+    ],
+    "lo_dice": [
+      "Nie wiem, jak zacząć"
+    ],
+    "objeciones": [
+      {
+        "texto": "Czy karty poprawią naszą relację?",
+        "respuesta_en": "faq",
+        "severidad": "alta"
+      }
+    ],
+    "vocabulario": [
+      "rozmowa",
+      "pytanie"
+    ]
+  },
+  "puntaje": {
+    "total": 74,
+    "dimension_min": 3
+  },
+  "supuestos": [
+    "[SUPUESTO] precios de prueba"
+  ],
+  "hipotesis_test": [
+    "Jedno pytanie convierte mejor"
+  ],
+  "aprobada_por_dueno": null
+}

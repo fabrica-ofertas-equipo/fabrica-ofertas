@@ -1,0 +1,19 @@
+{
+  "_nota": "extracto minimo",
+  "oferta_id": "OF-202611-02",
+  "macro_nicho": "salud",
+  "slug": "piano-pasti-settimanale",
+  "riesgo": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "categoria": "organizacion de comidas, sin claim de peso ni de salud",
+    "claims_a_evitar": [
+      "perdere peso",
+      "dieta per una condizione"
+    ],
+    "angulo_seguro": "organizzare i pasti della settimana"
+  }
+}

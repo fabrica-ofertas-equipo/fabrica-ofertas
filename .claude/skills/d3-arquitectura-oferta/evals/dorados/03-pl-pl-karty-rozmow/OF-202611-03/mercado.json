@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.1.0",
+  "oferta_id": "OF-202611-03",
+  "familia_id": "FAM-202611-03",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "pl-PL",
+  "paises_segmentacion": [
+    "PL"
+  ],
+  "moneda_cobro": "PLN",
+  "monedas_precio_adicionales": [],
+  "estado_decision": "hipotesis",
+  "evidencia_propia": {
+    "clics_enlace": 0,
+    "compras_stripe": 0,
+    "ofertas_probadas": 0
+  },
+  "cpm_esperado": {
+    "monto": 800,
+    "moneda": "PLN"
+  },
+  "cpm_fuente": "[SUPUESTO] CPM de PRÁCTICA elegido para que el caso sea alcanzable con los parámetros por defecto; no es una estimación de mercado. Caso 03: Polonia, solo tarjeta y billeteras (BLIK diferido); revisor nativo contratado [SUPUESTO].",
+  "metodos_pago": {
+    "fase": "estandar_tarjeta_billeteras",
+    "activos": [
+      "card",
+      "apple_pay",
+      "google_pay",
+      "link"
+    ],
+    "locales_diferidos": true
+  },
+  "fiscal": {
+    "regimen": "diferido",
+    "nota": "Régimen fiscal diferido por decisión del dueño (2026-11-06); diseño listo para Stripe Tax o MoR",
+    "exposicion_aceptada": {
+      "firmada_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-06T12:00:00Z",
+        "firma": "hmac-sha256:4edc400a5e28a8bb68cd88b020e80bd0b3abbca3bc51669432c1af113d6e60a9"
+      },
+      "paises": [
+        "PL"
+      ]
+    }
+  },
+  "consumo": {
+    "desistimiento_dias": 14,
+    "boton_arrepentimiento": true,
+    "consentimiento_cookies": true,
+    "ley_privacidad": "RODO"
+  },
+  "glosario_ref": null,
+  "revision_linguistica": {
+    "revisor_nativo": true,
+    "obligacion_legal_idioma": true,
+    "metodos": [
+      "retraduccion",
+      "segunda_lectura_otro_modelo",
+      "revision_humana_muestreo"
+    ]
+  },
+  "primer_lanzamiento_en_locale": true,
+  "requiere_gate_h": true,
+  "aprobado_por": null,
+  "fuentes": [
+    "docs/_investigacion/05-legal.md",
+    "[VERIFICAR] norma de consumo vigente en España"
+  ]
+}

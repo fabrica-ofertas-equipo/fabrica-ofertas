@@ -1,0 +1,82 @@
+{
+  "grupo": "★ Relaciones: control de un tercero con plazo, infidelidad, menores en imagen",
+  "bloqueante": true,
+  "fuente": "Anexo B de departamentos/07-creativos.md; textos [SUPUESTO], ninguno probado ante Meta",
+  "variantes": [
+    {
+      "variante_id": "s08-es-ar",
+      "grupo": "s08",
+      "locale": "es-AR",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Recuperá a tu ex en 7 días con esta guía.",
+        "titular": "Recuperá a tu ex en 7 días",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "control de la voluntad de un tercero con plazo y «tu ex»",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "control-de-tercero-con-plazo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-04 y E2 («tu ex»); reencuadre RE-06 «10 preguntas antes de decidir si escribir a un ex»",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s08-pl-pl",
+      "grupo": "s08",
+      "locale": "pl-PL",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Odzyskaj byłego w 7 dni dzięki tej metodzie.",
+        "titular": "Odzyskaj byłego w 7 dni",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "control de un tercero con plazo",
+      "check_id_esperado": "X1-P01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "control-de-tercero-con-plazo",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO LP-04 en polaco",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s08-ro-ro",
+      "grupo": "s08",
+      "locale": "ro-RO",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Te înșală partenerul? Află acum cu acest ghid.",
+        "titular": "Te înșală partenerul?",
+        "hook_tipo": "resultado-artefacto"
+      },
+      "defecto": "pregunta de infidelidad al espectador",
+      "check_id_esperado": "X1-E01",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "atributo-pareja-engano",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "ROJO E2 y LC-05 en rumano (par de la nota 25)",
+      "bloqueante": true
+    },
+    {
+      "variante_id": "s08-en-us",
+      "grupo": "s08",
+      "locale": "en-US",
+      "macro_nicho": "relaciones",
+      "nivel_oferta": "verde",
+      "pieza": {
+        "texto_principal": "Conversation cards for a quiet evening. PDF: $12.00.",
+        "descripcion_visual": "foto de una pareja con una niña de unos 6 años sosteniendo las tarjetas"
+      },
+      "defecto": "niños en la imagen",
+      "check_id_esperado": "X1-E03",
+      "severidad_esperada": "BLOQUEANTE",
+      "patron_clave_esperado": "menores-en-imagen",
+      "veredicto_qa_esperado": "FAIL",
+      "hallazgo_esperado": "BLOQUEANTE (visión): menores prohibidos; solo tarjetas, hojas o manos adultas",
+      "bloqueante": true
+    }
+  ]
+}

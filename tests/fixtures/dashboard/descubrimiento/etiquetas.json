@@ -1,0 +1,214 @@
+{
+ "schema_version": "1.0.0",
+ "corrida_id": "2026-11-06-a",
+ "generado_en": "2026-11-06T06:25:41Z",
+ "cobertura": {
+  "paginas_total": 724,
+  "etiquetadas": 694,
+  "indeterminadas": 205,
+  "en_disputa": 0,
+  "sin_etiquetar": 30,
+  "rechazadas": 0,
+  "avanzan_a_candidata": 641,
+  "tasa_etiquetadas": "0.9586",
+  "tasa_con_tema": "0.6754",
+  "lotes_total": 37,
+  "lotes_validados": 37,
+  "lotes_sin_salida": 0,
+  "lotes_salida_invalida": 0
+ },
+ "lotes": [
+  {
+   "lote_id": "lote-001",
+   "estado": "validada",
+   "paginas_en_entrada": 20,
+   "etiquetador": "etiquetador-01",
+   "aceptadas": 20,
+   "rechazadas": 0,
+   "motivo": null
+  },
+  {
+   "lote_id": "lote-002",
+   "estado": "validada",
+   "paginas_en_entrada": 20,
+   "etiquetador": "etiquetador-01",
+   "aceptadas": 19,
+   "rechazadas": 0,
+   "motivo": null
+  }
+ ],
+ "etiquetas": [
+  {
+   "page_id": "108605787440965",
+   "tema": "indeterminado",
+   "tema_slug": "indeterminado",
+   "publico": "indeterminado",
+   "formato": "otro",
+   "macro_nicho": null,
+   "macro_nicho_motivo": "",
+   "es_oferta_digital_pago_unico": null,
+   "confianza": "0.0",
+   "evidencia": [
+    {
+     "titulo": "Prima scrivevo io. Ora chiama lui"
+    }
+   ],
+   "senales_riesgo": [],
+   "avisos": [],
+   "lote_id": "lote-003",
+   "etiquetador": "etiquetador-01",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  },
+  {
+   "page_id": "100000000000008",
+   "tema": "indeterminado",
+   "tema_slug": "indeterminado",
+   "publico": "indeterminado",
+   "formato": "otro",
+   "macro_nicho": null,
+   "macro_nicho_motivo": "",
+   "es_oferta_digital_pago_unico": null,
+   "confianza": "0.0",
+   "evidencia": [
+    {
+     "titulo": "35 moldes para armar una ciudad"
+    },
+    {
+     "titulo": "La mente de los 6 mayores genios"
+    }
+   ],
+   "senales_riesgo": [],
+   "avisos": [],
+   "lote_id": "lote-003",
+   "etiquetador": "etiquetador-01",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  },
+  {
+   "page_id": "614770848385168",
+   "tema": "ganar dinero facturando con proyectos hechos con Cricut",
+   "tema_slug": "negocio-cricut",
+   "publico": "usuarios de máquinas Cricut",
+   "formato": "otro",
+   "macro_nicho": "dinero",
+   "macro_nicho_motivo": "El deseo central de los títulos es generar ingresos facturando con proyectos de Cricut.",
+   "es_oferta_digital_pago_unico": null,
+   "confianza": "0.8",
+   "evidencia": [
+    {
+     "titulo": "✂️ ¡Sácale provecho a tu Cricut y factura! 💸"
+    },
+    {
+     "titulo": "🎄 ¡Factura esta Navidad con tu Cricut! ✂️🎁"
+    }
+   ],
+   "senales_riesgo": [
+    "promesa_ingresos",
+    "urgencia_falsa"
+   ],
+   "avisos": [],
+   "lote_id": "lote-010",
+   "etiquetador": "etiquetador-02",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  },
+  {
+   "page_id": "1076938925508814",
+   "tema": "kit de lectura y comprensión para niños",
+   "tema_slug": "comprension-lectora",
+   "publico": "docentes y padres de niños",
+   "formato": "pack_recursos",
+   "macro_nicho": null,
+   "macro_nicho_motivo": "Material educativo.",
+   "es_oferta_digital_pago_unico": null,
+   "confianza": "0.8",
+   "evidencia": [
+    {
+     "titulo": "Il Maxi Kit di Lettura e Comprensione per Bambini! 📖✨"
+    }
+   ],
+   "senales_riesgo": [],
+   "avisos": [],
+   "lote_id": "lote-016",
+   "etiquetador": "etiquetador-03",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  },
+  {
+   "page_id": "1082096414994262",
+   "tema": "programación anual de clases de guitarra y batería",
+   "tema_slug": "planificacion-clases-musica",
+   "publico": "profesores de guitarra y batería",
+   "formato": "planificador",
+   "macro_nicho": null,
+   "macro_nicho_motivo": "Herramienta de trabajo para docentes de música.",
+   "es_oferta_digital_pago_unico": null,
+   "confianza": "0.8",
+   "evidencia": [
+    {
+     "titulo": "Insegni chitarra? Il tuo anno di lezioni, già pianificato"
+    },
+    {
+     "titulo": "🎸 Il tuo anno di lezioni di chitarra, già pianificato"
+    },
+    {
+     "titulo": "🥁 Il tuo anno di lezioni di batteria, già pianificato"
+    }
+   ],
+   "senales_riesgo": [],
+   "avisos": [],
+   "lote_id": "lote-016",
+   "etiquetador": "etiquetador-03",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  },
+  {
+   "page_id": "1150006728199098",
+   "tema": "actividades de comprensión de texto",
+   "tema_slug": "comprension-lectora",
+   "publico": "docentes y padres de estudiantes",
+   "formato": "fichas",
+   "macro_nicho": null,
+   "macro_nicho_motivo": "Material educativo.",
+   "es_oferta_digital_pago_unico": true,
+   "confianza": "0.7",
+   "evidencia": [
+    {
+     "titulo": "267+ attività di comprensione del testo"
+    }
+   ],
+   "senales_riesgo": [],
+   "avisos": [],
+   "lote_id": "lote-018",
+   "etiquetador": "etiquetador-03",
+   "lotes_coincidentes": [],
+   "lotes_sin_opinion": [],
+   "avanza_a_candidata": true
+  }
+ ],
+ "en_disputa": [],
+ "sin_etiquetar": [
+  {
+   "page_id": "103860795360953",
+   "page_name": "ivart3d",
+   "motivo": "sin_titulos"
+  },
+  {
+   "page_id": "110354208306883",
+   "page_name": "Pirulito de Cristal",
+   "motivo": "sin_titulos"
+  },
+  {
+   "page_id": "111010571366865",
+   "page_name": "PequeArca",
+   "motivo": "sin_titulos"
+  }
+ ],
+ "rechazadas": []
+}

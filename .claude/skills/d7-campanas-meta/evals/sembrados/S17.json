@@ -1,0 +1,65 @@
+{
+  "id": "S17",
+  "descripcion": "Conjunto con destino UE sin beneficiario ni pagador DSA",
+  "check_id": "C14",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "archivos_nuevos": [
+    {
+      "archivo": "07-campana/ids_meta.json",
+      "hash_de_campana": "hash_config",
+      "json": {
+        "schema_version": "1.0.0",
+        "oferta_id": "OF-202611-02",
+        "ad_account_id": "act_100000000000001",
+        "campaign_id": "120000000000001",
+        "adset_ids": [
+          "120000000000002"
+        ],
+        "ad_ids": [
+          "120000000000100",
+          "120000000000101",
+          "120000000000102",
+          "120000000000103",
+          "120000000000104",
+          "120000000000105"
+        ],
+        "creative_ids": [
+          "120000000000200",
+          "120000000000201",
+          "120000000000202",
+          "120000000000203",
+          "120000000000204",
+          "120000000000205"
+        ],
+        "creado_en": "2026-11-16T09:00:00Z"
+      }
+    },
+    {
+      "archivo": "07-campana/lanzamiento.log",
+      "lineas": [
+        {
+          "ts": "2026-11-16T09:01:00Z",
+          "tipo": "LECTURA_CONJUNTO",
+          "adset_id": "120000000000002",
+          "effective_status": "PAUSED"
+        }
+      ]
+    }
+  ],
+  "esperado": {
+    "check_id": "C14",
+    "codigo": "dsa_ausente",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C14",
+      "patron_clave": "dsa-ausente",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

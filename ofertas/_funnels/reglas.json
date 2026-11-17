@@ -1,0 +1,515 @@
+{
+ "_leeme": "Reglas del dueño en UN solo lugar (13-nov: «esto lo sabes tú mejor que nadie para ordenarlo y tener un sistema robusto y que no se confunda»). Todos los scripts leen sus números de aquí (escalar-oferta/scripts/reglas.py y dashboard/negocio.py). Para cambiar una regla: cambiar el valor aquí, la fecha en «cambios» y el texto de escalar-oferta/references/02-decidir.md. Nunca un número suelto en un script.",
+ "version": 1,
+ "lanzamiento": {
+  "precio_minimo_usd": 19,
+  "presupuesto_test_tickets": 3,
+  "inicio_hora_mercado": "00:00",
+  "por_dia": 2,
+  "max_en_test": 8,
+  "banco_minimo_para_lanzar": 1,
+  "banco_objetivo_listos": 3,
+  "rechazados": {
+   "_leeme": "Dueño 16-nov (reemplaza «con 5 o más rechazados no se activa»): un anuncio rechazado NO se reemplaza ni se corrige ni se prueba otra versión, ni a mano ni sola. Lo único que se hace es apelarlo una vez. Si la apelación se pierde, queda rechazado y listo. Una campaña sale si le queda al menos 1 anuncio no rechazado: en una de varios anuncios (1-1-10) sale igual con los que quedan; en una de un solo anuncio (pocket 1-1-1) con ese anuncio rechazado, esa campaña no sale. Lo decide control_previo.py.",
+   "apelar_veces": 1,
+   "reemplazar": false,
+   "aprobados_minimos": 1
+  },
+  "anuncios_minimos": 3,
+  "_leeme_anuncios_minimos": "anuncios_minimos = anuncios CARGADOS que pide la campaña (rechazados incluidos), salvo que la lectura traiga anuncios.previstos (pocket 1-1-1: 1). Los rechazos no cuentan contra este mínimo.",
+  "tolerancia_presupuesto": 0.05
+ },
+ "test": {
+  "corte_tickets": 1.5,
+  "aviso_cerca": 0.8,
+  "ticket": "producto completo (precio USD más alto del funnel)",
+  "segunda_oportunidad": {
+   "extra_tickets": 0.5,
+   "ctr_min_pct": 1.0,
+   "pagina_a_pago_min_pct": 8.0,
+   "checkouts_min": 3,
+   "solo_sin_ventas": true
+  },
+  "vuelta_rapida": {
+   "minutos": 15,
+   "tickets_antes_del_corte": 0.6,
+   "minutos_entre_completas": 52,
+   "_leeme": "Vigilancia cada 15 min solo para los tests en fase de test cuyo último gasto registrado está a 0,6 ticket del corte o menos (sin ventas: desde 0,9 ticket gastado). El resto de la vuelta (salud, escala, revisión) sigue una vez por hora."
+  }
+ },
+ "post_test": {
+  "corte_cpa_veces_equilibrio": 1.5,
+  "corte_ventana_dias": 3,
+  "caida_tras_dia1": {
+   "_leeme": "R4b FIRMADA (dueño, 14-nov: «me parece bien con dos días»; nació de Oferta B): R4 medida SIN el día 1 del test. Se apaga si, con el backend activo y al menos una ronda de renovación entregando 24 h, los días posteriores al test suman CPA ≥ 1,5 × lo que deja cada venta, ningún conjunto nuevo vende con ROAS ≥ 1, y el último día cuenta si ya gastó el 70 % del presupuesto. Decide scripts/corte_post_test.py en la vigilancia de cada hora (paso 7b).",
+   "estado": "firmada",
+   "dias_minimos": 2,
+   "veces_lo_que_deja": 1.5,
+   "ultimo_dia_gasto_min_pct": 70,
+   "requiere_backend_activo": true,
+   "requiere_rondas_renovacion": 1,
+   "conjunto_nuevo_roas_rescata": 1.0,
+   "conjunto_nuevo_compras_rescata": 2
+  }
+ },
+ "cierre": {
+  "_leeme": "R15 FIRMADA (dueño, 14-nov: «72 h después» y «cortes por regla y a mano»): apagar = pausar la campaña en Meta; cerrar = horas_espera después del apagado, la oferta pasa a «cerrado» y cada tienda suya se archiva en Impultienda (Configuración → Zona de peligro → Eliminar tienda; se restaura desde «Tiendas archivadas»). Cierran los cortes por regla (R1, R1b agotada, R4, R4b) y los apagados a mano del dueño; no cierran las pausas técnicas (pausa_tecnica o apagado.tecnico), las que tienen cierre.no_archivar ni las que tienen una venta posterior al apagado. Decide escalar-oferta/scripts/cierre_oferta.py.",
+  "horas_espera": 72,
+  "cierran": [
+   "R1",
+   "R1b",
+   "R4",
+   "R4b",
+   "dueño a mano"
+  ],
+  "no_cierran": [
+   "pausa técnica",
+   "cierre.no_archivar",
+   "venta después del apagado"
+  ]
+ },
+ "escala": {
+  "roas_subir": 1.75,
+  "roas_surf": 2.0,
+  "roas_surf_max": 6.5,
+  "suba_24h": 0.3,
+  "surf_min": 0.3,
+  "surf_max": 0.5,
+  "horas_surf": 3,
+  "horas_24": 24,
+  "compras_minimas": 2,
+  "gasto_minimo_usd": 3.0,
+  "presupuestos_redondos": true,
+  "techo": null,
+  "surf_hasta_usd": 500,
+  "roas_bajar": 1.5,
+  "bajar": 0.3,
+  "bajar_gasto_tickets": 1.5,
+  "bajar_confirma_tienda": true,
+  "bajar_no_baja_del_inicial": true,
+  "por_campana": {
+   "_leeme": "Escala POR CAMPAÑA con el AOV de la tienda (dueño, 16-nov: «surfeando lo que tiene buen CPA y mantiene también ROAS, ROAS comparado con el AOV de la tienda… por arriba de 1,8… pero a ojo»). La aplica escalar_presupuesto.py --auto en la vigilancia de cada hora. ROAS con AOV = compras de Meta de la campaña × AOV de la tienda ÷ gasto, desde el último cambio de esa campaña (del sistema o del dueño). La dosis que el dueño hacía a ojo sale de la muestra (pasos). docs/criterio-de-escala-2026-11-16.md.",
+   "roas_surf": 1.65,
+   "roas_bajar": 1.4,
+   "compras_minimas": 2,
+   "horas_entre_cambios": 3,
+   "gasto_minimo_usd": 3.0,
+   "pasos": [
+    [
+     2,
+     0.2
+    ],
+    [
+     4,
+     0.3
+    ],
+    [
+     8,
+     0.4
+    ]
+   ],
+   "roas_alto": 2.75,
+   "extra_roas_alto": 0.1,
+   "paso_max": 0.5,
+   "horas_antes_fin_dia_sin_subir": 2,
+   "ritmo_horas": 6,
+   "ritmo_minimo": 0.4,
+   "ritmo_desde_hora": 9,
+   "ritmo_hasta_hora": 21,
+   "aov_minimo_compradores": 5,
+   "ventana_desde_medianoche_mercado": true,
+   "_leeme_17nov": "Desde el 17-nov todo en NETO (dueño: «usar neto»): valor por comprador = neto de 7 días (14 con < 50 compradores, si no la historia; no cruza el último cambio del embudo). Umbrales pasados a neto con equivalencia exacta (neto ≈ 92 % del bruto): 1,8 → 1,65, 1,5 → 1,4, 3 → 2,75. ROAS estimado acercado a los 3 días anteriores de la campaña (fuerza_previa_compras) y, para subir, piso del rango 80 % ≥ piso_subir. docs/ruido-y-confianza-2026-11-17.md.",
+   "piso_subir": 1.0,
+   "fuerza_previa_compras": 3.0
+  }
+ },
+ "renovacion": {
+  "_leeme": "R9 v2 (dueño, 17-nov): se acabaron los conjuntos nuevos dentro de la CBO madre (en Oferta F ES la R3 adentro de la madre dio CPA 95 con 2 compras; las variaciones de B08 en una CBO aparte, CPA 36 con 10 compras, y encontraron a D4). Cada oferta que renueva saca CBO 1-1-10 APARTE: «Nuevos» todos los días (10 conceptos distintos) e «Iteraciones» solo cuando hay un ganador con la ronda anterior leída y rindiendo (o fatigado). Los ganadores van a pockets por familia y, cada 5 ganadores sostenidos en pocket, una cost cap y una bid cap 1-1-5 (Santiago Bilbao, oct-26). Decide scripts/plan_renovacion.py. La madre no recibe más conjuntos; los conjuntos viejos con límites 10-20 % los pierden a los 2 días.",
+  "creativos_por_dia": 10,
+  "tope_creditos": null,
+  "pausar_anuncios_flojos": false,
+  "cbo_diaria": {
+   "presupuesto_tickets": 3,
+   "corte_tickets": 1.5,
+   "anuncios": 10
+  },
+  "ganador": {
+   "compras_min": 3,
+   "roas_min": 1.85,
+   "ventana_horas": 48,
+   "roas": "compras de Meta × valor NETO por comprador ÷ gasto (estricto: más de 1,85 = 2,0 bruto; 17-nov)"
+  },
+  "iteraciones": {
+   "lectura_horas": 24,
+   "rondas_sin_rendir_para_descanso": 2,
+   "descanso_dias": 3,
+   "fatiga_dias_cpa_subiendo": 3,
+   "familias_max": 2,
+   "reparto_dos": [
+    6,
+    4
+   ],
+   "rinde": "algún anuncio de la ronda con compras y CPA ≤ corte (1,5 tickets)"
+  },
+  "pocket": {
+   "_leeme": "Bilbao (ago-26): pre-escala ABO/CBO 1-1-1 con «dos tickets o tres CPA medio», después se surfea. Por familia de concepto: 1-1-N con los ganadores nuevos de la misma familia (tope 5); conceptos distintos, pockets separados. Los pockets que ya corren no se tocan.",
+   "presupuesto_tickets": 2,
+   "presupuesto_cpa_medio": 3,
+   "corte_tickets": 1.0,
+   "max_por_pocket": 5,
+   "ahogado_pct_gasto": 15
+  },
+  "manual": {
+   "_leeme": "Bilbao (ago y oct-26): los ganadores que aguantaron la pre-escala pasan a CBO 1-1-X manual; cost cap = CPA medio + 30 %, bid cap = front + 30 %; se rota la puja hasta que «prende»; en otra cuenta publicitaria; sin backend no arranca.",
+   "cada_ganadores": 5,
+   "sostenido_horas": 48,
+   "cost_cap_x_cpa_medio": 1.3,
+   "bid_cap_x_ticket": 1.3,
+   "otra_cuenta": true
+  },
+  "madre_limites_dias": 2,
+  "historial": {
+   "hasta_17_nov": {
+    "creativos_por_dia": 10,
+    "iteraciones_del_ganador": 7,
+    "nuevos_del_referente": 3,
+    "minimo_conjunto_pct": 20,
+    "minimo_dias": 2,
+    "tope_creditos": null,
+    "pausar_anuncios_flojos": false
+   }
+  }
+ },
+ "replica": {
+  "dias": 7,
+  "roas_neto_minimo": 1.3,
+  "_leeme": "Réplica de una oferta que pega. Automática: 7 días con ROAS neto ≥ 1,30. Temprana (dueño, 16-nov): a pedido del dueño con ROAS de tienda ≥ 1,8 en 3 días; esquema de oferta validada (pocket 1-1-1 a 1,5 tickets, corte 1; variaciones 1-1-10 a 3 tickets, corte 1,5) y backend de la madre desde el día 1.",
+  "temprana_roas_tienda_min": 1.8,
+  "temprana_dias": 3,
+  "creativos": {
+   "_leeme": "Dueño 16-nov: pocket = ganador #1 de la familia (ganadores.py sobre todos los mercados de la familia); variaciones = piezas que vendieron en CUALQUIER mercado de la familia, por puntaje, + cruces de esas piezas hasta 10; afuera las que no vendieron en ningún mercado. El reparto se recalcula el día que se escriben los guiones.",
+   "variaciones": 10
+  },
+  "excepciones_veto_referente": [
+   {
+    "oferta": "Oferta F",
+    "pais": "GB",
+    "desde": "2026-11-16",
+    "firma": "dueño",
+    "motivo": "competir con precio ≈ 40-45 % más bajo que el referente (44 anuncios en GB); si el referente sube su pauta no se apaga por eso: deciden los cortes"
+   }
+  ]
+ },
+ "salud": {
+  "caidas_para_pausar": 2,
+  "checkouts_sin_compra": 10,
+  "vueltas_sin_meta": 3,
+  "limite_cuenta_aviso": 0.8
+ },
+ "avisos": {
+  "repetir_urgente_horas": 3,
+  "repetir_normal_horas": 24,
+  "fallas_para_avisar": 3
+ },
+ "kie": {
+  "saldo_minimo": 5400
+ },
+ "gemini": {
+  "saldo_minimo_usd": 5
+ },
+ "impulpay": {
+  "neto_estimado": 0.919
+ },
+ "cambios": [
+  {
+   "fecha": "2026-11-12",
+   "regla": "test.corte_tickets",
+   "texto": "corte del test a 1,5 tickets"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "test.ticket",
+   "texto": "el ticket es el del producto completo"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "escala.*",
+   "texto": "escala por ROAS: 24 h, surfeo, tirón; sin techo"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "escala.tiron_confirma_tienda / tiron_no_baja_del_inicial / presupuestos_redondos",
+   "texto": "tirón con tienda, nunca bajo el inicial, números redondos"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "renovacion.*",
+   "texto": "10 por día, 7+3, 20 % dos días, sin tope de créditos, no pausar flojos"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "lanzamiento.por_dia / max_en_test / rechazos_para_no_activar",
+   "texto": "2 por día, tope 8 en test, activar sola si pasa el control"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "replica.*",
+   "texto": "7 días con ROAS neto ≥ 1,30 → réplica"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "test.segunda_oportunidad",
+   "texto": "+0,5 ticket una sola vez si CTR ≥ 1 %, página→pago ≥ 8 % y ≥ 3 pagos iniciados, sin ventas"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "escala.surf_hasta_usd",
+   "texto": "desde 500 USD/día no se surfea: +30 % cada 24 h (comparación con Bilbao)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "cuentas.segunda_cuenta_desde_usd",
+   "texto": "aviso para crear la segunda cuenta publicitaria cuando una oferta gaste 200 USD/día con ROAS ≥ 1,75"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "(sin cambio)",
+   "texto": "caja: sin freno de liquidez; renovación: sigue a diario sin importar el gasto"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "metricas.*",
+   "texto": "avisos de tasa de carga, CPM anormal, señal de clonado, lado del problema (costo/ingreso por visita) y diagnóstico por anuncio para la renovación (comparación con Bilbao)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "meta.*",
+   "texto": "KPIs por oferta: AOV, margen neto, take rate, ganancia del último día contra la meta de 10.000 USD/día"
+  },
+  {
+   "fecha": "2026-11-13",
+   "regla": "meta_vivo.*",
+   "texto": "Meta en vivo cada 10 min sin Claude ni tokens"
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "test.vuelta_rapida",
+   "texto": "vigilancia cada 15 min cuando un test está cerca del corte (≥ 0,9 ticket sin ventas); lejos del corte, cada hora (Oferta E pasó el corte entre vueltas: US$ 34,58 con corte 28,50)"
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "lanzamiento.banco_minimo_para_lanzar, lanzamiento.banco_objetivo_listos, radar.*",
+   "texto": "el dueño: «el sistema siempre tiene que tener preparadas ofertas… si no encontramos, sigue buscando». Los 3 listos pasan a ser la reserva a reponer, no un freno: se lanza con 1 y, con el banco vacío, la vuelta de lanzamiento busca hasta conseguir una (BUSCAR_Y_LANZAR). El radar verifica y mide antes de buscar (el 14-nov tenía 509 sin medir y 4 sin verificar)."
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "escala.* (simétrica)",
+   "texto": "sube +30-50 % cada 3 h con ROAS de Meta > 2 (antes 2,5) y +30 %/24 h entre 1,75 y 2; BAJA −30 % si el ROAS de la tienda desde el último cambio queda < 1,5 (con ≥ 2 compras o ≥ 1,5 tickets gastados y ≥ 3 h), hasta el presupuesto inicial; se quita el tirón de 3 h y el bloqueo del día. Simulado contra Santiago Bilbao y Tomi Trimb; ver escalar-oferta/references/07-escala-simetrica.md"
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "post_test.caida_tras_dia1",
+   "texto": "R4b propuesta: R4 sin el día 1 (Oferta B: día 1 ROAS 1,52, después 0,45 y 0,45)"
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "post_test.caida_tras_dia1",
+   "texto": "R4b firmada con 2 días (dueño); la aplica la vigilancia de cada hora"
+  },
+  {
+   "fecha": "2026-11-14",
+   "regla": "cierre",
+   "texto": "R15 firmada: 72 h después del apagado (cortes por regla y a mano del dueño) la oferta se cierra y sus tiendas se archivan en Impultienda, para que solo queden las activas"
+  },
+  {
+   "fecha": "2026-11-15",
+   "regla": "congelamiento (R16)",
+   "texto": "R16 firmada (dueño): renovar y escalar solo con CPA ≤ 1/2 del ticket promedio («cuando el CPA es la mitad o menos que el AOV»); entre ROAS neto 0,95 y eso, con ≥ 3 ventas, congelar 1 día con backend agresivo (2 bumps + 4 upsells), un 2.º día si sigue igual, después aviso al dueño. Reemplaza «pega = CPA ≤ equilibrio» de la renovación (R9) y de la renovación anticipada, y deja sin efecto la propuesta R7."
+  },
+  {
+   "fecha": "2026-11-15",
+   "regla": "congelamiento.validada (R16b)",
+   "texto": "El dueño aprobó separar: la R16 (CPA ≤ ticket/2 para renovar, congelar en empate) rige solo la entrada. Validadas (ya escalaron o una ronda entregó 24 h): nunca se congelan, renuevan con ROAS neto de 3 días cerrados ≥ 0,95 (el mismo piso del empate), presupuesto por E1-E4, cortes R4/R4b, y en empate (0,95-1,20) se les suma backend agresivo sin frenar. Ventanas con días cerrados."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "escala.por_campana",
+   "texto": "Escala por campaña con el AOV de la tienda (dueño): cada campaña activa (principal, pocket, variaciones, réplicas) se decide sola desde su último cambio; surfeo con ROAS con AOV ≥ 1,8 y ≥ 2 compras, dosis según compras (+20/30/40 %, +10 con ROAS ≥ 3); bajada < 1,5. No se sube si la campaña no gasta su presupuesto (ritmo < 40 % en 6 h) ni en las últimas 2 h del día del mercado. Reemplaza la escala simétrica por oferta (ROAS > 2 / 1,75-2 cada 24 h / ROAS de tienda < 1,5)."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "replica.temprana",
+   "texto": "Réplica temprana a pedido del dueño con ROAS de tienda ≥ 1,8 en 3 días (la de 7 días con ROAS neto ≥ 1,30 sigue para la automática)."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "replica.creativos",
+   "texto": "Réplica validada: pocket = ganador #1 de la familia; variaciones = piezas que vendieron en cualquier mercado de la familia + cruces hasta 10; afuera las que no vendieron en ninguno."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "replica.excepciones_veto_referente",
+   "texto": "Excepción firmada al veto del referente: Oferta F puede pautar en GB (precio más bajo que el referente). Deciden los cortes de siempre."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "escala.por_campana.ventana_desde_medianoche_mercado",
+   "texto": "Día nuevo = ventana nueva: a las 00:00 del mercado el presupuesto queda como terminó (no se resetea), pero la escala deja de contar las ventas de ayer y decide solo con lo de hoy; si arranca gastando sin vender (≥ 3 h y ≥ 1,5 tickets, ROAS con AOV < 1,5) baja 30 % (el «tirón» del dueño), nunca bajo el inicial."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "congelamiento (R16) · precedente",
+   "texto": "Primera bajada de presupuesto en una oferta congelada, a pedido del dueño: Oferta variaciones 299 → 209 (−30 %) al cierre del día 1, con ROAS con AOV ≈ 1,2 (bajo 1,5). La R16 dice «no se sube ni se baja»; el dueño aceptó bajar porque el congelamiento dejaba la campaña sin la bajada automática de la mañana. Si se repite, proponer que en las congeladas se permita solo la bajada."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "backend · mejora a la Completa y precio por mercado caro",
+   "texto": "Dueño (16-nov): en mercados de CPM alto (IE) se sube el precio de entrada y del backend; IE pasa a Family 35 € / Complete 59 €, upsells 49/35/19 €, bumps 12 y 9 €, U04 24 €. En las tiendas de nivel bajo (Familia/Familiar y Esencial) el primer upsell es pasar a la Completa por la diferencia (ES 19/27 €, IE 24/35 €), porque casi nadie que compra el nivel bajo acepta un upsell más caro que lo que pagó. Se mide con neto por visita, no con ROAS solo."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "backend.por_nivel",
+   "texto": "Reemplaza «mismo precio de upsell en todas las tiendas del funnel»: con niveles, el precio del upsell es proporcional a la entrada (piso 7 €) y en Familiar/Esencial la primera oferta es pasar a la Completa a mitad de la diferencia, con la diferencia tachada (oferta −50 %, rebaja −65 %). Aplicado en Oferta F (ES) y Oferta."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "meta.conector_falla",
+   "texto": "Si el conector de Meta no puede, se hace en el Administrador/Business desde el navegador integrado (permisos sobre activos propios autorizados); nunca se frena el lanzamiento ni la renovación."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "backend.por_nivel.orden",
+   "texto": "Dueño: «si algo ya está funcionando, está testeado, ¿por qué lo cambiaríamos?». Ofertas nuevas a la cola y conectadas, sin reordenar lo testeado. Aplicado en ES, IE y NZ."
+  },
+  {
+   "fecha": "2026-11-16",
+   "regla": "lanzamiento.rechazados",
+   "texto": "rechazado: solo se apela una vez, nunca se reemplaza ni se rehace; la campaña sale con ≥ 1 anuncio no rechazado (pocket 1-1-1 con su único anuncio rechazado no sale); se elimina el «5 o más rechazados no se activa»"
+  },
+  {
+   "fecha": "2026-11-17",
+   "regla": "renovacion.*",
+   "texto": "R9 v2: renovación en CBO 1-1-10 aparte (Nuevos todos los días, Iteraciones según resultados), ganador = 3+ compras con ROAS > 2 en 48 h, pockets por familia a 2 tickets o 3 CPA medio, cost cap y bid cap cada 5 ganadores sostenidos; la madre no recibe más conjuntos"
+  },
+  {
+   "fecha": "2026-11-17",
+   "regla": "cortes_por_rol",
+   "texto": "corte por campaña según su rol en un solo lugar, para la vigilancia y el respaldo en la nube"
+  }
+ ],
+ "cuentas": {
+  "segunda_cuenta_desde_usd": 200,
+  "segunda_cuenta_lista": false
+ },
+ "metricas": {
+  "carga_min_pct": 60,
+  "carga_clics_min": 50,
+  "pagina_lenta_ms": 3000,
+  "cpm_veces": 2.0,
+  "cpm_dias_seguidos": 2,
+  "cpm_impresiones_min": 1000,
+  "cpm_dias_previos_min": 3,
+  "lado_cambio_pct": 20,
+  "lado_visitas_min": 100,
+  "clon_caida": 0.5,
+  "clon_checkouts_min": 20,
+  "anuncio_impresiones_min": 1000,
+  "retencion_min_pct": 10,
+  "ctr_no_tocar_pct": 1.5,
+  "_retencion": "reproducciones completas (video_p100_watched_actions) ÷ reproducciones (video_play_actions); calibrar el 10 % con datos propios a las 2 semanas (desde 2026-11-27)"
+ },
+ "meta": {
+  "ganancia_neta_dia_usd": 10000,
+  "aov_veces_principal": 1.5,
+  "_leeme": "objetivo del dueño: 10.000 USD netos por día con varias ofertas en distintos países; AOV de referencia ≥ 1,5 × el principal con backend",
+  "anunciante_verificado": false,
+  "paises_exigen_verificacion": [
+   "SG",
+   "TW",
+   "TH",
+   "MY",
+   "AU",
+   "IN"
+  ],
+  "_leeme_verificacion": "Meta exige anunciante y pagador VERIFICADOS para crear conjuntos en esos países (declaración regional, error 3858550; Oferta J quedó armada para Singapur el 14-nov). elegir_mercado.py los saca del orden mientras anunciante_verificado sea false; pasarlo a true cuando el dueño verifique el portfolio en Business → Autorizaciones y verificaciones.",
+  "conector_falla": {
+   "_leeme": "Dueño 16-nov: si el conector de Meta no puede (permiso de página 3858749, identidad IG #1815199, campo no expuesto), se sigue por el navegador integrado (Administrador/Business) con la sesión del dueño; autorizado dar permisos sobre activos propios de Never Give Up. Nunca quedarse parado. Ver modelar-y-lanzar-oferta/references/09-campana-meta.md.",
+   "navegador_si_falla": true,
+   "limites": "Nunca píxel de otro mercado/oferta; nunca fan page en otro idioma. Sí fan page de otro mercado con el mismo idioma y marca. Si solo queda cruzar un límite: se corre a las 00:00 siguientes y se avisa."
+  }
+ },
+ "meta_vivo": {
+  "cuenta": "TU_CUENTA_META",
+  "version_api": "v23.0",
+  "cada_minutos": 10,
+  "_leeme": "lector directo de Meta sin Claude (scripts/meta_vivo.py, agente com.fabrica.meta-vivo); token META_ACCESS_TOKEN en .env, lo pega el dueño"
+ },
+ "radar": {
+  "_nota": "Cuántas cosas hace cada vuelta del radar. El orden es fijo: verificar → medir → buscar (lo encontrado sin medir no sirve). En reposición (banco bajo el objetivo) se mide más; con atasco (muchas sin medir) se busca menos.",
+  "verificar_max": 10,
+  "medir": 20,
+  "medir_reposicion": 30,
+  "busquedas": 15,
+  "busquedas_con_atasco": 5,
+  "atasco_a_medir": 300
+ },
+ "congelamiento": {
+  "_leeme": "R16 FIRMADA (dueño, 15-nov, nació de Oferta G: 3 ventas en el test con CPA ≈ lo que deja): con ≥ 3 ventas, la oferta se RENUEVA y ESCALA solo si el CPA ≤ la mitad del ticket promedio (AOV bruto con bump y upsells); si no llega a eso pero el ROAS neto (neto ÷ gasto en Meta) es ≥ 0,95, se CONGELA un día: sin renovación ni cambios de presupuesto, solo backend agresivo (2 order bumps + 4 upsells post-pago). Al terminar el día se mide ese día: renovar → sale de la banda y sigue el flujo normal; sigue en la banda → un segundo día congelada; si después del segundo día sigue en la banda, queda congelada y se avisa al dueño, que decide. Bajo 0,95 vuelve a lo normal (sin renovar; actúan los cortes). Los cortes R1/R4 valen durante el congelamiento. Decide escalar-oferta/scripts/congelamiento.py. Desde el mismo 15-nov (dueño: «separarlas») la R16 es solo para la ENTRADA: las ofertas validadas siguen su propio régimen (ver `validada`). Ventana: 3 días cerrados de la cuenta, sin el día en curso.",
+  "estado": "firmada",
+  "ventas_minimas": 3,
+  "renovar_cpa_max_aov": 0.5,
+  "piso_roas_neto": 0.95,
+  "dias": 1,
+  "dias_max": 2,
+  "backend": {
+   "bumps": 2,
+   "upsells": 4
+  },
+  "ventana_dias_cerrados": 3,
+  "validada": {
+   "_leeme": "Dueño, 15-nov («separarlas»): validada = ya escaló (presupuesto > inicial) o una ronda de renovación entregó 24 h. Nunca se congela; renueva con ROAS neto de 3 días cerrados ≥ renovar_roas_neto_min; el presupuesto lo deciden E1-E4 y los cortes R4/R4b; en empate se suma el backend agresivo sin frenar nada.",
+   "renovar_roas_neto_min": 0.95,
+   "empate_backend_roas_neto": [
+    0.95,
+    1.2
+   ]
+  },
+  "renovar_cpa_max_valor_neto": 0.54,
+  "_leeme_17nov": "Desde el 17-nov el tope de renovar es CPA ≤ 0,54 × valor NETO por comprador (= 0,5 × AOV bruto), con la ventana de 7/14 días del sistema; renovar_cpa_max_aov queda de respaldo."
+ },
+ "backend": {
+  "por_nivel": {
+   "_leeme": "Dueño, 16-nov («tiene mucho más sentido»): con niveles, el upsell sigue al precio de entrada y en las tiendas bajas la primera oferta es pasar a la Completa a mitad de la diferencia. backend-ofensivo/references/01-productos-y-precios.md § «Precio por nivel».",
+   "precio_upsell": "proporcional: pleno × entrada_nivel ÷ entrada_completa, redondeado",
+   "piso_eur": 7,
+   "mejora_a_completa": {
+    "precio_referencia": "diferencia entera (precio fijo del mercado)",
+    "descuento_oferta_pct": 50,
+    "descuento_rebaja_pct": 65,
+    "solo_en": "tiendas de nivel bajo",
+    "posicion": 1
+   },
+   "orden_tiendas_bajas": [
+    "mejora a la Completa",
+    "upsell 2",
+    "upsell 1",
+    "resto en la cola"
+   ],
+   "medir": "toma de upsells por tienda (nivel)",
+   "orden": {
+    "regla": "nunca reordenar ofertas testeadas que venden; lo nuevo va a la cola y se conectan las dos ramas de la rebaja anterior (impultienda_conectar_oferta_postcompra)",
+    "cola_descuento_oferta_pct": 0,
+    "cola_descuento_rebaja_pct": 35.71,
+    "reordenar_solo_si": "las ofertas que se mueven no tienen ventas",
+    "desde": "2026-11-16"
+   }
+  }
+ },
+ "cortes_por_rol": {
+  "_leeme": "Corte por campaña según su rol (dueño, 15 y 17-nov). Un solo lugar para la vigilancia de la Mac (vigilar_corte.py) y el respaldo en la nube (plan_corte.py → vivo.tu-dominio.com): un rol nuevo con su número acá queda cubierto por los dos sin tocar código. Un `corte_tickets` puesto en la campaña (ficha.campanas) manda sobre esto. Roles sin número (principal, cost_cap, bid_cap) no se cortan por campaña.",
+  "nuevos": 1.5,
+  "iteraciones": 1.5,
+  "test_variaciones": 1.5,
+  "pocket": 1.0
+ }
+}

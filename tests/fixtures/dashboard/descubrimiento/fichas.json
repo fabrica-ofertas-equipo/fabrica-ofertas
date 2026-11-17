@@ -1,0 +1,366 @@
+{
+ "schema_version": "2.0.0",
+ "_nota": "corrida_id=2026-11-06-a; borrador de fichas del barrido (ranking.py): 13 ficha(s).",
+ "ofertas": [
+  {
+   "modelo_id": "comprension-lectora-risorse-digitali-online-1150006728199098",
+   "nombre": "actividades de comprensión de texto · Risorse Digitali Online (IT)",
+   "fuente": {
+    "idioma": "it",
+    "pais": "IT"
+   },
+   "macro_nicho": null,
+   "traccion": {
+    "anuncios_activos": 17,
+    "edad_oferta_dias": "36.04890046296296296296296296",
+    "conceptos_unicos": 2,
+    "paginas_misma_landing": 1,
+    "anunciantes_independientes_mismo_angulo": 1
+   },
+   "puertas": {
+    "marca_personal": null,
+    "sustituto_gratis_cubre": null,
+    "practica_vetada": null
+   },
+   "reencuadres": [],
+   "pendiente": [
+    "puertas: marca_personal, sustituto_gratis_cubre, practica_vetada sin evaluar (juicio con rúbrica sobre el anuncio real)",
+    "transferibilidad: dolor_universal, viabilidad_ticket, riesgo_politicas sin evaluar en cada mercado",
+    "reencuadres: sin diseñar",
+    "ventana: 'evergreen' es un relleno, no está evaluada",
+    "hueco: ausencia en la muestra del barrido; confirmar con la pasada 3 (page_ids × país) y auditar al rival si aparece",
+    "entrantes_30d: sin base de memoria (null; nunca 0 por defecto)"
+   ],
+   "mercados": [
+    {
+     "mercado": "BR",
+     "idioma": "pt",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "DE",
+     "idioma": "de",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "ES",
+     "idioma": "es",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "FR",
+     "idioma": "fr",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "GB",
+     "idioma": "en",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "MX",
+     "idioma": "es",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "PL",
+     "idioma": "pl",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "RO",
+     "idioma": "ro",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "US",
+     "idioma": "en",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    }
+   ],
+   "_nota": "Borrador automático del barrido. paginas_misma_landing = páginas con títulos idénticos (proxy); anunciantes_independientes_mismo_angulo = otros anunciantes independientes del tema en la muestra (proxy)."
+  },
+  {
+   "modelo_id": "colorear-obras-de-arte-referentea-700000000000001",
+   "nombre": "dibujo con lápices de colores inspirado en Van Gogh · ReferenteA (IT)",
+   "fuente": {
+    "idioma": "it",
+    "pais": "IT"
+   },
+   "macro_nicho": null,
+   "traccion": {
+    "anuncios_activos": 38,
+    "edad_oferta_dias": "14.086875",
+    "conceptos_unicos": 3,
+    "paginas_misma_landing": 1,
+    "anunciantes_independientes_mismo_angulo": 1
+   },
+   "puertas": {
+    "marca_personal": false,
+    "sustituto_gratis_cubre": null,
+    "practica_vetada": null
+   },
+   "reencuadres": [
+    {
+     "id": "r1"
+    }
+   ],
+   "pendiente": [
+    "puertas: marca_personal, sustituto_gratis_cubre, practica_vetada sin evaluar (juicio con rúbrica sobre el anuncio real)",
+    "transferibilidad: dolor_universal, viabilidad_ticket, riesgo_politicas sin evaluar en cada mercado",
+    "reencuadres: sin diseñar",
+    "ventana: 'evergreen' es un relleno, no está evaluada",
+    "hueco: ausencia en la muestra del barrido; confirmar con la pasada 3 (page_ids × país) y auditar al rival si aparece",
+    "es_oferta_digital_pago_unico: sin determinar (null); verificar el modelo de cobro (pago único) en la captura del anuncio/landing antes de lanzar",
+    "entrantes_30d: sin base de memoria (null; nunca 0 por defecto)"
+   ],
+   "mercados": [
+    {
+     "mercado": "BR",
+     "idioma": "pt",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "DE",
+     "idioma": "de",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "ES",
+     "idioma": "es",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "FR",
+     "idioma": "fr",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "GB",
+     "idioma": "en",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "MX",
+     "idioma": "es",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "RO",
+     "idioma": "ro",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    },
+    {
+     "mercado": "US",
+     "idioma": "en",
+     "hueco": {
+      "original_presente": false,
+      "anunciantes_sostenidos": 0,
+      "puntaje_rival": null,
+      "entrantes_30d": null
+     },
+     "ventana": "evergreen",
+     "transferibilidad": {
+      "dolor_universal": null,
+      "viabilidad_ticket": null,
+      "riesgo_politicas": null
+     },
+     "_nota": "Ausencia en la MUESTRA del barrido (no en el mercado): hipótesis hasta medir con la pasada 3. 'ventana' es un relleno sin evaluar."
+    }
+   ],
+   "_nota": "Borrador automático del barrido. paginas_misma_landing = páginas con títulos idénticos (proxy); anunciantes_independientes_mismo_angulo = otros anunciantes independientes del tema en la muestra (proxy)."
+  }
+ ]
+}

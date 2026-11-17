@@ -1,0 +1,3 @@
+validador=maxItems
+ruta=/anomalias
+texto=lanzamiento_estable exige 72 h sin anomalías

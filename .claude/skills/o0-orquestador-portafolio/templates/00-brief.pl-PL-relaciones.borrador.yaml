@@ -1,0 +1,64 @@
+# PLANTILLA de borrador de brief (FICTICIA): pl-PL-relaciones. Ruta real de trabajo: empresa/propuestas/00-brief.<slug>.borrador.yaml
+# Valida con: .venv/bin/python .claude/skills/o0-orquestador-portafolio/scripts/validar_brief.py <este archivo> --limites <limites> [--candidatos … --candidato CAND-NN]
+# Sin firma (aprobado_por.firma: null): solo el dueño firma el hash (gate H del paso 3; mecanismo de firma del brief: LT-54). IDs sin asignar: los asigna `orq crear` tras ese gate.
+schema_version: 1.1.0
+oferta_id: OF-000000-00
+familia_id: FAM-000000-00
+slug: tarjetas-de-conversacion-parejas
+version: v1
+origen_version: maker
+creado_en: '2026-11-06T15:00:00Z'
+mercado_objetivo:
+  locale: pl-PL
+  paises_segmentacion:
+  - PL
+  moneda_cobro: PLN
+  es_hipotesis: true
+nichos:
+  permitidos:
+  - salud
+  - relaciones
+  - dinero
+  subnichos_prohibidos: []
+tema_semilla: tarjetas de conversación para parejas
+precio_rango:
+  min:
+    monto: 2900
+    moneda: PLN
+  max:
+    monto: 7900
+    moneda: PLN
+presupuesto:
+  test_total_max:
+    monto: 30000
+    moneda: EUR
+  test_diario_max:
+    monto: 2800
+    moneda: EUR
+  ia_max:
+    monto: 3000
+    moneda: EUR
+apetito_riesgo: conservador
+ventana_test_dias: 10
+nivel_autonomia: N0
+reembolso_dias: 14
+politica_ia_creativos: declarar_siempre
+cuenta_meta_id: act_100000000000001
+dominio: kartyrozmowy.example
+canal_alertas: correo del dueño
+supuestos:
+- '[SUPUESTO] dominio de ejemplo: lo elige el dueño (sin default)'
+- '[SUPUESTO] mercado pl-PL como hipótesis; presupuesto en la moneda de límites (EUR) y precio en PLN (moneda de cobro)'
+- '[SUPUESTO] métodos de pago locales (BLIK, Przelewy24) diferidos por decisión del dueño: la cobertura de pago puede no alcanzar el mínimo de M1 (docs/00 §0.B 4)'
+- '[SUPUESTO] sin revisor nativo de polaco: lo exige M1 antes del primer lanzamiento del idioma'
+- '[SUPUESTO] oferta_id y familia_id sin asignar (OF-000000-00 / FAM-000000-00): los asigna `orq crear` tras el gate H del brief; el hash del contenido los excluye'
+- '[SUPUESTO] los importes son TECHOS de ejemplo en moneda_limites (EUR ficticia), no el plan: el plan real sale de economia.gasto_test_plan (D3)'
+- '[SUPUESTO] test_diario_max = el menor entre piso(gasto_diario_por_oferta / factor_techo_teorico_diario) y test_total_max (default de la entrevista)'
+- '[SUPUESTO] nivel_autonomia = nivel de O0 en autonomia.yaml; apetito_riesgo, ventana_test_dias, reembolso_dias y politica_ia_creativos por default'
+- '[SUPUESTO] borrador sin firma: aprobado_por.firma es null hasta que el dueño firme el hash (gate H; mecanismo de firma del brief pendiente: LT-54)'
+hash: sha256:ff105c4af0720f8d94d1f59f50f7aea84b5c1553eb64b04b307fd7d284c8cc1f
+aprobado_por:
+  tipo: humano
+  id: dueno
+  fecha: '2026-11-06T15:00:00Z'
+  firma: null

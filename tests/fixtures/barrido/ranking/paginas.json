@@ -1,0 +1,662 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "generado_en": "2026-11-06T06:30:00Z",
+  "paginas": [
+    {
+      "page_id": "1000000000000001",
+      "page_name": "Atril Estudio",
+      "paises": [
+        "ES",
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 27,
+      "edad_oferta_dias": "14.9",
+      "edad_max_dias": "14.9",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "⭐⭐⭐⭐⭐ Atlas Visual de Puntos Gatillo",
+        "Atlas de Puntos Gatillo en PDF",
+        "Acceso inmediato en PDF"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000002",
+      "page_name": "Clínica Gatillo",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 16,
+      "edad_oferta_dias": "10",
+      "edad_max_dias": "10",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Mapas de dolor muscular",
+        "Guía de puntos gatillo"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000003",
+      "page_name": "Gatillo Express",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 15,
+      "edad_oferta_dias": "12",
+      "edad_max_dias": "12",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "guía de puntos  gatillo",
+        "MAPAS de dolor muscular"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000011",
+      "page_name": "Crea y Emprende",
+      "paises": [
+        "ES",
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 27,
+      "edad_oferta_dias": "14.9",
+      "edad_max_dias": "14.9",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Florería Tejida: 50 patrones",
+        "Navidad Tejida +100 patrones"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000012",
+      "page_name": "Mundo Crochet",
+      "paises": [
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 9,
+      "edad_oferta_dias": "3",
+      "edad_max_dias": "3",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Patrones Crochet Mundo",
+        "+1000 patrones"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "MX",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000013",
+      "page_name": "Uncinetto Natale",
+      "paises": [
+        "IT"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 8,
+      "edad_oferta_dias": "2",
+      "edad_max_dias": "2",
+      "conceptos_unicos": 1,
+      "titulos": [
+        "Natale all'Uncinetto · +100 schemi"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "IT",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000021",
+      "page_name": "Anna Martin",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 20,
+      "edad_oferta_dias": "4",
+      "edad_max_dias": "4",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Profe, ¿qué trabaja cada postura?",
+        "Yoga en PDF"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": true,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000022",
+      "page_name": "Corpo Sem Dor",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "BRL"
+      ],
+      "anuncios_activos_en_muestra": 5,
+      "edad_oferta_dias": "2",
+      "edad_max_dias": "2",
+      "conceptos_unicos": 1,
+      "titulos": [
+        ""
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": true,
+        "moneda": "BRL",
+        "pais_anuncio": "ES",
+        "motivo": "cuenta en BRL (BR) anunciando en ES: probable exportador (indicio, no hecho)"
+      }
+    },
+    {
+      "page_id": "1000000000000031",
+      "page_name": "Freelance Fácil",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 30,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Cobra en dólares",
+        "Tarifas freelance",
+        "Contratos listos"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000032",
+      "page_name": "Cobra Mejor",
+      "paises": [
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 12,
+      "edad_oferta_dias": "30",
+      "edad_max_dias": "30",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Cobra mejor tus proyectos",
+        "Plantilla de cotización"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "MX",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000041",
+      "page_name": "Recetas Diabéticas",
+      "paises": [
+        "BR"
+      ],
+      "monedas": [
+        "BRL"
+      ],
+      "anuncios_activos_en_muestra": 15,
+      "edad_oferta_dias": "10",
+      "edad_max_dias": "10",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Receitas para diabéticos",
+        "Cardápio semanal",
+        "Lista de compras"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "BRL",
+        "pais_anuncio": "BR",
+        "motivo": "BRL en BR: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000051",
+      "page_name": "Boda Fácil",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 6,
+      "edad_oferta_dias": "2",
+      "edad_max_dias": "2",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Wedding planner templates",
+        "Plantillas de boda"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000061",
+      "page_name": "Comunidad Yoga VIP",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 40,
+      "edad_oferta_dias": "30",
+      "edad_max_dias": "30",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Únete a la comunidad",
+        "Membresía mensual"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000062",
+      "page_name": "Consultoría Pro",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 22,
+      "edad_oferta_dias": "15",
+      "edad_max_dias": "15",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Agenda tu llamada",
+        "Consultoría 1 a 1"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000063",
+      "page_name": "Producto Físico Co",
+      "paises": [
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 18,
+      "edad_oferta_dias": "11",
+      "edad_max_dias": "11",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Envío gratis a todo México",
+        "Pídelo hoy"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "MX",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000064",
+      "page_name": "Duda Oferta",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 17,
+      "edad_oferta_dias": "12",
+      "edad_max_dias": "12",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Algo que no se sabe qué es",
+        "Otra cosa"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000065",
+      "page_name": "Sin Etiqueta",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 25,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Sin etiqueta A",
+        "Sin etiqueta B",
+        "Sin etiqueta C"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000066",
+      "page_name": "Slug Malo",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 25,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Slug malo A",
+        "Slug malo B",
+        "Slug malo C"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000067",
+      "page_name": "Doble Tema",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 25,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "Doble tema A",
+        "Doble tema B",
+        "Doble tema C"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000068",
+      "page_name": "Misterio Alto",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 30,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "¿Ya lo conoces?",
+        "Descubre el secreto",
+        "Solo hoy"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000069",
+      "page_name": "Misterio Bajo",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 4,
+      "edad_oferta_dias": "2",
+      "edad_max_dias": "2",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "¿Ya lo conoces?",
+        "Mira esto"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000070",
+      "page_name": "Misterio Truncado",
+      "paises": [
+        "MX"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 9,
+      "edad_oferta_dias": "3",
+      "edad_max_dias": "3",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Descubre el secreto",
+        "Ahora sí"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": true,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "MX",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    },
+    {
+      "page_id": "1000000000000071",
+      "page_name": "Misterio Clon",
+      "paises": [
+        "US"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 28,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "20",
+      "conceptos_unicos": 3,
+      "titulos": [
+        "solo hoy",
+        "¿Ya lo conoces?",
+        "Descubre el secreto"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "US",
+        "motivo": "USD/ES: sin indicio de exportador"
+      }
+    }
+  ],
+  "advertencias": [
+    "2 de 23 página(s) con muestra_truncada=true: su anuncios_activos_en_muestra es un PISO"
+  ]
+}

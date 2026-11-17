@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+  Plantilla HTML→PDF de D4 (ruta A: Chrome sin pantalla; ruta B: WeasyPrint). [no probada en este entorno: no hay Chromium ni WeasyPrint instalados; ver references/dependencias.md]
+  Reglas: <html lang> = locale de la oferta; <title> real; sin rutas absolutas, sin recursos remotos (todo local en ./fonts y ./img); sin autor por defecto en metadatos.
+  Marcadores: {llaves} = datos de la oferta o del glosario; el contenido de cada capítulo sale de las fichas/fuente, no se pega de otra obra.
+  Las zonas de «referencia» (anexos de consulta, fuentes) llevan data-lectura="referencia": tiempo_total.py no las cuenta como lectura obligatoria.
+-->
+<html lang="{locale}">
+<head>
+  <meta charset="utf-8">
+  <title>{titulo_del_producto}</title>
+  <meta name="description" content="{subtitulo}">
+  <meta name="generator" content="">
+  <meta name="author" content="{marca_o_vacio}">
+  <link rel="stylesheet" href="pdf_base.css">
+</head>
+<body>
+
+  <section class="portada">
+    <p class="marca">{marca}</p>
+    <h1>{titulo_del_producto}</h1>
+    <p class="subtitulo">{subtitulo}</p>
+    <p class="tiempo">{etiqueta_tiempo_previsto}: {tiempo_prometido_min} min</p>
+    <p class="version">{version} · {fecha_revision} · {etiqueta_proxima_revision}: {revisar_antes_de}</p>
+  </section>
+
+  <section class="interior-portada" id="aviso">
+    <h2>{titulo_aviso}</h2>
+    <p class="aviso">{aviso_de_alcance_literal_del_glosario}</p>
+    <!-- Si el tema es duelo, ruptura, abuso, salud mental o peso con seguimiento, o conflicto de pareja/familia: -->
+    <div class="ayuda" id="ayuda">
+      <h3>{si_necesitas_ayuda_ahora}</h3>
+      <p>{bloque_literal_de_ayuda_por_pais_yaml}</p>
+      <p class="seguridad">{si_temes_por_tu_seguridad_literal}</p>
+    </div>
+    <p class="ia">{divulgacion_ia_literal}</p>
+  </section>
+
+  <nav class="indice" id="indice">
+    <h2>{indice}</h2>
+    <ol>
+      <li><a href="#cap-1">{capitulo_1}</a></li>
+      <li><a href="#cap-2">{capitulo_2}</a></li>
+    </ol>
+  </nav>
+
+  <section class="capitulo" id="cap-1">
+    <h2>{capitulo_1}</h2>
+    <p class="minutos">{minutos_del_paso} min</p>
+    <p>{texto_propio_con_fuente_citada_donde_hay_hechos}</p>
+    <div class="paso">
+      <h3>{paso_1}</h3>
+      <p>{instruccion_accionable_con_ejemplo_ficticio_rotulado}</p>
+      <p class="cuando-parar"><strong>{cuando_parar}</strong> {disparadores_concretos}</p>
+    </div>
+    <table>
+      <caption>{titulo_de_tabla}</caption>
+      <thead><tr><th>{col_1}</th><th>{col_2}</th></tr></thead>
+      <tbody><tr><td>{dato}</td><td>{dato}</td></tr></tbody>
+    </table>
+  </section>
+
+  <!-- Biblioteca de N: una <article class="ficha"> por línea del JSONL (unidad_id, título, contenido, imagen_id, fuente, licencia_id); la uniformidad es de construcción -->
+  <section class="capitulo" id="cap-biblioteca">
+    <article class="ficha" id="{unidad_id}">
+      <h3>{titulo_unidad}</h3>
+      <figure><img src="img/{imagen_id}.png" alt="{texto_alternativo_descriptivo}"><figcaption>{rotulo_imagen_ia}</figcaption></figure>
+      <div class="contenido">{contenido_de_la_unidad}</div>
+      <p class="fuente">{fuente}</p>
+    </article>
+  </section>
+
+  <section class="referencia" data-lectura="referencia" id="fuentes">
+    <h2>{fuentes}</h2>
+    <ul>
+      <li>{titulo_fuente}, {organismo}. {url} ({etiqueta_consultado}: {fecha_consulta})</li>
+    </ul>
+  </section>
+
+  <section class="colofon" data-lectura="referencia">
+    <h2>{colofon}</h2>
+    <p>{marca} · {autoria_honesta_solo_si_es_cierta} · {divulgacion_ia}</p>
+    <p>{licencia_de_uso_del_comprador}</p>
+    <p>{tipografias_ofl_y_creditos_de_licencia}</p>
+  </section>
+
+</body>
+</html>

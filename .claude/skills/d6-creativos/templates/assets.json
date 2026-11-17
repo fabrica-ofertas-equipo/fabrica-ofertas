@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "nota": "Vista derivada de paquete.json + conciliación de créditos (creditos_reservados vs creditos_reales). contratos/assets.schema.json es de las ranuras de la landing (D5), no de este archivo.",
+  "piezas": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "archivo": "assets/c01-hueco_img_h1_v1.png",
+      "html_fuente": "assets/src/c01-hueco_img_h1_v1.html",
+      "ratio": "4:5",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "herramienta": "chrome-headless-html",
+      "modelo": null,
+      "job_id": null,
+      "ia_generado": false,
+      "c2pa_origen": "n.a.",
+      "c2pa_final": "no",
+      "etiqueta_ia_visible": false,
+      "copy_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "licencia_ref": "lic-fuente-sistema",
+      "costo_creditos": 0,
+      "creditos_reservados": 0,
+      "creditos_reales": 0,
+      "voice_id": null
+    }
+  ]
+}

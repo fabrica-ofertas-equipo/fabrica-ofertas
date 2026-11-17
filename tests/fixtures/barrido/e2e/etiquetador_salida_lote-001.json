@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "lote_id": "lote-001",
+  "etiquetador": "etiquetador-001",
+  "paginas": [
+    {
+      "page_id": "1000000000000001",
+      "tema": "atlas visual de puntos gatillo",
+      "tema_slug": "puntos-gatillo",
+      "publico": "fisioterapeutas",
+      "formato": "atlas_mapas",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "Herramienta de trabajo para profesionales, no un deseo de salud propio.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Atlas Visual de Puntos Gatillo"
+        }
+      ],
+      "senales_riesgo": []
+    },
+    {
+      "page_id": "1000000000000002",
+      "tema": "atlas de puntos gatillo",
+      "tema_slug": "puntos-gatillo",
+      "publico": "terapeutas",
+      "formato": "atlas_mapas",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "Herramienta de trabajo para profesionales.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Atlas de puntos gatillo para terapeutas"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000003",
+      "tema": "recetas para diabetes tipo 2",
+      "tema_slug": "recetas-diabetes",
+      "publico": "personas con diabetes tipo 2",
+      "formato": "recetario",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "El deseo central es controlar la glucosa con la alimentación.",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.7",
+      "evidencia": [
+        {
+          "titulo": "30 low-sugar dinners for type 2 diabetes"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000004",
+      "tema": "plantillas de presupuesto familiar",
+      "tema_slug": "plantillas-presupuesto",
+      "publico": "familias",
+      "formato": "plantillas",
+      "macro_nicho": "dinero",
+      "macro_nicho_motivo": "Quiere ordenar y ahorrar su dinero.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Pago único: kit de finanzas del hogar"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000005",
+      "tema": "coaching personal de fitness",
+      "tema_slug": "coaching-fitness",
+      "publico": "personas que quieren entrenar",
+      "formato": "servicio",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "Quiere cuidar su cuerpo.",
+      "es_oferta_digital_pago_unico": false,
+      "confianza": "0.9",
+      "evidencia": [
+        {
+          "titulo": "Reserva tu sesión de entrenamiento"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000006",
+      "tema": "comunidad de emprendedores",
+      "tema_slug": "comunidad-emprendedores",
+      "publico": "emprendedores",
+      "formato": "comunidad_o_app",
+      "macro_nicho": "dinero",
+      "macro_nicho_motivo": "Quiere hacer crecer su negocio.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Membership: weekly live calls"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000007",
+      "tema": "patrones de crochet",
+      "tema_slug": "crochet-patrones",
+      "publico": "aficionadas al tejido",
+      "formato": "patrones",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "Es un hobby.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Patrones de crochet paso a paso"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000008",
+      "tema": "indeterminado",
+      "tema_slug": "indeterminado",
+      "publico": "indeterminado",
+      "formato": "otro",
+      "macro_nicho": null,
+      "macro_nicho_motivo": "",
+      "es_oferta_digital_pago_unico": null,
+      "confianza": "0.0",
+      "evidencia": [
+        {
+          "titulo": "¿Ya lo conoces? Mira esto"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000010",
+      "tema": "yoga prenatal",
+      "tema_slug": "yoga-prenatal",
+      "publico": "mujeres embarazadas",
+      "formato": "guia_pdf",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "Quiere cuidar su cuerpo durante el embarazo.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Yoga prenatal: guía en PDF"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000011",
+      "tema": "yoga prenatal",
+      "tema_slug": "yoga-prenatal",
+      "publico": "mujeres embarazadas",
+      "formato": "guia_pdf",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "Quiere cuidar su cuerpo durante el embarazo.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.8",
+      "evidencia": [
+        {
+          "titulo": "Prenatal yoga guide (PDF)"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000012",
+      "tema": "recetario semanal",
+      "tema_slug": "recetario-semanal",
+      "publico": "familias",
+      "formato": "recetario",
+      "macro_nicho": "salud",
+      "macro_nicho_motivo": "Quiere comer mejor.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.6",
+      "evidencia": [
+        {
+          "titulo": "Recetario sencillo para la semana (edición 2024)"
+        }
+      ]
+    },
+    {
+      "page_id": "1000000000000013",
+      "tema": "calculadora de hipoteca",
+      "tema_slug": "calculadora-hipoteca",
+      "publico": "compradores de vivienda",
+      "formato": "calculadora",
+      "macro_nicho": "dinero",
+      "macro_nicho_motivo": "Quiere decidir cuánto endeudarse.",
+      "es_oferta_digital_pago_unico": true,
+      "confianza": "0.7",
+      "evidencia": [
+        {
+          "titulo": "Mortgage calculator spreadsheet"
+        }
+      ]
+    }
+  ]
+}

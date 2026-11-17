@@ -1,0 +1,547 @@
+{
+ "descripcion": "Series simuladas de la regla de salud de X1 (spec 14 §3.4, nota 25 §9). Oráculo: scripts/regla_salud.py. Los parámetros son de PRUEBA [SUPUESTO]: copian los valores iniciales [HIPÓTESIS] de empresa/parametros.yaml a 2026-11-06; ratio_disputas_pausa está en null en empresa/limites.yaml (lo fija el dueño) y aquí vale 0.005 solo para probar. Si el dueño cambia un parámetro, recalcular el esperado, no editar la regla.",
+ "parametros": {
+  "rechazos_congelar": 2,
+  "rechazos_ventana_dias": 7,
+  "disputas_alerta_pct": "0.3",
+  "disputas_casos_alerta": 2,
+  "disputas_casos_pausa": 3,
+  "disputas_muestra_min_pagos": 50,
+  "ratio_disputas_pausa": "0.005",
+  "reembolsos_alerta_pct": 8,
+  "reembolsos_pausa_pct": 12,
+  "reembolsos_n_min": 20,
+  "salud_max_antiguedad_h": 24,
+  "declaracion_calidad_cuenta_max_dias": 7,
+  "estado_meta_requerido_para_lanzar": "Saludable"
+ },
+ "series": [
+  {
+   "id": "SAL-01-base",
+   "descripcion": "Todo en verde",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-02-rechazo-pieza",
+   "descripcion": "Un rechazo de pieza sin revertir congela el ángulo",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 1,
+      "tipo": "pieza",
+      "revertido": false
+     }
+    ],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "congelar_angulo",
+    "alcance": "angulo",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-03-rechazo-revertido",
+   "descripcion": "Un rechazo revertido en revisión no cuenta como infracción (HC 1210227555661027)",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 1,
+      "tipo": "pieza",
+      "revertido": true
+     }
+    ],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-04-rechazo-producto",
+   "descripcion": "Un rechazo de producto congela la hoja",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 3,
+      "tipo": "producto",
+      "revertido": false
+     }
+    ],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "congelar_hoja",
+    "alcance": "hoja",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-05-tres-rechazos-en-cinco-dias",
+   "descripcion": "Sembrado X1-S12: tres rechazos en cinco días y un dictamen 'continuar' es el defecto; la regla exige congelar y bajar D5-D9 a N1",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 1,
+      "tipo": "pieza",
+      "revertido": false
+     },
+     {
+      "hace_dias": 3,
+      "tipo": "pieza",
+      "revertido": false
+     },
+     {
+      "hace_dias": 5,
+      "tipo": "pieza",
+      "revertido": false
+     }
+    ],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "congelar_hoja",
+    "alcance": "cuenta",
+    "lanzamientos_bloqueados": true,
+    "alertas": [
+     "bajar_D5_D9_a_N1"
+    ]
+   }
+  },
+  {
+   "id": "SAL-06-rechazo-fuera-de-ventana",
+   "descripcion": "Dos rechazos de pieza, uno fuera de la ventana: solo cuenta uno",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 2,
+      "tipo": "pieza",
+      "revertido": false
+     },
+     {
+      "hace_dias": 9,
+      "tipo": "pieza",
+      "revertido": false
+     }
+    ],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "congelar_angulo",
+    "alcance": "angulo",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-07-disputas-alerta-por-conteo",
+   "descripcion": "2 casos sobre 1.000 pagos: alerta, no pausa",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 1000,
+    "disputas_30d": 2,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": [
+     "alerta_disputas"
+    ]
+   }
+  },
+  {
+   "id": "SAL-08-disputas-pausa-por-conteo",
+   "descripcion": "3 casos: pausa de la oferta aunque el ratio sea bajo",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 1000,
+    "disputas_30d": 3,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "pausar_oferta",
+    "alcance": "oferta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-09-poca-muestra",
+   "descripcion": "1 caso sobre 40 pagos: ratio alto pero muestra < disputas_muestra_min_pagos; mandan los conteos",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 40,
+    "disputas_30d": 1,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-10-pausa-dura-por-ratio",
+   "descripcion": "2 casos sobre 300 pagos = 0,67 % >= ratio_disputas_pausa: pausa de la oferta y propuesta de pausa del macro (gate H)",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 300,
+    "disputas_30d": 2,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "pausar_oferta",
+    "alcance": "oferta",
+    "lanzamientos_bloqueados": true,
+    "alertas": [
+     "proponer_pausa_macro_gate_H"
+    ]
+   }
+  },
+  {
+   "id": "SAL-11-reembolsos-alerta",
+   "descripcion": "9 % con n=30: alerta",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 30,
+    "reembolsos_pct": 9,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": [
+     "alerta_reembolsos"
+    ]
+   }
+  },
+  {
+   "id": "SAL-12-reembolsos-pausa",
+   "descripcion": "13 % con n=30: pausa de la oferta",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 30,
+    "reembolsos_pct": 13,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "pausar_oferta",
+    "alcance": "oferta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-13-reembolsos-sin-muestra",
+   "descripcion": "20 % con n=10: no se evalúa (n < reembolsos_n_min)",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 10,
+    "reembolsos_pct": 20,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": false,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-14-necesita-atencion",
+   "descripcion": "'Necesita atención': congelar lanzamientos y auditar 14 días [SUPUESTO: alcance = toda hoja nueva]",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Necesita atención",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "congelar_hoja",
+    "alcance": "cuenta",
+    "lanzamientos_bloqueados": true,
+    "alertas": [
+     "auditar_14_dias"
+    ]
+   }
+  },
+  {
+   "id": "SAL-15-restringida",
+   "descripcion": "Restringida: PAUSA y apelación del administrador (humano)",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Restringida",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "PAUSA",
+    "alcance": "cuenta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-16-cuenta-deshabilitada",
+   "descripcion": "account_status distinto de ACTIVE",
+   "estado": {
+    "account_status": "DISABLED",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "PAUSA",
+    "alcance": "cuenta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-17-stripe-suspension",
+   "descripcion": "Stripe retiene o cierra: PAUSA; la apelación es humana por la UI de Stripe",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": "suspension"
+   },
+   "esperado": {
+    "accion": "PAUSA",
+    "alcance": "cuenta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-18-stripe-retraso",
+   "descripcion": "Retraso de pago o reserva: pausa de la oferta",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": "retraso_pago"
+   },
+   "esperado": {
+    "accion": "pausar_oferta",
+    "alcance": "oferta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  },
+  {
+   "id": "SAL-19-salud-vieja",
+   "descripcion": "Dato de salud más viejo que salud_max_antiguedad_h: no se lanza (L1-12)",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 30,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": true,
+    "alertas": [
+     "salud_vieja"
+    ]
+   }
+  },
+  {
+   "id": "SAL-20-declaracion-vencida",
+   "descripcion": "La declaración de calidad de cuenta (sin herramienta de lectura) pasó declaracion_calidad_cuenta_max_dias",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 10,
+    "rechazos": [],
+    "pagos_30d": 200,
+    "disputas_30d": 0,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "seguir",
+    "alcance": null,
+    "lanzamientos_bloqueados": true,
+    "alertas": [
+     "declaracion_calidad_vencida"
+    ]
+   }
+  },
+  {
+   "id": "SAL-21-gana-lo-mas-grave",
+   "descripcion": "Rechazo de pieza + 3 casos de disputa: manda la pausa de la oferta",
+   "estado": {
+    "account_status": "ACTIVE",
+    "calidad_cuenta_meta": "Saludable",
+    "calidad_edad_dias": 2,
+    "rechazos": [
+     {
+      "hace_dias": 1,
+      "tipo": "pieza",
+      "revertido": false
+     }
+    ],
+    "pagos_30d": 1000,
+    "disputas_30d": 3,
+    "reembolsos_n": 40,
+    "reembolsos_pct": 4,
+    "edad_salud_h": 3,
+    "stripe_aviso": null
+   },
+   "esperado": {
+    "accion": "pausar_oferta",
+    "alcance": "oferta",
+    "lanzamientos_bloqueados": true,
+    "alertas": []
+   }
+  }
+ ]
+}

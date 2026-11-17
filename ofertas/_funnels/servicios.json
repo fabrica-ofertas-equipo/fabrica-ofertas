@@ -1,0 +1,72 @@
+{
+ "_leeme": "Servicios pagos de los que depende el sistema (13-nov). El estado vivo lo escriben chequeos_diarios.py (Kie, Gemini) y la vigilancia (Meta, Claude, Impul Pay) en servicios_estado.json; el panel lo muestra en «Servicios y saldos». Las fechas de renovación las carga el dueño o el agente cuando las ve. «cada_horas»: cada cuánto se tiene que leer cada servicio; si pasa el doble sin lectura, el panel lo marca «desactualizado» (14-nov). Claude y Meta los lee la vigilancia en cada vuelta completa (cada hora).",
+ "servicios": [
+  {
+   "id": "claude",
+   "nombre": "Claude (plan Ultra)",
+   "para": "todas las tareas automáticas: vigilancia, radar, renovación, lanzamientos, soporte",
+   "url": "https://claude.ai/settings/usage",
+   "critico": true,
+   "cada_horas": 1
+  },
+  {
+   "id": "meta",
+   "nombre": "Cuenta publicitaria de Meta",
+   "para": "todas las campañas",
+   "url": "https://business.facebook.com/billing_hub/payment_settings",
+   "critico": true,
+   "cada_horas": 1
+  },
+  {
+   "id": "kie",
+   "nombre": "Kie.ai",
+   "para": "clips (Kling), imágenes (Nano Banana) y música (Suno) de los anuncios y productos",
+   "url": "https://kie.ai",
+   "critico": true,
+   "cada_horas": 24
+  },
+  {
+   "id": "gemini",
+   "nombre": "Google AI Studio (Gemini)",
+   "para": "las voces de todos los anuncios",
+   "url": "https://aistudio.google.com/usage",
+   "critico": true,
+   "recarga": "AI Studio → Billing: mirar el saldo y recargar. Google no da el saldo por API: se anota con chequeos_diarios.py gemini-saldo --usd N (o diciéndolo en el chat). Aviso bajo US$ 5 o con más de 7 días sin mirarlo.",
+   "cada_horas": 24
+  },
+  {
+   "id": "impulpay",
+   "nombre": "Impul Pay",
+   "para": "cobros; adelanto de fondos bloqueados al 2 %",
+   "url": "https://impultienda.ar/dashboard",
+   "critico": true,
+   "cada_horas": 24
+  },
+  {
+   "id": "impultienda",
+   "nombre": "Impultienda (plan Unlimited)",
+   "para": "tiendas, checkouts y upsells",
+   "url": "https://impultienda.ar/dashboard",
+   "renueva": "2026-12-13",
+   "critico": true,
+   "cada_horas": 168
+  },
+  {
+   "id": "dominio",
+   "nombre": "Dominio tu-dominio.com (Cloudflare)",
+   "para": "correo de soporte soporte@tu-dominio.com",
+   "url": "https://dash.cloudflare.com",
+   "renueva": null,
+   "critico": false,
+   "cada_horas": 720
+  },
+  {
+   "id": "gmail",
+   "nombre": "Conector de Gmail",
+   "para": "soporte a clientes",
+   "url": "https://claude.ai/settings/connectors",
+   "critico": false,
+   "cada_horas": 12
+  }
+ ]
+}

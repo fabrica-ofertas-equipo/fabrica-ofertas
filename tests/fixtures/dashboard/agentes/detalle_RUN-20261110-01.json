@@ -1,0 +1,91 @@
+{
+  "ejecucion_id": "RUN-20261110-01",
+  "oferta_id": "OF-202611-01",
+  "etapa": "D5",
+  "agente": "d5-maker",
+  "inicio": "2026-11-10T09:00:00Z",
+  "fin": "2026-11-10T09:07:30Z",
+  "estado": "ok",
+  "costo": {
+    "monto": 300,
+    "moneda": "EUR"
+  },
+  "modo": "dry_run",
+  "eventos": [
+    {
+      "n": 1,
+      "schema_version": "1.0.0",
+      "ts": "2026-11-10T09:00:00Z",
+      "ejecucion_id": "RUN-20261110-01",
+      "oferta_id": "OF-202611-01",
+      "etapa": "D5",
+      "agente": "d5-maker",
+      "skill_version": "0.1.0",
+      "evento": "accion",
+      "herramienta": "Write",
+      "entrada_resumen": "Escribe la landing en 05-landing/sitio",
+      "resultado": {
+        "estado": "ok",
+        "codigo": 0
+      },
+      "costo_estimado": {
+        "monto": 300,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "hash_previo": null,
+      "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "n": 2,
+      "schema_version": "1.0.0",
+      "ts": "2026-11-10T09:04:10Z",
+      "ejecucion_id": "RUN-20261110-01",
+      "oferta_id": "OF-202611-01",
+      "etapa": "D5",
+      "agente": "d5-maker",
+      "skill_version": "0.1.0",
+      "evento": "llamada_herramienta",
+      "herramienta": "Bash",
+      "entrada_resumen": "validar_esquemas oferta <b>x</b>",
+      "resultado": {
+        "estado": "ok",
+        "codigo": 0
+      },
+      "costo_estimado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "hash_previo": null,
+      "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000002"
+    },
+    {
+      "n": 3,
+      "schema_version": "1.0.0",
+      "ts": "2026-11-10T09:07:30Z",
+      "ejecucion_id": "RUN-20261110-01",
+      "oferta_id": "OF-202611-01",
+      "etapa": "D5",
+      "agente": "d5-maker",
+      "skill_version": "0.1.0",
+      "evento": "transicion",
+      "herramienta": "orq",
+      "entrada_resumen": "D5 en_progreso -> en_QA",
+      "resultado": {
+        "estado": "ok",
+        "codigo": 0
+      },
+      "costo_estimado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "hash_previo": null,
+      "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000003"
+    }
+  ]
+}

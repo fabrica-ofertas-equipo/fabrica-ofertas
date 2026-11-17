@@ -1,0 +1,11 @@
+{
+  "grupos": {
+    "validacion": {
+      "n_ind_sost_go": {"valor": 3},
+      "is_go_max": {"valor": 70},
+      "is_nogo_min": {"valor": 85},
+      "min_frases_voz": {"valor": 30},
+      "min_fuentes_voz": {"valor": 3}
+    }
+  }
+}

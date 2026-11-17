@@ -1,0 +1,311 @@
+# Ejemplo dorado de guion (oferta de ejemplo OF-202611-01 «El Puente de la Pausa», es-ES, dinero verde).
+# Muestra cómo se cumplen las reglas: objeciones → hipótesis equivocadas, revelación = qué ES el producto con
+# [claim], ningún resultado (ni trabajo, ni entrevistas, ni dinero), personajes ficticios que no son «clientes».
+titulo: "Hablando sola en la cocina"
+locale: es-ES
+fps: 30
+pausa: 0.18
+ritmo_voces: "fast-paced, snappy sitcom delivery"
+etiqueta_ia: "Ficción animada · generada con IA"
+
+d6:
+  oferta_id: OF-202611-01
+  ad_name: c01-hueco_vid_h1_v1
+  ejecucion_id: RUN-20261106-01
+  moneda: EUR
+  costos_borrador: ../../costos.jsonl
+  assets_dir: ../../assets
+
+estilo_visual: >
+  Modern 3D animated feature film look, stylized CG family-comedy characters with slightly exaggerated
+  proportions, large expressive eyes, readable acting faces, detailed skin, hair and fabric textures,
+  warm cozy practical lighting, shallow depth of field, cinematic grade.
+
+puesta: >
+  Sunday lunch in a Madrid flat. Antonio, Marta and Javi are SEATED around the dining table the whole scene.
+  Elena enters from the kitchen at the beginning (p01, p03) holding a laptop; from p06 on she sits at the
+  head of the table with the laptop.
+
+modelos: {imagen: nano-banana-pro, resolucion_imagen: 2K, dialogo: kling/ai-avatar-pro, accion: kling-3.0/video, modo_accion: std, paralelo: 8}
+subtitulos: {palabras_max: 3, y: 1150, tamano: 46}
+
+marca:            # sin 05-landing/paleta.json en el ejemplo → neutros [SUPUESTO]
+  fondo: "#F5F3EE"
+  texto: "#141414"
+  primario: "#1F4ED8"
+  acento: "#1F4ED8"
+  acento_texto: "#FFFFFF"
+
+escenarios:
+  comedor:
+    descripcion: >
+      Spanish family dining room in a Madrid flat on a Sunday at lunchtime. Wooden table with a white
+      tablecloth, a big paella pan in the middle, bread, a jug of water, a bottle of red wine. Sideboard with
+      framed family photos, patterned tiles visible through the kitchen door, warm midday light from a balcony.
+
+personajes:
+  elena:
+    nombre: Elena
+    papel: protagonista
+    genero: f
+    descripcion: >
+      Woman around 38, shoulder-length dark wavy hair, mustard knit cardigan over a white t-shirt, jeans.
+      Calm, a bit embarrassed, quietly confident. Carries a thin laptop.
+    voz: {proveedor: google, voice_id: es-es-csagent-5}
+  antonio:
+    nombre: Antonio
+    papel: autoridad
+    genero: m
+    descripcion: >
+      Her father, around 65, white hair combed back, grey moustache, navy polo shirt. Stern, formal.
+    voz: {proveedor: google, voice_id: es-es-assistant-3}
+  marta:
+    nombre: Marta
+    papel: fiscal
+    genero: f
+    descripcion: >
+      Her older sister, around 45, short auburn bob, big hoop earrings, green blouse. Suspicious, dramatic.
+    voz: {proveedor: google, voice_id: es-es-training-12}
+  javi:
+    nombre: Javi
+    papel: comico
+    genero: m
+    descripcion: >
+      Marta's husband, around 44, slightly bald, stubble, faded band t-shirt. Lazy, deadpan.
+    voz: {proveedor: google, voice_id: es-es-training-3}
+
+planos:
+  # ── GANCHO (0–5 s)
+  - id: p01
+    escenario: comedor
+    personajes: [elena, antonio, marta, javi]
+    habla: elena
+    texto: "[confused] ¿Por qué me miráis todos así?"
+    encuadre: wide shot, Elena standing in the kitchen doorway holding her laptop, the family seated at the table turned towards her in silence
+    accion: everyone stares at Elena with serious faces
+  - id: p02
+    escenario: comedor
+    habla: antonio
+    texto: "[serious, dry] Siéntate, Elena."
+    encuadre: close-up
+    accion: arms crossed, stern frown
+    emocion: stern
+    camara: push
+  - id: p03
+    escenario: comedor
+    habla: elena
+    texto: "[nervous] ¿Ha pasado algo?"
+    encuadre: medium shot
+    accion: holding the closed laptop against her chest
+    emocion: worried
+  # ── DETONANTE (5–12 s)
+  - id: p04
+    escenario: comedor
+    habla: marta
+    texto: "[suspicious] Te hemos oído hablando sola en la cocina."
+    encuadre: close-up
+    accion: leaning forward over the table, eyebrows raised
+    emocion: suspicious
+  - id: p05
+    escenario: comedor
+    habla: javi
+    texto: "[deadpan] Media hora."
+    encuadre: medium close-up
+    accion: slouched, chewing bread
+    emocion: deadpan
+    pausa: 0.5
+    sfx: [{generar: "one single soft clock tick in a silent room", dur: 0.6, en: 0.3, volumen: 0.4}]
+  - id: p06
+    escenario: comedor
+    habla: elena
+    texto: "Estaba ensayando."
+    encuadre: medium shot
+    accion: sitting down slowly, putting the laptop on the table
+    emocion: embarrassed
+  # ── INTERROGATORIO (12–30 s): hipótesis equivocadas, en ráfaga
+  - id: p07
+    escenario: comedor
+    habla: antonio
+    texto: "[grave] ¿Ensayando qué?"
+    encuadre: close-up
+    accion: taking off his glasses
+    emocion: grave
+    camara: push-lento
+  - id: p08
+    escenario: comedor
+    habla: marta
+    texto: "¿Te has apuntado a teatro?"
+    encuadre: medium close-up
+    accion: narrowing her eyes
+    emocion: suspicious
+    pausa: 0.1
+  - id: p09
+    escenario: comedor
+    habla: elena
+    texto: "[curt, flat, one quick syllable] No."
+    encuadre: close-up
+    accion: flat face
+    emocion: flat
+    pausa: 0.12
+  - id: p10
+    escenario: comedor
+    habla: javi
+    texto: "¿Es una secta de esas de coaching?"
+    encuadre: medium close-up
+    accion: half smile, rubbing his hands
+    emocion: mocking
+    pausa: 0.1
+  - id: p11
+    escenario: comedor
+    habla: elena
+    texto: "[curt, flat, one quick syllable] No."
+    encuadre: extreme close-up
+    accion: eyes closed, patient
+    emocion: patient
+    camara: push
+  - id: p12
+    escenario: comedor
+    habla: marta
+    texto: "[scandalized] ¿Vas a abrir un canal de YouTube? Porque la vecina del cuarto hace directos cocinando y ya no saluda."
+    encuadre: medium close-up
+    accion: gesturing dramatically with both hands
+    emocion: scandalized
+    actuacion: intensa
+    camara: push-lento
+    sfx: [{generar: "short dramatic orchestral string stab, suspense sting, no drums", dur: 1.2, en: 0.0, volumen: 0.4}]
+  - id: p13
+    escenario: comedor
+    personajes: [elena]
+    habla: elena
+    texto: "[tired] No es YouTube."
+    encuadre: medium shot
+    accion: rubbing her forehead
+    emocion: exasperated
+    pausa: 0.25
+  # ── REVELACIÓN (30–45 s): silencio + producto con [claim]
+  - id: p14
+    escenario: comedor
+    personajes: [elena]
+    duracion: 1.6
+    encuadre: medium shot
+    accion: Elena opens the laptop on the table, the screen softly lights her face
+    musica: corta
+    sfx: [{generar: "thin laptop lid opened on a wooden table, soft hinge click, quiet power-on tone, close foley", dur: 1.5, en: 0.1, volumen: 0.55},
+          {generar: "low suspense drone slowly swelling, dark and tense, no melody, no music", dur: 1.6, en: 0.0, volumen: 0.45}]
+  - id: p15
+    escenario: comedor
+    personajes: [antonio, marta, javi]
+    duracion: 1.6
+    encuadre: over-the-shoulder shot from behind the laptop screen, the three family members lean in together, faces lit by the screen
+    accion: all lean in towards the screen at the same time
+    musica: corta
+    sfx: [{generar: "several chairs creaking at once as people lean forward, fabric rustle, no music", dur: 1.6, en: 0.0, volumen: 0.5}]
+  - id: p16
+    escenario: comedor
+    habla: antonio
+    texto: "¿Qué es eso?"
+    encuadre: close-up, face lit by the screen
+    accion: squinting at the screen
+    emocion: curious
+    sfx: [{generar: "soft magical shimmering chime with a gentle sparkle, short reveal sound, no music", dur: 1.5, en: 0.0, volumen: 0.45}]
+  - id: p17
+    escenario: comedor
+    habla: elena
+    texto: "Una guía con una plantilla de currículum por competencias."
+    claims: [incluye-plantilla-cv]
+    encuadre: medium shot behind the open laptop
+    accion: calm, small proud smile, pointing at the screen
+    emocion: calm
+    camara: push-lento
+  - id: p18
+    escenario: comedor
+    habla: marta
+    texto: "¿Y lo que decías en la cocina?"
+    encuadre: close-up
+    accion: arms crossed
+    emocion: skeptical
+  - id: p19
+    escenario: comedor
+    habla: elena
+    texto: "Un guion para explicar la pausa en treinta segundos."
+    claims: [guion-explicar-pausa]
+    encuadre: close-up
+    accion: relaxed, confident
+    emocion: relaxed
+    camara: push-fuerte
+    pausa: 0.35
+  - id: p20
+    escenario: comedor
+    habla: javi
+    texto: "¿Y eso cuánto lleva?"
+    encuadre: medium close-up
+    accion: putting the bread down
+    emocion: curious
+  - id: p21
+    escenario: comedor
+    habla: elena
+    texto: "Unos noventa minutos."
+    claims: [tiempo-90-min]
+    encuadre: close-up
+    accion: slight nod
+    emocion: calm
+    pausa: 0.45
+  - id: p22
+    escenario: comedor
+    habla: antonio
+    texto: "[amazed] ¿Treinta segundos, la pausa?"
+    claims: [guion-explicar-pausa]
+    encuadre: extreme close-up, glasses in his hand
+    accion: jaw dropping slightly
+    emocion: amazed
+    actuacion: intensa
+    camara: push
+    pausa: 0.4
+  - id: p23
+    escenario: comedor
+    habla: elena
+    texto: "Treinta."
+    encuadre: close-up
+    accion: slight nod
+    emocion: calm
+    camara: push
+    pausa: 0.6
+  # ── REMATE (45–52 s)
+  - id: p24
+    escenario: comedor
+    habla: marta
+    texto: "[hopeful] ¿Se lo puedes pasar a Javi?"
+    encuadre: close-up
+    accion: hands clasped, hopeful smile
+    emocion: hopeful
+    actuacion: intensa
+  - id: p25
+    escenario: comedor
+    habla: javi
+    texto: "[offended] ¡Marta!"
+    encuadre: close-up
+    accion: offended, dropping the bread on the plate
+    emocion: offended
+    camara: pull
+    pausa: 0.5
+    sfx: [{generar: "a piece of bread dropped onto a ceramic plate, short soft thud, close foley", dur: 0.6, en: 0.15, volumen: 0.5}]
+  - id: p26
+    escenario: comedor
+    personajes: [marta, javi]
+    elenco: solo
+    habla: marta
+    texto: "[dry, scolding him without looking] Llevas dos años diciendo que estás emprendiendo."
+    encuadre: over-the-shoulder shot from behind Javi (seen from the back, blurred, in the foreground), Marta seated across the table facing the camera
+    accion: Marta scolds Javi with a stern deadpan face, pointing her index finger at him; Javi is seen only from behind and does not move
+    emocion: stern, scolding, deadpan
+    pausa: 0.6
+    musica: corta
+    sfx: [{generar: "a single metal fork clinking once on a ceramic plate in an awkward silent room", dur: 1.0, en: 2.8, volumen: 0.5}]
+
+# Cierre para anuncio con enlace (D7 manda a la landing): sin «Comenta PALABRA» si no hay automatización de comentarios.
+cierre:
+  duracion: 5
+  antes: "El Puente de la Pausa"
+  palabra: "Guía + plantilla"
+  despues: "Garantía de devolución de 14 días"
+  claims: [incluye-plantilla-cv, garantia-14-dias]

@@ -1,0 +1,29 @@
+<section class="seccion comparacion tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-comparacion" data-comparacion-mercado>
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <p class="kicker">{{t.comparacion}}</p>
+      <h2 id="titulo-comparacion">{{{titulo}}}</h2>
+{{#si intro}}
+      <p class="lede">{{{intro}}}</p>
+{{/si}}
+    </header>
+    <ul class="comparacion__lista" role="list">
+{{#cada filas}}
+      <li class="comparacion__fila">
+        <div>
+          <p class="comparacion__nombre">{{{etiqueta}}}</p>
+          <p class="comparacion__fuente"><svg class="ico" aria-hidden="true"><use href="#i-lupa"></use></svg><span>{{t.fuente}}: {{fuente}}, {{t.leido}} {{fecha}}</span></p>
+        </div>
+        <p class="comparacion__cifra"><span data-comparacion-cifra data-fuente="{{fuente}}" data-fecha="{{fecha_iso}}" data-desde="{{desde}}" data-hasta="{{hasta}}">{{rango}}</span></p>
+      </li>
+{{/cada}}
+      <li class="comparacion__fila comparacion__fila--nuestra">
+        <div>
+          <p class="comparacion__nombre">{{t.nuestro_precio}}</p>
+        </div>
+        <p class="comparacion__cifra">{{precio}}</p>
+      </li>
+    </ul>
+    <p class="comparacion__nota">{{t.comparacion_nota}}</p>
+  </div>
+</section>

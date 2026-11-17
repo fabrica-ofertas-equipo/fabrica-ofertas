@@ -1,0 +1,85 @@
+# Permisos de tokens y claves: mínimo privilegio por función. SOLO METADATOS: nunca valores.
+# Hechos verificados 2026-11-06 en docs/07-puesta-en-marcha.md (fuentes en su sección 15). [VERIFICAR] = comprobar en sandbox o en el panel.
+version: 1
+actualizado: "2026-11-06"
+reglas:
+  - "Una credencial por función y por servicio. Ninguna comparte con otra función."
+  - "Los agentes (Makers, QA, runner) no tienen ninguna de estas credenciales salvo la clave de la API del modelo."
+  - "Cada ficha lleva propietario, creado_en, vence_en y ubicacion_secreto (nombre del lugar donde el dueño guarda la clave) en empresa/infra/secretos.md."
+  - "Prueba negativa obligatoria por credencial: debe fallar lo que no le corresponde (docs/07, pruebas A-7, A-8)."
+
+meta:
+  nivel_acceso_api: {fase_1: "Limited (1 usuario del sistema + 1 admin)", fase_2: "Full (10 + 1 admin); requiere >=500 llamadas en 15 dias y <15% de error"}
+  app: {tipo: "empresa", portfolio: "el de la LLC", acceso_permisos: "estandar (basta para cuentas propias sin revision)", modo_de_la_app: "[VERIFICAR]"}
+  tokens:
+    - id: operador
+      usuario_sistema: regular
+      scopes: [ads_management]
+      scopes_a_sumar_solo_si_hay_error_explicito: [pages_show_list, pages_read_engagement]
+      scopes_prohibidos: [business_management, catalog_management, instagram_basic]
+      activos: ["cuenta publicitaria única (campañas)", "fan page (para crear anuncios)"]
+      usado_por: ["motor", "scripts de D7/D8/D9 con guard.py"]
+      vencimiento: "60 días (set_token_expires_in_60_days) preferido"
+      prueba_negativa: "no puede cambiar spend_cap; no puede listar otros portfolios"
+    - id: lectura
+      usuario_sistema: regular        # Fase 2; en Fase 1 usa el token del operador
+      scopes: [ads_read]
+      activos: ["cuenta publicitaria", "datasets"]
+      usado_por: ["etl", "preflight"]
+      prueba_negativa: "cualquier POST falla"
+    - id: pausa
+      usuario_sistema: regular        # Fase 2; en Fase 1 es copia del operador
+      scopes: [ads_management]
+      activos: ["SOLO la cuenta publicitaria"]
+      usado_por: ["Worker watchdog", "scripts/pausar.py"]
+      nota: "Meta no documenta un alcance 'solo pausar'. El recorte es por activos y por código: el Worker solo emite GET campaigns?effective_status y POST status=PAUSED."
+      prueba_negativa: "sin página, sin datasets, sin portfolio"
+    - id: capi_por_dataset
+      generacion: "Administrador de eventos > Configuración del píxel > API de Conversiones > Generar token, o píxel asignado a un usuario del sistema"
+      activos: ["SOLO el dataset de la oferta"]
+      usado_por: ["Worker capi"]
+      nota: "Un token por dataset acota el daño de una fuga a una oferta. [VERIFICAR si 'Generar token' crea un usuario del sistema que cuente contra el límite]"
+      prueba_negativa: "no puede listar campañas"
+    - id: admin_sistema
+      scopes: [business_management]
+      uso: "altas y asignaciones de activos, a mano"
+      regla: "Fuera de todo alcance de agentes y scripts; se revoca tras cada alta."
+  limite_de_gasto_de_cuenta: {quien: "administrador humano, desde Facturación", verificacion: "GET act_<id>?fields=spend_cap,amount_spent", nota: "No existe con fondos prepagos; 10 cambios por día; ~15 min en aplicarse"}
+
+stripe:
+  reglas: "Claves restringidas rk_live_/rk_test_. Write implica Read. Crear una clave exige verificación en dos pasos. Valor visible una sola vez. Rotar con demora de hasta 7 días. NUNCA sk_."
+  claves:
+    - {id: rk_checkout, permisos: {"Checkout Sessions": Write}, extra: "Prices/Products Read solo si el 403 de sandbox lo exige [VERIFICAR]", usado_por: "Worker crear-sesion"}
+    - {id: rk_entrega, permisos: {"Checkout Sessions": Read, "PaymentIntents": Read, "Charges": Read}, usado_por: "Workers fulfill y capi"}
+    - id: rk_lectura
+      permisos: {Balance: Read, "Balance transactions": Read, Charges: Read, Refunds: Read, Disputes: Read, "Early fraud warnings": Read, Payouts: Read, "Checkout Sessions": Read, Customers: Read, PaymentIntents: Read, Prices: Read, Products: Read, Events: Read, "Webhook endpoints": Read, Reporting: Read}
+      usado_por: "etl y preflight"
+      nota: "Nombres exactos de recursos en el panel: [VERIFICAR]"
+    - {id: rk_reembolso, permisos: {Refunds: Write, Charges: Read, PaymentIntents: Read}, usado_por: "servicio determinista de reembolsos de D10 con topes de limites.yaml", agentes: "ninguno"}
+    - {id: rk_catalogo, permisos: {Products: Write, Prices: Write}, usado_por: "scripts/stripe_catalogo.py local o CI con aprobación", agentes: "ninguno"}
+  secretos_de_firma: "whsec_ por destino y por modo (ver stripe-eventos-webhook.yaml)"
+
+cloudflare:
+  reglas: "Tokens con prefijo cfut_; permiso Read en lugar de Edit donde alcance; acotar a zona/cuenta; TTL; verificación con GET /user/tokens/verify. Sin token de propietario programático."
+  tokens:
+    - {id: cf_deploy, permisos: ["Workers Scripts: Edit", "Workers Routes: Edit", "Workers KV Storage: Edit", "Pages: Edit"], recurso: "cuenta + zonas de ofertas", usado_por: "GitHub Actions (entorno produccion)", ttl_dias_max: 90, nota: "nombres exactos de permiso [VERIFICAR]"}
+    - {id: cf_dns, permisos: ["DNS: Edit"], recurso: "solo zonas de ofertas", usado_por: "scripts/dominio_alta.py", ttl_dias_max: 90}
+    - {id: cf_lectura, permisos: ["Workers Scripts: Read", "Zone: Read", "DNS: Read", "Pages: Read"], recurso: "cuenta", usado_por: "preflight", ttl_dias_max: 90}
+    - {id: r2_subida, tipo: "R2 API token (Access Key ID + Secret)", permisos: ["Object Read & Write"], recurso: "solo el bucket de productos", usado_por: "CI / D4", ttl_dias_max: 90}
+    - {id: r2_respaldo, tipo: "R2 API token", permisos: ["Object Read & Write"], recurso: "solo el bucket de respaldos", usado_por: "servicio respaldo (Railway)", ttl_dias_max: 90}
+    - {id: r2_firma, tipo: "R2 API token", permisos: ["Object Read"], recurso: "solo el bucket de productos", usado_por: "solo si se usan URL firmadas", existe_por_defecto: false}
+
+railway:
+  tokens:
+    - {id: railway_deploy, alcance: "proyecto/entorno [VERIFICAR alcance disponible]", usado_por: "GitHub Actions (entorno produccion)", ttl_dias_max: 90}
+    - {id: railway_lectura, alcance: "solo lectura [VERIFICAR si existe]", usado_por: "preflight"}
+
+github:
+  tokens:
+    - {id: gh_fino_lectura, tipo: "token de granularidad fina", permisos: ["Contents: Read", "Metadata: Read", "Actions: Read", "Administration: Read (reglas de rama)"], recurso: "solo el repositorio", usado_por: "preflight", ttl_dias_max: 90}
+  actions: {permissions_por_defecto: "contents: read", acciones: "fijadas por SHA", pull_request_target: "no se usa para código de ramas"}
+
+correo:
+  claves:
+    - {id: correo_enviar, permisos: ["solo enviar"], usado_por: "Worker fulfill y alertas"}
+    - {id: correo_lectura, permisos: ["leer dominios y métricas"], usado_por: "preflight"}

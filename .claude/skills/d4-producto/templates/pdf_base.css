@@ -1,0 +1,53 @@
+/* Hoja de estilo base de D4 (medios paginados). Compatible con Chrome sin pantalla (ruta A) y WeasyPrint (ruta B). [no probada en este entorno]
+   Kit de marca: cambia SOLO las variables. Fuentes OFL: ./fonts/*.woff2 (verificar cada OFL.txt) y se EMBEBEN en el PDF; sin recursos remotos. */
+:root {
+  --color-texto: #1d2733;
+  --color-marca: #2f6f6a;
+  --color-fondo-suave: #f3f6f5;
+  --color-borde: #cfd8d6;
+  --fuente-texto: "FuenteTexto", Georgia, serif;
+  --fuente-titulos: "FuenteTitulos", "Helvetica Neue", Arial, sans-serif;
+  --tamano-base: 11pt;
+}
+@font-face { font-family: "FuenteTexto"; src: url("fonts/FuenteTexto-Regular.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "FuenteTexto"; src: url("fonts/FuenteTexto-Bold.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "FuenteTitulos"; src: url("fonts/FuenteTitulos-Bold.woff2") format("woff2"); font-weight: 700; }
+
+@page { size: A4; margin: 20mm 18mm 22mm 18mm;
+  @bottom-center { content: counter(page); font-family: var(--fuente-titulos); font-size: 9pt; color: var(--color-marca); } }
+@page :first { margin: 0; @bottom-center { content: none; } }
+
+html { font-family: var(--fuente-texto); font-size: var(--tamano-base); color: var(--color-texto); line-height: 1.5; hyphens: auto; }
+body { margin: 0; }
+h1, h2, h3 { font-family: var(--fuente-titulos); color: var(--color-marca); line-height: 1.2; page-break-after: avoid; }
+h1 { font-size: 28pt; margin: 0 0 6mm; } h2 { font-size: 18pt; margin: 0 0 4mm; } h3 { font-size: 13pt; margin: 6mm 0 2mm; }
+p, li { orphans: 3; widows: 3; }
+
+.portada { height: 297mm; box-sizing: border-box; padding: 40mm 22mm; background: var(--color-fondo-suave); page-break-after: always; }
+.portada .marca { font-family: var(--fuente-titulos); text-transform: uppercase; letter-spacing: .08em; font-size: 10pt; }
+.portada .subtitulo { font-size: 14pt; max-width: 120mm; }
+.portada .tiempo, .portada .version { font-size: 10pt; color: #52606d; }
+
+.interior-portada, .indice { page-break-after: always; }
+.aviso, .ia { font-size: 9.5pt; border-left: 3pt solid var(--color-borde); padding-left: 4mm; }
+.ayuda { border: 1pt solid var(--color-marca); border-radius: 2mm; padding: 4mm; margin: 6mm 0; background: #fff; }
+.ayuda .seguridad { font-weight: 700; }
+
+.capitulo { page-break-before: always; }
+.capitulo .minutos { font-family: var(--fuente-titulos); font-size: 9pt; color: #52606d; margin-top: -2mm; }
+.paso { border: 1pt solid var(--color-borde); border-radius: 2mm; padding: 4mm; margin: 5mm 0; page-break-inside: avoid; }
+.cuando-parar { background: var(--color-fondo-suave); padding: 2mm 3mm; border-radius: 1.5mm; }
+
+table { width: 100%; border-collapse: collapse; margin: 4mm 0; font-size: 10pt; page-break-inside: avoid; }
+caption { text-align: left; font-family: var(--fuente-titulos); font-weight: 700; padding-bottom: 1.5mm; }
+th, td { border: .5pt solid var(--color-borde); padding: 1.5mm 2mm; text-align: left; vertical-align: top; }
+th { background: var(--color-fondo-suave); }
+
+.ficha { page-break-inside: avoid; border: 1pt solid var(--color-borde); border-radius: 2mm; padding: 4mm; margin: 0 0 5mm; }
+.ficha figure { margin: 0 0 3mm; } .ficha img { width: 100%; height: auto; display: block; }
+.ficha figcaption, .ficha .fuente { font-size: 8.5pt; color: #52606d; }
+
+a { color: var(--color-marca); text-decoration: none; }
+.referencia, .colofon { font-size: 9pt; }
+.referencia li { word-break: break-word; }
+/* Contraste: texto sobre fondo ≥ parametros.producto.contraste_min (WCAG AA); comprobar con la herramienta de contraste [PENDIENTE: scripts/producto/contraste]. */

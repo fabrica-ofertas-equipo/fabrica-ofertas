@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "id": "F2-A06-OF-202611-01-2026-11-14",
+  "ts": "2026-11-14T06:00:00Z",
+  "severidad": "roja",
+  "regla_id": "F2-A06",
+  "origen": "F2",
+  "oferta_id": "OF-202611-01",
+  "macro_nicho": "dinero",
+  "nivel": "amarillo-a",
+  "valor": "0.55",
+  "umbral": "0.80",
+  "accion_sugerida": "D8: pasar a modo ciego; D5: revisar CAPI (razón Meta/Stripe fuera de rango tras 2 lecturas)",
+  "estado": "abierta"
+}

@@ -1,0 +1,3 @@
+validador=const
+ruta=/macro_nichos_permitidos
+texto=el marco de 3 grandes nichos es fijo

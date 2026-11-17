@@ -1,0 +1,17 @@
+{
+  "novato_id": "N1",
+  "contexto": "limpio: recibió solo la carpeta entregables/ y el caso de prueba; no vio autoprueba.json ni el razonamiento del Maker",
+  "locale_de_trabajo": "it-IT",
+  "caso_recibido": "Persona ficticia con ingresos de 1.800 € al mes y 6 categorías de gasto",
+  "resultado": "completo",
+  "primer_resultado": { "paso": "paso-2-fissa-il-tetto", "alcanzado": true, "pasos_leidos_hasta_alli": 2, "palabras_leidas": 1100 },
+  "pasos": [
+    { "id": "paso-1-elenco-categorie", "ejecutado": true, "micro_acciones": [{ "tipo": "abrir_copiar_pegar", "n": 2 }, { "tipo": "decidir_ajustar", "n": 4 }], "trabas": [], "ambiguedades": [] },
+    { "id": "paso-2-fissa-il-tetto", "ejecutado": true, "micro_acciones": [{ "tipo": "decidir_ajustar", "n": 6 }, { "tipo": "configurar_herramienta", "n": 1 }], "trabas": [], "ambiguedades": ["no queda claro si la categoría «imprevistos» cuenta dentro del 100 %"] },
+    { "id": "paso-3-registra-la-settimana", "ejecutado": false, "motivo": "no_verificado_por_agente: interfaz gráfica de la hoja y gastos reales" }
+  ],
+  "tiempo_agente": { "nota": "reloj del agente: NO es tiempo humano y no se usa para el total; solo detecta huecos", "segundos_de_pared": 420 },
+  "estimacion_humana_por_formula": { "palabras_a_leer": 2160, "lectura_min": 12, "ejecucion_min": 39, "total_min": 51, "fuente": "tiempo_total.py con micro-acciones tipadas" },
+  "huecos": [],
+  "no_verificado_por_agente": ["paso-3: registrar gastos reales en la hoja", "abrir en el celular"]
+}

@@ -1,0 +1,352 @@
+{
+  "schema_version": "0.1.0-propuesta",
+  "_aviso": "PLANTILLA/EJEMPLO generado desde evals/dorados/D01 con scripts/puntaje.py seleccionar. Los datos de ficha son de ejemplo (notas 07a-07h/08); NO es una seleccion real. oferta_id de ejemplo.",
+  "oferta_id": "OF-202611-01",
+  "familia_id": "FAM-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "generado_en": "2026-11-06T12:00:00Z",
+  "fase_pagos": "estandar_tarjeta_billeteras",
+  "decision_managed_payments": "no_decidido",
+  "candidato": {
+    "candidato_id": "CAND-EJEMPLO-PRESUPUESTO-POR-COBRO",
+    "macro_nicho": "dinero",
+    "nivel": "verde",
+    "etiquetas": [
+      "producto_hogar"
+    ]
+  },
+  "parametros_usados": {
+    "pesos": {
+      "PA": 12,
+      "CAC": 18,
+      "COMP": 5,
+      "PAGO": 18,
+      "FISC": 12,
+      "LOC": 8,
+      "FRAUD": 8,
+      "EXPO": 12,
+      "ESC": 7
+    },
+    "peso_ajuste_creadores": 0,
+    "ctr_enlace": "0.013",
+    "mult_cpm_efectivo": "1.2",
+    "cpm_vencido": true,
+    "neto_completo": true,
+    "reembolso_bp": 800,
+    "disputa_bp": 60,
+    "stripe_tax": "0.5 % del precio (o 0,50 USD por API) [VERIFICAR]",
+    "clics_min_decidir_mercado": 2400,
+    "origen": "[SUPUESTO] scripts/parametros_m1.fallback.json + parametros.yaml#mercados (claves existentes)"
+  },
+  "ranking": [
+    {
+      "pais": "IT",
+      "locale": "it-IT",
+      "moneda_cobro": "EUR",
+      "total": "59.8",
+      "puntajes": {
+        "PA": 4,
+        "CAC": 3,
+        "COMP": 2,
+        "PAGO": 2,
+        "FISC": 2,
+        "LOC": 4,
+        "FRAUD": 3,
+        "EXPO": 3,
+        "ESC": 5
+      },
+      "r": "2.48",
+      "r_b": "1.65",
+      "cobertura": {
+        "fase_vigente_pct": "48.0",
+        "estandar_pct": "48.0",
+        "con_locales_pct": "49.5",
+        "valor_desbloqueo_pp": "1.5",
+        "hueco_paypal_pp": "30.0",
+        "hueco_principal": {
+          "metodo": "paypal",
+          "pp": "30.0"
+        },
+        "suman": [
+          "card",
+          "apple_pay"
+        ]
+      },
+      "banderas": [
+        "cobertura_media",
+        "cpm_vencido",
+        "requiere_firma_exposicion_fiscal"
+      ],
+      "posicion": 1,
+      "empate_con_siguiente": false,
+      "tarifa_meta_bp": 300,
+      "ficha_ref": "evals/dorados/fixtures/pais-IT.json",
+      "desempate_por": null
+    }
+  ],
+  "excluidos": [
+    {
+      "pais": "PL",
+      "locale": "pl-PL",
+      "regla": "R6",
+      "motivo": "cobertura de pago de la fase estandar_tarjeta_billeteras = 17.0 % < umbral duro (cobertura_pago_min_duro)",
+      "reabre_con": "fase con_locales: cobertura 67.0 % (+50.0 pp)"
+    }
+  ],
+  "sensibilidad": {
+    "escenarios": [
+      {
+        "escenario": "ctr_1_0",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "ctr_1_8",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "cpm_x1_0",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "cpm_x1_2",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "cpm_x1_5",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "estres_ctr1_0_cpm1_5",
+        "top3": [],
+        "elegido_en_top3": false
+      },
+      {
+        "escenario": "pesos_iguales",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "con_creadores_informativo",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "fase_con_locales",
+        "top3": [
+          "PL",
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "fase_estandar",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      },
+      {
+        "escenario": "managed_payments_si",
+        "top3": [
+          "IT"
+        ],
+        "elegido_en_top3": true
+      }
+    ],
+    "elegido_sigue_en_top3": false,
+    "lectura": "Con un solo mercado puntuado el top 3 es trivial; en el escenario de estres (CTR 1,0 %, mult_cpm 1,5), que es sensibilidad y no excluye mercados, ninguno cumpliria R9: el frontal solo no cierra, hace falta bump (08 §0.5)."
+  },
+  "elegido": {
+    "locale": "it-IT",
+    "paises": [
+      "IT"
+    ],
+    "moneda_cobro": "EUR",
+    "motivo": "Unico par que pasa R1-R10 con la fase vigente; con bandera cobertura_media (48,0 % < umbral blando) y bajo_minimo. Es una HIPOTESIS de partida, no una conclusion de mercado.",
+    "alternativas": [
+      {
+        "locale": "pl-PL",
+        "paises": [
+          "PL"
+        ],
+        "motivo": "excluido por R6 en fase vigente (17,0 %); reabre con fase con_locales + PLN (67,0 %)"
+      }
+    ],
+    "exploracion": null,
+    "n_mercados_test": 1
+  },
+  "precio_referencia": [
+    {
+      "moneda": "EUR",
+      "min": {
+        "monto": 990,
+        "moneda": "EUR"
+      },
+      "max": {
+        "monto": 1490,
+        "moneda": "EUR"
+      },
+      "fija": "D3",
+      "nota": "rango de referencia de 07h §3.4 [HIPOTESIS]; el precio lo fija D3"
+    },
+    {
+      "moneda": "PLN",
+      "min": {
+        "monto": 3900,
+        "moneda": "PLN"
+      },
+      "max": {
+        "monto": 4900,
+        "moneda": "PLN"
+      },
+      "fija": "D3",
+      "nota": "solo si se reabre PL en fase con_locales (BLIK exige PLN); 07h §3.4 [HIPOTESIS]"
+    }
+  ],
+  "metodos_locales_recomendados": [
+    {
+      "metodo": "blik",
+      "pais": "PL",
+      "moneda_requerida": "PLN",
+      "valor_desbloqueo_pp": "50.0",
+      "requiere": [
+        "fin del diferido de metodos locales (decision del dueño)",
+        "MINOR del contrato mercado (fase con_locales)",
+        "precio en PLN"
+      ]
+    },
+    {
+      "metodo": "satispay",
+      "pais": "IT",
+      "moneda_requerida": "EUR",
+      "valor_desbloqueo_pp": "1.5",
+      "requiere": [
+        "fin del diferido de metodos locales"
+      ]
+    }
+  ],
+  "carga_fiscal": {
+    "regimen_propuesto": "diferido",
+    "paises": [
+      {
+        "pais": "IT",
+        "tasa_bp": 2200,
+        "desde_primera_venta": true,
+        "mecanismo": "OSS no-Union"
+      }
+    ],
+    "nota": "Exposicion fiscal por pais pendiente de la firma del dueño en el gate H; el contador decide tipo de IVA de un PDF [VERIFICAR]."
+  },
+  "rama_managed_payments": {
+    "si": {
+      "pago_pct": "48.0",
+      "delta_neto": {
+        "monto": -52,
+        "moneda": "USD"
+      },
+      "fisc": 4,
+      "r8_aplica": false,
+      "nota": "+3,5 % sobre comisiones y sin Stripe Tax propio; excluye BLIK y Satispay; [VERIFICAR] base del 3,5 %"
+    },
+    "no": {
+      "pago_pct": "48.0",
+      "delta_neto": {
+        "monto": 0,
+        "moneda": "USD"
+      },
+      "fisc": 2,
+      "r8_aplica": true
+    },
+    "rama_estandar_resta_metodos": false
+  },
+  "riesgos": [
+    {
+      "id": "RK-1",
+      "descripcion": "CPM de referencia del 2026-07-27 (vencido): benchmark C",
+      "mitigacion": "mult_cpm central 1,2 con etiqueta [SUPUESTO], 1,5 como sensibilidad (no excluye) y CPM propio tras 1.000 clics"
+    },
+    {
+      "id": "RK-2",
+      "descripcion": "Hueco de PayPal ≈ 30 pp en Italia, no cerrable con Stripe de una LLC de EE. UU.",
+      "mitigacion": "decision del dueño: aceptar el hueco o evaluar PayPal propio"
+    }
+  ],
+  "presupuesto_test_sugerido": {
+    "mercados": 1,
+    "clics_por_mercado": 2400,
+    "cpc_central": {
+      "monto": 58,
+      "moneda": "USD"
+    },
+    "cpc_incluye_f_meta_una_vez": true,
+    "por_mercado": {
+      "monto": 139200,
+      "moneda": "USD"
+    },
+    "total": {
+      "monto": 139200,
+      "moneda": "USD"
+    },
+    "tope_limites": null,
+    "limites_pendientes": [
+      "gasto_total_test_por_oferta",
+      "perdida_max_test_por_oferta"
+    ],
+    "etiqueta": "decide_mercado",
+    "compara_mercados": false,
+    "uso": "Alcanza para decidir SI esta oferta funciona en este mercado (T3 contra su equilibrio). NO compara mercados: eso exige K >= 2 (mercados_test_paralelos_max) con presupuestos iguales (docs/08 §7)."
+  },
+  "pendientes_dueno": [
+    "Managed Payments si/no",
+    "metodos locales diferidos o no",
+    "mercados_test_paralelos_max (hoy 1)",
+    "revisor nativo de it-IT",
+    "firma de exposicion fiscal por pais",
+    "limites.paises_permitidos/locales_permitidos y topes de test"
+  ],
+  "evidencia_externa": {
+    "creadores": {
+      "peso_en_decision": 0,
+      "nota": "Ajuste de creadores solo informativo (IT +5 en regla de 08; C-B): no entra en el total."
+    },
+    "barrido": {
+      "corrida_id": "2026-11-06-a",
+      "estado": "hipotesis_hasta_pasada_3",
+      "nota": "Presencia por pais en la muestra del conector: hipotesis, no demanda medida; ver references/preguntas-abiertas.md"
+    }
+  },
+  "matriz_ref": {
+    "archivo": "scripts/semilla_exposicion.json",
+    "sha256": null,
+    "estado": "[SUPUESTO] empresa/compliance/matriz_pais_nivel.yaml no existe: se uso la semilla del Anexo D"
+  },
+  "contradicciones": [
+    "07b dudaba que BLIK sirva a titulares de EE. UU.; la ficha oficial de Stripe lo da elegible (docs.stripe.com/payments/blik, A): prevalece la ficha oficial."
+  ],
+  "fuentes": [
+    "docs/_investigacion/08-mercados-ranking.md",
+    "docs/_investigacion/07h-polonia-italia.md",
+    "docs/_investigacion/07g-pagos-pix-us-uk-otros.md",
+    "scripts/mercados/rank.py (corrida 2026-11-06)"
+  ]
+}

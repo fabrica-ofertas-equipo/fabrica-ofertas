@@ -1,0 +1,39 @@
+{
+  "id": "S08",
+  "descripcion": "idioma de la campana distinto del locale de mercado.json (la variante de registro, p. ej. 'vosotros' en es-MX, la juzga el QA L2)",
+  "check_id": "C11",
+  "severidad": "MAYOR",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "idioma"
+      ],
+      "valor": "es-MX"
+    },
+    {
+      "archivo": "07-campana/campana.json",
+      "ruta": [
+        "nombres",
+        "conjunto"
+      ],
+      "valor": "Amplia-IT_Automaticas_es-MX"
+    }
+  ],
+  "esperado": {
+    "check_id": "C11",
+    "codigo": "idioma_distinto_de_mercado",
+    "severidad": "MAYOR"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C11",
+      "patron_clave": "idioma-distinto-de-mercado",
+      "severidad": "MAYOR"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D04-cartera-mata-sigue-escala",
+  "estado": "requiere_motor [PENDIENTE: portafolio.py] ; estructura verificable por el QA",
+  "descripcion": "Cartera con tres salidas de decision/: una oferta MATAR, una SEGUIR, una ESCALAR.",
+  "entrada": {
+    "salidas_decision": [
+      {
+        "oferta_id": "OF-202611-01",
+        "accion_decision": "MATAR",
+        "ambito": "oferta_mercado",
+        "fuente": "decision/reglas.py::evaluar_oferta_validada"
+      },
+      {
+        "oferta_id": "OF-202611-02",
+        "accion_decision": "SEGUIR",
+        "fuente": "decision/reglas.py::evaluar_celda"
+      },
+      {
+        "oferta_id": "OF-202611-03",
+        "accion_decision": "ESCALAR",
+        "cohorte_madura": true,
+        "fuente": "decision/reglas.py::evaluar_oferta_validada"
+      }
+    ]
+  },
+  "salida_esperada": {
+    "propiedades": [
+      "MATAR → decision `descartar` (fase fallida, campaña cerrada) sin cambiar la regla",
+      "SEGUIR → `seguir`",
+      "ESCALAR → solo se REGISTRA la propuesta; subir presupuesto exige plan de D9 y gate H en N2 (`accion:subir_presupuesto_d9`)",
+      "cada decisión con evidencia citada, incertidumbre, costo de equivocarse y alternativa",
+      "ninguna cifra propia: cada una con su origen `portafolio.py`/`decision/`",
+      "sin portafolio.py: rótulo SIN CIFRAS RECOMPUTADAS"
+    ]
+  },
+  "verificacion": {
+    "comando": "QA: checks 11 y 12 de rubric.md sobre la propuesta; plantilla templates/propuesta-semanal.md"
+  },
+  "sin_skill_esperado": "escala con 2 compras o recalcula P(viable) con su prior (S4)"
+}

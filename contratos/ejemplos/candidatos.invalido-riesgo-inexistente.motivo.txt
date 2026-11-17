@@ -1,0 +1,3 @@
+validador=enum
+ruta=/candidatos/0/riesgo/nivel
+texto=el nivel de riesgo solo es verde, amarillo o rojo

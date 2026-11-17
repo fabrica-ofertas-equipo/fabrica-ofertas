@@ -1,0 +1,3 @@
+[{"orden":"1000001","fecha":"2026-11-17T13:59:21.297691+00:00","total":53.93,"moneda":"USD","post_compra":false,"estado":"aprobada"},
+ {"orden":"1000002","fecha":"2026-11-17T12:52:16.448987+00:00","total":63.84,"moneda":"USD","post_compra":false,"estado":"aprobada"},
+ {"orden":"1000003","fecha":"2026-11-17T12:30:04.675338+00:00","total":42.92,"moneda":"USD","post_compra":true,"estado":"aprobada"}]

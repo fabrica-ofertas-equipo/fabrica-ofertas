@@ -1,0 +1,7 @@
+{
+  "valores": {
+    "moneda_limites": "EUR",
+    "max_budget_por_corrida_agente": 1500
+  },
+  "nulos": []
+}

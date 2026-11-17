@@ -1,0 +1,10 @@
+{
+  "type": "result",
+  "subtype": "error_max_turns",
+  "is_error": true,
+  "num_turns": 40,
+  "duration_ms": 900000,
+  "session_id": "session-turnos-0001",
+  "claude_version": "2.1.314",
+  "total_cost_usd": 0.9
+}

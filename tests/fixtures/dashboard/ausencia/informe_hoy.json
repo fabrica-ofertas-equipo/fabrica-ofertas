@@ -1,0 +1,244 @@
+{
+ "ok": true,
+ "datos": {
+  "schema_version": "1.0.0",
+  "tipo": "informe_diario",
+  "generado_en": "2026-11-07T08:30:00Z",
+  "fecha": "2026-11-07",
+  "hora_objetivo": "08:30",
+  "dia_medido": "2026-11-06",
+  "semaforo": {
+   "nivel": "rojo",
+   "titulo": "Todavía no te puedes ausentar",
+   "resumen": "Faltan 8 cosas (4 importantes; 6 te tocan a ti). Hasta que las 4 importantes estén listas, si te ausentas nadie te avisa de un problema o el sistema no puede trabajar solo.",
+   "faltan": 8,
+   "para_ti": 6
+  },
+  "alertas": {
+   "abiertas": 8,
+   "roja": 3,
+   "naranja": 0,
+   "amarilla": 5,
+   "info": 0
+  },
+  "ventas_gasto": {
+   "id": "ventas_gasto",
+   "titulo": "Ventas y gasto",
+   "estado": "sin_medir",
+   "hay_datos": false,
+   "dia": "2026-11-06",
+   "correo": [
+    "Todavía no hay datos de ventas ni de gasto del 06/11/2026: no hay ninguna campaña en prueba ni en escala."
+   ],
+   "celular": "sin datos todavía"
+  },
+  "avisos": [
+   {
+    "id": "pagos",
+    "titulo": "Pagos",
+    "estado": "sin_medir",
+    "correo": [
+     "Todavía no se mide: no hay chequeo de cuentas ni vigía de pagos que avise si una cuenta deja de gastar por un pago."
+    ],
+    "celular": "sin medir"
+   },
+   {
+    "id": "importante",
+    "titulo": "Lo importante",
+    "estado": "con_novedades",
+    "correo": [
+     "Faltan 4 límites de dinero por fijar (F2-AUS-LIM).",
+     "Falta el chequeo de cuentas y servicios (F2-A16).",
+     "Los avisos al celular no tienen dos canales (F2-AUS-CANAL)."
+    ],
+    "celular": "3 alertas rojas"
+   },
+   {
+    "id": "cansancio",
+    "titulo": "Cansancio de anuncios",
+    "estado": "sin_medir",
+    "correo": [
+     "Todavía no se mide: la alarma de cansancio (08:05) no existe y no hay datos de anuncios por día para comparar los últimos 3 días con los 7 anteriores."
+    ],
+    "celular": "sin medir"
+   },
+   {
+    "id": "mercado_nuevo",
+    "titulo": "Mercado nuevo",
+    "estado": "sin_medir",
+    "correo": [
+     "Todavía no se mide: no hay versiones de una oferta en otros idiomas con ventas, ni tablero de países que avise cuándo un mercado nuevo empieza a vender."
+    ],
+    "celular": "sin medir"
+   },
+   {
+    "id": "no_aprobado",
+    "titulo": "Lo que no aprobaste",
+    "estado": "sin_novedades",
+    "correo": [
+     "Ninguna firma espera por ti ni hay pendientes tuyos vencidos. (Los anuncios por aprobar todavía no se miden: falta la fábrica nocturna.)"
+    ],
+    "celular": "nada esperando"
+   }
+  ],
+  "ceros": [
+   {
+    "id": "pagos_sin_aviso",
+    "texto": "Pagos frenados sin aviso al celular",
+    "esperado": 0,
+    "estado": "sin_medir",
+    "valor": null,
+    "detalle": "No se puede medir: todavía no hay vigía de pagos ni canal de avisos."
+   },
+   {
+    "id": "trabajos_sin_latido",
+    "texto": "Trabajos sin señal de vida",
+    "esperado": 0,
+    "estado": "sin_medir",
+    "valor": null,
+    "detalle": "No se puede medir: todavía no hay planificador real ni señales de vida por trabajo."
+   },
+   {
+    "id": "graves_sin_aviso",
+    "texto": "Alertas graves que no llegaron al celular",
+    "esperado": 0,
+    "estado": "no_cumple",
+    "valor": 3,
+    "detalle": "3 alertas graves, y no hay ningún canal probado: ninguna salió del panel."
+   },
+   {
+    "id": "gasto_sobre_tope",
+    "texto": "Gasto por encima del tope diario",
+    "esperado": 0,
+    "estado": "sin_medir",
+    "valor": null,
+    "detalle": "No se puede medir: no hay un tope diario firmado."
+   },
+   {
+    "id": "esperando_por_ti",
+    "texto": "Firmas y pendientes tuyos vencidos",
+    "esperado": 0,
+    "estado": "cumple",
+    "valor": 0,
+    "detalle": "Nada espera por ti."
+   }
+  ],
+  "te_toca": [
+   {
+    "tipo": "semaforo",
+    "titulo": "Chequeo de cuentas y servicios (antes de lanzar)",
+    "que_hacer": "Primero deja listas tus cuentas y claves (Meta, Stripe, correo); después el equipo técnico (S-B) corre el chequeo.",
+    "enlace": "#/sistema",
+    "enlace_texto": "Salud del sistema",
+    "comando": ".venv/bin/python -m infra.preflight ejecutar --modo completo",
+    "nivel": "rojo"
+   },
+   {
+    "tipo": "semaforo",
+    "titulo": "Avisos al celular por dos canales",
+    "que_hacer": "Elige un canal para el celular (por ejemplo Telegram, solo de salida) y un segundo canal (correo).",
+    "enlace": "#/avisos",
+    "enlace_texto": "Avisos",
+    "comando": null,
+    "nivel": "rojo"
+   },
+   {
+    "tipo": "semaforo",
+    "titulo": "El sistema se despierta solo y da señales de vida",
+    "que_hacer": "Primero tú eliges dónde corre el sistema (lo recomendado es un servidor siempre encendido); después el equipo técnico (S-B) lo construye.",
+    "enlace": "#/robots",
+    "enlace_texto": "Robots",
+    "comando": ".venv/bin/python -m scripts.robots.sombra estado",
+    "nivel": "rojo"
+   },
+   {
+    "tipo": "semaforo",
+    "titulo": "PAUSA y frenos",
+    "que_hacer": "Revísalo y, si corresponde, levántalo tú. No afecta al gasto: solo frena el radar de ofertas.",
+    "enlace": "#/sistema",
+    "enlace_texto": "Salud del sistema",
+    "comando": "rm empresa/captura/freno.json",
+    "nivel": "amarillo"
+   },
+   {
+    "tipo": "semaforo",
+    "titulo": "Cuenta de Meta lista para lanzar",
+    "que_hacer": "Deja una cuenta limpia (método de pago, moneda y zona) y anótala en los límites.",
+    "enlace": "#/pagos",
+    "enlace_texto": "Pagos",
+    "comando": null,
+    "nivel": "amarillo"
+   },
+   {
+    "tipo": "semaforo",
+    "titulo": "Correo para entregar el producto",
+    "que_hacer": "Elige el proveedor y dónde llega el soporte.",
+    "enlace": "#/poscompra",
+    "enlace_texto": "Después de la venta",
+    "comando": null,
+    "nivel": "amarillo"
+   },
+   {
+    "tipo": "pendiente",
+    "id": "PUL-0003",
+    "prioridad": "P0",
+    "titulo": "Elegir el canal de avisos al celular y un segundo canal",
+    "que_hacer": "Resolverlo o cambiar su fecha.",
+    "enlace": "#/pulido",
+    "enlace_texto": "Mejoras pendientes",
+    "comando": null,
+    "nivel": "amarillo",
+    "vencido": false
+   },
+   {
+    "tipo": "pendiente",
+    "id": "PUL-0008",
+    "prioridad": "P1",
+    "titulo": "Revisar y firmar límites: 300 US$ por día y pausa a −3.000 US$",
+    "que_hacer": "Resolverlo o cambiar su fecha.",
+    "enlace": "#/pulido",
+    "enlace_texto": "Mejoras pendientes",
+    "comando": null,
+    "nivel": "amarillo",
+    "vencido": false
+   }
+  ],
+  "sin_datos": [
+   "Ventas y gasto del 06/11/2026",
+   "Pagos frenados sin aviso al celular",
+   "Trabajos sin señal de vida",
+   "Gasto por encima del tope diario",
+   "Pagos (aviso)",
+   "Cansancio de anuncios (aviso)",
+   "Mercado nuevo (aviso)"
+  ],
+  "plantilla": "fija: sin texto libre de IA ni de terceros; los títulos de pendientes (texto de archivo) solo van en el correo, recortados y sin enlaces",
+  "avisos_lectura": [],
+  "versiones": {
+   "correo": {
+    "asunto": "[ROJO] Informe del día 07/11/2026: todavía no te puedes ausentar",
+    "texto": "INFORME DEL DÍA — 07/11/2026 · 08:30\nEstado: ROJO — Todavía no te puedes ausentar\nFaltan 8 cosas (4 importantes; 6 te tocan a ti). Hasta que las 4 importantes estén listas, si te ausentas nadie te avisa de un problema o el sistema no puede trabajar solo.\nAlertas abiertas: 8 (3 rojas o naranjas · 5 amarillas · 0 de información)\n\n1. VENTAS Y GASTO (día medido: 06/11/2026)\n   Todavía no hay datos de ventas ni de gasto del 06/11/2026: no hay ninguna campaña en prueba ni en escala.\n\n2. LOS 5 AVISOS\n   a) Pagos — todavía no se mide\n      · Todavía no se mide: no hay chequeo de cuentas ni vigía de pagos que avise si una cuenta deja de gastar por un pago.\n   b) Lo importante — hay novedades\n      · Faltan 4 límites de dinero por fijar (F2-AUS-LIM).\n      · Falta el chequeo de cuentas y servicios (F2-A16).\n      · Los avisos al celular no tienen dos canales (F2-AUS-CANAL).\n   c) Cansancio de anuncios — todavía no se mide\n      · Todavía no se mide: la alarma de cansancio (08:05) no existe y no hay datos de anuncios por día para comparar los últimos 3 días con los 7 anteriores.\n   d) Mercado nuevo — todavía no se mide\n      · Todavía no se mide: no hay versiones de una oferta en otros idiomas con ventas, ni tablero de países que avise cuándo un mercado nuevo empieza a vender.\n   e) Lo que no aprobaste — sin novedades\n      · Ninguna firma espera por ti ni hay pendientes tuyos vencidos. (Los anuncios por aprobar todavía no se miden: falta la fábrica nocturna.)\n\n3. LOS CEROS QUE IMPORTAN (la meta es 0)\n   · Pagos frenados sin aviso al celular: sin medir. No se puede medir: todavía no hay vigía de pagos ni canal de avisos.\n   · Trabajos sin señal de vida: sin medir. No se puede medir: todavía no hay planificador real ni señales de vida por trabajo.\n   · Alertas graves que no llegaron al celular: 3 (no cumple). 3 alertas graves, y no hay ningún canal probado: ninguna salió del panel.\n   · Gasto por encima del tope diario: sin medir. No se puede medir: no hay un tope diario firmado.\n   · Firmas y pendientes tuyos vencidos: 0 (cumple). Nada espera por ti.\n\n4. LO QUE TE TOCA A TI\n   1. Chequeo de cuentas y servicios (antes de lanzar) — Primero deja listas tus cuentas y claves (Meta, Stripe, correo); después el equipo técnico (S-B) corre el chequeo. (Salud del sistema)\n   2. Avisos al celular por dos canales — Elige un canal para el celular (por ejemplo Telegram, solo de salida) y un segundo canal (correo). (Avisos)\n   3. El sistema se despierta solo y da señales de vida — Primero tú eliges dónde corre el sistema (lo recomendado es un servidor siempre encendido); después el equipo técnico (S-B) lo construye. (Robots)\n   4. PAUSA y frenos — Revísalo y, si corresponde, levántalo tú. No afecta al gasto: solo frena el radar de ofertas. (Salud del sistema)\n   5. Cuenta de Meta lista para lanzar — Deja una cuenta limpia (método de pago, moneda y zona) y anótala en los límites. (Pagos)\n   6. Correo para entregar el producto — Elige el proveedor y dónde llega el soporte. (Después de la venta)\n   7. [P0] PUL-0003 · Elegir el canal de avisos al celular y un segundo canal\n   8. [P1] PUL-0008 · Revisar y firmar límites: 300 US$ por día y pausa a −3.000 US$\n\n5. LO QUE TODAVÍA NO SE PUDO MEDIR\n   · Ventas y gasto del 06/11/2026\n   · Pagos frenados sin aviso al celular\n   · Trabajos sin señal de vida\n   · Gasto por encima del tope diario\n   · Pagos (aviso)\n   · Cansancio de anuncios (aviso)\n   · Mercado nuevo (aviso)\n\nEste informe lo arma un programa con una plantilla fija y solo lee archivos de tu proyecto. No contiene texto escrito por una IA ni por terceros."
+   },
+   "celular": {
+    "texto": "INFORME 07/11 08:30\nROJO: todavía no te puedes ausentar\nFaltan 8 (6 son tuyas)\nVentas y gasto: sin datos todavía\nPagos: sin medir\nLo importante: 3 alertas rojas\nCansancio de anuncios: sin medir\nMercado nuevo: sin medir\nLo que no aprobaste: nada esperando\nCeros: 1 de 5 cumplen · 1 no cumple · 3 sin medir\nTe toca: 6 del semáforo · 0 firmas · 2 pendientes. Abre el panel."
+   }
+  }
+ },
+ "fuente": [
+  "empresa/PAUSA",
+  "empresa/captura/freno.json",
+  "empresa/infra/estado.json",
+  "empresa/limites.yaml",
+  "empresa/parametros.yaml",
+  "empresa/avisos.yaml",
+  "empresa/infra/latidos.json",
+  "empresa/robots.yaml",
+  "ofertas/*/estado.json",
+  "empresa/panel/pulido.jsonl",
+  "empresa/datos/alertas.jsonl",
+  "ofertas/*/08-operacion/diario/*/kpi_oferta_dia.json"
+ ],
+ "generado_en": "2026-11-07T08:30:00Z",
+ "vacio": false,
+ "avisos": []
+}

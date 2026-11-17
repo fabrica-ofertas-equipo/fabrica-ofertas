@@ -1,0 +1,31 @@
+{
+  "id": "s15-evidencia-de-2021-como-actual",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Evidencia de 2021 presentada como actual (D-03)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/0/fecha_publicacion",
+      "valor": "2021-03-10"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-03",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-03",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "evidencia-vencida"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

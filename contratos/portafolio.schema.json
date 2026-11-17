@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/portafolio.schema.json",
+  "title": "Portafolio",
+  "description": "Cartera de ofertas (O0)",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "moneda": {
+      "$ref": "comunes.schema.json#/$defs/moneda"
+    },
+    "ofertas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "oferta_id": {
+            "$ref": "comunes.schema.json#/$defs/oferta_id"
+          },
+          "familia_id": {
+            "$ref": "comunes.schema.json#/$defs/familia_id"
+          },
+          "slug": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "macro_nicho": {
+            "$ref": "comunes.schema.json#/$defs/macro_nicho"
+          },
+          "nicho_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "locale": {
+            "$ref": "comunes.schema.json#/$defs/locale"
+          },
+          "fase": {
+            "enum": [
+              "borrador",
+              "en_construccion",
+              "listo_para_activar",
+              "en_test",
+              "validada",
+              "fallida",
+              "inconclusa",
+              "escalando",
+              "retirada",
+              "pausada"
+            ]
+          },
+          "nivel": {
+            "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+          },
+          "gasto_acumulado": {
+            "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+          },
+          "gasto_hoy": {
+            "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+          },
+          "p_viable": {
+            "anyOf": [
+              {
+                "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "decision": {
+            "enum": [
+              "seguir",
+              "escalar",
+              "pausar",
+              "descartar",
+              "esperar"
+            ]
+          },
+          "motivo": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "oferta_id",
+          "familia_id",
+          "slug",
+          "macro_nicho",
+          "nicho_id",
+          "locale",
+          "fase",
+          "nivel",
+          "gasto_acumulado",
+          "gasto_hoy",
+          "p_viable",
+          "decision",
+          "motivo"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limites_sello": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "exploracion_pct_usada": {
+      "$ref": "comunes.schema.json#/$defs/porcentaje"
+    },
+    "concentracion_max_pct_usada": {
+      "$ref": "comunes.schema.json#/$defs/porcentaje"
+    },
+    "caja": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "disponible": {
+              "$ref": "comunes.schema.json#/$defs/dinero"
+            },
+            "comprometido": {
+              "$ref": "comunes.schema.json#/$defs/dinero"
+            }
+          },
+          "required": [
+            "disponible",
+            "comprometido"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "generado_en",
+    "moneda",
+    "ofertas",
+    "limites_sello",
+    "exploracion_pct_usada",
+    "concentracion_max_pct_usada",
+    "caja"
+  ],
+  "additionalProperties": false
+}

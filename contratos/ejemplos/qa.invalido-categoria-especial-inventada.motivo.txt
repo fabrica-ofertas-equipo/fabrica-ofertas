@@ -1,0 +1,3 @@
+validador=enum
+ruta=/categoria_especial_requerida/0
+texto=mismo enum que campana.special_ad_categories

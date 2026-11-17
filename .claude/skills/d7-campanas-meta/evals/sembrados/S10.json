@@ -1,0 +1,30 @@
+{
+  "id": "S10",
+  "descripcion": "Dataset inactivo o sin eventos recientes (P08)",
+  "check_id": "C07",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-preflight",
+  "mutaciones_entradas": [
+    {
+      "ruta": [
+        "dataset",
+        "activo"
+      ],
+      "valor": false
+    }
+  ],
+  "esperado": {
+    "P08": "ROJO"
+  },
+  "semaforo": "ROJO",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C07",
+      "patron_clave": "dataset-inactivo",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

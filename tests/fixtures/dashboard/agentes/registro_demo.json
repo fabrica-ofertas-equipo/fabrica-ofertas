@@ -1,0 +1,110 @@
+{
+  "lineas": [
+    {
+      "n": 1,
+      "schema_version": "1.0.0",
+      "ejecucion_id": "RUN-20261106-01",
+      "oferta_id": "OF-202611-01",
+      "skill_version": "0.1.0",
+      "costo_estimado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "ts": "2026-11-06T11:00:00Z",
+      "etapa": "D1",
+      "agente": "d1-maker",
+      "evento": "accion",
+      "herramienta": "WebSearch",
+      "entrada_resumen": "búsqueda de voz del cliente sobre el hueco en el currículum",
+      "resultado": {
+        "estado": "ok",
+        "codigo": 0
+      },
+      "hash_previo": null,
+      "hash": "sha256:818c2a992524221b72ab36c7e045b9a4d770a6769433e9f4786c1d7f95f70945"
+    },
+    {
+      "n": 2,
+      "schema_version": "1.0.0",
+      "ejecucion_id": "RUN-20261106-01",
+      "oferta_id": "OF-202611-01",
+      "skill_version": null,
+      "costo_estimado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "ts": "2026-11-06T11:30:00Z",
+      "etapa": "D1",
+      "agente": "motor",
+      "evento": "transicion",
+      "herramienta": "orq",
+      "entrada_resumen": "D1 en_QA -> aprobado (gate H firmado)",
+      "resultado": {
+        "estado": "ok",
+        "codigo": 0
+      },
+      "hash_previo": "sha256:818c2a992524221b72ab36c7e045b9a4d770a6769433e9f4786c1d7f95f70945",
+      "hash": "sha256:4ce360dd097eda369fca5b7aa128f7061449c16641e3dfe5cdcc5e72da2d3793"
+    },
+    {
+      "n": 3,
+      "schema_version": "1.0.0",
+      "ejecucion_id": "RUN-20261106-01",
+      "oferta_id": "OF-202611-01",
+      "skill_version": null,
+      "costo_estimado": {
+        "monto": 0,
+        "moneda": "EUR"
+      },
+      "tokens": null,
+      "modo": "dry_run",
+      "ts": "2026-11-09T10:30:00Z",
+      "etapa": "D7",
+      "agente": "script:activar",
+      "evento": "bloqueo",
+      "herramienta": "activar.py",
+      "entrada_resumen": "activación bloqueada: falta aprobación H y limites.yaml sin sello",
+      "resultado": {
+        "estado": "bloqueado",
+        "codigo": 5
+      },
+      "hash_previo": "sha256:4ce360dd097eda369fca5b7aa128f7061449c16641e3dfe5cdcc5e72da2d3793",
+      "hash": "sha256:e9d2cc1b5a0d65522613a67ed13c96b04d36f23dfec85d5f82e104703cfdb8c5"
+    }
+  ],
+  "total": 3,
+  "siguiente": null,
+  "cadena_ok": true,
+  "costos": [
+    {
+      "schema_version": "1.0.0",
+      "ts": "2026-11-06T11:00:00Z",
+      "oferta_id": "OF-202611-01",
+      "etapa": "D1",
+      "ejecucion_id": "RUN-20261106-01",
+      "origen": "ia",
+      "concepto": "tokens D1 (estimado)",
+      "monto": {
+        "monto": 180,
+        "moneda": "EUR"
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "ts": "2026-11-07T16:00:00Z",
+      "oferta_id": "OF-202611-01",
+      "etapa": "D4",
+      "ejecucion_id": "RUN-20261106-01",
+      "origen": "ia",
+      "concepto": "tokens D4 (estimado)",
+      "monto": {
+        "monto": 232,
+        "moneda": "EUR"
+      }
+    }
+  ]
+}

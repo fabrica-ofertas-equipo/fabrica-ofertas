@@ -1,0 +1,19 @@
+# BORRADOR de trabajo por tipo de término (nota 25 §10.3 P07, D01). OJO: NO es la forma que lee el linter.
+# El linter (compliance.reglas.cargar_terminos_adicionales) lee empresa/compliance/terminos_sensibles/<locale>.yaml SOLO como
+#   categoria (salud|finanzas|relaciones|…) -> nivel (verde|amarillo|rojo) -> lista de regex de Python (re.IGNORECASE),
+# y suma ese léxico a compliance/reglas_sensibles.yaml sin poder debilitarlo (D-02b). Con esta forma por tipo, el cargador
+# ignora todo (avisa y no bloquea). Traduce cada tipo a regex por categoría y nivel antes de entregar; forma exacta en
+# empresa/compliance/ejemplos/terminos_sensibles.es-ES.ejemplo.yaml. El hash propio de ese archivo es [PENDIENTE: S-B, LT-14].
+# Un archivo por locale (BCP-47). Lo revisa un hablante nativo (mercado.json#revision_linguistica). Sin revisor nativo, un idioma que es
+# obligación legal da X1 ROJO. Las semillas de P07 salen de la nota 25 §10.3; AMPLIAR con el corpus adversarial.
+locale: it-IT
+revision_nativa: {revisor: null, fecha: null}     # [DUEÑO] sin revisor no se activa el locale
+version: 0.1.0-borrador
+verbos_de_cambio_con_producto_de_sujeto: [abbassa, allevia, riequilibra, azzera]   # P07: «tabla estable» genera falsos positivos: decide una persona
+estados_en_nombres: ["zero", "stabile", "libero"]                                    # «Zero Debiti», «Glicemia Stabile»
+facilidad_sobre_resultado: ["senza esperienza", "senza investimento", "facile", "veloce"]
+atributos_espectador: ["sei indebitato", "se hai più di", "se soffri di"]            # E01 (también como pregunta)
+autopercepcion_negativa: [inutile, insufficiente, vergogna]
+plazos_de_resultado: ["in \\d+ giorni", "in \\d+ settimane"]                          # no dispara si el plazo es del formato («piano di 14 giorni»)
+slug_url_utm_eventos_prohibidos: [diabete, debito, ansia, ansia_alta, imc_alto]       # D01
+control_verde: ["Planner settimanale dei pasti", "Scadenzario di rate, prestiti e carte"]   # no deben dar ROJO

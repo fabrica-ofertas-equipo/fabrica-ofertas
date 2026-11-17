@@ -1,0 +1,54 @@
+# PLANTILLA de empresa/compliance/paises.yaml (spec 14 §3.3 y Anexo B).
+# Todo es [VERIFICAR] hasta que X1 lo cierre con fuente oficial y fecha de lectura. NO es asesoría legal.
+# Sin abogado local (decisión 14): plantillas legales generadas por el sistema + checks automáticos de X1 + gate H del dueño.
+# SOLO el dueño, con firma, cambia `estado` a `aprobado`; el Maker nunca lo hace. Ningún país es prior.
+schema_x1: 0.1.0-borrador
+generado_por: x1-maker
+fecha: "2026-11-06"
+paises:
+  IT:
+    locale: it-IT
+    estado: pendiente              # pendiente | aprobado (firma del dueño) | vetado
+    aprobado_por: null             # firma Ed25519 del dueño (ver empresa/decisiones_dueno.jsonl)
+    moneda: EUR
+    desistimiento: "14 días; en digital se pierde con consentimiento expreso previo, reconocimiento y confirmación (art. 59 lett. o Codice del Consumo); función de desistimiento art. 54-bis (fecha discrepante) [VERIFICAR]"
+    desistimiento_modo: reembolso_14d_uniforme   # o doble_casilla_renuncia
+    idioma_obligatorio: "italiano en información al consumidor (art. 6.7 CRD) [VERIFICAR]"
+    identidad_vendedor: "razón social, contacto, ID fiscal; beneficiario/pagador DSA coherente con la landing"
+    consentimiento: "CMP con rechazar = aceptar; Garante: sin cookie wall [VERIFICAR]"
+    consent_modo: global_estricto
+    iva: "OSS no-Unión; sin umbral [VERIFICAR]; decide el contador"
+    mp_elegible: null              # depende de la decisión de impuestos [DUEÑO + contador]
+    tarifa_ubicacion_meta: "3 % [VERIFICAR]"
+    dsa: "beneficiario y pagador obligatorios en anuncios nuevos o editados"
+    exposicion:                    # V | A | A+ | R por macro (nota 25 §8.1, [HIPÓTESIS])
+      salud: A+
+      relaciones: A
+      dinero: A+
+    nivel_max_sin_gate: amarillo-a  # solo con gate H del dueño por país × macro × nivel para A+
+    fuente_url: ["https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32005L0029"]   # ejemplo: reemplazar por la fuente leída
+    fecha_lectura: null            # AAAA-MM-DD de la lectura real; sin fecha = [VERIFICAR]
+    notas: "la AGCM sanciona «senza dieta» y plazos; Telefono Amico Italia 02 2327 2327 verificado en la nota 25 (2026-11-06), reverificar antes de 2027-05-05"
+  PL:
+    locale: pl-PL
+    estado: pendiente
+    aprobado_por: null
+    moneda: PLN
+    desistimiento: "14 días (UE común) [VERIFICAR]"
+    desistimiento_modo: reembolso_14d_uniforme
+    idioma_obligatorio: "polaco en nombres, garantías, facturas, recibos y contratos (Ley del Idioma Polaco art. 7a y 8) [VERIFICAR]"
+    identidad_vendedor: "razón social, contacto, ID fiscal; DSA"
+    consentimiento: "CMP con rechazar = aceptar [VERIFICAR]"
+    consent_modo: global_estricto
+    iva: "OSS no-Unión [VERIFICAR]; decide el contador"
+    mp_elegible: null              # Managed Payments no admite BLIK ni Przelewy24 [VERIFICAR]
+    tarifa_ubicacion_meta: null
+    dsa: "beneficiario y pagador obligatorios"
+    exposicion:
+      salud: A+
+      relaciones: V
+      dinero: A+
+    nivel_max_sin_gate: amarillo-a
+    fuente_url: []
+    fecha_lectura: null
+    notas: "revisor nativo de polaco por idioma × macro (una vez) antes del primer lanzamiento [DUEÑO]"

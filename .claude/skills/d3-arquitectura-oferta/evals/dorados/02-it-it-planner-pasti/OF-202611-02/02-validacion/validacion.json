@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "version_script": "1.0.0",
+  "candidato_id": "CAND-01",
+  "macro_nicho": "salud",
+  "consultas": [
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "plantilla currículum",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:00:00Z",
+      "estimated_total_count": 14,
+      "truncado": false
+    }
+  ],
+  "metricas_mercado": {
+    "n_anuncios": 14,
+    "n_anunciantes": 6,
+    "n_sostenidos": 2,
+    "edad_mediana_dias": 60
+  },
+  "saturacion": {
+    "indice": 48,
+    "n_ind_sostenidos": 2,
+    "saturacion_mecanismo": "baja",
+    "detalle": "Nessun concorrente nomina un meccanismo a blocchi con lista della spesa"
+  },
+  "convergencia": {
+    "estado": "media",
+    "detalle": "Dos fuentes independientes coinciden en el dolor"
+  },
+  "huecos": [
+    "Mancano planner che generino la lista della spesa"
+  ],
+  "senales_demanda_organica": [
+    "Hilos de foro recurrentes sobre el hueco en el currículum"
+  ],
+  "restricciones_originalidad": [
+    "No copiar estructuras de plantillas de la competencia"
+  ],
+  "riesgo_politica": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": true,
+      "nivel_original": "rojo",
+      "descripcion": "RE-02: de «Perdi 8 kg in 30 giorni» (cifra y plazo de pérdida de peso, P2n, LP-02) a «Planner settimanale dei pasti con lista della spesa» (la herramienta, no el resultado en el cuerpo); el deseo de comer de forma más ordenada se conserva."
+    },
+    "fuentes": [
+      "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+      "docs/_investigacion/22a-meta-politicas-salud.md"
+    ],
+    "categoria": "Nutrición general: planificación de comidas y lista de la compra (salud, N1 vigilada)",
+    "claims_a_evitar": [
+      "perdi X kg in N giorni",
+      "senza dieta",
+      "dimagrire",
+      "brucia grassi",
+      "metabolismo",
+      "migliora la tua salute"
+    ],
+    "angulo_seguro": "Il planner e la lista della spesa: organizzazione della settimana, non risultati sul corpo."
+  },
+  "veredicto": {
+    "calculado": "GO_CONDICIONAL",
+    "propuesto": "GO_CONDICIONAL",
+    "final": "GO_CONDICIONAL",
+    "confianza": {
+      "puntos": 62,
+      "detalle": "Evidencia de dolor sólida; la rentabilidad no es medible con la Biblioteca"
+    },
+    "razones": [
+      "Mecanismo no saturado",
+      "Dolor en voz propia"
+    ],
+    "evidencia_faltante": [
+      "Gasto y conversiones de competidores"
+    ]
+  },
+  "no_inferible": [
+    "Gasto, impresiones y conversiones de los anuncios de la competencia",
+    "Texto principal y fecha de fin de los anuncios"
+  ],
+  "hipotesis_para_d7": [
+    "Probar dos ángulos con el mismo precio"
+  ],
+  "handoff_d3": {
+    "angulos_candidatos": [
+      "cosa-cucino-stasera",
+      "lista-della-spesa-pronta"
+    ],
+    "objeciones_top": [
+      "Ci sono già planner gratuiti"
+    ],
+    "rango_precios_por_moneda": [
+      {
+        "moneda": "EUR",
+        "min": 900,
+        "max": 2500
+      }
+    ],
+    "entregables_tipicos": [
+      "planner stampabile",
+      "lista della spesa"
+    ],
+    "prohibido_copiar": [
+      "Titoli dei concorrenti"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.1.0",
+  "version": 1,
+  "grupos": {
+    "testeo": {
+      "k_corte": {
+        "valor": 3,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "n_dec": {
+        "valor": 15,
+        "unidad": "prueba",
+        "hipotesis": true
+      }
+    },
+    "campana": {
+      "n_anuncios_tope": {
+        "valor": 6,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "n_anuncios_min": {
+        "valor": 3,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "dias_test_defecto": {
+        "valor": 10,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "dias_test_min": {
+        "valor": 7,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "dias_test_max": {
+        "valor": 30,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "spend_cap_factor": {
+        "valor": "1.10",
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "preflight_vigencia_h": {
+        "valor": 24,
+        "unidad": "prueba",
+        "hipotesis": true
+      }
+    },
+    "estadistica": {
+      "meta_eventos_aprendizaje_semana": {
+        "valor": 50,
+        "unidad": "prueba",
+        "hipotesis": true
+      },
+      "meta_fraccion_min_purchase": {
+        "valor": "0.5",
+        "unidad": "prueba",
+        "hipotesis": true
+      }
+    }
+  }
+}

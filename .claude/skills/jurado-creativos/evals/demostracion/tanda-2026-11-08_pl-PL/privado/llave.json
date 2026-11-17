@@ -1,0 +1,92 @@
+{
+  "piezas": {
+    "P-6c638334": {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "id_origen": "G-0001",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-cc921263": {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "id_origen": "G-0002",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-0d58c6e1": {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "id_origen": "G-0003",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-31430340": {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "id_origen": "G-0004",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-a18b16c7": {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "id_origen": "G-0005",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-ef6eb42c": {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "id_origen": "G-0006",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-81c2a4de": {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "id_origen": "G-0007",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-09b4c9f6": {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "id_origen": "G-0008",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-5788ebb8": {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "id_origen": "G-0009",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-baf7b012": {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "id_origen": "G-0010",
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-43c11246": {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "id_origen": "G-0011",
+      "tipo": "texto",
+      "sha256_activo": null
+    }
+  },
+  "anclas": {
+    "P-23f79062": {
+      "ancla_id": "ctrl-demo-buena",
+      "veredicto_conocido": "ganadora",
+      "origen_resultado": "control_sintetico",
+      "evidencia": {
+        "nota": "Control escrito para la demostración: pieza clara y sin promesas. No es un resultado de mercado."
+      },
+      "tipo": "texto",
+      "sha256_activo": null
+    },
+    "P-f58db76e": {
+      "ancla_id": "ctrl-demo-mala",
+      "veredicto_conocido": "perdedora",
+      "origen_resultado": "control_sintetico",
+      "evidencia": {
+        "nota": "Control escrito para la demostración: pieza deliberadamente defectuosa. No es un resultado de mercado."
+      },
+      "tipo": "texto",
+      "sha256_activo": null
+    }
+  }
+}

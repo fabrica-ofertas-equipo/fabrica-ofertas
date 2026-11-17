@@ -1,0 +1,3 @@
+validador=enum
+ruta=/estado
+texto=estado fuera de la máquina de entrega

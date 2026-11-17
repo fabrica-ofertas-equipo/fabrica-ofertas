@@ -1,0 +1,10 @@
+{
+  "caso_id": "S03",
+  "titulo": "Orden sin semilla registrada",
+  "defecto_sembrado": "privado/manifiesto.json: semilla = null",
+  "check_esperado": "JQ-03",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "paquetes.verificar → C-SEMILLA",
+  "correccion_esperada": "registrar la semilla (o --semilla auto) y rehacer",
+  "automatizado": true
+}

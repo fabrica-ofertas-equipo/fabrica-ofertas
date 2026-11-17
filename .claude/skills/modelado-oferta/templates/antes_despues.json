@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Tarjeta 'antes y despues' de MOD-6 (A4). 12 dimensiones, 0-5. Dos jueces de IA puntuan A CIEGAS (fichas anonimizadas y en orden al azar): para la oferta PROPIA vale el MENOR de los dos; para el REFERENTE el MAYOR (criterio conservador). Una dimension `no_visible` del referente se excluye (R-5), pero NO puede ser justo aquella donde la oferta propia saldria peor: se declara en `excluidas[]` con `peor_sin_referente: true` y cuenta como 'peor' en la condicion (c) hasta que el dueño la acepte por escrito. El QA recalcula todo. Borra las claves que empiezan por `_`.",
+  "oferta_id": "OF-AAAAMM-NN",
+  "referente_id": "ref-01",
+  "version": "v1",
+  "dimensiones": [
+    {"n": 1, "dimension": "Promesa clara", "grupo": "comunicacion", "referente": {"puntaje": null, "grado": "visto", "evidencia": ""}, "nuestra": {"puntaje": null, "evidencia": ""}, "jueces": {"A": {"referente": null, "nuestra": null}, "B": {"referente": null, "nuestra": null}}, "palanca": "", "donde_se_ve": "", "excluida": false},
+    {"n": 2, "dimension": "Publico y obstaculo", "grupo": "comunicacion"},
+    {"n": 3, "dimension": "Mecanismo", "grupo": "valor"},
+    {"n": 4, "dimension": "Estructura y uso del entregable", "grupo": "valor"},
+    {"n": 5, "dimension": "Profundidad verificable", "grupo": "valor"},
+    {"n": 6, "dimension": "Precio y valor", "grupo": "precio_y_paquete"},
+    {"n": 7, "dimension": "Paquete (bonus y complemento)", "grupo": "precio_y_paquete"},
+    {"n": 8, "dimension": "Garantia", "grupo": "confianza"},
+    {"n": 9, "dimension": "Prueba honesta", "grupo": "confianza"},
+    {"n": 10, "dimension": "Pagina", "grupo": "comunicacion"},
+    {"n": 11, "dimension": "Ganchos y angulos", "grupo": "comunicacion"},
+    {"n": 12, "dimension": "Voz local", "grupo": "comunicacion"}
+  ],
+  "_anclas": {
+    "1 Promesa clara": "0 no se entiende en 10 s | 3 se entiende, es generica | 5 concreta, de uso, sin resultado prometido",
+    "2 Publico y obstaculo": "0 'para todos' | 3 publico claro | 5 publico y obstaculo concreto con voz del cliente",
+    "3 Mecanismo": "0 ninguno | 3 declarado sin nombre | 5 nombrado, visible y operable en el producto",
+    "4 Estructura y uso": "0 lista suelta | 3 ordenado por categorias | 5 ruta de uso con orden, ritmo y seguimiento",
+    "5 Profundidad verificable": "0 un chatbot lo da en un minuto | 3 mejor que el chatbot en algo | 5 ejemplos resueltos, casos borde, fuentes y chequeo",
+    "6 Precio y valor": "0 sin precio claro o inviable | 3 claro y viable | 5 precio local claro, razon de economia en objetivo, escalera coherente",
+    "7 Paquete": "0 apilado sin sentido | 3 bonus utiles | 5 ligados a la objecion n.1 y producibles",
+    "8 Garantia": "0 ninguna u opaca | 3 clara, plazo corto | 5 clara, visible antes de pagar, plazo >= minimo, con procedimiento",
+    "9 Prueba honesta": "0 cifras sin respaldo o inventadas | 3 logica del producto | 5 muestra real, demostracion y garantia",
+    "10 Pagina": "0 confusa | 3 ordenada | 5 orden pensado para el comprador local, objeciones locales respondidas, precio y moneda locales",
+    "11 Ganchos y angulos": "0 un solo gancho | 3 varios | 5 >= 5 angulos en >= 3 niveles, cada uno ligado a una objecion",
+    "12 Voz local": "0 traducida o neutra | 3 correcta | 5 respaldada por el dossier (jerga y registro atestiguados)"
+  },
+  "excluidas": [
+    {"n": 5, "motivo": "no_visible en el referente (R-5)", "peor_sin_referente": false, "nuestra_puntuada_igual": null}
+  ],
+  "condiciones_duras": {
+    "_ayuda": "No entran en el puntaje; deben cumplirse todas.",
+    "tres_puertas_en_false_confirmadas": null, "riesgo_nivel_menor_o_igual_al_del_candidato": null,
+    "riesgo_menor_o_igual_a_nivel_max_lanzable": null, "practica_vetada_resuelta_PAL16": null, "sin_veto_de_X1": null
+  },
+  "resultado": {
+    "dimensiones_puntuables": null, "suma_referente": null, "suma_nuestra": null, "delta": null,
+    "umbral_delta": {"clave": "modelado.delta_antes_despues_min", "valor_propuesto": 8, "sobre": 60, "ajustado_a_dimensiones_puntuables": null, "estado": "HIPOTESIS"},
+    "a_delta_suficiente": null,
+    "b_tres_dimensiones_con_mas_uno_de_dos_grupos": null,
+    "c_ninguna_peor_incluida_las_excluidas_que_serian_peores": null,
+    "veredicto": "mejora_real | mejora_insuficiente | no_comparable",
+    "por_dimension": []
+  },
+  "tarjeta_para_el_dueno": {
+    "lo_que_mejoramos": [],
+    "lo_que_no_se_pudo_ver": [],
+    "lo_que_no_tocamos": []
+  }
+}

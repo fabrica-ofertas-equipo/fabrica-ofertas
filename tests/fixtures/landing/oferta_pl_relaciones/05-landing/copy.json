@@ -1,0 +1,349 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-02",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "pl-PL",
+  "moneda": "PLN",
+  "tono": {
+    "persona": "ty",
+    "registro": "informal",
+    "glosario_ref": null,
+    "nota": "[SUPUESTO] sin glosario de M1 ni revisor nativo: retraducción y segunda lectura obligatorias antes del gate H"
+  },
+  "contexto_riesgo": {
+    "macro_nicho": "relaciones",
+    "nivel": "verde",
+    "tema_vigilado": [],
+    "conflicto_pareja_familia": true,
+    "hero_reformulado": []
+  },
+  "meta": {
+    "title": "{marca} — {producto}",
+    "description": "Zestaw kart do rozmów dla par, które mieszkają razem. Plik do druku, jednorazowa płatność, dostawa od razu.",
+    "og_title": "{marca} — {producto}",
+    "og_description": "Zestaw kart do rozmów dla par, które mieszkają razem. Plik do druku, jednorazowa płatność, dostawa od razu."
+  },
+  "cifras_con_traza": [],
+  "cta": [
+    {
+      "id": "cta-hero",
+      "texto": "Chcę zestaw kart",
+      "usos": [
+        "S01"
+      ]
+    },
+    {
+      "id": "cta-compra",
+      "texto": "Kup zestaw za {precio}",
+      "usos": [
+        "S11"
+      ]
+    },
+    {
+      "id": "cta-cierre",
+      "texto": "Zaczynam od jednego pytania",
+      "usos": [
+        "S13"
+      ]
+    }
+  ],
+  "secciones": {
+    "S01": {
+      "kicker": "Karty do druku dla par",
+      "h1": "Jedno pytanie na wieczór wystarczy, by zacząć rozmowę",
+      "h1_resaltado": "bez przygotowania",
+      "subtitulo": "Zestaw {n:karty} kart z pytaniami do rozmów w parze: wybierasz kartę, czytasz pytanie i rozmawiacie.",
+      "pills": [
+        "Do druku (PDF)",
+        "{n:karty} kart",
+        "Dostawa od razu"
+      ],
+      "cta_ref": "cta-hero",
+      "microcopy": "Zwrot pieniędzy do {garantia_dias} dni · Jednorazowa płatność · Plik od razu",
+      "imagen_ref": "hero"
+    },
+    "S02": {
+      "cifras": [
+        {
+          "valor": "{n:karty}",
+          "etiqueta": "kart z pytaniami"
+        },
+        {
+          "valor": "{n:paquete}",
+          "etiqueta": "pliki PDF"
+        },
+        {
+          "valor": "{tiempo_min}",
+          "etiqueta": "min na rozmowę"
+        }
+      ],
+      "beneficios": [
+        {
+          "titulo": "Gotowe pytania",
+          "texto": "Nie musisz wymyślać tematu rozmowy: wystarczy wylosować kartę."
+        },
+        {
+          "titulo": "Spokojny rytm",
+          "texto": "Jedna karta, jedna rozmowa, bez presji i bez oceniania."
+        },
+        {
+          "titulo": "Do druku",
+          "texto": "Wydrukuj raz i wracaj do kart, kiedy chcecie."
+        }
+      ]
+    },
+    "S03": {
+      "titulo": "Trudno zacząć rozmowę, gdy brakuje pomysłu na pierwsze pytanie",
+      "dolores": [
+        {
+          "texto": "Wieczory mijają obok siebie, bo nikt nie wie, od czego zacząć rozmowę.",
+          "fuente_ref": "02-validacion/validacion.json#handoff_d3.objeciones_top"
+        },
+        {
+          "texto": "Ważne tematy odkłada się na później, bo brakuje spokojnego momentu i słów.",
+          "fuente_ref": "03-oferta/oferta.json#avatar.lo_dice"
+        },
+        {
+          "texto": "Ogólne pytania kończą się jednym zdaniem i ciszą.",
+          "fuente_ref": "03-oferta/oferta.json#avatar.lo_dice"
+        }
+      ],
+      "reencuadre": "Problemem nie jest brak chęci. To brak prostego sposobu, by zacząć."
+    },
+    "S04": {
+      "kicker": "Zobacz zestaw od środka",
+      "titulo": "Tak wygląda jedna karta",
+      "pies": [
+        {
+          "imagen_ref": "muestra-principal",
+          "texto": "Jedna z kart: pytanie, krótka wskazówka i miejsce na notatkę"
+        }
+      ]
+    },
+    "S05": {
+      "kicker": "Metoda",
+      "nombre": "Jedna karta, jedna rozmowa",
+      "subtitulo": "Pytania do druku, które porządkują początek rozmowy",
+      "como_funciona": "Każda karta ma jedno pytanie i krótką wskazówkę, jak je zadać; kolejność wybieracie wspólnie.",
+      "de_a_b": "Od ciszy przy stole do rozmowy, która ma swój początek.",
+      "etiquetas": [
+        "Jedno pytanie",
+        "Krótka wskazówka",
+        "Do druku"
+      ]
+    },
+    "S06": {
+      "kicker": "Wszystko w jednym pliku",
+      "titulo": "Co zawiera zestaw",
+      "modulos": [
+        {
+          "titulo": "Karty z pytaniami",
+          "texto": "{n:karty} kart do wydrukowania, pogrupowanych tematycznie.",
+          "item_ref": "karty"
+        },
+        {
+          "titulo": "Instrukcja na jednej stronie",
+          "texto": "Jak używać kart i jak zakończyć rozmowę, gdy potrzebna jest przerwa.",
+          "item_ref": "instrukcja"
+        }
+      ],
+      "checklist": {
+        "titulo": "Co jest w środku",
+        "items": [
+          "Karty w układzie do druku na zwykłej drukarce",
+          "Krótka instrukcja użycia",
+          "Wskazówki, jak zadać pytanie",
+          "Strona z miejscem na notatki"
+        ]
+      }
+    },
+    "S07": {
+      "titulo": "Dla kogo jest, a dla kogo nie",
+      "si": [
+        "Pary, które mieszkają razem i chcą mieć stały pomysł na rozmowę.",
+        "Osoby, które wolą gotowe pytania od improwizacji.",
+        "Każdy, kto chce rozmawiać w spokojnym tempie, bez presji."
+      ],
+      "no": [
+        "Osoby szukające terapii lub porady specjalisty: to nie jest terapia ani diagnoza.",
+        "Ci, którzy oczekują gwarantowanego efektu: w zestawie są pytania, nie obietnice.",
+        "Osoby szukające materiału dla dzieci lub nastolatków: karty są dla dorosłych."
+      ]
+    },
+    "S08": {
+      "modo": "honesta",
+      "titulo": "Co możesz sprawdzić przed zakupem",
+      "bloques": [
+        {
+          "titulo": "Zobacz, jak to działa",
+          "texto": "Jedna karta z zestawu jest pokazana wyżej: widać pytanie, wskazówkę i miejsce na notatkę."
+        },
+        {
+          "titulo": "Jak powstał materiał",
+          "texto": "{ia_divulgacion}"
+        },
+        {
+          "titulo": "Kto sprzedaje",
+          "texto": "{marca} to marka, której dane sprzedawcy znajdziesz na stronie Sprzedawca i kontakt."
+        }
+      ],
+      "resenas": []
+    },
+    "S09": {
+      "titulo": "Opcjonalnie przy płatności",
+      "bonos": [],
+      "bump": {
+        "nombre": "{bump_nombre}",
+        "texto": "{bump_descripcion}. Tylko jeśli zaznaczysz pole przy płatności.",
+        "etiqueta_casilla": "Dodaj {bump_nombre} za {precio_bump}",
+        "premarcado": false
+      }
+    },
+    "S10": {
+      "titulo": "Zwrot pieniędzy do {garantia_dias} dni",
+      "texto": "Jeśli materiał Ci nie odpowiada, zwrócimy pieniądze w ciągu {garantia_dias} dni. Bez pytań.",
+      "nota_legal": "Gwarancja handlowa nie zastępuje ustawowego prawa do odstąpienia od umowy."
+    },
+    "S11": {
+      "titulo": "Zestaw kart w jednej płatności",
+      "descripcion": "{producto}: {n:karty} kart do druku z krótką instrukcją.",
+      "incluye": [
+        "{n:karty} kart z pytaniami do druku",
+        "Instrukcja użycia na jednej stronie",
+        "Strona z miejscem na notatki",
+        "Dostawa od razu na e-mail"
+      ],
+      "pills": [
+        "Jednorazowa płatność",
+        "Dostawa od razu",
+        "Zwrot {garantia_dias} dni"
+      ],
+      "linea_precio": "Cena końcowa: {precio}. Płatność jednorazowa, bez abonamentu.",
+      "cta_ref": "cta-compra"
+    },
+    "S12": {
+      "titulo": "Najczęstsze pytania",
+      "preguntas": [
+        {
+          "id": "faq-objecion-efekt",
+          "tipo": "objecion",
+          "objecion_ref": "03-oferta/oferta.json#avatar.objeciones[0]",
+          "q": "Czy karty poprawią naszą relację?",
+          "a": "Nie obiecujemy efektu. Karty dają pytania i spokojny sposób na rozpoczęcie rozmowy; reszta zależy od was."
+        },
+        {
+          "id": "faq-entrega",
+          "tipo": "fija",
+          "q": "Jak i kiedy dostanę pliki?",
+          "a": "Zaraz po płatności przyjdzie e-mail z linkiem do pobrania. Link wygasa po {vence_dias} dniach i pozwala na {max_descargas} pobrań; gdy się wyczerpią, możesz poprosić o ponowne wysłanie."
+        },
+        {
+          "id": "faq-formato",
+          "tipo": "fija",
+          "q": "W jakim formacie są pliki?",
+          "a": "Karty i instrukcja są w formacie {formato:karty}; otworzysz je na telefonie i na komputerze, a karty wydrukujesz na zwykłej drukarce."
+        },
+        {
+          "id": "faq-reembolso",
+          "tipo": "fija",
+          "q": "Co, jeśli materiał mi nie odpowiada?",
+          "a": "Masz {garantia_dias} dni na zwrot pieniędzy, bez pytań. Obowiązuje też ustawowe prawo odstąpienia od umowy, z osobnej strony odstąpienia."
+        },
+        {
+          "id": "faq-pago",
+          "tipo": "fija",
+          "q": "Jak mogę zapłacić?",
+          "a": "Kartą, przez Apple Pay, Google Pay lub Link, na bezpiecznej stronie płatności Stripe."
+        },
+        {
+          "id": "faq-alcance",
+          "tipo": "fija",
+          "q": "Czy to terapia albo porada specjalisty?",
+          "a": "Nie. To materiał edukacyjny do druku: nie zawiera terapii, diagnozy ani indywidualnych porad."
+        },
+        {
+          "id": "faq-idioma",
+          "tipo": "fija",
+          "q": "W jakim języku jest materiał?",
+          "a": "Cały materiał jest po polsku."
+        }
+      ]
+    },
+    "S13": {
+      "titulo": "Jedno pytanie wystarczy na początek",
+      "filas": [
+        {
+          "sin": "Cisza przy stole i brak pomysłu",
+          "con": "Karta z pytaniem na start"
+        },
+        {
+          "sin": "Tematy wymyślane na bieżąco",
+          "con": "Pytania pogrupowane tematycznie"
+        }
+      ],
+      "cta_ref": "cta-cierre",
+      "microcopy": "Dostawa od razu · Zwrot {garantia_dias} dni · {precio}"
+    },
+    "S14": {
+      "descripcion": "Zestaw kart do druku z pytaniami do rozmów w parze.",
+      "aviso": "Materiał edukacyjny. Nie jest terapią, diagnozą ani poradą prawną i nie gwarantuje rezultatów. Tylko dla osób dorosłych.",
+      "aviso_seguridad": "Jeśli obawiasz się o swoje bezpieczeństwo, nie korzystaj z tego materiału. {ayuda_pais}",
+      "ayuda": "{ayuda_pais}",
+      "enlaces": {
+        "vendedor": "Sprzedawca i kontakt",
+        "terminos": "Regulamin",
+        "privacidad": "Prywatność",
+        "reembolsos": "Zwroty i odstąpienie",
+        "cookies": "Pliki cookie",
+        "aviso": "Informacja o treści",
+        "entrega": "Dostawa i wsparcie",
+        "desistimiento": "Odstąpienie od umowy",
+        "preferencias_cookies": "Ustawienia cookies"
+      }
+    },
+    "banner": {
+      "texto": "Używamy własnego pliku cookie, by zapamiętać Twój wybór, a tylko za Twoją zgodą plików marketingowych do pomiaru reklam.",
+      "etiqueta_marketing": "Zezwalaj na pliki cookie marketingowe",
+      "aceptar": "Akceptuję",
+      "rechazar": "Odrzucam",
+      "personalizar": "Dostosuj",
+      "guardar": "Zapisz wybór",
+      "version_texto": "v1"
+    },
+    "comprar": {
+      "titulo": "Przed płatnością",
+      "resumen_prepago": [
+        "Sprzedawca: {marca}, pełne dane na stronie sprzedawcy.",
+        "Format: pliki w formacie {formato:karty}.",
+        "Język: polski.",
+        "Licencja: użytek osobisty; zakaz odsprzedaży i rozpowszechniania.",
+        "Dostawa: od razu e-mailem, z linkiem do pobrania.",
+        "Zwrot pieniędzy: {garantia_dias} dni, bez pytań."
+      ],
+      "casillas": [
+        {
+          "id": "terminos-y-desistimiento",
+          "texto": "Przeczytałem/am i akceptuję regulamin oraz zasady zwrotów.",
+          "obligatoria": true,
+          "premarcada": false
+        },
+        {
+          "id": "renuncia-entrega-inmediata",
+          "texto": "Zgadzam się na natychmiastowe rozpoczęcie dostawy i wiem, że po pobraniu pliku tracę ustawowe prawo odstąpienia od umowy; gwarancja zwrotu {garantia_dias} dni nadal obowiązuje.",
+          "obligatoria": true,
+          "premarcada": false
+        }
+      ],
+      "boton": "Przejdź do bezpiecznej płatności"
+    },
+    "gracias": {
+      "titulo": "Dziękujemy za zakup",
+      "texto": "Za chwilę dostaniesz e-mail z linkiem do pobrania. Jeśli go nie widzisz, sprawdź folder spam lub poproś o ponowne wysłanie na stronie dostawy."
+    }
+  },
+  "variantes_por_angulo": {
+    "jedno-pytanie": {}
+  },
+  "omitidas": []
+}

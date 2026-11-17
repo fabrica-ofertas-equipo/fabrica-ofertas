@@ -1,0 +1,26 @@
+{
+  "version_skill": "0.1.0",
+  "origen": "departamentos/00-orquestador-portafolio.md §10.5",
+  "nota": "Ficticio. Los límites son los de evals/dorados/limites.ficticio.yaml (los reales están en null).",
+  "id": "O0-D06-otro-macro-nicho-idioma-moneda-pl-PL",
+  "estado": "ejecutable_hoy",
+  "descripcion": "«Tarjetas de conversación para parejas», pl-PL, cobro en PLN, presupuesto en moneda_limites: mismas reglas que D01.",
+  "entrada": {
+    "prompt": "Modo A. CAND-02, relaciones, verde, locale pl-PL, moneda de cobro PLN. Defaults salvo dominio (kartyrozmowy.example).",
+    "limites": "evals/dorados/limites.ficticio.yaml"
+  },
+  "salida_esperada": {
+    "referencia": "templates/00-brief.pl-PL-relaciones.borrador.yaml",
+    "propiedades": [
+      "moneda_cobro PLN y presupuesto en EUR (moneda_limites): no se mezclan",
+      "es_hipotesis true; Polonia no es prior",
+      "supuestos: métodos locales (BLIK, Przelewy24) diferidos y revisor nativo exigido por M1",
+      "ninguna regla específica de Polonia agregada a la skill"
+    ]
+  },
+  "verificacion": {
+    "comando": "S=.claude/skills/o0-orquestador-portafolio; .venv/bin/python $S/scripts/validar_brief.py $S/templates/00-brief.pl-PL-relaciones.borrador.yaml --limites $S/evals/dorados/limites.ficticio.yaml",
+    "salida_codigo": 0
+  },
+  "sin_skill_esperado": "mezcla PLN con la moneda de límites o trata Polonia como prior"
+}

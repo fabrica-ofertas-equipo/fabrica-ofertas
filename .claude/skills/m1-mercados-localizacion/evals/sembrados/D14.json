@@ -1,0 +1,37 @@
+{
+  "id": "D14",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Neto sin reembolsos ni Stripe Tax (r subestimado ~10 %)",
+  "donde_se_siembra": "mercado.seleccion.json#/parametros_usados",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "del",
+          "ruta": "/parametros_usados/reembolso_bp"
+        },
+        {
+          "op": "del",
+          "ruta": "/parametros_usados/stripe_tax"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-18"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-18",
+      "patron_clave": "neto-incompleto",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "neto completo: reembolso, disputas, Stripe Tax, comision, tarifa de Meta, mult_cpm"
+  }
+}

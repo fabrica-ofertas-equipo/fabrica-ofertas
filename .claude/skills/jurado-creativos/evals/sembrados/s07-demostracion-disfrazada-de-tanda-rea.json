@@ -1,0 +1,10 @@
+{
+  "caso_id": "S07",
+  "titulo": "Demostración disfrazada de tanda real",
+  "defecto_sembrado": "jurado.json: demostracion = false con manifiesto demostracion = true",
+  "check_esperado": "JQ-08",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar.verificar → J-L1-03",
+  "correccion_esperada": "marcar la demostración o rehacer con votos reales",
+  "automatizado": true
+}

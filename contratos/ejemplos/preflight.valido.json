@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "hash_config": "sha256:445cfcd889a7fe9ad2c0fdbc749378116c8f2592e8b5b4395c2eec550ef641c0",
+  "generado_en": "2026-11-10T08:30:00Z",
+  "valido_hasta": "2026-11-11T08:30:00Z",
+  "semaforo": "VERDE",
+  "checks": {
+    "P01": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P01 sin hallazgos (ejemplo)"
+    },
+    "P02": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P02 sin hallazgos (ejemplo)"
+    },
+    "P03": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P03 sin hallazgos (ejemplo)"
+    },
+    "P04": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P04 sin hallazgos (ejemplo)"
+    },
+    "P05": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P05 sin hallazgos (ejemplo)"
+    },
+    "P06": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P06 sin hallazgos (ejemplo)"
+    },
+    "P07": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P07 sin hallazgos (ejemplo)"
+    },
+    "P08": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P08 sin hallazgos (ejemplo)"
+    },
+    "P09": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P09 sin hallazgos (ejemplo)"
+    },
+    "P10": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P10 sin hallazgos (ejemplo)"
+    },
+    "P11": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P11 sin hallazgos (ejemplo)"
+    },
+    "P12": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P12 sin hallazgos (ejemplo)"
+    },
+    "P13": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P13 sin hallazgos (ejemplo)"
+    },
+    "P14": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P14 sin hallazgos (ejemplo)"
+    },
+    "P15": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P15 sin hallazgos (ejemplo)"
+    },
+    "P16": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P16 sin hallazgos (ejemplo)"
+    },
+    "P17": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P17 sin hallazgos (ejemplo)"
+    },
+    "P18": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P18 sin hallazgos (ejemplo)"
+    },
+    "P19": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P19 sin hallazgos (ejemplo)"
+    },
+    "P20": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P20 sin hallazgos (ejemplo)"
+    },
+    "P21": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P21 sin hallazgos (ejemplo)"
+    },
+    "P22": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P22 sin hallazgos (ejemplo)"
+    },
+    "P23": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P23 sin hallazgos (ejemplo)"
+    },
+    "P24": {
+      "estado": "VERDE",
+      "evidencia": "comprobación determinista P24 sin hallazgos (ejemplo)"
+    }
+  }
+}

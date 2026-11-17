@@ -1,0 +1,27 @@
+{
+  "barrido_limite_por_consulta": 50,
+  "barrido_paises_origen": [
+    "US",
+    "BR",
+    "MX",
+    "ES",
+    "IT"
+  ],
+  "barrido_pasadas_max": 3,
+  "barrido_titulos_por_pagina_max": 20,
+  "barrido_paginas_por_lote_etiquetado": 25,
+  "barrido_partir_si_total_supera": 50,
+  "memoria_ventana_min_dias": 7,
+  "barrido_agentes_paralelos_max": 4,
+  "barrido_exportador_monedas_pais": {
+    "BRL": "BR"
+  },
+  "barrido_consultas_por_agente_max": 20,
+  "barrido_idioma_por_pais": {
+    "US": "en",
+    "BR": "pt",
+    "MX": "es",
+    "ES": "es",
+    "IT": "it"
+  }
+}

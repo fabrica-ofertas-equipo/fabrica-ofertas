@@ -1,0 +1,1770 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "jurado_creativos",
+  "demostracion": true,
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "mercado": "pl-PL",
+  "tanda_id": "tanda-2026-11-08_pl-PL",
+  "generado_en": "2026-11-08T07:00:00Z",
+  "sellado_en": "2026-11-08T07:00:00Z",
+  "modo": "sombra",
+  "aplica_orden": false,
+  "modo_motivo": "modo por defecto: el jurado predice y se compara con lo cobrado; no decide nada",
+  "semilla": "demo-OF-202611-91-2026-11-08",
+  "semilla_origen": "explicita",
+  "hash_orden": "2525ef37815dc7d681e2a59ca3d82e5f4e3e3255ab38985aef199ba56a9be4f0",
+  "consigna_version": "0.1.0",
+  "consigna_sha256": "877623a6be01653a091555573ed0273f5778ed49cb17f5f349ad5717358453d0",
+  "entradas": {
+    "avatares_sha256": "916a83520a13609445419aa5f03af0efd45bd4d88f01fbd34e62a9e829757728",
+    "piezas_sha256": "d0677801593cda30b87d12a7a85eb891f4a13cebac9a63a68e834d7618ddb77b",
+    "anclas_sha256": "caa71bcfafebc038089509866ef7b311b8bed9e7ee8ce374569b32fdd84701b7"
+  },
+  "avatares": [
+    {
+      "avatar_id": "av-pl-PL-01",
+      "estilo_decision": "esceptico",
+      "estado": "activo",
+      "preocupacion": "ya-probe-apps",
+      "nivel_evidencia": "alta"
+    },
+    {
+      "avatar_id": "av-pl-PL-02",
+      "estilo_decision": "impulsivo",
+      "estado": "activo",
+      "preocupacion": "bloqueo-al-hablar",
+      "nivel_evidencia": "alta"
+    },
+    {
+      "avatar_id": "av-pl-PL-03",
+      "estilo_decision": "analitico",
+      "estado": "activo",
+      "preocupacion": "estancamiento",
+      "nivel_evidencia": "media"
+    },
+    {
+      "avatar_id": "av-pl-PL-04",
+      "estilo_decision": "visual",
+      "estado": "activo",
+      "preocupacion": "faltan-palabras",
+      "nivel_evidencia": "media"
+    },
+    {
+      "avatar_id": "av-pl-PL-05",
+      "estilo_decision": "esceptico",
+      "estado": "activo",
+      "preocupacion": "desconfianza-promesas",
+      "nivel_evidencia": "debil"
+    },
+    {
+      "avatar_id": "av-pl-PL-06",
+      "estilo_decision": "impulsivo",
+      "estado": "activo",
+      "preocupacion": "olvido",
+      "nivel_evidencia": "media"
+    },
+    {
+      "avatar_id": "av-pl-PL-07",
+      "estilo_decision": "analitico",
+      "estado": "activo",
+      "preocupacion": "abrumado-por-sinonimos",
+      "nivel_evidencia": "debil"
+    },
+    {
+      "avatar_id": "av-pl-PL-08",
+      "estilo_decision": "visual",
+      "estado": "activo",
+      "preocupacion": "constancia",
+      "nivel_evidencia": "debil"
+    },
+    {
+      "avatar_id": "av-pl-PL-09",
+      "estilo_decision": "esceptico",
+      "estado": "activo",
+      "preocupacion": "palabras-sin-contexto",
+      "nivel_evidencia": "debil"
+    },
+    {
+      "avatar_id": "av-pl-PL-10",
+      "estilo_decision": "impulsivo",
+      "estado": "activo",
+      "preocupacion": "siguiente-paso-por-nivel",
+      "nivel_evidencia": "debil"
+    }
+  ],
+  "n_jueces": 10,
+  "completitud": {
+    "llamadas_esperadas": 143,
+    "votos_aceptados": 143,
+    "rechazados": 0,
+    "cuarentena": 0,
+    "faltantes": 0,
+    "proporcion": 1.0
+  },
+  "votos": [
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 9,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 9,
+      "puntaje_gancho": 10,
+      "puntaje_claridad": 9,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 9,
+      "puntaje_gancho": 10,
+      "puntaje_claridad": 9,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 10,
+      "puntaje_gancho": 9,
+      "puntaje_claridad": 10,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 9,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 10,
+      "puntaje_gancho": 10,
+      "puntaje_claridad": 10,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 9,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 9,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 10,
+      "puntaje_gancho": 10,
+      "puntaje_claridad": 10,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 9,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 9,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 2,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 6,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-01",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 3,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 3,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 1,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 1,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 5,
+      "puntaje_gancho": 4,
+      "puntaje_claridad": 5,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-09",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 7,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-05",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 7,
+      "puntaje_gancho": 8,
+      "puntaje_claridad": 7,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "avatar_id": "av-pl-PL-04",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 0,
+      "puntaje_gancho": 0,
+      "puntaje_claridad": 0,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "avatar_id": "av-pl-PL-08",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "avatar_id": "av-pl-PL-02",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 10,
+      "puntaje_gancho": 10,
+      "puntaje_claridad": 10,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "avatar_id": "av-pl-PL-06",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 6,
+      "puntaje_gancho": 5,
+      "puntaje_claridad": 6,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "avatar_id": "av-pl-PL-07",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 4,
+      "puntaje_gancho": 3,
+      "puntaje_claridad": 4,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "avatar_id": "av-pl-PL-03",
+      "voto": true,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 8,
+      "puntaje_gancho": 9,
+      "puntaje_claridad": 8,
+      "puntaje_cta": null
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "avatar_id": "av-pl-PL-10",
+      "voto": false,
+      "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+      "puntaje_general": 2,
+      "puntaje_gancho": 1,
+      "puntaje_claridad": 2,
+      "puntaje_cta": null
+    }
+  ],
+  "piezas": [
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 10,
+      "share_si": 1.0,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.7225,
+        "alto": 1.0,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 8.7,
+      "puntaje_mediana": 8.5,
+      "desvio_puntaje": 1.005,
+      "acuerdo": 1.0,
+      "puntaje_gancho_medio": 7.9,
+      "puntaje_claridad_medio": 8.7,
+      "puntaje_cta_medio": null,
+      "score": 1.00087,
+      "rango_puestos": {
+        "p05": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "alta",
+      "posicion": 1
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 9,
+      "share_si": 0.9,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.5958,
+        "alto": 0.9821,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 7.2,
+      "puntaje_mediana": 7.0,
+      "desvio_puntaje": 1.4,
+      "acuerdo": 0.9,
+      "puntaje_gancho_medio": 7.1,
+      "puntaje_claridad_medio": 7.2,
+      "puntaje_cta_medio": null,
+      "score": 0.90072,
+      "rango_puestos": {
+        "p05": 2.0,
+        "p50": 2.0,
+        "p95": 3.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 2
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 7,
+      "share_si": 0.7,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.3968,
+        "alto": 0.8922,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 5.8,
+      "puntaje_mediana": 6.0,
+      "desvio_puntaje": 1.536,
+      "acuerdo": 0.7,
+      "puntaje_gancho_medio": 5.4,
+      "puntaje_claridad_medio": 5.8,
+      "puntaje_cta_medio": null,
+      "score": 0.70058,
+      "rango_puestos": {
+        "p05": 3.0,
+        "p50": 3.0,
+        "p95": 4.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 3
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 7,
+      "share_si": 0.7,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.3968,
+        "alto": 0.8922,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 5.4,
+      "puntaje_mediana": 6.0,
+      "desvio_puntaje": 1.562,
+      "acuerdo": 0.7,
+      "puntaje_gancho_medio": 5.6,
+      "puntaje_claridad_medio": 5.4,
+      "puntaje_cta_medio": null,
+      "score": 0.70054,
+      "rango_puestos": {
+        "p05": 2.0,
+        "p50": 4.0,
+        "p95": 4.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 4
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 4,
+      "share_si": 0.4,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.1682,
+        "alto": 0.6873,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 4.2,
+      "puntaje_mediana": 4.0,
+      "desvio_puntaje": 1.4,
+      "acuerdo": 0.6,
+      "puntaje_gancho_medio": 4.6,
+      "puntaje_claridad_medio": 4.2,
+      "puntaje_cta_medio": null,
+      "score": 0.40042,
+      "rango_puestos": {
+        "p05": 5.0,
+        "p50": 5.0,
+        "p95": 6.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 5
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 3,
+      "share_si": 0.3,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.1078,
+        "alto": 0.6032,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 4.5,
+      "puntaje_mediana": 4.0,
+      "desvio_puntaje": 1.803,
+      "acuerdo": 0.7,
+      "puntaje_gancho_medio": 4.1,
+      "puntaje_claridad_medio": 4.5,
+      "puntaje_cta_medio": null,
+      "score": 0.30045,
+      "rango_puestos": {
+        "p05": 5.0,
+        "p50": 6.0,
+        "p95": 6.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 6
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 1,
+      "share_si": 0.1,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.0179,
+        "alto": 0.4042,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 3.4,
+      "puntaje_mediana": 3.5,
+      "desvio_puntaje": 1.114,
+      "acuerdo": 0.9,
+      "puntaje_gancho_medio": 3.4,
+      "puntaje_claridad_medio": 3.4,
+      "puntaje_cta_medio": null,
+      "score": 0.10034,
+      "rango_puestos": {
+        "p05": 7.0,
+        "p50": 7.0,
+        "p95": 7.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "alta",
+      "posicion": 7
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 0,
+      "share_si": 0.0,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.0,
+        "alto": 0.2775,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 2.0,
+      "puntaje_mediana": 2.0,
+      "desvio_puntaje": 1.342,
+      "acuerdo": 1.0,
+      "puntaje_gancho_medio": 1.9,
+      "puntaje_claridad_medio": 2.0,
+      "puntaje_cta_medio": null,
+      "score": 0.0002,
+      "rango_puestos": {
+        "p05": 8.0,
+        "p50": 8.0,
+        "p95": 9.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 8
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 0,
+      "share_si": 0.0,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.0,
+        "alto": 0.2775,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 1.9,
+      "puntaje_mediana": 2.0,
+      "desvio_puntaje": 1.221,
+      "acuerdo": 1.0,
+      "puntaje_gancho_medio": 1.9,
+      "puntaje_claridad_medio": 1.9,
+      "puntaje_cta_medio": null,
+      "score": 0.00019,
+      "rango_puestos": {
+        "p05": 8.0,
+        "p50": 9.0,
+        "p95": 9.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "media",
+      "posicion": 9
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 0,
+      "share_si": 0.0,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.0,
+        "alto": 0.2775,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 1.1,
+      "puntaje_mediana": 1.0,
+      "desvio_puntaje": 1.221,
+      "acuerdo": 1.0,
+      "puntaje_gancho_medio": 0.7,
+      "puntaje_claridad_medio": 1.1,
+      "puntaje_cta_medio": null,
+      "score": 0.00011,
+      "rango_puestos": {
+        "p05": 10.0,
+        "p50": 10.0,
+        "p95": 10.5,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "alta",
+      "posicion": 10
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "n_votos": 10,
+      "a_favor": 0,
+      "share_si": 0.0,
+      "banda_confianza": {
+        "metodo": "wilson95",
+        "nivel": 0.95,
+        "bajo": 0.0,
+        "alto": 0.2775,
+        "supuesto": "votos independientes; con jueces del mismo modelo la banda real es MÁS ancha"
+      },
+      "puntaje_medio": 0.5,
+      "puntaje_mediana": 0.0,
+      "desvio_puntaje": 0.806,
+      "acuerdo": 1.0,
+      "puntaje_gancho_medio": 0.7,
+      "puntaje_claridad_medio": 0.5,
+      "puntaje_cta_medio": null,
+      "score": 5e-05,
+      "rango_puestos": {
+        "p05": 10.5,
+        "p50": 11.0,
+        "p95": 11.0,
+        "metodo": "bootstrap de avatares, 1000 réplicas"
+      },
+      "confianza": "alta",
+      "posicion": 11
+    }
+  ],
+  "orden": [
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "posicion": 1,
+      "puntaje": 8.7,
+      "score": 1.00087,
+      "share_si": 1.0,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "alta"
+    },
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "posicion": 2,
+      "puntaje": 7.2,
+      "score": 0.90072,
+      "share_si": 0.9,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "posicion": 3,
+      "puntaje": 5.8,
+      "score": 0.70058,
+      "share_si": 0.7,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "posicion": 4,
+      "puntaje": 5.4,
+      "score": 0.70054,
+      "share_si": 0.7,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "posicion": 5,
+      "puntaje": 4.2,
+      "score": 0.40042,
+      "share_si": 0.4,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "posicion": 6,
+      "puntaje": 4.5,
+      "score": 0.30045,
+      "share_si": 0.3,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "posicion": 7,
+      "puntaje": 3.4,
+      "score": 0.10034,
+      "share_si": 0.1,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "alta"
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "posicion": 8,
+      "puntaje": 2.0,
+      "score": 0.0002,
+      "share_si": 0.0,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "posicion": 9,
+      "puntaje": 1.9,
+      "score": 0.00019,
+      "share_si": 0.0,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "media"
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "posicion": 10,
+      "puntaje": 1.1,
+      "score": 0.00011,
+      "share_si": 0.0,
+      "empate": false,
+      "separable_del_siguiente": false,
+      "confianza": "alta"
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "posicion": 11,
+      "puntaje": 0.5,
+      "score": 5e-05,
+      "share_si": 0.0,
+      "empate": false,
+      "separable_del_siguiente": null,
+      "confianza": "alta"
+    }
+  ],
+  "sin_orden": [],
+  "acuerdo": {
+    "kappa_fleiss": 0.5464,
+    "jueces_por_pieza": 10,
+    "piezas_en_kappa": 11,
+    "acuerdo_medio_por_pieza": 0.8636,
+    "tasa_aprobacion_global": 0.3727,
+    "dispersion_de_si_entre_piezas": 0.372,
+    "lectura": "kappa cerca de 0 = los perfiles votan distinto entre sí (lo esperable si son perfiles distintos); cerca de 1 = votan casi igual (poca diversidad real). Ninguno de los dos prueba que acierten: eso solo lo mide la calibración con lo cobrado."
+  },
+  "anclas": {
+    "detalle": [
+      {
+        "ancla_id": "ctrl-demo-buena",
+        "veredicto_conocido": "ganadora",
+        "origen_resultado": "control_sintetico",
+        "n_votos": 10,
+        "share_si": 1.0,
+        "puntaje_medio": 8.3
+      },
+      {
+        "ancla_id": "ctrl-demo-mala",
+        "veredicto_conocido": "perdedora",
+        "origen_resultado": "control_sintetico",
+        "n_votos": 10,
+        "share_si": 0.0,
+        "puntaje_medio": 1.5
+      }
+    ],
+    "medidas": 0,
+    "control_sintetico": 2,
+    "share_si_ganadoras": 1.0,
+    "share_si_perdedoras": 0.0,
+    "discrimina": true,
+    "margen_minimo": 0.2,
+    "sesgo_de_aprobacion": false,
+    "nota": "Las anclas no entran al orden. Con anclas «control_sintetico» el chequeo solo prueba que el votante distingue lo grosero; no que coincida con el mercado."
+  },
+  "baseline_rubrica": [
+    {
+      "ad_name": "g0001-entiendo-pero-no-hablo_img_h1_v1",
+      "score": 6.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0002-listas-sin-contexto_img_h1_v1",
+      "score": 2.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0003-escuela-solo-gramatica_img_h1_v1",
+      "score": 5.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0004-app-sin-progreso_img_h1_v1",
+      "score": 2.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0005-sin-tiempo-para-curso_img_h1_v1",
+      "score": 6.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0006-precio-bajo-vs-clases_img_h1_v1",
+      "score": 4.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0007-falta-la-palabra_img_h1_v1",
+      "score": 5.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0008-vocabulario-por-nivel-cefr_img_h1_v1",
+      "score": 5.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0009-retomar-tras-anos_img_h1_v1",
+      "score": 1.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0010-sin-promesas-magicas_img_h1_v1",
+      "score": 8.5,
+      "n_items": 2
+    },
+    {
+      "ad_name": "g0011-muestra-gratis_img_h1_v1",
+      "score": 4.5,
+      "n_items": 2
+    }
+  ],
+  "ideas": [],
+  "ideas_nota": "Hipótesis del jurado: entran como cualquier concepto (QA-A + lint + X1) y nunca crean claims.",
+  "rechazados": [],
+  "cuarentena": [],
+  "faltantes": [],
+  "advertencias": [
+    "DEMOSTRACIÓN: votos sintéticos generados por código sin ningún LLM. Solo muestra el flujo; no es una opinión de nadie.",
+    "Ninguna ancla es «medida»: el chequeo de anclas no valida contra el mercado.",
+    "Los jueces son el mismo modelo con perfiles distintos: sus errores están correlacionados, no son N observaciones independientes."
+  ],
+  "aviso_uso": "SOLO USO INTERNO. Los votos son opiniones de una IA con perfiles simulados: sirven para ordenar la tanda y nunca se citan en un anuncio ni en una página («7 de 10 comprarían» sería una cifra de clientes inventada). El jurado no decide gasto, no apaga y no activa.",
+  "sello_alcance": "sha256 del JSON canónico sin ['sello', 'precision', 'calibracion_ref']",
+  "precision": {
+    "auc": null,
+    "brier": null,
+    "etiquetas": 0,
+    "estado": "acumulando",
+    "nivel": "inversion",
+    "ic95": null,
+    "p_vs_azar": null,
+    "n_min_etiquetas": 150,
+    "baselines": [],
+    "razones": [
+      "ningún nivel llega a 150 etiquetas (el más lleno: inversion con 0): no se juzga el acierto",
+      "FIXTURE: calculado con datos de prueba; no vale para decidir nada"
+    ],
+    "fixture": true
+  },
+  "sello": "328e5962b5fe5d1f1564f6af192a58d0def6363a417e69a255f60b501a2b0dc5",
+  "calibracion_ref": {
+    "archivo": "../calibracion-vacia.json",
+    "sha256": "64877e373ef7ec8a5148a749a953c66c79add3d7e2fba4b1937f479d0876b76d",
+    "calculado_en": "2026-11-08T07:00:00Z",
+    "estado_global": "acumulando"
+  }
+}

@@ -1,0 +1,17 @@
+# Worker «fabrica-registro» — registro compartido de ofertas tomadas entre instalaciones de la fábrica (dueño, 2026-11-14).
+# Cada instalación reserva la huella de una oferta de referencia antes de modelarla; si otra ya la tiene, la saltea.
+# Sin datos personales ni dominios: solo huellas sha256. Separado de «fabrica-vivo» a propósito (otra base, otro token).
+name = "fabrica-registro"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+workers_dev = false
+
+# La base y el dominio los completa montar.sh:
+[[d1_databases]]
+binding = "DB"
+database_name = "fabrica-registro"
+database_id = "048a8ba3-c0f5-429f-b41c-5908bb412e92"
+
+[[routes]]
+pattern = "registro.tu-dominio.com"
+custom_domain = true

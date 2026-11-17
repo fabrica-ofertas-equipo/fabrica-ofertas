@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/ids_meta.schema.json",
+  "title": "IDs de Meta de la campaña",
+  "description": "IDs numéricos de los objetos creados en Meta (ofertas/<id>/07-campana/ids_meta.json); los escribe meta.crear. Es la lista exacta que activar compara con el árbol vivo y con sello.object_ids. Coincide con campana.ids_meta (adset_ids en plural: un conjunto = lista de 1).",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "ad_account_id": {
+      "type": "string",
+      "pattern": "^act_[0-9]{5,20}$"
+    },
+    "campaign_id": {
+      "$ref": "comunes.schema.json#/$defs/id_meta"
+    },
+    "adset_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "ad_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "creative_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "creado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "hash_config": {
+      "$ref": "comunes.schema.json#/$defs/sha256",
+      "description": "campana.hash_config con el que se creó"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "ad_account_id",
+    "campaign_id",
+    "adset_ids",
+    "ad_ids",
+    "creative_ids",
+    "creado_en",
+    "hash_config"
+  ],
+  "additionalProperties": false
+}

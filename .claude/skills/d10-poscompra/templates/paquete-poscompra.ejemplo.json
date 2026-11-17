@@ -1,0 +1,32 @@
+{
+  "_estado": "EJEMPLO de la forma de paquete-poscompra.json (propuesta, sin esquema en contratos/); sin sello; no usar en una oferta real",
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "skill_version": "0.1.0",
+  "entradas": {"03-oferta/oferta.json": "sha256:…", "04-producto/producto.json": "sha256:…", "05-landing/checkout.json": "sha256:…", "mercado.json": "sha256:…"},
+  "politica": {
+    "garantia_dias": 30,
+    "procedimiento_visible": "= oferta.garantia.texto_visible (copia literal, nunca parafraseada)",
+    "canal": "soporte@<dominio> [PENDIENTE: dueño]",
+    "primera_respuesta_h": "parametros.postcompra.soporte_primera_respuesta_h",
+    "ejecucion_reembolso_h": "parametros.postcompra.reembolso_ejecucion_h"
+  },
+  "lineas": [
+    {"linea": "principal", "item_ids": ["mapy-slownictwa-a1-c2"], "pago": "frontal"},
+    {"linea": "bump", "item_ids": ["zestaw-fiszek"], "pago": "casilla previa en /comprar"},
+    {"linea": "upsell", "estado": "planificado, sin contrato (J16)"},
+    {"linea": "postpago", "estado": "planificado, sin contrato (J16)"}
+  ],
+  "correos": [
+    {"id": "E0-entrega", "archivo": "emails/entrega.pl-PL.txt", "tipo": "entrega", "cuando": "al confirmarse el pago", "sha256": "sha256:…"},
+    {"id": "E1-resena", "archivo": "emails/resena-1.pl-PL.txt", "tipo": "resena", "cuando": "día 3", "sha256": "sha256:…"},
+    {"id": "E2-resena-recordatorio", "archivo": "emails/resena-2.pl-PL.txt", "tipo": "resena", "cuando": "día 7, solo si no respondió", "sha256": "sha256:…"},
+    {"id": "E3-reembolso", "archivo": "emails/reembolso.pl-PL.txt", "tipo": "reembolso", "cuando": "tras ejecutarse el reembolso", "sha256": "sha256:…"}
+  ],
+  "soporte": {"kb": "soporte/kb.pl-PL.md", "macros": "soporte/macros.pl-PL.md", "aviso_ia": "según limites.politica_divulgacion_ia"},
+  "parametros_usados": {"postcompra.resena_dias": "[HIPÓTESIS] [3, 7] (pedido P-A04)", "limites.correos_max_por_dia": null},
+  "preguntas_bloqueantes": ["razón social y dirección del vendedor", "proveedor de correo", "limites.correos_max_por_dia / por_semana (null = no se programan recordatorios)"],
+  "supuestos": ["sin revisor nativo (J11)"],
+  "verificar": ["clasificación de la petición de reseña como mensaje de servicio o comercial en PL"]
+}

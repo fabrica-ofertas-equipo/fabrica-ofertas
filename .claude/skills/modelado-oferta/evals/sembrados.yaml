@@ -1,0 +1,18 @@
+# Defectos sembrados del modelado (v0.1). Cada uno muta un artefacto de un dorado y dice qué debe detectar el QA.
+# Meta (rubric.md §5): >= 90 % de los BLOQUEANTES detectados, en >= 2 idiomas, con 0 falsos bloqueos en el dorado.
+# `ejecutor`: codigo = lo puede detectar un script determinista (cuando exista); qa = lo detecta el juicio del QA.
+version: 0.1.0
+sembrados:
+  - {id: M1, mutacion: "pegar 10 palabras seguidas del texto del referente en el titular de la landing propia", detecta: QM-01, severidad: BLOQUEANTE, ejecutor: codigo, patron_clave: clon-textual}
+  - {id: M2, mutacion: "llamar al producto con el nombre del referente cambiando una letra, o conservar su ™", detecta: QM-02, severidad: BLOQUEANTE, ejecutor: codigo, patron_clave: nombre-parecido}
+  - {id: M3, mutacion: "aprobar una palanca (p. ej. PAL-02) y no reflejarla en oferta.json, producto ni landing", detecta: QM-04, severidad: BLOQUEANTE, ejecutor: qa, patron_clave: palanca-fantasma}
+  - {id: M4, mutacion: "justificar una palanca de garantía con el procedimiento de reembolso del referente, que está marcado no_visible", detecta: QM-11, severidad: BLOQUEANTE, ejecutor: qa, patron_clave: mejora-sobre-dato-no-visible}
+  - {id: M5, mutacion: "citar en el desarme una frase del referente que no está en el material pegado por el dueño", detecta: R5, severidad: BLOQUEANTE, ejecutor: codigo, patron_clave: cita-inventada}
+  - {id: M6, mutacion: "dejar en corpus_citas.jsonl un perfil de usuario o un correo", detecta: QM-14, severidad: BLOQUEANTE, ejecutor: codigo, patron_clave: dato-personal-en-dossier}
+  - {id: M7, mutacion: "usar en un titular una jerga atestiguada en una sola fuente", detecta: QM-14, severidad: MAYOR, ejecutor: codigo, patron_clave: jerga-de-una-fuente}
+  - {id: M8, mutacion: "antes/después donde la única dimensión excluida por no visible es precio y valor y la oferta propia saldría peor", detecta: QM-09, severidad: BLOQUEANTE, ejecutor: qa, patron_clave: dimension-excluida-peor}
+  - {id: M9, mutacion: "dejar el id de checkout o de píxel del referente en el sitio o en una plantilla", detecta: QM-12, severidad: BLOQUEANTE, ejecutor: codigo, patron_clave: id-de-checkout-heredado}
+  - {id: M10, mutacion: "añadir reseñas, «+N alumnos» o una cuenta atrás copiadas o sintetizadas", detecta: QM-07, severidad: BLOQUEANTE, ejecutor: qa, patron_clave: prueba-social-inventada}
+falsos_positivos_a_vigilar:
+  - "una oferta con el mismo tamaño de pack, niveles, tipos de bonus y plazo de garantía que el referente NO debe bloquearse (J18): QM-08 «misma oferta: sí» no bloquea"
+  - "una landing con el mismo orden de bloques que el referente NO debe bloquearse (J17): QM-03 mide fidelidad, no la penaliza"

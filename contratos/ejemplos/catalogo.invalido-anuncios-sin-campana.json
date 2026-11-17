@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "moneda": "EUR",
+  "price_ids": {
+    "principal": "price_ejemplo_test_principal",
+    "bump": "price_ejemplo_test_bump"
+  },
+  "success_url": "https://miregresolaboral.example/gracias",
+  "return_url": "https://miregresolaboral.example/comprar",
+  "landing_version": "v1",
+  "renuncia": {
+    "requerido": true,
+    "texto_version": "v1"
+  },
+  "ids_meta": {
+    "campaign_id": null,
+    "adset_ids": [
+      "120000000000002"
+    ],
+    "ad_ids": [
+      "120000000000003",
+      "120000000000004",
+      "120000000000005",
+      "120000000000006",
+      "120000000000007"
+    ]
+  },
+  "generado_en": "2026-11-10T08:05:00Z",
+  "firma": "hmac-sha256:ce933c60087b8f1ec7faa19942a2a77f1393eb318552b1382db1c5a58fc1eb11"
+}

@@ -1,0 +1,13 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-D01-oferta-nueva-en-N0",
+  "entrada": "/o0-lanzar-oferta nueva con empresa/limites.yaml real (todo null)",
+  "esperado": [
+    "primero 4 bloqueos abiertos (límites, primer mercado, cuenta de Meta, líneas rojas) y 1 diferido (métodos de pago)",
+    "preflight en lectura: limites estado → 5",
+    "no sugiere crear nada; dice qué claves faltan",
+    "no elige candidato"
+  ],
+  "verificacion": ".venv/bin/python .claude/skills/o0-lanzar-oferta/scripts/bloqueos_dueno.py --json  → abiertas: 4"
+}

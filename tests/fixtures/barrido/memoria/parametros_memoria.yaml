@@ -1,0 +1,22 @@
+# Parámetros de prueba para memoria.py (mismo estilo que parametros_barrido.propuesta.yaml; copia independiente:
+# las pruebas no deben cambiar si B1 recalibra la propuesta). Solo los que lee el módulo de memoria.
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    # Antigüedad mínima de la instantánea previa para calcular entrantes_30d (si no hay una así: null, jamás 0).
+    memoria_ventana_min_dias:
+      valor: 25
+      unidad: dias
+      hipotesis: true
+      fuente: "fixture de pruebas; CONTRATO §4 (memoria)"
+      ultima_calibracion: null
+      rango: [14, 30]
+    # Antigüedad máxima de la base (opcional): una instantánea más vieja no se usa.
+    memoria_ventana_max_dias:
+      valor: 60
+      unidad: dias
+      hipotesis: true
+      fuente: "fixture de pruebas; PEDIDO de B3 a B1"
+      ultima_calibracion: null
+      rango: [30, 120]

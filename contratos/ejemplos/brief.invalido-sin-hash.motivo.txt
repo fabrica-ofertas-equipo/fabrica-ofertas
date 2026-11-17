@@ -1,0 +1,3 @@
+validador=required
+ruta=
+texto=falta el hash del brief, que sella el contenido aprobado

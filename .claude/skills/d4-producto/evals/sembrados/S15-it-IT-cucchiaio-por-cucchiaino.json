@@ -1,0 +1,23 @@
+{
+  "id": "S15",
+  "dorado_base": "D4-03",
+  "obligatorio_100pct": false,
+  "mutacion": {
+    "archivo": "entregables/fuente/guida.html",
+    "antes": "un cucchiaino di zucchero (5 g)",
+    "despues": "un cucchiaio di zucchero (5 g)",
+    "respaldo": "afirmaciones.jsonl: unidad cucchiaio vs unidad_fuente cucchiaino"
+  },
+  "detector_determinista": "verificar_respaldo.py → unidad-distinta (BLOQUEANTE)",
+  "salida_esperada_qa": {
+    "hallazgo": {
+      "check_id": "L1-13",
+      "patron_clave": "unidad-distinta",
+      "severidad": "BLOQUEANTE",
+      "etapa": "D4",
+      "evidencia_debe_citar": "guida.html y la cita literal de la fuente",
+      "estado": "devuelto_al_maker"
+    },
+    "veredicto": "FAIL"
+  }
+}

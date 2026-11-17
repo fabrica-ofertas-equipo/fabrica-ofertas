@@ -1,0 +1,23 @@
+{
+  "id": "D09",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Salud en DE con promesa de eficacia clasificada como verde",
+  "donde_se_siembra": "candidato/riesgo en la entrada y mercado.seleccion.json#/candidato",
+  "base": "un candidato de salud con promesa 'gegen <dolencia>' etiquetado verde y DE como pais elegido",
+  "mutaciones": [],
+  "deteccion": {
+    "via": "L2",
+    "nota": "el script solo cruza las etiquetas que pone el Maker (R3); detectar una promesa de eficacia mal etiquetada exige LEER la promesa: lo mide el QA (L2 + casos-frontera). Con la etiqueta eficacia_salud correcta, R3 excluye el par (DE, salud)."
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-12",
+      "patron_clave": "exposicion-mal-evaluada",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "HWG: promesa de eficacia en salud no es verde en DE; R3 excluye el par (promesa, DE), no el tema salud"
+  }
+}

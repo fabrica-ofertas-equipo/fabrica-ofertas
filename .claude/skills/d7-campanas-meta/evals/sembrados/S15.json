@@ -1,0 +1,40 @@
+{
+  "id": "S15",
+  "descripcion": "Envio amarillo-a sin las claves de riesgo en limites.yaml (cuota, envios, hoja pausada): solo verde",
+  "check_id": "C13",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "P"
+      ],
+      "valor": "amarillo"
+    },
+    {
+      "archivo": "03-oferta/oferta.json",
+      "ruta": [
+        "riesgo",
+        "nivel"
+      ],
+      "valor": "amarillo"
+    }
+  ],
+  "esperado": {
+    "check_id": "C13",
+    "codigo": "amarillo_sin_claves_de_riesgo",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C13",
+      "patron_clave": "amarillo-sin-cuota",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

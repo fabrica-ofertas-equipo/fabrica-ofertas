@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/costos.schema.json",
+  "title": "Línea de costos",
+  "description": "Línea de costos.jsonl que F1 imputa a la oferta",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "const": "empresa"
+        }
+      ],
+      "description": "ID de oferta o la constante 'empresa'"
+    },
+    "etapa": {
+      "$ref": "comunes.schema.json#/$defs/etapa"
+    },
+    "ejecucion_id": {
+      "type": "string"
+    },
+    "origen": {
+      "enum": [
+        "ia",
+        "creditos",
+        "herramienta"
+      ]
+    },
+    "concepto": {
+      "type": "string",
+      "minLength": 1
+    },
+    "monto": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "tokens": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "entrada": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "salida": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "entrada",
+            "salida"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "creditos": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "ts",
+    "oferta_id",
+    "etapa",
+    "ejecucion_id",
+    "origen",
+    "concepto",
+    "monto"
+  ],
+  "additionalProperties": false
+}

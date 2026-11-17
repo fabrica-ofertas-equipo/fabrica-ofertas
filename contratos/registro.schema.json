@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/registro.schema.json",
+  "title": "Línea de registro",
+  "description": "Línea de empresa/registro.jsonl, encadenada por hash (hash incluye hash_previo).",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "ejecucion_id": {
+      "type": "string",
+      "pattern": "^RUN-[0-9]{8}-[0-9]{2}$|^[a-z0-9-]{6,40}$"
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "etapa": {
+      "$ref": "comunes.schema.json#/$defs/etapa"
+    },
+    "agente": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9:_-]*$",
+      "description": "p. ej. d1-maker, d3-qa, motor, script:subir_presupuesto"
+    },
+    "skill_version": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/semver"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evento": {
+      "enum": [
+        "accion",
+        "transicion",
+        "llamada_herramienta",
+        "decision",
+        "bloqueo",
+        "alerta",
+        "aprobacion"
+      ]
+    },
+    "herramienta": {
+      "type": "string"
+    },
+    "entrada_resumen": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Sin cuerpos completos, secretos ni datos personales"
+    },
+    "resultado": {
+      "type": "object",
+      "properties": {
+        "estado": {
+          "$ref": "comunes.schema.json#/$defs/resultado_estado"
+        },
+        "codigo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "Código de salida (convenciones 8)"
+        }
+      },
+      "required": [
+        "estado",
+        "codigo"
+      ],
+      "additionalProperties": false
+    },
+    "costo_estimado": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "tokens": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "entrada": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "salida": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "entrada",
+            "salida"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "modo": {
+      "$ref": "comunes.schema.json#/$defs/modo"
+    },
+    "hash_previo": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hash": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    }
+  },
+  "required": [
+    "schema_version",
+    "ts",
+    "ejecucion_id",
+    "oferta_id",
+    "etapa",
+    "agente",
+    "evento",
+    "herramienta",
+    "entrada_resumen",
+    "resultado",
+    "costo_estimado",
+    "modo",
+    "hash_previo",
+    "hash"
+  ],
+  "additionalProperties": false
+}

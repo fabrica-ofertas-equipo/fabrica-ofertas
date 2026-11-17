@@ -1,0 +1,19 @@
+# Plantilla de ejemplo (B6b, ola 2, D-02b) — NO se lee en tiempo de ejecución desde aquí.
+#
+# El Maker de X1 escribe el archivo REAL en:
+#   empresa/compliance/terminos_sensibles/<locale>.yaml   (p. ej. empresa/compliance/terminos_sensibles/es-ES.yaml)
+#
+# compliance.reglas.cargar_terminos_adicionales() lo lee y compliance.reglas.combinar_categorias()
+# lo SUMA a compliance/reglas_sensibles.yaml sin poder debilitarla: solo agrega patrones nuevos.
+# Un patrón que ya existe en la base bajo OTRO nivel se ignora y se informa (no se puede mover una
+# regla base a un nivel más débil). El Maker de X1 NO puede editar compliance/ ni resellar.
+#
+# Forma: igual que una entrada de "locales.<locale>" en reglas_sensibles.yaml (categoria -> nivel ->
+# lista de patrones regex de Python, re.IGNORECASE). Nunca se necesita (ni se usa) hash_contenido
+# aquí: este archivo no se autentica por hash, es un aporte aditivo, no la fuente de verdad.
+salud:
+  rojo:
+  - \bejemplo-de-termino-nuevo-rechazado-por-meta\b
+finanzas:
+  amarillo:
+  - \bejemplo-de-termino-amarillo\b

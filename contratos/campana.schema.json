@@ -1,0 +1,508 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/campana.schema.json",
+  "title": "Campaña",
+  "description": "Plan de campaña de test (D7). hash_config = sha256 del JSON canónico de este archivo sin hash_config. 1.2.0: presupuesto.spend_cap nullable con candado_alternativo (stop_time + lifetime_budget) y spend_cap_minimo_meta. audiencia.edad_sugerida/edad_dura NO se agregan: el comportamiento de age_max con Advantage+ Audience en la Marketing API directa no se verificó en documentación oficial [VERIFICAR] (https://developers.facebook.com/docs/marketing-api/audiences/advantage-audience devolvió 404, 2026-11-06); el ejemplo 28-55 puede ser rechazado o forzar advantage_audience=0.",
+  "x-version": "1.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.([2-9]|[1-9][0-9]+)\\.(0|[1-9][0-9]*)$",
+      "description": "Versión SemVer del esquema (MAJOR 1, MINOR >= 2): una versión anterior debe migrarse (docs/contratos.md 8)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "estado": {
+      "enum": [
+        "borrador",
+        "preflight_ok",
+        "aprobada",
+        "activa",
+        "pausada",
+        "cerrada"
+      ],
+      "description": "Meta crea en borrador; activar es una acción aparte con gate"
+    },
+    "fase": {
+      "enum": [
+        "TEST",
+        "ESCALA",
+        "REFRESCO"
+      ]
+    },
+    "estructura": {
+      "enum": [
+        "CBO",
+        "ABO"
+      ]
+    },
+    "objetivo": {
+      "enum": [
+        "VENTAS"
+      ]
+    },
+    "evento_optimizacion": {
+      "enum": [
+        "PURCHASE",
+        "INITIATE_CHECKOUT"
+      ]
+    },
+    "atribucion": {
+      "type": "object",
+      "properties": {
+        "ventana": {
+          "enum": [
+            "7d_click",
+            "1d_click",
+            "7d_click_1d_view"
+          ]
+        },
+        "fuente_de_verdad_ingresos": {
+          "const": "stripe"
+        },
+        "fuente_de_verdad_gasto": {
+          "const": "meta"
+        }
+      },
+      "required": [
+        "ventana",
+        "fuente_de_verdad_ingresos",
+        "fuente_de_verdad_gasto"
+      ],
+      "additionalProperties": false
+    },
+    "paises": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/pais"
+      },
+      "minItems": 1
+    },
+    "idioma": {
+      "$ref": "comunes.schema.json#/$defs/locale"
+    },
+    "presupuesto": {
+      "type": "object",
+      "properties": {
+        "moneda": {
+          "$ref": "comunes.schema.json#/$defs/moneda"
+        },
+        "decimales": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "diario": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_test": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dias": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "spend_cap": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Tope de gasto de la campaña (unidad menor). Mínimo 1: 0 significaría 'sin tope' en Meta. null SOLO cuando el spend_cap calculado queda por debajo de spend_cap_minimo_meta: entonces candado_alternativo es obligatorio (B05, MA-08). Meta: mínimo 100 USD o equivalente local (https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group, leída 2026-11-06)"
+        },
+        "max_teorico_diario": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "spend_cap_minimo_meta": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Mínimo de Meta para el spend_cap expresado en unidad menor de `moneda` (convertido con un tipo_cambio registrado a partir de parametros.campana.spend_cap_minimo_meta). null = aún no convertido: tolerado en borrador con AVISO, error desde preflight_ok [VERIFICAR monto local exacto]"
+        },
+        "candado_alternativo": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tipo": {
+                  "const": "stop_time_lifetime_budget"
+                },
+                "stop_time": {
+                  "$ref": "comunes.schema.json#/$defs/timestamp"
+                },
+                "lifetime_budget": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "description": "Presupuesto de por vida del conjunto en unidad menor de `moneda`; hace de tope de pérdida"
+                }
+              },
+              "required": [
+                "tipo",
+                "stop_time",
+                "lifetime_budget"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "description": "Candado que sustituye al spend_cap cuando es null: stop_time + lifetime_budget del conjunto. Obligatorio si spend_cap es null y debe ser null si no lo es"
+        }
+      },
+      "required": [
+        "moneda",
+        "decimales",
+        "diario",
+        "total_test",
+        "dias",
+        "spend_cap",
+        "spend_cap_minimo_meta",
+        "candado_alternativo",
+        "max_teorico_diario"
+      ],
+      "additionalProperties": false,
+      "description": "Importes en unidad menor de `moneda`. total_test = diario x dias; max_teorico_diario = factor_techo_teorico_diario x diario.",
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "spend_cap": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "spend_cap"
+            ]
+          },
+          "then": {
+            "properties": {
+              "candado_alternativo": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "candado_alternativo": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "economia": {
+      "type": "object",
+      "properties": {
+        "cpa_equilibrio": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cpa_objetivo": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cpa_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "k_corte": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "n_anuncios": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "cpa_equilibrio",
+        "cpa_objetivo",
+        "cpa_max",
+        "k_corte",
+        "n_anuncios"
+      ],
+      "additionalProperties": false
+    },
+    "audiencia": {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "enum": [
+            "amplia",
+            "intereses",
+            "lookalike",
+            "personalizada"
+          ]
+        },
+        "edad_min": {
+          "type": "integer",
+          "minimum": 18,
+          "maximum": 65
+        },
+        "edad_max": {
+          "type": "integer",
+          "minimum": 18,
+          "maximum": 65
+        },
+        "genero": {
+          "enum": [
+            "todos",
+            "mujeres",
+            "hombres"
+          ]
+        },
+        "intereses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluye_categorias_sensibles": {
+          "const": true,
+          "description": "No se segmenta por atributos de salud, finanzas personales ni vulnerabilidades"
+        }
+      },
+      "required": [
+        "tipo",
+        "edad_min",
+        "edad_max",
+        "genero",
+        "intereses",
+        "excluye_categorias_sensibles"
+      ],
+      "additionalProperties": false
+    },
+    "ubicaciones": {
+      "enum": [
+        "automaticas",
+        "feeds_y_reels"
+      ]
+    },
+    "nombres": {
+      "type": "object",
+      "properties": {
+        "campana": {
+          "$ref": "comunes.schema.json#/$defs/nombre_meta_campana"
+        },
+        "conjunto": {
+          "$ref": "comunes.schema.json#/$defs/nombre_meta_conjunto"
+        },
+        "anuncios": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/nombre_meta_anuncio"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "campana",
+        "conjunto",
+        "anuncios"
+      ],
+      "additionalProperties": false
+    },
+    "url": {
+      "type": "object",
+      "properties": {
+        "plantilla": {
+          "type": "string",
+          "minLength": 1,
+          "description": "URL con macros de Meta y parámetros de atribución (backbone 5.3)"
+        },
+        "ejemplo_resuelto": {
+          "$ref": "comunes.schema.json#/$defs/url"
+        }
+      },
+      "required": [
+        "plantilla",
+        "ejemplo_resuelto"
+      ],
+      "additionalProperties": false
+    },
+    "anuncios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ad_name": {
+            "$ref": "comunes.schema.json#/$defs/nombre_meta_anuncio"
+          },
+          "concepto_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "asset_sha256": {
+            "$ref": "comunes.schema.json#/$defs/sha256"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "comunes.schema.json#/$defs/kebab"
+            }
+          }
+        },
+        "required": [
+          "ad_name",
+          "concepto_id",
+          "asset_sha256",
+          "claim_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "reglas_parada": {
+      "type": "object",
+      "properties": {
+        "k_corte": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "hash_parametros": {
+          "$ref": "comunes.schema.json#/$defs/sha256"
+        },
+        "pausa_global_si": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "k_corte",
+        "hash_parametros",
+        "pausa_global_si"
+      ],
+      "additionalProperties": false
+    },
+    "criterio_validada": {
+      "type": "object",
+      "properties": {
+        "definicion": {
+          "const": "backbone-5.9"
+        },
+        "n_dec": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dias_max": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "definicion",
+        "n_dec",
+        "dias_max"
+      ],
+      "additionalProperties": false
+    },
+    "ids_meta": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "ad_account_id": {
+              "type": "string",
+              "pattern": "^act_[0-9]+$"
+            },
+            "campaign_id": {
+              "$ref": "comunes.schema.json#/$defs/id_meta"
+            },
+            "adset_ids": {
+              "type": "array",
+              "items": {
+                "$ref": "comunes.schema.json#/$defs/id_meta"
+              }
+            },
+            "ad_ids": {
+              "type": "array",
+              "items": {
+                "$ref": "comunes.schema.json#/$defs/id_meta"
+              }
+            }
+          },
+          "required": [
+            "ad_account_id",
+            "campaign_id",
+            "adset_ids",
+            "ad_ids"
+          ],
+          "additionalProperties": false,
+          "description": "Solo existen tras crear el borrador en Meta"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hash_config": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "special_ad_categories": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "EMPLOYMENT",
+          "HOUSING",
+          "FINANCIAL_PRODUCTS_SERVICES",
+          "ISSUES_ELECTIONS_POLITICS",
+          "ONLINE_GAMBLING_AND_GAMING"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Categorías especiales de anuncios de Meta; [] si ninguna. Si no está vacío: sin intereses, edad 18-65 y oferta con requiere_gate_humano_legal=true (X31). La categoría debe coincidir con el dictamen de X1 (P-nuevo del preflight). [VERIFICAR restricciones vigentes en la fuente oficial]"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "estado",
+    "fase",
+    "estructura",
+    "objetivo",
+    "evento_optimizacion",
+    "atribucion",
+    "paises",
+    "idioma",
+    "presupuesto",
+    "economia",
+    "special_ad_categories",
+    "audiencia",
+    "ubicaciones",
+    "nombres",
+    "url",
+    "anuncios",
+    "reglas_parada",
+    "criterio_validada",
+    "ids_meta",
+    "hash_config"
+  ],
+  "additionalProperties": false
+}

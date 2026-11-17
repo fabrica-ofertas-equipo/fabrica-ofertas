@@ -1,0 +1,5 @@
+#!/bin/zsh
+# Lanzador de la skill d6-sketch-animado: usa el .venv de la raíz del proyecto (Python 3.15).
+DIR="${0:A:h}"
+REPO="${DIR:h:h:h:h}"
+exec "$REPO/.venv/bin/python" "$DIR/sketch.py" "$@"

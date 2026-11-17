@@ -1,0 +1,125 @@
+{
+  "id": "D01",
+  "descripcion": "Día 1 de un lanzamiento J3 (1 CBO, 75 USD/día, oferta de mapas mentales para aprender inglés, hablantes de polaco): la campaña gastó 74 de 75 USD (98,7 %), 160 clics, 130 vistas de landing, 4 inicios de pago y 0 ventas pagadas, ni atribuidas ni sin atribuir, sin pagos pendientes, PAUSA ausente, infraestructura VERDE y lectura de Meta de hace 30 min. Debe proponer la baja (APAGAR -> MATAR, regla J3).",
+  "modo": "LANZAMIENTO",
+  "comando": "proponer.py lanzamiento --entrada <entrada> --umbrales evals/_base/umbrales_prueba.json",
+  "entrada": {
+    "schema_version": "0.1.0",
+    "tipo": "entrada_d8",
+    "oferta_id": "OF-202611-02",
+    "fecha_cuenta": "2026-11-08",
+    "tz": "Europe/Warsaw",
+    "ahora": "2026-11-09T09:00:00Z",
+    "solo_lectura": true,
+    "moneda_meta": "USD",
+    "monedas_pedido": [],
+    "presupuesto": {
+      "diario_minor": 7500,
+      "moneda": "USD",
+      "fuente": "ofertas/OF-202611-02/07-campana/campana.json:presupuesto.diario"
+    },
+    "contexto": {
+      "pausa_activa": false,
+      "infra_semaforo": "VERDE",
+      "traspaso_lanzamiento_estable": true,
+      "pedidos_creativos_abiertos": 0
+    },
+    "frescura": {
+      "ultima_ingesta_meta_ts": "2026-11-09T08:30:00Z",
+      "edad_ingesta_meta_min": 30,
+      "ultima_ingesta_pedidos_ts": null,
+      "edad_ingesta_pedidos_min": null
+    },
+    "campaign_ids": [
+      "120000000000001"
+    ],
+    "primer_dia_con_gasto": "2026-11-08",
+    "dias_cerrados_desde_primer_gasto": 1,
+    "dia": {
+      "fecha": "2026-11-08",
+      "cerrado": true,
+      "gasto_minor": 7400,
+      "impresiones": 18000,
+      "clics_enlace": 160,
+      "compras_meta": 0,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0,
+      "ventas_con_reembolso": 0,
+      "vistas_landing": 130,
+      "vistas_landing_con_adid": 125,
+      "initiate_checkout": 4,
+      "ingesta_meta_posterior_al_cierre": true,
+      "minutos_desde_cierre": 600
+    },
+    "acumulado": {
+      "desde": "2026-11-08",
+      "gasto_minor": 7400,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0
+    },
+    "cobertura_adid_bp": null,
+    "disputas_abiertas": 0,
+    "serie_oferta": [
+      {
+        "fecha": "2026-11-08",
+        "gasto_minor": 7400,
+        "impresiones": 18000,
+        "clics_enlace": 160,
+        "compras_meta": 0,
+        "ventas_stripe_total": 0,
+        "ventas_stripe_atribuidas": 0,
+        "ventas_stripe_sin_atribucion": 0,
+        "pedidos_pendientes": 0
+      }
+    ],
+    "anuncios": [],
+    "avisos": []
+  },
+  "esperado": {
+    "accion_negocio": "APAGAR",
+    "accion_contrato": "MATAR",
+    "codigo": "LANZAMIENTO_SIN_VENTA_J3",
+    "escalar_a": null,
+    "evidencia": {
+      "gasto_dia_bp": 9866,
+      "ventas_stripe_total": 0,
+      "pedidos_pendientes": 0,
+      "tasa_conexion_bp": 8125
+    }
+  },
+  "salida_maker_esperada": {
+    "propuestas": [
+      {
+        "objeto_tipo": "oferta",
+        "objeto_id": "OF-202611-02",
+        "accion_negocio": "APAGAR",
+        "accion_contrato": "MATAR",
+        "regla": "J3-BAJA-LANZAMIENTO",
+        "codigo": "LANZAMIENTO_SIN_VENTA_J3",
+        "ejecuta": "codigo",
+        "requiere_humano": true
+      }
+    ],
+    "debe_incluir": [
+      "las cifras copiadas de entrada.json y de la salida del script, con su ruta (archivo:campo)",
+      "por qué se apaga: el embudo llegó a la landing (81 %) y a 4 inicios de pago, pero nadie pagó; hipótesis de oferta/precio/checkout, marcadas como hipótesis, no como hechos",
+      "gate efectivo hoy: H (autonomia.yaml D8 = N0 y gates.json accion:pausar N0 = H)",
+      "frenos J4 sin cargar (limites.yaml en null) citados como pendiente"
+    ],
+    "no_debe": [
+      "calcular CPA, ROAS o probabilidades por su cuenta",
+      "proponer 'esperar un día más' (J3 es 1 día) ni 'subir presupuesto'",
+      "pausar, llamar a Meta que escribe o editar limites/parametros",
+      "presentar la baja como veredicto FALLIDA de la oferta (es una baja de lanzamiento)"
+    ]
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "hallazgos_minimos": 3,
+    "nota": "anti-sello-de-goma: >= 3 hallazgos (MEJORA incluida) o justificación con evidencia de lo revisado"
+  }
+}

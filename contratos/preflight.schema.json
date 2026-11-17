@@ -1,0 +1,676 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/preflight.schema.json",
+  "title": "Preflight de campaña",
+  "description": "Resultado de P01-P24 (departamentos/08 3) para un hash_config (ofertas/<id>/07-campana/preflight.json). Cualquier ROJO bloquea; vigencia campana.preflight_vigencia_h. P25 (categoría especial coincide con el dictamen de X1) es opcional pero obligatoria si campana.special_ad_categories no está vacío.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "hash_config": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "valido_hasta": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "semaforo": {
+      "enum": [
+        "VERDE",
+        "AMARILLO",
+        "ROJO"
+      ],
+      "description": "Peor de los checks (VERDE solo si todos VERDE o NO_APLICA)"
+    },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "P01": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P02": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P03": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P04": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P05": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P06": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P07": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P08": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P09": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P10": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P11": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P12": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P13": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P14": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P15": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P16": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P17": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P18": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P19": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P20": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P21": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P22": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P23": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P24": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        },
+        "P25": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "enum": [
+                "VERDE",
+                "AMARILLO",
+                "ROJO",
+                "NO_APLICA"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "Evidencia breve, sin secretos ni datos personales"
+            }
+          },
+          "required": [
+            "estado",
+            "evidencia"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20",
+        "P21",
+        "P22",
+        "P23",
+        "P24"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "hash_config",
+    "generado_en",
+    "valido_hasta",
+    "semaforo",
+    "checks"
+  ],
+  "additionalProperties": false
+}

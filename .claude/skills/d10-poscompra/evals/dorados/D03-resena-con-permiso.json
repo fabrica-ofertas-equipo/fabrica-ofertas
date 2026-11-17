@@ -1,0 +1,48 @@
+{
+  "id": "D03",
+  "tipo": "dorado",
+  "capa": "script",
+  "auto": "construir",
+  "descripcion": "Reseña real, verificada, con permiso de valoración y de texto ⇒ entra en prueba_social_real.json (valoracion n=1, media 5,0) y queda como candidata a publicar con su consentimiento_ref. DATOS SINTÉTICOS para la prueba; nunca para publicar.",
+  "entrada": {
+    "oferta_id": "OF-000000-00",
+    "hoy": "2026-11-22",
+    "permitir_sinteticos": true,
+    "resenas": [
+      {
+        "resena_id": "RS-000000000001",
+        "checkout_session_id": "cs_test_ejemplo0001",
+        "compra_verificada": true,
+        "estrellas": 5,
+        "texto": "Przejrzyste mapy, dobrze się z nich uczy.",
+        "locale": "pl-PL",
+        "recibida_en": "2026-11-20T10:00:00Z",
+        "autor_visible": "Anna K.",
+        "permiso": {
+          "valoracion": true,
+          "texto": true,
+          "nombre": true,
+          "version_texto": "v1",
+          "dado_en": "2026-11-20T10:00:00Z"
+        },
+        "retirada": false,
+        "incentivo": false,
+        "sintetico": true
+      }
+    ]
+  },
+  "esperado": {
+    "valoracion": {
+      "n": 1,
+      "media_decimas": 50
+    },
+    "publicables_ids": [
+      "RS-000000000001"
+    ],
+    "revision_ids": [],
+    "descartadas": {}
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS"
+  }
+}

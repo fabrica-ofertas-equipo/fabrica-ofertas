@@ -1,0 +1,34 @@
+# Worker `crear-sesion` (docs/06 4.3; infra/plantillas/variables-entorno.yaml).
+name = "fabrica-crear-sesion"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# Turnstile + verificacion de catalogo + llamada a Stripe: holgado por el
+# roundtrip de red. Valor exacto contra el limite real del plan Paid:
+# [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releido]
+cpu_ms = 50
+
+[[durable_objects.bindings]]
+name = "CUOTA_VISITANTE"
+class_name = "CuotaVisitante"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["CuotaVisitante"]
+
+# Variables de configuracion (no secretas):
+#   STRIPE_API_VERSION, ORIGENES_PERMITIDOS -- infra/plantillas/variables-entorno.yaml
+#     (ORIGENES_PERMITIDOS, modo formulario: origenes exactos separados por
+#     comas para el chequeo de Origin cuando falta Sec-Fetch-Site)
+#   CATALOGO_JSON, CATALOGO_FIRMA -- publicados por landing.catalogo (B4)
+#   MAX_SESIONES_POR_VISITANTE, CUERPO_MAX_BYTES -- ver README "Pedidos"
+#     (faltan hoy en infra/plantillas/variables-entorno.yaml; deberian salir
+#     de parametros.landing.max_sesiones_por_visitante / parametros.ingesta.cuerpo_max_bytes)
+#   LOCALES_RENUNCIA_REQUERIDA -- modo formulario: locales UE/UK separados
+#     por comas que exigen la casilla de renuncia si el catalogo no trae su
+#     propio campo renuncia.requerido (ver README; falta en la plantilla)
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   STRIPE_RK_CHECKOUT, CATALOGO_HMAC, TURNSTILE_SECRET (este ultimo tambien
+#   pendiente en la plantilla de variables: ver README "Pedidos")

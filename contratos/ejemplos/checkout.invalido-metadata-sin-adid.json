@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.2.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "moneda": "EUR",
+  "precio": {
+    "monto": 1990,
+    "moneda": "EUR"
+  },
+  "price_ids": {
+    "test": "price_ejemplo_test_principal",
+    "live": null
+  },
+  "bump": {
+    "modo": "casilla_en_checkout",
+    "price_id": "price_ejemplo_test_bump",
+    "copy": "Añade 12 respuestas modelo para entrevistas por solo 7,90 €",
+    "precio": {
+      "monto": 790,
+      "moneda": "EUR"
+    }
+  },
+  "upsell": null,
+  "precios_por_moneda": [],
+  "impuestos": {
+    "modo": "diferido",
+    "pais": null,
+    "tax_behavior": "inclusive",
+    "tax_code": null
+  },
+  "metodos": [
+    "card",
+    "apple_pay",
+    "google_pay",
+    "link"
+  ],
+  "descriptor": "MIREGRESOLABORAL",
+  "success_url": "https://miregresolaboral.example/gracias",
+  "return_url": "https://miregresolaboral.example/comprar",
+  "garantia_dias": 14,
+  "consentimientos": [
+    {
+      "id": "terminos-y-desistimiento",
+      "texto_version": "v1",
+      "obligatorio": true
+    }
+  ],
+  "metadata_esquema": [
+    "oferta_id",
+    "cid",
+    "asid",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "visitor_id",
+    "consent_marketing",
+    "landing_version",
+    "event_source_url"
+  ],
+  "ui_mode": "hosted",
+  "expires_at_min": 30,
+  "sesion_en_servidor": true
+}

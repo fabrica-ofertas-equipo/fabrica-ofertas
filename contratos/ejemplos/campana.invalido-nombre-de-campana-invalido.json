@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.2.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "estado": "borrador",
+  "fase": "TEST",
+  "estructura": "CBO",
+  "objetivo": "VENTAS",
+  "evento_optimizacion": "PURCHASE",
+  "atribucion": {
+    "ventana": "7d_click",
+    "fuente_de_verdad_ingresos": "stripe",
+    "fuente_de_verdad_gasto": "meta"
+  },
+  "paises": [
+    "ES"
+  ],
+  "idioma": "es-ES",
+  "presupuesto": {
+    "moneda": "EUR",
+    "decimales": 2,
+    "diario": 2760,
+    "total_test": 27600,
+    "dias": 10,
+    "spend_cap": 30360,
+    "spend_cap_minimo_meta": 9300,
+    "candado_alternativo": null,
+    "max_teorico_diario": 4830
+  },
+  "economia": {
+    "cpa_equilibrio": 1840,
+    "cpa_objetivo": 1104,
+    "cpa_max": 1840,
+    "k_corte": 3,
+    "n_anuncios": 5
+  },
+  "special_ad_categories": [],
+  "audiencia": {
+    "tipo": "amplia",
+    "edad_min": 28,
+    "edad_max": 55,
+    "genero": "todos",
+    "intereses": [],
+    "excluye_categorias_sensibles": true
+  },
+  "ubicaciones": "automaticas",
+  "nombres": {
+    "campana": "OF-202611-01|TEST|VENTAS|CBO|20261110",
+    "conjunto": "AmpliaES-28a55_Automaticas_es-ES",
+    "anuncios": [
+      "c01-hueco_img_h1_v1",
+      "c01-hueco_img_h2_v1",
+      "c02-entrevista_img_h1_v1",
+      "c02-entrevista_img_h2_v1",
+      "c03-tarde_img_h1_v1"
+    ]
+  },
+  "url": {
+    "plantilla": "https://miregresolaboral.example/?utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-01&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "ejemplo_resuelto": "https://miregresolaboral.example/?utm_source=meta&utm_medium=paid&utm_campaign=OF-202611-01_TEST_VENTAS_CBO_20261110&utm_content=c01-hueco_img_h1_v1&utm_term=AmpliaES-28a55_Automaticas_es-ES&oferta_id=OF-202611-01&cid=120000000000001&asid=120000000000002&adid=120000000000003"
+  },
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "concepto_id": "c01-hueco",
+      "asset_sha256": "sha256:0fe6fffff92a49b3749304f9f72e15c774e850ad378239c762eb0452c619024c",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv"
+      ]
+    },
+    {
+      "ad_name": "c01-hueco_img_h2_v1",
+      "concepto_id": "c01-hueco",
+      "asset_sha256": "sha256:a06c287b34f56f49939c0f60cae274334ce6fe2eb1482ed73039f950771c0b30",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv"
+      ]
+    },
+    {
+      "ad_name": "c02-entrevista_img_h1_v1",
+      "concepto_id": "c02-entrevista",
+      "asset_sha256": "sha256:4897de39c0d663e260664510f7bbe875c411bcfa08f7762c653a511d4ba04e8e",
+      "claim_ids": [
+        "guion-explicar-pausa"
+      ]
+    },
+    {
+      "ad_name": "c02-entrevista_img_h2_v1",
+      "concepto_id": "c02-entrevista",
+      "asset_sha256": "sha256:d861d8d500b1e3dacd92f3f1e0e2689c1c32f5e35460e12949ffbe4f11b7ce3d",
+      "claim_ids": [
+        "guion-explicar-pausa"
+      ]
+    },
+    {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "concepto_id": "c03-tarde",
+      "asset_sha256": "sha256:bf2cdd69f79ccce77007e94bd1829e849ba14fbbddf8497e585c3e6cd5d862d1",
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv"
+      ]
+    }
+  ],
+  "reglas_parada": {
+    "k_corte": 3,
+    "hash_parametros": "sha256:6c950274a1557ef2b5260795957039eacc44e0dbdd801153076ec634c68af3d5",
+    "pausa_global_si": [
+      "empresa/PAUSA existe",
+      "infra/estado.json no VERDE",
+      "rechazos de Meta >= parametros.compliance.rechazos_congelar en 7 días"
+    ]
+  },
+  "criterio_validada": {
+    "definicion": "backbone-5.9",
+    "n_dec": 15,
+    "dias_max": 14
+  },
+  "ids_meta": null,
+  "hash_config": "sha256:445cfcd889a7fe9ad2c0fdbc749378116c8f2592e8b5b4395c2eec550ef641c0"
+}

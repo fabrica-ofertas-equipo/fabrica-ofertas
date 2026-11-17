@@ -1,0 +1,34 @@
+{
+  "id": "D01",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "BLIK recomendado con moneda EUR (BLIK exige PLN)",
+  "donde_se_siembra": "mercado.seleccion.json#/metodos_locales_recomendados/0",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "set",
+          "ruta": "/metodos_locales_recomendados/0/moneda_requerida",
+          "valor": "EUR"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-04"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-04",
+      "patron_clave": "blik-moneda",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "BLIK solo PLN y clientes de PL; el precio de referencia debe existir en PLN"
+  }
+}

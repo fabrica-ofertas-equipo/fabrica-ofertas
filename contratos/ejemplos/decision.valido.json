@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "decision_id": "sha256:88ba853cb47b9aec68c28e31b62c749c4096c0e3b04a3602789f87959830d722",
+  "oferta_id": "OF-202611-01",
+  "objeto_tipo": "anuncio",
+  "objeto_id": "120000000000003",
+  "lectura_ts": "2026-11-14T09:00:00Z",
+  "ts": "2026-11-14T09:00:05Z",
+  "nivel": "N2",
+  "gate": "A",
+  "accion": "MATAR",
+  "codigo": "K1_SIN_COMPRAS_TRAS_K_CPA",
+  "regla": "K1",
+  "version_reglas": "1.0.0",
+  "hash_parametros": "sha256:6c950274a1557ef2b5260795957039eacc44e0dbdd801153076ec634c68af3d5",
+  "evidencia": {
+    "gasto": {
+      "monto": 5520,
+      "moneda": "EUR"
+    },
+    "clics": 210,
+    "compras": 0,
+    "p_cpa_menor_equilibrio": "0.04"
+  },
+  "explicacion": "Ejemplo: 0 compras con 3 x CPA de equilibrio gastado y P(CPA <= equilibrio) = 0,04: se pausa el anuncio.",
+  "ejecutada": true
+}

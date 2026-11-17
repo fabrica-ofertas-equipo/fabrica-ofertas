@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: pl-PL
+# estado: v0.1 sin pulir; primera petición (día 3 tras la compra); sin revisor nativo (J11); sello de X1 pendiente
+Asunto: Podziel się oceną – zamówienie {{pedido_ref}}
+
+Dzień dobry,
+
+minęło kilka dni od Twojego zakupu w sklepie {{marca}}. Jeśli masz ochotę, oceń materiały jednym kliknięciem – wybierz liczbę gwiazdek od 1 do 5:
+
+1 z 5: {{resena_url_1}}
+2 z 5: {{resena_url_2}}
+3 z 5: {{resena_url_3}}
+4 z 5: {{resena_url_4}}
+5 z 5: {{resena_url_5}}
+
+Po kliknięciu zobaczysz stronę, na której potwierdzisz ocenę. Możesz tam dodać komentarz i zdecydować, czy wolno nam go pokazać na stronie sprzedażowej – z imieniem albo bez. Niczego nie publikujemy bez Twojej zgody.
+
+Zależy nam na szczerej opinii, jakakolwiek by była. Nie ma tu dobrych ani złych odpowiedzi.
+
+Jeśli coś nie działa albo wolisz zwrot pieniędzy, napisz na {{soporte_email}} – nie musisz niczego oceniać.
+
+Nie chcesz dostawać takich wiadomości? Wypisz się tutaj: {{baja_url}}
+
+Sprzedawca: {{vendedor}}
+Zasady zakupu i zwrotów: {{politica_url}}

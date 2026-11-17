@@ -1,0 +1,54 @@
+{
+  "oferta_id": "OF-202611-91",
+  "version": "v1",
+  "origen_version": "maker",
+  "base": {
+    "moneda": "EUR",
+    "precio": 1490,
+    "precio_bump": 596,
+    "tasa_bump_bp": 1000,
+    "tasa_reembolso_bp": 700,
+    "tasa_disputa_bp": 50,
+    "comision_pct_bp": 290,
+    "recargos_bp": 150,
+    "conversion_bp": 100,
+    "comision_fija": 26,
+    "tarifa_disputa": 1293,
+    "costo_variable": 20,
+    "factor_cpa_objetivo_bp": 6000,
+    "stripe_tax": {
+      "pct_bp": 50,
+      "fijo": 0
+    },
+    "escenarios": {
+      "pes": {
+        "cpm": 627,
+        "ctr_enlace_bp": 80,
+        "clic_compra_bp": 70
+      },
+      "central": {
+        "cpm": 627,
+        "ctr_enlace_bp": 120,
+        "clic_compra_bp": 150
+      },
+      "opt": {
+        "cpm": 627,
+        "ctr_enlace_bp": 200,
+        "clic_compra_bp": 250
+      }
+    },
+    "gasto_diario": 5000,
+    "eventos_semana_aprendizaje": 50,
+    "fraccion_aprendizaje_min_bp": 5000,
+    "costos_fijos_oferta": 0,
+    "tarifas_origen": "supuesto",
+    "tarifas_fecha": "2026-11-06",
+    "tarifas_fuente": "[SUPUESTO] 03-stripe §4.1: tarjeta 2,9 % + 0,30 USD, +1,5 % internacional, +1 % conversión, disputa 15 USD, Stripe Tax 0,5 %; red team 16 §2.1: EUR/USD 1,16; USD/PLN 3,72; CPM base 7,27 USD (IT) y 6,66 USD (PL) [HIPÓTESIS, C]"
+  },
+  "paises": {
+    "IT": {
+      "tasa_iva_bp": 2200,
+      "tarifa_meta_bp": 300
+    }
+  }
+}

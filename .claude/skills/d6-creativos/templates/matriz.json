@@ -1,0 +1,265 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "locale": "es-ES",
+  "macro_nicho": "dinero",
+  "riesgo_oferta": {
+    "nivel": "verde",
+    "subnivel": null
+  },
+  "n_anuncios_max": 6,
+  "conceptos": [
+    {
+      "concepto_id": "c01-hueco",
+      "angulo_id": "hueco-como-relato",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El encuadre «hueco como relato» aumenta el CTR frente al encuadre de plantilla",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-03, es-ES), ficha de formato F-01",
+        "Voz del cliente EV-01 (vocabulario y situación, sin cita en primera persona)",
+        "Orgánico es-ES: ficha de formato F-02 (estructura y ritmo; sin activos)"
+      ]
+    },
+    {
+      "concepto_id": "c02-entrevista",
+      "angulo_id": "pregunta-de-entrevista",
+      "nivel_conciencia": "N3",
+      "hipotesis": "Mostrar la fórmula del guion convierte mejor que describir la guía",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-03, es-ES), ficha de formato F-03",
+        "Voz del cliente EV-01 (objeción «qué decir en la entrevista»)",
+        "Competidor indirecto es-ES: ficha de formato F-04 (demostración con hoja real)"
+      ]
+    },
+    {
+      "concepto_id": "c03-tarde",
+      "angulo_id": "plan-en-una-tarde",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El tiempo prometido (claim tiempo-90-min) atrae a quien tiene poco tiempo",
+      "fuentes_inspiracion": [
+        "Competencia en anuncios_competencia.json de D2 (A-05, es-ES), ficha de formato F-05",
+        "Voz del cliente EV-02 (objeción «no tengo tiempo»)",
+        "Orgánico es-ES: ficha de formato F-06 (lista de pasos con reloj)"
+      ]
+    }
+  ],
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "concepto_id": "c01-hueco",
+      "hook_id": "h1",
+      "hook_tipo": "escena-pov",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "guion-explicar-pausa",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "ninguna (padre del concepto)",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    },
+    {
+      "ad_name": "c01-hueco_img_h2_v1",
+      "concepto_id": "c01-hueco",
+      "hook_id": "h2",
+      "hook_tipo": "pregunta-tarea",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "guion-explicar-pausa",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "hook_tipo (escena-pov → pregunta-tarea); mismo cuerpo, puente reescrito",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    },
+    {
+      "ad_name": "c02-entrevista_img_h1_v1",
+      "concepto_id": "c02-entrevista",
+      "hook_id": "h1",
+      "hook_tipo": "demostracion",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "guion-explicar-pausa",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "ninguna (padre del concepto)",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    },
+    {
+      "ad_name": "c02-entrevista_img_h2_v1",
+      "concepto_id": "c02-entrevista",
+      "hook_id": "h2",
+      "hook_tipo": "resultado-artefacto",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "guion-explicar-pausa",
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "hook_tipo (demostracion → resultado-artefacto); mismo cuerpo, puente reescrito",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    },
+    {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "concepto_id": "c03-tarde",
+      "hook_id": "h1",
+      "hook_tipo": "resultado-artefacto",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "tiempo-90-min",
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "ninguna (padre del concepto)",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    },
+    {
+      "ad_name": "c03-tarde_img_h2_v1",
+      "concepto_id": "c03-tarde",
+      "hook_id": "h2",
+      "hook_tipo": "escena-pov",
+      "formato": "imagen",
+      "variante_formato": "estatico-html",
+      "presentador": "sin_rostro",
+      "duracion_s": null,
+      "precio_visible": true,
+      "v": 1,
+      "claim_id_principal": "tiempo-90-min",
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv",
+        "garantia-14-dias"
+      ],
+      "variable_cambiada": "hook_tipo (resultado-artefacto → escena-pov); mismo cuerpo, puente reescrito",
+      "riesgo_pieza": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "verde",
+        "ejes_codigo": {
+          "P": "P1",
+          "C": "C1",
+          "E": "E0",
+          "N": "N1"
+        },
+        "lineas_rojas": [],
+        "repite_promesa_central": false
+      }
+    }
+  ],
+  "reserva": [
+    {
+      "concepto_id": "c04-ordenar",
+      "angulo_id": "hueco-como-relato",
+      "nivel_conciencia": "N3",
+      "hipotesis": "Una versión de N3 del mismo ángulo («hueco como relato») rinde distinto que la de N2",
+      "fuentes_inspiracion": [
+        "Voz del cliente EV-01",
+        "Competencia en anuncios_competencia.json de D2 (A-03)",
+        "Orgánico es-ES: ficha F-02"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "ts": "2026-11-12T09:15:00Z",
+  "version": "v1",
+  "estado": "OK",
+  "regla": {
+    "id": "V59-INCONCLUSA",
+    "definicion": "backbone-5.9",
+    "version_reglas": "1.0.0",
+    "hash_parametros": "sha256:02360afc311ece29ede4690bddf54488302341705b0f3d24600b2dbc443bc798"
+  },
+  "evidencia": {
+    "fuente_compras": "stripe",
+    "compras_brutas": 1,
+    "reembolsos": 0,
+    "compras_netas": 1,
+    "compras_meta_referencia": 1,
+    "garantia_dias": 14,
+    "madurez_dias": 21,
+    "cohorte_madura_hasta": "2026-10-22",
+    "dias_con_datos": 1,
+    "gasto": {
+      "monto": 2760,
+      "moneda": "EUR"
+    },
+    "cpa_neto": {
+      "monto": 2760,
+      "moneda": "EUR"
+    },
+    "cpa_objetivo": {
+      "monto": 1104,
+      "moneda": "EUR"
+    },
+    "mc_real": null,
+    "razon_ms": null,
+    "reembolso_pct": "0"
+  },
+  "p": null,
+  "estabilidad": null,
+  "recomendacion": "seguir_test",
+  "gate": "A",
+  "sintetico": true
+}

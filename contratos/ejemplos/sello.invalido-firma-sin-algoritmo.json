@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "etapa_objetivo": "D7",
+  "artefacto_sha256": "sha256:4934bf618c3b46cda133dddc5c5a2371e6bcc600573aaaf7d473d5e31b8d7d27",
+  "reglas_version": "1.0.0",
+  "emitido_en": "2026-11-10T08:45:00Z",
+  "vigencia_hasta": "2026-11-11T08:45:00Z",
+  "object_ids": [
+    "120000000000001",
+    "120000000000002",
+    "120000000000003",
+    "120000000000004",
+    "120000000000005",
+    "120000000000006",
+    "120000000000007"
+  ],
+  "dictamen_ref": "qa/x1-d7-v1.json",
+  "dictamen_sha256": "sha256:d7a999841dac11dc0d5ae42948ab72f770ff562eb998e8891fdee7e39c3f7fe2",
+  "firma": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

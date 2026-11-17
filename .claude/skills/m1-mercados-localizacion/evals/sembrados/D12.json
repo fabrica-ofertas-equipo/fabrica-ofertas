@@ -1,0 +1,33 @@
+{
+  "id": "D12",
+  "bloqueante_star": false,
+  "severidad": "MAYOR",
+  "defecto": "CPM sin fecha en la ficha",
+  "donde_se_siembra": "fixtures/pais-IT.json#/meta/cpm_bench",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "ficha:IT",
+      "ops": [
+        {
+          "op": "del",
+          "ruta": "/meta/cpm_bench/fecha_lectura"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-02"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-02",
+      "patron_clave": "cpm-sin-fecha",
+      "severidad": "MAYOR",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "todo dato con fecha_lectura"
+  }
+}

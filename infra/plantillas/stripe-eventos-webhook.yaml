@@ -1,0 +1,86 @@
+# Destinos de eventos de Stripe (webhooks) y eventos exactos a suscribir.
+# Fuente: https://docs.stripe.com/webhooks (verificado 2026-11-06). Detalle de diseño: docs/07-puesta-en-marcha.md, sección 2.3.
+version: 1
+actualizado: "2026-11-06"
+reglas_comunes:
+  formato_payload: snapshot   # se necesita data.object completo sin lecturas extra [VERIFICAR disponibilidad de cada evento en snapshot]
+  version_api: "<fijar en sandbox>"   # [VERIFICAR] ; el Worker fija Stripe-Version en cada solicitud
+  firma: "Stripe-Signature, HMAC-SHA256 sobre timestamp.payload, cuerpo crudo, comparación en tiempo constante"
+  tolerancia_segundos: 300   # nunca 0
+  respuesta: "2xx rápido (< webhook.respuesta_max_ms), procesar en cola; 3xx cuenta como fallo"
+  idempotencia: "registrar event.id (UNIQUE); a veces hay dos eventos distintos del mismo objeto: usar data.object.id + type"
+  orden: "no garantizado; no usar 'created' para ordenar"
+  reintentos: "hasta 3 días en vivo (backoff exponencial); 3 intentos en sandbox; reenvío manual 15 días (panel) / 30 (CLI)"
+  tls: "1.2 o superior; URL HTTPS pública; permitir además las IP de Stripe"
+  limite_destinos_por_cuenta: 16
+  rotacion_secreto: "Roll secret con ventana de hasta 24 h"
+destinos:
+  - id: entrega
+    modos: [prueba, vivo]       # un destino y un whsec_ por modo
+    url: "https://hooks.<dominio_infra>/stripe"
+    procesa: "Worker webhook-stripe -> fulfill -> capi"
+    secreto_en: "Worker webhook-stripe (STRIPE_WHSEC_LIVE / STRIPE_WHSEC_TEST)"
+    eventos:
+      - checkout.session.completed
+      - checkout.session.async_payment_succeeded
+      - checkout.session.async_payment_failed
+      - charge.refunded
+  - id: finanzas
+    modos: [prueba, vivo]
+    url: "https://api.<dominio_infra>/webhooks/stripe"
+    procesa: "servicio api (Railway) -> ledger de F1"
+    secreto_en: "servicio api (STRIPE_WHSEC_FINANZAS_LIVE / _TEST)"
+    eventos:
+      - checkout.session.completed
+      - checkout.session.async_payment_succeeded
+      - checkout.session.async_payment_failed
+      - checkout.session.expired
+      - charge.refunded
+      - charge.dispute.created
+      - charge.dispute.closed
+      - radar.early_fraud_warning.created
+      - payout.paid
+      - payout.failed
+eventos:
+  checkout.session.completed:
+    consumidores: [entrega, finanzas]
+    accion: "Si payment_status=paid: entregar y enviar Purchase por CAPI con event_id = purchase_<session_id>. Si unpaid (pago diferido): NO entregar, esperar async_payment_succeeded."
+  checkout.session.async_payment_succeeded:
+    consumidores: [entrega, finanzas]
+    accion: "Entrega y CAPI para métodos asíncronos. Aplica cuando se retomen los métodos locales."
+  checkout.session.async_payment_failed:
+    consumidores: [entrega, finanzas]
+    accion: "Cerrar el pedido pendiente; sin entrega ni evento Purchase."
+  checkout.session.expired:
+    consumidores: [finanzas]
+    accion: "Medir abandono (opcional). La sesión admite expires_at entre 30 min y 24 h."
+  charge.refunded:
+    consumidores: [entrega, finanzas]
+    accion: "Marcar el pedido; revocar o conservar el enlace según la política del dueño; contabilidad neta de reembolsos."
+  charge.dispute.created:
+    consumidores: [finanzas]
+    accion: "Alerta, ratio de disputas por oferta, guardar evidencia de entrega; alimenta ratio_disputas_alerta / ratio_disputas_pausa."
+  charge.dispute.closed:
+    consumidores: [finanzas]
+    accion: "Registrar resultado (ganada/perdida) y costo."
+  radar.early_fraud_warning.created:
+    consumidores: [finanzas]
+    accion: "Regla de reembolso automático si el monto es <= tarifa de disputa y dentro de reembolso_auto_max_usd."
+  payout.paid:
+    consumidores: [finanzas]
+    accion: "Conciliación de caja y calendario de liquidación."
+  payout.failed:
+    consumidores: [finanzas]
+    accion: "Alerta crítica al dueño."
+no_suscribir_por_ahora:
+  - {evento: "customer.*", motivo: "no se usa; evita ruido y lecturas"}
+  - {evento: "invoice.*, customer.subscription.*", motivo: "v1 es solo pago único; sin suscripciones"}
+  - {evento: "payment_intent.*", motivo: "checkout.session.* cubre el flujo; sumar solo si aparece un caso concreto"}
+pruebas:
+  cli: "stripe listen --forward-to localhost:<puerto>/webhook ; stripe trigger checkout.session.completed ; stripe events resend <id> --webhook-endpoint=<id>"
+  casos_minimos:
+    - "firma inválida -> 400"
+    - "mismo event.id dos veces -> una sola entrega"
+    - "payment_status=unpaid -> no entrega"
+    - "endpoint caído 10 min -> se recupera con el reintento"
+    - "sin latencia: respuesta < 1 s"

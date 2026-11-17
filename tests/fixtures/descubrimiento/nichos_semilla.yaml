@@ -1,0 +1,3191 @@
+# empresa/descubrimiento/nichos.yaml (SEMILLA PROPUESTA por S-A, 2026-11-06). Propietario futuro: D1.
+# Árbol macro_nicho -> nicho -> microsegmento (hoja). Generado a partir de nichos-hwr.yaml v2 + hojas de 24a/24b/20a/20b.
+# No se aplica solo: la copia a empresa/descubrimiento/ la hace el dueño (o la sesión de D1). Ver docs/_historial/d1-v2-interfaces.md §2.
+# v1.1 (2026-11-06, integrador): aplicadas C-17 y C-18 de docs/_historial/d1-v2-critica.md (formatos, nota D·S·P, «ola»→«tanda»); detalle en d1-v2-registro.md.
+schema: nichos
+version: 1
+fecha: '2026-11-06'
+estado: semilla_propuesta_s_a
+propietario: D1 (propone cambios); el dueño aprueba; X2 propone ajustes de prior con n suficiente
+fuentes_de_esta_semilla:
+- docs/_historial/hwr-semillas/nichos-hwr.yaml v2 (86 hojas)
+- docs/_investigacion/23, 24a, 24b, 20a, 20b
+- docs/_investigacion/25 §1, §3.1
+uso_del_prior: 'El prior y el rango son PRIORIDAD DE EXPLORACIÓN, nunca un veto ni un filtro por tema (decisión 13). El nivel real de un candidato
+  lo calcula scripts/nivel_riesgo.py con los cuatro ejes P, C, E, N (nota 25 §2.3). Ninguna hoja está excluida: las de prior rojo se exploran
+  solo vía reencuadre y con decisión del dueño (tanda 4).'
+rango: 'niveles alcanzables conservando el deseo central según el encuadre (nota 25 §3.1). Distinto de candidatos.candidatos[].rango (entero de
+  ranking): nombre canónico propuesto niveles_alcanzables al migrar (C-22).'
+formatos: 'texto libre de exploración (lista de cadenas): NO es el enum de candidatos.entregable.formato, que fija el Maker; «hoja» suelta de la fuente se leyó [SUPUESTO] como «hoja de cálculo»'
+tanda: 'antes «ola» (nota 25): prioridad de exploración 1-4; renombrada para no chocar con las olas de construcción (nota 25 §12.3 n.º 9). NO
+  es un gate de lanzamiento: el orden lo fija el nivel del candidato.'
+dsp: demanda·seguridad·producibilidad 0-5 de la nota 23 [HIPÓTESIS]; null = «n/s» (hoja nueva sin puntuar).
+idiomas: subetiquetas de idioma (en, es, it, pl, ro, fr, de, pt); el locale concreto (es-AR, pt-BR…) lo decide M1.
+confianza: 'C para todas: los puntajes y priors son hipótesis (nota 23 §0.1; nota 25 §12.2). Subir exige señales propias o evidencia E1 verificada.'
+reencuadres_riesgo:
+  RE-01: 'De la condición al método: el sujeto de la frase es el producto o el método, no el cuerpo ni la vida del lector'
+  RE-02: 'De la cifra a la herramienta: cálculo, plantilla o tabla que el lector completa; las cifras son del entregable'
+  RE-03: 'Del diagnóstico a la organización: registro, preparación de consulta, calendario'
+  RE-04: De la promesa de ingresos a la plantilla de costos, precios y propuestas
+  RE-05: De la cura al criterio de selección medible con fuente pública
+  RE-06: Del control de un tercero a la preparación propia (ordenar ideas, ensayar, decidir)
+  RE-07: Del plazo del efecto al plazo del formato (cuaderno de 21 días, no «supera en 21 días»)
+  RE-08: De la segunda persona con atributo a la situación o el rol en tercera persona
+  RE-09: 'De la prueba social inventada al producto: vista previa real y reseñas verificadas sin cifras'
+  RE-10: 'Del servicio al archivo: sin humano, sin comunidad, sin enlace comisionado ni derivación'
+  RE-11: Del dato sensible al evento y la URL genéricos; cuestionario de preferencias en lugar de puntaje clínico
+  RE-12: 'De la recomendación personal al marco impersonal: glosario, tres tasas rotuladas, preguntas antes de decidir'
+  RE-13: Del menor como destinatario al adulto responsable y arte propio sin imágenes de niños
+  RE-14: De la urgencia y la garantía de resultado al precio único y el reembolso incondicional
+  RE-15: De la vigilancia al acuerdo consentido
+arbol:
+- macro_nicho: salud
+  deseo_central: estar bien físicamente y sentirse bien emocionalmente
+  nichos:
+  - nicho_id: alimentacion-y-cocina
+    etiqueta: Alimentación y cocina
+    deseo_central: Comer bien sin improvisar, con orden
+    microsegmentos:
+    - id: plan-comidas-semanal
+      etiqueta: Plan de comidas semanal con lista de compras
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: kilos, plazo o condición en el nombre
+        reencuadres:
+        - RE-01
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - it
+      - pl
+      - ro
+      - fr
+      - es
+      - de
+      formatos:
+      - planificador
+      - checklist
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET1 ET11
+      estado: semilla
+      nota: Tanda 1; no citar GR2 (era una guía de adelgazamiento)
+    - id: meal-prep-por-lotes
+      etiqueta: Cocina por lotes (meal prep) de domingo
+      macro_secundario: dinero
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «quema grasa»; claims de peso
+        reencuadres:
+        - RE-01
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - en
+      - de
+      - fr
+      - it
+      formatos:
+      - planificador
+      - checklist
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-DE-NU#2 AC-en-gb
+      estado: semilla
+      nota: 'Separar por deseo: salud (orden) frente a dinero (ahorro). Si incluye tiempos o temperaturas de conservación y recalentado, es C2
+        (amarillo-A)'
+    - id: air-fryer-conversion
+      etiqueta: 'Freidora de aire: conversión de recetas de horno'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «adelgazar», «sano», «maigrir»
+        reencuadres:
+        - RE-02
+        - RE-05
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 125
+      idiomas:
+      - fr
+      - it
+      - de
+      - pl
+      - en
+      formatos:
+      - tabla de conversión
+      - recetario
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-FD#1 AZ-DE-NU#8
+      estado: semilla
+      nota: 'Caso 9 de la nota 19; ventana nov-ene. Macro dudoso (C-07): es salud solo con una cita E3 de «comer más sano»; si el deseo es cocinar
+        con un aparato, es fuera_de_macro_nicho. Tabla de temperaturas y tiempos = C2 (seguridad alimentaria): amarillo-A con una revisión por
+        idioma'
+    - id: alto-en-proteina
+      etiqueta: Recetas y plan alto en proteína
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: suplementos, dosis o plazo
+        reencuadres:
+        - RE-05
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 80
+      idiomas:
+      - en
+      - de
+      - fr
+      - pl
+      formatos:
+      - recetario
+      - calculadora
+      estacionalidad: ene-mar
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-NU#2 AZ-FR-FD#8
+      estado: semilla
+      nota: Sin marcas ni suplementos
+    - id: dieta-mediterranea-4-semanas
+      etiqueta: Plan mediterráneo de 4 semanas
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «baja el colesterol»; «adelgazar»
+        reencuadres:
+        - RE-05
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - it
+      - es
+      - fr
+      - de
+      formatos:
+      - planificador
+      - recetario
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET12 AZ-DE-NU#9
+      estado: semilla
+      nota: Fuente pública de la tabla nutricional
+    - id: antiinflamatoria
+      etiqueta: Cocina «antiinflamatoria»
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «antiinflamatoria» como claim fisiológico
+        reencuadres:
+        - RE-05
+      tanda: 4
+      dsp:
+        demanda: 3
+        seguridad: 1
+        producibilidad: 4
+        puntaje: 12
+      idiomas:
+      - it
+      - fr
+      - de
+      - pl
+      formatos:
+      - recetario
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-IT-PH#10 AZ-FR-FD#6
+      estado: semilla
+      nota: Solo recetario de verduras y legumbres con fibra por porción
+  - nicho_id: control-de-peso
+    etiqueta: Control de peso
+    deseo_central: Cambiar el cuerpo con un método
+    microsegmentos:
+    - id: adelgazar-plan-y-recetas
+      etiqueta: 'Adelgazar: recetario y plan'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: cifra, plazo, antes/después, cuerpo como defecto
+        reencuadres:
+        - RE-02
+        - RE-07
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 1
+        producibilidad: 5
+        puntaje: 25
+      idiomas:
+      - pl
+      - it
+      - fr
+      - es
+      - en
+      - de
+      formatos:
+      - planificador
+      - recetario
+      estacionalidad: ene-jun
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-IT-PH#1 AC-pl
+      estado: semilla
+      nota: 'Z1: planner de porciones sin cifra como AMARILLO-B experimental; nunca ES ni DE'
+    - id: glp1-acompanante-comidas
+      etiqueta: Comidas y hábitos para quien usa fármacos GLP-1
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: atado a un fármaco
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 1
+        producibilidad: 4
+        puntaje: 16
+      idiomas:
+      - en
+      - pl
+      formatos:
+      - recetario
+      - planificador
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-DW#3 AZ-US-AG#7
+      estado: semilla
+      nota: 'Ningún reencuadre conserva el deseo: bloquear; vigilar'
+  - nicho_id: alimentacion-y-condiciones
+    etiqueta: Alimentación ligada a una condición
+    deseo_central: Comer bien teniendo una condición
+    microsegmentos:
+    - id: glucosa-diabetes-resistencia-insulina
+      etiqueta: Comidas para glucosa, diabetes o insulinorresistencia
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: nombrar la condición o «baja la glucosa»
+        reencuadres:
+        - RE-05
+        - RE-01
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 1
+        producibilidad: 4
+        puntaje: 20
+      idiomas:
+      - pl
+      - en
+      - it
+      - fr
+      - es
+      formatos:
+      - recetario
+      - planificador
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: WB-FIT#5 WB-ZDO#4
+      estado: semilla
+      nota: 'Z2: criterio de azúcar añadida y fibra sin condición, no en el primer trimestre'
+    - id: higado-colesterol-digestivo
+      etiqueta: Dieta para hígado graso, colesterol o colon irritable
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «limpia el hígado», condición
+        reencuadres:
+        - RE-05
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 1
+        producibilidad: 4
+        puntaje: 16
+      idiomas:
+      - it
+      - fr
+      - es
+      formatos:
+      - recetario
+      - planificador
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-FD#3 AZ-FR-FD#5
+      estado: semilla
+      nota: Menú mediterráneo o tabla de grasas con fuente
+    - id: alergias-intolerancias-recetario
+      etiqueta: Recetario y etiquetas para alergias e intolerancias (sin manejo clínico)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «para celíacos», manejo clínico de la alergia
+        reencuadres:
+        - RE-01
+        - RE-13
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - it
+      - en
+      - fr
+      formatos:
+      - recetario
+      - etiquetas
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] SAL-13, SAL-30, SAL-41; contaminación cruzada exige fuentes y aviso'
+  - nicho_id: movimiento-y-ejercicio
+    etiqueta: Movimiento y ejercicio
+    deseo_central: Moverse más y mejor
+    microsegmentos:
+    - id: ejercicio-casa-rutinas-adultos
+      etiqueta: Rutina de ejercicio en casa para adultos
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «quema panza», zona del cuerpo, antes/después
+        reencuadres:
+        - RE-01
+        - RE-07
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 80
+      idiomas:
+      - en
+      - es
+      - it
+      - pl
+      - fr
+      formatos:
+      - rutina
+      - planificador
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-ES-EX#7 AZ-US-EX#1
+      estado: semilla
+      nota: Sin kilos; rutina con calendario
+    - id: fuerza-principiantes-gimnasio
+      etiqueta: Rutina de fuerza para principiantes (gimnasio)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «ganá X kg en N días»
+        reencuadres:
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - es
+      - de
+      - it
+      formatos:
+      - planificador
+      - tarjetas
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-ES-HL#1 AZ-US-EX#7
+      estado: semilla
+      nota: 'Caso 8a de la nota 19; reglas de parada y aviso; Corrección al prior de 23: progresión de carga = C2 (25a, SAL-16)'
+    - id: movilidad-estiramientos
+      etiqueta: Movilidad y estiramientos diarios
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «eliminá el dolor»
+        reencuadres:
+        - RE-01
+        - RE-03
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - pl
+      - de
+      - es
+      formatos:
+      - rutina
+      - tarjetas
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-EX#2 WB-FIT#12
+      estado: semilla
+      nota: Pausas activas como situación
+    - id: ejercicio-sentado-mayores
+      etiqueta: Yoga/tai chi en silla y ejercicio para mayores
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: «prevenir caídas», «si tenés 65»
+        reencuadres:
+        - RE-08
+        - RE-01
+      tanda: 3
+      dsp:
+        demanda: 4
+        seguridad: 2
+        producibilidad: 5
+        puntaje: 40
+      idiomas:
+      - fr
+      - es
+      - en
+      - it
+      formatos:
+      - rutina
+      - planificador
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-BF#2 AZ-ES-EX#9
+      estado: semilla
+      nota: 'Amarillo-B: revisión profesional'
+    - id: dolor-espalda-postura
+      etiqueta: Pausas activas y postura de oficina
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: «curá el dolor», «gegen»
+        reencuadres:
+        - RE-01
+        - RE-03
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 24
+      idiomas:
+      - en
+      - es
+      - de
+      formatos:
+      - rutina
+      - tarjetas
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-AM#9 AZ-ES-EX#7
+      estado: semilla
+      nota: Pausas de oficina como situación
+    - id: ejercicio-casa-pilates-baile
+      etiqueta: Ejercicio en casa (pilates en pared, baile) para quien retoma el movimiento
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «mujeres +40» (E2 edad), diástasis o posparto (C3), antes/después
+        reencuadres:
+        - RE-08
+        - RE-07
+      tanda: 2
+      dsp: null
+      idiomas:
+      - pt
+      - es
+      formatos:
+      - guia
+      - planificador
+      estacionalidad: ene-abr
+      origen: 20b:ejercicio-en-casa-mujeres-40 24a#6
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: Sesgo de los mentores hacia «mujer 40+» (24b); la edad numérica en el anuncio es E2. Amarillo-A por C2 (progresión de carga) [HIPÓTESIS].
+  - nicho_id: sueno-estres-y-bienestar-emocional
+    etiqueta: Sueño, estrés y bienestar emocional
+    deseo_central: Calmarse y descansar
+    microsegmentos:
+    - id: habitos-saludables-tracker
+      etiqueta: Seguimiento de hábitos y rutina matutina
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «cura la ansiedad»
+        reencuadres:
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - en
+      - it
+      - pl
+      - es
+      formatos:
+      - tracker
+      - planificador
+      estacionalidad: 1 ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-CP#7 AZ-IT-SH#7
+      estado: semilla
+      nota: Frontera con productividad
+    - id: sueno-rutina-registro
+      etiqueta: Rutina nocturna y registro de sueño
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: insomnio, suplementos, «dormí en 5 minutos»
+        reencuadres:
+        - RE-03
+        - RE-07
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 45
+      idiomas:
+      - es
+      - fr
+      - it
+      - en
+      formatos:
+      - planificador
+      - tracker
+      estacionalidad: oct-mar
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-ES-HL#8 AZ-FR-BF#6
+      estado: semilla
+      nota: Un creador reporta que «dormir mejor» no vendió [CREADORES, C]
+    - id: estres-respiracion
+      etiqueta: Respiración y pausas anti-estrés
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «baja el cortisol»
+        reencuadres:
+        - RE-01
+        - RE-07
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 48
+      idiomas:
+      - en
+      - de
+      - fr
+      formatos:
+      - guía
+      - tarjetas
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-ST#2 AZ-DE-SH#10
+      estado: semilla
+      nota: Aviso «no es tratamiento»
+    - id: nervio-vago-ejercicios
+      etiqueta: Ejercicios del nervio vago
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «reset», «activá el nervio vago»
+        reencuadres:
+        - RE-05
+        - RE-01
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 1
+        producibilidad: 3
+        puntaje: 12
+      idiomas:
+      - de
+      - fr
+      formatos:
+      - rutina
+      estacionalidad: sep-mar
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-DE-NU#1 AZ-DE-HM#4
+      estado: semilla
+      nota: Demanda real DE/FR; mecanismo fisiológico prohibido (nota 19)
+    - id: ansiedad-herramientas-tcc
+      etiqueta: Herramientas de ansiedad (hojas tipo TCC)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: hojas clínicas, «sanar», quiz
+        reencuadres:
+        - RE-03
+        - RE-11
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 40
+      idiomas:
+      - en
+      - fr
+      - it
+      - pl
+      formatos:
+      - cuaderno
+      - hojas
+      estacionalidad: sep-nov
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET7 AZ-US-AX#5
+      estado: semilla
+      nota: Solo diario o registro sin condición
+    - id: diario-emocional-prompts
+      etiqueta: Diario guiado con preguntas (journaling)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «sanar», «superar»
+        reencuadres:
+        - RE-07
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - fr
+      - it
+      formatos:
+      - cuaderno
+      - biblioteca de prompts
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-JO#7 AZ-ES-SH#3
+      estado: semilla
+      nota: Formato «N sesiones» probado a 4,99 €
+    - id: autoestima-n-sesiones
+      etiqueta: 'Autoestima: 120 sesiones de práctica diaria'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «curá la baja autoestima»
+        reencuadres:
+        - RE-07
+        - RE-01
+      tanda: 3
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - fr
+      - it
+      - es
+      - pl
+      formatos:
+      - biblioteca de N sesiones
+      - cuaderno
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-SH#1 AZ-IT-SH#10
+      estado: semilla
+      nota: Formato probado en FR e IT
+  - nicho_id: ciclo-de-vida-y-salud-reproductiva
+    etiqueta: Etapas de vida y salud reproductiva
+    deseo_central: Atravesar una etapa con orden
+    microsegmentos:
+    - id: menopausia-planificador
+      etiqueta: 'Menopausia: seguimiento y preparación de consulta'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: «equilibrá tus hormonas», «¿tenés sofocos?»
+        reencuadres:
+        - RE-03
+        - RE-08
+      tanda: 2
+      dsp:
+        demanda: 5
+        seguridad: 2
+        producibilidad: 5
+        puntaje: 50
+      idiomas:
+      - en
+      - es
+      - de
+      - it
+      formatos:
+      - tracker
+      - plantilla de consulta
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET4 AZ-ES-HL#9
+      estado: semilla
+      nota: Meta permite menopausia a 18+; lo prohibido es afirmar que la padece
+    - id: embarazo-posparto
+      etiqueta: 'Embarazo y posparto: planificador y lista de hospital'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: ejercicio, dieta o cuerpo posparto
+        reencuadres:
+        - RE-03
+        - RE-08
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 24
+      idiomas:
+      - en
+      - es
+      - pl
+      - it
+      formatos:
+      - planificador
+      - checklist
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-FE#2 AZ-ES-PA#3
+      estado: semilla
+      nota: Solo organización (maleta, citas)
+    - id: fertilidad-ciclo
+      etiqueta: Calendario de ciclo y fertilidad
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: app con datos; ciclo en URL o evento
+        reencuadres:
+        - RE-11
+        - RE-03
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 36
+      idiomas:
+      - en
+      - pl
+      - es
+      formatos:
+      - calendario
+      - tracker
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-FE#1
+      estado: semilla
+      nota: Calendario en blanco; medición neutral (R12)
+    - id: salud-sexual-masculina
+      etiqueta: Salud sexual masculina (ED, próstata)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: condición, tono no clínico
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 0
+        producibilidad: 3
+        puntaje: 0
+      idiomas:
+      - en
+      - es
+      - pl
+      formatos:
+      - guía
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: WB-SEX#1
+      estado: semilla
+      nota: Ninguna reformulación conserva el deseo; Meta lo permite a 18+ (prudencia propia)
+  - nicho_id: sustancias-y-remedios
+    etiqueta: Sustancias, remedios y hábitos de consumo
+    deseo_central: Dejar un hábito o curarse sin medicinas
+    microsegmentos:
+    - id: suplementos-remedios
+      etiqueta: Remedios naturales y suplementos
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: dosis, curas, afiliados
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 3
+        seguridad: 0
+        producibilidad: 3
+        puntaje: 0
+      idiomas:
+      - en
+      - es
+      - fr
+      formatos:
+      - guía
+      estacionalidad: ene-abr
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-NU#3 AZ-US-AM#4
+      estado: semilla
+      nota: Ningún reencuadre conserva «curarme»; Stripe no prohíbe suplementos como tal
+    - id: dejar-fumar-alcohol
+      etiqueta: Dejar de fumar o de beber
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: plazo de cura, tratamiento
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 0
+        producibilidad: 3
+        puntaje: 0
+      idiomas:
+      - it
+      - fr
+      - en
+      formatos:
+      - guía
+      - diario
+      estacionalidad: ene (propósitos)
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-IT-PH#5 AZ-FR-IA#4
+      estado: semilla
+      nota: 'Z5: rojo hasta que Meta aclare por escrito [VERIFICAR]'
+  - nicho_id: consulta-y-registros-de-salud
+    etiqueta: Consulta médica y registros
+    deseo_central: Llegar preparado a la consulta
+    microsegmentos:
+    - id: registro-medicacion-citas-medicas
+      etiqueta: Planilla donde el usuario anota lo indicado por su médico
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: calcular dosis, alertar interacciones, recoger datos
+        reencuadres:
+        - RE-03
+        - RE-11
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - en
+      - pl
+      - fr
+      formatos:
+      - planilla
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] SAL-35: el usuario anota lo indicado por su médico'
+    - id: registro-episodios-preparar-consulta
+      etiqueta: Registro de episodios para llevar a la consulta
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: nombrar la condición en el anuncio
+        reencuadres:
+        - RE-03
+        - RE-08
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - en
+      formatos:
+      - registro
+      - hoja de cálculo
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] SAL-45 y SAL-46'
+- macro_nicho: relaciones
+  deseo_central: amar, ser amado y conectar con pareja, familia y otros
+  nichos:
+  - nicho_id: pareja-comunicacion
+    etiqueta: 'Pareja: comunicación y vida en común'
+    deseo_central: Que mi pareja me escuche y estar bien juntos
+    microsegmentos:
+    - id: conversaciones-dificiles-pareja
+      etiqueta: Preparar conversaciones difíciles en pareja (guion)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «¿discuten siempre?», descubrir una infidelidad
+        reencuadres:
+        - RE-06
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 125
+      idiomas:
+      - en
+      - pl
+      - fr
+      - it
+      - de
+      formatos:
+      - guion
+      - hoja de preparación
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET5 AC-en-gb
+      estado: semilla
+      nota: MU = «preparar antes de hablar»
+    - id: tarjetas-conversacion-citas-casa
+      etiqueta: Tarjetas de conversación para parejas (cita en casa)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: imagen o léxico sexual; «intimidad»
+        reencuadres:
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - pl
+      - fr
+      - it
+      - es
+      formatos:
+      - tarjetas
+      - biblioteca de N preguntas
+      estacionalidad: feb
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET5 ET10
+      estado: semilla
+      nota: Hueco de idioma PL/FR/IT. Nombre de producto «preguntas para parejas» sin «citas»/«randki» (C-07); el primer anuncio es de un producto
+        de pareja ya conviviente hasta confirmar por escrito con Meta
+    - id: retos-reconexion-30-dias
+      etiqueta: Retos de reconexión de 30 días
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: garantía o imagen erótica
+        reencuadres:
+        - RE-07
+        - RE-14
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - it
+      - pl
+      - fr
+      formatos:
+      - calendario
+      - retos
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-FH#3
+      estado: semilla
+      nota: 'Nombre: «cercanía», no «intimidad»'
+    - id: carga-mental-reparto
+      etiqueta: Reparto de tareas y carga mental en pareja
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: ridiculizar a un género
+        reencuadres:
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - en
+      - pl
+      - fr
+      - es
+      - de
+      formatos:
+      - plantilla
+      - acuerdo
+      - imprimible
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET8 AC-en-gb
+      estado: semilla
+      nota: MU = acuerdo semanal de 15 minutos
+    - id: relacion-a-distancia
+      etiqueta: Planificador de relación a distancia
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: —
+        reencuadres:
+        - RE-01
+      tanda: 2
+      dsp: null
+      idiomas:
+      - en
+      - es
+      formatos:
+      - planificador
+      - calendario
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25b; REL-049'
+  - nicho_id: pareja-crisis-y-separacion
+    etiqueta: 'Pareja: crisis, ruptura y separación'
+    deseo_central: Atravesar una crisis o una separación
+    microsegmentos:
+    - id: superar-ruptura-cuaderno
+      etiqueta: 'Superar una ruptura: cuaderno de N días'
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «supera», «sana», plazo
+        reencuadres:
+        - RE-07
+        - RE-03
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - fr
+      - it
+      formatos:
+      - cuaderno
+      - biblioteca de prompts
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET7 AC-en-gb
+      estado: semilla
+      nota: Amarillo-B; sin Italia ni Rumanía hasta ayuda verificada
+    - id: recuperar-ex
+      etiqueta: Recuperar a la ex/el ex
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: plazo, garantía, control del otro
+        reencuadres:
+        - RE-06
+        - RE-14
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 0
+        producibilidad: 4
+        puntaje: 0
+      idiomas:
+      - es
+      - fr
+      - it
+      - en
+      - de
+      formatos:
+      - guion
+      - mensajes
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: F8 CR-B-santiago/Tyy9GUMxYJc
+      estado: semilla
+      nota: Solo como decisión propia; mayor demanda medida y rojo
+    - id: infidelidad-decidir-reparar
+      etiqueta: 'Infidelidad: decidir o reparar'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: detectar, espiar, afirmar la infidelidad
+        reencuadres:
+        - RE-06
+        - RE-15
+      tanda: 3
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 36
+      idiomas:
+      - de
+      - fr
+      - en
+      - es
+      formatos:
+      - guía de decisión
+      - guion
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-SX#10 AC-de
+      estado: semilla
+      nota: La palabra solo dentro del producto
+    - id: divorcio-custodia-calendarios
+      etiqueta: 'Divorcio y coparentalidad: calendarios y acuerdos'
+      macro_secundario: dinero
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: convenio o derecho por país
+        reencuadres:
+        - RE-10
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - en
+      - de
+      - fr
+      - it
+      - pl
+      formatos:
+      - calendario
+      - plantilla de acuerdos
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AC-de
+      estado: semilla
+      nota: Logística sí; documentos legales no
+    - id: relaciones-toxicas-senales
+      etiqueta: 'Relaciones tóxicas: señales y límites'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: etiquetar a un tercero, plan para salir, E2
+        reencuadres:
+        - RE-08
+        - RE-01
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 32
+      idiomas:
+      - en
+      - pl
+      - es
+      - it
+      - fr
+      formatos:
+      - guía
+      - checklist
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-RL#4 AZ-US-AN#6
+      estado: semilla
+      nota: Fase 2 (G3); ayuda verificada obligatoria. Tanda 4 por riesgo de seguridad de la persona (revisión profesional y ayuda verificada);
+        prior amarillo
+    - id: duelo-cuaderno
+      etiqueta: 'Duelo: cuaderno de escritura'
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «supera tu duelo»
+        reencuadres:
+        - RE-07
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 45
+      idiomas:
+      - en
+      - es
+      - fr
+      - it
+      formatos:
+      - cuaderno
+      - biblioteca de prompts
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-JO#7 AZ-US-DG#10
+      estado: semilla
+      nota: Amarillo-B con recursos de ayuda
+    - id: sexualidad-parejas
+      etiqueta: Sexualidad en pareja (técnicas, posiciones)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: técnicas, posiciones, placer
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 4
+        seguridad: 0
+        producibilidad: 3
+        puntaje: 0
+      idiomas:
+      - en
+      - fr
+      formatos:
+      - guía
+      estacionalidad: feb
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-SX#2 AZ-FR-SX#7
+      estado: semilla
+      nota: Ningún reencuadre conserva el deseo (LC-07)
+  - nicho_id: crianza-y-familia
+    etiqueta: Crianza y hogar con hijos
+    deseo_central: Criar con menos conflicto
+    microsegmentos:
+    - id: crianza-rutinas-por-edad
+      etiqueta: Rutinas y tablero de crianza por edad
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: diagnóstico del hijo; «tu hijo», «si eres madre»
+        reencuadres:
+        - RE-08
+        - RE-13
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - pl
+      - ro
+      - fr
+      - it
+      - es
+      formatos:
+      - tablero
+      - planificador
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-PA#4 AZ-US-AN#3
+      estado: semilla
+      nota: Fotos de objetos, no de niños
+    - id: sueno-bebe-rutina
+      etiqueta: Rutina de sueño del bebé
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: plazo, consejos de sueño seguro
+        reencuadres:
+        - RE-03
+        - RE-07
+      tanda: 3
+      dsp:
+        demanda: 4
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 32
+      idiomas:
+      - ro
+      - fr
+      - en
+      - es
+      - it
+      formatos:
+      - planificador
+      - registro
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-BA#1 AZ-US-FH#1
+      estado: semilla
+      nota: Solo registro de rutina; alimentación a salud
+    - id: alimentacion-complementaria
+      etiqueta: Alimentación complementaria del bebé (planificador)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: pauta de dieta infantil
+        reencuadres:
+        - RE-03
+        - RE-10
+      tanda: 3
+      dsp:
+        demanda: 3
+        seguridad: 2
+        producibilidad: 4
+        puntaje: 24
+      idiomas:
+      - it
+      - fr
+      - es
+      - pl
+      formatos:
+      - planificador
+      - recetario
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-IT-PH#7 AZ-FR-BA#9
+      estado: semilla
+      nota: Solo registro y texto fiel T1 del país del lector; sin pautas propias de qué dar (REL-031 sigue bloqueado). LC-08 corregida (OP-05)
+    - id: berrinches-guiones
+      etiqueta: 'Berrinches y límites: guiones para el momento'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «elimina en 7 días», TDAH
+        reencuadres:
+        - RE-08
+        - RE-13
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - pl
+      - fr
+      - it
+      - es
+      formatos:
+      - guiones
+      - tarjetas
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: WB-WYCH#2 AZ-US-PA#4
+      estado: semilla
+      nota: Sin diagnóstico
+    - id: adolescentes-comunicacion
+      etiqueta: Comunicarse con adolescentes
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: autolesión, TCA, sexualidad, hablar al menor
+        reencuadres:
+        - RE-13
+      tanda: 3
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 36
+      idiomas:
+      - es
+      - pl
+      - en
+      - fr
+      formatos:
+      - guiones
+      - tarjetas
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-ES-PA#8 WB-WYCH#11
+      estado: semilla
+      nota: Fase 2 (G4); 25+
+    - id: pantallas-reglas-familia
+      etiqueta: 'Pantallas: acuerdos y reglas familiares'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «adicción»; control secreto
+        reencuadres:
+        - RE-15
+        - RE-13
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 80
+      idiomas:
+      - en
+      - pl
+      - es
+      - fr
+      - it
+      formatos:
+      - acuerdo
+      - imprimible
+      - tablero
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-PA#5 WB-WYCH#9
+      estado: semilla
+      nota: Contrato familiar de una página
+    - id: actividades-padres-hijos
+      etiqueta: Actividades para hacer con mis hijos (conexión)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: —
+        reencuadres:
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - fr
+      - es
+      - it
+      - pl
+      - en
+      formatos:
+      - biblioteca de N actividades
+      - tarjetas
+      estacionalidad: vacaciones
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-BA#7
+      estado: semilla
+      nota: Frontera con educación (fuera si el deseo es aprender)
+    - id: crianza-tdah-estrategias-padres
+      etiqueta: 'Crianza de un hijo con diagnóstico (TDAH): rutinas y guiones para el hogar'
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: true
+        encuadre_que_sube: «tu hijo con TDAH» (E2), estrategias terapéuticas (C3), salud infantil clínica
+        reencuadres:
+        - RE-08
+        - RE-01
+      tanda: 4
+      dsp: null
+      idiomas:
+      - es
+      - pt
+      formatos:
+      - guia
+      - checklist
+      estacionalidad: sin dato
+      origen: 24b#25 20b:crianza-infantil 20a:terapia-infantil-fichas
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: 'Tanda 4: D1 solo mide demanda y busca reencuadre (rutinas familiares sin diagnóstico en el anuncio). Las fichas terapéuticas para psicólogos
+        (comprador profesional) están FUERA de marco (nota 25 §1.3).'
+  - nicho_id: familia-y-cuidado
+    etiqueta: Familia extendida y cuidado de mayores
+    deseo_central: Repartir el cuidado y sostener vínculos
+    microsegmentos:
+    - id: cuidadores-de-mayores
+      etiqueta: Agenda del cuidador y turnos entre hermanos
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: nombrar enfermedades o dosis
+        reencuadres:
+        - RE-03
+        - RE-01
+      tanda: 2
+      dsp: null
+      idiomas:
+      - it
+      - es
+      - fr
+      - en
+      formatos:
+      - agenda
+      - carpeta
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] REL-009; agenda de turnos entre hermanos'
+    - id: familias-ensambladas-calendarios
+      etiqueta: Calendario de visitas y fiestas en familias ensambladas
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: consejos de custodia
+        reencuadres:
+        - RE-10
+      tanda: 2
+      dsp: null
+      idiomas:
+      - en
+      - fr
+      - it
+      - pl
+      formatos:
+      - calendario
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] REL-041'
+    - id: familia-extendida-fiestas-limites
+      etiqueta: Límites y guiones para fiestas con la familia extendida
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: etiquetar a familiares, E2
+        reencuadres:
+        - RE-08
+        - RE-06
+      tanda: 1
+      dsp: null
+      idiomas:
+      - es
+      - it
+      - pl
+      - en
+      formatos:
+      - guiones
+      - tarjetas
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[HIPÓTESIS] pico de conflicto familiar en fiestas (23 §D)'
+    - id: mejorar-relacion-familiar-generica
+      etiqueta: Mejorar la relación con padres, hijos o familiares (tarjetas y guiones)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: atributo del espectador («si tu hijo no te habla»), diagnóstico
+        reencuadres:
+        - RE-08
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      formatos:
+      - guia
+      - tarjetas
+      estacionalidad: dic
+      origen: 24b#24
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: '24b #24 lo nombra como «grandes problemas de solución inmediata». Sin cita E3 que fije el macro (Q6) no se siembra como candidato;
+        solo como hoja de exploración.'
+  - nicho_id: habilidades-sociales-y-amistad
+    etiqueta: Habilidades sociales, amistad y citas
+    deseo_central: Conectar con otras personas
+    microsegmentos:
+    - id: limites-asertividad-guiones
+      etiqueta: 'Poner límites y decir no: guiones'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «te pisotean», terapia
+        reencuadres:
+        - RE-08
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - fr
+      - it
+      - es
+      - pl
+      formatos:
+      - guiones
+      - biblioteca de N frases
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-CS#6 AZ-US-FH#5
+      estado: semilla
+      nota: Vende a 4,99 € en IT/FR. D·S·P 100 (tres hojas llegan a 125)
+    - id: habilidades-sociales-conversacion
+      etiqueta: 'Conversación y small talk: guiones'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «¿eres tímido?», «cura la timidez»
+        reencuadres:
+        - RE-01
+        - RE-08
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - fr
+      - it
+      - es
+      formatos:
+      - guiones
+      - tarjetas
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-CS#2 AZ-FR-CA#2
+      estado: semilla
+      nota: ''
+    - id: amistad-adulta-soledad
+      etiqueta: 'Amistad adulta: hacer y mantener amigos'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «¿no tienes amigos?», soledad
+        reencuadres:
+        - RE-08
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - fr
+      - it
+      formatos:
+      - mensajes
+      - plantilla
+      - retos
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-CP#8
+      estado: semilla
+      nota: ''
+    - id: primera-cita-conversacion
+      etiqueta: 'Primera cita: preguntas y conversación'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «conoce solteros», lenguaje de emparejamiento
+        reencuadres:
+        - RE-10
+        - RE-01
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 45
+      idiomas:
+      - en
+      - es
+      - it
+      - fr
+      formatos:
+      - tarjetas
+      - guion
+      estacionalidad: feb
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-SX#7 ET5
+      estado: semilla
+      nota: Riesgo de clasificación como «dating ad»; no pedir el permiso. Tarjetas para una cita en persona; sin biografías ni mensajes de apertura
+        para aplicaciones de citas (facilitación = anuncio de citas, HC 765622867361201)
+- macro_nicho: dinero
+  deseo_central: tener más dinero, seguridad o control financiero
+  nichos:
+  - nicho_id: presupuesto-y-ahorro-del-hogar
+    etiqueta: Presupuesto y ahorro del hogar
+    deseo_central: Que sobre y saber adónde va
+    microsegmentos:
+    - id: presupuesto-mensual
+      etiqueta: Presupuesto mensual (planificador/hoja)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: cifra de ahorro, «libertad financiera», «¿no llegás?»
+        reencuadres:
+        - RE-02
+        - RE-08
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 5
+        producibilidad: 4
+        puntaje: 100
+      idiomas:
+      - en
+      - de
+      - fr
+      - it
+      - ro
+      - pl
+      - es
+      formatos:
+      - planificador
+      - hoja de cálculo
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET2 ET3
+      estado: semilla
+      nota: 'Muy saturado; ganar por mecanismo. MU por demostrar (R-MU3, nota 19 caso 7): palanca candidata = cálculo (p. ej. prorrateo de ingresos
+        irregulares)'
+    - id: presupuesto-por-cobro
+      etiqueta: Presupuesto «por cobro» (por quincena o sueldo)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «ahorrá 500 €»
+        reencuadres:
+        - RE-02
+        - RE-08
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - es
+      - pl
+      - ro
+      - it
+      - fr
+      formatos:
+      - hoja de cálculo
+      - calculadora
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET2 AC-es
+      estado: semilla
+      nota: 'Caso 7 de la nota 19 (días hasta el cobro). MU por demostrar (R-MU3, nota 19 caso 7): palanca candidata = cálculo (p. ej. prorrateo
+        de ingresos irregulares)'
+    - id: sobres-cash-stuffing
+      etiqueta: Método de sobres y cash stuffing
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «elimina deudas»
+        reencuadres:
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - it
+      - en
+      - fr
+      - de
+      formatos:
+      - plantilla
+      - imprimible
+      - guía
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-IT-EC#9
+      estado: semilla
+      nota: 'MU por demostrar (R-MU3, nota 19 caso 7): palanca candidata = cálculo (p. ej. prorrateo de ingresos irregulares)'
+    - id: ahorro-retos-52-semanas
+      etiqueta: Retos de ahorro (52 semanas, 26 semanas)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «ahorrarás X» como resultado
+        reencuadres:
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 100
+      idiomas:
+      - en
+      - it
+      - fr
+      - es
+      - pl
+      formatos:
+      - tracker
+      - calendario
+      estacionalidad: 1 ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: GR3 AC-it
+      estado: semilla
+      nota: P2s si la suma es aritmética y rotulada; pico 1 ene
+    - id: presupuesto-navideno-regalos
+      etiqueta: Presupuesto navideño y de regalos
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        riesgo_alto: false
+        encuadre_que_sube: «ahorrá X para Navidad en N días»
+        reencuadres:
+        - RE-02
+      tanda: 1
+      dsp: null
+      idiomas:
+      - en
+      - it
+      - pl
+      - ro
+      - fr
+      - es
+      - de
+      formatos:
+      - planificador
+      - hoja de cálculo
+      estacionalidad: oct-dic
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: nota-23-seccion-D
+      estado: semilla
+      nota: '[NUEVO] La nota 23 §D lo lista para diciembre y el banco no lo tenía; D·S·P [HIPÓTESIS] por medir con D2; MU por demostrar (R-MU3)'
+    - id: menu-economico-ahorro-super
+      etiqueta: Menú económico y ahorro en el supermercado
+      macro_secundario: salud
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «adelgaza», «ahorrá 200 €»
+        reencuadres:
+        - RE-02
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 5
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 125
+      idiomas:
+      - en
+      - it
+      - pl
+      - fr
+      - es
+      - ro
+      formatos:
+      - planificador
+      - lista de compras
+      estacionalidad: sep
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET1 ET11
+      estado: semilla
+      nota: Deseo = ahorrar (dinero); no heredar claims de salud
+    - id: facturas-energia-checklist
+      etiqueta: 'Bajar la factura de luz y gas: checklist y cálculo'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: comparar o recomendar proveedor
+        reencuadres:
+        - RE-10
+        - RE-12
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 80
+      idiomas:
+      - it
+      - pl
+      - fr
+      - es
+      - en
+      formatos:
+      - checklist
+      - calculadora
+      estacionalidad: oct-feb
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AC-it
+      estado: semilla
+      nota: Mercados regulados [VERIFICAR]
+    - id: ahorro-ingresos-bajos
+      etiqueta: Ahorrar con ingresos ajustados
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «si ganás poco»
+        reencuadres:
+        - RE-08
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 48
+      idiomas:
+      - es
+      - pl
+      - it
+      - fr
+      formatos:
+      - plan de 4 semanas
+      - hoja de cálculo
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AC-es
+      estado: semilla
+      nota: ''
+    - id: ingresos-irregulares-autonomos
+      etiqueta: Presupuesto con ingresos irregulares (autónomos)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: impuestos personalizados
+        reencuadres:
+        - RE-12
+        - RE-02
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - it
+      - pl
+      formatos:
+      - hoja de cálculo
+      - calculadora
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: Caso 7 de la nota 19 (prorrateo)
+    - id: finanzas-pareja-familia
+      etiqueta: 'Finanzas de pareja y familia: reparto y reunión mensual'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: monitoreo secreto, «salvá tu matrimonio»
+        reencuadres:
+        - RE-15
+        - RE-06
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - it
+      - fr
+      - pl
+      formatos:
+      - plantilla
+      - hoja de cálculo
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET5
+      estado: semilla
+      nota: Clasifica por deseo (control del dinero); secundario relaciones
+    - id: presupuesto-boda-evento
+      etiqueta: Presupuesto de boda o evento por proveedor
+      macro_secundario: relaciones
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        riesgo_alto: false
+        encuadre_que_sube: —
+        reencuadres:
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - en
+      - it
+      - pl
+      formatos:
+      - planificador
+      - hoja de cálculo
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] nota 23 §A (dinero: gastar menos); DIN-46'
+    - id: suscripciones-gastos-recurrentes
+      etiqueta: Seguimiento de suscripciones y gastos recurrentes
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        riesgo_alto: false
+        encuadre_que_sube: —
+        reencuadres:
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - en
+      - es
+      - fr
+      - pl
+      formatos:
+      - tracker
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 22f amarillo-A; DIN-47, DIN-57'
+    - id: reforma-hogar-presupuesto-ahorro
+      etiqueta: 'Reforma del hogar por cuenta propia: presupuesto y ahorro verificable'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        riesgo_alto: false
+        encuadre_que_sube: seguridad eléctrica o estructural presentada como instrucción (C3)
+        reencuadres:
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - pt
+      - es
+      formatos:
+      - planificador
+      - checklist
+      estacionalidad: sin dato
+      origen: 24b#50 20b:reforma-hogar-diy
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: '24b #50: reencuadrable como dinero SOLO si el ángulo es ahorro verificable; la instrucción de obra es otro deseo (fuera). Rango sin
+        rojo [HIPÓTESIS].'
+  - nicho_id: deuda-credito-e-impuestos
+    etiqueta: Deuda propia, crédito e impuestos
+    deseo_central: Tener control de obligaciones
+    microsegmentos:
+    - id: deudas-bola-de-nieve
+      etiqueta: Orden de pago de deudas (bola de nieve/avalancha)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «salí de deudas en N días», alivio, consolidación
+        reencuadres:
+        - RE-02
+        - RE-08
+      tanda: 2
+      dsp:
+        demanda: 4
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - pl
+      - es
+      - it
+      formatos:
+      - calculadora
+      - tracker
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: ET6 WB-FIN#10
+      estado: semilla
+      nota: Amarillo-B; sin «deuda» en URL ni eventos
+    - id: informe-credito-lectura
+      etiqueta: Guía para leer el propio informe de crédito
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «subí tu puntaje», «borrá items»
+        reencuadres:
+        - RE-10
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - en
+      formatos:
+      - guía
+      - glosario
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25c S10; CROA cerca; N1s'
+    - id: contratos-credito-lectura
+      etiqueta: Preguntas antes de firmar un contrato de crédito o alquiler
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: enlaces para solicitar, «el más barato»
+        reencuadres:
+        - RE-10
+        - RE-12
+      tanda: 2
+      dsp: null
+      idiomas:
+      - pl
+      - es
+      - it
+      - en
+      formatos:
+      - checklist
+      - guía
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25c S23; DIN-36'
+    - id: impuestos-calendario-documentos
+      etiqueta: 'Impuestos: calendario y carpeta de documentos'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: elusión, cálculo personal
+        reencuadres:
+        - RE-12
+        - RE-02
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 5
+        puntaje: 45
+      idiomas:
+      - it
+      - pl
+      - fr
+      - en
+      - ro
+      formatos:
+      - calendario
+      - checklist
+      estacionalidad: pico por país (ver D)
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-TX#5
+      estado: semilla
+      nota: Solo organización; en DE evitar formato curso (FernUSG)
+  - nicho_id: inversion-y-cripto
+    etiqueta: Inversión, jubilación y cripto
+    deseo_central: Hacer crecer el dinero
+    microsegmentos:
+    - id: jubilacion-calculadora
+      etiqueta: 'Jubilación: planificador y calculadora'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: edad en el copy, rendimiento garantizado
+        reencuadres:
+        - RE-12
+        - RE-08
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 3
+        producibilidad: 4
+        puntaje: 36
+      idiomas:
+      - pl
+      - de
+      - en
+      - fr
+      formatos:
+      - calculadora
+      - hoja de cálculo
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-TX#4 AZ-US-PF#9
+      estado: semilla
+      nota: Tres tasas ilustrativas rotuladas
+    - id: inversion-principiantes-etf
+      etiqueta: Inversión para principiantes (conceptos, ETF)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: instrumentos con verbo de acción; EE. UU.
+        reencuadres:
+        - RE-12
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 2
+        producibilidad: 3
+        puntaje: 30
+      idiomas:
+      - fr
+      - es
+      - de
+      - en
+      formatos:
+      - guía
+      - glosario
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-SF#1 AZ-ES-IV#3
+      estado: semilla
+      nota: Rojo dentro de EE. UU.; amarillo con gate fuera
+    - id: cripto
+      etiqueta: Cripto (seguridad y registro)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: afiliado, exchange, señales, Polonia
+        reencuadres:
+        - RE-12
+        - RE-10
+      tanda: 4
+      dsp:
+        demanda: 3
+        seguridad: 1
+        producibilidad: 3
+        puntaje: 9
+      idiomas:
+      - en
+      - fr
+      - it
+      - es
+      formatos:
+      - guía
+      - checklist
+      estacionalidad: ciclos de mercado
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-FR-SF#7
+      estado: semilla
+      nota: Custodia y registro como único ángulo
+    - id: trading-forex-opciones
+      etiqueta: Trading, forex y opciones
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: señales, apalancamiento, funded trading
+        reencuadres: []
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 0
+        producibilidad: 2
+        puntaje: 0
+      idiomas:
+      - en
+      - de
+      - fr
+      formatos:
+      - guía
+      estacionalidad: —
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-IV#3
+      estado: semilla
+      nota: Se acepta perder el segmento; checklist de estafas de trading
+  - nicho_id: empleo-e-ingresos-propios
+    etiqueta: Empleo e ingresos propios
+    deseo_central: Cobrar más o conseguir empleo
+    microsegmentos:
+    - id: cv-entrevista-guiones
+      etiqueta: 'CV y entrevistas: plantillas y guiones'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «empleo garantizado», «¿desempleado?»
+        reencuadres:
+        - RE-08
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 4
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 80
+      idiomas:
+      - en
+      - fr
+      - es
+      - it
+      - pl
+      - ro
+      formatos:
+      - plantilla
+      - guiones
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-JH#10 AZ-FR-CA#2
+      estado: semilla
+      nota: ''
+    - id: negociacion-salarial
+      etiqueta: 'Negociación salarial: guiones y cálculo'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: cifra de aumento
+        reencuadres:
+        - RE-02
+        - RE-04
+      tanda: 2
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - es
+      - fr
+      - pl
+      formatos:
+      - guiones
+      - calculadora
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: ''
+    - id: reinsercion-laboral-tras-pausa
+      etiqueta: 'Volver al trabajo tras una pausa (maternidad, cuidado, mudanza): CV con pausa, entrevista'
+      macro_secundario: relaciones
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «eres madre y estás sin trabajo», «empleo garantizado»
+        reencuadres:
+        - RE-08
+        - RE-02
+      tanda: 1
+      dsp: null
+      idiomas:
+      - es
+      - it
+      - en
+      - pl
+      formatos:
+      - plantilla
+      - guiones
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] caso del dueño; secundario relaciones; DIN-02, DIN-03'
+    - id: vender-manualidades-costeo
+      etiqueta: 'Vender manualidades: costeo y precio'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: cifra de ingresos, «viví de tus velas»
+        reencuadres:
+        - RE-04
+        - RE-02
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 4
+        producibilidad: 5
+        puntaje: 60
+      idiomas:
+      - en
+      - it
+      - pl
+      - fr
+      formatos:
+      - hoja de costeo
+      estacionalidad: ene-mar
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: 'Caso del dueño: ganar dinero con manualidades = dinero'
+    - id: tarifas-propuestas-freelance
+      etiqueta: Hoja de tarifas y propuestas para freelancers
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: cifra de ingresos, «oportunidad de negocio»
+        reencuadres:
+        - RE-04
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - en
+      formatos:
+      - hoja de cálculo
+      - plantilla
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25c S20; DIN-42'
+    - id: calculadora-margenes-vendedores
+      etiqueta: Calculadora de márgenes y comisiones para vendedores online
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «six-figure store», proveedores y clientes
+        reencuadres:
+        - RE-04
+        - RE-10
+      tanda: 2
+      dsp: null
+      idiomas:
+      - en
+      - es
+      formatos:
+      - hoja de cálculo
+      - calculadora
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25c S21; DIN-41'
+    - id: ganar-dinero-con-ia
+      etiqueta: «Ganar dinero» con IA o ingresos extra
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: ingresos pasivos, «sin esfuerzo»
+        reencuadres:
+        - RE-04
+      tanda: 4
+      dsp:
+        demanda: 5
+        seguridad: 0
+        producibilidad: 2
+        puntaje: 0
+      idiomas:
+      - en
+      - es
+      formatos:
+      - guía
+      estacionalidad: ene
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-BD#7
+      estado: semilla
+      nota: Solo si el deseo cambia a «cobrar y organizar mi trabajo»
+    - id: renta-extra-con-habilidad-costeo
+      etiqueta: 'Ingreso extra con una habilidad: costeo, precio y primeras ventas (sin promesa de ingresos)'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: rojo
+        rango:
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «ganar X al mes», «sin experiencia», «sin inversión» (LP-03, P2n)
+        reencuadres:
+        - RE-04
+        - RE-02
+      tanda: 4
+      dsp: null
+      idiomas:
+      - en
+      - pt
+      - es
+      formatos:
+      - plantilla
+      - planificador
+      estacionalidad: sin dato
+      origen: 24b#29 20b:renta-extra-habilidad 20a:finanzas-espiritualidad-hobbies
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: 'Vertical favorita de Bilbao (24b #29, conf. A) y la más vigilada. Solo vía RE-04 hacia vender-manualidades-costeo / tarifas-propuestas-freelance
+        (deseo conservado parcial: exige cita E3 de «cuánto cobrar»). Prior rojo por el encuadre habitual de la oferta, no por el tema.'
+    - id: presupuesto-oficios-cotizacion
+      etiqueta: 'Oficios (carpintería, electricidad, plomería): cotizar trabajos y costear materiales'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: amarillo
+        rango:
+        - verde
+        - amarillo
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: «ganar dinero con herrería/plomería» como promesa de ingreso
+        reencuadres:
+        - RE-04
+        - RE-02
+      tanda: 2
+      dsp: null
+      idiomas:
+      - es
+      - en
+      formatos:
+      - plantilla
+      - hoja_de_calculo
+      - checklist
+      estacionalidad: sin dato
+      origen: 24b#35,#40-42 20a:oficios-planos-carpinteria 20a:oficios-plomeria-electricidad
+      confianza: C
+      evidencia_ref: null
+      estado: semilla
+      nota: Los mentores venden planos y manuales de oficios (deseo = hacer la obra, FUERA de marco). Dentro del marco solo queda la cotización
+        y el costeo si hay cita E3 de «cuánto cobrar» (Q6). Prior amarillo-A [HIPÓTESIS].
+  - nicho_id: proteccion-y-educacion-financiera
+    etiqueta: Protección y educación financiera
+    deseo_central: No perder dinero y enseñar a manejarlo
+    microsegmentos:
+    - id: anti-estafas-checklist
+      etiqueta: 'Anti-estafas: checklist de señales'
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: miedo, marcas o logos, E2
+        reencuadres:
+        - RE-01
+      tanda: 1
+      dsp:
+        demanda: 3
+        seguridad: 5
+        producibilidad: 5
+        puntaje: 75
+      idiomas:
+      - en
+      - it
+      - es
+      - fr
+      - pl
+      formatos:
+      - checklist
+      - tarjetas
+      estacionalidad: todo el año
+      origen: nota 23 (hwr-semillas/nichos-hwr.yaml v2)
+      confianza: C
+      evidencia_ref: AZ-US-AG#9
+      estado: semilla
+      nota: Meta permite educar sobre estafas
+    - id: educacion-financiera-ninos-padres
+      etiqueta: Mesada y finanzas infantiles (compra el adulto)
+      macro_secundario: null
+      prior_riesgo:
+        nivel: verde
+        rango:
+        - verde
+        - rojo
+        riesgo_alto: false
+        encuadre_que_sube: dirigirse al menor (E3)
+        reencuadres:
+        - RE-13
+      tanda: 2
+      dsp: null
+      idiomas:
+      - pl
+      - es
+      - en
+      formatos:
+      - tabla
+      - juego
+      estacionalidad: n/s
+      origen: hwr-semillas/nichos-hwr.yaml v2 (hoja nueva de la nota 25)
+      confianza: C
+      evidencia_ref: sin-evidencia-directa
+      estado: semilla
+      nota: '[NUEVO] 25c S26; DIN-16, DIN-17'
+semillas_fuera_de_marco:
+- id: crochet-tejido-patrones
+  etiqueta: Patrones de crochet y amigurumis
+  motivo_macro: hobby
+  origen: 20a nichos_semilla; 20b crochet-patrones; 24b#47
+  reencuadre_a_hoja: vender-manualidades-costeo
+  condicion: 'Solo si hay cita E3 de «no sé qué precio poner» (nota 25 §1.4). El pack de patrones es Modo D: se puntúa y se informa como fuera
+    de marco (spec D1 §12.7 #3).'
+  estado: registrada_no_sembrada
+- id: costura-patrones
+  etiqueta: Costura y patrones
+  motivo_macro: hobby
+  origen: 20a nichos_semilla
+  reencuadre_a_hoja: vender-manualidades-costeo
+  condicion: Igual que crochet.
+  estado: registrada_no_sembrada
+- id: oficios-planos-manuales
+  etiqueta: Planos y manuales de oficios (carpintería, electricidad, plomería, steel framing)
+  motivo_macro: hobby
+  origen: 20a; 20b; 24b#40-42
+  reencuadre_a_hoja: presupuesto-oficios-cotizacion
+  condicion: El deseo es construir; solo el costeo entra en dinero.
+  estado: registrada_no_sembrada
+- id: fichas-terapeuticas-psicologos
+  etiqueta: Fichas terapéuticas / kits para psicólogos y docentes de apoyo
+  motivo_macro: deseo_del_comprador_es_profesional
+  origen: 20a; 24a#19-21; 25 §1.3 (REL-034)
+  reencuadre_a_hoja: null
+  condicion: 'Comprador profesional: deseo laboral, contenido clínico. Sin reencuadre.'
+  estado: registrada_no_sembrada
+- id: recetarios-generales
+  etiqueta: Recetarios temáticos (100-500 recetas)
+  motivo_macro: ninguna_bandera
+  origen: 20a; 25 §1.3 (REL-035)
+  reencuadre_a_hoja: plan-comidas-semanal
+  condicion: Entra solo con cita E3 de «comer más sano» o «gastar menos» (Q6); si no, fuera.
+  estado: registrada_no_sembrada
+- id: recetas-mascotas
+  etiqueta: Recetas y cuidado de mascotas
+  motivo_macro: ninguna_bandera
+  origen: 20a; 20b mascotas
+  reencuadre_a_hoja: null
+  condicion: sin reencuadre conocido
+  estado: registrada_no_sembrada
+- id: belleza-pestanas-unas
+  etiqueta: 'Belleza: pestañas, uñas'
+  motivo_macro: estetica
+  origen: 20a
+  reencuadre_a_hoja: null
+  condicion: sin reencuadre conocido
+  estado: registrada_no_sembrada
+- id: arte-texturizado-acuarela
+  etiqueta: 'Arte: texturas, acuarela, lettering, arte en cemento'
+  motivo_macro: hobby
+  origen: 20a; 24b#39
+  reencuadre_a_hoja: vender-manualidades-costeo
+  condicion: Solo el costeo/precio.
+  estado: registrada_no_sembrada
+- id: ceramica-diy-fisico-a-guia
+  etiqueta: Del producto físico a la guía DIY (cerámica, velas, marroquinería, goma eva)
+  motivo_macro: hobby
+  origen: 20a; 20b; 24b#32
+  reencuadre_a_hoja: vender-manualidades-costeo
+  condicion: 'Moldes de goma eva: derechos de autor (20a).'
+  estado: registrada_no_sembrada
+- id: musica-ninos
+  etiqueta: Música e instrumentos para niños
+  motivo_macro: hobby
+  origen: 20a
+  reencuadre_a_hoja: null
+  condicion: sin reencuadre conocido
+  estado: registrada_no_sembrada
+- id: actividades-ninos-antipantalla
+  etiqueta: Actividades infantiles sin pantalla, juegos familiares
+  motivo_macro: ninguna_bandera
+  origen: 20a; 24a#26
+  reencuadre_a_hoja: actividades-padres-hijos
+  condicion: Con cita E3 de «pasar tiempo con mis hijos» puede ser relaciones (hoja actividades-padres-hijos).
+  estado: registrada_no_sembrada
+- id: lectura-infantil-aprendizaje
+  etiqueta: Lectura infantil y aprendizaje de los hijos
+  motivo_macro: ninguna_bandera
+  origen: '24b#26-27 («todo lo que es niños es nicho relaciones»: afirmación de Bilbao; la nota 25 §1.1 deja la educación escolar fuera)'
+  reencuadre_a_hoja: null
+  condicion: sin reencuadre conocido
+  estado: registrada_no_sembrada
+- id: plantillas-redes-sociales
+  etiqueta: Plantillas de stories / Canva
+  motivo_macro: ninguna_bandera
+  origen: 20b; 24b#49
+  reencuadre_a_hoja: null
+  condicion: sin reencuadre conocido
+  estado: registrada_no_sembrada
+- id: religion-estudio-biblico
+  etiqueta: Religión y estudio bíblico visual; esoterismo (tercer ojo)
+  motivo_macro: ninguna_bandera
+  origen: 20b; 24b#48
+  reencuadre_a_hoja: null
+  condicion: 'Esoterismo de resultado: LP-04; religión: dato de categoría especial (nota 21 §9.1).'
+  estado: registrada_no_sembrada
+- id: bodas-invitaciones-digitales
+  etiqueta: Bodas e invitaciones digitales
+  motivo_macro: ninguna_bandera
+  origen: 20a
+  reencuadre_a_hoja: presupuesto-boda-evento
+  condicion: Solo el presupuesto de la boda es dinero.
+  estado: registrada_no_sembrada
+- id: tramites-visa
+  etiqueta: Trámites y visas
+  motivo_macro: ninguna_bandera
+  origen: 20a
+  reencuadre_a_hoja: null
+  condicion: LM-10 si empaqueta trámites oficiales gratuitos.
+  estado: registrada_no_sembrada
+- id: restauracion-cuero-autos
+  etiqueta: Restauración de cuero de autos
+  motivo_macro: hobby
+  origen: 20b; 24b#50
+  reencuadre_a_hoja: null
+  condicion: Sin ángulo de ahorro verificable.
+  estado: registrada_no_sembrada

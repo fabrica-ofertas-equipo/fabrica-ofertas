@@ -1,0 +1,31 @@
+{
+  "id": "s24-eje-n0-dentro-de-macro",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Eje N0 dentro de un macro-nicho (D-12)",
+  "base": "g4-dinero-es-mx-modo-d-planner-por-cobro",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/ejes_codigo/N",
+      "valor": "N0"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "eje-n0-dentro-de-macro"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

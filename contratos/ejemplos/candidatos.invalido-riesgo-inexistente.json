@@ -1,0 +1,396 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "corrida_id": "RUN-20261106-01",
+  "fecha": "2026-11-06T09:00:00Z",
+  "modo": "pipeline",
+  "mercado": {
+    "locale": "es-ES",
+    "paises": [
+      "ES"
+    ]
+  },
+  "pesos": {
+    "dolor": "0.35",
+    "pago": "0.35",
+    "mecanismo": "0.30"
+  },
+  "parametros_usados": {
+    "umbral_score_min": 55,
+    "evidencia_min_fuentes": 2
+  },
+  "consultas": [
+    {
+      "herramienta": "WebSearch",
+      "terminos": "volver a trabajar tras pausa cómo explicar hueco currículum",
+      "pais": "US",
+      "fecha": "2026-11-06T08:30:00Z",
+      "estimated_total_count": null
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "plantilla currículum",
+      "pais": "ES",
+      "fecha": "2026-11-06T08:40:00Z",
+      "estimated_total_count": 14
+    }
+  ],
+  "candidatos": [
+    {
+      "candidato_id": "CAND-01",
+      "problema_id": "PRB-202611-0007",
+      "rango": 1,
+      "macro_nicho": "dinero",
+      "nicho_id": "empleo-y-carrera",
+      "microsegmento": "reincorporacion-tras-pausa-larga",
+      "problema": "Quiere volver a trabajar pero no sabe cómo explicar una pausa laboral larga en el currículum y en la entrevista",
+      "prueba_una_frase": "Para personas que vuelven a buscar trabajo tras una pausa larga y no saben cómo explicarla, el Puente de la Pausa es una guía con plantilla que lleva de «tengo un hueco en mi currículum» a «currículum y guion de entrevista listos» sin inventar experiencia ni pedir disculpas.",
+      "tesis": "El obstáculo no es la pausa sino no saber contarla; ordenar por competencias y ensayar un guion de 30 segundos lo resuelve en una tarde.",
+      "mecanismo": {
+        "causa_raiz": {
+          "texto": "El currículum cronológico deja la pausa como un espacio en blanco que quien lee interpreta por su cuenta; la persona no sabe traducir lo que hizo a competencias ni cómo contarlo.",
+          "senales": [
+            "a1b2c3d4e5f6",
+            "0f9e8d7c6b5a"
+          ]
+        },
+        "nombre": "Puente de la Pausa",
+        "como_funciona": "Reordena el currículum por competencias, traduce lo hecho durante la pausa a frases con datos y añade un guion de 30 segundos para explicarla.",
+        "diferencia": "Un chatbot o una plantilla gratuita rellenan fechas; este método parte de un inventario de la pausa y entrega el guion hablado, que es lo que se pregunta en la entrevista.",
+        "prueba_logica": "La muestra gratuita muestra la fórmula del guion con un ejemplo completo; cada paso tiene entregable verificable (tabla, CV, guion).",
+        "riesgo_de_claim": "No prometer empleo, entrevistas ni plazos; solo orden y claridad de la presentación."
+      },
+      "entregable": {
+        "formato": "pack",
+        "alcance": "Guía de 5 pasos + plantilla editable de currículum; sin servicio, comunidad ni actualizaciones continuas.",
+        "estado_a_b": {
+          "a": "Tengo una pausa laboral larga y no sé cómo presentarla",
+          "b": "Tengo un currículum por competencias y un guion de 30 segundos listos"
+        },
+        "tiempo_al_primer_resultado": 35,
+        "producibilidad": {
+          "nivel": "alta",
+          "notas": "Contenido original; sin activos de terceros."
+        },
+        "licencias": [
+          "sin activos de terceros"
+        ]
+      },
+      "precio_plausible": {
+        "min": {
+          "monto": 1500,
+          "moneda": "EUR"
+        },
+        "max": {
+          "monto": 2500,
+          "moneda": "EUR"
+        },
+        "razon": "Plantillas de CV en el rango de 9 a 25 EUR; guion y método justifican la parte alta"
+      },
+      "puntajes": {
+        "dolor": {
+          "s": 4,
+          "justificacion": "Dolor expresado en voz propia en foros",
+          "evidencia_ids": [
+            "EV-01"
+          ]
+        },
+        "pago": {
+          "s": 3,
+          "justificacion": "Se compran plantillas, pero el hueco no está resuelto",
+          "evidencia_ids": [
+            "EV-02",
+            "EV-03"
+          ]
+        },
+        "mecanismo": {
+          "s": 4,
+          "justificacion": "Mecanismo nombrable y distinto de la plantilla genérica",
+          "evidencia_ids": [
+            "EV-02"
+          ]
+        }
+      },
+      "score_base": 68,
+      "score_ajustado": 66,
+      "confianza": "media",
+      "evidencia": [
+        {
+          "id": "EV-01",
+          "tipo": "E3",
+          "url": "https://foro.ejemplo.invalid/hilo/volver-a-trabajar",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "No sé cómo explicar tres años sin trabajar en el currículum",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:8300669f48baa5850eb205a1ab1de6d9eb124cc3e6e10a87843a625e53d28eff"
+        },
+        {
+          "id": "EV-02",
+          "tipo": "E3",
+          "url": "https://reseñas.ejemplo.invalid/producto/plantilla-cv-2-estrellas",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "La plantilla era bonita pero no me decía qué poner en el hueco",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:34dac37c810735272ae58a85afeecb3f12e2264bb53a4faa25f3e0167f8f9e55"
+        },
+        {
+          "id": "EV-03",
+          "tipo": "E1",
+          "url": "https://marketplace.ejemplo.invalid/ranking/plantillas-cv",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Plantillas de currículum entre lo más vendido de la categoría",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:a7b9d01fb6cf3eb7fbc95be61ec3524e7d1bd47eb82d41d141ceafe9b33e2b45"
+        }
+      ],
+      "demanda_pagada": {
+        "n_anuncios": 14,
+        "n_anunciantes": 6,
+        "n_sostenidos": 2,
+        "n_conceptos_unicos": 5,
+        "antiguedad_max_dias": 120,
+        "consultas_ids": [
+          "Q-01",
+          "Q-02"
+        ],
+        "senal_rentabilidad": "no medible"
+      },
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "verde",
+        "N": "verde",
+        "nivel": "naranja",
+        "reencuadre_aplicado": {
+          "aplicado": true,
+          "nivel_original": "amarillo",
+          "descripcion": "Se pasó de «para madres que vuelven tras la baja» (atributo personal en el encuadre, eje E amarillo) a «tras una pausa laboral larga» sin afirmar nada sobre quien ve el anuncio, y de «conseguir trabajo» a «ordenar y presentar tu experiencia»."
+        },
+        "fuentes": [
+          "docs/_investigacion/22b-meta-politicas-dinero.md",
+          "docs/_investigacion/22d-stripe-restricciones-salud-relaciones-dinero.md",
+          "docs/_investigacion/05-legal.md"
+        ],
+        "categoria": "Empleo y carrera: guía informativa, no oferta de empleo [VERIFICAR si Meta la trata como categoría especial de empleo]",
+        "claims_a_evitar": [
+          "conseguirás trabajo",
+          "garantizamos entrevistas",
+          "cifras de sueldo o ingresos",
+          "referencias a maternidad como atributo del espectador"
+        ],
+        "angulo_seguro": "Presentación de la experiencia: el hueco como relato que se puede contar con claridad."
+      },
+      "similitud_memoria": {
+        "max": "0.31",
+        "con": null
+      },
+      "viabilidad_cpa": {
+        "ratio_pes": "0.37",
+        "ratio_central": "1.44",
+        "ratio_opt": "3.03",
+        "supuestos": [
+          "CPM, CTR y conversión de ejemplo [SUPUESTO]"
+        ],
+        "bandera": "amarilla"
+      },
+      "sensibilidad": {
+        "top3_estable_pct": 85
+      },
+      "ventana_estacional": "Septiembre y enero (vuelta al trabajo y propósitos de año nuevo)",
+      "hipotesis_para_d2": [
+        "Los competidores venden plantillas sin guion de entrevista",
+        "El hueco como tema aparece en los comentarios de los anuncios"
+      ],
+      "que_la_mataria": [
+        "Un gratuito dominante que cubra el guion de entrevista",
+        "Que Meta trate la oferta como categoría especial de empleo"
+      ],
+      "palabras_clave_voz_cliente": [
+        "hueco en el currículum",
+        "volver a trabajar",
+        "cómo explicar"
+      ]
+    },
+    {
+      "candidato_id": "CAND-02",
+      "problema_id": "PRB-202611-0011",
+      "rango": 2,
+      "macro_nicho": "dinero",
+      "nicho_id": "finanzas-del-hogar",
+      "microsegmento": "presupuesto-familiar-mensual",
+      "problema": "Llega justo a fin de mes y no sabe en qué se le va el dinero del hogar",
+      "prueba_una_frase": "Para hogares que llegan justos a fin de mes y no saben dónde se va el dinero, el Sobre Semanal es una hoja de cálculo con método que lleva de «no sé en qué gasto» a «un tope semanal por categoría» sin aplicaciones de pago.",
+      "tesis": "Dividir el mes en cuatro sobres semanales hace visible el gasto sin llevar contabilidad detallada.",
+      "mecanismo": {
+        "causa_raiz": {
+          "texto": "El presupuesto mensual es demasiado largo para corregir a tiempo; los desvíos se ven al final.",
+          "senales": [
+            "112233445566"
+          ]
+        },
+        "nombre": "Sobre Semanal",
+        "como_funciona": "Cuatro topes semanales por categoría en una hoja de cálculo con alertas de color.",
+        "diferencia": "Frente a una hoja genérica, fija topes semanales y no mensuales.",
+        "prueba_logica": "Hoja de ejemplo rellenada con un mes ficticio.",
+        "riesgo_de_claim": "No prometer ahorros ni cifras."
+      },
+      "entregable": {
+        "formato": "hoja_de_calculo",
+        "alcance": "Una hoja con cuatro semanas y cinco categorías; sin asesoramiento.",
+        "estado_a_b": {
+          "a": "No sé en qué gasto",
+          "b": "Tengo un tope semanal por categoría"
+        },
+        "tiempo_al_primer_resultado": 25,
+        "producibilidad": {
+          "nivel": "alta",
+          "notas": "Hoja propia."
+        },
+        "licencias": [
+          "sin activos de terceros"
+        ]
+      },
+      "precio_plausible": {
+        "min": {
+          "monto": 900,
+          "moneda": "EUR"
+        },
+        "max": {
+          "monto": 1900,
+          "moneda": "EUR"
+        },
+        "razon": "Plantillas de presupuesto en rango bajo"
+      },
+      "puntajes": {
+        "dolor": {
+          "s": 4,
+          "justificacion": "Dolor claro",
+          "evidencia_ids": [
+            "EV-04"
+          ]
+        },
+        "pago": {
+          "s": 2,
+          "justificacion": "Hay muchos gratuitos",
+          "evidencia_ids": [
+            "EV-05"
+          ]
+        },
+        "mecanismo": {
+          "s": 3,
+          "justificacion": "Diferencia moderada",
+          "evidencia_ids": [
+            "EV-04"
+          ]
+        }
+      },
+      "score_base": 57,
+      "score_ajustado": 52,
+      "confianza": "baja",
+      "evidencia": [
+        {
+          "id": "EV-04",
+          "tipo": "E3",
+          "url": "https://foro.ejemplo.invalid/hilo/presupuesto-familiar",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Cada mes llegamos justos y no sé dónde se va el dinero",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:e433a24276082dbf6743ef4c827dae45dd637649ba816b202cf42948234f6b58"
+        },
+        {
+          "id": "EV-05",
+          "tipo": "E2",
+          "url": "https://tendencias.ejemplo.invalid/consulta/presupuesto-familiar",
+          "fecha_publicacion": "2026-09-14",
+          "fecha_consulta": "2026-11-06",
+          "cita": "Interés estable en «plantilla presupuesto familiar»",
+          "cita_literal_verificada": true,
+          "hash_copia_crudo": "sha256:fc87e69231bf6d05cbc2c0afe8f032b4b1413258ff33c6f2307bdd0a6f4b26f3"
+        }
+      ],
+      "demanda_pagada": {
+        "n_anuncios": 30,
+        "n_anunciantes": 12,
+        "n_sostenidos": 3,
+        "n_conceptos_unicos": 9,
+        "antiguedad_max_dias": 200,
+        "consultas_ids": [
+          "Q-03"
+        ],
+        "senal_rentabilidad": "no medible"
+      },
+      "riesgo": {
+        "P": "verde",
+        "C": "verde",
+        "E": "amarillo",
+        "N": "amarillo",
+        "nivel": "amarillo",
+        "reencuadre_aplicado": {
+          "aplicado": false
+        },
+        "fuentes": [
+          "docs/_investigacion/22b-meta-politicas-dinero.md"
+        ],
+        "categoria": "Finanzas personales: atributo financiero en el encuadre",
+        "claims_a_evitar": [
+          "«¿te falta dinero a fin de mes?»",
+          "promesas de ahorro"
+        ],
+        "angulo_seguro": "Organización del gasto semanal sin afirmar la situación del espectador"
+      },
+      "similitud_memoria": {
+        "max": "0.22",
+        "con": null
+      },
+      "viabilidad_cpa": {
+        "ratio_pes": "0.20",
+        "ratio_central": "0.80",
+        "ratio_opt": "1.80",
+        "supuestos": [
+          "ticket bajo [SUPUESTO]"
+        ],
+        "bandera": "roja"
+      },
+      "sensibilidad": {
+        "top3_estable_pct": 70
+      },
+      "ventana_estacional": null,
+      "hipotesis_para_d2": [
+        "Saturación alta de gratuitos"
+      ],
+      "que_la_mataria": [
+        "Sustituto gratis dominante"
+      ],
+      "palabras_clave_voz_cliente": [
+        "llegar a fin de mes",
+        "presupuesto"
+      ]
+    }
+  ],
+  "descartados": [
+    {
+      "problema": "Curar la ansiedad antes de la entrevista",
+      "motivo": "claim_de_salud_o_ingresos",
+      "redencion": "reformular"
+    },
+    {
+      "problema": "Mentoría personalizada de carrera para madres",
+      "motivo": "requiere_servicio",
+      "redencion": "dividir"
+    },
+    {
+      "problema": "Comunidad de apoyo para quien vuelve a trabajar",
+      "motivo": "requiere_comunidad_o_en_vivo",
+      "redencion": "dividir"
+    },
+    {
+      "problema": "Receta favorita de la abuela",
+      "motivo": "fuera_de_macro_nicho",
+      "redencion": "descartar"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-10-07-a",
+  "generado_en": "2026-10-07T11:58:00Z",
+  "paginas": [
+    {
+      "page_id": "1001",
+      "page_name": "Anna Martin",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 5,
+      "edad_oferta_dias": "20",
+      "edad_max_dias": "25",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Anna Martin"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1002",
+      "page_name": "Atril Estudio",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 8,
+      "edad_oferta_dias": "15",
+      "edad_max_dias": "18",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Atril Estudio"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1003",
+      "page_name": "Corpo Sem Dor",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 3,
+      "edad_oferta_dias": "5",
+      "edad_max_dias": "9",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Corpo Sem Dor"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1004",
+      "page_name": "Solo en la base",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 2,
+      "edad_oferta_dias": "4",
+      "edad_max_dias": "6",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Solo en la base"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1005",
+      "page_name": "Viajera",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 4,
+      "edad_oferta_dias": "10",
+      "edad_max_dias": "14",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Viajera"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": false,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    },
+    {
+      "page_id": "1006",
+      "page_name": "Muestra truncada",
+      "paises": [
+        "ES"
+      ],
+      "monedas": [
+        "USD"
+      ],
+      "anuncios_activos_en_muestra": 50,
+      "edad_oferta_dias": "30",
+      "edad_max_dias": "60",
+      "conceptos_unicos": 2,
+      "titulos": [
+        "Título de Muestra truncada"
+      ],
+      "qids": [
+        "es-acceso-inmediato-pdf"
+      ],
+      "muestra_truncada": true,
+      "exportador": {
+        "señal": false,
+        "moneda": "USD",
+        "pais_anuncio": "ES",
+        "motivo": "fixture"
+      }
+    }
+  ],
+  "advertencias": []
+}

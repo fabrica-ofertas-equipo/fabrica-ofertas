@@ -1,0 +1,818 @@
+{
+  "schema_version": "0.1.0",
+  "nota": "Defectos sembrados SD5-01…25 (departamentos/06 Anexo A1). `mutacion.copy` se aplica sobre el dorado indicado (es-ES: templates/copy.ejemplo.json; pl-PL: evals/dorados/relaciones-pl-PL/copy.json) y el lint debe emitir `regla_script`. Los de tipo codigo se prueban con un `fixture_l1` (resultados simulados de los checks) y el QA debe citar la evidencia. Rotación: evals/sembrados/README.md.",
+  "sembrados": [
+    {
+      "id": "SD5-01",
+      "defecto": "Precio de la landing 19 y de checkout.json 17",
+      "severidad": "BLOQUEANTE",
+      "check": "C02",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "Escribir un importe distinto del precio de oferta.json en el texto (o cambiar el de checkout.json).",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S11.linea_precio",
+              "valor": "Precio final: 17,90 €. Pago único, sin suscripciones."
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S11.linea_precio",
+              "valor": "Cena końcowa: 35,00 zł. Płatność jednorazowa, bez abonamentu."
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-IMPORTE",
+      "mutacion_landing_equivalente": "ML-04",
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C02",
+          "patron_clave": "precio-incoherente",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S11.linea_precio vs oferta.json#precio.lista"
+      }
+    },
+    {
+      "id": "SD5-02",
+      "defecto": "event_id del píxel distinto del de la API de Conversiones",
+      "severidad": "BLOQUEANTE",
+      "check": "C09",
+      "tipo_deteccion": "L1-codigo+L2-lectura",
+      "como_sembrar": "En tracking.json dejar el Purchase con una regla de event_id que no sea purchase_<checkout_session_id> (o distinta entre canales).",
+      "mutacion": {
+        "archivo": {
+          "archivo": "05-landing/tracking.json",
+          "json_establecer": {
+            "eventos[3].event_id_regla": "purchase_<visitor_id>_<ts>"
+          }
+        }
+      },
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C09": {
+          "resultado": "fail",
+          "detalle": "Test Events: el Purchase del navegador y el de la API llegan con event_id distinto; sin deduplicación"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C09",
+          "patron_clave": "dedup-event-id",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "tracking.json#eventos[Purchase].event_id_regla; qa/.l1/d5-v<n>.json#C09"
+      }
+    },
+    {
+      "id": "SD5-03",
+      "defecto": "Contador de escasez que se reinicia",
+      "severidad": "BLOQUEANTE",
+      "check": "C03",
+      "tipo_deteccion": "L1-lint-copy",
+      "como_sembrar": "Añadir «quedan N plazas» al microcopy del hero.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S01.microcopy",
+              "valor": "Garantía de {garantia_dias} días · Quedan 7 plazas"
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S01.microcopy",
+              "valor": "Zwrot {garantia_dias} dni · Zostało tylko 7 miejsc"
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-URGENCIA",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C03",
+          "patron_clave": "urgencia-falsa",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S01.microcopy"
+      }
+    },
+    {
+      "id": "SD5-04",
+      "defecto": "Webhook de Stripe sin verificación de firma",
+      "severidad": "BLOQUEANTE",
+      "check": "C07",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "Worker acepta una firma falsa con 200.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C07": {
+          "resultado": "fail",
+          "detalle": "firma inválida devuelve 200 en lugar de 400"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C07",
+          "patron_clave": "webhook-sin-firma",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C07"
+      }
+    },
+    {
+      "id": "SD5-05",
+      "defecto": "Garantía de 30 días en la landing y de 14 en reembolsos",
+      "severidad": "BLOQUEANTE",
+      "check": "C02",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "Escribir «30 días» en el texto de garantía.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S10.texto",
+              "valor": "Si no te sirve, te devolvemos el importe durante 30 días. Sin preguntas."
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S10.texto",
+              "valor": "Jeśli materiał Ci nie odpowiada, zwrócimy pieniądze w ciągu 30 dni. Bez pytań."
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-GARANTIA-DIAS",
+      "mutacion_landing_equivalente": "MC-02",
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C02",
+          "patron_clave": "garantia-incoherente",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S10.texto vs oferta.json#garantia.dias"
+      }
+    },
+    {
+      "id": "SD5-06",
+      "defecto": "Píxel cargado antes del consentimiento",
+      "severidad": "BLOQUEANTE",
+      "check": "C10",
+      "tipo_deteccion": "L1-fixture-html",
+      "como_sembrar": "Enlazar /js/pixel.js desde el <head>.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": "ML-06",
+      "fixture_l1": {
+        "C10": {
+          "resultado": "fail",
+          "detalle": "hay solicitudes a facebook.com/tr antes de aceptar"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C10",
+          "patron_clave": "pixel-sin-consentimiento",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C10; sitio/index.html"
+      }
+    },
+    {
+      "id": "SD5-07",
+      "defecto": "adid perdido en la redirección www→apex",
+      "severidad": "MAYOR",
+      "check": "C06",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "La redirección descarta la consulta.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C06": {
+          "resultado": "fail",
+          "detalle": "metadata sin adid tras www→apex"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C06",
+          "patron_clave": "adid-perdido",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C06"
+      }
+    },
+    {
+      "id": "SD5-08",
+      "defecto": "Imagen hero de 2 MB",
+      "severidad": "MAYOR",
+      "check": "C04",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "hero con peso muy por encima de landing.peso_hero_max_kb.",
+      "mutacion": {
+        "archivo": {
+          "archivo": "05-landing/assets.json",
+          "json_establecer": {
+            "slots[0].peso_max_kb": 2048
+          }
+        }
+      },
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C04": {
+          "resultado": "fail",
+          "detalle": "LCP y peso transferido sobre los máximos de landing.*"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C04",
+          "patron_clave": "peso-hero",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C04; assets.json#slots[hero].peso_max_kb"
+      }
+    },
+    {
+      "id": "SD5-09",
+      "defecto": "Testimonio genérico con foto, sin compra_id",
+      "severidad": "BLOQUEANTE",
+      "check": "C03",
+      "tipo_deteccion": "L1-lint-copy",
+      "como_sembrar": "S08 en modo real con una reseña sin compra_id.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S08",
+              "valor": {
+                "modo": "real",
+                "titulo": "Opiniones",
+                "bloques": [],
+                "resenas": [
+                  {
+                    "compra_id": "",
+                    "texto": "Me encantó, lo recomiendo a todo el mundo."
+                  }
+                ]
+              }
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S08",
+              "valor": {
+                "modo": "real",
+                "titulo": "Opinie",
+                "bloques": [],
+                "resenas": [
+                  {
+                    "compra_id": "",
+                    "texto": "Bardzo polecam wszystkim."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-RESENA-SIN-COMPRA",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C03",
+          "patron_clave": "testimonio-inventado",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S08.resenas"
+      }
+    },
+    {
+      "id": "SD5-10",
+      "defecto": "CTA fijo que tapa el FAQ en 360 px",
+      "severidad": "MAYOR",
+      "check": "C05",
+      "tipo_deteccion": "L1-playwright+L2-capturas",
+      "como_sembrar": "Barra de CTA fija con altura excesiva.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C05": {
+          "resultado": "fail",
+          "detalle": "360x800: el CTA fijo cubre las respuestas del FAQ"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C05",
+          "patron_clave": "cta-fijo-tapa-faq",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "capturas 360 px en qa/.l1/d5-v<n>.json"
+      }
+    },
+    {
+      "id": "SD5-11",
+      "defecto": "Entrega con pago en estado unpaid",
+      "severidad": "BLOQUEANTE",
+      "check": "C07",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "fulfill entrega con payment_status=unpaid.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C07": {
+          "resultado": "fail",
+          "detalle": "unpaid dispara entrega"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C07",
+          "patron_clave": "entrega-sin-pago",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C07"
+      }
+    },
+    {
+      "id": "SD5-12",
+      "defecto": "/gracias dispara Purchase pendiente",
+      "severidad": "BLOQUEANTE",
+      "check": "C09",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "pixel en /gracias sin confirmar payment_status=paid.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C09": {
+          "resultado": "fail",
+          "detalle": "Purchase de navegador con unpaid"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C09",
+          "patron_clave": "purchase-pendiente",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C09"
+      }
+    },
+    {
+      "id": "SD5-13",
+      "defecto": "Enlace de descarga permanente",
+      "severidad": "BLOQUEANTE",
+      "check": "C08",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "El enlace no vence ni limita descargas.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C08": {
+          "resultado": "fail",
+          "detalle": "el enlace sigue vivo tras vence_dias y max_descargas"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C08",
+          "patron_clave": "enlace-permanente",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C08"
+      }
+    },
+    {
+      "id": "SD5-14",
+      "defecto": "crear-sesion acepta el importe del navegador",
+      "severidad": "BLOQUEANTE",
+      "check": "C14",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "El Worker usa amount del cuerpo.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C14": {
+          "resultado": "fail",
+          "detalle": "POST con amount=1 crea una sesión por 0,01"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C14",
+          "patron_clave": "importe-del-cliente",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C14"
+      }
+    },
+    {
+      "id": "SD5-15",
+      "defecto": "Bump premarcado",
+      "severidad": "BLOQUEANTE",
+      "check": "C03",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "S09.bump.premarcado = true.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S09.bump.premarcado",
+              "valor": true
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S09.bump.premarcado",
+              "valor": true
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-BUMP-PREMARCADO",
+      "mutacion_landing_equivalente": "MC-04",
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C03",
+          "patron_clave": "bump-premarcado",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S09.bump.premarcado"
+      }
+    },
+    {
+      "id": "SD5-16",
+      "defecto": "brief.md o .env dentro de sitio/",
+      "severidad": "BLOQUEANTE",
+      "check": "C01",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "Copiar brief.md a sitio/.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C01": {
+          "resultado": "fail",
+          "detalle": "sitio/brief.md existe: archivo interno publicado"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C01",
+          "patron_clave": "archivo-interno-publicado",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "listado de sitio/ en qa/.l1/d5-v<n>.json#C01"
+      }
+    },
+    {
+      "id": "SD5-17",
+      "defecto": "Sello o comentario EJEMPLO en producción",
+      "severidad": "BLOQUEANTE",
+      "check": "C03",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "Dejar «EJEMPLO» en un texto o comentario.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S08.titulo",
+              "valor": "Opiniones EJEMPLO"
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S08.titulo",
+              "valor": "Opinie PRZYKŁAD"
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-EJEMPLO",
+      "mutacion_landing_equivalente": "ML-02",
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C03",
+          "patron_clave": "ejemplo-en-produccion",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S08.titulo"
+      }
+    },
+    {
+      "id": "SD5-18",
+      "defecto": "Restos de Shopify (content_for_header, #shopify-section-*) o Google Fonts remotas",
+      "severidad": "MAYOR",
+      "check": "C01",
+      "tipo_deteccion": "L1-fixture-html",
+      "como_sembrar": "Pegar un <link> a fonts.googleapis.com o restos de Liquid.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": "ML-03",
+      "fixture_l1": {
+        "C01": {
+          "resultado": "fail",
+          "detalle": "enlace externo a fonts.googleapis.com; content_for_header en el HTML"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C01",
+          "patron_clave": "restos-shopify-o-fuentes-remotas",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "sitio/index.html; qa/.l1/d5-v<n>.json#C01"
+      }
+    },
+    {
+      "id": "SD5-19",
+      "defecto": "Paleta igual a la de la base o contraste inferior a AA",
+      "severidad": "MAYOR",
+      "check": "C12",
+      "tipo_deteccion": "L1-contraste_paleta",
+      "como_sembrar": "Poner cta_fondo con un HEX de la referencia y texto blanco.",
+      "mutacion": {
+        "copy": null,
+        "paleta": [
+          {
+            "ruta": "colores.cta_fondo.hex",
+            "valor": "#B86F4B"
+          },
+          {
+            "ruta": "colores.cta_texto.hex",
+            "valor": "#FFFFFF"
+          }
+        ]
+      },
+      "regla_script": "D5-PALETA-BASE",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C12",
+          "patron_clave": "paleta-copiada-o-sin-contraste",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "paleta.json#colores.cta_fondo"
+      }
+    },
+    {
+      "id": "SD5-20",
+      "defecto": "Hero con pregunta o atributo dirigido al espectador",
+      "severidad": "BLOQUEANTE",
+      "check": "C15",
+      "tipo_deteccion": "L1-lint-copy+L2-R8",
+      "como_sembrar": "Convertir el titular en pregunta sobre un atributo.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S01.h1",
+              "valor": "¿Te da vergüenza tu pausa laboral?"
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S01.h1",
+              "valor": "Czy wstydzisz się swojej przerwy w pracy?"
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-HERO-PREGUNTA",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C15",
+          "patron_clave": "hero-atributo-o-pregunta",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S01.h1"
+      }
+    },
+    {
+      "id": "SD5-21",
+      "defecto": "<title>, URL o content_name con términos sensibles",
+      "severidad": "BLOQUEANTE",
+      "check": "C16",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "Poner un término de salud o deuda en meta.title.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "meta.title",
+              "valor": "{marca} — Guía contra la ansiedad laboral"
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "meta.title",
+              "valor": "{marca} — Karty na lęk i depresję"
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-DATO-SENSIBLE",
+      "mutacion_landing_equivalente": "ML-05",
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C16",
+          "patron_clave": "dato-publico-sensible",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#meta.title"
+      }
+    },
+    {
+      "id": "SD5-22",
+      "defecto": "Texto visible distinto según agente o país",
+      "severidad": "BLOQUEANTE",
+      "check": "C17",
+      "tipo_deteccion": "L1-codigo",
+      "como_sembrar": "El servidor cambia el texto por user-agent o país.",
+      "mutacion": null,
+      "regla_script": null,
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": {
+        "C17": {
+          "resultado": "fail",
+          "detalle": "hash del texto visible distinto entre ES y PL, y entre dos agentes"
+        }
+      },
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C17",
+          "patron_clave": "cloaking",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "qa/.l1/d5-v<n>.json#C17"
+      }
+    },
+    {
+      "id": "SD5-23",
+      "defecto": "Garantía atada a un resultado (o cifra de ahorro/ingreso)",
+      "severidad": "BLOQUEANTE",
+      "check": "C15",
+      "tipo_deteccion": "L1-lint-copy",
+      "como_sembrar": "Condicionar el reembolso a un resultado del lector.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S10.texto",
+              "valor": "Si no consigues trabajo, te devolvemos el importe en {garantia_dias} días."
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S10.texto",
+              "valor": "Jeśli nie zarobisz, zwrócimy pieniądze w ciągu {garantia_dias} dni."
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-GARANTIA-RESULTADO",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C15",
+          "patron_clave": "garantia-atada-a-resultado",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S10.texto"
+      }
+    },
+    {
+      "id": "SD5-24",
+      "defecto": "«IVA incluido» con régimen fiscal diferido",
+      "severidad": "MAYOR",
+      "check": "C02",
+      "tipo_deteccion": "L1-lint-copy",
+      "como_sembrar": "Escribir «IVA incluido» en la línea de precio.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.S11.linea_precio",
+              "valor": "Precio final: {precio} (IVA incluido)."
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.S11.linea_precio",
+              "valor": "Cena końcowa: {precio} (zawiera VAT)."
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-IVA-INCLUIDO",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C02",
+          "patron_clave": "iva-incluido-con-diferido",
+          "severidad": "MAYOR"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.S11.linea_precio vs mercado.json#fiscal.regimen"
+      }
+    },
+    {
+      "id": "SD5-25",
+      "defecto": "Falta la casilla de renuncia (UE/UK) o /desistimiento",
+      "severidad": "BLOQUEANTE",
+      "check": "C11",
+      "tipo_deteccion": "L1-lint-copy+L1-landing.validar",
+      "como_sembrar": "Quitar la casilla renuncia-entrega-inmediata de /comprar.",
+      "mutacion": {
+        "copy": {
+          "es-ES": [
+            {
+              "ruta": "secciones.comprar.casillas[1]",
+              "borrar": true
+            }
+          ],
+          "pl-PL": [
+            {
+              "ruta": "secciones.comprar.casillas[1]",
+              "borrar": true
+            }
+          ]
+        },
+        "paleta": null
+      },
+      "regla_script": "D5-COPY-RENUNCIA",
+      "mutacion_landing_equivalente": null,
+      "fixture_l1": null,
+      "salida_qa_esperada": {
+        "veredicto": "FAIL",
+        "hallazgo": {
+          "check_id": "C11",
+          "patron_clave": "falta-renuncia-o-desistimiento",
+          "severidad": "BLOQUEANTE"
+        },
+        "evidencia_que_debe_citar": "copy.json#secciones.comprar.casillas"
+      }
+    }
+  ]
+}

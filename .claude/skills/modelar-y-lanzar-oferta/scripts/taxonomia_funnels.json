@@ -1,0 +1,822 @@
+{
+ "schema_version": "1.0.0",
+ "actualizado": "2026-11-17",
+ "_nota": "Datos de la taxonomía de funnels. La explicación está en references/taxonomia-funnels.md. La leen ordenar_candidatos.py (complejidad y variación) y barrido_por_forma.py (clasificador y encuadre). Los tipos nuevos los añade `barrido_por_forma.py encuadrar --registrar` o `clasificar --registrar`; a mano solo se cambia `estado` cuando el dueño confirma un tipo.",
+ "regla_complejidad": {
+  "formula": "complejidad = min(1, 1 - producto(1 - peso de cada componente de núcleo, contando una vez cada uno) + suma(peso de cada extra distinto))",
+  "tope": 1.0,
+  "extra_desconocido": 0.1,
+  "por_que": "Cada componente de núcleo aporta su peso sobre lo que falta para llegar a 1, así un híbrido siempre vale más que cualquiera de sus partes por separado y nunca pasa de 1. Los extras suman fijo (bump, upsell, downsell y subida previa suman 0 desde el 17-nov). Reproduce los valores anteriores: quiz 0.80, vsl 0.80, tsl-basica 0.25, tsl-video 0.50.",
+  "regla_del_dueno_17nov": "Complejidad = el recorrido antes de la página de venta: advertorial, quiz, VSL (y webinar, registro, chat). Advertorial + TSL cuenta como complejo (0.70). Bump, upsell, downsell y subida previa NO suman: los tienen todos. El escalonado de precios (niveles) suma 0.35: TSL + niveles queda justo en el umbral (0.60, «relativamente compleja», como Oferta F, la única con ganancia), por debajo de advertorial + TSL (0.70) y de VSL o quiz (0.80); VSL + niveles llega al tope (1.0)."
+ },
+ "umbrales_clasificador": {
+  "palabras_tsl": 350,
+  "palabras_advertorial": 300,
+  "pasos_max": 4,
+  "pausa_segundos": 2.5,
+  "bytes_max": 3000000,
+  "espera_segundos": 20
+ },
+ "componentes": {
+  "advertorial": {
+   "nombre": "Página puente o advertorial",
+   "clase": "nucleo",
+   "peso": 0.6,
+   "que_es": "Página previa a la venta con forma de artículo, noticia o historia personal. No cobra: calienta y manda a la página de venta.",
+   "senales_a_mano": [
+    "Parece una nota de blog o de diario: titular, autor, fecha, a veces la palabra «publicidad» o «advertorial»",
+    "No hay precio ni botón de pago; el botón lleva a OTRA página o dominio",
+    "Comentarios al pie con aspecto de red social"
+   ],
+   "senales": {
+    "url": [
+     "/(advertorial|artigo|articulo|artikel|article|blog|news|noticia|story|historia|presell|pre-sell|lp-?pre|bridge|puente)(/|\\?|-|$)"
+    ],
+    "html": [
+     "advertorial",
+     "publirreportaje",
+     "publireportage",
+     "<article[\\s>]",
+     "\"@type\"\\s*:\\s*\"(news)?article\"",
+     "class=\"[^\"]*(byline|author|post-meta|comments?-list)"
+    ],
+    "texto": [
+     "\\badvertorial\\b",
+     "\\bpublirreportaje\\b",
+     "\\bpublicidad\\b",
+     "\\banzeige\\b",
+     "\\bsponsored\\b",
+     "\\bpublicité\\b",
+     "\\bpublieditorial\\b",
+     "contenido patrocinado",
+     "contenuto sponsorizzato"
+    ]
+   },
+   "no_confundir": "Una carta de ventas en texto con tono de historia sigue siendo `tsl` si en la misma página están el precio y el botón de pago."
+  },
+  "quiz": {
+   "nombre": "Quiz o test",
+   "clase": "nucleo",
+   "peso": 0.8,
+   "que_es": "Preguntas paso a paso antes de mostrar la oferta, con resultado, diagnóstico o «plan» al final.",
+   "senales_a_mano": [
+    "Una pregunta por pantalla con opciones para tocar",
+    "Barra de progreso o «pregunta 3 de 12»",
+    "Pantallas de «analizando tus respuestas»",
+    "Resultado o plan personalizado antes del precio"
+   ],
+   "senales": {
+    "url": [
+     "/(quiz|quizz|test|teste|start|survey|encuesta|cuestionario|questionario|umfrage|sondage|onboarding|assessment|diagnostico|diagnóstico)(/|\\?|-|_|$)",
+     "^https?://(quiz|test|start|survey|go)\\."
+    ],
+    "html": [
+     "typeform\\.com",
+     "involve\\.me",
+     "heyflow",
+     "perspective\\.co",
+     "scoreapp",
+     "tryinteract\\.com",
+     "leadquizzes",
+     "quizell",
+     "inlead\\.digital",
+     "xquiz",
+     "outgrow\\.(co|us)",
+     "marquiz",
+     "funnelfox",
+     "quizify",
+     "class=\"[^\"]*quiz",
+     "id=\"[^\"]*quiz",
+     "data-(quiz|question|step)(-[a-z]+)?=",
+     "\"questions?\"\\s*:\\s*\\[",
+     "quiz[-_]?(step|question|progress|answer|option)"
+    ],
+    "texto": [
+     "(pregunta|paso)\\s+\\d+\\s+de\\s+\\d+",
+     "(question|step)\\s+\\d+\\s+of\\s+\\d+",
+     "domanda\\s+\\d+\\s+di\\s+\\d+",
+     "(frage|schritt)\\s+\\d+\\s+von\\s+\\d+",
+     "(question|étape)\\s+\\d+\\s+sur\\s+\\d+",
+     "(pergunta|etapa)\\s+\\d+\\s+de\\s+\\d+",
+     "\\b\\d+\\s*/\\s*\\d+\\b.{0,40}(pregunta|question|domanda|frage|pergunta)",
+     "(haz|hacer|empieza|empezar|comenzar|inicia)\\s+(el|tu)\\s+(test|quiz|cuestionario)",
+     "(take|start)\\s+(the|your|our)\\s+(free\\s+)?(\\d+[- ]?(second|minute|min)\\s+)?(quiz|test|assessment)",
+     "(fai|inizia)\\s+il\\s+(test|quiz)",
+     "(test|quiz)\\s+(starten|machen)",
+     "(faire|commencer|démarrer)\\s+le\\s+(test|quiz)",
+     "(faça|fazer|começar|iniciar)\\s+o\\s+(teste|quiz)",
+     "responde\\s+(a\\s+)?(estas\\s+)?\\d+\\s+preguntas",
+     "answer\\s+\\d+\\s+(quick\\s+)?questions",
+     "selecciona\\s+una\\s+opción",
+     "select\\s+(one|an)\\s+option"
+    ]
+   },
+   "no_confundir": "Un formulario de contacto o un selector de talla no es un quiz. Tiene que haber varias preguntas encadenadas y un resultado."
+  },
+  "registro": {
+   "nombre": "Registro previo (correo o teléfono antes de la oferta)",
+   "clase": "nucleo",
+   "peso": 0.3,
+   "que_es": "El funnel exige dejar correo, nombre o teléfono antes de mostrar el precio o el resultado.",
+   "senales_a_mano": [
+    "Campo de correo obligatorio antes de ver el precio",
+    "«Déjanos tu correo para ver tu resultado»",
+    "No deja seguir sin rellenarlo"
+   ],
+   "senales": {
+    "url": [
+     "/(optin|opt-in|registro|register|signup|sign-up|lead|anmeldung|inscription|cadastro|iscrizione)(/|\\?|-|$)"
+    ],
+    "html": [
+     "<input[^>]+type=[\"']email[\"']",
+     "<input[^>]+name=[\"'](email|e-mail|correo|telefono|phone|whatsapp)[\"']"
+    ],
+    "texto": [
+     "(déjanos|ingresa|introduce|escribe)\\s+tu\\s+(correo|email|e-mail)",
+     "enter\\s+your\\s+(best\\s+)?e-?mail",
+     "inserisci\\s+la\\s+tua\\s+e-?mail",
+     "e-?mail(-adresse)?\\s+eingeben",
+     "(entrez|saisissez)\\s+votre\\s+e-?mail",
+     "(digite|insira)\\s+seu\\s+(melhor\\s+)?e-?mail",
+     "(te\\s+enviamos|we'?ll\\s+send|ti\\s+inviamo)\\s+.{0,30}(resultado|results?|risultat)"
+    ]
+   },
+   "no_confundir": "El correo que pide el checkout para entregar el producto no cuenta: eso es el pago. Tampoco un boletín en el pie."
+  },
+  "vsl": {
+   "nombre": "Carta de ventas en video (VSL)",
+   "clase": "nucleo",
+   "peso": 0.8,
+   "que_es": "Un video largo es la página. El botón y el precio suelen aparecer pasado cierto minuto.",
+   "senales_a_mano": [
+    "Casi no hay texto: titular, video y poco más",
+    "El botón aparece después de un rato de reproducción",
+    "Reproductor sin barra de avance o con barra falsa"
+   ],
+   "senales": {
+    "url": [
+     "/(vsl|video|watch|ver|assistir|guarda|presentation|presentacion|apresentacao)(/|\\?|-|$)"
+    ],
+    "html": [
+     "converteai\\.net",
+     "vturb",
+     "smartplayer",
+     "pandavideo",
+     "vidalytics",
+     "fast\\.wistia",
+     "wistia\\.(com|net)",
+     "player\\.vimeo\\.com",
+     "youtube(-nocookie)?\\.com/embed",
+     "mediadelivery\\.net",
+     "voomly",
+     "<video[\\s>]"
+    ],
+    "html_demora": [
+     "data-(vturb-)?delay",
+     "smartplayer-call-action",
+     "class=\"[^\"]*(esconder|hidden-until|delay(ed)?-?(button|cta|content))",
+     "settimeout\\([^)]{0,200}\\b\\d{5,7}\\s*\\)",
+     "seconds_?to_?(show|display)|delay_?seconds|showafter|tempo_?(do_?)?botao"
+    ],
+    "texto": [
+     "(mira|ve|mirá)\\s+(el|este)\\s+video\\s+(hasta\\s+el\\s+final|completo|antes)",
+     "watch\\s+(the|this)\\s+(short\\s+|free\\s+)?(video|presentation)",
+     "guarda\\s+(il|questo)\\s+video",
+     "(schau|sieh)\\s+dir\\s+(das|dieses)\\s+video",
+     "regardez\\s+(la|cette)\\s+vidéo",
+     "assista\\s+(a|o|ao)\\s+(este\\s+)?vídeo",
+     "(activa|enciende|sube)\\s+(el|tu)\\s+(sonido|audio|volumen)",
+     "turn\\s+(on\\s+)?(your\\s+)?sound",
+     "clique\\s+para\\s+ouvir"
+    ]
+   },
+   "regla": "Hay reproductor Y (la página tiene pocas palabras visibles O hay señal de botón demorado). Con reproductor y mucho texto es `tsl` con el extra `video-apoyo`.",
+   "no_confundir": "Un video corto de demostración dentro de una página larga de texto es `video-apoyo`, no `vsl`."
+  },
+  "tsl": {
+   "nombre": "Carta de ventas en texto (TSL)",
+   "clase": "nucleo",
+   "peso": 0.25,
+   "que_es": "Página de venta en texto e imágenes, por secciones, con el precio y el botón de pago a la vista.",
+   "senales_a_mano": [
+    "Varias secciones de texto: promesa, qué incluye, bonus, garantía, preguntas frecuentes",
+    "Precio y botón visibles sin esperar"
+   ],
+   "senales": {
+    "url": [],
+    "html": [],
+    "texto": [
+     "garant[ií]a\\s+de\\s+\\d+\\s+d[ií]as",
+     "\\d+[- ]day\\s+(money[- ]back\\s+)?guarantee",
+     "garanzia\\s+(di\\s+)?\\d+\\s+giorni",
+     "\\d+\\s+tage\\s+(geld[- ]zurück[- ])?garantie",
+     "garantie\\s+(de\\s+)?\\d+\\s+jours",
+     "garantia\\s+de\\s+\\d+\\s+dias",
+     "preguntas\\s+frecuentes",
+     "frequently\\s+asked",
+     "domande\\s+frequenti",
+     "häufig(e)?\\s+gestellte\\s+fragen",
+     "questions\\s+fréquentes",
+     "perguntas\\s+frequentes",
+     "\\bbonus\\b",
+     "\\bbono\\b",
+     "\\bbônus\\b"
+    ]
+   },
+   "regla": "Página con precio o enlace de pago y al menos `palabras_tsl` palabras visibles, que no sea `vsl`.",
+   "no_confundir": "Si la página no cobra y manda a otra, es `advertorial`."
+  },
+  "webinar": {
+   "nombre": "Clase o webinar (en vivo o grabado)",
+   "clase": "nucleo",
+   "peso": 0.8,
+   "que_es": "La venta ocurre dentro de una clase a la que hay que apuntarse o que se ve a una hora.",
+   "senales_a_mano": [
+    "«Reserva tu lugar», fecha y hora",
+    "Sala de webinar con chat simulado"
+   ],
+   "senales": {
+    "url": [
+     "/(webinar|masterclass|clase|aula|training|workshop)(/|\\?|-|$)"
+    ],
+    "html": [
+     "webinarjam",
+     "everwebinar",
+     "easywebinar",
+     "demio\\.com",
+     "livestorm"
+    ],
+    "texto": [
+     "\\bwebinar\\b",
+     "\\bmasterclass\\b",
+     "clase\\s+(gratuita|gratis|en\\s+vivo)",
+     "free\\s+(training|masterclass|workshop|class)",
+     "aula\\s+gratuita",
+     "reserva\\s+tu\\s+(lugar|plaza|cupo)",
+     "save\\s+my\\s+(seat|spot)"
+    ]
+   },
+   "no_confundir": "Poco habitual en productos de bajo precio; si aparece, casi siempre vende un curso con acompañamiento (fuera del recorrido)."
+  },
+  "chat": {
+   "nombre": "Cierre por conversación (WhatsApp o Messenger)",
+   "clase": "nucleo",
+   "peso": 0.3,
+   "que_es": "El botón no lleva a un checkout sino a una conversación donde se cierra la venta.",
+   "senales_a_mano": [
+    "El botón principal abre WhatsApp o Messenger"
+   ],
+   "senales": {
+    "url": [
+     "^https?://(wa\\.me|api\\.whatsapp\\.com|m\\.me|chat\\.whatsapp\\.com)/"
+    ],
+    "html": [],
+    "texto": []
+   },
+   "regla": "Solo cuenta si la salida principal del funnel es el enlace de conversación (no un botón de soporte).",
+   "no_confundir": "Un botón flotante de «ayuda por WhatsApp» junto a un checkout normal no es este componente."
+  },
+  "video-apoyo": {
+   "nombre": "Video corto de apoyo",
+   "clase": "extra",
+   "peso": 0.25,
+   "que_es": "Video corto (demostración, hojeo del producto) dentro de una carta de ventas en texto.",
+   "senales_a_mano": [
+    "Video de menos de 2-3 minutos arriba de una página larga de texto, con precio y botón visibles desde el principio"
+   ],
+   "senales": {
+    "url": [],
+    "html": [],
+    "texto": []
+   },
+   "regla": "Lo asigna el clasificador cuando hay reproductor y la página es `tsl`."
+  },
+  "bump": {
+   "nombre": "Complemento en el checkout (order bump)",
+   "clase": "extra",
+   "peso": 0.0,
+   "que_es": "Casilla dentro del checkout que añade otro producto al pedido.",
+   "senales_a_mano": [
+    "Casilla «Sí, quiero añadir…» con precio dentro del checkout"
+   ],
+   "senales": {
+    "url": [],
+    "html": [
+     "order[-_ ]?bump",
+     "orderbump",
+     "class=\"[^\"]*bump"
+    ],
+    "texto": [
+     "s[ií],?\\s+quiero\\s+(añadir|agregar|sumar)",
+     "(añadir|agregar)\\s+a\\s+mi\\s+pedido",
+     "yes,?\\s+(add|i\\s+want)",
+     "add\\s+to\\s+my\\s+order",
+     "aggiungi\\s+al\\s+(mio\\s+)?ordine",
+     "zu\\s+meiner\\s+bestellung\\s+hinzufügen",
+     "ajouter\\s+à\\s+ma\\s+commande",
+     "(adicionar|quero\\s+adicionar)\\s+(ao|no)\\s+(meu\\s+)?pedido",
+     "sim,?\\s+(eu\\s+)?quero"
+    ]
+   },
+   "regla": "Solo se busca en la página de checkout. Muchos checkouts lo pintan con JavaScript: si no se ve en la descarga, es «no observado», no «no tiene»."
+  },
+  "upsell": {
+   "nombre": "Oferta posterior a la compra (upsell)",
+   "clase": "extra",
+   "peso": 0.0,
+   "que_es": "Oferta de un clic después de pagar.",
+   "senales_a_mano": [
+    "Solo se ve comprando; a veces la URL está enlazada o indexada (/upsell, /oto)"
+   ],
+   "senales": {
+    "url": [
+     "/(upsell|up-sell|oto\\d*|one-time-offer|oferta-unica|upgrade|special-offer)(/|\\?|-|$)"
+    ],
+    "html": [],
+    "texto": [
+     "(espera|un\\s+momento)[!,.]?\\s+tu\\s+pedido\\s+(aún\\s+)?no\\s+está\\s+completo",
+     "wait[!,.]?\\s+your\\s+order\\s+is\\s+not\\s+(yet\\s+)?complete",
+     "aspetta[!,.]?\\s+il\\s+tuo\\s+ordine\\s+non\\s+è\\s+(ancora\\s+)?completo"
+    ]
+   },
+   "regla": "Casi siempre «no observado»: no se compra para verlo."
+  },
+  "downsell": {
+   "nombre": "Rebaja tras rechazar (downsell)",
+   "clase": "extra",
+   "peso": 0.0,
+   "que_es": "Oferta más barata cuando se rechaza el upsell o se intenta salir.",
+   "senales_a_mano": [
+    "Ventana al intentar salir con un precio menor",
+    "Página /downsell"
+   ],
+   "senales": {
+    "url": [
+     "/(downsell|down-sell|last-chance|ultima-oportunidad)(/|\\?|-|$)"
+    ],
+    "html": [
+     "exit[-_ ]?intent",
+     "exit[-_ ]?popup"
+    ],
+    "texto": []
+   }
+  },
+  "niveles": {
+   "nombre": "Niveles de precio",
+   "clase": "extra",
+   "peso": 0.35,
+   "que_es": "Dos o más paquetes con precio distinto en la misma página (básico y completo, por ejemplo).",
+   "senales_a_mano": [
+    "Dos o tres tarjetas de precio lado a lado",
+    "Dos botones que van a checkouts distintos"
+   ],
+   "senales": {
+    "url": [],
+    "html": [],
+    "texto": [
+     "(plan|paquete|pack|kit|versión)\\s+(básico|esencial|completo|premium|pro|vip)",
+     "(basic|essential|complete|premium|pro|vip)\\s+(plan|package|pack|bundle|kit|version)",
+     "(pacchetto|piano|kit)\\s+(base|completo|premium)",
+     "(basis|komplett|premium)[- ]?(paket|plan)",
+     "(pack|offre|formule)\\s+(essentiel(le)?|compl[eè]te?|premium)",
+     "(plano|pacote|kit)\\s+(básico|essencial|completo|premium)"
+    ]
+   },
+   "regla": "El clasificador lo marca si hay dos o más enlaces de pago distintos o texto de planes con dos precios distintos."
+  },
+  "paginas-por-publico": {
+   "nombre": "Páginas por público o por idioma",
+   "clase": "extra",
+   "peso": 0.1,
+   "que_es": "La misma oferta con varias landings según público (padres, docentes) o idioma.",
+   "senales_a_mano": [
+    "Rutas /en/, /de/, /it/ o /padres, /docentes con la misma estructura",
+    "Los anuncios de la oferta apuntan a varias rutas"
+   ],
+   "senales": {
+    "url": [],
+    "html": [
+     "<link[^>]+hreflang="
+    ],
+    "texto": []
+   },
+   "regla": "Se confirma mirando a qué rutas apuntan los anuncios; el clasificador solo lo sugiere si hay varias etiquetas hreflang."
+  },
+  "ruleta": {
+   "nombre": "Ruleta o juego de descuento",
+   "clase": "extra",
+   "peso": 0.1,
+   "que_es": "Mini juego (ruleta, raspadita, cajas) que «regala» el descuento antes del precio.",
+   "senales_a_mano": [
+    "Ruleta que gira y siempre cae en el mismo descuento"
+   ],
+   "senales": {
+    "url": [],
+    "html": [
+     "spin[-_ ]?wheel",
+     "wheel[-_ ]?of[-_ ]?fortune",
+     "class=\"[^\"]*(roleta|ruleta|roulette|scratch)"
+    ],
+    "texto": [
+     "gira\\s+la\\s+ruleta",
+     "spin\\s+the\\s+wheel",
+     "gire\\s+a\\s+roleta",
+     "gira\\s+la\\s+ruota",
+     "glücksrad",
+     "tournez\\s+la\\s+roue"
+    ]
+   },
+   "regla": "Si el premio es siempre el mismo es un descuento inventado: se anota, y al modelar se trata como en 00-reglas-del-dueno.md §2."
+  },
+  "subida-previa": {
+   "nombre": "Subida antes de pagar (oferta intermedia)",
+   "clase": "extra",
+   "peso": 0.0,
+   "que_es": "Al elegir el paquete barato, antes de llegar al checkout, se abre una ventana que ofrece el paquete caro con descuento («llévate el completo por X más»). Tiene su propio enlace de pago. A veces también se abre por intención de salida.",
+   "senales_a_mano": [
+    "Tocar el botón del paquete barato: si no va directo al checkout y se abre una ventana con otro precio, es esto",
+    "Leer el .js de la página: buscar un tercer enlace de pago y funciones tipo openModal en el clic del paquete barato"
+   ],
+   "senales": {
+    "url": [],
+    "html": [
+     "upgrade[-_ ]?modal",
+     "data-basic-continue",
+     "modal-(card|price|kicker)",
+     "mouseout"
+    ],
+    "texto": [
+     "only on this page",
+     "just \\$\\d+ more",
+     "get (complete|the full|premium) for",
+     "no thanks,? continue with",
+     "solo en esta p[aá]gina",
+     "por (solo )?\\$?\\d+ m[aá]s",
+     "no,? gracias,? (sigo|contin[uú]o) con",
+     "solo in questa pagina",
+     "nur auf dieser seite",
+     "seulement sur cette page",
+     "s[oó] nesta p[aá]gina"
+    ]
+   },
+   "regla": "Se ve recién al tocar el botón del paquete barato o leyendo el script. Distinto del bump (dentro del checkout) y del upsell (después de pagar). Si se modela, el precio rebajado se cobra de verdad y el rótulo tiene que ser cierto."
+  }
+ },
+ "senales_generales": {
+  "checkout_dominios": [
+   "pay.hotmart.com",
+   "go.hotmart.com",
+   "hotmart.com/product",
+   "pay.kiwify.com",
+   "kiwify.app",
+   "pay.cakto.com.br",
+   "cakto.com.br",
+   "perfectpay.com.br",
+   "monetizze.com.br",
+   "eduzz.com",
+   "braip.com",
+   "ticto.com.br",
+   "ticto.app",
+   "kirvano.com",
+   "lastlink.com",
+   "pepper.com.br",
+   "yampi.com.br",
+   "cartpanda.com",
+   "mycartpanda.com",
+   "buy.stripe.com",
+   "checkout.stripe.com",
+   "paypal.com",
+   "thrivecart.com",
+   "samcart.com",
+   "clickbank.net",
+   "digistore24.com",
+   "copecart.com",
+   "gumroad.com",
+   "payhip.com",
+   "sendowl.com",
+   "whop.com",
+   "buygoods.com",
+   "checkoutchamp.com",
+   "funnelish.com",
+   "systeme.io",
+   "payt.com.br",
+   "greenn.com.br",
+   "mundpay.com",
+   "nexuspag.com",
+   "payfast",
+   "impultienda.ar/checkout",
+   "/checkout",
+   "/checkouts/",
+   "/cart",
+   "/carrito",
+   "/pagar",
+   "/pago",
+   "/order",
+   "/kasse",
+   "/commande",
+   "add-to-cart="
+  ],
+  "precio": [
+   "(?:us\\$|\\$|€|£|r\\$|mxn|usd|eur|zł|chf)\\s?\\d{1,4}(?:[.,]\\d{2})?",
+   "\\d{1,4}(?:[.,]\\d{2})?\\s?(?:€|usd|eur|mxn|zł|chf|pesos|reais|euros?|dólares)"
+  ],
+  "suscripcion": [
+   "free\\s+trial",
+   "\\d+[- ]day\\s+trial",
+   "prueba\\s+(gratis|gratuita)\\s+de\\s+\\d+",
+   "per\\s+(week|month)",
+   "/\\s?(week|month|mo|wk|mes|semana|mese|monat|mois|mês)\\b",
+   "(por|al)\\s+(mes|semana)",
+   "al\\s+mese",
+   "pro\\s+(monat|woche)",
+   "par\\s+(mois|semaine)",
+   "por\\s+(mês|semana)",
+   "se\\s+renueva",
+   "renews?\\s+(automatically|at|every)",
+   "auto[- ]?renew",
+   "cancel\\s+any\\s?time",
+   "cancela\\s+cuando\\s+quieras",
+   "subscription",
+   "suscripción",
+   "abbonamento",
+   "\\babo(nnement)?\\b",
+   "assinatura"
+  ],
+  "antibot": [
+   "just a moment",
+   "attention required",
+   "verifying you are human",
+   "verify you are human",
+   "checking your browser",
+   "enable javascript and cookies",
+   "access denied",
+   "captcha"
+  ],
+  "enlaces_que_no_son_salida": [
+   "privacy",
+   "privacidad",
+   "privacidade",
+   "datenschutz",
+   "confidentialit",
+   "terms",
+   "terminos",
+   "términos",
+   "termos",
+   "agb",
+   "cgv",
+   "impressum",
+   "legal",
+   "cookies",
+   "contact",
+   "contacto",
+   "kontakt",
+   "login",
+   "signin",
+   "account",
+   "mailto:",
+   "tel:",
+   "javascript:",
+   "#",
+   "facebook.com",
+   "instagram.com",
+   "tiktok.com",
+   "youtube.com",
+   "twitter.com",
+   "x.com",
+   "linkedin.com",
+   "pinterest.",
+   "apps.apple.com",
+   "play.google.com"
+  ],
+  "texto_de_boton": [
+   "quiero",
+   "comprar",
+   "obtener",
+   "acceder",
+   "empezar",
+   "comenzar",
+   "continuar",
+   "siguiente",
+   "descargar",
+   "sí",
+   "get",
+   "buy",
+   "start",
+   "continue",
+   "next",
+   "yes",
+   "claim",
+   "order",
+   "download",
+   "unlock",
+   "voglio",
+   "acquista",
+   "inizia",
+   "continua",
+   "scarica",
+   "ottieni",
+   "jetzt",
+   "kaufen",
+   "starten",
+   "weiter",
+   "sichern",
+   "bestellen",
+   "je veux",
+   "acheter",
+   "commencer",
+   "continuer",
+   "obtenir",
+   "télécharger",
+   "quero",
+   "comprar",
+   "começar",
+   "garantir",
+   "baixar",
+   "acessar"
+  ]
+ },
+ "tipos": {
+  "tsl": {
+   "componentes": [
+    "tsl"
+   ],
+   "estado": "base",
+   "descripcion": "Carta de ventas en texto → checkout. Con el extra `video-apoyo` es el antiguo `tsl-video`.",
+   "ejemplos": [
+    {
+     "pagina": "Referente B · Teen Referente B",
+     "url": "https://referente99.com/en/",
+     "fecha": "2026-11-11",
+     "nota": "tsl con niveles; modelada como «Oferta B»"
+    },
+    {
+     "pagina": "ReferenteA",
+     "url": null,
+     "fecha": "2026-11-10",
+     "nota": "tsl con video-apoyo; modelada como «Oferta A»"
+    }
+   ]
+  },
+  "vsl": {
+   "componentes": [
+    "vsl"
+   ],
+   "estado": "base",
+   "descripcion": "Carta de ventas en video → checkout.",
+   "ejemplos": [
+    {
+     "pagina": "Elias Lelles · Protocolo P4",
+     "url": "https://referente259.com/",
+     "fecha": "2026-11-11",
+     "nota": "verificado a mano: página de 16 palabras con un video de 36:36 (vturb), compra oculta hasta que avanza el video, botón a Hotmart; el bump lo leyó el clasificador en el checkout"
+    }
+   ]
+  },
+  "quiz": {
+   "componentes": [
+    "quiz"
+   ],
+   "estado": "base",
+   "descripcion": "Quiz → oferta breve o checkout directo, sin carta de ventas larga después.",
+   "ejemplos": [
+    {
+     "pagina": "Muses Academy (Evelyn Taylor y otras 3 páginas)",
+     "url": "https://referente268.com/",
+     "fecha": "2026-11-11",
+     "nota": "verificado a mano la primera pantalla: quiz que personaliza una suscripción; ~1.400 anuncios activos"
+    }
+   ]
+  },
+  "advertorial+tsl": {
+   "componentes": [
+    "advertorial",
+    "tsl"
+   ],
+   "estado": "base",
+   "descripcion": "Página puente o artículo → carta de ventas en texto → checkout. Es el antiguo `varios-pasos`.",
+   "ejemplos": []
+  },
+  "quiz+tsl": {
+   "componentes": [
+    "quiz",
+    "tsl"
+   ],
+   "estado": "nuevo-a-confirmar",
+   "descripcion": "Quiz → página de resultado que es una carta de ventas en texto. Nombrado por el dueño el 2026-11-11.",
+   "ejemplos": [
+    {
+     "pagina": "André Vogt · Hundetrainer",
+     "url": "https://referente262.com/akq/quiz",
+     "fecha": "2026-11-11",
+     "nota": "clasificación automática sobre el HTML servido (quiz y carta de ventas de 3.054 palabras con precio y video); a mano solo se vio la primera pantalla del quiz"
+    }
+   ],
+   "origen": {
+    "pagina": "André Vogt · Hundetrainer",
+    "url": "https://referente262.com/akq/quiz",
+    "fecha": "2026-11-11",
+    "nota": "clasificación automática sobre el HTML servido (quiz y carta de ventas de 3.054 palabras con precio y video); a mano solo se vio la primera pantalla del quiz"
+   }
+  },
+  "quiz+vsl": {
+   "componentes": [
+    "quiz",
+    "vsl"
+   ],
+   "estado": "nuevo-a-confirmar",
+   "descripcion": "Quiz → resultado con carta de ventas en video. Nombrado por el dueño el 2026-11-11.",
+   "ejemplos": [
+    {
+     "pagina": "Referente",
+     "url": "https://referente128.com/",
+     "fecha": "2026-11-11",
+     "nota": "verificado a mano: quiz de unas 10 preguntas con pantallas intermedias → video de 2 minutos (reproductor vturb, botón demorado) → checkout de Hotmart; 51 anuncios activos, el más antiguo de hace 134 días"
+    },
+    {
+     "pagina": "Referente",
+     "url": "https://inlead.digital/novo-shape-em-v-fernando-cantarelli/",
+     "fecha": "2026-11-11",
+     "nota": "verificado a mano el final: quiz en inlead.digital → video de 6:08 (vturb) sin precio a la vista"
+    }
+   ],
+   "origen": {
+    "pagina": "Referente",
+    "url": "https://referente128.com/",
+    "fecha": "2026-11-11",
+    "nota": "verificado a mano: quiz de unas 10 preguntas con pantallas intermedias → video de 2 minutos (reproductor vturb, botón demorado) → checkout de Hotmart; 51 anuncios activos, el más antiguo de hace 134 días"
+   }
+  },
+  "advertorial+vsl": {
+   "componentes": [
+    "advertorial",
+    "vsl"
+   ],
+   "estado": "previsto",
+   "descripcion": "Artículo o página puente → carta de ventas en video.",
+   "ejemplos": []
+  },
+  "advertorial+quiz": {
+   "componentes": [
+    "advertorial",
+    "quiz"
+   ],
+   "estado": "nuevo-a-confirmar",
+   "descripcion": "Página puente o advertorial → Quiz o test.",
+   "origen": {
+    "pagina": "Referente",
+    "url": "https://referente295.com/",
+    "fecha": "2026-11-11",
+    "nota": "clasificación automática, confianza media; sin verificar a mano; 7 anuncios (no pasa el piso)"
+   },
+   "ejemplos": [
+    {
+     "pagina": "Referente",
+     "url": "https://referente295.com/",
+     "fecha": "2026-11-11",
+     "nota": "clasificación automática, confianza media; sin verificar a mano; 7 anuncios (no pasa el piso)"
+    }
+   ]
+  },
+  "registro": {
+   "componentes": [
+    "registro"
+   ],
+   "estado": "nuevo-a-confirmar",
+   "descripcion": "Registro previo (correo o teléfono antes de la oferta).",
+   "origen": {
+    "pagina": "Referente",
+    "url": "https://referente292.com/",
+    "fecha": "2026-11-11",
+    "nota": "clasificación automática, confianza media: página que pide el correo para entregar un ebook; lo que sigue no se observa sin enviar datos; 8 anuncios (no pasa el piso)"
+   },
+   "ejemplos": [
+    {
+     "pagina": "Referente",
+     "url": "https://referente292.com/",
+     "fecha": "2026-11-11",
+     "nota": "clasificación automática, confianza media: página que pide el correo para entregar un ebook; lo que sigue no se observa sin enviar datos; 8 anuncios (no pasa el piso)"
+    }
+   ]
+  }
+ },
+ "alias": {
+  "tsl-basica": {
+   "tipo": "tsl",
+   "extras": [],
+   "nota": "Nombre anterior a la taxonomía; lo usa ofertas/historial-modelado.json."
+  },
+  "tsl-video": {
+   "tipo": "tsl",
+   "extras": [
+    "video-apoyo"
+   ],
+   "nota": "Nombre anterior a la taxonomía; lo usa ofertas/historial-modelado.json."
+  },
+  "varios-pasos": {
+   "tipo": "advertorial+tsl",
+   "extras": [],
+   "piso_complejidad": 0.8,
+   "nota": "Nombre anterior: «puente → venta → checkout con bump → upsell». Conserva su valor de 0.80; al clasificar de nuevo, anotar los componentes reales."
+  }
+ }
+}

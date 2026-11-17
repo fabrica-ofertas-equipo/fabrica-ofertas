@@ -1,0 +1,1047 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "manifiesto_tanda",
+  "demostracion": true,
+  "oferta_id": "OF-202611-91",
+  "locale": "pl-PL",
+  "tanda_id": "tanda-2026-11-08_pl-PL",
+  "generado_en": "2026-11-08T07:00:00Z",
+  "semilla": "demo-OF-202611-91-2026-11-08",
+  "semilla_origen": "explicita",
+  "semilla_entero": 780241021076095148,
+  "consigna_version": "0.1.0",
+  "consigna_sha256": "877623a6be01653a091555573ed0273f5778ed49cb17f5f349ad5717358453d0",
+  "entradas": {
+    "avatares_sha256": "916a83520a13609445419aa5f03af0efd45bd4d88f01fbd34e62a9e829757728",
+    "piezas_sha256": "d0677801593cda30b87d12a7a85eb891f4a13cebac9a63a68e834d7618ddb77b",
+    "anclas_sha256": "caa71bcfafebc038089509866ef7b311b8bed9e7ee8ce374569b32fdd84701b7"
+  },
+  "avatares": [
+    "av-pl-PL-01",
+    "av-pl-PL-02",
+    "av-pl-PL-03",
+    "av-pl-PL-04",
+    "av-pl-PL-05",
+    "av-pl-PL-06",
+    "av-pl-PL-07",
+    "av-pl-PL-08",
+    "av-pl-PL-09",
+    "av-pl-PL-10"
+  ],
+  "avatar_baseline": "av-pl-PL-rubrica",
+  "n_piezas": 11,
+  "n_anclas": 2,
+  "n_llamadas": 143,
+  "max_llamadas": 200,
+  "reactivado_por": null,
+  "anclas": {
+    "ganadoras": 1,
+    "perdedoras": 1,
+    "medidas": 0,
+    "control_sintetico": 2
+  },
+  "hash_orden": "2525ef37815dc7d681e2a59ca3d82e5f4e3e3255ab38985aef199ba56a9be4f0",
+  "orden_llamadas": [
+    {
+      "n": 1,
+      "paquete_id": "K-c695eb24",
+      "archivo": "ciego/paquete-001.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 2,
+      "paquete_id": "K-94b55ceb",
+      "archivo": "ciego/paquete-002.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 3,
+      "paquete_id": "K-31f88c9a",
+      "archivo": "ciego/paquete-003.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 4,
+      "paquete_id": "K-09f0af28",
+      "archivo": "ciego/paquete-004.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 5,
+      "paquete_id": "K-a255c403",
+      "archivo": "ciego/paquete-005.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 6,
+      "paquete_id": "K-a6319958",
+      "archivo": "ciego/paquete-006.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 7,
+      "paquete_id": "K-d29116c3",
+      "archivo": "ciego/paquete-007.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 8,
+      "paquete_id": "K-c88cd668",
+      "archivo": "ciego/paquete-008.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 9,
+      "paquete_id": "K-1e42e58b",
+      "archivo": "ciego/paquete-009.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 10,
+      "paquete_id": "K-502eb606",
+      "archivo": "ciego/paquete-010.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 11,
+      "paquete_id": "K-050dd79a",
+      "archivo": "ciego/paquete-011.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 12,
+      "paquete_id": "K-9e1d44cd",
+      "archivo": "ciego/paquete-012.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 13,
+      "paquete_id": "K-5105dc2e",
+      "archivo": "ciego/paquete-013.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 14,
+      "paquete_id": "K-f9f75328",
+      "archivo": "ciego/paquete-014.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 15,
+      "paquete_id": "K-ba1e3e05",
+      "archivo": "ciego/paquete-015.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 16,
+      "paquete_id": "K-197cafd1",
+      "archivo": "ciego/paquete-016.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 17,
+      "paquete_id": "K-17474052",
+      "archivo": "ciego/paquete-017.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 18,
+      "paquete_id": "K-21921eb6",
+      "archivo": "ciego/paquete-018.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 19,
+      "paquete_id": "K-b8eb8909",
+      "archivo": "ciego/paquete-019.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 20,
+      "paquete_id": "K-d710523f",
+      "archivo": "ciego/paquete-020.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 21,
+      "paquete_id": "K-7b0b9382",
+      "archivo": "ciego/paquete-021.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 22,
+      "paquete_id": "K-b5ab49f0",
+      "archivo": "ciego/paquete-022.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 23,
+      "paquete_id": "K-cf902d64",
+      "archivo": "ciego/paquete-023.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 24,
+      "paquete_id": "K-8adb606f",
+      "archivo": "ciego/paquete-024.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 25,
+      "paquete_id": "K-bf8cfa3d",
+      "archivo": "ciego/paquete-025.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 26,
+      "paquete_id": "K-252e11c9",
+      "archivo": "ciego/paquete-026.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 27,
+      "paquete_id": "K-7ded8013",
+      "archivo": "ciego/paquete-027.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 28,
+      "paquete_id": "K-1a64e921",
+      "archivo": "ciego/paquete-028.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 29,
+      "paquete_id": "K-14baa6ad",
+      "archivo": "ciego/paquete-029.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 30,
+      "paquete_id": "K-d2f02ce7",
+      "archivo": "ciego/paquete-030.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 31,
+      "paquete_id": "K-53c35047",
+      "archivo": "ciego/paquete-031.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 32,
+      "paquete_id": "K-72368a87",
+      "archivo": "ciego/paquete-032.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 33,
+      "paquete_id": "K-6962688e",
+      "archivo": "ciego/paquete-033.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 34,
+      "paquete_id": "K-460309be",
+      "archivo": "ciego/paquete-034.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 35,
+      "paquete_id": "K-1a11d698",
+      "archivo": "ciego/paquete-035.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 36,
+      "paquete_id": "K-3274f46e",
+      "archivo": "ciego/paquete-036.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 37,
+      "paquete_id": "K-62cdfd88",
+      "archivo": "ciego/paquete-037.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 38,
+      "paquete_id": "K-cbf830dd",
+      "archivo": "ciego/paquete-038.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 39,
+      "paquete_id": "K-2b540e70",
+      "archivo": "ciego/paquete-039.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 40,
+      "paquete_id": "K-662a2c2b",
+      "archivo": "ciego/paquete-040.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 41,
+      "paquete_id": "K-39c07b7d",
+      "archivo": "ciego/paquete-041.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 42,
+      "paquete_id": "K-b8735c59",
+      "archivo": "ciego/paquete-042.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 43,
+      "paquete_id": "K-51c59fda",
+      "archivo": "ciego/paquete-043.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 44,
+      "paquete_id": "K-364aa53f",
+      "archivo": "ciego/paquete-044.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 45,
+      "paquete_id": "K-0e023c4b",
+      "archivo": "ciego/paquete-045.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 46,
+      "paquete_id": "K-03e25e4a",
+      "archivo": "ciego/paquete-046.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 47,
+      "paquete_id": "K-24ca50bc",
+      "archivo": "ciego/paquete-047.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 48,
+      "paquete_id": "K-b5f0bb5a",
+      "archivo": "ciego/paquete-048.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 49,
+      "paquete_id": "K-85e6cf20",
+      "archivo": "ciego/paquete-049.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 50,
+      "paquete_id": "K-fc60b487",
+      "archivo": "ciego/paquete-050.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 51,
+      "paquete_id": "K-fed89140",
+      "archivo": "ciego/paquete-051.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 52,
+      "paquete_id": "K-2cd4a5ef",
+      "archivo": "ciego/paquete-052.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 53,
+      "paquete_id": "K-c8eed1da",
+      "archivo": "ciego/paquete-053.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 54,
+      "paquete_id": "K-d2496063",
+      "archivo": "ciego/paquete-054.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 55,
+      "paquete_id": "K-f75563e2",
+      "archivo": "ciego/paquete-055.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 56,
+      "paquete_id": "K-fcb41b46",
+      "archivo": "ciego/paquete-056.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 57,
+      "paquete_id": "K-26bff2a9",
+      "archivo": "ciego/paquete-057.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 58,
+      "paquete_id": "K-34c89811",
+      "archivo": "ciego/paquete-058.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 59,
+      "paquete_id": "K-52736f15",
+      "archivo": "ciego/paquete-059.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 60,
+      "paquete_id": "K-0a611ecb",
+      "archivo": "ciego/paquete-060.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 61,
+      "paquete_id": "K-07d136b3",
+      "archivo": "ciego/paquete-061.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 62,
+      "paquete_id": "K-5d728bd3",
+      "archivo": "ciego/paquete-062.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 63,
+      "paquete_id": "K-4847bbcd",
+      "archivo": "ciego/paquete-063.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 64,
+      "paquete_id": "K-ea8bdd4a",
+      "archivo": "ciego/paquete-064.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 65,
+      "paquete_id": "K-deeab025",
+      "archivo": "ciego/paquete-065.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 66,
+      "paquete_id": "K-9bc43252",
+      "archivo": "ciego/paquete-066.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 67,
+      "paquete_id": "K-56074364",
+      "archivo": "ciego/paquete-067.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 68,
+      "paquete_id": "K-32ea39c4",
+      "archivo": "ciego/paquete-068.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 69,
+      "paquete_id": "K-ed06c0ce",
+      "archivo": "ciego/paquete-069.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 70,
+      "paquete_id": "K-7d442eab",
+      "archivo": "ciego/paquete-070.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 71,
+      "paquete_id": "K-80a3b662",
+      "archivo": "ciego/paquete-071.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 72,
+      "paquete_id": "K-bcf723a3",
+      "archivo": "ciego/paquete-072.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 73,
+      "paquete_id": "K-965c923b",
+      "archivo": "ciego/paquete-073.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 74,
+      "paquete_id": "K-cd1befd1",
+      "archivo": "ciego/paquete-074.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 75,
+      "paquete_id": "K-6dabc4d6",
+      "archivo": "ciego/paquete-075.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 76,
+      "paquete_id": "K-853fd821",
+      "archivo": "ciego/paquete-076.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 77,
+      "paquete_id": "K-c401a166",
+      "archivo": "ciego/paquete-077.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 78,
+      "paquete_id": "K-ee7914f3",
+      "archivo": "ciego/paquete-078.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 79,
+      "paquete_id": "K-3800e0b9",
+      "archivo": "ciego/paquete-079.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 80,
+      "paquete_id": "K-cffc490f",
+      "archivo": "ciego/paquete-080.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 81,
+      "paquete_id": "K-e73aa247",
+      "archivo": "ciego/paquete-081.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 82,
+      "paquete_id": "K-1f86f736",
+      "archivo": "ciego/paquete-082.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 83,
+      "paquete_id": "K-24d72ae6",
+      "archivo": "ciego/paquete-083.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 84,
+      "paquete_id": "K-c3012217",
+      "archivo": "ciego/paquete-084.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 85,
+      "paquete_id": "K-a24e244c",
+      "archivo": "ciego/paquete-085.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 86,
+      "paquete_id": "K-5e93c1d6",
+      "archivo": "ciego/paquete-086.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 87,
+      "paquete_id": "K-5bc35618",
+      "archivo": "ciego/paquete-087.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 88,
+      "paquete_id": "K-2c3f5540",
+      "archivo": "ciego/paquete-088.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 89,
+      "paquete_id": "K-116610e9",
+      "archivo": "ciego/paquete-089.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 90,
+      "paquete_id": "K-3535e762",
+      "archivo": "ciego/paquete-090.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 91,
+      "paquete_id": "K-8d75310e",
+      "archivo": "ciego/paquete-091.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 92,
+      "paquete_id": "K-9d0a8c67",
+      "archivo": "ciego/paquete-092.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 93,
+      "paquete_id": "K-7d2ae430",
+      "archivo": "ciego/paquete-093.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 94,
+      "paquete_id": "K-db814229",
+      "archivo": "ciego/paquete-094.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 95,
+      "paquete_id": "K-5bdf89b1",
+      "archivo": "ciego/paquete-095.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 96,
+      "paquete_id": "K-01c69bdc",
+      "archivo": "ciego/paquete-096.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 97,
+      "paquete_id": "K-6dd502d9",
+      "archivo": "ciego/paquete-097.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 98,
+      "paquete_id": "K-6c804882",
+      "archivo": "ciego/paquete-098.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 99,
+      "paquete_id": "K-ace8de35",
+      "archivo": "ciego/paquete-099.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 100,
+      "paquete_id": "K-1c7a302a",
+      "archivo": "ciego/paquete-100.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 101,
+      "paquete_id": "K-827d477d",
+      "archivo": "ciego/paquete-101.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 102,
+      "paquete_id": "K-4e58ee22",
+      "archivo": "ciego/paquete-102.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 103,
+      "paquete_id": "K-ad2056c7",
+      "archivo": "ciego/paquete-103.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 104,
+      "paquete_id": "K-8968c439",
+      "archivo": "ciego/paquete-104.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-a18b16c7"
+    },
+    {
+      "n": 105,
+      "paquete_id": "K-62f96b3c",
+      "archivo": "ciego/paquete-105.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 106,
+      "paquete_id": "K-89c3bab0",
+      "archivo": "ciego/paquete-106.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 107,
+      "paquete_id": "K-496063bf",
+      "archivo": "ciego/paquete-107.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 108,
+      "paquete_id": "K-8046b004",
+      "archivo": "ciego/paquete-108.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 109,
+      "paquete_id": "K-c1beb17b",
+      "archivo": "ciego/paquete-109.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 110,
+      "paquete_id": "K-a8d6b520",
+      "archivo": "ciego/paquete-110.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 111,
+      "paquete_id": "K-35af5d65",
+      "archivo": "ciego/paquete-111.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 112,
+      "paquete_id": "K-53c36053",
+      "archivo": "ciego/paquete-112.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 113,
+      "paquete_id": "K-f8329e35",
+      "archivo": "ciego/paquete-113.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 114,
+      "paquete_id": "K-c320d615",
+      "archivo": "ciego/paquete-114.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-0d58c6e1"
+    },
+    {
+      "n": 115,
+      "paquete_id": "K-355d1c79",
+      "archivo": "ciego/paquete-115.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 116,
+      "paquete_id": "K-d5480ca9",
+      "archivo": "ciego/paquete-116.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 117,
+      "paquete_id": "K-37c6891b",
+      "archivo": "ciego/paquete-117.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 118,
+      "paquete_id": "K-b801f919",
+      "archivo": "ciego/paquete-118.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 119,
+      "paquete_id": "K-16b795db",
+      "archivo": "ciego/paquete-119.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 120,
+      "paquete_id": "K-86e054c9",
+      "archivo": "ciego/paquete-120.json",
+      "avatar_id": "av-pl-PL-09",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 121,
+      "paquete_id": "K-1803993d",
+      "archivo": "ciego/paquete-121.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 122,
+      "paquete_id": "K-51f649fe",
+      "archivo": "ciego/paquete-122.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 123,
+      "paquete_id": "K-080a54ae",
+      "archivo": "ciego/paquete-123.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 124,
+      "paquete_id": "K-de33f663",
+      "archivo": "ciego/paquete-124.json",
+      "avatar_id": "av-pl-PL-01",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 125,
+      "paquete_id": "K-bc548e32",
+      "archivo": "ciego/paquete-125.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-09b4c9f6"
+    },
+    {
+      "n": 126,
+      "paquete_id": "K-9c74676a",
+      "archivo": "ciego/paquete-126.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-81c2a4de"
+    },
+    {
+      "n": 127,
+      "paquete_id": "K-cb43da6f",
+      "archivo": "ciego/paquete-127.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 128,
+      "paquete_id": "K-e1d76711",
+      "archivo": "ciego/paquete-128.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 129,
+      "paquete_id": "K-312997ae",
+      "archivo": "ciego/paquete-129.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-cc921263"
+    },
+    {
+      "n": 130,
+      "paquete_id": "K-0859caae",
+      "archivo": "ciego/paquete-130.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 131,
+      "paquete_id": "K-8d0f75eb",
+      "archivo": "ciego/paquete-131.json",
+      "avatar_id": "av-pl-PL-05",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 132,
+      "paquete_id": "K-b7c3dd2b",
+      "archivo": "ciego/paquete-132.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-23f79062"
+    },
+    {
+      "n": 133,
+      "paquete_id": "K-07a55d64",
+      "archivo": "ciego/paquete-133.json",
+      "avatar_id": "av-pl-PL-rubrica",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 134,
+      "paquete_id": "K-c431c48a",
+      "archivo": "ciego/paquete-134.json",
+      "avatar_id": "av-pl-PL-04",
+      "pieza_id": "P-31430340"
+    },
+    {
+      "n": 135,
+      "paquete_id": "K-c6d17ab0",
+      "archivo": "ciego/paquete-135.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 136,
+      "paquete_id": "K-1093d04d",
+      "archivo": "ciego/paquete-136.json",
+      "avatar_id": "av-pl-PL-08",
+      "pieza_id": "P-43c11246"
+    },
+    {
+      "n": 137,
+      "paquete_id": "K-53f38e6b",
+      "archivo": "ciego/paquete-137.json",
+      "avatar_id": "av-pl-PL-02",
+      "pieza_id": "P-baf7b012"
+    },
+    {
+      "n": 138,
+      "paquete_id": "K-76382582",
+      "archivo": "ciego/paquete-138.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-5788ebb8"
+    },
+    {
+      "n": 139,
+      "paquete_id": "K-e87a807b",
+      "archivo": "ciego/paquete-139.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 140,
+      "paquete_id": "K-6ee85412",
+      "archivo": "ciego/paquete-140.json",
+      "avatar_id": "av-pl-PL-07",
+      "pieza_id": "P-ef6eb42c"
+    },
+    {
+      "n": 141,
+      "paquete_id": "K-787f6f0d",
+      "archivo": "ciego/paquete-141.json",
+      "avatar_id": "av-pl-PL-03",
+      "pieza_id": "P-6c638334"
+    },
+    {
+      "n": 142,
+      "paquete_id": "K-2d142f5a",
+      "archivo": "ciego/paquete-142.json",
+      "avatar_id": "av-pl-PL-06",
+      "pieza_id": "P-f58db76e"
+    },
+    {
+      "n": 143,
+      "paquete_id": "K-5aa71da8",
+      "archivo": "ciego/paquete-143.json",
+      "avatar_id": "av-pl-PL-10",
+      "pieza_id": "P-09b4c9f6"
+    }
+  ]
+}

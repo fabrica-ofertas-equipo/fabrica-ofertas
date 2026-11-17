@@ -1,0 +1,653 @@
+{
+  "id": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "tipo": "dorado",
+  "version_caso": "0.1.0",
+  "aprobado_por_dueno": false,
+  "aviso": "SINTÉTICO: datos inventados con dominios .invalid; ilustra el formato y las reglas, no mide el mercado. Falta que el dueño apruebe dorados reales.",
+  "titulo": "Dinero es-MX: reinserción laboral para madres (caso del dueño) y presupuesto por cobro",
+  "modo": "B",
+  "entrada": {
+    "oferta_id": "OF-202611-02",
+    "modo_busqueda": "B",
+    "locale": "es-MX",
+    "paises": [
+      "MX"
+    ],
+    "moneda_cobro": "USD",
+    "n_top": 2,
+    "nicho_semilla": "volver al trabajo tras el embarazo (caso del dueño)",
+    "rango_precio": "brief [SUPUESTO]"
+  },
+  "esperado": {
+    "validar_candidatos_exit": 0,
+    "qa_veredicto": "PASS",
+    "debe_cumplir": [
+      "macro_nicho = dinero (deseo central: empleo); secundario relaciones viaja en riesgo_extendido.json, no por el tema «embarazo»",
+      "riesgo verde SOLO tras el reencuadre RE-08; el nivel original (rojo por E2) queda registrado y claims_a_evitar prohíbe «madres» dirigido al espectador",
+      "el anuncio de ejemplo es sin estado familiar (E1); «madres» solo en tercera persona en la landing",
+      "ningún tema excluido: el embarazo no filtra el candidato",
+      "una E1 y ≥ 2 tipos por candidato; senal_rentabilidad = «no medible»; informe decidible en 10 minutos"
+    ],
+    "no_debe": [
+      "prometer empleo, entrevistas o sueldos",
+      "afirmar rentabilidad ajena desde los anuncios",
+      "elegir el candidato (gate H del dueño)"
+    ]
+  },
+  "salida_esperada": {
+    "candidatos": {
+      "schema_version": "1.0.0",
+      "oferta_id": "OF-202611-02",
+      "corrida_id": "RUN-20261106-01",
+      "fecha": "2026-11-06T10:00:00Z",
+      "modo": "pipeline",
+      "mercado": {
+        "locale": "es-MX",
+        "paises": [
+          "MX"
+        ]
+      },
+      "pesos": {
+        "ac_dolor_urgencia": "15",
+        "ac_disposicion_pago_precio": "14",
+        "ac_evidencia_demanda_pagada": "12",
+        "ac_competencia": "8",
+        "ac_huecos": "10",
+        "ac_producibilidad_ia_1dia": "12",
+        "ac_tiempo_primer_resultado": "8",
+        "ac_vida_util": "6",
+        "ac_riesgo": "10",
+        "ac_encaje_marca_mercado": "5"
+      },
+      "parametros_usados": {
+        "modo_busqueda": "B",
+        "umbral_score_min": 55,
+        "evidencia_min_fuentes": 2,
+        "evidencia_min_tipos": 2,
+        "nota": "modo_busqueda y formula_version viajan aquí hasta la MINOR candidatos 1.1.0 [PENDIENTE: CT-4]"
+      },
+      "consultas": [
+        {
+          "herramienta": "WebSearch",
+          "terminos": "no sé cómo explicar hueco en el currículum",
+          "pais": "MX",
+          "fecha": "2026-11-06T09:10:00Z",
+          "estimated_total_count": null
+        },
+        {
+          "herramienta": "ads_library_search",
+          "terminos": "plantilla currículum",
+          "pais": "MX",
+          "fecha": "2026-11-06T09:20:00Z",
+          "estimated_total_count": 37
+        },
+        {
+          "herramienta": "ads_library_search",
+          "terminos": "presupuesto quincenal",
+          "pais": "MX",
+          "fecha": "2026-11-06T09:25:00Z",
+          "estimated_total_count": 21
+        }
+      ],
+      "candidatos": [
+        {
+          "candidato_id": "CAND-01",
+          "problema_id": "PRB-202611-0021",
+          "rango": 1,
+          "macro_nicho": "dinero",
+          "nicho_id": "empleo-e-ingresos-propios",
+          "microsegmento": "reinsercion-laboral-tras-pausa",
+          "problema": "Quiere volver a trabajar tras una pausa larga pero no sabe cómo explicarla en el currículum ni en la entrevista",
+          "prueba_una_frase": "Para quien vuelve a postular tras una pausa laboral larga y no sabe cómo contarla, el Mapa de Regreso es una guía con plantilla que lleva de «tengo un hueco en mi currículum» a «postulo a un trabajo con currículum y guion de entrevista listos» sin inventar experiencia ni pedir disculpas.",
+          "tesis": "El obstáculo no es la pausa sino no saber contarla; ordenar por competencias y ensayar un guion de 30 segundos lo resuelve en una tarde.",
+          "mecanismo": {
+            "causa_raiz": {
+              "texto": "El CV cronológico deja la pausa como un espacio en blanco que quien lee interpreta por su cuenta; la persona no sabe traducir lo que hizo a competencias.",
+              "senales": [
+                "8bfe8dc33705",
+                "7dfff5ff8cfc"
+              ]
+            },
+            "nombre": "Mapa de Regreso",
+            "como_funciona": "Inventario de la pausa, traducción a competencias con datos y guion hablado de 30 segundos.",
+            "diferencia": "Un chatbot o una plantilla gratuita rellenan fechas; este método parte del inventario de la pausa y entrega el guion que se pregunta en la entrevista.",
+            "prueba_logica": "La vista previa muestra la fórmula del guion con un ejemplo completo; cada paso tiene un entregable verificable.",
+            "riesgo_de_claim": "No prometer empleo, entrevistas, sueldos ni plazos; solo orden y claridad de la presentación."
+          },
+          "entregable": {
+            "formato": "pack",
+            "alcance": "Guía de 5 pasos, plantilla editable de CV y guion de entrevista; entrega única, sin servicio posterior ni actualizaciones continuas.",
+            "estado_a_b": {
+              "a": "Tengo una pausa larga y no sé cómo presentarla",
+              "b": "Tengo un CV por competencias y un guion de 30 segundos"
+            },
+            "tiempo_al_primer_resultado": 35,
+            "producibilidad": {
+              "nivel": "alta",
+              "notas": "Contenido original; sin activos de terceros."
+            },
+            "licencias": [
+              "sin activos de terceros"
+            ]
+          },
+          "precio_plausible": {
+            "min": {
+              "monto": 900,
+              "moneda": "USD"
+            },
+            "max": {
+              "monto": 1900,
+              "moneda": "USD"
+            },
+            "razon": "Rango del brief [SUPUESTO]; plantillas de CV del ranking EV-03; moneda de cobro USD hasta que M1 decida la moneda de presentación"
+          },
+          "puntajes": {
+            "dolor_urgencia": {
+              "s": 4,
+              "justificacion": "Bloqueo recurrente al volver a postular: no sabe contar la pausa (EV-01)",
+              "evidencia_ids": [
+                "EV-01"
+              ]
+            },
+            "disposicion_pago_precio": {
+              "s": 3,
+              "justificacion": "Se compran plantillas de CV en el rango (EV-03) pero la reseña dice que falta el hueco (EV-02)",
+              "evidencia_ids": [
+                "EV-02",
+                "EV-03"
+              ]
+            },
+            "evidencia_demanda_pagada": {
+              "s": 3,
+              "justificacion": "Ventas visibles en marketplace (E1) y anunciantes persistentes (E2); conteo = contexto, no prueba",
+              "evidencia_ids": [
+                "EV-03",
+                "EV-04"
+              ]
+            },
+            "competencia": {
+              "s": 4,
+              "justificacion": "Pocos anunciantes con oferta equivalente y sin guion de entrevista",
+              "evidencia_ids": [
+                "EV-04"
+              ]
+            },
+            "huecos": {
+              "s": 4,
+              "justificacion": "Reseña 2★ evidencia el hueco: la plantilla no cubre la pausa (EV-02)",
+              "evidencia_ids": [
+                "EV-02"
+              ]
+            },
+            "producibilidad_ia_1dia": {
+              "s": 4,
+              "justificacion": "Verificable con fuentes públicas de redacción de CV; revisión ligera",
+              "evidencia_ids": [
+                "EV-02"
+              ]
+            },
+            "tiempo_primer_resultado": {
+              "s": 4,
+              "justificacion": "CV por competencias listo en una tarde (diseño del producto)",
+              "evidencia_ids": [
+                "EV-01"
+              ]
+            },
+            "vida_util": {
+              "s": 4,
+              "justificacion": "Problema evergreen con picos de enero y septiembre [HIPÓTESIS]",
+              "evidencia_ids": [
+                "EV-03"
+              ]
+            },
+            "riesgo": {
+              "s": 5,
+              "justificacion": "Verde tras el reencuadre RE-08 (derivado de nivel_ejes.py, no juzgado)",
+              "evidencia_ids": [
+                "EV-04"
+              ]
+            },
+            "encaje_marca_mercado": {
+              "s": 4,
+              "justificacion": "Marca sin cara natural; pagable en MX y audiencia alcanzable sin apelar a atributos",
+              "evidencia_ids": [
+                "EV-03"
+              ]
+            }
+          },
+          "score_base": 77,
+          "score_ajustado": 73,
+          "confianza": "alta",
+          "evidencia": [
+            {
+              "id": "EV-01",
+              "tipo": "E3",
+              "url": "https://foro-empleo.ejemplo.invalid/hilo/regresar-a-trabajar",
+              "fecha_publicacion": "2026-08-20",
+              "fecha_consulta": "2026-11-06",
+              "cita": "No sé qué poner en mi currículum de los cuatro años que no trabajé",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:a5f324e7da674e2bfec281043099537b0d2d1be103c6e3607196c08b6ed97a96"
+            },
+            {
+              "id": "EV-02",
+              "tipo": "E3",
+              "url": "https://tienda-cv.ejemplo.invalid/producto/plantilla-cv/resenas",
+              "fecha_publicacion": "2026-07-02",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Bonita plantilla pero no explica qué hacer con el hueco de mi experiencia",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:516c972a32b7805fa8cf2fa671b81a81c1dac247358c0478df3c33d1929b4277"
+            },
+            {
+              "id": "EV-03",
+              "tipo": "E1",
+              "url": "https://marketplace.ejemplo.invalid/ranking/plantillas-cv-es-mx",
+              "fecha_publicacion": "2026-10-15",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Plantillas de currículum en el top de ventas de la categoría Empleo",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:a4c67ea4a5a67b4be6449f75b06782965a21769ca7aca4f1b0de4006818f15b3"
+            },
+            {
+              "id": "EV-04",
+              "tipo": "E2",
+              "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000101",
+              "fecha_publicacion": "2026-07-12",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Regresa al trabajo con tu CV listo en una tarde",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:780f7d59fd66ec5d93feb9c52d1bfac61e094885edf9231f3e4ae1f775fe60ac"
+            }
+          ],
+          "demanda_pagada": {
+            "n_anuncios": 14,
+            "n_anunciantes": 5,
+            "n_sostenidos": 2,
+            "n_conceptos_unicos": 6,
+            "antiguedad_max_dias": 95,
+            "consultas_ids": [
+              "Q-02"
+            ],
+            "senal_rentabilidad": "no medible"
+          },
+          "riesgo": {
+            "P": "verde",
+            "C": "verde",
+            "E": "verde",
+            "N": "verde",
+            "nivel": "verde",
+            "reencuadre_aplicado": {
+              "aplicado": true,
+              "nivel_original": "rojo",
+              "descripcion": "RE-08: de «madres que vuelven tras el embarazo» (estado familiar del espectador, E2) a «quien vuelve a trabajar tras una pausa» (E1); el rol se nombra en tercera persona solo en la landing."
+            },
+            "fuentes": [
+              "lp-06",
+              "docs/_investigacion/25-marco-salud-relaciones-dinero.md"
+            ],
+            "categoria": "Empleo y carrera: guía informativa sin listados ni colocación [VERIFICAR con una pieza de prueba]",
+            "claims_a_evitar": [
+              "«madres» o estado familiar dirigido al espectador en el anuncio",
+              "conseguirás trabajo o garantizamos entrevistas",
+              "cifras de sueldo o ingresos",
+              "plazos de resultado"
+            ],
+            "angulo_seguro": "Volver al trabajo tras una pausa: CV, entrevista y plan de la primera semana, sin atributo del espectador."
+          },
+          "similitud_memoria": {
+            "max": "0.31",
+            "con": null
+          },
+          "viabilidad_cpa": {
+            "ratio_pes": "0.55",
+            "ratio_central": "1.18",
+            "ratio_opt": "2.60",
+            "bandera": "amarilla",
+            "supuestos": [
+              "CPM de MX tomado del rango LatAm de 04-meta-ads §8.2; CTR y conversión sin fuente [HIPÓTESIS]",
+              "order bump solo como supuesto"
+            ]
+          },
+          "sensibilidad": {
+            "top3_estable_pct": 90
+          },
+          "ventana_estacional": "Enero y septiembre (vuelta al trabajo y a clases) [HIPÓTESIS]",
+          "hipotesis_para_d2": [
+            "Los competidores venden plantillas de CV sin guion de entrevista ni plan de primera semana (confirmar en es-MX)",
+            "El ángulo «volver tras una pausa» sin atributo del espectador pasa la revisión de Meta [VERIFICAR con una pieza de prueba]",
+            "No hay un gratuito dominante que cubra el guion hablado (probar con un chatbot)"
+          ],
+          "que_la_mataria": [
+            "Un gratuito o un chatbot que ya entregue CV y guion en minutos",
+            "Que Meta trate el anuncio como categoría especial de empleo",
+            "Que «madres» en tercera persona se rechace y pase a E2 para todo el sistema"
+          ],
+          "palabras_clave_voz_cliente": [
+            "hueco en el currículum",
+            "regresar a trabajar",
+            "qué digo en la entrevista"
+          ]
+        },
+        {
+          "candidato_id": "CAND-02",
+          "problema_id": "PRB-202611-0022",
+          "rango": 2,
+          "macro_nicho": "dinero",
+          "nicho_id": "presupuesto-y-ahorro-del-hogar",
+          "microsegmento": "presupuesto-por-cobro",
+          "problema": "Cobra cada quincena y los presupuestos mensuales no le sirven: no sabe qué gasto cae con qué cobro y el mes se desordena a la mitad",
+          "prueba_una_frase": "Para quien cobra por quincena y no sabe qué gasto va con qué cobro, el Sobre por Quincena es una hoja de cálculo que lleva de «no sé con qué cobro pago esto» a «cada gasto asignado a su cobro» sin presupuestos mensuales que no encajan.",
+          "tesis": "Asignar cada gasto fijo al cobro que lo cubre, en dos bloques por mes, hace visible el desorden de mitad de mes sin contabilidad detallada.",
+          "mecanismo": {
+            "causa_raiz": {
+              "texto": "Las plantillas asumen un ingreso mensual; quien cobra cada quincena no ve qué gasto cae antes de cuál y el presupuesto se desordena.",
+              "senales": [
+                "e0f39df85db4",
+                "0a23e4a2d20d"
+              ]
+            },
+            "nombre": "Sobre por Quincena",
+            "como_funciona": "Dos bloques (1.ª y 2.ª quincena) que asignan cada gasto fijo al cobro que lo cubre y dejan un colchón visible entre cobros.",
+            "diferencia": "Un chatbot o una plantilla gratuita dan presupuestos mensuales; esta hoja se arma alrededor de la fecha de cada cobro.",
+            "prueba_logica": "Vista previa con un mes ficticio completo; cada fórmula es visible y se reproduce en 5 minutos.",
+            "riesgo_de_claim": "No prometer ahorros, deudas pagadas ni cifras; solo orden y visibilidad."
+          },
+          "entregable": {
+            "formato": "hoja_de_calculo",
+            "alcance": "Una hoja con dos bloques por mes y cinco categorías; entrega única, sin asesoramiento ni servicio posterior.",
+            "estado_a_b": {
+              "a": "No sé con qué cobro pago cada cosa",
+              "b": "Cada gasto fijo tiene su cobro asignado"
+            },
+            "tiempo_al_primer_resultado": 25,
+            "producibilidad": {
+              "nivel": "alta",
+              "notas": "Hoja propia con fórmulas visibles."
+            },
+            "licencias": [
+              "sin activos de terceros"
+            ]
+          },
+          "precio_plausible": {
+            "min": {
+              "monto": 600,
+              "moneda": "USD"
+            },
+            "max": {
+              "monto": 1500,
+              "moneda": "USD"
+            },
+            "razon": "Planners del ranking EV-07 en un rango similar [VERIFICAR con la ficha de M1]; la comisión fija pesa en tickets bajos"
+          },
+          "puntajes": {
+            "dolor_urgencia": {
+              "s": 4,
+              "justificacion": "Desorden de mitad de mes por cobros quincenales (EV-05)",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "disposicion_pago_precio": {
+              "s": 4,
+              "justificacion": "Planners de finanzas entre lo más vendido (EV-07)",
+              "evidencia_ids": [
+                "EV-06",
+                "EV-07"
+              ]
+            },
+            "evidencia_demanda_pagada": {
+              "s": 3,
+              "justificacion": "Oferta persistente (E2) y ventas (E1); no prueba rentabilidad",
+              "evidencia_ids": [
+                "EV-07",
+                "EV-08"
+              ]
+            },
+            "competencia": {
+              "s": 2,
+              "justificacion": "Mercado saturado de planners mensuales; el ángulo quincenal es el espacio",
+              "evidencia_ids": [
+                "EV-08"
+              ]
+            },
+            "huecos": {
+              "s": 4,
+              "justificacion": "Reseña 2★ y foro: todos los planners asumen un ingreso mensual",
+              "evidencia_ids": [
+                "EV-06"
+              ]
+            },
+            "producibilidad_ia_1dia": {
+              "s": 5,
+              "justificacion": "Hoja de cálculo con fórmulas visibles, verificable en minutos",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "tiempo_primer_resultado": {
+              "s": 5,
+              "justificacion": "Primer resultado en menos de una hora (rellenar los dos cobros)",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "vida_util": {
+              "s": 4,
+              "justificacion": "Problema evergreen sin fecha de caducidad conocida [HIPÓTESIS]",
+              "evidencia_ids": [
+                "EV-07"
+              ]
+            },
+            "riesgo": {
+              "s": 5,
+              "justificacion": "Verde: P0, C1, E1, N1",
+              "evidencia_ids": [
+                "EV-08"
+              ]
+            },
+            "encaje_marca_mercado": {
+              "s": 4,
+              "justificacion": "Marca sin cara; alcanzable por rol en tercera persona",
+              "evidencia_ids": [
+                "EV-07"
+              ]
+            }
+          },
+          "score_base": 80,
+          "score_ajustado": 71,
+          "confianza": "alta",
+          "evidencia": [
+            {
+              "id": "EV-05",
+              "tipo": "E3",
+              "url": "https://foro-finanzas.ejemplo.invalid/hilo/presupuesto-quincenal",
+              "fecha_publicacion": "2026-09-03",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Todas las plantillas de presupuesto son mensuales y yo cobro cada quincena",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:6164ee72c0547b18685b4cd300962ce2621fd1d163e24a93b519637e03a4954e"
+            },
+            {
+              "id": "EV-06",
+              "tipo": "E3",
+              "url": "https://tienda-planners.ejemplo.invalid/producto/planner/resenas",
+              "fecha_publicacion": "2026-05-18",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Me sirvió poco porque asume un solo ingreso mensual",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:5467519a041a95331047360548659eb6cf99f56a763c3d167aba0ec302dc8ff5"
+            },
+            {
+              "id": "EV-07",
+              "tipo": "E1",
+              "url": "https://marketplace.ejemplo.invalid/ranking/planners-finanzas",
+              "fecha_publicacion": "2026-10-20",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Planners de finanzas personales entre los más vendidos del mes",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:096279615d3bfcdb16740fc9cf57d18d088e15be3b614adf7c36c52738615550"
+            },
+            {
+              "id": "EV-08",
+              "tipo": "E2",
+              "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000102",
+              "fecha_publicacion": "2026-06-30",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Organiza tu quincena con una hoja que ya viene lista",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:01b6dc035aaa93336605e02e59d59cc2870269fe10675416ef0a554e099649fe"
+            }
+          ],
+          "demanda_pagada": {
+            "n_anuncios": 21,
+            "n_anunciantes": 8,
+            "n_sostenidos": 3,
+            "n_conceptos_unicos": 9,
+            "antiguedad_max_dias": 120,
+            "consultas_ids": [
+              "Q-03"
+            ],
+            "senal_rentabilidad": "no medible"
+          },
+          "riesgo": {
+            "P": "verde",
+            "C": "verde",
+            "E": "verde",
+            "N": "verde",
+            "nivel": "verde",
+            "reencuadre_aplicado": {
+              "aplicado": false
+            },
+            "fuentes": [
+              "lp-03",
+              "docs/_investigacion/25-marco-salud-relaciones-dinero.md"
+            ],
+            "categoria": "Finanzas personales: herramienta de registro, sin asesoría",
+            "claims_a_evitar": [
+              "ahorrarás X",
+              "salir de deudas",
+              "sin esfuerzo"
+            ],
+            "angulo_seguro": "Hoja para ordenar los gastos entre cobros, con los números del comprador."
+          },
+          "similitud_memoria": {
+            "max": "0.55",
+            "con": "OF-202610-03"
+          },
+          "viabilidad_cpa": {
+            "ratio_pes": "0.48",
+            "ratio_central": "1.05",
+            "ratio_opt": "2.40",
+            "bandera": "amarilla",
+            "supuestos": [
+              "CPM de MX del rango LatAm de 04-meta-ads §8.2; CTR y conversión sin fuente [HIPÓTESIS]",
+              "la comisión fija pesa en tickets de pocos dólares (03-stripe)",
+              "order bump solo como supuesto"
+            ]
+          },
+          "sensibilidad": {
+            "top3_estable_pct": 90
+          },
+          "ventana_estacional": null,
+          "hipotesis_para_d2": [
+            "Los planners vendidos en es-MX asumen ingreso mensual (confirmar con la Biblioteca y reseñas del locale)",
+            "Hay un gratuito de presupuesto quincenal que cubra la asignación por cobro (buscar)"
+          ],
+          "que_la_mataria": [
+            "Un gratuito que ya haga la asignación por cobro",
+            "Similitud con la oferta OF-202610-03 de la memoria"
+          ],
+          "palabras_clave_voz_cliente": [
+            "presupuesto quincenal",
+            "me pagan cada quincena",
+            "no me alcanza a mitad de mes"
+          ]
+        }
+      ],
+      "descartados": [
+        {
+          "problema": "Ganar dinero extra desde casa sin experiencia ni inversión",
+          "motivo": "claim_de_salud_o_ingresos",
+          "redencion": "reformular"
+        },
+        {
+          "problema": "Coaching individual para volver al trabajo con sesiones semanales",
+          "motivo": "requiere_servicio",
+          "redencion": "descartar"
+        }
+      ]
+    },
+    "crudo": {
+      "EV-01": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nNo sé qué poner en mi currículum de los cuatro años que no trabajé\n",
+      "EV-02": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nBonita plantilla pero no explica qué hacer con el hueco de mi experiencia\n",
+      "EV-03": "[E1] Copia de trabajo SINTÉTICA para evals de D1.\nPlantillas de currículum en el top de ventas de la categoría Empleo\n",
+      "EV-04": "[E2] Copia de trabajo SINTÉTICA para evals de D1.\nRegresa al trabajo con tu CV listo en una tarde\n",
+      "EV-05": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nTodas las plantillas de presupuesto son mensuales y yo cobro cada quincena\n",
+      "EV-06": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nMe sirvió poco porque asume un solo ingreso mensual\n",
+      "EV-07": "[E1] Copia de trabajo SINTÉTICA para evals de D1.\nPlanners de finanzas personales entre los más vendidos del mes\n",
+      "EV-08": "[E2] Copia de trabajo SINTÉTICA para evals de D1.\nOrganiza tu quincena con una hoja que ya viene lista\n"
+    },
+    "informe_md": "# Informe D1 · OF-202611-02 · es-MX · modo B (SINTÉTICO)\n\n**Top-2** (score ajustado, confianza, riesgo, qué lo mataría)\n| # | Candidato | Score | Conf. | Riesgo | Qué lo mataría |\n|---|---|---|---|---|---|\n| 1 | Mapa de Regreso (volver al trabajo tras una pausa) | 73 | alta | verde tras RE-08 | un gratuito o un chatbot que ya dé CV y guion; que Meta lo trate como empleo |\n| 2 | Sobre por Quincena (presupuesto por cobro) | 71 | alta | verde | un gratuito que asigne gastos por cobro; similitud 0,55 con OF-202610-03 |\n\n**Demanda pagada.** Los conteos de anuncios son contexto, no prueba: la Biblioteca no entrega gasto ni ventas (`senal_rentabilidad` = «no medible»). La prueba de pago la hace D2 con evidencia propia y, después, la prueba pagada de D7/D8.\n\n**Honestidad del ranking.** Sensibilidad ±30 % por peso: el top-1 sigue en el top-3 en 90 % de las perturbaciones (estable).\n\n**Lagunas.** Sin cotización registrada: el precio es un rango del brief [SUPUESTO]. Pendiente de M1: moneda de presentación en MX. Una pieza de prueba para «madres» en tercera persona [VERIFICAR].\n\n**Decisiones que necesito del dueño.** (1) Elegir 1 candidato o pedir otra ronda. (2) Confirmar la moneda de cobro. (3) Aprobar la hoja `reinsercion-laboral-tras-pausa` como hoja existente de `nichos.yaml` (propuesta pendiente de aprobación).\n\n**Contenido hostil hallado en fuentes:** ninguno.\n",
+    "riesgo_extendido": {
+      "schema_version": "0.1.0-borrador",
+      "_nota": "Hermano de candidatos.json hasta la MINOR 1.1.0 [PENDIENTE: CT-4]. Los niveles los calcula nivel_ejes.py (X1, provisional), no el LLM.",
+      "candidatos": {
+        "CAND-01": {
+          "ejes_codigo": {
+            "P": "P1",
+            "C": "C1",
+            "E": "E1",
+            "N": "N1"
+          },
+          "nivel": "verde",
+          "subnivel": null,
+          "banderas": {
+            "S": false,
+            "R": true,
+            "D": true
+          },
+          "macro_primario": "dinero",
+          "macro_secundario": "relaciones",
+          "motivo_macro": "ninguna_bandera_es_unica: B = empleo (dinero); el vínculo familiar es contexto",
+          "senal_id_e3": "8bfe8dc33705",
+          "version_tabla": "nota25-2.3-v1",
+          "reencuadre": {
+            "ids": [
+              "RE-08"
+            ],
+            "ejes_originales": {
+              "P": "P1",
+              "C": "C1",
+              "E": "E2",
+              "N": "N1"
+            },
+            "deseo_conservado": "total",
+            "condicion_e3": false
+          }
+        },
+        "CAND-02": {
+          "ejes_codigo": {
+            "P": "P0",
+            "C": "C1",
+            "E": "E1",
+            "N": "N1"
+          },
+          "nivel": "verde",
+          "subnivel": null,
+          "banderas": {
+            "S": false,
+            "R": false,
+            "D": true
+          },
+          "macro_primario": "dinero",
+          "macro_secundario": null,
+          "motivo_macro": "una_bandera: B = gasto ordenado entre cobros",
+          "senal_id_e3": "e0f39df85db4",
+          "version_tabla": "nota25-2.3-v1",
+          "reencuadre": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "caso_id": "D09",
+  "titulo": "El QA sobre la demostración",
+  "tipo": "qa",
+  "locale": "pl-PL",
+  "entrada": {
+    "tanda": "evals/demostracion/tanda-2026-11-08_pl-PL",
+    "nota": "el QA debe marcar la demostración como tal y seguir las reglas igual de estricto"
+  },
+  "salida_esperada": {
+    "veredicto": "PASS_CON_NOTAS",
+    "hallazgos": "anclas solo sintéticas; fuentes del panel con sesgo; el modelo único correlaciona los errores"
+  },
+  "aprobacion": [
+    "≥ 3 hallazgos o justificación con evidencia",
+    "ningún BLOQUEANTE"
+  ]
+}

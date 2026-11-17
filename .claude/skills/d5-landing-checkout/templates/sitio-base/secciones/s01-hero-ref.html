@@ -1,0 +1,53 @@
+<section class="seccion hero hero--referente tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-hero">
+  <div class="contenedor hero__centro">
+{{#si prueba}}
+    <p class="prueba-pastilla"{{#si prueba.media}} data-prueba-social="valoracion" data-valor="{{prueba.media}}" data-n="{{prueba.n_num}}"{{/si}}><span class="estrellas" aria-hidden="true"><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg><svg class="ico"><use href="#i-estrella"></use></svg></span><strong>{{prueba.valor}}</strong><span>{{t.estrellas}} · {{prueba.n}} {{t.opiniones}}</span>{{#si prueba.demo}}<span class="cinta-demo" data-demo="valoracion">{{t.demo}}</span>{{/si}}</p>
+{{/si}}
+    <p class="kicker">{{{kicker}}}</p>
+    <h1 id="titulo-hero">{{{h1}}}{{#si h1_resaltado}} <span class="resaltado">{{{h1_resaltado}}}</span>{{/si}}</h1>
+    <p class="lede">{{{subtitulo}}}</p>
+    <ul class="pills pills--centro" role="list">
+{{#cada pills}}
+      <li><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+    </ul>
+  </div>
+  <div class="contenedor hero__visual">
+{{#si imagen}}
+    <div class="img-rotulada">
+      <img class="hero__img{{#si imagen_es_pack}} hero__img--pack{{/si}}" src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} decoding="async" fetchpriority="high">
+      {{#si imagen.rotulo}}<span class="rotulo-img" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}
+    </div>
+{{sino}}
+{{#si marcador}}
+    <div class="vp-mockup" data-demo="imagen" role="img" aria-label="{{marcador}}">
+      <span class="vp-mockup__monitor"></span><span class="vp-mockup__tablet"></span><span class="vp-mockup__movil"></span>
+      <span class="vp-marcador__etiqueta">{{marcador}}</span>
+    </div>
+{{sino}}
+    <div class="portada" aria-hidden="true">
+      <div class="portada__hoja portada__hoja--fondo"></div>
+      <div class="portada__hoja portada__hoja--medio"></div>
+      <div class="portada__hoja portada__hoja--frente">
+        <p class="portada__marca">{{portada.marca}}</p>
+        <p class="portada__titulo">{{portada.titulo}}</p>
+        <span class="portada__barra"></span>
+        <p class="portada__sub">{{portada.kicker}}</p>
+      </div>
+    </div>
+{{/si}}
+{{/si}}
+  </div>
+  <div class="contenedor hero__accion">
+    <a class="boton boton--cta boton--grande boton--ancho" href="/comprar"><span>{{cta.texto}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+    <p class="microcopy">{{{microcopy}}}</p>
+{{#si contador}}
+    <div class="contador-real"{{#si contador.tipo}} data-prueba-social="{{contador.tipo}}" data-valor="{{contador.numero}}"{{/si}}>
+{{#si contador.avatares}}
+      <span class="avatares" aria-hidden="true">{{#cada contador.avatares}}<span class="avatar avatar--c{{color}}">{{inicial}}</span>{{/cada}}</span>
+{{/si}}
+      <p><svg class="ico" aria-hidden="true"><use href="#i-{{contador.icono}}"></use></svg><span>{{contador.etiqueta}}: <strong>{{contador.valor}}</strong></span>{{#si contador.dato_al}} <small>({{t.dato_al}} {{contador.dato_al}})</small>{{/si}}{{#si contador.demo}} <span class="cinta-demo" data-demo="contador">{{t.demo}}</span>{{/si}}</p>
+    </div>
+{{/si}}
+  </div>
+</section>

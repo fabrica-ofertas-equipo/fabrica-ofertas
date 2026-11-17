@@ -1,0 +1,22 @@
+# Worker `descarga` (docs/06 4.3/4.6; infra/plantillas/variables-entorno.yaml).
+name = "fabrica-descarga"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# Verificacion HMAC + lectura de KV y R2: liviano. [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releído]
+cpu_ms = 50
+
+[[kv_namespaces]]
+binding = "CONTADORES"
+id = "PENDIENTE_CREAR_EN_CLOUDFLARE"
+
+[[r2_buckets]]
+binding = "BUCKET_PRODUCTOS"
+bucket_name = "PENDIENTE_CREAR_EN_CLOUDFLARE"
+
+# Variables de configuracion: ninguna (el vencimiento y la cuota viajan DENTRO del token firmado
+# por `fulfill`; este Worker no fija valores propios, docs/06 4.3).
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   DESCARGA_HMAC -- misma clave que firma el token en `fulfill` (verifica, nunca firma uno nuevo)

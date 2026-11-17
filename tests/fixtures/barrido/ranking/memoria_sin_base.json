@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "ahora": "2026-11-06T07:00:00Z",
+  "estado": "sin_base",
+  "base_entrantes": {
+    "estado": "sin_base",
+    "motivo": "primera_corrida",
+    "corrida_id": null,
+    "antiguedad_dias": null
+  },
+  "base_cambios": {
+    "estado": "sin_base",
+    "motivo": "primera_corrida",
+    "corrida_id": null,
+    "antiguedad_dias": null
+  },
+  "paginas_nuevas": [],
+  "paginas_que_crecen": [],
+  "paginas_que_decrecen": [],
+  "paginas_desaparecidas": [],
+  "paginas_que_cambian_de_pais": [],
+  "temas_nuevos": [],
+  "temas_estado": "sin_base",
+  "entrantes_30d": {
+    "crochet-patrones": null,
+    "atlas-puntos-gatillo": null
+  },
+  "entrantes_30d_por_pais": {
+    "crochet-patrones": {
+      "BR": null,
+      "ES": null,
+      "IT": null,
+      "MX": null,
+      "US": null
+    },
+    "atlas-puntos-gatillo": {
+      "BR": null,
+      "ES": null,
+      "IT": null,
+      "MX": null,
+      "US": null
+    }
+  },
+  "advertencias": [
+    "sin base para entrantes_30d (primera_corrida): todos los valores van null, nunca 0"
+  ]
+}

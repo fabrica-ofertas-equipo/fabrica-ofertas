@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/decision.schema.json",
+  "title": "Decisión de D8",
+  "description": "Una línea de ofertas/<id>/08-operacion/decisiones.jsonl (append-only). decision_id = sha256 canónico de {oferta_id, objeto_id, lectura_ts}: repetir la lectura no duplica la acción. Sin float: las probabilidades son cadenas decimales (D-05).",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "decision_id": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "objeto_tipo": {
+      "enum": [
+        "oferta",
+        "campana",
+        "conjunto",
+        "anuncio"
+      ]
+    },
+    "objeto_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]{1,64}$",
+      "description": "oferta_id si objeto_tipo=oferta; si no, el id numérico de Meta del objeto (CT1-14)"
+    },
+    "lectura_ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "nivel": {
+      "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+    },
+    "gate": {
+      "$ref": "comunes.schema.json#/$defs/gate"
+    },
+    "accion": {
+      "enum": [
+        "MATAR",
+        "SEGUIR",
+        "ESCALAR",
+        "INCONCLUSO",
+        "BLOQUEADO"
+      ]
+    },
+    "codigo": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "description": "Motivo canónico estable"
+    },
+    "regla": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,40}$",
+      "description": "Id de la regla (G1, K1, M2...)"
+    },
+    "version_reglas": {
+      "$ref": "comunes.schema.json#/$defs/semver"
+    },
+    "hash_parametros": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "evidencia": {
+      "type": "object",
+      "properties": {
+        "gasto": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "clics": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compras": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p_cpa_menor_equilibrio": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/fraccion"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "gasto",
+        "clics",
+        "compras",
+        "p_cpa_menor_equilibrio"
+      ],
+      "additionalProperties": false
+    },
+    "explicacion": {
+      "type": "string",
+      "maxLength": 600
+    },
+    "ejecutada": {
+      "type": "boolean",
+      "description": "true solo si el ejecutor aplicó la acción en Meta y se verificó"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "oferta_id",
+    "objeto_tipo",
+    "objeto_id",
+    "lectura_ts",
+    "ts",
+    "nivel",
+    "gate",
+    "accion",
+    "codigo",
+    "regla",
+    "version_reglas",
+    "hash_parametros",
+    "evidencia",
+    "explicacion",
+    "ejecutada"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "objeto_tipo": {
+            "const": "oferta"
+          }
+        },
+        "required": [
+          "objeto_tipo"
+        ]
+      },
+      "else": {
+        "properties": {
+          "objeto_id": {
+            "$ref": "comunes.schema.json#/$defs/id_meta"
+          }
+        }
+      }
+    }
+  ]
+}

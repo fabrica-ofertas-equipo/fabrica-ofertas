@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: en
+# estado: v0.1 sin pulir; único recordatorio (día 7); no se envía si ya respondió, se dio de baja, pidió reembolso, abrió una disputa o tiene un ticket abierto; sello de X1 pendiente
+Asunto: One reminder: your rating – order {{pedido_ref}}
+
+Hello,
+
+a few days ago we sent you a request to rate the materials from {{marca}}. This is the only reminder: we will not write to you about this again.
+
+If you like, choose how many stars you give, from 1 to 5:
+
+1 of 5: {{resena_url_1}}
+2 of 5: {{resena_url_2}}
+3 of 5: {{resena_url_3}}
+4 of 5: {{resena_url_4}}
+5 of 5: {{resena_url_5}}
+
+On the next page you confirm your rating and decide whether we may show your comment. We publish nothing without your permission. We want your honest opinion, whatever it is.
+
+If you would rather not, you do not have to do anything. If something does not work, write to {{soporte_email}}.
+
+Unsubscribe from these messages: {{baja_url}}
+
+Seller: {{vendedor}}
+Purchase and refund policy: {{politica_url}}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/tipo_cambio.schema.json",
+  "title": "Tipo de cambio registrado",
+  "description": "Una línea de empresa/finanzas/tipos_cambio.jsonl. Sin tipo de cambio registrado no se convierte nada (convenciones 3). tipo_cambio_id = TC-<BASE><COTIZADA>-<AAAAMMDD> y debe coincidir con par y fecha. tasa = unidades de moneda cotizada por 1 de base, cadena decimal > 0.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "tipo_cambio_id": {
+      "$ref": "comunes.schema.json#/$defs/tipo_cambio_id"
+    },
+    "par": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}/[A-Z]{3}$",
+      "description": "BASE/COTIZADA"
+    },
+    "fecha": {
+      "$ref": "comunes.schema.json#/$defs/fecha",
+      "description": "Día UTC de la tasa"
+    },
+    "tasa": {
+      "$ref": "comunes.schema.json#/$defs/decimal_no_negativo"
+    },
+    "fuente": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "obtenido_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "hash_contenido": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    }
+  },
+  "required": [
+    "schema_version",
+    "tipo_cambio_id",
+    "par",
+    "fecha",
+    "tasa",
+    "fuente",
+    "obtenido_en",
+    "hash_contenido"
+  ],
+  "additionalProperties": false
+}

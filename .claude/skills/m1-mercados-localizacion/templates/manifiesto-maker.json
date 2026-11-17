@@ -1,0 +1,35 @@
+{
+  "_aviso": "[PENDIENTE: contrato `maker_salida`; docs/09 §9.2 pide un 'manifiesto de artefactos, supuestos, riesgos' sin esquema] Plantilla del mensaje final del Maker de M1.",
+  "etapa": "M1",
+  "oferta_id": "OF-202611-01",
+  "modo": "seleccion",
+  "artefactos": [
+    {
+      "ruta": "ofertas/OF-202611-01/mercado.json",
+      "sha256": "sha256:<64 hex>"
+    },
+    {
+      "ruta": "ofertas/OF-202611-01/mercado.seleccion.json",
+      "sha256": "sha256:<64 hex>"
+    }
+  ],
+  "autoverificacion": {
+    "chequeos_l1": "salida de chequeos_l1.py (bloqueantes=0, mayores=0)",
+    "puntaje_reproducir": "ok"
+  },
+  "supuestos": [
+    "[SUPUESTO] ..."
+  ],
+  "pendientes": [
+    "[PENDIENTE: lo construye X] ..."
+  ],
+  "verificar": [
+    "[VERIFICAR] ..."
+  ],
+  "preguntas_bloqueantes": [],
+  "riesgos": [
+    "..."
+  ],
+  "escalar_a": null,
+  "resumen_gate_h": "1 pagina: (1) mercado elegido y por que (con numeros), (2) 2 alternativas, (3) que se asume [SUPUESTO], (4) que falta [PENDIENTE]/[VERIFICAR], (5) que decision del dueño mueve mas el resultado, (6) que firma el dueño: aprobado_por y exposicion fiscal por pais"
+}

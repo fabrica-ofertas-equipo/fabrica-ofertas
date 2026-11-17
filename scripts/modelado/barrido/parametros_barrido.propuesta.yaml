@@ -1,0 +1,190 @@
+# PROPUESTA de parámetros del barrido por forma (D1 Modo D, spec departamentos/02-descubrimiento.md §15 y §17). NO está integrada.
+# Mismo formato que scripts/modelado/parametros_modelado.propuesta.yaml: se pega bajo `grupos.descubrimiento`
+# de empresa/parametros.yaml cuando el dueño apruebe los valores (y se amplía contratos/parametros.schema.json).
+# Todas son [HIPÓTESIS]: ninguna está calibrada con corridas reales. Ningún número de estos vive en el código:
+# si falta una clave, el código falla cerrado (código 5). Sin float: decimales como cadena.
+# Los códigos de país van entre comillas (en YAML sin comillas «NO» se lee como falso).
+#
+# El tope de consultas por corrida NO se repite aquí: es `modelado_max_consultas_por_corrida`
+# (parametros_modelado.propuesta.yaml, 120) y cuenta las tres pasadas juntas.
+
+schema_version: "1.0.0"
+version: 1
+grupos:
+  descubrimiento:
+    # --- Forma de cada consulta (spec §15.1) ---
+    # Anuncios que se piden por llamada. 50 es el máximo del conector (más recientes primero, sin cursor).
+    barrido_limite_por_consulta:
+      valor: 50
+      unidad: anuncios
+      hipotesis: true
+      fuente: "Spec D1 §15.1 y §17.1 (límite del conector ads_library_search); CONTRATO §0"
+      ultima_calibracion: null
+      rango: [10, 50]
+    # Revisión de seguridad m7 (docs/_historial/barrido-revision-seguridad.md): largo máximo, en caracteres, de TODO texto
+    # que viene de la Biblioteca en un crudo (título del anuncio, nombre de página, frase de búsqueda y URL). Evita que un
+    # título de megabytes infle los lotes del etiquetador. El máximo real observado en 3759 anuncios es 743; 2000 deja
+    # ~2,7 veces de margen y el rango no permite bajar de 1000 (por debajo se rechazarían anuncios reales).
+    # Lo exige comun.validar_crudo: si falta, ErrorLimite (falla cerrado).
+    barrido_texto_max_caracteres:
+      valor: 2000
+      unidad: caracteres
+      hipotesis: true
+      fuente: "Revisión de seguridad m7 (máximo real observado: 743 caracteres en 3759 anuncios, corrida 2026-11-06-a) [NUEVO]"
+      ultima_calibracion: null
+      rango: [1000, 10000]
+    # Revisión de seguridad m7: hosts permitidos en `ad_snapshot_url` (solo https, host exacto: sin usuario@, puerto ni
+    # subdominios engañosos). La Biblioteca de Anuncios sirve los anuncios desde www.facebook.com. Lo exige comun.validar_crudo.
+    barrido_hosts_snapshot:
+      valor: ["www.facebook.com"]
+      unidad: hosts
+      hipotesis: true
+      fuente: "Revisión de seguridad m7; CONTRATO §2 (ejemplo de ad_snapshot_url) y fixture real de la Biblioteca [NUEVO]"
+      ultima_calibracion: null
+      rango: null
+    # Países donde se busca la OFERTA ORIGINAL, en orden de uso. El orden solo decide cuál se consulta primero;
+    # ningún país tiene trato especial en el código. Un país por consulta.
+    barrido_paises_origen:
+      valor: ["US", "BR", "MX", "ES", "IT", "CO"]
+      unidad: iso2_lista
+      hipotesis: true
+      fuente: "Spec D1 §15.3 (EE. UU. primero, luego Brasil, México, España, Italia y Colombia) [CREADORES: Tomi, H2]"
+      ultima_calibracion: null
+      rango: null
+    # Países donde se mide la PRESENCIA de una página (pasada 3: matriz página × país, hueco = ausencia).
+    # Incluye los orígenes y los mercados destino de los que hay frases en frases_forma.yaml.
+    barrido_paises_presencia:
+      valor: ["US", "BR", "MX", "ES", "IT", "CO", "GB", "FR", "DE", "PL", "RO"]
+      unidad: iso2_lista
+      hipotesis: true
+      fuente: "Spec D1 §12.3 paso 5 y §15.3; docs/_investigacion/08-mercados-ranking.md [NUEVO]"
+      ultima_calibracion: null
+      rango: null
+
+    # --- Pasadas ---
+    # Pasadas del plan: 1 = forma × país; 2 = particiones por variante de frase; 3 = por page_ids (edad real y presencia).
+    barrido_pasadas_max:
+      valor: 3
+      unidad: pasadas
+      hipotesis: true
+      fuente: "CONTRATO §3 (pasadas 1, 2 y 3); spec §12.3 pasos 3-5"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Pasada 2: una consulta se parte en variantes de frase si su estimated_total_count SUPERA este valor
+    # y la muestra llegó al límite (hay anuncios que no se ven). Evita gastar consultas en frases pequeñas.
+    barrido_partir_si_total_supera:
+      valor: 100
+      unidad: anuncios
+      hipotesis: true
+      fuente: "Spec D1 §17.1 («Acceso inmediato en PDF» en ES: 932 totales y 50 visibles) [NUEVO]"
+      ultima_calibracion: null
+      rango: [50, 500]
+    # Pasada 2: máximo de variantes de frase por consulta que se parte (cada una cuenta contra el tope de la corrida).
+    barrido_variantes_por_particion_max:
+      valor: 3
+      unidad: variantes
+      hipotesis: true
+      fuente: "[NUEVO] frases_forma.yaml trae tres variantes por forma e idioma; el tope evita que una frase grande consuma la corrida"
+      ultima_calibracion: null
+      rango: [1, 5]
+    # Pasada 3: una página se sigue (page_ids) si en la muestra tiene al menos este número de anuncios activos.
+    # No es el umbral de tracción (ese es modelado_anuncios_objetivo, en `ranking`): es el filtro para no gastar
+    # consultas en páginas de un solo anuncio.
+    barrido_pasada3_min_anuncios_muestra:
+      valor: 3
+      unidad: anuncios
+      hipotesis: true
+      fuente: "[NUEVO] la muestra son los 50 más recientes: un piso de 3 anuncios deja pasar páginas que pueden llegar al objetivo (modelado_anuncios_objetivo)"
+      ultima_calibracion: null
+      rango: [2, 10]
+    # Pasada 3: máximo de páginas distintas que se siguen por corrida (las de más anuncios en la muestra).
+    # Con los valores propuestos: 15 páginas / 5 por consulta = 3 lotes × 11 países de presencia = 33 consultas, que caben
+    # en lo que deja la pasada 1 completa (6 países × 14 formas = 84) dentro del tope de 120.
+    barrido_pasada3_paginas_max:
+      valor: 15
+      unidad: paginas
+      hipotesis: true
+      fuente: "[NUEVO] presupuesto: páginas / barrido_page_ids_por_consulta_max × países de presencia consultas, dentro del tope de la corrida"
+      ultima_calibracion: null
+      rango: [5, 60]
+    # Pasada 3: page_ids por consulta. Pocos, para que la muestra de 50 no oculte a ninguna página del lote.
+    barrido_page_ids_por_consulta_max:
+      valor: 5
+      unidad: paginas
+      hipotesis: true
+      fuente: "[NUEVO] la consulta devuelve máx. 50 anuncios y un solo estimated_total_count para todo el lote"
+      ultima_calibracion: null
+      rango: [1, 10]
+
+    # --- Reparto entre agentes ---
+    # Consultas que ejecuta un agente de barrido, una por una (cada respuesta de 50 anuncios se copia a disco textualmente).
+    barrido_consultas_por_agente_max:
+      valor: 10
+      unidad: consultas
+      hipotesis: true
+      fuente: "[NUEVO] ~50 anuncios por respuesta caben en el contexto de un agente sin degradar la copia textual"
+      ultima_calibracion: null
+      rango: [4, 20]
+    # Agentes que corren a la vez (el resto de la lista va en la ola siguiente).
+    barrido_agentes_paralelos_max:
+      valor: 6
+      unidad: agentes
+      hipotesis: true
+      fuente: "[NUEVO] límite prudente de concurrencia contra el conector; se calibra con la primera corrida real"
+      ultima_calibracion: null
+      rango: [2, 12]
+
+    # --- Lo consumen otros módulos del barrido (ingesta, etiquetado, memoria) ---
+    # Títulos distintos que se conservan por página (material para el etiquetador).
+    barrido_titulos_por_pagina_max:
+      valor: 10
+      unidad: titulos
+      hipotesis: true
+      fuente: "[NUEVO] CONTRATO §4 (páginas): evidencia suficiente para etiquetar sin inflar el lote"
+      ultima_calibracion: null
+      rango: [5, 30]
+    # Páginas por lote que recibe un agente etiquetador.
+    barrido_paginas_por_lote_etiquetado:
+      valor: 20
+      unidad: paginas
+      hipotesis: true
+      fuente: "[NUEVO] CONTRATO §4 (etiquetas): lote chico para que la evidencia literal sea verificable"
+      ultima_calibracion: null
+      rango: [10, 40]
+    # Antigüedad mínima de la instantánea previa para calcular entrantes_30d (si no hay una así, entrantes_30d = null, jamás 0).
+    memoria_ventana_min_dias:
+      valor: 25
+      unidad: dias
+      hipotesis: true
+      fuente: "Spec D1 §12.3 paso 6 y CONTRATO §4 (memoria): entrantes_30d necesita una ventana comparable a 30 días [NUEVO]"
+      ultima_calibracion: null
+      rango: [14, 30]
+    # Antigüedad MÁXIMA de la instantánea previa que sirve de base para entrantes_30d (pedido de B3, memoria). Una base más
+    # vieja ya no mide «entrantes de los últimos 30 días»: se descarta y entrantes_30d queda en null, jamás 0. Debe ser ≥ memoria_ventana_min_dias.
+    memoria_ventana_max_dias:
+      valor: 60
+      unidad: dias
+      hipotesis: true
+      fuente: "Pedido de B3 (memoria) a B1; CONTRATO §4 (memoria) y spec D1 §12.3 paso 6: tope de antigüedad de la base de entrantes_30d [NUEVO]"
+      ultima_calibracion: null
+      rango: [30, 120]
+    # Señal de exportadores: moneda de la cuenta publicitaria -> país de esa moneda. Solo monedas de un único país
+    # (USD y EUR no discriminan). Una página con cuenta en BRL que anuncia en español es candidata a exportadora.
+    barrido_exportador_monedas_pais:
+      valor:
+        BRL: "BR"
+        MXN: "MX"
+        COP: "CO"
+        ARS: "AR"
+        CLP: "CL"
+        PEN: "PE"
+        PLN: "PL"
+        RON: "RO"
+        GBP: "GB"
+        INR: "IN"
+        TRY: "TR"
+      unidad: moneda_pais
+      hipotesis: true
+      fuente: "Spec D1 §17.2 y §17.3 pieza 5 (10 de 28 anunciantes en ES con cuenta en BRL) [NUEVO]"
+      ultima_calibracion: null
+      rango: null

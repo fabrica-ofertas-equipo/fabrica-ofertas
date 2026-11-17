@@ -1,0 +1,41 @@
+{
+  "id": "S04",
+  "severidad": "BLOQUEANTE",
+  "defecto": "El handoff a D3 reproduce literalmente un hook de la competencia (≥ 8 palabras).",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "anuncios_competencia.json",
+      "ruta": "competidores[0].anuncios[0].hook",
+      "valor": "Scopri come mettere ordine in tutte le tue rate in un solo calendario"
+    },
+    {
+      "archivo": "validacion.json",
+      "ruta": "handoff_d3.angulos_candidatos[0]",
+      "valor": "scopri come mettere ordine in tutte le tue rate in un solo calendario"
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D6",
+        "patron_clave": "copia-de-ngramas",
+        "severidad": "BLOQUEANTE"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R7"
+    ],
+    "debe_citar": "mettere ordine in tutte le tue rate"
+  },
+  "detecta_script": "ninguno en la skill; lo detecta el L1 D6 con x1-compliance/scripts/ngrama_copia.py (--propio handoff_d3, --referencia el hook ajeno; arnés pendiente, dependencias #10 y #12)",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

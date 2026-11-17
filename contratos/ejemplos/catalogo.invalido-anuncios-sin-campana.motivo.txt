@@ -1,0 +1,3 @@
+validador=maxItems
+ruta=/ids_meta/ad_ids
+texto=sin campaign_id (null) las listas de conjuntos y anuncios van vacías: no se firman ids huérfanos

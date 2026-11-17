@@ -1,0 +1,23 @@
+{
+  "caso_id": "D02",
+  "titulo": "Tanda ciega con anclas",
+  "tipo": "codigo",
+  "locale": "pl-PL",
+  "entrada": {
+    "piezas": 11,
+    "anclas": "1 ganadora + 1 perdedora (control_sintetico)",
+    "avatares": "10 + línea base",
+    "semilla": "auto"
+  },
+  "salida_esperada": {
+    "llamadas": 143,
+    "ceguera": "ceguera.json ok: true",
+    "orden": "permutación completa avatar × (piezas + anclas), hash_orden presente",
+    "ids": "P-xxxxxxxx para piezas y anclas, activos con nombre opaco"
+  },
+  "aprobacion": [
+    "ningún ad_name, id_origen, hook_tipo, formato, versión ni métrica en ciego/",
+    "cada juez ve una ancla ganadora y una perdedora",
+    "misma semilla = mismos bytes"
+  ]
+}

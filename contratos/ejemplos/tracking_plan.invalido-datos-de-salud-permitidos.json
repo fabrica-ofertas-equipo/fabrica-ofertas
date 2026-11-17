@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "pixel_id": "999000000000001",
+  "dataset_id": "999000000000001",
+  "dominio_verificado": "miregresolaboral.example",
+  "eventos": [
+    {
+      "nombre": "PageView",
+      "canal": "pixel",
+      "event_id_regla": "pv_<visitor_id>_<ts>",
+      "parametros_permitidos": [
+        "fbp",
+        "fbc"
+      ]
+    },
+    {
+      "nombre": "ViewContent",
+      "canal": "pixel",
+      "event_id_regla": "vc_<visitor_id>_<ts>",
+      "parametros_permitidos": [
+        "content_ids",
+        "value",
+        "currency"
+      ]
+    },
+    {
+      "nombre": "InitiateCheckout",
+      "canal": "ambos",
+      "event_id_regla": "ic_<visitor_id>_<ts>",
+      "parametros_permitidos": [
+        "value",
+        "currency"
+      ]
+    },
+    {
+      "nombre": "Purchase",
+      "canal": "ambos",
+      "event_id_regla": "purchase_<checkout_session_id>",
+      "parametros_permitidos": [
+        "value",
+        "currency",
+        "content_ids"
+      ]
+    }
+  ],
+  "utm_esquema": {
+    "plantilla": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-01&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "parametros_obligatorios": [
+      "oferta_id",
+      "adid",
+      "asid",
+      "cid",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content",
+      "utm_term"
+    ]
+  },
+  "consent_gating": {
+    "requerido_ue_uk": true,
+    "plataforma": "CMP por definir (D0) [VERIFICAR]",
+    "tolerar_trafico_sin_consentimiento": true
+  },
+  "emq_objetivo": "6.0",
+  "modo_prueba": true,
+  "datos_sensibles": {
+    "permitidos": true,
+    "campos_prohibidos": [
+      "salud",
+      "diagnostico",
+      "condicion_medica",
+      "email_en_claro"
+    ]
+  }
+}

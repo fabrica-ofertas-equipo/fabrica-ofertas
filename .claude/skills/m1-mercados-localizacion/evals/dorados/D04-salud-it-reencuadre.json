@@ -1,0 +1,20 @@
+{
+  "id": "D04",
+  "nombre": "Salud it-IT: «perdi 8 kg in 30 giorni» vs planificador semanal",
+  "spec": "departamentos/16 §10.5 eval 4",
+  "entrada": {
+    "candidato_A": "promesa de resultado de peso en plazo (P rojo)",
+    "candidato_B": "planificador semanal de comidas (verde, reencuadre que conserva el deseo)"
+  },
+  "salida_esperada": {
+    "A": "R2 excluye ese ANGULO (candidato rojo); el tema salud NO se excluye",
+    "B": "reabre el par (salud, IT) como verde; EXPO IT salud = A+ => 3",
+    "nota": "R3 no inventa restricciones: las del seed de IT en dinero (J05) no aplican a salud"
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D04)",
+    "L2": [
+      "el motivo de exclusion cita promesa/contenido, nunca 'salud' como tema"
+    ]
+  }
+}

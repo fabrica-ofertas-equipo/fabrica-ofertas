@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Hermano de candidatos.json hasta la MINOR 1.1.0 [PENDIENTE: CT-4].",
+  "candidatos": {
+    "CAND-01": {
+      "ejes_codigo": {
+        "P": "P0",
+        "C": "C0",
+        "E": "E0",
+        "N": "N1"
+      },
+      "nivel": "verde",
+      "subnivel": null,
+      "banderas": {
+        "S": false,
+        "R": false,
+        "D": true
+      },
+      "macro_primario": "dinero",
+      "macro_secundario": null,
+      "motivo_macro": "una_bandera: B = cobrar un precio mínimo (hobby con costeo = dinero)",
+      "senal_id_e3": "d92b5ce12f32",
+      "version_tabla": "nota25-2.3-v1",
+      "reencuadre": null
+    }
+  }
+}

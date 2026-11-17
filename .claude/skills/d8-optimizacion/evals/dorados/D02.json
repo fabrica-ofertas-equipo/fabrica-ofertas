@@ -1,0 +1,120 @@
+{
+  "id": "D02",
+  "descripcion": "Mismo lanzamiento y mismo día 1, pero Meta solo entregó 31 de los 75 USD (41,3 %): 70 clics, 60 vistas de landing, 0 ventas. La salvaguarda de J3 manda: si la campaña no gastó su presupuesto del día, no es culpa de la oferta. Debe MANTENER (código ENTREGA_INCOMPLETA), con 1 día de entrega incompleta (escala a D7 al segundo día seguido) y SIN proponer la baja.",
+  "modo": "LANZAMIENTO",
+  "comando": "proponer.py lanzamiento --entrada <entrada> --umbrales evals/_base/umbrales_prueba.json",
+  "entrada": {
+    "schema_version": "0.1.0",
+    "tipo": "entrada_d8",
+    "oferta_id": "OF-202611-02",
+    "fecha_cuenta": "2026-11-08",
+    "tz": "Europe/Warsaw",
+    "ahora": "2026-11-09T09:00:00Z",
+    "solo_lectura": true,
+    "moneda_meta": "USD",
+    "monedas_pedido": [],
+    "presupuesto": {
+      "diario_minor": 7500,
+      "moneda": "USD",
+      "fuente": "ofertas/OF-202611-02/07-campana/campana.json:presupuesto.diario"
+    },
+    "contexto": {
+      "pausa_activa": false,
+      "infra_semaforo": "VERDE",
+      "traspaso_lanzamiento_estable": true,
+      "pedidos_creativos_abiertos": 0
+    },
+    "frescura": {
+      "ultima_ingesta_meta_ts": "2026-11-09T08:30:00Z",
+      "edad_ingesta_meta_min": 30,
+      "ultima_ingesta_pedidos_ts": null,
+      "edad_ingesta_pedidos_min": null
+    },
+    "campaign_ids": [
+      "120000000000001"
+    ],
+    "primer_dia_con_gasto": "2026-11-08",
+    "dias_cerrados_desde_primer_gasto": 1,
+    "dia": {
+      "fecha": "2026-11-08",
+      "cerrado": true,
+      "gasto_minor": 3100,
+      "impresiones": 7000,
+      "clics_enlace": 70,
+      "compras_meta": 0,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0,
+      "ventas_con_reembolso": 0,
+      "vistas_landing": 60,
+      "vistas_landing_con_adid": 125,
+      "initiate_checkout": 1,
+      "ingesta_meta_posterior_al_cierre": true,
+      "minutos_desde_cierre": 600
+    },
+    "acumulado": {
+      "desde": "2026-11-08",
+      "gasto_minor": 3100,
+      "ventas_stripe_total": 0,
+      "ventas_stripe_atribuidas": 0,
+      "ventas_stripe_sin_atribucion": 0,
+      "pedidos_pendientes": 0
+    },
+    "cobertura_adid_bp": null,
+    "disputas_abiertas": 0,
+    "serie_oferta": [
+      {
+        "fecha": "2026-11-08",
+        "gasto_minor": 3100,
+        "impresiones": 7000,
+        "clics_enlace": 70,
+        "compras_meta": 0,
+        "ventas_stripe_total": 0,
+        "ventas_stripe_atribuidas": 0,
+        "ventas_stripe_sin_atribucion": 0,
+        "pedidos_pendientes": 0
+      }
+    ],
+    "anuncios": [],
+    "avisos": []
+  },
+  "esperado": {
+    "accion_negocio": "MANTENER",
+    "accion_contrato": "SEGUIR",
+    "codigo": "ENTREGA_INCOMPLETA",
+    "escalar_a": null,
+    "evidencia": {
+      "gasto_dia_bp": 4133,
+      "ventas_stripe_total": 0,
+      "dias_sin_entrega_consecutivos": 1
+    }
+  },
+  "salida_maker_esperada": {
+    "propuestas": [
+      {
+        "objeto_tipo": "oferta",
+        "objeto_id": "OF-202611-02",
+        "accion_negocio": "MANTENER",
+        "accion_contrato": "SEGUIR",
+        "codigo": "ENTREGA_INCOMPLETA",
+        "requiere_humano": false
+      }
+    ],
+    "debe_incluir": [
+      "diagnóstico de embudo etapa 0 (entrega) con responsable D7: causas a revisar = puja, audiencia, límite diario de la cuenta, rechazos, pago de la cuenta",
+      "la regla del segundo día: si mañana tampoco gasta >= 90 %, el script devolverá PAUSAR_Y_ESCALAR a D7",
+      "no tocar los creativos ni la oferta"
+    ],
+    "no_debe": [
+      "decir que la oferta 'no vende'",
+      "proponer APAGAR por 0 ventas",
+      "editar la campaña viva para 'forzar' gasto"
+    ]
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "hallazgos_minimos": 3,
+    "nota": "debe verificar que el Maker no trató el 0 de ventas como evidencia contra la oferta"
+  }
+}

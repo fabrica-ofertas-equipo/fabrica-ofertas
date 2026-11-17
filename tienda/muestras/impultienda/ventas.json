@@ -1,0 +1,6 @@
+{"periodo":{"desde":"2026-11-11","hasta":"2026-11-17","timezone":"America/Argentina/Buenos_Aires"},"cantidad_ventas":2,"cantidad_post_compra":1,
+ "ingresos":[{"moneda":"USD","total":160.69,"cantidad":3}],"ticket_promedio":[{"moneda":"USD","valor":80.35}],
+ "detalle":{"total":3,"count":3,"offset":0,"has_more":false,"ventas":[
+  {"orden":1000001,"fecha":"2026-11-17T13:59:21.297691+00:00","total":53.93,"moneda":"USD","metodo_pago":"impulpay","post_compra":false},
+  {"orden":1000002,"fecha":"2026-11-17T12:52:16.448987+00:00","total":63.84,"moneda":"USD","metodo_pago":"impulpay","post_compra":false},
+  {"orden":1000003,"fecha":"2026-11-17T12:30:04.675338+00:00","total":42.92,"moneda":"USD","metodo_pago":"impulpay","post_compra":true}]}}

@@ -1,0 +1,9 @@
+{
+  "valores": {
+    "moneda_limites": "EUR",
+    "gasto_diario_por_oferta": 5000,
+    "gasto_total_test_por_oferta": 20000,
+    "perdida_max_test_por_oferta": 15000
+  },
+  "nulos": []
+}

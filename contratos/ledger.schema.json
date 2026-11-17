@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/ledger.schema.json",
+  "title": "Línea del ledger de F1",
+  "description": "Una línea de empresa/finanzas/ledger.jsonl (append-only, upsert por clave_natural). Importes enteros no negativos en unidad menor; el sentido va aparte. Sin tipo de cambio registrado no hay importe_base.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "clave_natural": {
+      "type": "string",
+      "pattern": "^(stripe|meta|costos|manual):[A-Za-z0-9_.:-]{3,100}$",
+      "description": "<fuente>:<id externo>; el upsert se hace por esta clave"
+    },
+    "tipo": {
+      "enum": [
+        "pedido",
+        "gasto",
+        "reembolso",
+        "disputa",
+        "comision",
+        "impuesto",
+        "costo",
+        "ajuste"
+      ]
+    },
+    "oferta_id": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/oferta_id"
+        },
+        {
+          "const": "empresa"
+        }
+      ],
+      "description": "oferta_id o la cadena fija 'empresa' (costos y flujos sin oferta)"
+    },
+    "fecha": {
+      "$ref": "comunes.schema.json#/$defs/fecha",
+      "description": "Día UTC del hecho"
+    },
+    "ts": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "sentido": {
+      "enum": [
+        "entrada",
+        "salida"
+      ]
+    },
+    "importe": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "fuente": {
+      "enum": [
+        "stripe",
+        "meta",
+        "costos",
+        "manual"
+      ]
+    },
+    "es_prueba": {
+      "type": "boolean",
+      "description": "true: compra de prueba o interna; se excluye del P&L y de la evidencia"
+    },
+    "adid": {
+      "anyOf": [
+        {
+          "$ref": "comunes.schema.json#/$defs/id_meta"
+        },
+        {
+          "const": "desconocido"
+        }
+      ],
+      "description": "Unión Meta<->Stripe; 'desconocido' cuenta en cobertura_adid"
+    },
+    "tipo_cambio_id": {
+      "$ref": "comunes.schema.json#/$defs/tipo_cambio_id"
+    },
+    "importe_base": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    }
+  },
+  "required": [
+    "schema_version",
+    "clave_natural",
+    "tipo",
+    "oferta_id",
+    "fecha",
+    "ts",
+    "sentido",
+    "importe",
+    "fuente",
+    "es_prueba"
+  ],
+  "additionalProperties": false,
+  "dependentRequired": {
+    "importe_base": [
+      "tipo_cambio_id"
+    ],
+    "tipo_cambio_id": [
+      "importe_base"
+    ]
+  }
+}

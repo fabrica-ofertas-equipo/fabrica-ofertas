@@ -1,0 +1,1468 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/estado.schema.json",
+  "title": "Estado de la oferta",
+  "description": "estado.json de la oferta. SOLO el motor lo escribe; Makers y QA no lo tocan. No confundir con empresa/infra/estado.json (infra_estado).",
+  "x-version": "1.1.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "familia_id": {
+      "$ref": "comunes.schema.json#/$defs/familia_id"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contador que solo incrementa el motor"
+    },
+    "nivel": {
+      "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+    },
+    "pausa": {
+      "type": "boolean"
+    },
+    "fase": {
+      "enum": [
+        "borrador",
+        "en_construccion",
+        "listo_para_activar",
+        "en_test",
+        "validada",
+        "fallida",
+        "inconclusa",
+        "escalando",
+        "retirada",
+        "pausada"
+      ],
+      "description": "Fase del ciclo de vida de la oferta"
+    },
+    "skills_pin": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "comunes.schema.json#/$defs/semver"
+      },
+      "description": "etapa -> versión de skill fijada"
+    },
+    "etapas": {
+      "type": "object",
+      "properties": {
+        "M1": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D1": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D2": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D3": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D4": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D5": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D6": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D7": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D8": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D9": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        },
+        "D10": {
+          "type": "object",
+          "properties": {
+            "estado": {
+              "$ref": "comunes.schema.json#/$defs/estado_etapa"
+            },
+            "version_aprobada": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/version"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "hash_salida": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/sha256"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "entradas": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              "description": "etapa aguas arriba -> hash_salida que consumió"
+            },
+            "ronda_qa": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "intentos": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "gate": {
+              "$ref": "comunes.schema.json#/$defs/gate"
+            },
+            "gate_pendiente": {
+              "type": "boolean",
+              "description": "Indicador dentro de en_QA, no es un estado"
+            },
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "aprobado_por": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/firma_humana"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "bloqueo": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "motivo": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "desde": {
+                      "$ref": "comunes.schema.json#/$defs/timestamp"
+                    }
+                  },
+                  "required": [
+                    "motivo",
+                    "desde"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "idempotency_key": {
+              "anyOf": [
+                {
+                  "$ref": "comunes.schema.json#/$defs/idempotency_key"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "obsoleta": {
+              "type": "boolean",
+              "description": "true si una etapa aguas arriba cambió"
+            }
+          },
+          "required": [
+            "estado",
+            "version_aprobada",
+            "hash_salida",
+            "entradas",
+            "ronda_qa",
+            "intentos",
+            "gate",
+            "gate_pendiente",
+            "nivel",
+            "aprobado_por",
+            "bloqueo",
+            "idempotency_key",
+            "obsoleta"
+          ],
+          "additionalProperties": false,
+          "description": "Estado de una etapa de la oferta"
+        }
+      },
+      "required": [
+        "M1",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10"
+      ],
+      "additionalProperties": false
+    },
+    "candidato_elegido": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "candidato_id": {
+              "$ref": "comunes.schema.json#/$defs/candidato_id"
+            },
+            "fecha": {
+              "$ref": "comunes.schema.json#/$defs/timestamp"
+            },
+            "motivo": {
+              "type": "string",
+              "minLength": 1
+            },
+            "editado_por_dueno": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "candidato_id",
+            "fecha",
+            "motivo",
+            "editado_por_dueno"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gasto": {
+      "type": "object",
+      "properties": {
+        "acumulado": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        },
+        "hoy": {
+          "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+        }
+      },
+      "required": [
+        "acumulado",
+        "hoy"
+      ],
+      "additionalProperties": false
+    },
+    "costo_ia": {
+      "$ref": "comunes.schema.json#/$defs/dinero_no_negativo"
+    },
+    "actualizado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "espera_madurez": {
+      "type": "object",
+      "properties": {
+        "activa": {
+          "type": "boolean"
+        },
+        "hasta": {
+          "$ref": "comunes.schema.json#/$defs/timestamp"
+        }
+      },
+      "required": [
+        "activa",
+        "hasta"
+      ],
+      "additionalProperties": false,
+      "description": "Opcional. Tras cerrar la campaña (sin gasto) el motor sigue leyendo hasta `hasta` = fecha del último pedido considerado + política de reembolso + veredicto.madurez_dias_extra; VALIDADA no puede emitirse antes (MA-02)."
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "familia_id",
+    "revision",
+    "nivel",
+    "pausa",
+    "fase",
+    "skills_pin",
+    "etapas",
+    "candidato_elegido",
+    "gasto",
+    "costo_ia",
+    "actualizado_en"
+  ],
+  "additionalProperties": false
+}

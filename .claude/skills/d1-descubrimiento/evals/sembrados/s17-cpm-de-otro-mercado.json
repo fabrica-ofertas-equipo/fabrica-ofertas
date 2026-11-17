@@ -1,0 +1,33 @@
+{
+  "id": "s17-cpm-de-otro-mercado",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "CPA calculado con el CPM de EE. UU. para un público de México (D-11)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/viabilidad_cpa/supuestos",
+      "valor": [
+        "CPM de EE. UU. del rango 10-20 USD aplicado a un público de México"
+      ]
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-11",
+  "severidad_esperada": "MAYOR",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-11",
+        "severidad": "MAYOR",
+        "patron_clave": "cpm-de-otro-mercado"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

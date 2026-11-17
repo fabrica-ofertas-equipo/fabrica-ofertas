@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "licencias": [
+    {
+      "licencia_ref": "lic-fuente-sistema",
+      "tipo": "fuente_tipografica",
+      "nombre": "Helvetica Neue / Arial (fuente del sistema)",
+      "proveedor": "sistema operativo del equipo que renderiza",
+      "plan": null,
+      "alcance_comercial": "[VERIFICAR] raster de texto en anuncios; preferir una fuente OFL con la licencia archivada",
+      "url_licencia": null,
+      "evidencia_ref": null,
+      "fecha_captura": "2026-11-06"
+    },
+    {
+      "licencia_ref": "lic-source-sans-3",
+      "tipo": "fuente_tipografica",
+      "nombre": "Source Sans 3 (WOFF2 autoalojada de D5)",
+      "familia": "Source Sans 3",
+      "archivos": [
+        "05-landing/fonts/source-sans-3-400.woff2"
+      ],
+      "proveedor": "D5: copiada de 05-landing/fonts/ (la misma que usa la landing)",
+      "plan": null,
+      "licencia": "SIL OFL 1.1 [VERIFICAR: copiar de paleta.json#tipografia.texto.licencia y archivar el OFL.txt]",
+      "alcance_comercial": "OFL 1.1 permite uso comercial y raster de texto; verificar el OFL.txt de la familia concreta",
+      "url_licencia": null,
+      "evidencia_ref": "05-landing/paleta.json#tipografia",
+      "fecha_captura": "2026-11-06"
+    }
+  ],
+  "musica": [],
+  "nota": "Sin música en la v1 salvo pista con licencia comercial documentada aquí. Fuentes: cada familia cargada con @font-face (las WOFF2 de D5) lleva su entrada tipo fuente_tipografica con la licencia que D5 declara en paleta.json#tipografia; validar_d6.py assets lo comprueba. Higgsfield: términos de uso comercial por plan [VERIFICAR] antes de la Fase 2 con Ruta B."
+}

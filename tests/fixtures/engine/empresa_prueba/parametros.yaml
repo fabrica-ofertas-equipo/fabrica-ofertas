@@ -1,0 +1,2293 @@
+# PARÁMETROS de prueba del motor: copia de contratos/ejemplos/parametros.valido.yaml tomada el 2026-11-06 (el esquema exige todos los grupos).
+# Las pruebas NUNCA leen empresa/parametros.yaml real: leen esta copia.
+# empresa/parametros.yaml - UMBRALES AJUSTABLES. Los propone el sistema, los aprueba el dueño (backbone 5.6).
+# Esquema: contratos/parametros.schema.json. Cada parámetro: valor, unidad, hipotesis, fuente, ultima_calibracion, rango.
+# Todos son [HIPÓTESIS] iniciales a calibrar (hipotesis: true). Sin float: decimales como cadena ("0.90"); dinero = entero en unidad menor + moneda.
+# Cada clave tiene un único hogar (ver docs/contratos.md, Registro de reconciliación). Nunca se copia un número al código.
+
+schema_version: "1.1.0"
+version: 1
+grupos:
+  # --- O0 - motor, portafolio y propuestas ---
+  orquestador:
+    # Máximo de rondas Maker-QA por etapa (fijo, backbone 6.5)
+    max_rondas_qa:
+      valor: 2
+      unidad: rondas
+      hipotesis: true
+      fuente: "backbone 6.5 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Reintentos ante fallo técnico (espera 1 y 5 min)
+    reintentos_tecnicos:
+      valor: 2
+      unidad: reintentos
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 3]
+    # Esperas sucesivas entre reintentos técnicos
+    espera_reintento_min:
+      valor: [1, 5]
+      unidad: minutos
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Tiempo máximo por etapa antes de pasar a bloqueado
+    timeout_etapa_min:
+      valor: {"D1": 30, "D2": 45, "D3": 20, "D4": 60, "D5": 60, "D6": 90, "D7": 30, "QA": 25}
+      unidad: minutos
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Puntaje QA mínimo del brief y de la propuesta (ningún ítem < umbral_item_min_o0)
+    umbral_pass_o0:
+      valor: "4.0"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.5", "4.5"]
+    # Ningún ítem de rúbrica de O0 por debajo de este valor
+    umbral_item_min_o0:
+      valor: 3
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Cartera: P(oferta viable) por debajo de la cual se propone descartar (antes 'p_kill' de O0; distinto del p_kill de D8)
+    p_viable_descartar:
+      valor: "0.05"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "O0 3.4 + reconciliación R07 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.02", "0.10"]
+    # Cartera: P(oferta viable) a partir de la cual se propone escalar
+    p_viable_escalar:
+      valor: "0.80"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.70", "0.95"]
+    # Parte del presupuesto diario global reservada a ofertas en test (O0 y F1 usaban el mismo valor)
+    exploracion_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "O0/F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 40]
+    # Ofertas en paralelo por nivel de autonomía (acotado por limites.ofertas_en_test_simultaneas_max)
+    paralelas_max_por_nivel:
+      valor: {"N0": 1, "N1": 1, "N2": 1, "N3": 2, "N4": 3}
+      unidad: ofertas
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Alarma de gasto
+    gasto_alarma_pct:
+      valor: 80
+      unidad: porcentaje_del_tope_diario
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Freno al alcanzar este porcentaje del tope diario (el techo teórico es factor_techo_teorico_diario x presupuesto)
+    freno_pct:
+      valor: 100
+      unidad: porcentaje_del_tope_diario
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Antigüedad máxima de datos para decidir
+    frescura_datos_max_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 48]
+    # Tiempo máximo para ejecutar una pausa global
+    pausa_global_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 15]
+    # Una propuesta sin respuesta vence a la opción conservadora
+    propuesta_vence_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: "O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [24, 168]
+  # --- D0 - fundaciones y healthcheck ---
+  infra:
+    # Hora del healthcheck diario
+    hc_hora_diaria:
+      valor: "06:00"
+      unidad: hora_utc
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Antigüedad máxima de infra/estado.json en VERDE para gastar o activar (backbone 5.6)
+    hc_preflight_vigencia_horas:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: "backbone 5.6 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 12]
+    # Sonda ligera con campañas activas
+    hc_sonda_ligera_min:
+      valor: 15
+      unidad: minutos
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 60]
+    # Reintentos antes de pausar por ROJO
+    hc_reintentos_antes_de_pausa:
+      valor: 2
+      unidad: reintentos
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Antigüedad máxima de evidencia manual
+    hc_evidencia_max_antiguedad_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 90]
+    # Aviso antes del vencimiento de un token
+    token_alerta_dias_antes:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 30]
+    # Rotación de secretos
+    secretos_rotacion_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [60, 180]
+    # Respuesta máxima del webhook de Stripe
+    webhook_respuesta_max_ms:
+      valor: 1000
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [300, 3000]
+    # Entrega de correo de prueba
+    email_entrega_prueba_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 15]
+    # Días mínimos de vigencia TLS
+    tls_dias_min_restantes:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 30]
+    # Días mínimos para renovar dominio
+    dominio_dias_min_renovacion:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: "D0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 90]
+  # --- Enlaces de descarga (D0, D4, D5 y D10 usaban el mismo valor) ---
+  entrega:
+    # Vencimiento del enlace firmado de descarga
+    enlace_vence_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D0/D4/D5/D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 14]
+    # Descargas máximas por enlace
+    enlace_max_descargas:
+      valor: 5
+      unidad: descargas
+      hipotesis: true
+      fuente: "D0/D4/D5/D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+  # --- D1 - radar de problemas y candidatos ---
+  descubrimiento:
+    # Semillas por corrida
+    n_semillas_crudas:
+      valor: 40
+      unidad: problemas
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 80]
+    # Finalistas con evidencia
+    n_finalistas_con_evidencia:
+      valor: 15
+      unidad: problemas
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 25]
+    # score_base mínimo para ser candidato
+    umbral_score_min:
+      valor: 55
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [45, 70]
+    # Fuentes independientes mínimas
+    evidencia_min_fuentes:
+      valor: 2
+      unidad: fuentes
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 4]
+    # Tipos de evidencia distintos mínimos (E1..E4)
+    evidencia_min_tipos:
+      valor: 2
+      unidad: tipos
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 4]
+    # Antigüedad máxima de la evidencia (tendencias: 12)
+    antiguedad_max_evidencia_meses:
+      valor: 18
+      unidad: meses
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 36]
+    # Similitud de duplicado que bloquea
+    sim_dup_bloqueo:
+      valor: "0.80"
+      unidad: similitud
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "0.9"]
+    # Similitud desde la que se penaliza
+    sim_penalizacion_desde:
+      valor: "0.50"
+      unidad: similitud
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.4", "0.6"]
+    # Estabilidad del top-1 ante cambio de pesos
+    top1_estable_min_pct:
+      valor: 80
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [60, 95]
+    # Peso de diversidad en el ranking
+    lambda_diversidad:
+      valor: "0.3"
+      unidad: peso
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0", "0.6"]
+    # Máximo de candidatos por nicho en el top-N
+    max_por_nicho_topn:
+      valor: 2
+      unidad: candidatos
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Cuota mínima de exploración por gran nicho (salud, relaciones, dinero)
+    cuota_min_exploracion_por_macro_nicho_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D1 + decisión 13 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 34]
+    # Promedio de rúbrica de D1 (ningún ítem <= 2)
+    umbral_pass_qa:
+      valor: "3.6"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.4", "4.2"]
+    # Veto tácito en N3
+    ventana_veto_tacito_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [12, 72]
+    # Caducidad de candidatos no elegidos
+    caducidad_banco_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 180]
+    # Conceptos creativos únicos activos para 'anunciante sostenido'
+    anunciante_sostenido_conceptos_min:
+      valor: 3
+      unidad: conceptos
+      hipotesis: true
+      fuente: "D1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Días desde el inicio de entrega para 'anunciante sostenido' (D1, D2 y D6 lo usaban)
+    anunciante_sostenido_dias_min:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: "D1/D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 90]
+  # --- D2 - validación de mercado ---
+  validacion:
+    # Consultas a la Biblioteca para el QA
+    max_consultas_qa:
+      valor: 15
+      unidad: consultas
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 25]
+    # Umbral de anunciante sostenido
+    umbral_ss:
+      valor: "0.60"
+      unidad: puntaje
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.50", "0.75"]
+    # Similitud para agrupar conceptos
+    sim_concepto:
+      valor: "0.8"
+      unidad: similitud
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "0.9"]
+    # Competidores analizados a fondo
+    n_competidores_profundos:
+      valor: 5
+      unidad: competidores
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 8]
+    # Frases mínimas de voz del cliente
+    min_frases_voz:
+      valor: 30
+      unidad: frases
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [20, 60]
+    # Fuentes distintas mínimas de voz del cliente
+    min_fuentes_voz:
+      valor: 3
+      unidad: fuentes
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 5]
+    # Umbral de hueco por ausencia
+    umbral_hueco_ausencia:
+      valor: "0.70"
+      unidad: puntaje
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.5", "0.85"]
+    # Anunciantes independientes sostenidos para GO
+    n_ind_sost_go:
+      valor: 3
+      unidad: anunciantes
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Índice de saturación máximo para GO
+    is_go_max:
+      valor: 70
+      unidad: puntos
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [55, 75]
+    # Índice de saturación mínimo para NO-GO
+    is_nogo_min:
+      valor: 85
+      unidad: puntos
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [80, 95]
+    # Relectura para medir supervivencia de anuncios
+    relectura_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 14]
+    # Longitud máxima de una cita
+    max_palabras_cita:
+      valor: 25
+      unidad: palabras
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Iteraciones de refinamiento
+    max_iteraciones_refinar:
+      valor: 2
+      unidad: iteraciones
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Muestreo de NO-GO con sondeo pagado (gate H)
+    muestreo_no_go_pct:
+      valor: 10
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 20]
+  # --- D3 - economía de la oferta (entradas de factibilidad.py) ---
+  economia:
+    # CPA_BE / CPA_real central mínimo para FACTIBLE
+    razon_min_factible:
+      valor: "1.3"
+      unidad: razon
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.1", "1.6"]
+    # CPA_obj = factor x CPA_BE
+    factor_cpa_objetivo:
+      valor: "0.6"
+      unidad: factor
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.4", "0.8"]
+    # Tasa de aceptación esperada del bump (10 %)
+    tasa_bump_bp:
+      valor: 1000
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [500, 2500]
+    # Tasa de upsell esperada
+    tasa_upsell_bp:
+      valor: 0
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 800]
+    # Tasa de reembolso esperada (7 %)
+    tasa_reembolso_bp:
+      valor: 700
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [300, 1200]
+    # Tasa de disputa esperada (0,5 %)
+    tasa_disputa_bp:
+      valor: 50
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [20, 100]
+    # Escenarios CTR de enlace y clic->compra (el CPM sale de datos propios o del atlas de M1, no se fija aquí)
+    escenarios_embudo:
+      valor: {"pes": {"ctr_enlace_bp": 80, "clic_compra_bp": 70}, "central": {"ctr_enlace_bp": 120, "clic_compra_bp": 150}, "opt": {"ctr_enlace_bp": 200, "clic_compra_bp": 250}}
+      unidad: puntos_basicos
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Penalización del CPA si se optimiza a un evento de señal (IC)
+    penal_evento_senal:
+      valor: "1.25"
+      unidad: factor
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.1", "1.6"]
+    # Rango plausible de precio de lista (equivalente en USD)
+    precio_lista_rango:
+      valor: {"min": {"monto": 1200, "moneda": "USD"}, "max": {"monto": 2900, "moneda": "USD"}}
+      unidad: dinero_equivalente
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Puntaje mínimo de la oferta
+    puntaje_min_oferta:
+      valor: 75
+      unidad: puntos_0_100
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [70, 85]
+    # Puntaje mínimo por dimensión
+    puntaje_dim_min_oferta:
+      valor: 3
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 4]
+    # Velocidad de lectura para estimar tiempo en diseño
+    lectura_wpm_diseno:
+      valor: 200
+      unidad: palabras_por_min
+      hipotesis: true
+      fuente: "D3 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [150, 250]
+    # D3 exige vehiculo.tiempo_consumo_min <= factor x promesa.tiempo_prometido_min (reconciliación R10)
+    tiempo_diseno_max_factor:
+      valor: "1.10"
+      unidad: factor
+      hipotesis: true
+      fuente: "D3 3.4 + R10 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- D4 - fábrica de producto ---
+  producto:
+    # Velocidad de lectura para instrucciones
+    lectura_wpm:
+      valor: 180
+      unidad: palabras_por_min
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [150, 220]
+    # Lectura necesaria <= este % del tiempo prometido
+    lectura_max_pct_prometido:
+      valor: 40
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [25, 60]
+    # Tiempo medido <= factor x tiempo prometido (D4 no puede cambiar la promesa; reconciliación R10)
+    cold_run_tolerancia:
+      valor: "1.25"
+      unidad: factor
+      hipotesis: true
+      fuente: "D4 3.4 + R10 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.0", "1.5"]
+    # Agentes de contexto limpio en la corrida en frío
+    cold_run_agentes:
+      valor: 2
+      unidad: agentes
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+    # Fuentes mínimas por tema (>= 1 primaria)
+    min_fuentes_por_tema:
+      valor: 3
+      unidad: fuentes
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Minutos humanos por tipo de paso (estimación de diseño; la fórmula es lectura + suma de pasos <= tiempo prometido)
+    t_paso_humano_min:
+      valor: {"abrir_copiar_pegar": 1, "configurar_herramienta": 3, "esperar_render_exportar": 5, "decidir_ajustar": 2}
+      unidad: minutos
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Peso máximo por PDF
+    peso_max_mb_pdf:
+      valor: 15
+      unidad: MB
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 25]
+    # Peso máximo del paquete
+    peso_max_mb_paquete:
+      valor: 100
+      unidad: MB
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Desvío permitido de páginas vs promesa
+    paginas_vs_prometido_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 30]
+    # Antigüedad máxima de la fuente de un hecho verificable
+    hechos_fuente_max_dias:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 30]
+    # Éxito mínimo de prompts sobre 3 entradas
+    prompts_exito_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [80, 100]
+    # Contraste mínimo del documento (WCAG AA) [VERIFICAR]
+    contraste_min:
+      valor: "4.5"
+      unidad: razon_wcag
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Revisión de contenido según volatilidad
+    volatilidad_revision_dias:
+      valor: {"alta": 30, "media": 90, "baja": 180}
+      unidad: dias
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Promedio de rúbrica de D4 (R1, R4, R8 >= 4)
+    umbral_qa:
+      valor: "4.0"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "D4 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.8", "4.3"]
+  # --- D5 - landing, checkout y tracking ---
+  landing:
+    # LCP p75 en campo
+    lcp_max_ms:
+      valor: 2500
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "D5 3.4 (web.dev) [HIPÓTESIS]"
+      ultima_calibracion: null
+    # INP p75 en campo
+    inp_max_ms:
+      valor: 200
+      unidad: milisegundos
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # CLS p75 en campo
+    cls_max:
+      valor: "0.1"
+      unidad: indice
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Lighthouse móvil: rendimiento
+    lighthouse_rendimiento_min:
+      valor: 85
+      unidad: puntos
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [80, 95]
+    # Lighthouse móvil: accesibilidad
+    lighthouse_accesibilidad_min:
+      valor: 95
+      unidad: puntos
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Lighthouse móvil: mejores prácticas y SEO
+    lighthouse_mejores_practicas_min:
+      valor: 90
+      unidad: puntos
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Peso transferido de la landing
+    peso_landing_max_kb:
+      valor: 1024
+      unidad: KB
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [600, 1500]
+    # Peso de la imagen hero
+    peso_hero_max_kb:
+      valor: 150
+      unidad: KB
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Garantía de reembolso mínima (decisión del dueño)
+    garantia_dias_min:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 30]
+    # Precio del bump respecto del principal (mínimo)
+    bump_pct_precio_min:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Precio del bump respecto del principal (máximo)
+    bump_pct_precio_max:
+      valor: 60
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Aceptación objetivo del bump
+    bump_aceptacion_objetivo_pct:
+      valor: 15
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [15, 30]
+    # expires_at de la Checkout Session
+    checkout_expira_min:
+      valor: 30
+      unidad: minutos
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 1440]
+    # Captura de adid/cid en sesiones provenientes de anuncios
+    captura_adid_min_pct:
+      valor: 95
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D0/D5/D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [90, 100]
+    # Calidad de coincidencia de eventos mínima para Purchase
+    emq_min_purchase:
+      valor: "6.0"
+      unidad: emq
+      hipotesis: true
+      fuente: "D0/D5/D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["5", "8"]
+    # Deduplicación píxel/API de Conversiones mínima
+    dedup_min_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D0/D5/D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [80, 100]
+    # Sesiones mínimas por variante de landing
+    sesiones_min_variante:
+      valor: 1500
+      unidad: sesiones
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [800, 3000]
+    # Promedio de rúbrica de D5 (R1, R2, R5, R7 >= 3)
+    umbral_qa:
+      valor: "4.0"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "D5 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.8", "4.3"]
+  # --- D6 - creativos y anuncios ---
+  creativos:
+    # Tope de anuncios del paquete (min con floor(presupuesto/(k x cpa_max)))
+    n_anuncios_max:
+      valor: 8
+      unidad: anuncios
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 8]
+    # Conceptos en el test (>= 3 ángulos)
+    n_conceptos_test:
+      valor: 4
+      unidad: conceptos
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 6]
+    # Hooks por concepto
+    hooks_por_concepto:
+      valor: 2
+      unidad: hooks
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Conceptos pre-aprobados en reserva (solo guion y copy)
+    reserva_conceptos:
+      valor: 2
+      unidad: conceptos
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 4]
+    # Cadencia mínima de concepto nuevo por conjunto
+    refresco_dias_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 21]
+    # Cadencia máxima de concepto nuevo por conjunto
+    refresco_dias_max:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 21]
+    # Plazo de D6 ante un pedido de D8
+    sla_pedido_h:
+      valor: 48
+      unidad: horas
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [24, 96]
+    # Consultas a la Biblioteca de Anuncios por oferta
+    max_consultas_ads_library_por_oferta:
+      valor: 10
+      unidad: consultas
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 20]
+    # Media mínima de la rúbrica L2 (ningún ítem < 3; R4 y R9 >= 4)
+    umbral_rubrica_media:
+      valor: "3.8"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Defectos bloqueantes sembrados para calibrar el QA
+    calibracion_bloqueantes_sembrados_min:
+      valor: 20
+      unidad: casos
+      hipotesis: true
+      fuente: "D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- D7 - armado y lanzamiento del test ---
+  campana:
+    # Tope de anuncios por campaña de test
+    n_anuncios_tope:
+      valor: 6
+      unidad: anuncios
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 8]
+    # Mínimo de anuncios por campaña de test
+    n_anuncios_min:
+      valor: 3
+      unidad: anuncios
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Duración del test si D3 no la fija
+    dias_test_defecto:
+      valor: 10
+      unidad: dias
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 14]
+    # Duración mínima del test
+    dias_test_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Duración máxima del test
+    dias_test_max:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # spend_cap de campaña = factor x presupuesto total
+    spend_cap_factor:
+      valor: "1.10"
+      unidad: factor
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.0", "1.2"]
+    # Vistas de landing / clics de enlace mínimas en el preflight
+    vistas_landing_sobre_clics_min:
+      valor: "0.6"
+      unidad: razon
+      hipotesis: true
+      fuente: "D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.5", "0.8"]
+    # Vigencia del preflight de D7
+    preflight_vigencia_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "D7 3.3 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- Reglas de testeo compartidas por D3, D7 y D8 (una sola fuente) ---
+  testeo:
+    # Corte: se mata un anuncio sin compras tras k x CPA_BE de gasto (P(0 compras)=e^-k). Antes 'm_kill' en O0
+    k_corte:
+      valor: 3
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: "D3/D7/D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 4]
+    # Compras Stripe necesarias para decidir/validar (criterios_corte.N_dec)
+    n_dec:
+      valor: 15
+      unidad: compras
+      hipotesis: true
+      fuente: "D3/D7/D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 25]
+    # Tras activar o editar solo rigen las reglas G y K1
+    ventana_no_decidir_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: "D7/D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [48, 96]
+    # Impresiones mínimas para diagnosticar CTR
+    impr_min_diag:
+      valor: 3000
+      unidad: impresiones
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2000, 8000]
+    # Clics de enlace mínimos para diagnosticar y decidir (O0: clics_min_decision)
+    clics_min_diag:
+      valor: 100
+      unidad: clics
+      hipotesis: true
+      fuente: "D8/O0 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [60, 200]
+    # Probabilidad posterior de CPA > CPA_BE para matar un anuncio
+    p_kill:
+      valor: "0.90"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.85", "0.95"]
+    # Probabilidad para declarar FALLIDA
+    p_fallida:
+      valor: "0.95"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.85", "0.95"]
+    # Probabilidad para proponer escalar
+    p_escala:
+      valor: "0.80"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.70", "0.95"]
+    # P(mejor CPA que la mediana de hermanos)
+    p_ganador:
+      valor: "0.80"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "0.9"]
+    # P(CPA <= CPA_BE) bajo la cual el tope alcanzado cierra como FALLIDA
+    p_cierre_tope:
+      valor: "0.20"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Vistas de landing / clics de enlace mínimas
+    tasa_conexion_min:
+      valor: "0.70"
+      unidad: razon
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.60", "0.85"]
+    # Tasa mínima de InitiateCheckout sobre vistas
+    tasa_ic_min_pct:
+      valor: 3
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Tasa mínima de compra sobre InitiateCheckout
+    tasa_compra_ic_min_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [15, 30]
+    # CPM alto respecto de la referencia
+    cpm_alto_factor:
+      valor: "1.5"
+      unidad: factor
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.3", "2"]
+    # Frecuencia de alerta a 7 días (sin umbral oficial de Meta)
+    freq_alerta_7d:
+      valor: "2.5"
+      unidad: frecuencia
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["2", "4"]
+    # Caída de CTR que cuenta como señal de fatiga
+    fatiga_caida_ctr_pct:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [20, 40]
+    # Subida de CPA que cuenta como señal de fatiga
+    fatiga_factor_cpa:
+      valor: "1.5"
+      unidad: factor
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.3", "2"]
+    # Señales mínimas de fatiga
+    fatiga_senales_min:
+      valor: 2
+      unidad: senales_de_3
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Razón compras Meta / Stripe mínima aceptable
+    razon_meta_stripe_min:
+      valor: "0.8"
+      unidad: razon
+      hipotesis: true
+      fuente: "D0/D7/D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Razón compras Meta / Stripe máxima aceptable
+    razon_meta_stripe_max:
+      valor: "1.3"
+      unidad: razon
+      hipotesis: true
+      fuente: "D0/D7/D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Compras de Stripe con adid para calcular la razón
+    cobertura_adid_min_pct:
+      valor: 90
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Ventana móvil (excluye los últimos 2 días)
+    razon_ventana_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Compras Stripe con adid mínimas para que dispare la razón
+    razon_n_min:
+      valor: 10
+      unidad: compras
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Alarma ciega: k_ciego x k_corte x CPA_BE sin una compra Stripe
+    k_ciego:
+      valor: "2"
+      unidad: multiplo
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.5", "3"]
+    # Chequeos rojos consecutivos para pausar por G8
+    chequeos_rojos_g8:
+      valor: 2
+      unidad: chequeos
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+  # --- Definición única de 'oferta validada' (backbone 5.9) y estados ---
+  veredicto:
+    # Compras Stripe netas de reembolsos en cohorte madura (igual a testeo.n_dec salvo calibración)
+    compras_min:
+      valor: 15
+      unidad: compras
+      hipotesis: true
+      fuente: "backbone 5.9; D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 25]
+    # Días mínimos con datos maduros dentro de la ventana
+    dias_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "backbone 5.9; D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 10]
+    # Ventana máxima de evaluación
+    dias_max:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 30]
+    # Madurez = garantía + este número de días (F1 usaba +14: reconciliación R12)
+    madurez_dias_extra:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "backbone 5.9 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 14]
+    # Tolerancia de estabilidad entre mitades de la ventana
+    estabilidad_tol_pct:
+      valor: 15
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 25]
+    # Ningún día puede concentrar más de este % de las compras
+    max_dia_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Reembolso máximo en la cohorte madura para VALIDADA
+    reembolso_max_pct:
+      valor: 8
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- D8 - operación diaria ---
+  optimizacion:
+    # Cadencia de lectura de datos
+    lectura_horas:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 12]
+    # Hora de decisión diaria
+    hora_decision:
+      valor: "09:00"
+      unidad: hora_zona_cuenta
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Pausas máximas por día y conjunto
+    max_pausas_dia_conjunto:
+      valor: 2
+      unidad: pausas
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Gasto sin entrega que dispara alerta
+    anuncios_sin_entrega_pct:
+      valor: 5
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Pedidos creativos abiertos
+    max_pedidos_abiertos:
+      valor: 1
+      unidad: pedidos
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 2]
+    # Días entre pedidos creativos
+    dias_entre_pedidos:
+      valor: 5
+      unidad: dias
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Máximo de creativos por pedido
+    cantidad_max_pedido:
+      valor: 5
+      unidad: anuncios
+      hipotesis: true
+      fuente: "D8 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 7]
+  # --- D9 - escalado ---
+  escalado:
+    # Días de datos maduros, excluyendo los últimos 2
+    dias_datos_maduros_min:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 10]
+    # Ventana de evaluación de un paso de presupuesto
+    ventana_evaluacion_h:
+      valor: 72
+      unidad: horas
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [48, 96]
+    # Lectura a las 96 h (24 h de madurez)
+    lectura_post_paso_h:
+      valor: 96
+      unidad: horas
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Un plan aprobado caduca y se recalcula
+    vigencia_plan_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 48]
+    # Compras en los 7 días previos para subir
+    compras_min_ventana:
+      valor: 8
+      unidad: compras
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 12]
+    # CPA_7d <= factor x cpa_objetivo para subir
+    cpa_subir_factor:
+      valor: "1.0"
+      unidad: factor
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.9", "1.2"]
+    # Bajo este delta el CPA marginal no es concluyente
+    cpam_min_delta_compras:
+      valor: 3
+      unidad: compras
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # CPA marginal <= factor x cpa_equilibrio
+    cpam_max_factor:
+      valor: "0.9"
+      unidad: factor
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "1.0"]
+    # Revertir si CPA_72h >= factor x cpa_objetivo
+    revertir_cpa_factor:
+      valor: "1.5"
+      unidad: factor
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.3", "2"]
+    # Congelamiento tras una reversión
+    congelar_tras_reversion_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 14]
+    # Un objetivo mayor se arma como campaña ESCALA nueva
+    salto_grande_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 60]
+    # Gasto semanal en conceptos nuevos
+    laboratorio_pct:
+      valor: 20
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [10, 30]
+    # Campañas de escala por oferta y país
+    max_campanas_escala:
+      valor: 2
+      unidad: campanas
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # CPA_3d >= factor x base indica saturación
+    saturacion_cpa_factor:
+      valor: "1.3"
+      unidad: factor
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.2", "1.5"]
+    # Compras para promover un concepto del laboratorio
+    promocion_min_compras:
+      valor: 5
+      unidad: compras
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Reinversión del beneficio maduro (la define F1)
+    reinversion_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D9/F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 100]
+    # Parte del LTV incremental realizado a 30 d que se acredita
+    ltv_credito_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 70]
+    # Tope del mini-test por mercado, campaña separada por país
+    mercado_test_gasto_max_x_cpa:
+      valor: 8
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 12]
+    # Semanas de contribución < 0 para proponer retiro
+    retiro_semanas_margen_neg:
+      valor: 3
+      unidad: semanas
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 6]
+    # Conceptos independientes fallidos para retiro
+    retiro_conceptos_fallidos:
+      valor: 6
+      unidad: conceptos
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [4, 10]
+    # Compras mínimas para clonar la estructura de una oferta
+    clon_evidencia_min_compras:
+      valor: 25
+      unidad: compras
+      hipotesis: true
+      fuente: "D9 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- Reembolsos y disputas: UN solo conjunto de umbrales para F1, F2, D8, D10 y X1 (reconciliación R06). La pausa dura es limites.ratio_disputas_pausa ---
+  salud_operativa:
+    # Reembolso objetivo en cohorte madura
+    reembolsos_objetivo_pct:
+      valor: 7
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 12]
+    # Alerta amarilla de reembolsos (F1)
+    reembolsos_alerta_pct:
+      valor: 8
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [8, 15]
+    # Alerta roja de reembolsos: D8 propone pausar (G6)
+    reembolsos_pausa_pct:
+      valor: 12
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Pedidos mínimos para evaluar el % de reembolsos
+    reembolsos_n_min:
+      valor: 20
+      unidad: pedidos
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Alerta amarilla de disputas+EFW sobre pagos de 30 d
+    disputas_alerta_pct:
+      valor: "0.3"
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1/D10/X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.2", "0.5"]
+    # Bajo este número de pagos se alerta por conteo
+    disputas_muestra_min_pagos:
+      valor: 50
+      unidad: pagos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 100]
+    # Casos (disputas+EFW) en la ventana que disparan alerta amarilla con poca muestra
+    disputas_casos_alerta:
+      valor: 2
+      unidad: casos
+      hipotesis: true
+      fuente: "F1/D10/X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Casos en la ventana que disparan pausa con poca muestra
+    disputas_casos_pausa:
+      valor: 3
+      unidad: casos
+      hipotesis: true
+      fuente: "F1/X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+    # Ventana de conteo de disputas (D10 usaba 14, F1/X1 30)
+    disputas_ventana_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "F1/X1 3.4 + R06 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Antes de este plazo la tasa de disputas es provisional
+    disputas_madurez_dias:
+      valor: 60
+      unidad: dias
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 120]
+  # --- D10 - entrega, soporte, reembolsos ---
+  postcompra:
+    # Pago -> correo entregado
+    entrega_max_min:
+      valor: 5
+      unidad: minutos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 15]
+    # Alerta de entrega demorada
+    entrega_alerta_min:
+      valor: 10
+      unidad: minutos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 30]
+    # Reintentos de entrega (espera 1, 5, 30 min)
+    entrega_reintentos:
+      valor: 3
+      unidad: reintentos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Primera respuesta de soporte
+    soporte_primera_respuesta_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 48]
+    # Plazo para ejecutar un reembolso aprobado
+    reembolso_ejecucion_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 48]
+    # Bajo esta confianza: borrador/humano
+    soporte_ia_confianza_min:
+      valor: "0.8"
+      unidad: probabilidad
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.7", "0.95"]
+    # Reembolsos previos del mismo email/tarjeta para revisión humana
+    reembolso_abuso_flag:
+      valor: 2
+      unidad: reembolsos_previos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+    # Retención de IP/UA y logs para disputas
+    evidencia_retencion_dias:
+      valor: 180
+      unidad: dias
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [150, 400]
+    # Bajo este monto solo se contesta con patrón de fraude o descarga confirmada
+    disputa_contestar_min:
+      valor: {"monto": 2000, "moneda": "USD"}
+      unidad: dinero
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Meta de descarga en 24 h
+    meta_descarga_24h_pct:
+      valor: 85
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Meta de activación en 72 h
+    meta_activacion_72h_pct:
+      valor: 40
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Meta de resultado en 14 días
+    meta_resultado_14d_pct:
+      valor: 25
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Tickets por cada 100 ventas
+    tickets_por_100_max:
+      valor: 8
+      unidad: tickets
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Tasa de queja máxima de correo
+    email_queja_max_pct:
+      valor: "0.1"
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Tasa de rebote máxima de correo
+    email_rebote_max_pct:
+      valor: 2
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Días mínimos antes de un correo de venta cruzada
+    crosssell_min_dia:
+      valor: 15
+      unidad: dias
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [8, 30]
+    # Correos de marketing por semana
+    marketing_max_por_semana:
+      valor: 1
+      unidad: correos
+      hipotesis: true
+      fuente: "D10 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 2]
+  # --- F1 - finanzas ---
+  finanzas:
+    # Reserva de reembolsos
+    reserva_reembolsos_modo:
+      valor: "r_esperado_sobre_neto_no_maduro"
+      unidad: regla
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Reserva de disputas sobre el neto de los últimos 120 días
+    reserva_disputas_pct:
+      valor: "1"
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.5", "3"]
+    # Reserva del impuesto indirecto cobrado (modo estándar)
+    reserva_impuesto_indirecto_pct:
+      valor: 100
+      unidad: porcentaje_del_amount_tax
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Reserva de impuesto a la renta sobre resultado acumulado positivo (a validar con el contador)
+    reserva_renta_pct:
+      valor: 25
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [15, 35]
+    # Reserva de Stripe hasta observarla
+    reserva_stripe_pct:
+      valor: 0
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 25]
+    # Impuesto sobre el gasto de Meta hasta conciliar facturas
+    impuesto_meta_pct:
+      valor: 0
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 25]
+    # Enfriamiento entre alertas repetidas
+    alerta_enfriamiento_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 72]
+    # presupuesto_test_oferta = min(limites, este multiplo x CPA_obj)
+    presupuesto_test_x_cpa_obj:
+      valor: 15
+      unidad: multiplo_de_cpa_obj
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [8, 25]
+    # Gasto diario máximo en una sola oferta
+    concentracion_max_pct:
+      valor: 50
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 70]
+    # Rezago inicial de payout de Stripe (luego medido)
+    payout_lag_dias:
+      valor: 14
+      unidad: dias
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 14]
+    # Desvío de comisión efectiva vs esperada
+    comision_desvio_pp:
+      valor: "1.5"
+      unidad: puntos_porcentuales
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1", "3"]
+    # Datos más viejos que esto = rojo
+    datos_frescura_roja_h:
+      valor: 26
+      unidad: horas
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Caja libre bajo estos días de gasto = amarilla
+    caja_libre_dias_amarilla:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Antigüedad máxima de tarifas.json
+    tarifas_antiguedad_max_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "F1 3.3 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Gasto vs tope: amarilla
+    gasto_vs_tope_amarilla_pct:
+      valor: 80
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Gasto vs tope: roja
+    gasto_vs_tope_roja_pct:
+      valor: 100
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- F2 - dashboard y BI ---
+  dashboard:
+    # Frecuencia del ETL de Meta
+    etl_meta_cada_h:
+      valor: 3
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 6]
+    # Backfill diario de Stripe (de F1)
+    etl_stripe_backfill_hora:
+      valor: "03:00"
+      unidad: hora_utc
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Meta reescribe atribución tardía
+    meta_ventana_reproceso_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 28]
+    # Días recientes marcados provisionales
+    meta_dias_inmaduros:
+      valor: 2
+      unidad: dias
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Frescura de Meta: amarillo
+    frescura_meta_amarillo_h:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 24]
+    # Frescura de Meta: rojo
+    frescura_meta_rojo_h:
+      valor: 12
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 24]
+    # Frescura de eventos de Stripe: amarillo
+    frescura_stripe_eventos_amarillo_h:
+      valor: 2
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 12]
+    # Frescura de eventos de Stripe: rojo
+    frescura_stripe_eventos_rojo_h:
+      valor: 6
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 12]
+    # Frescura de balance de Stripe: amarillo
+    frescura_stripe_balance_amarillo_h:
+      valor: 26
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [24, 48]
+    # Frescura de balance de Stripe: rojo
+    frescura_stripe_balance_rojo_h:
+      valor: 36
+      unidad: horas
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [24, 48]
+    # Tolerancia de conciliación con el balance de Stripe
+    recon_tol_stripe_balance:
+      valor: 0
+      unidad: unidades_menores
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [0, 1]
+    # Tolerancia de conciliación del gasto de Meta
+    recon_tol_gasto_meta_pct:
+      valor: "1"
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.5", "2"]
+    # Cobertura mínima de atribución (hay tráfico orgánico/directo)
+    cobertura_atribucion_min_pct:
+      valor: 70
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [50, 90]
+    # Bajo esto el CPA es gris (solo visual; D8 decide con k_corte)
+    gasto_min_decision_x_cpa:
+      valor: "2.0"
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1", "4"]
+    # Pedidos mínimos para verde
+    pedidos_min_verde:
+      valor: 5
+      unidad: pedidos
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Pedidos mínimos en 7 días para conciliar
+    recon_min_pedidos:
+      valor: 10
+      unidad: pedidos
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 30]
+    # Alerta si el día supera este múltiplo del presupuesto
+    alerta_gasto_sobre_presupuesto_x:
+      valor: "1.75"
+      unidad: factor
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.2", "2"]
+    # Costo de IA máximo sobre el bruto
+    costo_ia_max_pct:
+      valor: 15
+      unidad: porcentaje_del_bruto
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 25]
+    # MER verde = factor x MER_BE
+    mer_verde_factor:
+      valor: "1.2"
+      unidad: factor_sobre_mer_be
+      hipotesis: true
+      fuente: "F2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["1.1", "1.5"]
+    # Compras del dueño en vivo, excluidas de las métricas
+    compras_internas_ids:
+      valor: []
+      unidad: lista_de_session_id
+      hipotesis: true
+      fuente: "F2 3.3 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- X1 - compliance y salud de cuentas ---
+  compliance:
+    # Rechazos de Meta en la ventana que congelan lanzamientos
+    rechazos_congelar:
+      valor: 2
+      unidad: rechazos
+      hipotesis: true
+      fuente: "X1/D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # Ventana de conteo de rechazos
+    rechazos_ventana_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "X1/D7 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Las decide el dueño; el agente no apela
+    apelaciones_max_por_activo:
+      valor: 1
+      unidad: apelaciones
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 2]
+    # Antigüedad máxima de la lectura de una política
+    edad_max_politica_dias:
+      valor: 45
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [30, 90]
+    # Re-verificación de políticas de plataformas
+    reverif_plataformas_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [14, 45]
+    # Re-verificación de leyes
+    reverif_leyes_dias:
+      valor: 90
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [60, 180]
+    # Coincidencia de copia que bloquea (X1, D6, D4; D2 usaba 6 como margen: reconciliación R13)
+    ngrama_copia_palabras:
+      valor: 8
+      unidad: palabras
+      hipotesis: true
+      fuente: "X1/D6 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 12]
+    # Alerta temprana de D2 (no bloquea)
+    ngrama_alerta_temprana_palabras:
+      valor: 6
+      unidad: palabras
+      hipotesis: true
+      fuente: "D2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Antigüedad máxima de la evidencia de un claim
+    edad_max_evidencia_claim_dias:
+      valor: 180
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [90, 365]
+    # Estado de cuenta de Meta requerido
+    estado_meta_requerido_para_lanzar:
+      valor: "Saludable"
+      unidad: estado
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Evitar volumen inusual por API
+    max_anuncios_nuevos_dia:
+      valor: 5
+      unidad: anuncios
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Promedio de rúbrica de X1 (ningún ítem < 3)
+    umbral_rubrica_pass:
+      valor: "4.0"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.8", "4.3"]
+    # Antigüedad máxima de salud_actual.json
+    salud_max_antiguedad_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [6, 24]
+    # Vigencia de un dictamen
+    vigencia_dictamen_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [7, 60]
+    # Vigencia de la declaración de calidad de cuenta
+    declaracion_calidad_cuenta_max_dias:
+      valor: 7
+      unidad: dias
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 14]
+    # Anticipación de preaprobación de anuncios programados
+    anticipacion_preaprobacion_h:
+      valor: 24
+      unidad: horas
+      hipotesis: true
+      fuente: "X1 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [12, 48]
+    # Un candidato con este nivel no avanza sin reencuadre (decisión 13)
+    nivel_riesgo_bloquea_autonomia:
+      valor: "rojo"
+      unidad: nivel_riesgo
+      hipotesis: true
+      fuente: "backbone 2 (13) [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- X2 - memoria y aprendizaje ---
+  memoria:
+    # Eventos mínimos para un patrón
+    n_min_patron_eventos:
+      valor: 3
+      unidad: eventos
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 5]
+    # Ofertas mínimas para un patrón
+    n_min_patron_ofertas:
+      valor: 2
+      unidad: ofertas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+    # Tasa mínima de un patrón en la ventana
+    tasa_min_patron_pct:
+      valor: 30
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [20, 50]
+    # Ventana de entregas para detectar patrones
+    ventana_patron_entregas:
+      valor: 10
+      unidad: entregas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 20]
+    # Cambio de contenido que cuenta como 'sin edición'
+    eps_sin_edicion_pct:
+      valor: 2
+      unidad: porcentaje
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 5]
+    # Ofertas con ejecución limpia para descartar un nicho
+    ofertas_min_para_descartar_nicho:
+      valor: 2
+      unidad: ofertas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 3]
+    # Clics mínimos por celda de comparación
+    min_clics_celda:
+      valor: 100
+      unidad: clics
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [50, 300]
+    # Gasto mínimo por celda
+    min_gasto_celda_x_cpa:
+      valor: "1.0"
+      unidad: multiplo_de_cpa
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["0.5", "2"]
+    # Vida útil de un aprendizaje por tipo
+    vida_util_dias:
+      valor: {"hook": 90, "angulo": 180, "precio": 270, "nicho": 365}
+      unidad: dias
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Peso por recencia 0,5^(edad/vida)
+    vida_media_recencia_dias:
+      valor: 120
+      unidad: dias
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [60, 240]
+    # Similitud para considerar relevante una ficha
+    sim_relevante:
+      valor: "0.60"
+      unidad: similitud
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Similitud de duplicado en memoria
+    sim_dup:
+      valor: "0.80"
+      unidad: similitud
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Elementos por ficha de contexto
+    k_ficha:
+      valor: 8
+      unidad: items
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Tamaño máximo de ficha de contexto
+    max_tokens_ficha:
+      valor: 1500
+      unidad: tokens
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Cuarentena de eventos rechazados
+    cuarentena_dias:
+      valor: 30
+      unidad: dias
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Reglas graduadas máximas por skill
+    max_reglas_graduadas_por_skill:
+      valor: 25
+      unidad: reglas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [15, 40]
+    # Propuestas de cambio por skill y ciclo
+    max_pc_por_skill_por_ciclo:
+      valor: 1
+      unidad: propuestas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 2]
+    # Ventana del canary
+    ventana_canary_entregas:
+      valor: 5
+      unidad: entregas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [3, 10]
+    # Caída que revierte un cambio de skill
+    umbral_revertir_pp:
+      valor: 10
+      unidad: puntos_porcentuales
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [5, 15]
+    # Corridas por caso de evaluación
+    k_corridas_eval:
+      valor: 3
+      unidad: corridas
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [2, 5]
+    # Costo máximo de evaluación por propuesta de cambio (el tope duro es del dueño)
+    tope_costo_eval:
+      valor: {"monto": 500, "moneda": "USD"}
+      unidad: dinero
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Promedio L2 de X2 (ningún ítem < 3)
+    umbral_pass_qa:
+      valor: "4.0"
+      unidad: puntaje_0_5
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: ["3.5", "4.5"]
+    # Retención del libro de eventos
+    retencion_eventos_meses:
+      valor: 24
+      unidad: meses
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # n mínimo para reportar un KPI de aprendizaje
+    min_n_kpi:
+      valor: 5
+      unidad: casos
+      hipotesis: true
+      fuente: "X2 3.4 [HIPÓTESIS]"
+      ultima_calibracion: null
+  # --- M1 - mercados e idiomas (hipótesis a decidir con datos propios, no priors) ---
+  mercados:
+    # Clics por mercado necesarios para decidir con estadística (estimación de la investigación 16; verificar con los datos propios)
+    clics_min_decidir_mercado:
+      valor: 2400
+      unidad: clics
+      hipotesis: true
+      fuente: "inv. 16 [VERIFICAR] [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Mercados en test simultáneo para la misma oferta (presupuestos iguales)
+    mercados_test_paralelos_max:
+      valor: 1
+      unidad: mercados
+      hipotesis: true
+      fuente: "M1 + decisión 2026-11-06 [HIPÓTESIS]"
+      ultima_calibracion: null
+      rango: [1, 3]
+    # El primer lanzamiento en un país o idioma nuevo exige gate H hasta N2 (backbone 5.5)
+    primer_lanzamiento_requiere_h:
+      valor: true
+      unidad: booleano
+      hipotesis: true
+      fuente: "backbone 5.5 [HIPÓTESIS]"
+      ultima_calibracion: null
+    # Ningún mercado tiene prior: toda preferencia es hipótesis hasta tener datos propios (decisión del dueño, 2026-11-06)
+    prior_de_mercado:
+      valor: "ninguno"
+      unidad: regla
+      hipotesis: true
+      fuente: "dueño 2026-11-06 [HIPÓTESIS]"
+      ultima_calibracion: null

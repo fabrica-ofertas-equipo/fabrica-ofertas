@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "familia_id": "FAM-202611-01",
+  "revision": 14,
+  "nivel": "N2",
+  "pausa": false,
+  "fase": "listo_para_activar",
+  "skills_pin": {
+    "D1": "0.1.0",
+    "D2": "0.1.0",
+    "D3": "0.1.0",
+    "D4": "0.1.0",
+    "D5": "0.1.0",
+    "D6": "0.1.0",
+    "D7": "0.1.0"
+  },
+  "etapas": {
+    "M1": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:78b77fbc2aa7ba441cba75fe5729136c3e5c933f6005a22a6dfa19697377143c",
+      "entradas": {
+        "D1": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-06T12:30:00Z",
+        "firma": "hmac-sha256:a2d44ca73fd597368d6fe992b151b5ee00b051aedb20b4b6b034d3daaffc8a53"
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:8ba70960f4e58ccba7a6a7c7a96ca8bd3263f1f268e86158ef5f6310a94eb697",
+      "obsoleta": false
+    },
+    "D1": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1",
+      "entradas": {},
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-06T11:30:00Z",
+        "firma": "hmac-sha256:b74cc2ecb1d997b05e106f64ddd7c1b56f9484dae195a83a5673de2df8ba56e4"
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:5b35589ffb1284b2409bf8d8c7ed6ac1451a958a1e59eab528b87403f7fd8b33",
+      "obsoleta": false
+    },
+    "D2": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:339aa6ea77a01bb98aa2bde942d6fa44e7b0a79d29f980c129cacf8a5a6def5c",
+      "entradas": {
+        "D1": "sha256:752c51265c2c619c4825199f642c77ef76611c130c7801085383157a633ee5d1",
+        "M1": "sha256:78b77fbc2aa7ba441cba75fe5729136c3e5c933f6005a22a6dfa19697377143c"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "d2-qa",
+        "fecha": "2026-11-06T14:30:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:062a29ed4a0d6f5c16f0bdf6c5e3feb0aade255cc6e1a54b5db036653d5b3467",
+      "obsoleta": false
+    },
+    "D3": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:fe1a36cb90b6923dcf6587430e5fa1d4f8c78067639df61643305a75c53f2d95",
+      "entradas": {
+        "D2": "sha256:339aa6ea77a01bb98aa2bde942d6fa44e7b0a79d29f980c129cacf8a5a6def5c"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "X",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-07T11:00:00Z",
+        "firma": "hmac-sha256:de449663334167f99cec2bacb25b334d660e6b15c11f585644a4160dcfa46390"
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:dcbceb92bdf1e154c8d1750ab043b0cfb7ecf9a41ee0138fc33c777ce3eaf472",
+      "obsoleta": false
+    },
+    "D4": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:71a782c35ccf024b36b69bc156c2e9227d17915b80b46a1df1bb9ea473394c15",
+      "entradas": {
+        "D3": "sha256:fe1a36cb90b6923dcf6587430e5fa1d4f8c78067639df61643305a75c53f2d95"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "d4-qa",
+        "fecha": "2026-11-07T17:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:d11007cb2515ee003b09678ede539a857b14242613c286f6976b2dceca681014",
+      "obsoleta": false
+    },
+    "D5": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:d6be0cf1a20f0f6d0ba8f4a17fd46a47fe2f6577dc832a4b884ef4a2a6505c44",
+      "entradas": {
+        "D3": "sha256:fe1a36cb90b6923dcf6587430e5fa1d4f8c78067639df61643305a75c53f2d95",
+        "D4": "sha256:71a782c35ccf024b36b69bc156c2e9227d17915b80b46a1df1bb9ea473394c15"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "humano",
+        "id": "dueno",
+        "fecha": "2026-11-08T11:00:00Z",
+        "firma": "hmac-sha256:448431be0529db4601fd87b5a66ac1f557707aa7339c1fdf71256a25de473bfb"
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:8ed055a8f46a092b9bde10b2b4860459a9484e6c185518ad0ec75b80fa9a6bde",
+      "obsoleta": false
+    },
+    "D6": {
+      "estado": "aprobado",
+      "version_aprobada": "v1",
+      "hash_salida": "sha256:c565ec02734d6f137758173a81fca507ed39763e5b67f94d7aa808974575e1a2",
+      "entradas": {
+        "D3": "sha256:fe1a36cb90b6923dcf6587430e5fa1d4f8c78067639df61643305a75c53f2d95",
+        "D5": "sha256:d6be0cf1a20f0f6d0ba8f4a17fd46a47fe2f6577dc832a4b884ef4a2a6505c44"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "S",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": {
+        "tipo": "qa_pass",
+        "id": "d6-qa",
+        "fecha": "2026-11-08T16:00:00Z",
+        "firma": null
+      },
+      "bloqueo": null,
+      "idempotency_key": "sha256:d59eca9d3d36cdc8ce8ae359bc973d8c2bec4aea1974df7f0fb25fad29b396d4",
+      "obsoleta": false
+    },
+    "D7": {
+      "estado": "en_QA",
+      "version_aprobada": null,
+      "hash_salida": "sha256:96cc2691d1dda1b654a6be19517eb558d6645f99538adfcc6b4395b02d24b46f",
+      "entradas": {
+        "D5": "sha256:d6be0cf1a20f0f6d0ba8f4a17fd46a47fe2f6577dc832a4b884ef4a2a6505c44",
+        "D6": "sha256:c565ec02734d6f137758173a81fca507ed39763e5b67f94d7aa808974575e1a2"
+      },
+      "ronda_qa": 1,
+      "intentos": 1,
+      "gate": "H",
+      "gate_pendiente": true,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "idempotency_key": "sha256:610f29bbd9d9d276c472b764b05845bc37c0fdbb85d94f12a51cb1ed2089c98b",
+      "obsoleta": false
+    },
+    "D8": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 0,
+      "intentos": 0,
+      "gate": "A",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "idempotency_key": null,
+      "obsoleta": false
+    },
+    "D9": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 0,
+      "intentos": 0,
+      "gate": "H",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "idempotency_key": null,
+      "obsoleta": false
+    },
+    "D10": {
+      "estado": "pendiente",
+      "version_aprobada": null,
+      "hash_salida": null,
+      "entradas": {},
+      "ronda_qa": 0,
+      "intentos": 0,
+      "gate": "A",
+      "gate_pendiente": false,
+      "nivel": "N2",
+      "aprobado_por": null,
+      "bloqueo": null,
+      "idempotency_key": null,
+      "obsoleta": false
+    }
+  },
+  "candidato_elegido": {
+    "candidato_id": "CAND-01",
+    "fecha": "2026-11-06T11:20:00Z",
+    "motivo": "Mecanismo no saturado y riesgo verde tras reencuadre",
+    "editado_por_dueno": false
+  },
+  "gasto": {
+    "acumulado": {
+      "monto": 0,
+      "moneda": "EUR"
+    },
+    "hoy": {
+      "monto": 0,
+      "moneda": "EUR"
+    }
+  },
+  "costo_ia": {
+    "monto": 412,
+    "moneda": "EUR"
+  },
+  "actualizado_en": "2026-11-09T10:30:00Z"
+}

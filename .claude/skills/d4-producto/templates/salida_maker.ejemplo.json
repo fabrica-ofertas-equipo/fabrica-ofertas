@@ -1,0 +1,38 @@
+{
+  "etapa": "D4",
+  "oferta_id": "OF-202612-02",
+  "modo": "nuevo",
+  "version": "v1",
+  "skill_version_maker": "0.1.1",
+  "estado_final": "entregado_a_qa",
+  "manifiesto": [
+    "04-producto/producto.json",
+    "04-producto/verificacion.json",
+    "04-producto/respaldo/afirmaciones.jsonl",
+    "04-producto/respaldo/fuentes/",
+    "04-producto/licencias.json",
+    "04-producto/localizacion.json",
+    "04-producto/trazabilidad.md",
+    "04-producto/autoprueba.json",
+    "04-producto/faq_soporte.md",
+    "04-producto/entregables/"
+  ],
+  "autocalificacion_rubrica": [
+    { "item_id": "R1", "puntaje": 4, "evidencia": "autoprueba.json#pasos: cada paso produce un resultado comprobable" }
+  ],
+  "linters_ejecutados": [
+    { "script": "cobertura_matriz.py", "resultado": "pass" },
+    { "script": "tiempo_total.py", "resultado": "pass" },
+    { "script": "verificar_respaldo.py", "resultado": "pass" },
+    { "script": "lint_contenido.py", "resultado": "pass" },
+    { "script": "similitud_ngrama.py", "resultado": "pass" },
+    { "script": "empaquetar.py", "resultado": "pass" },
+    { "script": "scripts.validar_esquemas oferta ofertas/OF-202612-02", "resultado": "pass" }
+  ],
+  "supuestos": ["[SUPUESTO] ejemplo de supuesto con su justificación"],
+  "pendientes_humanos": ["checklist de 10 minutos del dueño", "revisión nativa del glosario y los avisos (primer producto del idioma)"],
+  "huecos": [],
+  "devuelto_a": null,
+  "limites_propuestos": null,
+  "gasto": { "creditos": 0, "tokens_estimados": "[de costos.jsonl]" }
+}

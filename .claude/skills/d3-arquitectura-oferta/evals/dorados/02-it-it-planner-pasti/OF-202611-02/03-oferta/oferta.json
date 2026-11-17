@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-02",
+  "familia_id": "FAM-202611-02",
+  "variante_de": null,
+  "version": "v1",
+  "origen_version": "maker",
+  "slug": "planner-settimanale-pasti-lista-spesa",
+  "marca": {
+    "nombre": "Menù Chiaro",
+    "dominio": "menuchiaro.example"
+  },
+  "candidato_ref": {
+    "candidato_id": "CAND-01",
+    "problema_id": "PRB-202611-0007"
+  },
+  "macro_nicho": "salud",
+  "locale": "it-IT",
+  "paises_segmentacion": [
+    "IT"
+  ],
+  "moneda": "EUR",
+  "riesgo": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": true,
+      "nivel_original": "rojo",
+      "descripcion": "RE-02: de «Perdi 8 kg in 30 giorni» (cifra y plazo de pérdida de peso, P2n, LP-02) a «Planner settimanale dei pasti con lista della spesa» (la herramienta, no el resultado en el cuerpo); el deseo de comer de forma más ordenada se conserva."
+    },
+    "fuentes": [
+      "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+      "docs/_investigacion/22a-meta-politicas-salud.md"
+    ],
+    "categoria": "Nutrición general: planificación de comidas y lista de la compra (salud, N1 vigilada)",
+    "claims_a_evitar": [
+      "perdi X kg in N giorni",
+      "senza dieta",
+      "dimagrire",
+      "brucia grassi",
+      "metabolismo",
+      "migliora la tua salute"
+    ],
+    "angulo_seguro": "Il planner e la lista della spesa: organizzazione della settimana, non risultati sul corpo."
+  },
+  "requiere_gate_humano_legal": false,
+  "cliente_ideal": "Chi non sa cosa cucinare ogni sera e improvvisa la spesa della settimana",
+  "prueba_una_frase": "Per chi non sa cosa cucinare ogni sera e improvvisa la spesa, Pasti a Blocchi è un planner con lista della spesa che porta da «ogni sera improvviso» a «cinque cene pronte e la lista della spesa della settimana» senza ricette complicate.",
+  "mecanismo": {
+    "nombre": "Pasti a Blocchi",
+    "como_funciona": "Raggruppa cinque cene base in blocchi intercambiabili che condividono gli ingredienti e ricava la lista della spesa settimanale da una tabella di quantità per porzione."
+  },
+  "promesa": {
+    "titulo": "Planner Settimanale dei Pasti con Lista della Spesa",
+    "subtitulo": "Cinque cene base a blocchi intercambiabili e una lista della spesa settimanale da compilare in circa 20 minuti",
+    "tiempo_prometido_min": 20,
+    "claims_permitidos": [
+      {
+        "claim_id": "planner-4-settimane",
+        "texto": "Include un planner stampabile di 4 settimane",
+        "evidencia_ref": "04-producto/entregables/planner-4-settimane-v1.pdf"
+      },
+      {
+        "claim_id": "cene-a-blocchi",
+        "texto": "Cinque cene base a blocchi intercambiabili con ingredienti in comune",
+        "evidencia_ref": "logica_del_producto"
+      },
+      {
+        "claim_id": "lista-spesa-settimanale",
+        "texto": "Include una lista della spesa settimanale da compilare",
+        "evidencia_ref": "04-producto/entregables/lista-spesa-v1.pdf"
+      },
+      {
+        "claim_id": "tempo-20-min",
+        "texto": "Pensato per essere compilato in circa 20 minuti",
+        "evidencia_ref": "04-producto/producto.json#tiempos"
+      },
+      {
+        "claim_id": "garanzia-14-giorni",
+        "texto": "Garanzia di rimborso di 14 giorni",
+        "evidencia_ref": "03-oferta/oferta.json#garantia"
+      }
+    ],
+    "claims_prohibidos": [
+      "perdi X kg in N giorni",
+      "senza dieta",
+      "dimagrire",
+      "brucia grassi",
+      "migliora la tua salute",
+      "benefici per condizioni di salute"
+    ]
+  },
+  "vehiculo": {
+    "formato": "pack",
+    "tiempo_consumo_min": 20,
+    "palabras_max": 3000
+  },
+  "entregables": [
+    {
+      "id": "planner-4-settimane",
+      "tipo": "planner stampabile",
+      "cantidad": 1,
+      "formato": "PDF"
+    },
+    {
+      "id": "lista-spesa",
+      "tipo": "lista della spesa",
+      "cantidad": 1,
+      "formato": "PDF"
+    }
+  ],
+  "bonus": [
+    {
+      "id": "lista-dispensa-base",
+      "descripcion": "Lista della dispensa base da stampare, con 50 voci"
+    },
+    {
+      "id": "menu-a-tema",
+      "descripcion": "Cinque menù a tema già composti (pesce, legumi, pasta, verdure, uova)"
+    },
+    {
+      "id": "scheda-frigo",
+      "descripcion": "Scheda «Cosa c'è in frigo» per pianificare la settimana in 5 minuti"
+    }
+  ],
+  "garantia": {
+    "tipo": "reembolso_incondicional",
+    "dias": 14,
+    "texto_visible": "Se non ti serve, puoi chiedere il rimborso entro 14 giorni. Senza domande."
+  },
+  "urgencia": null,
+  "prueba": [
+    {
+      "tipo": "muestra",
+      "fuente": "04-producto/entregables/muestras/anteprima-blocco-v1.pdf",
+      "consentimiento_ref": null
+    },
+    {
+      "tipo": "logica_del_producto",
+      "fuente": "Ogni blocco condivide ingredienti e produce una lista della spesa verificabile",
+      "consentimiento_ref": null
+    }
+  ],
+  "precio": {
+    "lista": {
+      "monto": 2490,
+      "moneda": "EUR"
+    },
+    "tax_behavior": "inclusive",
+    "anclaje": null
+  },
+  "bump": {
+    "id": "blocchi-extra",
+    "nombre": "10 blocchi cena extra da 20 minuti",
+    "precio": {
+      "monto": 996,
+      "moneda": "EUR"
+    },
+    "descripcion": "Dieci blocchi cena aggiuntivi con lista degli ingredienti"
+  },
+  "upsell": null,
+  "angulos": [
+    {
+      "angulo_id": "spesa-senza-sprechi",
+      "nivel_conciencia": "N1",
+      "hook": "Una spesa pensata a blocchi: meno cose da ricordare, meno cose da buttare",
+      "objecion": "Fare un piano richiede troppo tempo",
+      "prueba": "Anteprima di un blocco con la sua lista",
+      "claims_ref": [
+        "cene-a-blocchi"
+      ],
+      "cita_voz_ref": "EV-02"
+    },
+    {
+      "angulo_id": "cosa-cucino-stasera",
+      "nivel_conciencia": "N2",
+      "hook": "«Cosa cucino stasera?» ha una risposta già scritta per cinque sere",
+      "objecion": "Finisco sempre per improvvisare",
+      "prueba": "Anteprima gratuita di un blocco",
+      "claims_ref": [
+        "cene-a-blocchi",
+        "planner-4-settimane"
+      ],
+      "cita_voz_ref": "EV-01"
+    },
+    {
+      "angulo_id": "lista-spesa-pronta",
+      "nivel_conciencia": "N2",
+      "hook": "La lista della spesa della settimana, compilata in 20 minuti",
+      "objecion": "Non ho tempo",
+      "prueba": "Tempi per passo",
+      "claims_ref": [
+        "lista-spesa-settimanale",
+        "tempo-20-min"
+      ],
+      "cita_voz_ref": "EV-02"
+    },
+    {
+      "angulo_id": "blocchi-intercambiabili",
+      "nivel_conciencia": "N3",
+      "hook": "Cinque cene base che si scambiano tra loro: cambia l'ordine, non la lista",
+      "objecion": "Mangerò sempre le stesse cose",
+      "prueba": "Esempio di due ordini con la stessa lista",
+      "claims_ref": [
+        "cene-a-blocchi"
+      ],
+      "cita_voz_ref": "EV-01"
+    },
+    {
+      "angulo_id": "planner-con-garanzia",
+      "nivel_conciencia": "N4",
+      "hook": "Planner stampabile con lista della spesa e rimborso entro 14 giorni",
+      "objecion": "I modelli gratuiti hanno le caselle ma non dicono cosa comprare",
+      "prueba": "Anteprima e garanzia visibile",
+      "claims_ref": [
+        "planner-4-settimane",
+        "garanzia-14-giorni"
+      ],
+      "cita_voz_ref": "EV-01"
+    }
+  ],
+  "avatar": {
+    "quiere": [
+      "Sapere cosa cucinare senza decidere ogni sera"
+    ],
+    "cree": [
+      "Che organizzare i pasti richieda ore"
+    ],
+    "siente": [
+      "Fatica e spreco a fine settimana"
+    ],
+    "lo_dice": [
+      "Ogni sera mi chiedo cosa cucinare e alla fine ordino qualcosa",
+      "Faccio la spesa senza un piano e metà delle cose le butto"
+    ],
+    "objeciones": [
+      {
+        "texto": "Ci sono già modelli gratuiti",
+        "respuesta_en": "diferencial",
+        "severidad": "alta"
+      },
+      {
+        "texto": "Mi stancherò di mangiare le stesse cene",
+        "respuesta_en": "faq",
+        "severidad": "media"
+      }
+    ],
+    "vocabulario": [
+      "cosa cucino stasera",
+      "lista della spesa",
+      "blocchi"
+    ]
+  },
+  "puntaje": {
+    "total": 79,
+    "dimension_min": 4
+  },
+  "supuestos": [
+    "[SUPUESTO] CPM de práctica (mercado.cpm_esperado); no es una estimación de mercado",
+    "[SUPUESTO] tarifas de Stripe de 03-stripe §4.1 (tarifas_origen=supuesto: no hay tarifas.json de F1); IVA de Italia 22 % y recargo de Meta 3 % [VERIFICAR]",
+    "[SUPUESTO] sin casos previos (casos_previos_n = 0): ninguna cifra de personas ni testimonios",
+    "[SUPUESTO] precio 24,90 EUR tras 1 ciclo de palancas (14,90 → NO_FACTIBLE)",
+    "[SUPUESTO] it-IT sin revisor nativo: retraducción y segunda lectura con otro modelo (backbone 5.10)"
+  ],
+  "hipotesis_test": [
+    "Con ~15 compras: «cosa-cucino-stasera» vs «lista-spesa-pronta» se comparan por CTR de enlace y costo por checkout iniciado, no por compras",
+    "El bump «blocchi-extra» llega a la toma planificada (parametros.economia.tasa_bump_bp)"
+  ],
+  "aprobada_por_dueno": null
+}

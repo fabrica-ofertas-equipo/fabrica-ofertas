@@ -1,0 +1,31 @@
+{
+  "id": "s10-nivel-distinto-del-maximo",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ riesgo.nivel distinto del máximo de los ejes (D-12)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/E",
+      "valor": "rojo"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "nivel-no-es-el-maximo"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

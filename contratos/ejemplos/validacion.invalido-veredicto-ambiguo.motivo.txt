@@ -1,0 +1,3 @@
+validador=enum
+ruta=/veredicto/final
+texto=el veredicto de D2 es GO, GO_CONDICIONAL o NO_GO

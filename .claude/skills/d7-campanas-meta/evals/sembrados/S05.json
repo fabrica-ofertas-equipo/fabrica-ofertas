@@ -1,0 +1,32 @@
+{
+  "id": "S05",
+  "descripcion": "Copy de anuncio con promesa de ingresos con cifra ('Guadagna 3.000 euro al mese'): lo debe frenar el QA (lint_claims + R4)",
+  "check_id": "C10",
+  "severidad": "BLOQUEANTE",
+  "capa": "qa-l2",
+  "mutaciones": [
+    {
+      "archivo": "06-creativos/paquete.json",
+      "ruta": [
+        "anuncios",
+        0,
+        "copy"
+      ],
+      "valor": {
+        "texto_principal": "Guadagna 3.000 euro al mese con il tuo menu settimanale",
+        "cta": "LEARN_MORE"
+      }
+    }
+  ],
+  "nota_qa": "C10: textos identicos a paquete.json y lint_claims OK; el QA debe citar la linea del copy y devolver a D6/X1, no editar el copy.",
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C10",
+      "patron_clave": "claim-de-ingresos",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 12,
+  "duration_ms": 45000,
+  "session_id": "session-sinso-0001",
+  "claude_version": "2.1.314",
+  "total_cost_usd": 0.42,
+  "modelUsage": {
+    "claude-sonnet-5": {
+      "input_tokens": 12000,
+      "output_tokens": 3000
+    }
+  },
+  "permission_denials": []
+}

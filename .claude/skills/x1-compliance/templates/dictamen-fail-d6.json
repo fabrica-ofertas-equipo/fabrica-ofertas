@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "X1",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-06T12:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "entradas": {},
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "reglas_version": "1.0.0",
+  "politicas_fecha_min": "2026-11-06",
+  "vigencia_hasta": "2026-12-06",
+  "firma_motor": null,
+  "x1": null,
+  "etapa_objetivo": "D6",
+  "artefacto_ref": "06-creativos/paquete.json",
+  "artefacto_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "veredicto": "FAIL",
+  "semaforo": "rojo",
+  "puntaje_global": "3.25",
+  "umbral": "4.0",
+  "items": [
+    {
+      "item_id": "R1",
+      "nombre": "Cobertura",
+      "puntaje": 3,
+      "evidencia": "Cubre claims y legales del anuncio; falta revisar país/idioma de la landing destino (06-creativos/paquete.json#destino)"
+    },
+    {
+      "item_id": "R2",
+      "nombre": "Evidencia",
+      "puntaje": 4,
+      "evidencia": "Cita literal «Perdé 8 kg en 30 días» en paquete.json#anuncios[0].copy.titular y la línea roja lp-02 con su fuente"
+    },
+    {
+      "item_id": "R3",
+      "nombre": "Calibración",
+      "puntaje": 4,
+      "evidencia": "Ejes P3/C2/E1/N1s por analogía con SAL-07; nivel calculado con scripts.nivel_riesgo, no por el LLM"
+    },
+    {
+      "item_id": "R4",
+      "nombre": "Corrección segura",
+      "puntaje": 4,
+      "evidencia": "Reencuadre RE-02 que conserva el deseo (ordenar comidas) y baja a verde; no es un cambio de sinónimos"
+    },
+    {
+      "item_id": "R5",
+      "nombre": "Zona gris",
+      "puntaje": 3,
+      "evidencia": "Reencuadre parcial: exige cita E3 de D1; mitigación y responsable indicados, plazo sin fijar"
+    },
+    {
+      "item_id": "R6",
+      "nombre": "Honestidad",
+      "puntaje": 3,
+      "evidencia": "Norma separada de política y prudencia; el Reg. 1924/2006 art. 12(b) sobre un PDF queda [VERIFICAR]"
+    },
+    {
+      "item_id": "R7",
+      "nombre": "Salud y contingencia",
+      "puntaje": 3,
+      "evidencia": "Rechazo previo no existe; regla de congelamiento citada, sin simulacro"
+    },
+    {
+      "item_id": "R8",
+      "nombre": "Coherencia",
+      "puntaje": 2,
+      "evidencia": "Anuncio ≠ producto: el titular promete peso y el PDF solo trae un menú (paquete.json#anuncios[0] vs 04-producto/producto.json)"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "L1-HASH",
+      "resultado": "pass",
+      "detalle": "artefacto_sha256 recalculado = hash del paquete"
+    },
+    {
+      "check_id": "L1-LINT",
+      "resultado": "pass",
+      "detalle": "compliance.lint_claims es-ES: semáforo verde, 0 hallazgos. NO es un verde de verdad: la regla es-ES no cubre «Perdé N kg» (voseo, cifra y plazo); lo caza el L2"
+    },
+    {
+      "check_id": "L1-NIVEL",
+      "resultado": "fail",
+      "detalle": "ejes asignados: P=P3 C=C2 E=E1 N=N1s -> nivel calculado por scripts.nivel_riesgo: rojo (reformular)"
+    },
+    {
+      "check_id": "L1-HWR-P01",
+      "resultado": "fail",
+      "detalle": "léxico de resultado y plazo de peso en el titular y el texto principal"
+    }
+  ],
+  "simulaciones_l3": [
+    {
+      "nombre": "Revisor de Meta",
+      "resultado": "Rechazo probable por salud: cifra y plazo de peso (HC 2489235377779939); riesgo de «Necesita atención» en la cuenta"
+    },
+    {
+      "nombre": "Consumidor escéptico (es-AR)",
+      "resultado": "¿Quién vende? ¿cuánto pago? ¿cómo me arrepiento? ¿qué pasa con mis datos? No se responde desde el anuncio: remite a la landing"
+    },
+    {
+      "nombre": "Riesgo de Stripe",
+      "resultado": "Promesa de resultado de peso: contradice el descriptor neutro del perfil; riesgo de disputa por producto no conforme"
+    },
+    {
+      "nombre": "Espectador ajeno (E)",
+      "resultado": "«Bajá de peso» es verdadero y neutro para cualquiera solo como instrucción; la cifra y el plazo atribuyen un resultado al lector (P2n)"
+    }
+  ],
+  "hallazgos": [
+    {
+      "check_id": "L1-HWR-P01",
+      "patron_clave": "peso-plazo-resultado-lector",
+      "severidad": "BLOQUEANTE",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] Cifra y plazo de pérdida de peso con el lector como beneficiario (LP-02, P3)",
+      "evidencia": "«Perdé 8 kg en 30 días» — 06-creativos/paquete.json#anuncios[0].copy.titular; regla lp-02 (Reg. 1924/2006 art. 12(b), RD 1907/1996 art. 4 [VERIFICAR])",
+      "estado": "abierto",
+      "correccion": "RE-02: «Planificador semanal de comidas con porciones y lista de compras» (P0/C1/E1/N1, verde); conserva el deseo ordenar la alimentación; condición: cita E3 de D1"
+    },
+    {
+      "check_id": "L1-HWR-P01",
+      "patron_clave": "facilidad-sin-pasar-hambre",
+      "severidad": "BLOQUEANTE",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] Promesa de facilidad y de efecto fisiológico sobre el lector",
+      "evidencia": "«Bajá de peso sin pasar hambre» — 06-creativos/paquete.json#anuncios[0].copy.texto_principal",
+      "estado": "abierto",
+      "correccion": "Describir el entregable («60 recetas con tabla por porción») y quitar la promesa; no sustituir sinónimos (LM-08)"
+    },
+    {
+      "check_id": "L1-LINT",
+      "patron_clave": "brecha-del-linter-voseo",
+      "severidad": "MEJORA",
+      "etapa": "X1",
+      "skill_version": "0.1.0",
+      "descripcion": "[PLANTILLA] El linter es-ES dio verde sobre una frase roja: falso verde del código",
+      "evidencia": "«Perdé 8 kg en 30 días» — lint_claims es-ES: 0 hallazgos; compliance/reglas_sensibles.yaml cubre «bajar de peso» y «adelgaz…» pero no «perdé/pierde N kg»",
+      "estado": "aceptado_con_nota",
+      "correccion": "Pedido a B6/dueño: ampliar la regla (voseo, cifra+unidad+plazo); el Maker no la relaja ni la edita"
+    }
+  ],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Añadir «perdé/pierde N kg» y variantes a la regla de peso con su caso en la suite",
+      "impacto": "alto",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "PLANTILLA ilustrativa: no es un dictamen real",
+    "Italiano y polaco sin revisor nativo [VERIFICAR]"
+  ],
+  "aprendizajes_para_skill": [
+    "Voseo «Perdé N kg» no lo ve el linter es-ES: agregar al corpus adversarial y a la regla"
+  ],
+  "claims_trazados": []
+}

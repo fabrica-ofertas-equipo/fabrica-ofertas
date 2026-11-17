@@ -1,0 +1,82 @@
+{
+  "id": "D03",
+  "descripcion": "Dinero verde pl-PL (hoja de costeo y precio minimo para quien vende manualidades; sin 'ganar' ni cifras de ingreso). spend_cap bajo el minimo de Meta: candado alternativo stop_time + lifetime_budget. Poland es UE: DSA.",
+  "capa": "script-presupuesto",
+  "contexto": {
+    "macro_nicho": "dinero",
+    "locale": "pl-PL",
+    "paises": [
+      "PL"
+    ],
+    "moneda": "PLN",
+    "riesgo": "verde",
+    "angulo_seguro": "costeo y precio minimo, la cifra describe la hoja, no el resultado del lector",
+    "claims_a_evitar": [
+      "ganar dinero",
+      "cifras de ingreso"
+    ]
+  },
+  "entrada_presupuesto": {
+    "moneda": "PLN",
+    "cpa_be": 2500,
+    "cpa_esperado": 1800,
+    "tarifa_meta_bp": 0,
+    "n_anuncios_paquete": 5,
+    "dias_test": 10,
+    "evento_economia": "InitiateCheckout",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": 50000,
+    "inicio": "2026-12-01T00:00:00Z",
+    "limites": {
+      "moneda_limites": "PLN",
+      "gasto_diario_por_oferta": 8000,
+      "gasto_total_test_por_oferta": 60000,
+      "perdida_max_test_por_oferta": 60000,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "OK",
+    "n_anuncios": 5,
+    "total_plan": 37500,
+    "solo_refuta": false,
+    "facturado_plan": 37500,
+    "presupuesto": {
+      "diario": 3750,
+      "total_test": 37500,
+      "max_teorico_diario": 6563,
+      "spend_cap": null,
+      "candado_alternativo": {
+        "tipo": "stop_time_lifetime_budget",
+        "stop_time": "2026-12-11T00:00:00Z",
+        "lifetime_budget": 41250
+      }
+    },
+    "evento": {
+      "campana": "INITIATE_CHECKOUT",
+      "recomendado": "INITIATE_CHECKOUT"
+    },
+    "monto_api": {
+      "offset_meta": 100
+    }
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "umbral": "media >= 4,0 y ningun item < 3",
+    "hallazgos_minimos": 3,
+    "nota": "anti-sello-de-goma: >= 3 hallazgos o evidencia de que se reviso"
+  }
+}

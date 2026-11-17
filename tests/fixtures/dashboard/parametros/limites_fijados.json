@@ -1,0 +1,79 @@
+{
+  "valores": {
+    "schema_version": "1.0.0",
+    "version": 1,
+    "moneda_limites": "EUR",
+    "capital_en_riesgo_total": 300000,
+    "reserva_no_publicitaria_pct": 20,
+    "gasto_diario_global": 20000,
+    "gasto_diario_por_oferta": 10000,
+    "gasto_total_test_por_oferta": 60000,
+    "perdida_max_test_por_oferta": 40000,
+    "perdida_neta_acumulada_max": 100000,
+    "stop_loss_escala": 30000,
+    "ofertas_en_test_simultaneas_max": 2,
+    "limite_gasto_cuenta_meta": 250000,
+    "factor_techo_teorico_diario": "1.75",
+    "aumento_presupuesto_max_pct_por_paso": 20,
+    "horas_min_entre_aumentos": 72,
+    "max_cambios_presupuesto_por_hora_por_conjunto": 4,
+    "segundos_min_entre_ediciones": 30,
+    "cuentas_permitidas": [
+      "act_1234567890"
+    ],
+    "paises_permitidos": [
+      "ES",
+      "IT"
+    ],
+    "locales_permitidos": [
+      "es-ES",
+      "it-IT"
+    ],
+    "macro_nichos_permitidos": [
+      "salud",
+      "relaciones",
+      "dinero"
+    ],
+    "subnichos_prohibidos": [],
+    "lineas_rojas": [],
+    "precio_neto_minimo": 1500,
+    "autoaprobar_hasta": 0,
+    "reembolso_auto_max": 3000,
+    "reembolsos_auto_max_por_dia": 5,
+    "ratio_disputas_pausa": "0.006",
+    "cupon_descuento_max_pct": 20,
+    "politica_reembolso_dias": 14,
+    "creditos_max_pieza": 50,
+    "creditos_max_oferta": 500,
+    "max_budget_por_corrida_agente": 1500,
+    "costo_max_validacion": 5000,
+    "costo_max_producto": 9000,
+    "max_costo_por_barrido": 2500,
+    "politica_divulgacion_ia": "etiquetar",
+    "dias_cobertura_caja": 21,
+    "correos_max_por_dia": 50,
+    "correos_max_por_semana": 200,
+    "max_consultas_biblioteca": 40,
+    "ventana_veto_min": 60,
+    "fuentes_permitidas": [
+      "biblioteca-anuncios"
+    ],
+    "fuentes_prohibidas": [],
+    "max_busquedas_por_barrido": 30,
+    "max_barridos_por_semana": 3,
+    "acciones_gate_humano": [
+      "activar_campana",
+      "reactivar_tras_pausa",
+      "subir_presupuesto_sobre_tope",
+      "cambiar_limites",
+      "cambiar_entidad_stripe",
+      "lanzamiento_pais_idioma_nuevo"
+    ],
+    "sello": {
+      "hash": "sha256:abababababababababababababababababababababababababababababababab",
+      "firma": "ssh-ed25519",
+      "clave_id": "dueno"
+    }
+  },
+  "nulos": []
+}

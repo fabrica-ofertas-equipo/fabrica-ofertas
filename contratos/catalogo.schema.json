@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/catalogo.schema.json",
+  "title": "Catálogo firmado de una oferta",
+  "description": "Documento POR OFERTA (ofertas/<id>/05-landing/catalogo.json) que emite landing.catalogo y que el Worker crear-sesion lee para fijar el precio en el servidor y aceptar cid/asid/adid solo si figuran en ids_meta (backbone 5.3; B0-09: el adid sale únicamente de este catálogo firmado). Firma HMAC (servicio a servicio, clave CATALOGO_HMAC) o Ed25519 sobre el JSON canónico del cuerpo sin `firma` (payload_firma('catalogo') del validador). El esquema fija el DOCUMENTO por oferta; el sobre agregado que lea el Worker ({ofertas{<id>: ...}}) y si la firma viaja dentro o aparte quedan fuera de este contrato. ids_meta usa los nombres de ids_meta.schema.json: campaign_id es UN id (o null) y adset_ids/ad_ids son listas; mientras no existan los ids (antes de meta.crear) van campaign_id null y listas vacías. Regla cruzada (X48_CATALOGO): oferta_id, version, moneda, price_ids, bump y URLs coinciden con checkout.json, e ids_meta con 07-campana/ids_meta.json (vacío si no existe).",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version",
+      "description": "Versión del checkout de la que sale (checkout.version)"
+    },
+    "moneda": {
+      "$ref": "comunes.schema.json#/$defs/moneda",
+      "description": "Moneda de cobro (checkout.moneda); el precio nunca lo manda el navegador"
+    },
+    "price_ids": {
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "string",
+          "pattern": "^price_[A-Za-z0-9_]+$",
+          "description": "price_id de Stripe del producto principal: checkout.price_ids.test (pruebas) o .live (producción)"
+        },
+        "bump": {
+          "type": "string",
+          "pattern": "^price_[A-Za-z0-9_]+$",
+          "description": "price_id del bump; solo si checkout.bump existe"
+        }
+      },
+      "required": [
+        "principal"
+      ],
+      "additionalProperties": false
+    },
+    "success_url": {
+      "$ref": "comunes.schema.json#/$defs/url",
+      "description": "Opcional: checkout.success_url (el Worker la toma del catálogo, nunca del cliente)"
+    },
+    "return_url": {
+      "$ref": "comunes.schema.json#/$defs/url",
+      "description": "Opcional: checkout.return_url"
+    },
+    "landing_version": {
+      "$ref": "comunes.schema.json#/$defs/version",
+      "description": "Opcional: versión de la landing que el Worker anota en la metadata de la sesión (si falta, 'desconocida')"
+    },
+    "renuncia": {
+      "type": "object",
+      "properties": {
+        "requerido": {
+          "type": "boolean"
+        },
+        "texto_version": {
+          "$ref": "comunes.schema.json#/$defs/version"
+        }
+      },
+      "required": [
+        "requerido",
+        "texto_version"
+      ],
+      "additionalProperties": false,
+      "description": "Opcional (modo formulario del Worker): si la renuncia al desistimiento es obligatoria y la versión del texto que se cita como evidencia; si falta, decide la configuración del Worker"
+    },
+    "ids_meta": {
+      "type": "object",
+      "properties": {
+        "campaign_id": {
+          "anyOf": [
+            {
+              "$ref": "comunes.schema.json#/$defs/id_meta"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "ids_meta.campaign_id; null mientras no exista la campaña"
+        },
+        "adset_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/id_meta"
+          },
+          "uniqueItems": true
+        },
+        "ad_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "comunes.schema.json#/$defs/id_meta"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "campaign_id",
+        "adset_ids",
+        "ad_ids"
+      ],
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "campaign_id": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "campaign_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "adset_ids": {
+            "maxItems": 0
+          },
+          "ad_ids": {
+            "maxItems": 0
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "adset_ids": {
+            "minItems": 1
+          },
+          "ad_ids": {
+            "minItems": 1
+          }
+        }
+      },
+      "description": "Los ids que el Worker acepta como cid, asid y adid. Sin campaña, listas vacías; con campaña, al menos un conjunto y un anuncio"
+    },
+    "generado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "firma": {
+      "$ref": "comunes.schema.json#/$defs/firma",
+      "description": "HMAC-SHA256 (clave CATALOGO_HMAC, servicio a servicio) o Ed25519 del JSON canónico del cuerpo sin `firma`"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "moneda",
+    "price_ids",
+    "ids_meta",
+    "generado_en",
+    "firma"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+# tipo: resena
+# locale: en
+# estado: v0.1 sin pulir; primera petición (día 3 tras la compra); sello de X1 pendiente
+Asunto: Would you rate your purchase? – order {{pedido_ref}}
+
+Hello,
+
+a few days have passed since your purchase from {{marca}}. If you like, rate the materials with one click: choose how many stars you give, from 1 to 5.
+
+1 of 5: {{resena_url_1}}
+2 of 5: {{resena_url_2}}
+3 of 5: {{resena_url_3}}
+4 of 5: {{resena_url_4}}
+5 of 5: {{resena_url_5}}
+
+After you click you will see a page where you confirm your rating. There you can add a comment and decide whether we may show it on the sales page, with or without your name. We publish nothing without your permission.
+
+We want your honest opinion, whatever it is. There are no right or wrong answers.
+
+If something does not work or you would rather have your money back, write to {{soporte_email}}: you do not need to rate anything.
+
+If you do not want to receive messages like this one, you can unsubscribe here: {{baja_url}}
+
+Seller: {{vendedor}}
+Purchase and refund policy: {{politica_url}}

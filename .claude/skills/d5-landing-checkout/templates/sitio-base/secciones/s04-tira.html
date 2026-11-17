@@ -1,0 +1,30 @@
+<section class="seccion tira tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-muestra">
+  <div class="contenedor">
+    <header class="encabezado">
+      <p class="kicker">{{{kicker}}}</p>
+      <h2 id="titulo-muestra">{{{titulo}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+{{#si rotulo_grupo}}
+    <p class="rotulo-grupo" data-rotulo="{{rotulo_grupo.tipos}}" data-para="grupo">{{rotulo_grupo.texto}}</p>
+{{/si}}
+  </div>
+  <div class="tira__carril" tabindex="0" role="region" aria-label="{{t.pasos}}">
+    <ul class="tira__lista" role="list">
+{{#cada figuras}}
+      <li class="miniatura{{#si horizontal}} miniatura--ancha{{/si}}">
+{{#si imagen}}
+        <div class="img-rotulada"><img src="{{imagen.url}}" width="{{imagen.ancho}}" height="{{imagen.alto}}" alt="{{imagen.alt}}" data-slot="{{imagen.slot}}"{{#si imagen.ilustrativa}} data-ilustrativa="1"{{/si}}{{#si imagen.ia}} data-ia="1"{{/si}} loading="lazy" decoding="async"></div>
+        {{#si imagen.rotulo}}<span class="rotulo-img rotulo-img--pie" data-rotulo="{{imagen.tipos}}" data-para="{{imagen.slot}}">{{imagen.rotulo}}</span>{{/si}}
+{{sino}}
+        <div class="vp-marcador vp-marcador--miniatura" data-demo="imagen" role="img" aria-label="{{marcador}}"><span class="vp-marcador__etiqueta">{{marcador}}</span></div>
+{{/si}}
+        <p>{{{texto}}}</p>
+      </li>
+{{/cada}}
+    </ul>
+  </div>
+{{{cta_html}}}
+</section>

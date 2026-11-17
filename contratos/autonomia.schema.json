@@ -1,0 +1,571 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/autonomia.schema.json",
+  "title": "Autonomía por etapa",
+  "description": "Nivel de autonomía por etapa, con evidencia y descensos.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "nivel_por_etapa": {
+      "type": "object",
+      "properties": {
+        "O0": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D0": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "M1": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D1": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D2": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D3": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D4": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D5": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D6": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D7": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D8": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D9": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "D10": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "F1": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "F2": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "X1": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        },
+        "X2": {
+          "type": "object",
+          "properties": {
+            "nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            },
+            "desde": {
+              "$ref": "comunes.schema.json#/$defs/fecha"
+            },
+            "evidencia": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Métricas de confianza que justificaron el nivel (por departamento)"
+            },
+            "tope_nivel": {
+              "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+            }
+          },
+          "required": [
+            "nivel",
+            "desde",
+            "evidencia"
+          ],
+          "additionalProperties": false,
+          "description": "Nivel de una etapa"
+        }
+      },
+      "required": [
+        "O0",
+        "D0",
+        "M1",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "F1",
+        "F2",
+        "X1",
+        "X2"
+      ],
+      "additionalProperties": false,
+      "description": "Nivel por etapa (backbone 5.5)"
+    },
+    "descensos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "etapa": {
+            "$ref": "comunes.schema.json#/$defs/etapa"
+          },
+          "de": {
+            "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+          },
+          "a": {
+            "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+          },
+          "fecha": {
+            "$ref": "comunes.schema.json#/$defs/timestamp"
+          },
+          "motivo": {
+            "type": "string"
+          },
+          "evidencia": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "etapa",
+          "de",
+          "a",
+          "fecha",
+          "motivo",
+          "evidencia"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Historial de descensos automáticos ante violaciones"
+    },
+    "reglas_descenso": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Reglas de descenso automático (p. ej. 2 rechazos de Meta en 7 días baja a N1)"
+    }
+  },
+  "required": [
+    "schema_version",
+    "version",
+    "nivel_por_etapa",
+    "descensos",
+    "reglas_descenso"
+  ],
+  "additionalProperties": false
+}

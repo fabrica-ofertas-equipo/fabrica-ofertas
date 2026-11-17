@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Resumen de lo que el piloto de Polonia produjo y que un buen modelado debe reproducir con tolerancia (no es una salida unica). Fuentes: docs/_historial/modelado-piloto/{desarme-referente-mapas-mentales.md, plan-de-mejora-v1.md, estructura-funnel-referentes.md, piloto-bitacora-d3.md} y ofertas/OF-202611-91/03-oferta/oferta.md §G. Los nombres de marca del referente no se reproducen aqui.",
+  "oferta_id": "OF-202611-91",
+  "mercado": {"pais": "PL", "locale": "pl-PL", "moneda": "PLN", "idioma_que_se_ensena": "ingles (J14)"},
+  "referente": {
+    "principal": {"pack": 520, "niveles": 6, "reparto": [85, 85, 90, 90, 85, 85], "bonus": 5, "garantia_dias": 30, "precio": {"monto": 12.9, "moneda": "EUR"}, "pago": "unico", "checkout": "externo (Hotmart)"},
+    "secundario": {"pack": "300+", "bonus": 5, "garantia_dias": 7, "precio": {"monto": 14.99, "moneda": "USD", "ancla": 29.9}}
+  },
+  "desarme": {"regla_R1": "suficiente", "no_visible": ["order bump", "upsell", "gracias", "correo", "producto real", "ventas"], "puertas": {"marca_personal": "no / parcial", "sustituto_gratis": "alto", "practica_vetada": "si, adorno"}},
+  "html": {"bloques": 14, "ctas": 8, "imagenes": 51, "pestanas": 6, "preguntas": 8},
+  "plan_de_mejora_v1": {
+    "palancas": [
+      {"id": "PAL-13", "valor": 81}, {"id": "PAL-16", "valor": 54}, {"id": "PAL-02", "valor": 54}, {"id": "PAL-06", "valor": 54}, {"id": "PAL-12", "valor": 36}
+    ],
+    "descartadas_o_hipotesis": [{"id": "PAL-04", "valor": 18}],
+    "ninguna_de_precio": true,
+    "mejoras_pequenas_en_oferta_md_G": 8
+  },
+  "oferta_propia": {
+    "pack": 520, "niveles": 6, "reparto_propio": [70, 80, 90, 100, 90, 90], "bonus": 5, "garantia_dias": 30, "garantia_con_procedimiento": true,
+    "precio_frontal": {"monto": 63, "moneda": "PLN", "con_iva": true, "regla": "J16: peldano 17 US$ (original ≈ 15 US$)"},
+    "bump": {"nombre_tipo": "fiszki exportables", "precio_pln": 26}, "urgencia": null, "anclaje": null,
+    "economia": {"veredicto": "NO_FACTIBLE (supuestos de embudo sin calibrar)", "razon": "0.30", "cpa_be_pln": 43.2, "nota": "la parada es de D3; el umbral del test de 1 dia (J3) es el CPA maximo a pagar, no el veredicto"}
+  },
+  "antes_despues": {
+    "dimensiones_puntuables": 9, "suma_referente": 25, "suma_nuestra": 35, "delta": 10, "umbral_proporcional": 6,
+    "excluidas": [{"n": 5, "motivo": "no_visible"}, {"n": 6, "motivo": "no_visible y peor para nosotros (salvaguarda R-5)"}, {"n": 10, "motivo": "D5 no corria"}],
+    "veredicto_del_maker": "mejora pequeña y real en lo visto, con la economia en contra",
+    "condicion_c": "no cumplida hasta que el dueño acepte la dimension 6 por escrito"
+  },
+  "riesgo": {"P": "P1", "C": "C1", "E": "E1", "N": "N1", "nivel": "verde", "macro_nicho": "habilidades_hobbies [SUPUESTO: el contrato aun no lo admite]"},
+  "imagenes": {"ranuras": 17, "aprobadas_ronda_1": 14, "rehechas": ["hero", "compra", "bono-4"], "causa_comun": "onda de sonido en una portada de producto sin audio", "ilustrativas": 7, "composicion_por_codigo": ["hero", "compra"]},
+  "veredicto_qa_esperado": "PASS_CON_NOTAS",
+  "notas_esperables": ["NO_FACTIBLE en D3 (parada fuera de esta skill)", "520 mapas = promesa de produccion de D4", "polaco sin revision nativa (J11)", "muestra real pendiente de D4", "cuarto macro-nicho fuera de contratos"]
+}

@@ -1,0 +1,17 @@
+# Plantilla de empresa/mercados/locales_activos.yaml (lo lee D1). Nombres confirmados por D1 en docs/_historial/d1-v2-interfaces.md §4.2.
+# [PENDIENTE: esquema `locales_activos` (pedido a S-A)]. M1 REPARTE los topes de D1 (max_busquedas_por_barrido, max_costo_por_barrido,
+# modelado_max_consultas_por_corrida) y nunca los amplia: cuota_l = tope_global * w_l / suma(w); w_l = score_medio_l * (1 + 0,5 * oferta_activa);
+# minimo 1 barrido mensual por locale activo; <= 20 % para locales sin ficha completa.
+version: 1
+generado_en: "AAAA-MM-DDTHH:MM:SSZ"
+locales:
+  - locale: xx-XX
+    estado: candidato            # candidato | activo | pausado | vetado
+    prioridad: 3                 # 1-5, sale del puntaje medio del locale, evidencia propia y oferta activa
+    paises: [XX]
+    presupuesto_exploracion:
+      max_busquedas: null        # entero; reparto del tope global de D1 (null mientras limites este en null)
+      max_costo: null            # dinero en unidad menor + moneda_limites (null mientras limites este en null)
+      max_consultas_biblioteca: null   # añadido por D1 (el barrido gasta sobre todo consultas del conector)
+    macros_prioridad: [salud, relaciones, dinero]
+    requisitos_ok: {ficha_vigente: false, glosario: false, terminos_busqueda: false, revisor_nativo: false}

@@ -1,0 +1,20 @@
+# 04-producto/limites.propuesta.yaml: lo que D4 necesita y hoy está en null en empresa/limites.yaml. El Maker SOLO propone: nunca escribe limites.yaml.
+# El dueño decide y firma (python -m engine.propuestas sellar; no engine.limites). Mientras tanto D4 trabaja solo con texto.
+oferta_id: OF-202612-02
+fecha: "2026-12-10"
+necesita:
+  creditos_max_pieza:
+    motivo: "portada y 3 ilustraciones de la guía"
+    cotizacion_creditos: 3          # por pieza, cotizado SIN generar (get_cost); solo si el dueño habilita imágenes generadas (hoy las hace D6)
+    propuesta: null                 # el Maker no inventa el tope: lo fija el dueño
+  creditos_max_oferta:
+    motivo: "guía de estilo + 3 pilotos + lote"
+    cotizacion_total_creditos: 40
+    propuesta: null
+  costo_max_producto:
+    motivo: "tokens + créditos de la corrida de producción"
+    propuesta: null
+  politica_divulgacion_ia:
+    motivo: "colofón y metadatos del producto"
+    propuesta: null
+sin_estos_limites: "el producto se entrega solo con texto y sin imágenes generadas"

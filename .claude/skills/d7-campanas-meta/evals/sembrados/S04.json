@@ -1,0 +1,41 @@
+{
+  "id": "S04",
+  "descripcion": "Precio 19 en el paquete (anuncio) y 17 en el checkout (landing)",
+  "check_id": "C06",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "mutaciones": [
+    {
+      "archivo": "06-creativos/paquete.json",
+      "ruta": [
+        "destino",
+        "precio",
+        "monto"
+      ],
+      "valor": 1900
+    },
+    {
+      "archivo": "05-landing/checkout.json",
+      "ruta": [
+        "precio",
+        "monto"
+      ],
+      "valor": 1700
+    }
+  ],
+  "esperado": {
+    "check_id": "C06",
+    "codigo": "precio_distinto_paquete_checkout",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C06",
+      "patron_clave": "precio-distinto-paquete-checkout",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": true,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

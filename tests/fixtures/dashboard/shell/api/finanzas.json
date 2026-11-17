@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "datos": {
+    "ledger": [],
+    "pnl": null,
+    "conciliacion": null,
+    "alertas": [
+      {
+        "id": "AL-0001",
+        "ts": "2026-11-06T13:55:00Z",
+        "severidad": "media",
+        "regla_id": "gasto_sobre_presupuesto",
+        "origen": "finanzas",
+        "oferta_id": "OF-202611-02",
+        "valor": 1.8,
+        "umbral": 1.75,
+        "accion_sugerida": "Revisar el presupuesto diario de la campaña",
+        "estado": "abierta"
+      }
+    ]
+  },
+  "fuente": [
+    "empresa/finanzas/ledger.jsonl",
+    "empresa/finanzas/pnl.json",
+    "empresa/finanzas/conciliacion.json"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

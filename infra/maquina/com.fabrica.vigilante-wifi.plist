@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.fabrica.vigilante-wifi</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string><carpeta del proyecto>/infra/maquina/vigilante_wifi.sh</string>
+  </array>
+  <key>WorkingDirectory</key><string><carpeta del proyecto></string>
+  <key>StartInterval</key><integer>60</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardErrorPath</key><string>~/Library/Logs/fabrica-vigilante-wifi.err</string>
+</dict>
+</plist>

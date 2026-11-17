@@ -1,0 +1,23 @@
+{
+  "_nota": "Entrada de paquetes.py armar: las piezas de la tanda que ya pasaron QA-A y el lint de promesas (si no, armar() las rechaza). ad_name e id_origen son PRIVADOS: van a privado/llave.json y nunca al paquete. v0.1 vota «texto» e «imagen»; el video queda fuera. En «imagen», ruta_activo apunta al PNG/JPG/WEBP real (se copia con nombre opaco). Borra las claves que empiezan por «_».",
+  "oferta_id": "OF-AAAAMM-NN",
+  "locale": "pl-PL",
+  "tanda_id": "AAAA-MM-DD_pl-PL",
+  "piezas": [
+    {
+      "ad_name": "c01-hueco_img_h1_v1",
+      "tipo": "imagen",
+      "texto_visible": "Texto principal del anuncio tal como lo ve la persona (opcional si la imagen ya lo lleva)",
+      "ruta_activo": "ofertas/OF-AAAAMM-NN/06-creativos/assets/c01-hueco_img_h1_v1.png",
+      "precondiciones": {"qa_a": "PASS", "lint": "PASS"},
+      "id_origen": "G-0001"
+    },
+    {
+      "ad_name": "c02-listas_img_h2_v1",
+      "tipo": "texto",
+      "texto_visible": "Texto del anuncio",
+      "precondiciones": {"qa_a": "PASS_CON_NOTAS", "lint": "PASS"},
+      "id_origen": null
+    }
+  ]
+}

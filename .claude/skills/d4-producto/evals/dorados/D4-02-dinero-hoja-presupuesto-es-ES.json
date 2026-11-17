@@ -1,0 +1,33 @@
+{
+  "eval_id": "D4-02",
+  "titulo": "Plantilla de presupuesto base cero en Google Sheets + guía (es-ES, dinero, verde, con GUI)",
+  "origen": "spec §10.5 #1",
+  "macro_nicho": "dinero", "nivel_riesgo": "verde", "locale": "es-ES", "modo": "nuevo",
+  "entrada": {
+    "oferta": { "formato": "pack", "tiempo_prometido_min": 60, "entregables": ["guia-presupuesto (guia_pdf)", "hoja-presupuesto (plantilla_xlsx duplicable en Sheets)"], "bonus": [], "bump": null,
+      "mecanismo": "Presupuesto Base Cero (cada euro de ingreso asignado a una categoría hasta llegar a cero)",
+      "claims_permitidos": ["Incluye una hoja de cálculo para asignar cada ingreso del mes", "Incluye una guía paso a paso", "Pensado para completarse en unos 60 minutos"],
+      "claims_prohibidos": ["ahorrarás X al mes", "salir de deudas", "ingresos"] },
+    "candidato": { "entregable.formato": "hoja_de_calculo", "estado_a_b": ["ingresos sin asignar", "ingresos del mes asignados a cero"] },
+    "limites": { "creditos_max_pieza": null, "costo_max_producto": null },
+    "supuestos": ["[SUPUESTO] fuentes T1 solo si se cita una cifra oficial; el producto debería poder evitar cifras externas"]
+  },
+  "salida_esperada": {
+    "estado_final": "entregado_a_qa",
+    "veredicto_qa_esperado": "PASS",
+    "rondas_max": 2,
+    "items": ["guia-presupuesto", "hoja-presupuesto"],
+    "casos_dorados_en_autoprueba": ["caso típico", "borde inferior (ingreso 0)", "borde superior", "entrada inválida (negativo)"],
+    "no_verificado_por_agente": ["abrir y duplicar la hoja en Google Sheets", "configuración regional es-ES de la hoja", "paso de registrar gastos reales"],
+    "pasa_a_checklist_del_dueno": ["primer paso real cronometrado", "casos dorados en la hoja"],
+    "checks_clave": { "L1-17": "pass (lint_hoja.py: sin macros, hojas ocultas ni enlaces externos ni fórmulas de estado)", "L1-15": "pass (calculadora con casos dorados)" }
+  },
+  "aserciones": [
+    { "id": "A1", "tipo": "determinista", "texto": "lint_hoja.py sin hallazgos; ninguna fórmula devuelve un estado («deuda alta», «riesgo»)" },
+    { "id": "A2", "tipo": "determinista", "texto": "autoprueba.json trae ≥ los 4 tipos de caso dorado y una implementación de referencia independiente" },
+    { "id": "A3", "tipo": "determinista", "texto": "Los pasos con la hoja en la interfaz quedan 'no_ejecutable_por_agente' (nunca verificados por simulación)" },
+    { "id": "A4", "tipo": "criterio", "texto": "Supuestos visibles y rotulados «ilustrativo»; sin proyección ni promesa de ahorro (R8, R11)" },
+    { "id": "A5", "tipo": "criterio", "texto": "El maestro es el .xlsx con hash; no se entrega un enlace a una hoja en vivo" }
+  ],
+  "sin_skill_deberia_fallar_en": ["declarar la hoja 'verificada' sin pasar por GUI", "fórmula que etiqueta 'sobreendeudado'", "casos dorados inexistentes"]
+}

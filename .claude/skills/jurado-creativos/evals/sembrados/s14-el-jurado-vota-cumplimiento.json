@@ -1,0 +1,10 @@
+{
+  "caso_id": "S14",
+  "titulo": "El jurado vota cumplimiento",
+  "defecto_sembrado": "votos[].motivo = «esto viola la política de Meta»",
+  "check_esperado": "JQ-14",
+  "severidad_esperada": "MAYOR",
+  "deteccion": "jurado-qa",
+  "correccion_esperada": "el motivo no cuenta; la consigna no pide cumplimiento",
+  "automatizado": false
+}

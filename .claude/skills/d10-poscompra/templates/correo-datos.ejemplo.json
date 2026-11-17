@@ -1,0 +1,26 @@
+{
+  "marca": "Słowomapa",
+  "producto": "Mapy słownictwa angielskiego A1-C2",
+  "pedido_ref": "ENT-0eaabe56fc94",
+  "vendedor": "[SUPUESTO: razón social de la LLC y dirección postal o casilla; los entrega D0 / el dueño]",
+  "soporte_email": "soporte@mapymysli-angielski.example",
+  "politica_url": "https://mapymysli-angielski.example/legal/reembolsos",
+  "lista_enlaces": [
+    {"nombre": "Mapy słownictwa A1-C2", "enlace": "https://mapymysli-angielski.example/d/cs_test_ejemplo0001?token=EJEMPLO"},
+    {"nombre": "Zestaw fiszek do druku i importu", "enlace": "https://mapymysli-angielski.example/d/cs_test_ejemplo0001?token=EJEMPLO-BUMP"}
+  ],
+  "vence_dias": 7,
+  "max_descargas": 5,
+  "garantia_dias": 30,
+  "garantia_texto": "Jeśli to nie dla Ciebie, możesz poprosić o zwrot płatności w ciągu 30 dni od zakupu. Wystarczy napisać wiadomość na adres kontaktowy ze strony zakupu i podać numer zamówienia; zwrot wraca na tę samą metodę płatności, a powodu podawać nie trzeba.",
+  "primer_paso": "otwórz plik z mapami i zacznij od testu poziomu (bonus), żeby wiedzieć, od której mapy zacząć.",
+  "bloque_renuncia": "[PLANTILLA: aquí va el texto sellado de la confirmación de renuncia, versión checkout.compra.renuncia.texto_version, tomado de las legales de D5; D10 no lo redacta]",
+  "baja_url": "https://mapymysli-angielski.example/baja?t=EJEMPLO",
+  "resena_url_1": "https://mapymysli-angielski.example/opinia?t=EJEMPLO&e=1",
+  "resena_url_2": "https://mapymysli-angielski.example/opinia?t=EJEMPLO&e=2",
+  "resena_url_3": "https://mapymysli-angielski.example/opinia?t=EJEMPLO&e=3",
+  "resena_url_4": "https://mapymysli-angielski.example/opinia?t=EJEMPLO&e=4",
+  "resena_url_5": "https://mapymysli-angielski.example/opinia?t=EJEMPLO&e=5",
+  "monto_texto": "63,00 zł",
+  "tiempo_reembolso": "Zwykle trwa to kilka dni roboczych, zależnie od banku."
+}

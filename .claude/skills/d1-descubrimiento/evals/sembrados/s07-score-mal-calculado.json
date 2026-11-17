@@ -1,0 +1,31 @@
+{
+  "id": "s07-score-mal-calculado",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ score_base mal calculado (D-02)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/score_base",
+      "valor": 95
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-02",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-02",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "score-mal-calculado"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

@@ -1,0 +1,10 @@
+# Plantilla de empresa/mercados/terminos_busqueda/<locale>.yaml (lo lee D1 y D2). Los fuente_id los fija D1 (fuentes.yaml): M1 NO los inventa.
+# Un termino sin revision nativa se marca [VERIFICAR] y NO entra al barrido programado.
+locale: xx-XX
+revisado_por: null               # alias del revisor nativo | null
+fecha_revision: null
+dolor:                           # frases en la voz del cliente, por macro-nicho
+  - {termino: "[VERIFICAR] ...", macro: dinero, revisado: false}
+sustitutos: []                   # lo que el cliente usa hoy en lugar de comprar (incluido el chatbot)
+sitios_site: []                  # dominios locales para consultas site:  (solo fuentes permitidas por limites.fuentes_permitidas)
+fuente_id_candidatos: []         # ids kebab de fuentes.yaml (los fija D1)

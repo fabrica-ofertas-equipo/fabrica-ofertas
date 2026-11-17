@@ -1,0 +1,23 @@
+{
+  "_nota": "Entrada de paquetes.py armar: ≥ 1 ancla conocida-ganadora y ≥ 1 conocida-perdedora, del MISMO idioma que la tanda y de tipo texto o imagen. origen_resultado «medida» = resultado real de una pieza ya lanzada (evidencia.fuente y evidencia.metrica obligatorias; la sugiere calibrar.py en anclas_sugeridas y la confirma una persona). «control_sintetico» = escrita a mano para una prueba de cordura (evidencia.nota: quién y por qué); no valida contra el mercado y NO habilita la promoción. Borra las claves que empiezan por «_».",
+  "locale": "pl-PL",
+  "anclas": [
+    {
+      "ancla_id": "ancla-ganadora-01",
+      "veredicto_conocido": "ganadora",
+      "origen_resultado": "medida",
+      "tipo": "imagen",
+      "ruta_activo": "ofertas/OF-ANTERIOR/06-creativos/assets/ganadora.png",
+      "texto_visible": null,
+      "evidencia": {"fuente": "OF-ANTERIOR/08-operacion/lectura-2026-11-20.json", "metrica": "ctr_enlace (sobre la mediana de su tanda)", "valor": "tomar de la lectura real"}
+    },
+    {
+      "ancla_id": "ancla-perdedora-01",
+      "veredicto_conocido": "perdedora",
+      "origen_resultado": "control_sintetico",
+      "tipo": "texto",
+      "texto_visible": "Texto deliberadamente flojo, escrito a mano",
+      "evidencia": {"nota": "Control escrito por el dueño el AAAA-MM-DD: pieza genérica y sin gancho. No es un resultado de mercado."}
+    }
+  ]
+}

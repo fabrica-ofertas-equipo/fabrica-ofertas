@@ -1,0 +1,167 @@
+{
+  "schema_version": "0.1.0",
+  "tipo": "calibracion_jurado",
+  "fixture": true,
+  "valido_para_decidir": false,
+  "locale": "pl-PL",
+  "calculado_en": "2026-11-08T07:00:00Z",
+  "semilla": "calibrar-v1",
+  "parametros": {
+    "n_min_etiquetas": 150,
+    "auc_min": 0.6,
+    "auc_azar": 0.5,
+    "alfa": 0.05,
+    "anclas_min_pct": 0.6,
+    "delta_reemplazo": 0.01,
+    "n_min_etiquetas_avatar": 150,
+    "min_impresiones": 1000,
+    "min_clics": 50,
+    "min_compras_positivo": 1,
+    "gasto_min_ventas": null,
+    "permutaciones": 2000
+  },
+  "nota_parametros": "Todos son [SUPUESTO] salvo el AUC de azar (0,5): ver scripts/jurado/_comun.py. Se calibran con datos propios.",
+  "jurados": [
+    {
+      "archivo": "tanda-2026-11-08_pl-PL/jurado.json",
+      "tanda_id": "tanda-2026-11-08_pl-PL",
+      "sello": "328e5962b5fe5d1f1564f6af192a58d0def6363a417e69a255f60b501a2b0dc5",
+      "sellado_en": "2026-11-08T07:00:00Z"
+    }
+  ],
+  "descartados": [],
+  "niveles": [
+    {
+      "madurez": "inversion",
+      "etiquetas": 0,
+      "positivos": 0,
+      "excluidas_por": [
+        "tanda-2026-11-08_pl-PL: menos de 4 piezas con dato maduro en la tanda"
+      ],
+      "auc": null,
+      "ic95": null,
+      "p_vs_azar": null,
+      "brier": null,
+      "brier_prevalencia": null,
+      "brier_skill": null,
+      "baselines": [],
+      "estado": "acumulando",
+      "razones": [
+        "sin etiquetas"
+      ]
+    },
+    {
+      "madurez": "gancho",
+      "etiquetas": 0,
+      "positivos": 0,
+      "excluidas_por": [
+        "tanda-2026-11-08_pl-PL: menos de 4 piezas con dato maduro en la tanda"
+      ],
+      "auc": null,
+      "ic95": null,
+      "p_vs_azar": null,
+      "brier": null,
+      "brier_prevalencia": null,
+      "brier_skill": null,
+      "baselines": [],
+      "estado": "acumulando",
+      "razones": [
+        "sin etiquetas"
+      ]
+    },
+    {
+      "madurez": "clics",
+      "etiquetas": 0,
+      "positivos": 0,
+      "excluidas_por": [
+        "tanda-2026-11-08_pl-PL: menos de 4 piezas con dato maduro en la tanda"
+      ],
+      "auc": null,
+      "ic95": null,
+      "p_vs_azar": null,
+      "brier": null,
+      "brier_prevalencia": null,
+      "brier_skill": null,
+      "baselines": [],
+      "estado": "acumulando",
+      "razones": [
+        "sin etiquetas"
+      ]
+    },
+    {
+      "madurez": "pago_iniciado",
+      "etiquetas": 0,
+      "positivos": 0,
+      "excluidas_por": [
+        "tanda-2026-11-08_pl-PL: menos de 4 piezas con dato maduro en la tanda"
+      ],
+      "auc": null,
+      "ic95": null,
+      "p_vs_azar": null,
+      "brier": null,
+      "brier_prevalencia": null,
+      "brier_skill": null,
+      "baselines": [],
+      "estado": "acumulando",
+      "razones": [
+        "sin etiquetas"
+      ]
+    },
+    {
+      "madurez": "ventas",
+      "etiquetas": 0,
+      "positivos": 0,
+      "excluidas_por": [
+        "tanda-2026-11-08_pl-PL: falta gasto_min_ventas (sale de economia.json): sin él, «cero ventas» no significa nada"
+      ],
+      "auc": null,
+      "ic95": null,
+      "p_vs_azar": null,
+      "brier": null,
+      "brier_prevalencia": null,
+      "brier_skill": null,
+      "baselines": [],
+      "estado": "acumulando",
+      "razones": [
+        "sin etiquetas"
+      ]
+    }
+  ],
+  "nivel_principal": null,
+  "estado_global": "acumulando",
+  "razones": [
+    "ningún nivel llega a 150 etiquetas (el más lleno: inversion con 0): no se juzga el acierto",
+    "FIXTURE: calculado con datos de prueba; no vale para decidir nada"
+  ],
+  "anclas": {
+    "tandas_con_ambas_anclas": 1,
+    "tandas_que_discriminan": 1,
+    "pct_discrimina": 1.0,
+    "tandas_con_ancla_medida": 0,
+    "minimo": 0.6,
+    "cumple": false
+  },
+  "por_avatar": [],
+  "propuestas_reemplazo": [],
+  "anclas_sugeridas": {
+    "nota": "candidatas por resultado real; las revisa una persona antes de usarlas como ancla",
+    "candidatas": []
+  },
+  "accion": "seguir en sombra y acumular etiquetas",
+  "precision": {
+    "auc": null,
+    "brier": null,
+    "etiquetas": 0,
+    "estado": "acumulando",
+    "nivel": "inversion",
+    "ic95": null,
+    "p_vs_azar": null,
+    "n_min_etiquetas": 150,
+    "baselines": [],
+    "razones": [
+      "ningún nivel llega a 150 etiquetas (el más lleno: inversion con 0): no se juzga el acierto",
+      "FIXTURE: calculado con datos de prueba; no vale para decidir nada"
+    ],
+    "fixture": true
+  }
+}

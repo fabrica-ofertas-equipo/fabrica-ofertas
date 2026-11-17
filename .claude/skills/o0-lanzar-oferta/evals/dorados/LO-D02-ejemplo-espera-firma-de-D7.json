@@ -1,0 +1,13 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-D02-ejemplo-espera-firma-de-D7",
+  "entrada": "/o0-lanzar-oferta OF-202611-01 (ofertas/_ejemplo, autonomía de prueba N2)",
+  "esperado": [
+    "accion firmar · D7 · gate H · espera tu firma: sí",
+    "comando orq firmar --oferta OF-202611-01 --etapa D7 --como dueno con --hash-objetivo y --clave-privada <RUTA_DE_TU_CLAVE_PRIVADA> (nunca una ruta real)",
+    "dice qué mirar (qa/) y qué pasa si dice no",
+    "no firma ni activa"
+  ],
+  "verificacion": ".venv/bin/python .claude/skills/o0-lanzar-oferta/scripts/proximo_paso.py --oferta _ejemplo --autonomia contratos/ejemplos/autonomia.valido.yaml"
+}

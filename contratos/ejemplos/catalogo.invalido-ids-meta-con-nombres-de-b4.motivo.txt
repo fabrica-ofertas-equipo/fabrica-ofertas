@@ -1,0 +1,3 @@
+validador=required
+ruta=/ids_meta
+texto=ids_meta usa los nombres de ids_meta.schema.json (campaign_id escalar, adset_ids[], ad_ids[]), no campaign/adset/ad

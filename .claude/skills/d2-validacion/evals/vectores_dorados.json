@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "descripcion": "Vectores dorados de D2 v0.1.0. `vectores_ss` son los de la spec (§3.4); `casos` son entradas SINTÉTICAS con el resultado esperado de las fórmulas. aprobado_por_dueno=false hasta que el dueño los apruebe.",
+  "vectores_ss": [
+    {
+      "id": "V1",
+      "descripcion": "160 anuncios duplicados de UN concepto, 60 días, un país, sin embudo",
+      "operador": {
+        "conceptos": [
+          {
+            "antiguedad_dias": 60,
+            "tipo_mecanismo": "M1"
+          }
+        ],
+        "paises": [
+          "IT"
+        ],
+        "embudo": "0"
+      },
+      "paises_consultados": [
+        "IT"
+      ],
+      "SS_a": "0.233",
+      "sostenido": false
+    },
+    {
+      "id": "V2",
+      "descripcion": "3 conceptos de 90 días (mismo inicio), un país, landing con checkout",
+      "operador": {
+        "conceptos": [
+          {
+            "antiguedad_dias": 90,
+            "tipo_mecanismo": "M1"
+          },
+          {
+            "antiguedad_dias": 90,
+            "tipo_mecanismo": "M1"
+          },
+          {
+            "antiguedad_dias": 90,
+            "tipo_mecanismo": "M1"
+          }
+        ],
+        "paises": [
+          "IT"
+        ],
+        "embudo": "0.5"
+      },
+      "paises_consultados": [
+        "IT"
+      ],
+      "SS_a": "0.675",
+      "sostenido": true
+    },
+    {
+      "id": "V3",
+      "descripcion": "V2 con iteración (>= sep_iteracion_dias de separación en el mismo mecanismo): suma I_a",
+      "operador": {
+        "conceptos": [
+          {
+            "antiguedad_dias": 90,
+            "tipo_mecanismo": "M1"
+          },
+          {
+            "antiguedad_dias": 70,
+            "tipo_mecanismo": "M1"
+          },
+          {
+            "antiguedad_dias": 90,
+            "tipo_mecanismo": "M1"
+          }
+        ],
+        "paises": [
+          "IT"
+        ],
+        "embudo": "0.5"
+      },
+      "paises_consultados": [
+        "IT"
+      ],
+      "SS_a": "0.875",
+      "sostenido": true
+    }
+  ],
+  "vectores_mecanismo": [
+    {
+      "id": "VM1",
+      "descripcion": "4 sostenidos con 3 en la clase del MU",
+      "sostenidos": 4,
+      "con_la_clase": 3,
+      "saturacion_mecanismo": "alta"
+    },
+    {
+      "id": "VM2",
+      "descripcion": "3 sostenidos (no concluyente)",
+      "sostenidos": 3,
+      "con_la_clase": 3,
+      "saturacion_mecanismo": "media"
+    }
+  ],
+  "casos": [
+    {
+      "id": "g1-dinero-it-it-calendario-cuotas",
+      "descripcion": "Dinero, it-IT: calendario de cuotas de préstamos propios. 4 sostenidos, hueco sustentado, riesgo verde.",
+      "locale": "it-IT",
+      "macro_nicho": "dinero",
+      "entrada": "g1-dinero-it-it-calendario-cuotas.json",
+      "esperado": {
+        "calculado": "GO",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "baja",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "4",
+          "n_sostenidos": 4
+        },
+        "razones_codigo": []
+      }
+    },
+    {
+      "id": "g2-dinero-es-mx-hoja-costeo",
+      "descripcion": "Dinero, es-MX: hoja de costeo para quien vende manualidades. Solo 2 sostenidos: faltan sostenidos independientes para GO.",
+      "locale": "es-MX",
+      "macro_nicho": "dinero",
+      "entrada": "g2-dinero-es-mx-hoja-costeo.json",
+      "esperado": {
+        "calculado": "GO_CONDICIONAL",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "media",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "2",
+          "n_sostenidos": 2
+        },
+        "razones_codigo": [
+          "falta:n_ind_sost_minimo"
+        ]
+      }
+    },
+    {
+      "id": "g3-salud-pl-pl-plan-comidas",
+      "descripcion": "Salud, pl-PL: plan de comidas semanal (criterio nutricional = C2, amarillo-a); competidores prometen kilos: el riesgo es del claim, no del tema.",
+      "locale": "pl-PL",
+      "macro_nicho": "salud",
+      "entrada": "g3-salud-pl-pl-plan-comidas.json",
+      "esperado": {
+        "calculado": "GO",
+        "metricas": {
+          "IS": 33,
+          "saturacion_mecanismo": "baja",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "5",
+          "n_sostenidos": 5
+        },
+        "razones_codigo": []
+      }
+    },
+    {
+      "id": "g4-relaciones-en-us-tarjetas-conversacion",
+      "descripcion": "Relaciones, en-US: tarjetas de conversación para parejas; 3 de 4 sostenidos venden la clase M3 (plantilla lista) y ningún hueco sustentado.",
+      "locale": "en-US",
+      "macro_nicho": "relaciones",
+      "entrada": "g4-relaciones-en-us-tarjetas-conversacion.json",
+      "esperado": {
+        "calculado": "NO_GO",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "alta",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "4",
+          "n_sostenidos": 4
+        },
+        "razones_codigo": [
+          "NO_GO:mecanismo_saturado_sin_hueco_con_confianza"
+        ]
+      }
+    },
+    {
+      "id": "g5-dinero-es-ar-ganar-con-velas",
+      "descripcion": "Dinero, es-AR: el único ángulo es «ganá USD 500 con velas» (P3: ingreso prometido) y no hay ángulo seguro que conserve el deseo → NO_GO por riesgo.",
+      "locale": "es-AR",
+      "macro_nicho": "dinero",
+      "entrada": "g5-dinero-es-ar-ganar-con-velas.json",
+      "esperado": {
+        "calculado": "NO_GO",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "baja",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "4",
+          "n_sostenidos": 4
+        },
+        "razones_codigo": [
+          "NO_GO:riesgo_rojo_sin_reencuadre_verificable",
+          "NO_GO:ningun_angulo_seguro"
+        ]
+      }
+    },
+    {
+      "id": "g6-sin-anunciantes-es-es",
+      "descripcion": "Sin anunciantes (búsqueda sin resultados): confianza baja → GO_CONDICIONAL; nunca GO («0 competidores nunca es GO»; búsqueda fallida ≠ mercado inexistente).",
+      "locale": "es-ES",
+      "macro_nicho": "dinero",
+      "entrada": "g6-sin-anunciantes-es-es.json",
+      "esperado": {
+        "calculado": "GO_CONDICIONAL",
+        "metricas": {
+          "IS": 0,
+          "saturacion_mecanismo": "media",
+          "convergencia": "baja",
+          "confianza_puntos": 20,
+          "n_ind_sost": "0",
+          "n_sostenidos": 0
+        },
+        "razones_codigo": [
+          "falta:n_ind_sost_minimo",
+          "falta:frases_y_fuentes_minimas",
+          "falta:hueco_sustentado",
+          "falta:confianza_media_o_mas"
+        ]
+      }
+    },
+    {
+      "id": "g7-ro-ro-cero-sostenidos-pocas-frases",
+      "descripcion": "ro-RO: hay 2 operadores pero ninguno sostenido (SS_a bajo), solo 8 frases y confianza ≥ media → NO_GO (0 sostenidos ∧ frases < mínimo ∧ confianza ≥ media).",
+      "locale": "ro-RO",
+      "macro_nicho": "relaciones",
+      "entrada": "g7-ro-ro-cero-sostenidos-pocas-frases.json",
+      "esperado": {
+        "calculado": "NO_GO",
+        "metricas": {
+          "IS": 15,
+          "saturacion_mecanismo": "media",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "0",
+          "n_sostenidos": 0
+        },
+        "razones_codigo": [
+          "NO_GO:cero_sostenidos_pocas_frases_con_confianza"
+        ]
+      }
+    },
+    {
+      "id": "g8-hueco-de-localizacion-ro-ro",
+      "descripcion": "Hueco de localización: 1 sostenido local, pero ≥ 3 del mismo concepto en el país de referencia (IT) → hipótesis para D7, nunca GO.",
+      "locale": "ro-RO",
+      "macro_nicho": "dinero",
+      "entrada": "g8-hueco-de-localizacion-ro-ro.json",
+      "esperado": {
+        "calculado": "GO_CONDICIONAL",
+        "metricas": {
+          "IS": 45,
+          "saturacion_mecanismo": "media",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "1",
+          "n_sostenidos": 1
+        },
+        "razones_codigo": [
+          "falta:n_ind_sost_minimo",
+          "hueco_de_localizacion:hipotesis_para_d7_nunca_GO"
+        ]
+      }
+    },
+    {
+      "id": "g9-salud-es-es-cura-natural",
+      "descripcion": "Salud, es-ES: el ángulo es una «cura natural» (P3). Aunque haya mercado y hueco, ROJO sin reencuadre verificable ⇒ NO_GO; nunca GO.",
+      "locale": "es-ES",
+      "macro_nicho": "salud",
+      "entrada": "g9-salud-es-es-cura-natural.json",
+      "esperado": {
+        "calculado": "NO_GO",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "baja",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "4",
+          "n_sostenidos": 4
+        },
+        "razones_codigo": [
+          "NO_GO:riesgo_rojo_sin_reencuadre_verificable"
+        ]
+      }
+    },
+    {
+      "id": "g10-mu-identico-a-un-sostenido",
+      "descripcion": "MU idéntico al de un sostenido (mismo nombre y lógica, evidencia EV-03): saturación de mecanismo alta, sin hueco y con confianza ≥ media ⇒ NO_GO; devolución a D1 con motivo sin_mecanismo.",
+      "locale": "en-US",
+      "macro_nicho": "relaciones",
+      "entrada": "g10-mu-identico-a-un-sostenido.json",
+      "esperado": {
+        "calculado": "NO_GO",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "alta",
+          "convergencia": "baja",
+          "confianza_puntos": 100,
+          "n_ind_sost": "4",
+          "n_sostenidos": 4
+        },
+        "razones_codigo": [
+          "NO_GO:mecanismo_saturado_sin_hueco_con_confianza"
+        ]
+      }
+    },
+    {
+      "id": "g11-limite-de-tasa-pl-pl",
+      "descripcion": "Límite de tasa del conector tras 3 consultas: sin 2.ª pasada ni snapshots; confianza baja ⇒ GO_CONDICIONAL provisional, sin completar datos que no se tienen.",
+      "locale": "pl-PL",
+      "macro_nicho": "salud",
+      "entrada": "g11-limite-de-tasa-pl-pl.json",
+      "esperado": {
+        "calculado": "GO_CONDICIONAL",
+        "metricas": {
+          "IS": 30,
+          "saturacion_mecanismo": "media",
+          "convergencia": "baja",
+          "confianza_puntos": 20,
+          "n_ind_sost": "0",
+          "n_sostenidos": 0
+        },
+        "razones_codigo": [
+          "falta:lectura_snapshots_distinta_de_ninguno",
+          "falta:n_ind_sost_minimo",
+          "falta:frases_y_fuentes_minimas",
+          "falta:hueco_sustentado",
+          "falta:confianza_media_o_mas"
+        ]
+      }
+    }
+  ]
+}

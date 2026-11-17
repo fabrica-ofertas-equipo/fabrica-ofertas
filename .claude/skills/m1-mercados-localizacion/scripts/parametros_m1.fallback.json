@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "estado": "[SUPUESTO] Valores iniciales de departamentos/16-mercados-localizacion.md §3.4 hasta que exista empresa/parametros.yaml#grupos.mercados con estas claves (pedido a S-A). No son decisiones del dueño. Cada clave que ya exista en parametros.yaml MANDA sobre este archivo (puntaje.py y vigencia.py leen primero parametros.yaml). Este archivo es el UNICO lugar de la skill donde viven estos numeros: el resto de la skill remite a la clave.",
+    "fecha": "2026-11-06",
+    "version": "0.1.1",
+    "claves_ya_existentes_en_parametros_yaml": ["clics_min_decidir_mercado", "mercados_test_paralelos_max", "primer_lanzamiento_requiere_h", "prior_de_mercado"],
+    "claves_de_otro_grupo": {"producto.linguistica_muestreo_nativo_posterior": "hogar unico (R-08, conflicto C-05): M1 la LEE de parametros.yaml#grupos.producto; [PENDIENTE: la agrega CT-3, backlog S-04]; el valor de abajo es [SUPUESTO] hasta entonces"},
+    "claves_pendientes_de_ct3": "mercados.umbral_qa y mercados.umbral_item_min_qa (LT-17(f)/LT-53, convencion <grupo>.umbral_qa); reembolso_bp, disputa_bp y vigencia_tarifas_dias se conservan aqui [SUPUESTO] aunque LT-17(a)(b) pide NO crearlas en el grupo (usar economia.tasa_reembolso_bp, economia.tasa_disputa_bp y finanzas.tarifas_antiguedad_max_dias)"
+  },
+  "pesos": {"PA": 12, "CAC": 18, "COMP": 5, "PAGO": 18, "FISC": 12, "LOC": 8, "FRAUD": 8, "EXPO": 12, "ESC": 7},
+  "peso_ajuste_creadores": 0,
+  "ctr_enlace_central": "0.013",
+  "mult_cpm": {"central": "1.2", "estres": "1.5"},
+  "r_max": "2.2",
+  "bump_aov_factor": "1.5",
+  "cobertura_pago_min_duro": 40,
+  "cobertura_pago_min_blando": 55,
+  "puntaje_minimo": 55,
+  "empate_puntos": 8,
+  "vigencia_tarifas_dias": 30,
+  "vigencia_legal_dias": 90,
+  "vigencia_cpm_dias": 60,
+  "reembolso_bp": 800,
+  "disputa_bp": 60,
+  "muestreo_nativo_primer_lanzamiento": {"piezas_anuncio_y_producto_pct": 30, "legales_checkout_landing_pct": 100},
+  "producto": {"linguistica_muestreo_nativo_posterior": "0.20"},
+  "umbral_qa": "4.0",
+  "umbral_item_min_qa": 3,
+  "tolerancia_reproduccion_puntaje": "0.5",
+  "tolerancia_reproduccion_r": "0.05",
+  "tolerancia_reproduccion_totales_08": 1
+}

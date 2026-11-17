@@ -1,0 +1,67 @@
+{
+  "id": "s25-subnivel-incoherente",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Dos ejes amarillos con subnivel A en vez de B (X13b; D-12)",
+  "base": "g4-dinero-es-mx-modo-d-planner-por-cobro",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/P",
+      "valor": "amarillo"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/C",
+      "valor": "amarillo"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/riesgo/nivel",
+      "valor": "amarillo"
+    },
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/ejes_codigo/P",
+      "valor": "P2s"
+    },
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/ejes_codigo/C",
+      "valor": "C2"
+    },
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/nivel",
+      "valor": "amarillo"
+    },
+    {
+      "en": "riesgo_extendido",
+      "op": "replace",
+      "ruta": "/candidatos/CAND-01/subnivel",
+      "valor": "A"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "subnivel-incoherente"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

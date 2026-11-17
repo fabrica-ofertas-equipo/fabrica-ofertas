@@ -1,0 +1,24 @@
+# Worker «fabrica-tienda» — tienda propia mínima para quien no usa Impultienda ni otra plataforma (adaptador «propia»).
+# Landing por tienda en https://<dominio>/<slug>/, checkout de Stripe con bump opcional, entrega del PDF por correo (Resend),
+# ventas y embudo para la vigilancia. Lo monta la skill conectar-tienda.
+name = "fabrica-tienda"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fabrica-tienda"
+database_id = "PENDIENTE_CREAR_EN_CLOUDFLARE"
+
+# [[routes]]
+# pattern = "tienda.tu-dominio.com"
+# custom_domain = true
+
+# Secretos (wrangler secret put; nunca en este archivo):
+#   STRIPE_SECRET          clave secreta de Stripe (sk_live_… o sk_test_… para probar)
+#   STRIPE_WEBHOOK_SECRET  whsec_… del endpoint https://<dominio>/stripe/webhook (eventos checkout.session.completed y .expired)
+#   API_TOKEN              token que usa la fábrica para leer y publicar (FABRICA_TIENDA_TOKEN en el .env)
+#   RESEND_KEY             clave de Resend para mandar el PDF
+# Variables:
+[vars]
+REMITENTE = "Soporte <soporte@tu-dominio.com>"

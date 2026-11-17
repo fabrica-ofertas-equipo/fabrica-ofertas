@@ -1,0 +1,39 @@
+{
+  "id": "D02",
+  "bloqueante_star": true,
+  "severidad": "BLOQUEANTE",
+  "defecto": "Cobertura que suma Klarna y Amazon Pay",
+  "donde_se_siembra": "mercado.seleccion.json#/ranking/0/cobertura/suman",
+  "base": "templates/mercado.json + templates/mercado.seleccion.json (+ evals/dorados/fixtures)",
+  "mutaciones": [
+    {
+      "archivo": "seleccion",
+      "ops": [
+        {
+          "op": "append",
+          "ruta": "/ranking/0/cobertura/suman",
+          "valor": "klarna"
+        },
+        {
+          "op": "append",
+          "ruta": "/ranking/0/cobertura/suman",
+          "valor": "amazon_pay"
+        }
+      ]
+    }
+  ],
+  "deteccion": {
+    "via": "l1",
+    "check": "MQ-13"
+  },
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "MQ-13",
+      "patron_clave": "cobertura-suma-no-cobrables",
+      "severidad": "BLOQUEANTE",
+      "estado": "devuelto_al_maker"
+    },
+    "descripcion_esperada": "Klarna (solo EE. UU./USD) y Amazon Pay (solo USD) no suman"
+  }
+}

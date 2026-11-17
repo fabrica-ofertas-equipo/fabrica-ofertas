@@ -1,0 +1,16 @@
+# PLANTILLA de empresa/compliance/politica_recoleccion.yaml (Anexo C; nota 21 §9.6). La PREPARA X1; la APRUEBA el dueño con firma.
+# Sin revisión legal humana (decisión 14): checks automáticos + plantilla + gate H. Los valores de retención son [HIPÓTESIS]: parámetros pendientes.
+version: 0.1.0-borrador
+aprobada_por: null              # firma del dueño
+se_guarda: [extracto_max_25_palabras_con_idioma_y_traduccion, url_y_fechas, autor_hash_hmac_clave_de_corrida, etiquetas]
+no_se_guarda: [identidad_o_perfil_del_autor, hilos_completos, capturas_con_perfiles, categoria_especial_salud_sexualidad_religion_politica_etnia_biometria, menores, contenido_tras_login, evidencia_en_git]
+retencion: {cruda_dias: null, evidencia_dias: null, youtube_dias: null, borrado_verificado: semanal}   # [HIPÓTESIS] -> parámetros pendientes
+colores:
+  V: "ads_library_search, Google Trends, datos propios, dominios aprobados con robots permisivo: automático con QA"
+  A: "APIs oficiales, lectura humana de marketplaces: N1 pegado humano; N2 perfil dedicado sin login con X1 por dominio; N3+ solo con licencia o API aprobada"
+  R: "plataformas sociales y Reddit automatizados, grupos privados, login, raspado de plataformas rojas: nunca"
+degradacion_a_roja: [captcha, "403", disallow]
+checks_veto: [VC-01, VC-02, VC-03, VC-05, VC-06, VC-08, VC-09, VC-11, VC-12, VC-13]
+checks_pausa: [VC-04, VC-10]
+checks_mayor: [VC-07, VC-14, VC-15]
+aviso_investigacion: "empresa/compliance/aviso_investigacion/<locale>.md (UE: obligatorio por idioma)"

@@ -1,0 +1,385 @@
+{
+ "ok": true,
+ "datos": {
+  "alertas": [
+   {
+    "schema_version": "1.0.0",
+    "id": "F2-AUS-GATE:OF-202611-91:D2",
+    "ts": "2026-11-07T08:30:00Z",
+    "severidad": "amarilla",
+    "regla_id": "F2-AUS-GATE",
+    "origen": "F2",
+    "oferta_id": "OF-202611-91",
+    "macro_nicho": null,
+    "nivel": null,
+    "valor": 24,
+    "umbral": null,
+    "accion_sugerida": "Te toca a ti: «Validación de mercado» de la oferta OF-202611-91 espera tu firma; mientras no la firmes esa oferta no avanza. El comando para firmar está en el Resumen.",
+    "estado": "abierta",
+    "titulo": "Espera tu firma: Validación de mercado",
+    "responsable": "dueno",
+    "responsable_texto": "Te toca a ti",
+    "area": "trabajo",
+    "enlace": "#/oferta/OF-202611-91",
+    "comando": ".venv/bin/python -m engine.orq firmar --oferta OF-202611-91 --etapa D2 --hash-objetivo <HUELLA_DE_LO_QUE_FIRMAS> --clave-privada <RUTA_A_TU_CLAVE> --como dueno",
+    "detalle": null,
+    "medida": "la oferta no cambia hace 24 h",
+    "fuente": "calculada"
+   }
+  ],
+  "resumen": {
+   "abiertas": 1,
+   "cerradas": 0,
+   "rojas": 0,
+   "naranjas": 0,
+   "amarillas": 1,
+   "info": 0,
+   "para_ti": 1
+  },
+  "semaforo": {
+   "nivel": "amarillo",
+   "titulo": "Te puedes ausentar, con cuidado",
+   "resumen": "Lo que protege tu dinero y te avisa está en orden, pero faltan 1 cosa (1 te toca a ti). Mientras estés fuera algunas cosas quedarán esperando.",
+   "conteos": {
+    "rojo": 0,
+    "amarillo": 1,
+    "verde": 9
+   },
+   "faltan": 1,
+   "para_ti": 1,
+   "pasos": [
+    {
+     "orden": 6,
+     "id": "firmas",
+     "titulo": "Firmas que esperan por ti",
+     "grupo": "trabajo",
+     "nivel": "amarillo",
+     "estado": "1 firma esperan por ti; mientras estés fuera esas ofertas no avanzan.",
+     "que_hacer": "Revísalas y fírmalas si estás de acuerdo antes de ausentarte.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/resumen",
+     "enlace_texto": "Resumen",
+     "comando": ".venv/bin/python -m engine.orq firmar --oferta OF-202611-91 --etapa D2 --hash-objetivo <HUELLA_DE_LO_QUE_FIRMAS> --clave-privada <RUTA_A_TU_CLAVE> --como dueno",
+     "nota": null,
+     "paso": 1
+    }
+   ],
+   "comprobaciones": [
+    {
+     "orden": 1,
+     "id": "pausa",
+     "titulo": "PAUSA y frenos",
+     "grupo": "seguridad",
+     "nivel": "verde",
+     "estado": "Sin PAUSA y sin freno puesto.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/sistema",
+     "enlace_texto": "Salud del sistema",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 2,
+     "id": "limites",
+     "titulo": "Límites de dinero firmados (300 USD por día y pausa a −3.000 USD)",
+     "grupo": "seguridad",
+     "nivel": "verde",
+     "estado": "Límites completos y firmados.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/parametros",
+     "enlace_texto": "Límites y reglas",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 3,
+     "id": "chequeo",
+     "titulo": "Chequeo de cuentas y servicios (antes de lanzar)",
+     "grupo": "seguridad",
+     "nivel": "verde",
+     "estado": "Chequeo en verde, real y reciente (hace 1 h).",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "S-B",
+     "responsable_texto": "Le toca al equipo técnico (S-B)",
+     "quien": "Equipo técnico (S-B)",
+     "enlace": "#/sistema",
+     "enlace_texto": "Salud del sistema",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 4,
+     "id": "canal",
+     "titulo": "Avisos al celular por dos canales",
+     "grupo": "avisos",
+     "nivel": "verde",
+     "estado": "Dos canales de avisos, probados.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "S-B",
+     "responsable_texto": "Le toca al equipo técnico (S-B)",
+     "quien": "Equipo técnico (S-B)",
+     "enlace": "#/avisos",
+     "enlace_texto": "Avisos",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 5,
+     "id": "planificador",
+     "titulo": "El sistema se despierta solo y da señales de vida",
+     "grupo": "trabajo",
+     "nivel": "verde",
+     "estado": "1 trabajo con señal de vida reciente.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "S-B",
+     "responsable_texto": "Le toca al equipo técnico (S-B)",
+     "quien": "Equipo técnico (S-B)",
+     "enlace": "#/robots",
+     "enlace_texto": "Robots",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 6,
+     "id": "firmas",
+     "titulo": "Firmas que esperan por ti",
+     "grupo": "trabajo",
+     "nivel": "amarillo",
+     "estado": "1 firma esperan por ti; mientras estés fuera esas ofertas no avanzan.",
+     "que_hacer": "Revísalas y fírmalas si estás de acuerdo antes de ausentarte.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/resumen",
+     "enlace_texto": "Resumen",
+     "comando": ".venv/bin/python -m engine.orq firmar --oferta OF-202611-91 --etapa D2 --hash-objetivo <HUELLA_DE_LO_QUE_FIRMAS> --clave-privada <RUTA_A_TU_CLAVE> --como dueno",
+     "nota": null,
+     "paso": 1
+    },
+    {
+     "orden": 7,
+     "id": "meta",
+     "titulo": "Cuenta de Meta lista para lanzar",
+     "grupo": "venta",
+     "nivel": "verde",
+     "estado": "Cuenta de Meta permitida y comprobada.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/pagos",
+     "enlace_texto": "Pagos",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 8,
+     "id": "correo",
+     "titulo": "Correo para entregar el producto",
+     "grupo": "venta",
+     "nivel": "verde",
+     "estado": "El proveedor de correo está verificado.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/poscompra",
+     "enlace_texto": "Después de la venta",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 9,
+     "id": "saldo",
+     "titulo": "Saldo para gastar en anuncios",
+     "grupo": "venta",
+     "nivel": "verde",
+     "estado": "Hay tope de gasto en la cuenta y no es prepago.",
+     "que_hacer": "Nada que hacer.",
+     "responsable": "dueno",
+     "responsable_texto": "Te toca a ti",
+     "quien": "Tú",
+     "enlace": "#/pagos",
+     "enlace_texto": "Pagos",
+     "comando": null,
+     "nota": null
+    },
+    {
+     "orden": 10,
+     "id": "vigilancia",
+     "titulo": "Vigilancia del gasto y de las ventas",
+     "grupo": "seguridad",
+     "nivel": "verde",
+     "estado": "No hay ofertas vendiendo todavía: no hay gasto ni ventas que vigilar.",
+     "que_hacer": "Cuando haya, las reglas de gasto y ventas tienen que estar calculándose.",
+     "responsable": "S-B",
+     "responsable_texto": "Le toca al equipo técnico (S-B)",
+     "quien": "Equipo técnico (S-B)",
+     "enlace": "#/avisos",
+     "enlace_texto": "Avisos",
+     "comando": null,
+     "nota": null
+    }
+   ],
+   "calculado_en": "2026-11-07T08:30:00Z",
+   "como_se_calcula": "Rojo si falta algo de la red de seguridad o del trabajo solo (pausa y frenos, límites firmados, chequeo de cuentas, avisos por dos canales, planificador con señales de vida) o hay una alerta grave de gasto o ventas abierta. Amarillo si falta algo para vender, hay firmas esperando o un freno de captura puesto. Un dato que no existe cuenta como falta: nunca se da por bueno lo que no se pudo comprobar."
+  },
+  "archivo": {
+   "ruta": "empresa/datos/alertas.jsonl",
+   "existe": false,
+   "actualizado_en": null,
+   "lineas": 0,
+   "al_dia": false,
+   "ilegible": false,
+   "comando_escribir": ".venv/bin/python -m scripts.alertas.producir --escribir"
+  },
+  "reglas": {
+   "calculadas": [
+    "F2-A16",
+    "F2-A17",
+    "F2-AUS-CANAL",
+    "F2-AUS-CORREO",
+    "F2-AUS-FRENO",
+    "F2-AUS-GATE",
+    "F2-AUS-LIM",
+    "F2-AUS-META",
+    "F2-AUS-PAUSA",
+    "F2-AUS-PLAN",
+    "F2-AUS-SALDO",
+    "F2-AUS-SELLO",
+    "F2-AUS-VENCE"
+   ],
+   "pendientes": [
+    {
+     "regla_id": "F2-A01",
+     "nombre": "Datos de Meta desactualizados",
+     "requiere": "hora de la última lectura de Meta por oferta (ETL de Meta, cada 3 h)",
+     "archivo": "empresa/datos/ (lo escribe el ETL de Meta; aún no existe)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A02",
+     "nombre": "Eventos de Stripe desactualizados",
+     "requiere": "señal de vida del receptor de eventos de Stripe",
+     "archivo": "empresa/datos/ (webhook de Stripe sin desplegar)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A03",
+     "nombre": "Movimientos de saldo de Stripe desactualizados",
+     "requiere": "hora de la última carga de balance_transactions",
+     "archivo": "empresa/datos/ (ETL de Stripe, 03:00 UTC)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A04",
+     "nombre": "Pedidos que no coinciden con Stripe",
+     "requiere": "pedidos y balance_transactions conciliados",
+     "archivo": "empresa/finanzas/conciliacion.json",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A05",
+     "nombre": "Gasto distinto del que informa Meta",
+     "requiere": "gasto guardado y reconsulta de Meta",
+     "archivo": "empresa/finanzas/conciliacion.json",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A06",
+     "nombre": "Compras de Meta y de Stripe que no coinciden",
+     "requiere": "razon_meta_stripe con ventas suficientes",
+     "archivo": "ofertas/<id>/08-operacion/diario/<fecha>/kpi_oferta_dia.json",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A07",
+     "nombre": "Pocas ventas atribuidas a un anuncio",
+     "requiere": "cobertura de adid de los pedidos",
+     "archivo": "empresa/datos/ (pedidos con atribución)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A08",
+     "nombre": "Gasto del día por encima de lo posible",
+     "requiere": "gasto del día y presupuesto de la campaña",
+     "archivo": "kpi_oferta_dia.json y ofertas/<id>/07-campana/campana.json",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A09",
+     "nombre": "Gasto cerca de su tope o pérdida acumulada alta",
+     "requiere": "gasto del día, pérdida acumulada y los límites firmados (300 USD por día, −3.000 USD)",
+     "archivo": "kpi_oferta_dia.json, empresa/finanzas/pnl.json y empresa/limites.yaml (hoy sin fijar)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A10",
+     "nombre": "Costo de IA demasiado alto",
+     "requiere": "costos de IA por corrida y por oferta",
+     "archivo": "empresa/costos.jsonl (aún no existe)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A11",
+     "nombre": "Reembolsos y disputas",
+     "requiere": "reembolsos y disputas de los últimos días",
+     "archivo": "ofertas/<id>/10-postcompra/ y el libro de movimientos",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A12",
+     "nombre": "Camino del comprador con números incoherentes",
+     "requiere": "embudo del día (clics, visitas, pagos iniciados, compras)",
+     "archivo": "kpi_oferta_dia.json",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A13",
+     "nombre": "Calidad de la señal de compra baja",
+     "requiere": "calidad de coincidencia de eventos (EMQ) del medidor de Meta",
+     "archivo": "empresa/infra/estado.json (ítem M-05, cuando haya chequeo real)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A14",
+     "nombre": "Demasiado gasto en nichos de riesgo amarillo",
+     "requiere": "gasto por nivel de riesgo y cuota del límite",
+     "archivo": "kpi_oferta_dia.json y empresa/limites.yaml (cuota hoy sin fijar)",
+     "de": "S-B"
+    },
+    {
+     "regla_id": "F2-A15",
+     "nombre": "Radar de ofertas descompensado",
+     "requiere": "banco de evidencia por nicho y su caducidad",
+     "archivo": "empresa/barrido/ (estados del banco: pedido a S-A, d1-v2-interfaces)",
+     "de": "S-A"
+    }
+   ]
+  }
+ },
+ "fuente": [
+  "empresa/PAUSA",
+  "empresa/captura/freno.json",
+  "empresa/infra/estado.json",
+  "empresa/limites.yaml",
+  "empresa/parametros.yaml",
+  "empresa/avisos.yaml",
+  "empresa/infra/latidos.json",
+  "empresa/robots.yaml",
+  "ofertas/*/estado.json",
+  "empresa/panel/pulido.jsonl",
+  "empresa/datos/alertas.jsonl"
+ ],
+ "generado_en": "2026-11-07T08:30:00Z",
+ "vacio": false,
+ "avisos": []
+}

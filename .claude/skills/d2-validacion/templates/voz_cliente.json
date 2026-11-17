@@ -1,0 +1,21 @@
+{
+  "_ejemplo": "SINTÉTICO. Tres frases inventadas para mostrar la forma; una corrida real necesita >= min_frases_voz frases literales de >= min_fuentes_voz fuentes, cada una verificable en su `crudo_ref`. Sin nombres, @handles, emails ni teléfonos. Solo léxico y objeciones: NUNCA testimonio ni atribución.",
+  "schema_version": "0.1.0-borrador",
+  "oferta_id": "OF-202611-01",
+  "locale": "it-IT",
+  "fecha": "2026-11-06",
+  "frases": [
+    {"frase_id": "f-01", "texto_literal": "non riesco a capire quanto mi resta da pagare ogni mese", "locale": "it-IT", "pais": "IT",
+     "fuente_url": "https://foro-a.ejemplo.invalid/hilo/rate-prestiti-123", "fecha": "2026-10-20", "categoria": "dolor", "tema": "no-saber-cuanto-queda",
+     "origen": "d2", "crudo_ref": "crudo/voz/foro-a-123.txt"},
+    {"frase_id": "f-02", "texto_literal": "ho tre prestiti con scadenze diverse e mi perdo", "locale": "it-IT", "pais": "IT",
+     "fuente_url": "https://foro-b.ejemplo.invalid/discussione/scadenze-456", "fecha": "2026-09-30", "categoria": "dolor", "tema": "varios-prestamos",
+     "origen": "d2", "crudo_ref": "crudo/voz/foro-b-456.txt"},
+    {"frase_id": "f-03", "texto_literal": "esiste un calendario semplice senza dover usare un'app", "locale": "it-IT", "pais": "IT",
+     "fuente_url": "https://resenas-c.ejemplo.invalid/prodotto/calendario-789", "fecha": "2026-10-02", "categoria": "alternativa", "tema": "sin-app",
+     "origen": "d2", "crudo_ref": "crudo/voz/resenas-c-789.txt"}
+  ],
+  "temas": [{"tema": "no-saber-cuanto-queda", "n_frases": 1, "n_fuentes": 1}, {"tema": "varios-prestamos", "n_frases": 1, "n_fuentes": 1}, {"tema": "sin-app", "n_frases": 1, "n_fuentes": 1}],
+  "objeciones": ["¿Y si mis préstamos son de distintos bancos?", "¿Ya tengo una hoja de cálculo, para qué pagar?"],
+  "lexico": ["rata", "scadenza", "piano di rientro", "calendario dei pagamenti"]
+}

@@ -1,0 +1,916 @@
+{
+ "schema_version": "1.0.0",
+ "corrida_id": "2026-11-06-a",
+ "generado_en": "2026-11-06T06:25:41Z",
+ "umbrales_traccion": {
+  "anuncios_activos": 15,
+  "edad_oferta_dias": "10",
+  "fuente": "parametros_modelado: modelado_anuncios_objetivo y modelado_dias_objetivo (bordes incluidos)"
+ },
+ "resumen": {
+  "paginas_total": 724,
+  "paginas_candidatas": 636,
+  "paginas_en_temas": 436,
+  "paginas_sin_tema": 200,
+  "paginas_por_verificar": 561,
+  "paginas_por_medicion": {
+   "completa": 27,
+   "parcial": 23,
+   "muestra": 674,
+   "sin_medicion": 0
+  },
+  "paginas_candidatas_por_estado": {
+   "pasa": 13,
+   "indeterminada_por_muestra": 608,
+   "no_pasa": 15
+  },
+  "paginas_descartadas": 88,
+  "descartadas_por_motivo": {
+   "formato_excluido": 45,
+   "no_es_oferta_digital_pago_unico": 47,
+   "sin_etiqueta": 30,
+   "tema_indeterminado_sin_traccion_alta": 5
+  },
+  "temas": 391,
+  "temas_pasan_traccion": 11,
+  "temas_indeterminados_por_muestra": 368,
+  "temas_no_pasan_traccion": 12,
+  "sin_tema_pasan_traccion": 2,
+  "sin_tema_indeterminadas_por_muestra": 198,
+  "temas_que_pasan_por_macro_nicho": {
+   "salud": 1,
+   "relaciones": 0,
+   "dinero": 0,
+   "mixto": 0,
+   "fuera_de_marco": 10
+  }
+ },
+ "memoria": {
+  "base_valida": false,
+  "previa_corrida_id": null
+ },
+ "idiomas_por_pais": {
+  "BR": "pt",
+  "DE": "de",
+  "ES": "es",
+  "FR": "fr",
+  "GB": "en",
+  "IT": "it",
+  "MX": "es",
+  "PL": "pl",
+  "RO": "ro",
+  "US": "en"
+ },
+ "temas": [
+  {
+   "rank": 1,
+   "tema_slug": "comprension-lectora",
+   "tema": "actividades de comprensión de texto",
+   "publicos": [
+    "docentes y padres de estudiantes",
+    "docentes y padres de niños"
+   ],
+   "estado_traccion": "pasa",
+   "pasa_traccion": true,
+   "anunciantes_independientes": 2,
+   "paginas_total": 2,
+   "por_verificar": [
+    "modelo_de_cobro"
+   ],
+   "paginas_por_verificar": 1,
+   "paginas_posible_mismo_operador": 0,
+   "paginas_con_traccion": 1,
+   "paginas_indeterminadas": 1,
+   "anuncios_activos_en_muestra": 18,
+   "anuncios_activos_traccion": 18,
+   "hay_muestra_truncada": true,
+   "edad_oferta_dias": "36.04890046296296296296296296",
+   "edad_max_muestra_dias": "36.04890046296296296296296296",
+   "paises": [
+    "IT"
+   ],
+   "huecos": [
+    "BR",
+    "DE",
+    "ES",
+    "FR",
+    "GB",
+    "MX",
+    "PL",
+    "RO",
+    "US"
+   ],
+   "macro_nicho": null,
+   "macro_nicho_conteo": {
+    "salud": 0,
+    "relaciones": 0,
+    "dinero": 0,
+    "fuera_de_marco": 2
+   },
+   "formatos": {
+    "fichas": 1,
+    "pack_recursos": 1
+   },
+   "exportadores": {
+    "paginas_evaluadas": 2,
+    "con_senal": 1,
+    "sin_dato": 0,
+    "monedas": {
+     "BRL": 1
+    },
+    "paises_anuncio": {
+     "IT": 1
+    }
+   },
+   "novedad": {
+    "tema_nuevo": null,
+    "paginas_nuevas": null
+   },
+   "entrantes_30d": {
+    "BR": null,
+    "DE": null,
+    "ES": null,
+    "FR": null,
+    "GB": null,
+    "MX": null,
+    "PL": null,
+    "RO": null,
+    "US": null
+   },
+   "paginas": [
+    {
+     "page_id": "1076938925508814",
+     "page_name": "Didattica Pratica",
+     "tema_slug": "comprension-lectora",
+     "paises": [
+      "IT"
+     ],
+     "pais_fuente": "IT",
+     "anuncios_activos_en_muestra": 1,
+     "anuncios_activos_traccion": 1,
+     "regla_traccion": "medida",
+     "medicion_estado": "muestra",
+     "anuncios_activos_medidos": 1,
+     "anuncios_activos_medidos_es_piso": true,
+     "edad_es_piso": true,
+     "paises_ausencia_medida": [],
+     "edad_oferta_dias": "0",
+     "conceptos_unicos": 1,
+     "muestra_truncada": true,
+     "estado_traccion": "indeterminada_por_muestra",
+     "pasa_traccion": null,
+     "traccion_detalle": {
+      "anuncios": "indeterminada",
+      "edad": "indeterminada"
+     },
+     "formato": "pack_recursos",
+     "macro_nicho": null,
+     "confianza": "0.8",
+     "es_oferta_digital_pago_unico": null,
+     "por_verificar": [
+      "modelo_de_cobro"
+     ],
+     "posible_mismo_operador": false,
+     "grupo_operador": null,
+     "paginas_en_grupo": 1,
+     "cuenta_como_independiente": true,
+     "exportador": {
+      "senal": true,
+      "moneda": "BRL",
+      "pais_anuncio": "IT"
+     }
+    },
+    {
+     "page_id": "1150006728199098",
+     "page_name": "Risorse Digitali Online",
+     "tema_slug": "comprension-lectora",
+     "paises": [
+      "IT"
+     ],
+     "pais_fuente": "IT",
+     "anuncios_activos_en_muestra": 17,
+     "anuncios_activos_traccion": 17,
+     "regla_traccion": "medida",
+     "medicion_estado": "completa",
+     "anuncios_activos_medidos": 17,
+     "anuncios_activos_medidos_es_piso": false,
+     "edad_es_piso": false,
+     "paises_ausencia_medida": [],
+     "edad_oferta_dias": "36.04890046296296296296296296",
+     "conceptos_unicos": 2,
+     "muestra_truncada": false,
+     "estado_traccion": "pasa",
+     "pasa_traccion": true,
+     "traccion_detalle": {
+      "anuncios": "cumple",
+      "edad": "cumple"
+     },
+     "formato": "fichas",
+     "macro_nicho": null,
+     "confianza": "0.7",
+     "es_oferta_digital_pago_unico": true,
+     "por_verificar": [],
+     "posible_mismo_operador": false,
+     "grupo_operador": null,
+     "paginas_en_grupo": 1,
+     "cuenta_como_independiente": true,
+     "exportador": {
+      "senal": false,
+      "moneda": "USD",
+      "pais_anuncio": "IT"
+     }
+    }
+   ]
+  },
+  {
+   "rank": 88,
+   "tema_slug": "negocio-cricut",
+   "tema": "<img src=x onerror=alert(1)> guía‮segura",
+   "publicos": [
+    "usuarios de máquinas Cricut"
+   ],
+   "estado_traccion": "indeterminada_por_muestra",
+   "pasa_traccion": null,
+   "anunciantes_independientes": 1,
+   "paginas_total": 1,
+   "por_verificar": [
+    "modelo_de_cobro"
+   ],
+   "paginas_por_verificar": 1,
+   "paginas_posible_mismo_operador": 0,
+   "paginas_con_traccion": 0,
+   "paginas_indeterminadas": 1,
+   "anuncios_activos_en_muestra": 2,
+   "anuncios_activos_traccion": 2,
+   "hay_muestra_truncada": true,
+   "edad_oferta_dias": null,
+   "edad_max_muestra_dias": "0.7452893518518518518518518519",
+   "paises": [
+    "ES"
+   ],
+   "huecos": [
+    "BR",
+    "DE",
+    "FR",
+    "GB",
+    "IT",
+    "MX",
+    "PL",
+    "RO",
+    "US"
+   ],
+   "macro_nicho": "dinero",
+   "macro_nicho_conteo": {
+    "salud": 0,
+    "relaciones": 0,
+    "dinero": 1,
+    "fuera_de_marco": 0
+   },
+   "formatos": {
+    "otro": 1
+   },
+   "exportadores": {
+    "paginas_evaluadas": 1,
+    "con_senal": 1,
+    "sin_dato": 0,
+    "monedas": {
+     "COP": 1
+    },
+    "paises_anuncio": {
+     "ES": 1
+    }
+   },
+   "novedad": {
+    "tema_nuevo": null,
+    "paginas_nuevas": null
+   },
+   "entrantes_30d": {
+    "BR": null,
+    "DE": null,
+    "FR": null,
+    "GB": null,
+    "IT": null,
+    "MX": null,
+    "PL": null,
+    "RO": null,
+    "US": null
+   },
+   "paginas": [
+    {
+     "page_id": "614770848385168",
+     "page_name": "<script>alert(2)</script> Ana‮ Pérez",
+     "tema_slug": "negocio-cricut",
+     "paises": [
+      "ES"
+     ],
+     "pais_fuente": "ES",
+     "anuncios_activos_en_muestra": 2,
+     "anuncios_activos_traccion": 2,
+     "regla_traccion": "medida",
+     "medicion_estado": "muestra",
+     "anuncios_activos_medidos": 2,
+     "anuncios_activos_medidos_es_piso": true,
+     "edad_es_piso": true,
+     "paises_ausencia_medida": [],
+     "edad_oferta_dias": "0.7452893518518518518518518519",
+     "conceptos_unicos": 2,
+     "muestra_truncada": true,
+     "estado_traccion": "indeterminada_por_muestra",
+     "pasa_traccion": null,
+     "traccion_detalle": {
+      "anuncios": "indeterminada",
+      "edad": "indeterminada"
+     },
+     "formato": "otro",
+     "macro_nicho": "dinero",
+     "confianza": "0.8",
+     "es_oferta_digital_pago_unico": null,
+     "por_verificar": [
+      "modelo_de_cobro"
+     ],
+     "posible_mismo_operador": false,
+     "grupo_operador": null,
+     "paginas_en_grupo": 1,
+     "cuenta_como_independiente": true,
+     "exportador": {
+      "senal": true,
+      "moneda": "COP",
+      "pais_anuncio": "ES"
+     }
+    }
+   ]
+  },
+  {
+   "rank": 380,
+   "tema_slug": "planificacion-clases-musica",
+   "tema": "programación anual de clases de guitarra y batería",
+   "publicos": [
+    "profesores de guitarra y batería"
+   ],
+   "estado_traccion": "no_pasa",
+   "pasa_traccion": false,
+   "anunciantes_independientes": 1,
+   "paginas_total": 1,
+   "por_verificar": [
+    "modelo_de_cobro"
+   ],
+   "paginas_por_verificar": 1,
+   "paginas_posible_mismo_operador": 0,
+   "paginas_con_traccion": 0,
+   "paginas_indeterminadas": 0,
+   "anuncios_activos_en_muestra": 30,
+   "anuncios_activos_traccion": 30,
+   "hay_muestra_truncada": false,
+   "edad_oferta_dias": null,
+   "edad_max_muestra_dias": "7.075092592592592592592592593",
+   "paises": [
+    "IT"
+   ],
+   "huecos": [
+    "BR",
+    "DE",
+    "ES",
+    "FR",
+    "GB",
+    "MX",
+    "PL",
+    "RO",
+    "US"
+   ],
+   "macro_nicho": null,
+   "macro_nicho_conteo": {
+    "salud": 0,
+    "relaciones": 0,
+    "dinero": 0,
+    "fuera_de_marco": 1
+   },
+   "formatos": {
+    "planificador": 1
+   },
+   "exportadores": {
+    "paginas_evaluadas": 1,
+    "con_senal": 0,
+    "sin_dato": 0,
+    "monedas": {},
+    "paises_anuncio": {}
+   },
+   "novedad": {
+    "tema_nuevo": null,
+    "paginas_nuevas": null
+   },
+   "entrantes_30d": {
+    "BR": null,
+    "DE": null,
+    "ES": null,
+    "FR": null,
+    "GB": null,
+    "MX": null,
+    "PL": null,
+    "RO": null,
+    "US": null
+   },
+   "paginas": [
+    {
+     "page_id": "1082096414994262",
+     "page_name": "Edulabs Risorse",
+     "tema_slug": "planificacion-clases-musica",
+     "paises": [
+      "IT"
+     ],
+     "pais_fuente": "IT",
+     "anuncios_activos_en_muestra": 30,
+     "anuncios_activos_traccion": 30,
+     "regla_traccion": "medida",
+     "medicion_estado": "completa",
+     "anuncios_activos_medidos": 30,
+     "anuncios_activos_medidos_es_piso": false,
+     "edad_es_piso": false,
+     "paises_ausencia_medida": [],
+     "edad_oferta_dias": "7.075092592592592592592592593",
+     "conceptos_unicos": 24,
+     "muestra_truncada": false,
+     "estado_traccion": "no_pasa",
+     "pasa_traccion": false,
+     "traccion_detalle": {
+      "anuncios": "cumple",
+      "edad": "no_cumple"
+     },
+     "formato": "planificador",
+     "macro_nicho": null,
+     "confianza": "0.8",
+     "es_oferta_digital_pago_unico": null,
+     "por_verificar": [
+      "modelo_de_cobro"
+     ],
+     "posible_mismo_operador": false,
+     "grupo_operador": null,
+     "paginas_en_grupo": 1,
+     "cuenta_como_independiente": true,
+     "exportador": {
+      "senal": false,
+      "moneda": "USD",
+      "pais_anuncio": "IT"
+     }
+    }
+   ]
+  }
+ ],
+ "sin_tema": [
+  {
+   "rank": 1,
+   "page_id": "108605787440965",
+   "page_name": "Federico Picchianti",
+   "tema_slug": "indeterminado",
+   "paises": [
+    "IT"
+   ],
+   "pais_fuente": "IT",
+   "anuncios_activos_en_muestra": 82,
+   "anuncios_activos_traccion": 744,
+   "regla_traccion": "medida",
+   "medicion_estado": "parcial",
+   "anuncios_activos_medidos": 744,
+   "anuncios_activos_medidos_es_piso": true,
+   "edad_es_piso": true,
+   "paises_ausencia_medida": [],
+   "edad_oferta_dias": "36.77724537037037037037037037",
+   "conceptos_unicos": 29,
+   "muestra_truncada": true,
+   "estado_traccion": "pasa",
+   "pasa_traccion": true,
+   "traccion_detalle": {
+    "anuncios": "cumple",
+    "edad": "cumple"
+   },
+   "formato": "otro",
+   "macro_nicho": null,
+   "confianza": "0.0",
+   "es_oferta_digital_pago_unico": null,
+   "por_verificar": [
+    "modelo_de_cobro",
+    "tema"
+   ],
+   "posible_mismo_operador": false,
+   "grupo_operador": null,
+   "paginas_en_grupo": 1,
+   "cuenta_como_independiente": true,
+   "exportador": {
+    "senal": false,
+    "moneda": "EUR",
+    "pais_anuncio": "IT"
+   },
+   "huecos": [
+    "BR",
+    "DE",
+    "ES",
+    "FR",
+    "GB",
+    "MX",
+    "PL",
+    "RO",
+    "US"
+   ],
+   "entrantes_30d": {
+    "BR": null,
+    "DE": null,
+    "ES": null,
+    "FR": null,
+    "GB": null,
+    "MX": null,
+    "PL": null,
+    "RO": null,
+    "US": null
+   }
+  },
+  {
+   "rank": 2,
+   "page_id": "100000000000008",
+   "page_name": "Referente M",
+   "tema_slug": "indeterminado",
+   "paises": [
+    "ES",
+    "MX"
+   ],
+   "pais_fuente": "MX",
+   "anuncios_activos_en_muestra": 51,
+   "anuncios_activos_traccion": 101,
+   "regla_traccion": "medida",
+   "medicion_estado": "parcial",
+   "anuncios_activos_medidos": 101,
+   "anuncios_activos_medidos_es_piso": true,
+   "edad_es_piso": true,
+   "paises_ausencia_medida": [],
+   "edad_oferta_dias": "12.08537037037037037037037037",
+   "conceptos_unicos": 5,
+   "muestra_truncada": true,
+   "estado_traccion": "pasa",
+   "pasa_traccion": true,
+   "traccion_detalle": {
+    "anuncios": "cumple",
+    "edad": "cumple"
+   },
+   "formato": "otro",
+   "macro_nicho": null,
+   "confianza": "0.0",
+   "es_oferta_digital_pago_unico": null,
+   "por_verificar": [
+    "modelo_de_cobro",
+    "tema"
+   ],
+   "posible_mismo_operador": false,
+   "grupo_operador": null,
+   "paginas_en_grupo": 1,
+   "cuenta_como_independiente": true,
+   "exportador": {
+    "senal": true,
+    "moneda": "ARS",
+    "pais_anuncio": "ES"
+   },
+   "huecos": [
+    "BR",
+    "DE",
+    "FR",
+    "GB",
+    "IT",
+    "PL",
+    "RO",
+    "US"
+   ],
+   "entrantes_30d": {
+    "BR": null,
+    "DE": null,
+    "FR": null,
+    "GB": null,
+    "IT": null,
+    "PL": null,
+    "RO": null,
+    "US": null
+   }
+  }
+ ],
+ "matriz_tema_pais": {
+  "paises": [
+   "BR",
+   "DE",
+   "ES",
+   "FR",
+   "GB",
+   "IT",
+   "MX",
+   "PL",
+   "RO",
+   "US"
+  ],
+  "estado_ausencia": "hipotesis_hasta_pasada_3",
+  "advertencia": "Ausencia en la MUESTRA del barrido no es ausencia en el mercado: cada hueco es solo una hipótesis hasta medirlo con la pasada 3 (page_ids × país). El conector entrega como máximo 50 anuncios por consulta.",
+  "temas": [
+   {
+    "tema_slug": "comprension-lectora",
+    "presencia": {
+     "BR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "DE": {
+      "presente": false,
+      "paginas": 0
+     },
+     "ES": {
+      "presente": false,
+      "paginas": 0
+     },
+     "FR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "GB": {
+      "presente": false,
+      "paginas": 0
+     },
+     "IT": {
+      "presente": true,
+      "paginas": 2
+     },
+     "MX": {
+      "presente": false,
+      "paginas": 0
+     },
+     "PL": {
+      "presente": false,
+      "paginas": 0
+     },
+     "RO": {
+      "presente": false,
+      "paginas": 0
+     },
+     "US": {
+      "presente": false,
+      "paginas": 0
+     }
+    },
+    "paises_presentes": [
+     "IT"
+    ],
+    "huecos": [
+     "BR",
+     "DE",
+     "ES",
+     "FR",
+     "GB",
+     "MX",
+     "PL",
+     "RO",
+     "US"
+    ]
+   },
+   {
+    "tema_slug": "negocio-cricut",
+    "presencia": {
+     "BR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "DE": {
+      "presente": false,
+      "paginas": 0
+     },
+     "ES": {
+      "presente": true,
+      "paginas": 1
+     },
+     "FR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "GB": {
+      "presente": false,
+      "paginas": 0
+     },
+     "IT": {
+      "presente": false,
+      "paginas": 0
+     },
+     "MX": {
+      "presente": false,
+      "paginas": 0
+     },
+     "PL": {
+      "presente": false,
+      "paginas": 0
+     },
+     "RO": {
+      "presente": false,
+      "paginas": 0
+     },
+     "US": {
+      "presente": false,
+      "paginas": 0
+     }
+    },
+    "paises_presentes": [
+     "ES"
+    ],
+    "huecos": [
+     "BR",
+     "DE",
+     "FR",
+     "GB",
+     "IT",
+     "MX",
+     "PL",
+     "RO",
+     "US"
+    ]
+   },
+   {
+    "tema_slug": "planificacion-clases-musica",
+    "presencia": {
+     "BR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "DE": {
+      "presente": false,
+      "paginas": 0
+     },
+     "ES": {
+      "presente": false,
+      "paginas": 0
+     },
+     "FR": {
+      "presente": false,
+      "paginas": 0
+     },
+     "GB": {
+      "presente": false,
+      "paginas": 0
+     },
+     "IT": {
+      "presente": true,
+      "paginas": 1
+     },
+     "MX": {
+      "presente": false,
+      "paginas": 0
+     },
+     "PL": {
+      "presente": false,
+      "paginas": 0
+     },
+     "RO": {
+      "presente": false,
+      "paginas": 0
+     },
+     "US": {
+      "presente": false,
+      "paginas": 0
+     }
+    },
+    "paises_presentes": [
+     "IT"
+    ],
+    "huecos": [
+     "BR",
+     "DE",
+     "ES",
+     "FR",
+     "GB",
+     "MX",
+     "PL",
+     "RO",
+     "US"
+    ]
+   }
+  ]
+ },
+ "exportadores": {
+  "advertencia": "Indicio de «probable exportador» (cuenta publicitaria en la moneda de un país que anuncia en otro idioma): sirve para seguir la oferta a los idiomas donde falta; no es un hecho ni entra en la tracción.",
+  "resumen": {
+   "paginas_evaluadas": 436,
+   "con_senal": 62,
+   "sin_dato": 0,
+   "monedas": {
+    "ARS": 5,
+    "BRL": 47,
+    "COP": 1,
+    "GBP": 3,
+    "INR": 1,
+    "MXN": 1,
+    "PLN": 3,
+    "RON": 1
+   }
+  },
+  "temas_con_senal": 61,
+  "temas": [
+   {
+    "tema_slug": "comprension-lectora",
+    "paginas_evaluadas": 2,
+    "con_senal": 1,
+    "sin_dato": 0,
+    "monedas": {
+     "BRL": 1
+    },
+    "paises_anuncio": {
+     "IT": 1
+    },
+    "paginas": [
+     {
+      "page_id": "1076938925508814",
+      "page_name": "Didattica Pratica",
+      "moneda": "BRL",
+      "pais_anuncio": "IT",
+      "motivo": "cuenta publicitaria en BRL (moneda de BR) que anuncia en IT: probable exportador (indicio, no hecho)"
+     }
+    ]
+   },
+   {
+    "tema_slug": "negocio-cricut",
+    "paginas_evaluadas": 1,
+    "con_senal": 1,
+    "sin_dato": 0,
+    "monedas": {
+     "COP": 1
+    },
+    "paises_anuncio": {
+     "ES": 1
+    },
+    "paginas": [
+     {
+      "page_id": "614770848385168",
+      "page_name": "Esencial Creaciones",
+      "moneda": "COP",
+      "pais_anuncio": "ES",
+      "motivo": "cuenta publicitaria en COP (moneda de CO) que anuncia en ES: probable exportador (indicio, no hecho)"
+     }
+    ]
+   },
+   {
+    "tema_slug": "planificacion-clases-musica",
+    "paginas_evaluadas": 1,
+    "con_senal": 0,
+    "sin_dato": 0,
+    "monedas": {},
+    "paises_anuncio": {},
+    "paginas": []
+   }
+  ]
+ },
+ "descartadas": [
+  {
+   "page_id": "100218718429897",
+   "page_name": "Artisans des Énergies Renouvelables",
+   "paises": [
+    "FR"
+   ],
+   "anuncios_activos_en_muestra": 1,
+   "tema_slug": "ayudas-energia-renovable-hogar",
+   "formato": "servicio",
+   "macro_nicho": null,
+   "es_oferta_digital_pago_unico": null,
+   "motivos": [
+    "formato_excluido:servicio"
+   ]
+  },
+  {
+   "page_id": "100575081546002",
+   "page_name": "Blue Sea",
+   "paises": [
+    "GB"
+   ],
+   "anuncios_activos_en_muestra": 1,
+   "tema_slug": "audioseries-ficcion",
+   "formato": "comunidad_o_app",
+   "macro_nicho": null,
+   "es_oferta_digital_pago_unico": false,
+   "motivos": [
+    "no_es_oferta_digital_pago_unico",
+    "formato_excluido:comunidad_o_app"
+   ]
+  },
+  {
+   "page_id": "101797781455482",
+   "page_name": "Zagan Stúdió",
+   "paises": [
+    "RO"
+   ],
+   "anuncios_activos_en_muestra": 1,
+   "tema_slug": "esoterismo-hechizos",
+   "formato": "servicio",
+   "macro_nicho": null,
+   "es_oferta_digital_pago_unico": false,
+   "motivos": [
+    "no_es_oferta_digital_pago_unico",
+    "formato_excluido:servicio"
+   ]
+  }
+ ],
+ "advertencias": [
+  "697 de 724 página(s) con muestra truncada: su conteo es un PISO; si no supera el umbral queda «indeterminada_por_muestra» (la pasada 2/3 debe medirla)",
+  "200 página(s) de tema indeterminado avanzan como «sin_tema» (no se agrupan por tema; su hueco es el del original solo): la captura de la ficha/landing debe aclarar tema y modelo de cobro",
+  "561 página(s) avanzan con es_oferta_digital_pago_unico = null (por_verificar: modelo_de_cobro): fail-open en descubrimiento, fail-closed al lanzar"
+ ],
+ "advertencias_ingesta": [
+  "consulta br-acesso-imediato-pdf truncada: 50 anuncios recibidos (de 5347 declarados); las páginas que solo se ven por esta muestra llevan un conteo que es un PISO, no el total",
+  "consulta br-apostila-pdf truncada: 50 anuncios recibidos (de 1980 declarados); las páginas que solo se ven por esta muestra llevan un conteo que es un PISO, no el total"
+ ]
+}

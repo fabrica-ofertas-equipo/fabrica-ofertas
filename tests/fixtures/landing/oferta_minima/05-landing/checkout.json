@@ -1,0 +1,14 @@
+{
+  "oferta_id": "OF-209901-01",
+  "version": "v1",
+  "moneda": "EUR",
+  "precio": {
+    "monto": 2990,
+    "moneda": "EUR"
+  },
+  "price_ids": {
+    "test": "price_fixture_test_principal",
+    "live": null
+  },
+  "garantia_dias": 14
+}

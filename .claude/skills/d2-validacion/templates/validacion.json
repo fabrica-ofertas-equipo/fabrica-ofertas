@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "version_script": "0.1.0",
+  "candidato_id": "CAND-01",
+  "macro_nicho": "dinero",
+  "consultas": [
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "calendario rate prestiti",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:00:00Z",
+      "estimated_total_count": 38,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "scadenzario rate",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:02:00Z",
+      "estimated_total_count": 12,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "gestire le rate",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:04:00Z",
+      "estimated_total_count": 64,
+      "truncado": true
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "piano rate prestito",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:06:00Z",
+      "estimated_total_count": 9,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "foglio excel rate",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:08:00Z",
+      "estimated_total_count": 27,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "organizzare rate mensili",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:10:00Z",
+      "estimated_total_count": 31,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "agenda scadenze pagamenti",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:12:00Z",
+      "estimated_total_count": 15,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "tracker rate e prestiti",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:14:00Z",
+      "estimated_total_count": 22,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "calendario pagamenti prestiti",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:16:00Z",
+      "estimated_total_count": 18,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "rate da pagare elenco",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:18:00Z",
+      "estimated_total_count": 40,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "piano di rientro modello",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:20:00Z",
+      "estimated_total_count": 7,
+      "truncado": false
+    },
+    {
+      "herramienta": "ads_library_search",
+      "terminos": "scadenze finanziarie modello",
+      "pais": "IT",
+      "fecha": "2026-11-06T10:22:00Z",
+      "estimated_total_count": 11,
+      "truncado": false
+    }
+  ],
+  "metricas_mercado": {
+    "n_anuncios": 61,
+    "n_anunciantes": 4,
+    "n_sostenidos": 4,
+    "edad_mediana_dias": 52
+  },
+  "saturacion": {
+    "indice": 30,
+    "n_ind_sostenidos": 4,
+    "saturacion_mecanismo": "baja",
+    "detalle": "[EJEMPLO SINTÉTICO] 4 operadores sostenidos (SS_a 0,875 cada uno). Una línea por competidor profundo (operador | promesa en paráfrasis | clase de mecanismo | evidencia): op-01 | ordena el flujo mensual de cuotas | M1 | EV-01; op-02 | tabla de pagos con simulador | M1 | EV-04; op-03 | calendario visual del presupuesto familiar | M7 | EV-05; op-04 | checklist de vencimientos | M2 | EV-06. El MU propuesto (M3, plantilla lista) lo usa 0 de 4 sostenidos: share 0,000 ≤ 0,15 con |O| = 4. Un conteo de la Biblioteca con muestra truncada es un piso; la sonda no se suma entre países."
+  },
+  "convergencia": {
+    "estado": "baja",
+    "detalle": "Ningún concepto sostenido usa el ángulo recomendado (solapamiento 0,000 < 0,25)."
+  },
+  "huecos": [
+    "Ningún sostenido unifica en un calendario las cuotas de préstamos propios de distinto banco (ausente en 4 de 4 sostenidos con ≥ 3 anuncios leídos; 6 frases de 3 fuentes: EV-02)"
+  ],
+  "senales_demanda_organica": [
+    "Hilos recurrentes de foros sobre «no sé cuándo vence cada cuota» (3 fuentes distintas, ver voz_cliente.json)"
+  ],
+  "restricciones_originalidad": [
+    "No copiar titulares, nombres de método ni estructura de los 4 competidores profundos",
+    "Los claims de ingresos o de salir de deudas que usan algunos competidores no se replican (prohibido_copiar)"
+  ],
+  "riesgo_politica": {
+    "P": "verde",
+    "C": "verde",
+    "E": "verde",
+    "N": "verde",
+    "nivel": "verde",
+    "reencuadre_aplicado": {
+      "aplicado": false
+    },
+    "fuentes": [
+      "docs/_investigacion/25-marco-salud-relaciones-dinero.md",
+      "docs/_investigacion/22b-meta-politicas-dinero.md"
+    ],
+    "categoria": "finanzas personales: herramienta de registro de cuotas propias (no es consejo ni producto financiero) [EJEMPLO]",
+    "claims_a_evitar": [
+      "salí de deudas en N meses",
+      "ahorrarás X",
+      "sin deudas"
+    ],
+    "angulo_seguro": "Calendario que ordena fechas y montos de las cuotas propias del comprador, sin promesas sobre su deuda"
+  },
+  "veredicto": {
+    "calculado": "GO",
+    "propuesto": "GO",
+    "final": "GO",
+    "confianza": {
+      "puntos": 100,
+      "detalle": "5 de 5 criterios: snapshots leídos 4/5 (≥ 60 %), 4 landings, 12 consultas, sin videos, historial ≥ 7 días [EJEMPLO]"
+    },
+    "razones": [
+      "Todas las condiciones de GO se cumplen con las cifras de este ejemplo sintético",
+      "N_ind_sost 4 ≥ 3; IS 30 ≤ 70; hueco sustentado; riesgo verde; sustituto gratis diferenciado"
+    ],
+    "evidencia_faltante": [
+      "Ventas, gasto y conversiones de los competidores: la Biblioteca no los da; solo el test pago de D7/D8 distingue hueco de falta de demanda"
+    ]
+  },
+  "no_inferible": [
+    "Gasto, impresiones, conversiones y ventas de los anuncios de la competencia",
+    "Texto principal y fecha de fin de los anuncios (el conector no los devuelve)",
+    "Si «pocos anuncios con este mecanismo» es hueco o falta de demanda"
+  ],
+  "hipotesis_para_d7": [
+    "Probar el ángulo seguro («ordena tus cuotas») frente a uno de herramienta con el mismo precio; el ángulo seguro puede rendir menos"
+  ],
+  "handoff_d3": {
+    "angulos_candidatos": [
+      "calendario-de-cuotas",
+      "todas-tus-cuotas-en-una-vista"
+    ],
+    "objeciones_top": [
+      "¿Y si mis préstamos son de distintos bancos?",
+      "¿Ya tengo una hoja de cálculo, para qué pagar?"
+    ],
+    "rango_precios_por_moneda": [
+      {
+        "moneda": "EUR",
+        "min": 990,
+        "max": 2490
+      }
+    ],
+    "entregables_tipicos": [
+      "plantilla de hoja de cálculo",
+      "guía en PDF"
+    ],
+    "prohibido_copiar": [
+      "Titulares y nombres de método de los competidores",
+      "Claims de ingresos, ahorro o salida de deudas de los competidores"
+    ]
+  }
+}

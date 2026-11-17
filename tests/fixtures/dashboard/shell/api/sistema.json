@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "datos": {
+    "entorno": "desarrollo",
+    "raiz": "/ruta/al/proyecto",
+    "hora": "2026-11-06T14:02:00Z",
+    "modo_demo": true,
+    "pausa": {
+      "activa": false,
+      "desde": null,
+      "motivo": null
+    },
+    "freno_captura": {
+      "activo": true,
+      "ts": "2026-11-06T06:03:43Z",
+      "motivo": "HTTP 403 (Document)"
+    },
+    "infra": {
+      "semaforo": "AMARILLO",
+      "modo": "simulado",
+      "generado_en": "2026-11-06T08:30:00Z"
+    },
+    "panel": {
+      "version": "0.1.0",
+      "puerto": 8765
+    },
+    "motor_disponible": false,
+    "ofertas_reales": 3
+  },
+  "fuente": [
+    "empresa/PAUSA",
+    "empresa/captura/freno.json",
+    "empresa/infra/estado.json"
+  ],
+  "generado_en": "2026-11-06T14:02:00Z",
+  "vacio": false,
+  "avisos": []
+}

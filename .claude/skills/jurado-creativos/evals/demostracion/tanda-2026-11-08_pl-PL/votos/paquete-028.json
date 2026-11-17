@@ -1,0 +1,14 @@
+{
+  "paquete_id": "K-1a64e921",
+  "avatar_id": "av-pl-PL-08",
+  "pieza_id": "P-23f79062",
+  "voto": true,
+  "motivo": "Voto sintético de demostración: lo genera una función, no un modelo.",
+  "puntaje_gancho": 6,
+  "puntaje_claridad": 7,
+  "puntaje_cta": null,
+  "puntaje_general": 7,
+  "idea": null,
+  "alerta_ceguera": null,
+  "origen": "sintetico_demo"
+}

@@ -1,0 +1,297 @@
+{
+  "schema_version": "1.0.0",
+  "oferta_id": "OF-202611-01",
+  "version": "v1",
+  "origen_version": "maker",
+  "estado": "listo_para_d7",
+  "qa_ref": "qa/d6-v1.json",
+  "x1_ref": "qa/x1-d6-v1.json",
+  "destino": {
+    "url_base": "https://miregresolaboral.example/",
+    "plantilla_utm": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&utm_term={{adset.name}}&oferta_id=OF-202611-01&cid={{campaign.id}}&asid={{adset.id}}&adid={{ad.id}}",
+    "landing_hash": "sha256:baedec72c213ffa659dd9fdd2433c80003075538c52a3da2dd49f706cef000e7",
+    "precio": {
+      "monto": 1990,
+      "moneda": "EUR"
+    }
+  },
+  "politicas": {
+    "meta_enhancements": {
+      "generacion_texto": false,
+      "mejoras_creativas": false
+    },
+    "divulgacion_ia": "declarar_siempre"
+  },
+  "conceptos": [
+    {
+      "concepto_id": "c01-hueco",
+      "angulo_id": "hueco-como-relato",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El encuadre «hueco como relato» aumenta el CTR frente al encuadre de plantilla",
+      "fuentes_inspiracion": [
+        "Biblioteca de Anuncios: consulta Q-01",
+        "Voz del cliente EV-01",
+        "Banco de hooks de X2 (vacío en la primera oferta)"
+      ]
+    },
+    {
+      "concepto_id": "c02-entrevista",
+      "angulo_id": "pregunta-de-entrevista",
+      "nivel_conciencia": "N3",
+      "hipotesis": "Mostrar la fórmula del guion convierte mejor que describir la guía",
+      "fuentes_inspiracion": [
+        "Biblioteca de Anuncios: consulta Q-01",
+        "Voz del cliente EV-01",
+        "Banco de hooks de X2 (vacío en la primera oferta)"
+      ]
+    },
+    {
+      "concepto_id": "c03-tarde",
+      "angulo_id": "plan-en-una-tarde",
+      "nivel_conciencia": "N2",
+      "hipotesis": "El tiempo prometido atrae a quien no tiene tiempo",
+      "fuentes_inspiracion": [
+        "Biblioteca de Anuncios: consulta Q-01",
+        "Voz del cliente EV-01",
+        "Banco de hooks de X2 (vacío en la primera oferta)"
+      ]
+    }
+  ],
+  "anuncios": [
+    {
+      "ad_name": "c01-hueco|img|h1|v1",
+      "concepto_id": "c01-hueco",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "promesa-de-claridad",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Tu pausa no es un hueco: es un relato que puedes contar. Cómo presentar tu experiencia tras una pausa laboral, paso a paso.",
+        "titular": "Guía + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c01-hueco_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:0fe6fffff92a49b3749304f9f72e15c774e850ad378239c762eb0452c619024c",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c01-hueco_img_h2_v1",
+      "concepto_id": "c01-hueco",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "pregunta",
+      "v": 1,
+      "copy": {
+        "texto_principal": "El currículum que no pide disculpas por la pausa. Ordena por competencias y explica tu pausa en 30 segundos.",
+        "titular": "Guía + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c01-hueco_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:a06c287b34f56f49939c0f60cae274334ce6fe2eb1482ed73039f950771c0b30",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa",
+        "incluye-plantilla-cv"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c02-entrevista_img_h1_v1",
+      "concepto_id": "c02-entrevista",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "promesa-de-claridad",
+      "v": 1,
+      "copy": {
+        "texto_principal": "La pregunta que más temes, con tu respuesta ya escrita. Un guion de 30 segundos para explicar tu pausa en la entrevista.",
+        "titular": "Guía + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c02-entrevista_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:4897de39c0d663e260664510f7bbe875c411bcfa08f7762c653a511d4ba04e8e",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c02-entrevista_img_h2_v1",
+      "concepto_id": "c02-entrevista",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "pregunta",
+      "v": 1,
+      "copy": {
+        "texto_principal": "«¿Qué has hecho este tiempo?» Responde con seguridad. Fórmula de respuesta y ejemplos para ensayar.",
+        "titular": "Guía + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c02-entrevista_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:d861d8d500b1e3dacd92f3f1e0e2689c1c32f5e35460e12949ffbe4f11b7ce3d",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "guion-explicar-pausa"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c03-tarde_img_h1_v1",
+      "concepto_id": "c03-tarde",
+      "formato": "imagen",
+      "hook_id": "h1",
+      "hook_tipo": "promesa-de-claridad",
+      "v": 1,
+      "copy": {
+        "texto_principal": "Currículum por competencias en una tarde. Una guía de 5 pasos pensada para completarla en unos 90 minutos.",
+        "titular": "5 pasos + plantilla",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c03-tarde_img_h1_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:bf2cdd69f79ccce77007e94bd1829e849ba14fbbddf8497e585c3e6cd5d862d1",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    },
+    {
+      "ad_name": "c03-tarde_img_h2_v1",
+      "concepto_id": "c03-tarde",
+      "formato": "imagen",
+      "hook_id": "h2",
+      "hook_tipo": "pregunta",
+      "v": 1,
+      "copy": {
+        "texto_principal": "90 minutos para ordenar tu experiencia. Plantilla editable y guion para explicar tu pausa.",
+        "titular": "Plantilla + guion",
+        "descripcion": "Garantía de 14 días",
+        "cta": "LEARN_MORE",
+        "idioma": "es-ES"
+      },
+      "assets": [
+        {
+          "archivo": "assets/c03-tarde_img_h2_v1.png",
+          "ratio": "4:5",
+          "sha256": "sha256:2f3ed6562601d62891a52eca78d6fdbd85f72c35ac323965bbe02e86ec93e74d",
+          "herramienta": "placeholder_de_ejemplo",
+          "modelo": null,
+          "job_id": null,
+          "ia_generado": false,
+          "c2pa_origen": "n.a.",
+          "c2pa_final": "no",
+          "etiqueta_ia_visible": false,
+          "copy_hash": null,
+          "licencia_ref": null,
+          "costo_creditos": 0
+        }
+      ],
+      "claim_ids": [
+        "tiempo-90-min",
+        "incluye-plantilla-cv"
+      ],
+      "lint_x1": "PASS",
+      "virality": null,
+      "costo_creditos": 0
+    }
+  ],
+  "reserva": [],
+  "costo_total_creditos": 0,
+  "pedidos_atendidos": []
+}

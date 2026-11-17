@@ -1,0 +1,18 @@
+<section class="seccion mecanismo tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-metodo">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <p class="kicker">{{{kicker}}}</p>
+      <h2 id="titulo-metodo" class="mecanismo__nombre">{{{nombre}}}</h2>
+{{#si subtitulo}}
+      <p class="lede">{{{subtitulo}}}</p>
+{{/si}}
+    </header>
+    <p class="mecanismo__como">{{{como_funciona}}}</p>
+    <p class="de-a-b"><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg><span>{{{de_a_b}}}</span></p>
+    <ul class="etiquetas" role="list">
+{{#cada etiquetas}}
+      <li>{{{.}}}</li>
+{{/cada}}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{
+  "caso_id": "S01",
+  "titulo": "Un ad_name en el paquete ciego",
+  "defecto_sembrado": "ciego/paquete-<n>.json: avatar.nota = «viene de <ad_name>»",
+  "check_esperado": "JQ-01",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "paquetes.verificar → C-CAMPOS y C-FUGA-NOMBRE",
+  "correccion_esperada": "regenerar los paquetes; el campo extra sobra",
+  "automatizado": true
+}

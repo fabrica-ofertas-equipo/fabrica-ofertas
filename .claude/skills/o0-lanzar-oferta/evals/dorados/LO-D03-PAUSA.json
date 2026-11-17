@@ -1,0 +1,12 @@
+{
+  "skill": "o0-lanzar-oferta",
+  "version_skill": "0.1.0",
+  "id": "LO-D03-PAUSA",
+  "entrada": "empresa/PAUSA existe",
+  "esperado": [
+    "primera línea: PAUSA activa",
+    "ningún comando con efecto",
+    "dice qué no se detiene (entrega y correos transaccionales) y que solo el dueño levanta"
+  ],
+  "verificacion": "scripts/test_proximo_paso.py::test_pausa_detiene_todo_y_no_da_comando"
+}

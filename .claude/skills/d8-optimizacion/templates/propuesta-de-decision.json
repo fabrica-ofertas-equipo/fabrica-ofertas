@@ -1,0 +1,194 @@
+{
+  "_nota_de_uso": "PLANTILLA v0.1 sin pulir. Un archivo por oferta y día de cuenta en ofertas/<id>/08-operacion/diario/<AAAA-MM-DD>/propuesta.json. Es una PROPUESTA: no se ejecuta nada desde aquí. Cada elemento de `propuestas` se puede convertir en una línea del contrato `decision` (campos accion_contrato, objeto_tipo, objeto_id, codigo y regla); el registro oficial lo escribe el código en decisiones.jsonl. Las cifras se COPIAN de entrada.json / regla_*.json / umbrales.json con su `fuente` (archivo:ruta) como cadena: el Maker no calcula. Este ejemplo muestra dos formas (baja de lanzamiento y relevo por fatiga) que en un día real casi nunca coinciden en la misma oferta; conserva solo las que apliquen. Valida con scripts/validar_propuesta.py antes de entregar. `sintetico: true` se quita en una corrida real.",
+  "schema_version": "0.1.0",
+  "tipo": "propuesta_d8",
+  "sintetico": true,
+  "oferta_id": "OF-202611-02",
+  "fecha_cuenta": "2026-11-08",
+  "modo": "LANZAMIENTO",
+  "creada_por": "d8-maker",
+  "version_skill": "0.1.0",
+  "entradas": {
+    "entrada_d8": {
+      "ruta": "08-operacion/diario/2026-11-08/entrada.json",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "umbrales": {
+      "ruta": "08-operacion/diario/2026-11-08/umbrales.json",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "faltantes": []
+    },
+    "regla_lanzamiento": {
+      "ruta": "08-operacion/diario/2026-11-08/regla_lanzamiento.json",
+      "sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "regla_fatiga": null,
+    "decisiones_motor": {
+      "ruta": "08-operacion/decisiones.jsonl",
+      "sha256": null,
+      "decision_ids": []
+    }
+  },
+  "estado_global": {
+    "pausa_activa": false,
+    "infra_semaforo": "VERDE",
+    "nivel_d8": "N0",
+    "gate_efectivo_pausar": "H",
+    "frenos_j4": {
+      "gasto_diario_global": null,
+      "perdida_neta_acumulada_max": null,
+      "nota": "null = limites.yaml sin firmar: el guard no gasta (fail-closed)"
+    }
+  },
+  "propuestas": [
+    {
+      "n": 1,
+      "objeto_tipo": "oferta",
+      "objeto_id": "OF-202611-02",
+      "accion_negocio": "APAGAR",
+      "accion_contrato": "MATAR",
+      "regla": "J3-BAJA-LANZAMIENTO",
+      "codigo": "LANZAMIENTO_SIN_VENTA_J3",
+      "origen": "scripts/proponer.py lanzamiento",
+      "explicacion": "Regla J3: 1 día cerrado, presupuesto del día gastado (9866 bp del diario), 0 ventas pagadas, sin pagos pendientes y con medición sana. Se propone dar de baja la campaña de lanzamiento.",
+      "evidencia": [
+        {
+          "fuente": "entrada.json:presupuesto.diario_minor",
+          "valor": "7500"
+        },
+        {
+          "fuente": "entrada.json:dia.gasto_minor",
+          "valor": "7400"
+        },
+        {
+          "fuente": "regla_lanzamiento.json:evidencia.gasto_dia_bp",
+          "valor": "9866"
+        },
+        {
+          "fuente": "entrada.json:acumulado.ventas_stripe_total",
+          "valor": "0"
+        },
+        {
+          "fuente": "entrada.json:acumulado.pedidos_pendientes",
+          "valor": "0"
+        },
+        {
+          "fuente": "entrada.json:dia.clics_enlace",
+          "valor": "160"
+        },
+        {
+          "fuente": "entrada.json:dia.vistas_landing",
+          "valor": "130"
+        },
+        {
+          "fuente": "umbrales.json:lanzamiento.gasto_cumplido_min_pct",
+          "valor": "90"
+        }
+      ],
+      "por_que_se_apaga": "La gente llegó a la landing (130 vistas de 160 clics) y 4 iniciaron el pago, pero nadie pagó. [HIPÓTESIS] precio, promesa o checkout; el día 1 no distingue entre ellas. Anotar para el informe de cierre.",
+      "diagnostico_embudo": {
+        "etapa": "4",
+        "responsable": "D5/D3",
+        "causa_probable": "[HIPÓTESIS] abandono en checkout o precio; sin datos para afirmarlo",
+        "nivel_evidencia": "bajo"
+      },
+      "ejecuta": "humano",
+      "requiere_humano": true,
+      "gate_efectivo": "H",
+      "escalar_a": null
+    },
+    {
+      "n": 2,
+      "objeto_tipo": "anuncio",
+      "objeto_id": "120000000000100",
+      "accion_negocio": "RELEVAR",
+      "accion_contrato": "SEGUIR",
+      "regla": "FT",
+      "codigo": "FATIGA_RELEVO_PEDIDO",
+      "origen": "scripts/proponer.py fatiga",
+      "explicacion": "Fatiga confirmada en 2 lecturas seguidas (últimos 3 días contra los 7 anteriores). Se propone pedir un relevo a D6 (una sola variable; el anuncio vivo no se toca).",
+      "evidencia": [
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[0].senales.ctr.caida_bp",
+          "valor": "4615"
+        },
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[1].senales.ctr.caida_bp",
+          "valor": "5000"
+        },
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[0].senales.cpa.cpa_reciente_minor",
+          "valor": "1000"
+        },
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[0].senales.cpa.cpa_previo_minor",
+          "valor": "538"
+        }
+      ],
+      "por_que_se_apaga": null,
+      "diagnostico_embudo": {
+        "etapa": "1",
+        "responsable": "D6",
+        "causa_probable": "[HIPÓTESIS] cansancio del gancho; descartadas las etapas 0, 2 y 4 (entrega, conexión y pago sin cambios)",
+        "nivel_evidencia": "medio"
+      },
+      "ejecuta": "ninguno",
+      "requiere_humano": false,
+      "gate_efectivo": "A",
+      "escalar_a": "D6"
+    }
+  ],
+  "pedidos_creativos": [
+    {
+      "pedido_id": "PED-OF-202611-02-0001",
+      "propuesta_n": 2,
+      "motivo": "fatiga",
+      "ad_origen": "120000000000100",
+      "metricas": [
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[0].senales.ctr.ctr_previo_bp",
+          "valor": "185"
+        },
+        {
+          "fuente": "regla_fatiga.json:anuncios[0].lecturas[0].senales.ctr.ctr_reciente_bp",
+          "valor": "100"
+        }
+      ],
+      "variable_a_variar": "hook",
+      "cantidad": 3,
+      "cantidad_max": {
+        "fuente": "umbrales.json:optimizacion.cantidad_max_pedido",
+        "valor": "5"
+      },
+      "plazo_h": 24,
+      "mecanismo_lanzamiento": "tanda_diaria_cbo",
+      "angulo_id": "a1",
+      "aprendizaje": {
+        "hook_id": "h1",
+        "hipotesis_id": "hip-hook-01",
+        "resultado": "pendiente"
+      },
+      "no_repetir": [
+        "hook h1",
+        "cualquier claim de resultado o de ingresos del anuncio original"
+      ],
+      "estado": "propuesto"
+    }
+  ],
+  "falsos_descartes": {
+    "control_propuesto": false,
+    "nota": "El control de lo apagado (references/estadistica-honesta.md) solo se propone si el dueño lo activó."
+  },
+  "pendientes_humano": [
+    "Aplicar la baja (hoy gate H: autonomia.yaml D8 = N0 y gates.json accion:pausar N0 = H) o firmar el paso a N2 / J2",
+    "Firmar limites.yaml con J4 (300 USD/día y pausa a -3.000): hoy en null"
+  ],
+  "pendientes_codigo": [
+    "engine/d8.py aún no implementa la regla J3 (PEDIDOS.md P-04): esta propuesta sale de la implementación de referencia en sombra"
+  ],
+  "supuestos": [
+    "[SUPUESTO] lanzamiento.gasto_cumplido_min_pct = 90 (E-01), sin firma del dueño"
+  ],
+  "verificar": [],
+  "preguntas_bloqueantes": []
+}

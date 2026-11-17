@@ -1,0 +1,25 @@
+{
+  "id": "S02",
+  "descripcion": "Maximo teorico diario (diario x 1,75) por encima de gasto_diario_por_oferta (version a escala del ejemplo 100 vs 40)",
+  "check_id": "C04",
+  "severidad": "BLOQUEANTE",
+  "capa": "script-lint",
+  "limites_override": {
+    "gasto_diario_por_oferta": 4000
+  },
+  "esperado": {
+    "check_id": "C04",
+    "codigo": "diario_x175_sobre_tope",
+    "severidad": "BLOQUEANTE"
+  },
+  "salida_qa_esperada": {
+    "veredicto": "FAIL",
+    "hallazgo": {
+      "check_id": "C04",
+      "patron_clave": "diario-sobre-tope",
+      "severidad": "BLOQUEANTE"
+    },
+    "ronda_de_cortesia": false,
+    "debe_citar_evidencia": "ruta del archivo y valor leido"
+  }
+}

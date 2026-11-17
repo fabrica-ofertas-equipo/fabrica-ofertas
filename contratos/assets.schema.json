@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/assets.schema.json",
+  "title": "Assets de la landing (ranuras)",
+  "description": "Ranuras de imágenes/video de la landing. Las capturas del producto son reales (nunca mockups de contenido inexistente).",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "version": {
+      "$ref": "comunes.schema.json#/$defs/version"
+    },
+    "origen_version": {
+      "$ref": "comunes.schema.json#/$defs/origen_version"
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot_id": {
+            "$ref": "comunes.schema.json#/$defs/kebab"
+          },
+          "seccion": {
+            "enum": [
+              "hero",
+              "problema",
+              "mecanismo",
+              "producto",
+              "prueba",
+              "garantia",
+              "faq",
+              "pie",
+              "og"
+            ]
+          },
+          "tipo": {
+            "enum": [
+              "imagen",
+              "video",
+              "icono",
+              "captura_producto"
+            ]
+          },
+          "ratio": {
+            "enum": [
+              "1:1",
+              "4:5",
+              "9:16",
+              "16:9",
+              "3:4"
+            ],
+            "description": "Relación de aspecto (Higgsfield no ofrece 4:5)"
+          },
+          "proposito": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Texto alternativo (accesibilidad)"
+          },
+          "estado": {
+            "enum": [
+              "vacio",
+              "asignado",
+              "aprobado"
+            ]
+          },
+          "peso_max_kb": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "archivo": {
+            "anyOf": [
+              {
+                "$ref": "comunes.schema.json#/$defs/ruta_relativa"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "$ref": "comunes.schema.json#/$defs/sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "origen": {
+            "anyOf": [
+              {
+                "enum": [
+                  "producto_muestra",
+                  "ia",
+                  "stock_licenciado",
+                  "propio",
+                  "placeholder_de_ejemplo"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ia_generado": {
+            "type": "boolean"
+          },
+          "licencia_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "slot_id",
+          "seccion",
+          "tipo",
+          "ratio",
+          "proposito",
+          "alt",
+          "estado",
+          "peso_max_kb",
+          "archivo",
+          "sha256",
+          "origen",
+          "ia_generado",
+          "licencia_ref"
+        ],
+        "additionalProperties": false,
+        "description": "Ranura de la landing",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "estado": {
+                  "enum": [
+                    "asignado",
+                    "aprobado"
+                  ]
+                }
+              },
+              "required": [
+                "estado"
+              ]
+            },
+            "then": {
+              "properties": {
+                "archivo": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "origen": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "version",
+    "origen_version",
+    "slots"
+  ],
+  "additionalProperties": false
+}

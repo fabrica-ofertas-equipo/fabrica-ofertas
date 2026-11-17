@@ -1,0 +1,26 @@
+# tipo: entrega
+# locale: en
+# estado: v0.1 sin pulir; texto base en inglés (variantes en-GB/en-US por glosario de M1); sello de X1 pendiente
+Asunto: Your access to the materials – order {{pedido_ref}}
+
+Hello,
+
+thank you for your purchase from {{marca}}. Here are your materials:
+
+{{lista_enlaces}}
+
+How it works
+· The links are valid for {{vence_dias}} days and each one lets you download its file up to {{max_descargas}} times. Save the files on your device.
+· First step: {{primer_paso}}
+
+Your order number: {{pedido_ref}}
+
+Money-back guarantee: {{garantia_dias}} days
+{{garantia_texto}}
+Full policy: {{politica_url}}
+
+{{bloque_renuncia}}
+
+If a link does not open or has stopped working, reply to this email or write to {{soporte_email}} and we will send you a new one.
+
+Seller: {{vendedor}}

@@ -1,0 +1,31 @@
+{
+  "id": "s41-comunidad-afirmada-tras-una-negacion",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Entregable que NIEGA una cosa y AFIRMA una comunidad en la misma frase (D-13)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/entregable/alcance",
+      "valor": "Guía de 5 pasos y plantilla editable de CV; no incluye llamadas individuales, pero sí acceso de por vida a una comunidad privada con respuestas semanales."
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-13",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-13",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "entregable-con-comunidad-afirmada"
+      }
+    ],
+    "nota": "Una negación en la misma frase no anula una afirmación posterior: el entregable sí incluye comunidad. Un heurístico de «negación por ventana» (S-B) puede dar un falso negativo aquí; el QA debe leerlo y citar el fragmento «sí acceso de por vida a una comunidad privada»."
+  }
+}

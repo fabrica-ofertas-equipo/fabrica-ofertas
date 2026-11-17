@@ -1,0 +1,10 @@
+{
+  "caso_id": "S04",
+  "titulo": "Un voto «sí» como texto contado",
+  "defecto_sembrado": "jurado.json: votos[0].voto = \"sí\"",
+  "check_esperado": "JQ-05",
+  "severidad_esperada": "BLOQUEANTE",
+  "deteccion": "agregar.verificar → J-L1-07 y J-L1-01",
+  "correccion_esperada": "re-agregar: el voto malformado va a rechazados",
+  "automatizado": true
+}

@@ -1,0 +1,31 @@
+{
+  "id": "s39-cita-de-mas-de-25-palabras",
+  "tipo": "sembrado",
+  "estrella": false,
+  "titulo": "Cita de más de 25 palabras (D-04)",
+  "base": "g1-dinero-es-mx-reinsercion-laboral-madres",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/evidencia/0/cita",
+      "valor": "palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra palabra"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "D-04",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-04",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "cita-demasiado-larga"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

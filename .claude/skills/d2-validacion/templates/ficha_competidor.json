@@ -1,0 +1,438 @@
+{
+  "_ejemplo": "SINTÉTICO: 4 competidores ficticios (dominios .invalid, ids inventados). Reemplaza TODO por lo leído en tu corrida; un enlace que no esté en crudo/ se rechaza (verificar_competidores.py --crudo).",
+  "schema_version": "0.1.0-borrador",
+  "oferta_id": "OF-202611-01",
+  "locale": "it-IT",
+  "fecha": "2026-11-06",
+  "competidores": [
+    {
+      "operador_id": "op-01",
+      "motivo_clustering": "página aislada = su propio operador",
+      "page_id": "901",
+      "page_name": "Pagina Ejemplo Uno",
+      "tipo_anunciante": "producto_digital",
+      "dominio": "uno.ejemplo.invalid",
+      "landing_url": "https://uno.ejemplo.invalid/",
+      "ss_a": "0.875",
+      "oferta": {
+        "precio": 1490,
+        "moneda_precio": "EUR",
+        "entregables": "hoja de cálculo + guía PDF",
+        "garantia": null,
+        "bump": null,
+        "plataforma_checkout": "[VERIFICAR]",
+        "estado": "observado"
+      },
+      "metodos_pago_visibles": [
+        "tarjeta"
+      ],
+      "enlaces_verificacion": [
+        "100000000000011",
+        "100000000000012"
+      ],
+      "anuncios": [
+        {
+          "id": "100000000000011",
+          "concepto_id": "c11",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000011",
+          "inicio": "2026-08-08",
+          "hook": "¿Sabes cuándo vence cada cuota?",
+          "tipo_hook": "pregunta-tarea",
+          "angulo_principal": "f",
+          "claims": [],
+          "promesa": "Ordenar las cuotas del mes en un solo archivo",
+          "mecanismo_declarado": "repositorio de plantillas por tipo de cuota",
+          "tipo_mecanismo": "M1",
+          "prueba_social": "reseñas con estrellas (sin verificar)",
+          "garantia": null,
+          "cta": "Scarica ora",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-01",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000011",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        },
+        {
+          "id": "100000000000012",
+          "concepto_id": "c12",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000012",
+          "inicio": "2026-08-28",
+          "hook": "Ordena tus pagos del mes",
+          "tipo_hook": "lista-numero",
+          "angulo_principal": "l",
+          "claims": [
+            {
+              "texto_parafraseado": "salir de deudas rápido",
+              "nivel_riesgo": "rojo",
+              "prohibido_copiar": true
+            }
+          ],
+          "promesa": "Ordenar las cuotas del mes en un solo archivo",
+          "mecanismo_declarado": "repositorio de plantillas por tipo de cuota",
+          "tipo_mecanismo": "M1",
+          "prueba_social": "reseñas con estrellas (sin verificar)",
+          "garantia": null,
+          "cta": "Scarica ora",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-01",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000012",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        }
+      ]
+    },
+    {
+      "operador_id": "op-02",
+      "motivo_clustering": "página aislada = su propio operador",
+      "page_id": "902",
+      "page_name": "Pagina Ejemplo Dos",
+      "tipo_anunciante": "producto_digital",
+      "dominio": "dos.ejemplo.invalid",
+      "landing_url": "https://dos.ejemplo.invalid/",
+      "ss_a": "0.875",
+      "oferta": {
+        "precio": 1990,
+        "moneda_precio": "EUR",
+        "entregables": "tabla de pagos con simulador",
+        "garantia": null,
+        "bump": null,
+        "plataforma_checkout": "[VERIFICAR]",
+        "estado": "observado"
+      },
+      "metodos_pago_visibles": [
+        "tarjeta"
+      ],
+      "enlaces_verificacion": [
+        "100000000000021",
+        "100000000000022"
+      ],
+      "anuncios": [
+        {
+          "id": "100000000000021",
+          "concepto_id": "c21",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000021",
+          "inicio": "2026-08-08",
+          "hook": "Simula tus cuotas",
+          "tipo_hook": "pregunta-tarea",
+          "angulo_principal": "t",
+          "claims": [],
+          "promesa": "Ver el costo total de cada préstamo",
+          "mecanismo_declarado": "pack de simuladores por préstamo",
+          "tipo_mecanismo": "M1",
+          "prueba_social": "cifras de ejemplo del propio archivo",
+          "garantia": null,
+          "cta": "Acquista",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-02",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000021",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        },
+        {
+          "id": "100000000000022",
+          "concepto_id": "c22",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000022",
+          "inicio": "2026-08-08",
+          "hook": "Cuánto pagas de intereses",
+          "tipo_hook": "lista-numero",
+          "angulo_principal": "a",
+          "claims": [],
+          "promesa": "Ver el costo total de cada préstamo",
+          "mecanismo_declarado": "pack de simuladores por préstamo",
+          "tipo_mecanismo": "M1",
+          "prueba_social": "cifras de ejemplo del propio archivo",
+          "garantia": null,
+          "cta": "Acquista",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-02",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000022",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        }
+      ]
+    },
+    {
+      "operador_id": "op-03",
+      "motivo_clustering": "página aislada = su propio operador",
+      "page_id": "903",
+      "page_name": "Pagina Ejemplo Tres",
+      "tipo_anunciante": "producto_digital",
+      "dominio": "tres.ejemplo.invalid",
+      "landing_url": "https://tres.ejemplo.invalid/",
+      "ss_a": "0.875",
+      "oferta": {
+        "precio": 990,
+        "moneda_precio": "EUR",
+        "entregables": "calendario visual + bonus",
+        "garantia": null,
+        "bump": null,
+        "plataforma_checkout": "[VERIFICAR]",
+        "estado": "observado"
+      },
+      "metodos_pago_visibles": [
+        "tarjeta"
+      ],
+      "enlaces_verificacion": [
+        "100000000000031",
+        "100000000000032"
+      ],
+      "anuncios": [
+        {
+          "id": "100000000000031",
+          "concepto_id": "c31",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000031",
+          "inicio": "2026-08-08",
+          "hook": "Tu mes en un vistazo",
+          "tipo_hook": "pregunta-tarea",
+          "angulo_principal": "c",
+          "claims": [],
+          "promesa": "Calendario del presupuesto familiar con bonus",
+          "mecanismo_declarado": "bundle con bonus y precio bajo",
+          "tipo_mecanismo": "M7",
+          "prueba_social": "contador de descargas",
+          "garantia": null,
+          "cta": "Compra ora",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-03",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000031",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        },
+        {
+          "id": "100000000000032",
+          "concepto_id": "c32",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000032",
+          "inicio": "2026-09-12",
+          "hook": "Calendario + bonus por 9,90",
+          "tipo_hook": "lista-numero",
+          "angulo_principal": "a",
+          "claims": [],
+          "promesa": "Calendario del presupuesto familiar con bonus",
+          "mecanismo_declarado": "bundle con bonus y precio bajo",
+          "tipo_mecanismo": "M7",
+          "prueba_social": "contador de descargas",
+          "garantia": null,
+          "cta": "Compra ora",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-03",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000032",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        }
+      ]
+    },
+    {
+      "operador_id": "op-04",
+      "motivo_clustering": "página aislada = su propio operador",
+      "page_id": "904",
+      "page_name": "Pagina Ejemplo Cuatro",
+      "tipo_anunciante": "producto_digital",
+      "dominio": "cuatro.ejemplo.invalid",
+      "landing_url": "https://cuatro.ejemplo.invalid/",
+      "ss_a": "0.875",
+      "oferta": {
+        "precio": 1290,
+        "moneda_precio": "EUR",
+        "entregables": "checklist de vencimientos",
+        "garantia": null,
+        "bump": null,
+        "plataforma_checkout": "[VERIFICAR]",
+        "estado": "observado"
+      },
+      "metodos_pago_visibles": [
+        "tarjeta"
+      ],
+      "enlaces_verificacion": [
+        "100000000000041",
+        "100000000000042"
+      ],
+      "anuncios": [
+        {
+          "id": "100000000000041",
+          "concepto_id": "c41",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000041",
+          "inicio": "2026-08-08",
+          "hook": "Checklist para no perder vencimientos",
+          "tipo_hook": "pregunta-tarea",
+          "angulo_principal": "c",
+          "claims": [],
+          "promesa": "No olvidar vencimientos con una checklist",
+          "mecanismo_declarado": "secuencia paso a paso",
+          "tipo_mecanismo": "M2",
+          "prueba_social": "testimonio genérico (sin verificar)",
+          "garantia": null,
+          "cta": "Inizia",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-04",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000041",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        },
+        {
+          "id": "100000000000042",
+          "concepto_id": "c42",
+          "snapshot_url": "https://www.facebook.com/ads/library/?id=100000000000042",
+          "inicio": "2026-09-12",
+          "hook": "Paso a paso para ordenar tus cuotas",
+          "tipo_hook": "lista-numero",
+          "angulo_principal": "h",
+          "claims": [
+            {
+              "texto_parafraseado": "nunca más tendrás deudas",
+              "nivel_riesgo": "rojo",
+              "prohibido_copiar": true
+            }
+          ],
+          "promesa": "No olvidar vencimientos con una checklist",
+          "mecanismo_declarado": "secuencia paso a paso",
+          "tipo_mecanismo": "M2",
+          "prueba_social": "testimonio genérico (sin verificar)",
+          "garantia": null,
+          "cta": "Inizia",
+          "transcripcion": {
+            "estado": "no_disponible",
+            "metodo": null
+          },
+          "evidencia": {
+            "id": "EV-04",
+            "url": "https://www.facebook.com/ads/library/?id=100000000000042",
+            "captura": null,
+            "fecha": "2026-11-06",
+            "leido_por": "dueno"
+          },
+          "estado_campos": {
+            "hook": "observado",
+            "promesa": "observado",
+            "mecanismo_declarado": "observado",
+            "tipo_mecanismo": "inferido",
+            "prueba_social": "observado",
+            "garantia": "no_disponible",
+            "cta": "observado"
+          }
+        }
+      ]
+    }
+  ],
+  "sustitutos": [
+    {
+      "tipo": "chatbot",
+      "url": null,
+      "cubre_mecanismo": "parcial",
+      "evidencia_id": "EV-07",
+      "nota": "pedirle a un chatbot un calendario de cuotas da una tabla, no un calendario con fechas propias"
+    },
+    {
+      "tipo": "plantilla_gratis",
+      "url": "https://sustituto.ejemplo.invalid/plantilla",
+      "cubre_mecanismo": "parcial",
+      "evidencia_id": "EV-08",
+      "nota": "[EJEMPLO]"
+    }
+  ],
+  "contenido_hostil": []
+}

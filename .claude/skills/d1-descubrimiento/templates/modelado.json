@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1.0-borrador",
+  "_nota": "Hermano de candidatos.json hasta la MINOR 1.1.0 [PENDIENTE: CT-4]; lo producirá ficha_a_candidato.py [PENDIENTE: S-B]. Todo lo de la oferta fuente es DATO ajeno; el page_name original no se persiste.",
+  "pares_por_candidato": {
+    "CAND-01": {
+      "par_id": "planner-presupuesto-quincenal-us@MX",
+      "modelo_id": "planner-presupuesto-quincenal-us",
+      "nombre_fuente": "planner de presupuesto por cobro · US",
+      "fuente": {
+        "idioma": "en",
+        "pais": "US"
+      },
+      "macro_etiqueta": "dinero",
+      "traccion": {
+        "anuncios_activos": 22,
+        "edad_oferta_dias": "16",
+        "conceptos_unicos": 4,
+        "paginas_misma_landing": 3,
+        "anunciantes_independientes_mismo_angulo": 2
+      },
+      "puertas": {
+        "marca_personal": false,
+        "sustituto_gratis_cubre": false,
+        "practica_vetada": false
+      },
+      "juicio": {
+        "nivel_automatizacion": "humano_en_todo",
+        "confirmado_por_humano": true,
+        "jueces": [
+          "A",
+          "B"
+        ]
+      },
+      "hueco": {
+        "original_presente": false,
+        "anunciantes_sostenidos": 1,
+        "puntaje_rival": 40,
+        "entrantes_30d": 1,
+        "memoria_ref": "SINTETICO (instantánea de 30 días antes)"
+      },
+      "transferibilidad": {
+        "dolor_universal": "0.8",
+        "viabilidad_ticket": "0.7",
+        "riesgo_politicas": "0.9"
+      },
+      "reencuadres_diferenciacion": [
+        "lista_a_sistema",
+        "localizacion_cultural"
+      ],
+      "formula_version": "pm-2",
+      "sello_reglas": "sha256:7d3ce2d980bfa21a91cc915ed83068466ced5472d5307a473fd094b1c65f4e4d",
+      "transferencia": {
+        "aplica": true,
+        "locale_origen": "en-US",
+        "locale_destino": "es-MX",
+        "mecanismo_traducible": "si",
+        "requiere_barrido_local": true,
+        "e3_destino_id": "EV-03"
+      },
+      "pendiente": []
+    }
+  }
+}

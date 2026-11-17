@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "creado_en": "2026-11-06T05:40:00Z",
+  "tope_consultas": 120,
+  "consultas": [
+    {"qid": "es-acceso-inmediato-pdf", "search_terms": "Acceso inmediato en PDF", "countries": ["ES"], "idioma": "es", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 5, "page_ids": null, "pasada": 1},
+    {"qid": "es-garantia-7-dias", "search_terms": "Garantía de 7 días", "countries": ["ES"], "idioma": "es", "forma_id": "garantia", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1},
+    {"qid": "mx-acceso-inmediato-pdf", "search_terms": "Acceso inmediato en PDF", "countries": ["MX"], "idioma": "es", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1},
+    {"qid": "br-acceso-inmediato-pdf", "search_terms": "Acesso imediato em PDF", "countries": ["BR"], "idioma": "pt", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1},
+    {"qid": "pt-acceso-inmediato-pdf", "search_terms": "Acesso imediato em PDF", "countries": ["PT"], "idioma": "pt", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1},
+    {"qid": "it-acceso-inmediato-pdf", "search_terms": "Accesso immediato in PDF", "countries": ["IT"], "idioma": "it", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1},
+    {"qid": "us-acceso-inmediato-pdf", "search_terms": "Instant access PDF", "countries": ["US"], "idioma": "en", "forma_id": "acceso-inmediato", "ad_active_status": "ACTIVE", "limit": 50, "page_ids": null, "pasada": 1}
+  ]
+}

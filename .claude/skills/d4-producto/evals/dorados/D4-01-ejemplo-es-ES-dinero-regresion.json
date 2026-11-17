@@ -1,0 +1,77 @@
+{
+  "eval_id": "D4-01",
+  "titulo": "Regresión con la oferta de ejemplo del repositorio (guía + plantilla, es-ES, dinero, verde)",
+  "origen": "ofertas/_ejemplo (ejemplo dorado de punta a punta); spec §6.4 (dorados por macro-nicho)",
+  "macro_nicho": "dinero",
+  "nivel_riesgo": "verde",
+  "locale": "es-ES",
+  "modo": "nuevo",
+  "entrada": {
+    "oferta_dir": "ofertas/_ejemplo",
+    "nota": "Solo lectura. El Maker produce en un staging: no se escribe en ofertas/_ejemplo/. 03-oferta/oferta.json trae claims_permitidos (incluye-plantilla-cv, guion-explicar-pausa, tiempo-90-min, garantia-14-dias) y un bump (respuestas-modelo).",
+    "supuestos": [
+      "[SUPUESTO] sin límites de gasto: solo texto",
+      "[SUPUESTO] glosario es-ES y ayuda_por_pais ES provistos por fixture"
+    ]
+  },
+  "salida_esperada": {
+    "estado_final": "entregado_a_qa",
+    "veredicto_qa_esperado": "PASS",
+    "rondas_max": 2,
+    "items_minimos": [
+      "guia-puente",
+      "plantilla-cv",
+      "respuestas-modelo (bump, ítem separable)",
+      "muestra-guion (en_paquete: false)"
+    ],
+    "checks_clave": {
+      "L1-01": "pass",
+      "L1-02": "pass",
+      "L1-03": "pass",
+      "L1-12": "pass (sin hechos externos o con T1)",
+      "L1-14": "pass"
+    },
+    "deuda_conocida_del_ejemplo": [
+      "el ejemplo del repositorio NO tiene ítem para el bump respuestas-modelo: cobertura_matriz.py lo marca BLOQUEANTE",
+      "el ejemplo declara ejecucion_min 55 pero Σ pasos[].t_humano_min = 90 y lectura_min 25 para ≈ 490 palabras: tiempo_total.py lo marca MAYOR",
+      "una producción correcta NO hereda esos desfases"
+    ]
+  },
+  "aserciones": [
+    {
+      "id": "A1",
+      "tipo": "determinista",
+      "texto": "cobertura_matriz.py sin BLOQ/MAYOR: promesas, ítems y bump (archivo propio) cubiertos en los dos sentidos"
+    },
+    {
+      "id": "A2",
+      "tipo": "determinista",
+      "texto": "tiempo_total.py: ejecucion_min = Σ pasos, total ≤ tiempo_prometido_min (base estimado)"
+    },
+    {
+      "id": "A3",
+      "tipo": "determinista",
+      "texto": "lint_contenido.py sin 'garantizado', 'conseguirás trabajo', ni cifras de sueldo; los campos de plantilla [Nombre y apellidos] no se marcan"
+    },
+    {
+      "id": "A4",
+      "tipo": "criterio",
+      "texto": "El guion de 30 segundos y el currículum por competencias son accionables y no prometen empleo ni entrevistas (R1, R8)"
+    },
+    {
+      "id": "A5",
+      "tipo": "criterio",
+      "texto": "No dice «madres» como atributo del lector (eje E): el encuadre del ejemplo es «tras una pausa laboral larga»"
+    },
+    {
+      "id": "A6",
+      "tipo": "criterio",
+      "texto": "Las imágenes de muestra para D5 (portada, mockup, páginas de muestra) son capturas veraces del entregable real y están en muestras/ con productor D4; no hay ranuras de opiniones"
+    }
+  ],
+  "sin_skill_deberia_fallar_en": [
+    "bump sin ítem separable",
+    "minutos de los pasos que no suman",
+    "promesa de empleo en la guía"
+  ]
+}

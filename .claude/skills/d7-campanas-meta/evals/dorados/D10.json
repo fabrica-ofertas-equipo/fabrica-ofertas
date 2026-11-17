@@ -1,0 +1,70 @@
+{
+  "id": "D10",
+  "descripcion": "Ejemplo numerico A3 del spec (USD, sin tarifa, n=4, k=3): corte 192, validar 180, total 192 en 10 dias = 19,2/dia, maximo teorico 33,6/dia; umbral PURCHASE ~43/dia > 19,2 => INITIATE_CHECKOUT y lo dice.",
+  "capa": "script-presupuesto",
+  "contexto": {
+    "moneda": "USD",
+    "fuente": "departamentos/08-campanas-meta.md Anexo A3"
+  },
+  "entrada_presupuesto": {
+    "moneda": "USD",
+    "cpa_be": 1600,
+    "cpa_esperado": 1200,
+    "tarifa_meta_bp": 0,
+    "n_anuncios_paquete": 4,
+    "dias_test": 10,
+    "evento_economia": "InitiateCheckout",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": null,
+    "inicio": "2026-11-16T00:00:00Z",
+    "limites": {
+      "moneda_limites": "USD",
+      "gasto_diario_por_oferta": 4000,
+      "gasto_total_test_por_oferta": 100000,
+      "perdida_max_test_por_oferta": 100000,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "OK",
+    "n_anuncios": 4,
+    "total_plan": 19200,
+    "solo_refuta": false,
+    "facturado_plan": 19200,
+    "presupuesto": {
+      "diario": 1920,
+      "total_test": 19200,
+      "max_teorico_diario": 3360,
+      "spend_cap": 21120,
+      "candado_alternativo": null
+    },
+    "evento": {
+      "campana": "INITIATE_CHECKOUT",
+      "recomendado": "INITIATE_CHECKOUT",
+      "umbral_diario": 4286,
+      "falta_diario": 2366
+    },
+    "monto_api": {
+      "offset_meta": 100
+    }
+  },
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "umbral": "media >= 4,0 y ningun item < 3",
+    "hallazgos_minimos": 3,
+    "nota": "anti-sello-de-goma: >= 3 hallazgos o evidencia de que se reviso"
+  }
+}

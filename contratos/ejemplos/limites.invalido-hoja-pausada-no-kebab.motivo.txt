@@ -1,0 +1,4 @@
+validador=pattern
+ruta=/hojas_pausadas/0
+contiene=does not match
+texto=las hojas se identifican en kebab-case

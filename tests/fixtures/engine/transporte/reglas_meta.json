@@ -1,0 +1,7 @@
+{
+  "reglas": [
+    {"metodo": "GET", "url": "https://graph.example/v0/act_100000000000001/campaigns", "estado": 200, "cuerpo_archivo": "campanas.json", "veces": 0},
+    {"metodo": "POST", "url_prefijo": "https://graph.example/v0/", "estado": 200, "cuerpo": {"id": "111"}},
+    {"metodo": "POST", "url_prefijo": "https://graph.example/v0/", "estado": 613, "cuerpo": {"error": {"code": 613, "message": "límite de llamadas"}}}
+  ]
+}

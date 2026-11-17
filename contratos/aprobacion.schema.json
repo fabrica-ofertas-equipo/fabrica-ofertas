@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/aprobacion.schema.json",
+  "title": "Aprobación de un gate",
+  "description": "Aprobación de un gate sobre un hash exacto (ofertas/<id>/07-campana/aprobacion.json para activar_campana). La escribe el motor tras verificar la orden firmada; el Maker no puede escribirla. Gate H => aprobado_por.tipo=humano con firma; en producción la firma es Ed25519 (clave privada solo en el equipo del dueño). Payload firmado: JSON canónico de {oferta_id, etapa|accion, hash_objetivo, object_ids, vigencia_hasta, aprobador, fecha}.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "etapa": {
+      "$ref": "comunes.schema.json#/$defs/etapa_oferta",
+      "description": "Etapa aprobada (excluyente con accion)"
+    },
+    "accion": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Acción de contratos/gates.json sin el prefijo 'accion:' (excluyente con etapa)"
+    },
+    "gate": {
+      "$ref": "comunes.schema.json#/$defs/gate",
+      "description": "Gate con el que se aprobó"
+    },
+    "nivel": {
+      "$ref": "comunes.schema.json#/$defs/nivel_autonomia"
+    },
+    "hash_objetivo": {
+      "$ref": "comunes.schema.json#/$defs/sha256",
+      "description": "Hash aprobado: campana.hash_config para activar_campana; estado.etapas.<E>.hash_salida para una etapa"
+    },
+    "object_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "description": "IDs de Meta aprobados; igualdad exacta con ids_meta.json al activar. [] si no aplica"
+    },
+    "aprobado_por": {
+      "$ref": "comunes.schema.json#/$defs/firma_humana"
+    },
+    "creado_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "vigencia_hasta": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "gate",
+    "nivel",
+    "hash_objetivo",
+    "object_ids",
+    "aprobado_por",
+    "creado_en",
+    "vigencia_hasta"
+  ],
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": [
+        "etapa"
+      ],
+      "not": {
+        "required": [
+          "accion"
+        ]
+      }
+    },
+    {
+      "required": [
+        "accion"
+      ],
+      "not": {
+        "required": [
+          "etapa"
+        ]
+      }
+    }
+  ],
+  "if": {
+    "properties": {
+      "gate": {
+        "const": "H"
+      }
+    },
+    "required": [
+      "gate"
+    ]
+  },
+  "then": {
+    "properties": {
+      "aprobado_por": {
+        "properties": {
+          "tipo": {
+            "const": "humano"
+          },
+          "firma": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

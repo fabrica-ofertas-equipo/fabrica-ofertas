@@ -1,0 +1,37 @@
+{
+  "id": "s22-no-pasa-por-conteo-piso",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Página descartada como no_pasa por un conteo que es un piso (regla del dueño)",
+  "base": "g7-nunca-descartar-por-un-conteo-piso",
+  "comando": "barrido",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "barrido",
+      "op": "replace",
+      "ruta": "/temas/0/paginas/0/estado_traccion",
+      "valor": "no_pasa"
+    },
+    {
+      "en": "barrido",
+      "op": "replace",
+      "ruta": "/temas/0/estado_traccion",
+      "valor": "no_pasa"
+    }
+  ],
+  "deteccion": "script",
+  "check_esperado": "PISO",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "PISO",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "descarte-por-conteo-piso"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

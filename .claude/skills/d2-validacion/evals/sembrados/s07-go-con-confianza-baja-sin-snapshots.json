@@ -1,0 +1,41 @@
+{
+  "id": "S07",
+  "severidad": "MAYOR",
+  "defecto": "GO declarado sin snapshots leídos y con confianza baja.",
+  "base": {
+    "metricas_entrada.json": "templates/metricas_entrada.json",
+    "validacion.json": "templates/validacion.json",
+    "anuncios_competencia.json": "templates/ficha_competidor.json",
+    "voz_cliente.json": "templates/voz_cliente.json",
+    "plan_busqueda.json": "templates/plan_busqueda.json",
+    "informe.md": "templates/informe.md"
+  },
+  "inyeccion": [
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "lectura_snapshots",
+      "valor": "ninguno"
+    },
+    {
+      "archivo": "metricas_entrada.json",
+      "ruta": "confianza_datos.competidores_con_snapshot_leido",
+      "valor": 0
+    }
+  ],
+  "esperado_qa": {
+    "veredicto": "FAIL",
+    "hallazgos_minimos": [
+      {
+        "check_id": "D2-L1-D3",
+        "patron_clave": "go-con-confianza-baja",
+        "severidad": "MAYOR"
+      }
+    ],
+    "items_rubrica_a_la_baja": [
+      "R1"
+    ],
+    "debe_citar": "lectura_snapshots"
+  },
+  "detecta_script": "veredicto.py comprobar",
+  "nota": "SINTÉTICO: parche sobre las plantillas (caso base G1). Aplicar a una COPIA; el QA no debe ver este archivo."
+}

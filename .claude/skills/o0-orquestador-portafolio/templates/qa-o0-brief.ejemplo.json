@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "ambito": "oferta",
+  "oferta_id": "OF-202611-01",
+  "periodo": null,
+  "etapa": "O0",
+  "version": "v1",
+  "ronda": 1,
+  "creado_en": "2026-11-06T16:00:00Z",
+  "skill_version_qa": "0.1.0",
+  "skill_version_maker": "0.1.0",
+  "artefacto_ref": "00-brief.yaml",
+  "artefacto_sha256": "sha256:86e423ae15ff1b636f785764a9245f96e0a5e92e258385780394155faaa9d6be",
+  "entradas": {},
+  "veredicto": "PASS_CON_NOTAS",
+  "puntaje_global": "4.17",
+  "umbral": "4.0",
+  "items": [
+    {
+      "item_id": "R14",
+      "nombre": "Brief y mercado",
+      "puntaje": 4,
+      "evidencia": "00-brief.yaml: mercado_objetivo.es_hipotesis=true; supuestos[0..7] con su fuente"
+    },
+    {
+      "item_id": "R15",
+      "nombre": "Realismo del presupuesto",
+      "puntaje": 4,
+      "evidencia": "00-brief.yaml: presupuesto.test_total_max frente a economia.presupuesto_test_min [EJEMPLO: dato no disponible, se verificó contra limites]"
+    },
+    {
+      "item_id": "R19",
+      "nombre": "Legibilidad y encuadre",
+      "puntaje": 5,
+      "evidencia": "resumen de entrega de 10 líneas con macro-nicho y nivel verde justificado"
+    }
+  ],
+  "checks_l1": [
+    {
+      "check_id": "O0-C1",
+      "resultado": "pass",
+      "detalle": "validar_brief.py sin errores; esquema brief 1.1.0 y hash coinciden (recomputado)"
+    },
+    {
+      "check_id": "O0-C2",
+      "resultado": "pass",
+      "detalle": "recomputado a mano: test_total_max <= gasto_total_test_por_oferta; test_diario_max x factor <= gasto_diario_por_oferta; moneda = moneda_limites"
+    },
+    {
+      "check_id": "O0-C3",
+      "resultado": "pass",
+      "detalle": "macro_nicho dinero; riesgo.nivel verde del snapshot; sin lineas_rojas"
+    },
+    {
+      "check_id": "O0-C4",
+      "resultado": "pass",
+      "detalle": "locale it-IT y país IT en los permitidos; evidencia del candidato en it-IT"
+    }
+  ],
+  "simulaciones_l3": [],
+  "hallazgos": [
+    {
+      "check_id": "O0-C2",
+      "patron_clave": "sin-economia-del-mercado",
+      "severidad": "MENOR",
+      "etapa": "O0",
+      "skill_version": "0.1.0",
+      "descripcion": "No hay economia.json del mercado: el mínimo de test no se pudo contrastar",
+      "evidencia": "00-brief.yaml: supuestos[2]",
+      "estado": "aceptado_con_nota"
+    },
+    {
+      "check_id": "O0-C3",
+      "patron_clave": "riesgo-sin-ejes-codigo",
+      "severidad": "MENOR",
+      "etapa": "O0",
+      "skill_version": "0.1.0",
+      "descripcion": "El snapshot no trae ejes_codigo: el nivel y el subnivel se recomputaron con scripts.nivel_riesgo desde los colores",
+      "evidencia": "snapshot candidatos.json riesgo{P,C,E,N}",
+      "estado": "aceptado_con_nota"
+    },
+    {
+      "check_id": "O0-C1",
+      "patron_clave": "ids-sin-asignar",
+      "severidad": "MEJORA",
+      "etapa": "O0",
+      "skill_version": "0.1.0",
+      "descripcion": "IDs sin asignar en el borrador: correcto, los asigna orq crear tras el gate H del brief",
+      "evidencia": "00-brief.yaml: oferta_id",
+      "estado": "aceptado_con_nota"
+    }
+  ],
+  "justificacion_sin_hallazgos": null,
+  "cambios_aplicados": [],
+  "mejoras_propuestas": [
+    {
+      "descripcion": "Presupuesto menor con igual poder de decisión si la economía del mercado lo permite",
+      "impacto": "medio",
+      "esfuerzo": "bajo"
+    }
+  ],
+  "riesgos_residuales": [
+    "Plantilla de ejemplo: ninguna cifra es real"
+  ],
+  "aprendizajes_para_skill": [],
+  "x1": null
+}

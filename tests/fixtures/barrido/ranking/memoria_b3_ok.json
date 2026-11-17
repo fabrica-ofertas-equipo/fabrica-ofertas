@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "corrida_id": "2026-11-06-a",
+  "ahora": "2026-11-06T07:00:00Z",
+  "estado": "ok",
+  "base_entrantes": {
+    "estado": "ok",
+    "motivo": null,
+    "corrida_id": "2026-10-07-a",
+    "antiguedad_dias": "30",
+    "ventana_dias": "30",
+    "min_dias": "25"
+  },
+  "base_cambios": {
+    "estado": "ok",
+    "motivo": null,
+    "corrida_id": "2026-10-07-a",
+    "antiguedad_dias": "30"
+  },
+  "paginas_nuevas": [
+    {
+      "page_id": "1000000000000013",
+      "page_name": "Uncinetto Natale",
+      "paises": [
+        "IT"
+      ],
+      "anuncios_activos_en_muestra": 8,
+      "tema_slug": "crochet-patrones",
+      "entrante": true
+    },
+    {
+      "page_id": "1000000000000041",
+      "page_name": "Recetas Diabéticas",
+      "paises": [
+        "BR"
+      ],
+      "anuncios_activos_en_muestra": 15,
+      "tema_slug": "recetas-diabeticos",
+      "entrante": true
+    }
+  ],
+  "paginas_que_crecen": [],
+  "paginas_que_decrecen": [],
+  "paginas_desaparecidas": [],
+  "paginas_que_cambian_de_pais": [],
+  "temas_nuevos": [
+    "recetas-diabeticos"
+  ],
+  "temas_estado": "ok",
+  "entrantes_30d": {
+    "crochet-patrones": 1,
+    "atlas-puntos-gatillo": 0,
+    "recetas-diabeticos": 1
+  },
+  "entrantes_30d_por_pais": {
+    "crochet-patrones": {
+      "BR": 2,
+      "ES": 0,
+      "IT": 1,
+      "MX": 0,
+      "US": 0
+    },
+    "atlas-puntos-gatillo": {
+      "BR": 1,
+      "ES": 0,
+      "IT": null,
+      "MX": null,
+      "US": 0
+    },
+    "recetas-diabeticos": {
+      "BR": 1,
+      "ES": 0,
+      "IT": 0,
+      "MX": 0,
+      "US": 0
+    },
+    "1000000000000068": {
+      "BR": 3,
+      "ES": 0,
+      "IT": 0,
+      "MX": 1,
+      "US": 0
+    }
+  },
+  "advertencias": []
+}

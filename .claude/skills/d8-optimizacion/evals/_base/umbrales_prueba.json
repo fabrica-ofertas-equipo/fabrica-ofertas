@@ -1,0 +1,25 @@
+{
+  "_aviso": "VALORES DE PRUEBA para los evals y las pruebas unitarias de la skill d8-optimizacion. NO son los umbrales firmados por el dueño ni los de empresa/parametros.yaml: los marcados [SUPUESTO] en references/decisiones-y-umbrales.md siguen sin firma y hoy el grupo `lanzamiento` no existe en parametros.yaml (fail-closed).",
+  "umbrales": {
+    "lanzamiento.baja_dias": 1,
+    "lanzamiento.baja_requiere_presupuesto_gastado": true,
+    "lanzamiento.gasto_cumplido_min_pct": 90,
+    "lanzamiento.espera_post_dia_h": 9,
+    "lanzamiento.dias_max_sin_entrega": 2,
+    "testeo.tasa_conexion_min": "0.70",
+    "testeo.clics_min_diag": 100,
+    "optimizacion.lectura_horas": 6,
+    "testeo.fatiga_ventana_reciente_dias": 3,
+    "testeo.fatiga_ventana_previa_dias": 7,
+    "testeo.fatiga_caida_ctr_pct": 30,
+    "testeo.fatiga_factor_cpa": "1.5",
+    "testeo.fatiga_senales_min": 2,
+    "testeo.fatiga_lecturas_seguidas": 2,
+    "testeo.fatiga_compras_min": 3,
+    "testeo.impr_min_diag": 3000,
+    "testeo.k_corte": 3,
+    "testeo.freq_alerta_7d": "2.5",
+    "optimizacion.max_pedidos_abiertos": 1,
+    "optimizacion.cantidad_max_pedido": 5
+  }
+}

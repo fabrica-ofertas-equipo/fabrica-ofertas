@@ -1,0 +1,16 @@
+<section class="seccion cierre cierre--ref tono-{{tono}}" id="{{ancla}}" aria-labelledby="titulo-cierre">
+  <div class="contenedor contenedor--medio">
+    <header class="encabezado">
+      <h2 id="titulo-cierre">{{{titulo}}}</h2>
+    </header>
+    <div class="cierre__accion">
+      <a class="boton boton--cta boton--grande boton--ancho" href="/comprar"><span>{{cta.texto}}</span><svg class="ico" aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      <p class="microcopy">{{{microcopy}}}</p>
+    </div>
+    <ul class="lista-seguridad" role="list">
+{{#cada lista}}
+      <li><svg class="ico ico--insignia" aria-hidden="true"><use href="#i-check"></use></svg><span>{{{.}}}</span></li>
+{{/cada}}
+    </ul>
+  </div>
+</section>

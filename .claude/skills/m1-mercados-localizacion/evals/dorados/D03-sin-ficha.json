@@ -1,0 +1,34 @@
+{
+  "id": "D03",
+  "nombre": "Otro idioma/mercado sin ficha (de-DE o ro-RO): falla cerrado",
+  "spec": "departamentos/16 §10.5 eval 3",
+  "entrada": {
+    "limites": {
+      "paises_permitidos": [
+        "DE"
+      ],
+      "locales_permitidos": [
+        "de-DE"
+      ]
+    },
+    "fichas": "ninguna"
+  },
+  "salida_esperada": {
+    "estado": "bloqueado (salida 5)",
+    "preguntas_bloqueantes": [
+      "¿encargo la construccion de la ficha de DE (modo atlas) o la proporciona el dueño?",
+      "matriz de X1 para DE"
+    ],
+    "no_produce": [
+      "mercado.json",
+      "ranking",
+      "cifras inventadas"
+    ]
+  },
+  "verificacion": {
+    "automatica": "scripts/autoprueba.py (prueba D03)",
+    "L2": [
+      "el Maker NO rellena una ficha de memoria; cada dato que proponga lleva fuente+fecha o [VERIFICAR]"
+    ]
+  }
+}

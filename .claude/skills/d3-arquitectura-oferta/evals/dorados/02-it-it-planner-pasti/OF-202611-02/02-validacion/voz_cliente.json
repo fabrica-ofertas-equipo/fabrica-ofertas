@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.0.0-sin-esquema",
+  "oferta_id": "OF-202611-02",
+  "locale": "it-IT",
+  "frases": [
+    {
+      "texto_literal": "Ogni sera mi chiedo cosa cucinare e alla fine ordino qualcosa",
+      "locale": "it-IT",
+      "pais": "IT",
+      "fuente_url": "https://forum.esempio.invalid/discussione/cosa-cucino-stasera",
+      "fecha": "2026-09-14",
+      "categoria": "dolor",
+      "tema": "cena"
+    },
+    {
+      "texto_literal": "Faccio la spesa senza un piano e metà delle cose le butto",
+      "locale": "it-IT",
+      "pais": "IT",
+      "fuente_url": "https://forum.esempio.invalid/discussione/spesa-senza-piano",
+      "fecha": "2026-09-14",
+      "categoria": "dolor",
+      "tema": "spesa"
+    },
+    {
+      "texto_literal": "I modelli gratuiti hanno le caselle ma non mi dicono cosa comprare",
+      "locale": "it-IT",
+      "pais": "IT",
+      "fuente_url": "https://recensioni.esempio.invalid/prodotto/planner-gratis",
+      "fecha": "2026-09-18",
+      "categoria": "objecion",
+      "tema": "planner"
+    }
+  ],
+  "temas": [
+    "cena",
+    "spesa",
+    "planner"
+  ],
+  "objeciones": [
+    "ci sono già modelli gratuiti"
+  ],
+  "lexico": [
+    "cosa cucino stasera",
+    "lista della spesa"
+  ]
+}

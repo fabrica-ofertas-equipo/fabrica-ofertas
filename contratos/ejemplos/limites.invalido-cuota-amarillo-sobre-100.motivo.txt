@@ -1,0 +1,4 @@
+validador=maximum
+ruta=/cuota_gasto_amarillo_max_pct
+contiene=greater than the maximum of 100
+texto=la cuota es un entero 0-100

@@ -1,0 +1,95 @@
+{
+  "eval_id": "D4-07",
+  "titulo": "Biblioteca de 40 fichas de costeo para vendedores de manualidades (dinero): QA-A con 3 piloto, licencias, imagen IA rotulada",
+  "origen": "spec §10.5 #6 y §4.1",
+  "macro_nicho": "dinero",
+  "nivel_riesgo": "verde (versión segura: costeo y precio mínimo; sin promesa de ingresos)",
+  "locale": "es-ES",
+  "modo": "nuevo",
+  "entrada": {
+    "oferta": {
+      "formato": "biblioteca",
+      "entregables": [
+        "40 fichas de costeo (cantidad 40)"
+      ],
+      "tiempo_prometido_min": 90,
+      "claims_prohibidos": [
+        "ganar dinero",
+        "ingresos",
+        "vende más"
+      ]
+    },
+    "limites": {
+      "creditos_max_pieza": "valor del fixture",
+      "creditos_max_oferta": "valor del fixture",
+      "politica_divulgacion_ia": "divulgar"
+    },
+    "variantes": [
+      {
+        "id": "7a",
+        "descripcion": "con límites cargados y permiso del dueño"
+      },
+      {
+        "id": "7b",
+        "descripcion": "con límites null: solo texto (portada tipográfica)"
+      }
+    ]
+  },
+  "salida_esperada": {
+    "7a": {
+      "orden_de_pasos": [
+        "guía de estilo",
+        "cotización pieza por pieza (get_cost) → cotizacion_creditos.json",
+        "cotizar_creditos.py AUTORIZADO",
+        "QA-A previo con guía + 3 piloto (no cuenta como ronda)",
+        "lote dentro de creditos_max_*"
+      ],
+      "unidades": "fuente/<id>-unidades.jsonl con 40 líneas = entregables[].cantidad",
+      "licencias": "licencias.json con herramienta, plan, términos que permiten uso comercial y redistribución, prompt y fecha para el 100 % de las imágenes",
+      "imagenes": "rotuladas «IA» en el colofón; nunca foto real de un resultado; sin artistas, marcas ni patrones ajenos; C2PA preservado",
+      "verificacion": "visión sobre el 100 % + muestreo humano; un defecto → barrido de la clase; hoja de costeo con casos dorados",
+      "veredicto_qa_esperado": "PASS"
+    },
+    "7b": {
+      "estado_final": "entregado_a_qa",
+      "nota": "producto solo texto; limites.propuesta.yaml con cotización; sin generar nada"
+    }
+  },
+  "aserciones": [
+    {
+      "id": "A1",
+      "tipo": "determinista",
+      "texto": "cotizar_creditos.py: AUTORIZADO en 7a antes de cualquier generación; DENEGADO por limite-null en 7b"
+    },
+    {
+      "id": "A2",
+      "tipo": "determinista",
+      "texto": "cobertura_matriz.py: 40 unidades prometidas = 40 entregadas (si se siembra 38, n-unidades BLOQUEANTE)"
+    },
+    {
+      "id": "A3",
+      "tipo": "determinista",
+      "texto": "verificar_respaldo.py/lint_contenido.py sin promesa de ingresos ni cifras de venta"
+    },
+    {
+      "id": "A4",
+      "tipo": "criterio",
+      "texto": "Uniformidad de construcción: una plantilla HTML/CSS renderiza las 40 fichas; las imágenes cumplen la guía de estilo (R7)"
+    },
+    {
+      "id": "A5",
+      "tipo": "criterio",
+      "texto": "La licencia cubre el uso comercial de lo que el comprador produce y prohíbe solo la reventa del archivo"
+    },
+    {
+      "id": "A6",
+      "tipo": "criterio",
+      "texto": "Las páginas de muestra de la landing salen del PDF final (no de un diseño aparte) y consta su licencia/etiqueta_ia en licencias.json"
+    }
+  ],
+  "sin_skill_deberia_fallar_en": [
+    "generar el lote sin QA-A ni cotización",
+    "imágenes sin licencia registrada",
+    "39 fichas con promesa de 40"
+  ]
+}

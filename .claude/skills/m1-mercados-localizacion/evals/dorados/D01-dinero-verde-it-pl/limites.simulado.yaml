@@ -1,0 +1,3 @@
+# Limites SIMULADOS para el eval D01 (no es empresa/limites.yaml: ese lo firma solo el dueño y hoy tiene las listas vacias => salida 5).
+paises_permitidos: ["IT", "PL"]
+locales_permitidos: ["it-IT", "pl-PL"]

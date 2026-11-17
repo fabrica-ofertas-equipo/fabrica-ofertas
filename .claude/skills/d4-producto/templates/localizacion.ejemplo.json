@@ -1,0 +1,34 @@
+{
+  "oferta_id": "OF-202612-02",
+  "locale": "it-IT",
+  "version": "v1",
+  "glosario_version": "[versión y fecha del glosario de empresa/mercados/glosarios/it-IT.md; sin glosario no se produce]",
+  "ruta_localizacion": "redaccion_nativa",
+  "madre_de_la_que_hereda_estructura": "OF-202611-01",
+  "contenido_regenerado_con_fuentes_locales": true,
+  "unidades_convertidas": [
+    { "concepto": "moneda de los ejemplos", "de": "EUR (es-ES)", "a": "EUR (it-IT)", "formato": "1.500 € (punto de miles, símbolo tras la cifra con espacio)" },
+    { "concepto": "cuchara", "de": "cucharada (es)", "a": "cucchiaio (it)", "nota": "cucchiaio ≠ cucchiaino: verificado contra verificar_respaldo.py" }
+  ],
+  "terminos_del_glosario_aplicados": ["registro de tuteo según el glosario", "términos obligatorios y prohibidos según terminos_sensibles/it-IT"],
+  "retraduccion": {
+    "hecha_por": "contexto limpio, otro modelo que el Maker",
+    "alcance": ["avisos", "bloque de ayuda", "cifras", "unidades", "pasos del método"],
+    "cobertura_pct_alcance_critico": "100",
+    "cobertura_pct_resto": "[linguistica_retraduccion_pct_resto: parámetro propuesto]",
+    "discrepancias": []
+  },
+  "segunda_lectura": {
+    "hecha_por": "otro modelo",
+    "revisa": ["registro", "falsos amigos", "unidades", "modismos", "glosario"],
+    "hallazgos": []
+  },
+  "revision_humana": {
+    "requerida": true,
+    "motivo": "primer producto del idioma sin revisor nativo (mercado.revision_linguistica.revisor_nativo = false)",
+    "hecha_por": null,
+    "fecha": null,
+    "alcance": ["glosario", "avisos", "ayuda", "partes críticas"],
+    "estado": "pendiente"
+  }
+}

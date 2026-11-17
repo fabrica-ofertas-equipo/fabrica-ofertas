@@ -1,0 +1,26 @@
+# Worker `webhook-stripe` (docs/06 4.3; infra/plantillas/variables-entorno.yaml).
+name = "fabrica-webhook-stripe"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# El cuerpo crudo + HMAC-SHA256 es liviano; margen para el roundtrip a la
+# Durable Object. Valor exacto contra el limite real del plan Paid:
+# [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releido]
+cpu_ms = 50
+
+[[durable_objects.bindings]]
+name = "DEDUPE_SESION"
+class_name = "DedupeSesion"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["DedupeSesion"]
+
+# Variables de configuracion (no secretas):
+#   STRIPE_TOLERANCIA_SEG -- entero > 0, NUNCA "0" (infra/plantillas/variables-entorno.yaml)
+#   FABRICA_ENTORNO       -- desarrollo|prueba|produccion (decide STRIPE_WHSEC_TEST/LIVE)
+#   META_API_VERSION, CAPI_DATASET_ID, META_TEST_EVENT_CODE -- ver README "Pedidos" (capi)
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   STRIPE_WHSEC_LIVE, STRIPE_WHSEC_TEST, META_CAPI_TOKEN

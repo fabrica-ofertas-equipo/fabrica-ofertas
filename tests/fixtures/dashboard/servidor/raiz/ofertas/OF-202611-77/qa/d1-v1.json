@@ -1,0 +1,16 @@
+{
+  "etapa": "D1",
+  "version": "v1",
+  "ronda": 1,
+  "veredicto": "PASS_CON_NOTAS",
+  "puntaje_global": "4.40",
+  "umbral": "3.6",
+  "hallazgos": [
+    {
+      "id": "H1"
+    },
+    {
+      "id": "H2"
+    }
+  ]
+}

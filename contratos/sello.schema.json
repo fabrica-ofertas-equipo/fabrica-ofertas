@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fabrica-ofertas.example/contratos/v1/sello.schema.json",
+  "title": "Sello de X1",
+  "description": "Sello de cumplimiento (empresa/compliance/sellos/<artefacto_sha256>.json) emitido por compliance.sellar solo con lint sin ROJO, QA PASS y firmas H. Cambiar el artefacto o vencer lo invalida. Firma Ed25519 con una clave que ningún agente posee; HMAC solo en pruebas. Payload firmado: el sello sin `firma`, JSON canónico.",
+  "x-version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "$ref": "comunes.schema.json#/$defs/semver_v1",
+      "description": "Versión SemVer del esquema (MAJOR 1)"
+    },
+    "oferta_id": {
+      "$ref": "comunes.schema.json#/$defs/oferta_id"
+    },
+    "etapa_objetivo": {
+      "$ref": "comunes.schema.json#/$defs/etapa_oferta"
+    },
+    "artefacto_sha256": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "reglas_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "reglas_version de reglas_claims.yaml con la que corrió el lint"
+    },
+    "emitido_en": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "vigencia_hasta": {
+      "$ref": "comunes.schema.json#/$defs/timestamp"
+    },
+    "object_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "comunes.schema.json#/$defs/id_meta"
+      },
+      "uniqueItems": true,
+      "description": "IDs de Meta sellados (solo D7); [] en las demás etapas"
+    },
+    "dictamen_ref": {
+      "$ref": "comunes.schema.json#/$defs/ruta_relativa",
+      "description": "Dictamen qa/x1-<etapa>-v<n>.json"
+    },
+    "dictamen_sha256": {
+      "$ref": "comunes.schema.json#/$defs/sha256"
+    },
+    "firma": {
+      "$ref": "comunes.schema.json#/$defs/firma"
+    }
+  },
+  "required": [
+    "schema_version",
+    "oferta_id",
+    "etapa_objetivo",
+    "artefacto_sha256",
+    "reglas_version",
+    "emitido_en",
+    "vigencia_hasta",
+    "object_ids",
+    "dictamen_ref",
+    "dictamen_sha256",
+    "firma"
+  ],
+  "additionalProperties": false
+}

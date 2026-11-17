@@ -1,0 +1,345 @@
+{
+  "schema_version": "0.1.0-propuesta",
+  "ejemplo_de_eval": true,
+  "_aviso": "Ficha de EJEMPLO para evals de M1, armada desde las notas 07a-07h y 08 (leidas 2026-11-05/06). No es el atlas: el atlas lo construye la corrida del Maker con fuentes reverificadas. Confianza A/B/C como en las notas.",
+  "iso": "CA",
+  "ultima_verificacion": "2026-11-06",
+  "identidad": {
+    "locales": [
+      {
+        "locale": "en-CA",
+        "idioma": "en",
+        "obligacion_legal_idioma": {
+          "valor": false,
+          "fuente_url": "[VERIFICAR] 07c §3.2",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "B"
+        }
+      }
+    ],
+    "moneda_local": {
+      "valor": "CAD",
+      "fuente_url": "[VERIFICAR] 07a/07b/07c",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "B"
+    },
+    "monedas_cobro_posibles": {
+      "valor": [
+        "USD",
+        "CAD"
+      ],
+      "fuente_url": "[VERIFICAR] 07a §0.1; 07h §3.4",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "B"
+    },
+    "alcance_meta_fb": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR] sin dato leido",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "C"
+    },
+    "estado": "candidato",
+    "incluye_quebec": false
+  },
+  "pagos": {
+    "metodos": [
+      {
+        "id": "card",
+        "cuota_bp": {
+          "valor": 5900,
+          "fuente_url": "https://paymentscmi.com/insights/most-common-europe-payment-methods/",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "B"
+        },
+        "habilitado_dueno": {
+          "valor": true,
+          "fuente_url": "docs/fuente/stripe-metodos-de-pago-habilitados.md (captura del dueño 2026-11-05)",
+          "fecha_lectura": "2026-11-05",
+          "confianza": "A"
+        },
+        "elegible_cuenta_us": {
+          "valor": true,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "moneda_exigida": {
+          "valor": null,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "managed_payments_ok": {
+          "valor": true,
+          "fuente_url": "https://docs.stripe.com/payments/managed-payments",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "comision_bp": {
+          "valor": 440,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "fijo": {
+          "valor": {
+            "monto": 30,
+            "moneda": "USD"
+          },
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "disputas": {
+          "valor": {
+            "tarifa": {
+              "monto": 1500,
+              "moneda": "USD"
+            },
+            "apelable": true
+          },
+          "fuente_url": "https://stripe.com/pricing",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "nota": "59 % (55-62; credito 46 %; 07g §6)"
+      },
+      {
+        "id": "apple_pay",
+        "cuota_bp": {
+          "valor": 1500,
+          "fuente_url": "https://paymentscmi.com/insights/most-common-europe-payment-methods/",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "C"
+        },
+        "habilitado_dueno": {
+          "valor": true,
+          "fuente_url": "docs/fuente/stripe-metodos-de-pago-habilitados.md (captura del dueño 2026-11-05)",
+          "fecha_lectura": "2026-11-05",
+          "confianza": "A"
+        },
+        "elegible_cuenta_us": {
+          "valor": true,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "moneda_exigida": {
+          "valor": null,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "managed_payments_ok": {
+          "valor": true,
+          "fuente_url": "https://docs.stripe.com/payments/managed-payments",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "comision_bp": {
+          "valor": 440,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "fijo": {
+          "valor": {
+            "monto": 30,
+            "moneda": "USD"
+          },
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "disputas": {
+          "valor": {
+            "tarifa": {
+              "monto": 1500,
+              "moneda": "USD"
+            },
+            "apelable": true
+          },
+          "fuente_url": "https://stripe.com/pricing",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "nota": "cuota AGREGADA de billeteras cubiertas ≈ 15 (12-19; 07g §6)"
+      },
+      {
+        "id": "paypal",
+        "cuota_bp": {
+          "valor": 1600,
+          "fuente_url": "https://paymentscmi.com/insights/most-common-europe-payment-methods/",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "C"
+        },
+        "habilitado_dueno": {
+          "valor": false,
+          "fuente_url": "docs/fuente/stripe-metodos-de-pago-habilitados.md (captura del dueño 2026-11-05)",
+          "fecha_lectura": "2026-11-05",
+          "confianza": "A"
+        },
+        "elegible_cuenta_us": {
+          "valor": false,
+          "fuente_url": "[VERIFICAR] 07g §1: PayPal solo titulares europeos; Klarna solo clientes de EE. UU.",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "moneda_exigida": {
+          "valor": null,
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "managed_payments_ok": {
+          "valor": false,
+          "fuente_url": "https://docs.stripe.com/payments/managed-payments",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "nota": "hueco ≈ 16 pp (07g §6); no activable"
+      },
+      {
+        "id": "klarna",
+        "cuota_bp": {
+          "valor": 100,
+          "fuente_url": "https://paymentscmi.com/insights/most-common-europe-payment-methods/",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "C"
+        },
+        "habilitado_dueno": {
+          "valor": true,
+          "fuente_url": "docs/fuente/stripe-metodos-de-pago-habilitados.md (captura del dueño 2026-11-05)",
+          "fecha_lectura": "2026-11-05",
+          "confianza": "A"
+        },
+        "elegible_cuenta_us": {
+          "valor": false,
+          "fuente_url": "[VERIFICAR] 07g §1: PayPal solo titulares europeos; Klarna solo clientes de EE. UU.",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "moneda_exigida": {
+          "valor": "USD",
+          "fuente_url": "https://stripe.com/pricing/local-payment-methods",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "managed_payments_ok": {
+          "valor": false,
+          "fuente_url": "https://docs.stripe.com/payments/managed-payments",
+          "fecha_lectura": "2026-11-06",
+          "confianza": "A"
+        },
+        "nota": "BNPL no utilizable en CA con cuenta de EE. UU."
+      }
+    ]
+  },
+  "fiscal": {
+    "impuesto": {
+      "valor": "GST/HST",
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    },
+    "tasa_bp": {
+      "valor": 500,
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    },
+    "mecanismo": {
+      "valor": "registro al superar el umbral",
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    },
+    "umbral": {
+      "valor": {
+        "monto": 3000000,
+        "moneda": "CAD"
+      },
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    },
+    "desde_primera_venta": {
+      "valor": false,
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    },
+    "registro_estado": {
+      "valor": "no_registrado",
+      "fuente_url": "[VERIFICAR] 07c §2.2",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "A"
+    }
+  },
+  "consumo_y_datos": {
+    "desistimiento": {
+      "dias": {
+        "valor": 14,
+        "fuente_url": "[VERIFICAR] 05 §2; 07c",
+        "fecha_lectura": "2026-11-06",
+        "confianza": "B"
+      }
+    },
+    "boton_arrepentimiento": {
+      "valor": false,
+      "fuente_url": "[VERIFICAR] 05 §2; 07c",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "C"
+    },
+    "privacidad": {
+      "ley": {
+        "valor": "PIPEDA",
+        "fuente_url": "[VERIFICAR] 05 §2; 07c",
+        "fecha_lectura": "2026-11-06",
+        "confianza": "B"
+      }
+    }
+  },
+  "meta": {
+    "cpm_bench": {
+      "valor": {
+        "monto": 1147,
+        "moneda": "USD"
+      },
+      "fuente_url": "https://lebesgue.io/facebook-ads/facebook-cpm-by-country",
+      "fecha_lectura": "2026-07-27",
+      "confianza": "C"
+    },
+    "recargo_meta_bp": {
+      "valor": 0,
+      "fuente_url": "[VERIFICAR] 07a resumen 4: sin recargo para CA",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "B"
+    },
+    "verificacion_financiera": {
+      "valor": false,
+      "fuente_url": "[VERIFICAR] 22b; HC 719892839342050 de Meta",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "B"
+    }
+  },
+  "por_macro": {
+    "origen": {
+      "archivo": "scripts/semilla_exposicion.json",
+      "hash": null,
+      "estado": "[SUPUESTO] semilla del Anexo D; cuando exista empresa/compliance/matriz_pais_nivel.yaml se proyecta con su hash"
+    }
+  },
+  "localizacion_y_calidad": {
+    "revisor_nativo": {
+      "estado": "ninguno"
+    },
+    "registro": {
+      "valor": null,
+      "fuente_url": "[VERIFICAR] pendiente de glosario",
+      "fecha_lectura": "2026-11-06",
+      "confianza": "C"
+    }
+  },
+  "notas": "Cobertura ≈ 74 % (66-80). Quebec (frances, QST, Ley 25) queda fuera del cluster; fr-CA es otro proyecto."
+}

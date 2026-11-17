@@ -1,0 +1,43 @@
+{
+  "id": "s12-linea-roja-de-negocio-sin-motivo",
+  "tipo": "sembrado",
+  "estrella": true,
+  "titulo": "★ Candidato que activa LM-03 (señales de trading) sin motivo ni rojo",
+  "base": "g5-dinero-es-es-trading-con-ia-no-recomendado",
+  "comando": "candidatos",
+  "extra_args": [],
+  "parche": [
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/problema",
+      "valor": "Quiere recibir señales diarias de compra y venta de un bot de trading con IA"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/mecanismo/nombre",
+      "valor": "Señales de Trading con IA"
+    },
+    {
+      "en": "candidatos",
+      "op": "replace",
+      "ruta": "/candidatos/0/entregable/alcance",
+      "valor": "Señales diarias con recomendación de compra y venta de instrumentos."
+    }
+  ],
+  "deteccion": "qa_lectura",
+  "check_esperado": "D-12",
+  "severidad_esperada": "BLOQUEANTE",
+  "salida_esperada_qa": {
+    "veredicto": "FAIL",
+    "hallazgos": [
+      {
+        "check_id": "D-12",
+        "severidad": "BLOQUEANTE",
+        "patron_clave": "linea-roja-lm-03-sin-motivo"
+      }
+    ],
+    "nota": "El QA debe detectarlo y citar la ruta y el valor; sin cita no cuenta."
+  }
+}

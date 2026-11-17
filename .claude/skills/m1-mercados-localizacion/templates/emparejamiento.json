@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0-propuesta",
+  "_aviso": "[PENDIENTE: esquema `emparejamientos` (pedido a S-A)] Ejemplo de empresa/mercados/emparejamientos/AAAA-MM-DD.json. Nombres de D1 confirmados en docs/_historial/d1-v2-interfaces.md §4.2 (propuesta de D1, aun no normativa).",
+  "fecha": "2026-11-06",
+  "origen": "boton_lanzar_nueva_oferta",
+  "pares": [
+    {
+      "candidato_id": "CAND-EJEMPLO-A",
+      "problema_id": "PRB-202611-0001",
+      "locale": "it-IT",
+      "paises": [
+        "IT"
+      ],
+      "origen": "transferencia",
+      "hipotesis_transferencia": {
+        "locale_origen": "es-ES",
+        "locale_destino": "it-IT",
+        "mecanismo_traducible": "parcial"
+      },
+      "S": "59.8",
+      "bloqueos": [],
+      "evidencia_local": [],
+      "estado": "hipotesis_de_transferencia",
+      "respuesta_a_d1": {
+        "viable": true,
+        "bloqueos": [],
+        "barrido_local_solicitado": true,
+        "requisitos": [
+          "ficha vigente",
+          "glosario it-IT",
+          "revisor nativo",
+          "barrido local con paridad de evidencia"
+        ]
+      }
+    },
+    {
+      "candidato_id": "CAND-EJEMPLO-A",
+      "problema_id": "PRB-202611-0001",
+      "locale": "pl-PL",
+      "paises": [
+        "PL"
+      ],
+      "origen": "transferencia",
+      "hipotesis_transferencia": {
+        "locale_origen": "es-ES",
+        "locale_destino": "pl-PL",
+        "mecanismo_traducible": "parcial"
+      },
+      "S": "49.8",
+      "bloqueos": [
+        "R6 fase vigente"
+      ],
+      "evidencia_local": [],
+      "estado": "bloqueado",
+      "respuesta_a_d1": {
+        "viable": false,
+        "bloqueos": [
+          "R6 cobertura de pago de la fase vigente",
+          "obligacion_legal_idioma: revisor nativo"
+        ],
+        "barrido_local_solicitado": false,
+        "requisitos": []
+      }
+    }
+  ],
+  "regla": "Ningun par con origen=transferencia y sin evidencia_local pasa a D2: estado hipotesis_de_transferencia o bloqueado, nunca valido. M1 pide el barrido local; no declara valido un problema en otro idioma."
+}

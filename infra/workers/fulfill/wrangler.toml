@@ -1,0 +1,26 @@
+# Worker `fulfill` (docs/06 4.6; infra/plantillas/variables-entorno.yaml).
+name = "fabrica-fulfill"
+main = "src/index.mjs"
+compatibility_date = "2026-11-06"
+
+[limits]
+# Enlace firmado + un POST a Resend + un POST a /ingesta/entrega: liviano.
+# Valor exacto contra el límite real del plan Paid: [VERIFICAR en https://developers.cloudflare.com/workers/platform/limits/; no releído]
+cpu_ms = 50
+
+[[kv_namespaces]]
+binding = "ENTREGA_KV"
+id = "PENDIENTE_CREAR_EN_CLOUDFLARE"
+
+# Variables de configuración (no secretas):
+#   API_BASE_URL             -- URL del servicio `api` del motor (docs/06 4.7)
+#   CORREO_REMITENTE         -- remitente de los correos transaccionales
+#   DESCARGA_BASE_URL        -- origen del Worker `descarga` (B8) que valida el token
+#   ENTREGA_ENLACE_VENCE_DIAS, ENTREGA_ENLACE_MAX_DESCARGAS -- hoy NO existen en parametros.yaml
+#     (grupo postcompra solo tiene entrega_max_min/entrega_alerta_min/entrega_reintentos); pedido
+#     abierto al dueño/CT para agregar postcompra.enlace_vence_dias/enlace_max_descargas (README).
+#
+# Secretos (wrangler secret put; NUNCA en este archivo):
+#   DESCARGA_HMAC      -- firma el token del enlace de descarga (lo verifica el Worker `descarga`, B8)
+#   INGEST_HMAC_SECRET -- autenticación interna con `webhook-stripe` (docs/06 4.7)
+#   CORREO_API_KEY     -- proveedor real de correo (Resend)

@@ -1,0 +1,3 @@
+validador=enum
+ruta=/estado_decision
+texto=ningún mercado es un prior: solo hipotesis o decidido_con_datos_propios

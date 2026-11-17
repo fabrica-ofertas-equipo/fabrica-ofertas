@@ -1,0 +1,615 @@
+{
+  "id": "g3-relaciones-pl-pl-tarjetas-conversacion-parejas",
+  "tipo": "dorado",
+  "version_caso": "0.1.0",
+  "aprobado_por_dueno": false,
+  "aviso": "SINTÉTICO: datos inventados con dominios .invalid; ilustra el formato y las reglas, no mide el mercado. Falta que el dueño apruebe dorados reales.",
+  "titulo": "Relaciones pl-PL: tarjetas de conversación para parejas (modo A, otro idioma)",
+  "modo": "A",
+  "entrada": {
+    "oferta_id": "OF-202611-04",
+    "modo_busqueda": "A",
+    "locale": "pl-PL",
+    "paises": [
+      "PL"
+    ],
+    "moneda_cobro": "USD",
+    "n_top": 2
+  },
+  "esperado": {
+    "validar_candidatos_exit": 0,
+    "qa_veredicto": "PASS",
+    "debe_cumplir": [
+      "términos y fuentes del locale (polaco), no traducciones del español",
+      "evidencia por locale: nada se asume válido desde es",
+      "en relaciones: reseñas del producto y resúmenes, sin texto íntegro de personas",
+      "aviso de seguridad en producto de pareja/familia",
+      "≤ max_por_nicho_topn por nicho"
+    ],
+    "no_debe": [
+      "usar «ex», «crisis» ni estado civil dirigido al espectador en el anuncio",
+      "citar publicaciones personales de foros de relaciones"
+    ]
+  },
+  "salida_esperada": {
+    "candidatos": {
+      "schema_version": "1.0.0",
+      "oferta_id": "OF-202611-04",
+      "corrida_id": "RUN-20261106-03",
+      "fecha": "2026-11-06T10:00:00Z",
+      "modo": "pipeline",
+      "mercado": {
+        "locale": "pl-PL",
+        "paises": [
+          "PL"
+        ]
+      },
+      "pesos": {
+        "ac_dolor_urgencia": "15",
+        "ac_disposicion_pago_precio": "14",
+        "ac_evidencia_demanda_pagada": "12",
+        "ac_competencia": "8",
+        "ac_huecos": "10",
+        "ac_producibilidad_ia_1dia": "12",
+        "ac_tiempo_primer_resultado": "8",
+        "ac_vida_util": "6",
+        "ac_riesgo": "10",
+        "ac_encaje_marca_mercado": "5"
+      },
+      "parametros_usados": {
+        "modo_busqueda": "A",
+        "umbral_score_min": 55,
+        "evidencia_min_fuentes": 2,
+        "evidencia_min_tipos": 2,
+        "nota": "modo_busqueda y formula_version viajan aquí hasta la MINOR candidatos 1.1.0 [PENDIENTE: CT-4]"
+      },
+      "consultas": [
+        {
+          "herramienta": "WebSearch",
+          "terminos": "pytania do rozmowy dla par opinie",
+          "pais": "PL",
+          "fecha": "2026-11-06T09:00:00Z",
+          "estimated_total_count": null
+        },
+        {
+          "herramienta": "ads_library_search",
+          "terminos": "karty do rozmów dla par",
+          "pais": "PL",
+          "fecha": "2026-11-06T09:15:00Z",
+          "estimated_total_count": 26
+        },
+        {
+          "herramienta": "ads_library_search",
+          "terminos": "umowa o ekranach rodzina",
+          "pais": "PL",
+          "fecha": "2026-11-06T09:20:00Z",
+          "estimated_total_count": 15
+        }
+      ],
+      "candidatos": [
+        {
+          "candidato_id": "CAND-01",
+          "problema_id": "PRB-202611-0041",
+          "rango": 1,
+          "macro_nicho": "relaciones",
+          "nicho_id": "pareja-comunicacion",
+          "microsegmento": "tarjetas-conversacion-citas-casa",
+          "problema": "La pareja solo habla de logística y de los niños y no sabe cómo empezar una conversación más profunda sin que suene a reproche",
+          "prueba_una_frase": "Para parejas que solo hablan de logística y no saben cómo empezar una conversación más profunda, Tres Capas de Conversación es un pack de tarjetas imprimibles que lleva de «solo hablamos de tareas» a «hablar cada semana de lo importante con nuestra pareja» sin preguntas genéricas que se acaban en una semana.",
+          "tesis": "Las preguntas genéricas se agotan porque no escalan; una progresión de ligeras a vulnerables sostiene la conversación más de una semana.",
+          "mecanismo": {
+            "causa_raiz": {
+              "texto": "Las preguntas genéricas no escalan de lo ligero a lo vulnerable; sin progresión, la conversación vuelve a la logística.",
+              "senales": [
+                "b368cb7af68d",
+                "e93531c08f40"
+              ]
+            },
+            "nombre": "Tres Capas de Conversación",
+            "como_funciona": "Tarjetas en tres niveles (ligero, personal, vulnerable) con una regla de avance: se sube de nivel solo si ambos quieren.",
+            "diferencia": "Un chatbot genera preguntas sueltas; el pack ordena una progresión y una regla de uso que evita el reproche.",
+            "prueba_logica": "Vista previa con 10 tarjetas de cada nivel y la regla de avance; el lector verifica la progresión en 5 minutos.",
+            "riesgo_de_claim": "No prometer reconciliación, intimidad ni resultados en la relación; no es terapia."
+          },
+          "entregable": {
+            "formato": "pack",
+            "alcance": "100 tarjetas imprimibles en tres niveles y una guía de uso de una página; entrega única, sin servicio posterior ni app.",
+            "estado_a_b": {
+              "a": "Solo hablamos de logística",
+              "b": "Tenemos una conversación semanal con preguntas de tres niveles"
+            },
+            "tiempo_al_primer_resultado": 20,
+            "producibilidad": {
+              "nivel": "alta",
+              "notas": "Contenido original; revisar con fuentes públicas [VERIFICAR]."
+            },
+            "licencias": [
+              "sin activos de terceros",
+              "tipografía de licencia abierta [VERIFICAR]"
+            ]
+          },
+          "precio_plausible": {
+            "min": {
+              "monto": 700,
+              "moneda": "USD"
+            },
+            "max": {
+              "monto": 1200,
+              "moneda": "USD"
+            },
+            "razon": "Rango del brief [SUPUESTO]; el precio local en PLN lo fija D3/M1 con tipo de cambio registrado (sin cotización hoy)"
+          },
+          "puntajes": {
+            "dolor_urgencia": {
+              "s": 4,
+              "justificacion": "Pareja que solo habla de logística: el dolor aparece en voz propia en las reseñas (EV-01, EV-02)",
+              "evidencia_ids": [
+                "EV-01"
+              ]
+            },
+            "disposicion_pago_precio": {
+              "s": 4,
+              "justificacion": "Las tarjetas se compran (EV-03) pese a que las reseñas piden más profundidad (EV-01)",
+              "evidencia_ids": [
+                "EV-01",
+                "EV-03"
+              ]
+            },
+            "evidencia_demanda_pagada": {
+              "s": 3,
+              "justificacion": "Ventas visibles (E1) y anunciantes persistentes (E2); el conteo es contexto, no prueba",
+              "evidencia_ids": [
+                "EV-03",
+                "EV-04"
+              ]
+            },
+            "competencia": {
+              "s": 3,
+              "justificacion": "Varios anunciantes con tarjetas genéricas y espacio para una progresión",
+              "evidencia_ids": [
+                "EV-04"
+              ]
+            },
+            "huecos": {
+              "s": 4,
+              "justificacion": "Reseñas 2★: preguntas genéricas y se acaban en una semana (EV-01, EV-02)",
+              "evidencia_ids": [
+                "EV-01",
+                "EV-02"
+              ]
+            },
+            "producibilidad_ia_1dia": {
+              "s": 4,
+              "justificacion": "Preguntas originales; revisar con fuentes públicas de comunicación en pareja [VERIFICAR]",
+              "evidencia_ids": [
+                "EV-01"
+              ]
+            },
+            "tiempo_primer_resultado": {
+              "s": 5,
+              "justificacion": "La primera conversación ocurre el mismo día",
+              "evidencia_ids": [
+                "EV-02"
+              ]
+            },
+            "vida_util": {
+              "s": 4,
+              "justificacion": "Problema evergreen sin fecha de caducidad conocida [HIPÓTESIS]",
+              "evidencia_ids": [
+                "EV-03"
+              ]
+            },
+            "riesgo": {
+              "s": 5,
+              "justificacion": "Verde: P0, C1, E0, N1; con aviso de seguridad obligatorio (nota 25 §2.4)",
+              "evidencia_ids": [
+                "EV-04"
+              ]
+            },
+            "encaje_marca_mercado": {
+              "s": 4,
+              "justificacion": "Marca sin cara; formato imprimible sin atributos del espectador",
+              "evidencia_ids": [
+                "EV-03"
+              ]
+            }
+          },
+          "score_base": 80,
+          "score_ajustado": 71,
+          "confianza": "alta",
+          "evidencia": [
+            {
+              "id": "EV-01",
+              "tipo": "E3",
+              "url": "https://sklep-gry.ejemplo.invalid/produkt/karty-rozmow/opinie",
+              "fecha_publicacion": "2026-08-30",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Pytania były zbyt ogólne i nie pomogły nam rozmawiać o prawdziwych sprawach",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:3645d0ec0b9977d5104d12d9058f303e9b5be84d8047b6e04deefc6cc893a5f5"
+            },
+            {
+              "id": "EV-02",
+              "tipo": "E3",
+              "url": "https://sklep-gry.ejemplo.invalid/produkt/pytania-dla-par/opinie",
+              "fecha_publicacion": "2026-07-21",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Fajny pomysł, ale po tygodniu skończyły się pytania i wróciliśmy do telefonów",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:9213e19d37ade18ddec2579bff5ea2361668870664c2286840deb23fcf0bb032"
+            },
+            {
+              "id": "EV-03",
+              "tipo": "E1",
+              "url": "https://marketplace-pl.ejemplo.invalid/ranking/gry-dla-par",
+              "fecha_publicacion": "2026-10-10",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Karty do rozmów dla par w czołówce kategorii gry towarzyskie",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:38ad4429fe07e65e47a87b2bbe26c5476eb8261d6d34f532f12f15e0e7bdd1ca"
+            },
+            {
+              "id": "EV-04",
+              "tipo": "E2",
+              "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000301",
+              "fecha_publicacion": "2026-09-01",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Rozmowy, których wam brakuje: 100 pytań dla par do pobrania od razu",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:f0b80ce70930e1ff09d789405f50364836494dbf6193715549b6613b2fcf3237"
+            }
+          ],
+          "demanda_pagada": {
+            "n_anuncios": 26,
+            "n_anunciantes": 9,
+            "n_sostenidos": 3,
+            "n_conceptos_unicos": 11,
+            "antiguedad_max_dias": 110,
+            "consultas_ids": [
+              "Q-02"
+            ],
+            "senal_rentabilidad": "no medible"
+          },
+          "riesgo": {
+            "P": "verde",
+            "C": "verde",
+            "E": "verde",
+            "N": "verde",
+            "nivel": "verde",
+            "reencuadre_aplicado": {
+              "aplicado": false
+            },
+            "fuentes": [
+              "lp-04",
+              "docs/_investigacion/25-marco-salud-relaciones-dinero.md"
+            ],
+            "categoria": "Relaciones: material de conversación, no terapia",
+            "claims_a_evitar": [
+              "reconquista o plazos para el vínculo",
+              "terapia o diagnóstico de pareja",
+              "atributos del espectador («tu ex», «si estás en crisis»)"
+            ],
+            "angulo_seguro": "Tarjetas para conversar; aviso «si temes por tu seguridad, no uses este material» con la línea de ayuda del país [VERIFICAR número vigente]."
+          },
+          "similitud_memoria": {
+            "max": "0.28",
+            "con": null
+          },
+          "viabilidad_cpa": {
+            "ratio_pes": "0.50",
+            "ratio_central": "1.22",
+            "ratio_opt": "2.70",
+            "bandera": "amarilla",
+            "supuestos": [
+              "CPM de PL del rango europeo de 04-meta-ads §8.2 [VERIFICAR]; CTR y conversión sin fuente [HIPÓTESIS]",
+              "order bump solo como supuesto"
+            ]
+          },
+          "sensibilidad": {
+            "top3_estable_pct": 85
+          },
+          "ventana_estacional": "Febrero (San Valentín) y noviembre-diciembre (regalos) [HIPÓTESIS]",
+          "hipotesis_para_d2": [
+            "Las tarjetas vendidas en pl-PL son genéricas, sin progresión (confirmar en Biblioteca y reseñas del locale)",
+            "La evidencia es de pl-PL; no se asume válida en otros locales"
+          ],
+          "que_la_mataria": [
+            "Un gratuito o un chatbot que genere progresiones de preguntas",
+            "Que un anuncio con «para parejas» se interprete como atributo (E2)"
+          ],
+          "palabras_clave_voz_cliente": [
+            "pytania dla par",
+            "rozmowy w związku",
+            "karty do rozmów"
+          ]
+        },
+        {
+          "candidato_id": "CAND-02",
+          "problema_id": "PRB-202611-0042",
+          "rango": 2,
+          "macro_nicho": "relaciones",
+          "nicho_id": "crianza-y-familia",
+          "microsegmento": "pantallas-reglas-familia",
+          "problema": "La familia discute por las pantallas y los padres tienen reglas sueltas que nadie recuerda ni sabe cómo conversar con los hijos",
+          "prueba_una_frase": "Para padres que discuten por las pantallas y no saben cómo acordar reglas con sus hijos, el Acuerdo Familiar de Pantallas es una plantilla con guion que lleva de «reglas sueltas y discusiones» a «un acuerdo escrito y conversado con mis hijos» sin sermones ni castigos improvisados.",
+          "tesis": "Las reglas fallan cuando se imponen sin conversarlas; un acuerdo escrito con un guion de conversación hace que se cumplan por pacto, no por vigilancia.",
+          "mecanismo": {
+            "causa_raiz": {
+              "texto": "Los padres fijan reglas sin conversarlas con los hijos y por eso se discuten cada semana.",
+              "senales": [
+                "4ce7b383905a"
+              ]
+            },
+            "nombre": "Acuerdo Familiar de Pantallas",
+            "como_funciona": "Plantilla de acuerdo en cinco apartados y guion de la conversación inicial para padres.",
+            "diferencia": "Un chatbot lista reglas; el acuerdo incluye el guion para conversarlas y una revisión pactada.",
+            "prueba_logica": "Vista previa del acuerdo completo con un ejemplo ficticio; sin testimonios.",
+            "riesgo_de_claim": "No prometer obediencia ni mejora de la conducta de los hijos; no es consejo clínico."
+          },
+          "entregable": {
+            "formato": "plantilla",
+            "alcance": "Un acuerdo imprimible de cinco apartados y un guion de una página para el adulto; entrega única, sin servicio posterior ni app.",
+            "estado_a_b": {
+              "a": "Reglas sueltas y discusiones",
+              "b": "Un acuerdo escrito y conversado"
+            },
+            "tiempo_al_primer_resultado": 40,
+            "producibilidad": {
+              "nivel": "alta",
+              "notas": "Plantilla y guion propios; sin consejo clínico."
+            },
+            "licencias": [
+              "sin activos de terceros"
+            ]
+          },
+          "precio_plausible": {
+            "min": {
+              "monto": 600,
+              "moneda": "USD"
+            },
+            "max": {
+              "monto": 1000,
+              "moneda": "USD"
+            },
+            "razon": "Rango del brief [SUPUESTO]; sin cotización registrada"
+          },
+          "puntajes": {
+            "dolor_urgencia": {
+              "s": 3,
+              "justificacion": "Fricción recurrente por pantallas, sin plazo duro (EV-05)",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "disposicion_pago_precio": {
+              "s": 3,
+              "justificacion": "Materiales para padres entre los más vendidos (EV-06)",
+              "evidencia_ids": [
+                "EV-05",
+                "EV-06"
+              ]
+            },
+            "evidencia_demanda_pagada": {
+              "s": 3,
+              "justificacion": "E1 y E2; el conteo no prueba rentabilidad",
+              "evidencia_ids": [
+                "EV-06",
+                "EV-07"
+              ]
+            },
+            "competencia": {
+              "s": 3,
+              "justificacion": "Anunciantes de plantillas de reglas; poca conversación guiada",
+              "evidencia_ids": [
+                "EV-07"
+              ]
+            },
+            "huecos": {
+              "s": 4,
+              "justificacion": "La reseña pide cómo conversarlo con los hijos (EV-05)",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "producibilidad_ia_1dia": {
+              "s": 4,
+              "justificacion": "Plantilla y guion; sin consejo clínico",
+              "evidencia_ids": [
+                "EV-05"
+              ]
+            },
+            "tiempo_primer_resultado": {
+              "s": 4,
+              "justificacion": "Acuerdo firmado en una tarde",
+              "evidencia_ids": [
+                "EV-07"
+              ]
+            },
+            "vida_util": {
+              "s": 3,
+              "justificacion": "Depende de la edad de los hijos",
+              "evidencia_ids": [
+                "EV-06"
+              ]
+            },
+            "riesgo": {
+              "s": 5,
+              "justificacion": "Verde: P0, C1, E1, N1",
+              "evidencia_ids": [
+                "EV-07"
+              ]
+            },
+            "encaje_marca_mercado": {
+              "s": 3,
+              "justificacion": "Neutral; el destinatario es el adulto, no el menor (LM-07)",
+              "evidencia_ids": [
+                "EV-06"
+              ]
+            }
+          },
+          "score_base": 70,
+          "score_ajustado": 62,
+          "confianza": "alta",
+          "evidencia": [
+            {
+              "id": "EV-05",
+              "tipo": "E3",
+              "url": "https://sklep-ksiazek.ejemplo.invalid/produkt/rutyny-rodzinne/opinie",
+              "fecha_publicacion": "2026-06-12",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Zasady dotyczące ekranów były dobre, ale nie wiedzieliśmy, jak je omówić z dziećmi",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:42a040daee200abe88ad0d4a979669bf29529e4745d9749dd0eb6e870b709a10"
+            },
+            {
+              "id": "EV-06",
+              "tipo": "E1",
+              "url": "https://marketplace-pl.ejemplo.invalid/ranking/materialy-dla-rodzicow",
+              "fecha_publicacion": "2026-10-05",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Materiały do druku dla rodziców w pierwszej dziesiątce bestsellerów",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:85db73b1960b01baf7486194f50c811df55ebc44c5c3152b8e91824794a09f5d"
+            },
+            {
+              "id": "EV-07",
+              "tipo": "E2",
+              "url": "https://biblioteca-anuncios.ejemplo.invalid/?id=1000000000000302",
+              "fecha_publicacion": "2026-08-08",
+              "fecha_consulta": "2026-11-06",
+              "cita": "Umowa rodzinna o ekranach do wydruku: gotowa w 15 minut",
+              "cita_literal_verificada": true,
+              "hash_copia_crudo": "sha256:757396df2a74496fa2cbe73193bd17f89b284784ddc84153cba837eb1ae54f23"
+            }
+          ],
+          "demanda_pagada": {
+            "n_anuncios": 15,
+            "n_anunciantes": 6,
+            "n_sostenidos": 2,
+            "n_conceptos_unicos": 7,
+            "antiguedad_max_dias": 80,
+            "consultas_ids": [
+              "Q-03"
+            ],
+            "senal_rentabilidad": "no medible"
+          },
+          "riesgo": {
+            "P": "verde",
+            "C": "verde",
+            "E": "verde",
+            "N": "verde",
+            "nivel": "verde",
+            "reencuadre_aplicado": {
+              "aplicado": false
+            },
+            "fuentes": [
+              "lm-07",
+              "docs/_investigacion/25-marco-salud-relaciones-dinero.md"
+            ],
+            "categoria": "Crianza: plantilla de acuerdos; el destinatario es el adulto",
+            "claims_a_evitar": [
+              "mejorar la conducta o el rendimiento escolar",
+              "diagnóstico de adicción a las pantallas",
+              "imágenes de menores"
+            ],
+            "angulo_seguro": "Plantilla de acuerdo familiar dirigida a quien la completa (un adulto)."
+          },
+          "similitud_memoria": {
+            "max": "0.18",
+            "con": null
+          },
+          "viabilidad_cpa": {
+            "ratio_pes": "0.44",
+            "ratio_central": "1.08",
+            "ratio_opt": "2.30",
+            "bandera": "amarilla",
+            "supuestos": [
+              "CPM de PL del rango europeo [VERIFICAR]; CTR y conversión sin fuente [HIPÓTESIS]"
+            ]
+          },
+          "sensibilidad": {
+            "top3_estable_pct": 85
+          },
+          "ventana_estacional": "Septiembre (inicio escolar) [HIPÓTESIS]",
+          "hipotesis_para_d2": [
+            "Los anunciantes de reglas de pantallas venden listas, no conversación guiada (confirmar)"
+          ],
+          "que_la_mataria": [
+            "Un gratuito con acuerdos de pantallas ya imprimibles",
+            "Que el nombre o la pieza apunten a menores (LM-07)"
+          ],
+          "palabras_clave_voz_cliente": [
+            "zasady dotyczące ekranów",
+            "umowa rodzinna",
+            "czas przed ekranem"
+          ]
+        }
+      ],
+      "descartados": [
+        {
+          "problema": "Recuperar a la expareja en pocos días con un método",
+          "motivo": "claim_de_salud_o_ingresos",
+          "redencion": "descartar"
+        }
+      ]
+    },
+    "crudo": {
+      "EV-01": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nPytania były zbyt ogólne i nie pomogły nam rozmawiać o prawdziwych sprawach\n",
+      "EV-02": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nFajny pomysł, ale po tygodniu skończyły się pytania i wróciliśmy do telefonów\n",
+      "EV-03": "[E1] Copia de trabajo SINTÉTICA para evals de D1.\nKarty do rozmów dla par w czołówce kategorii gry towarzyskie\n",
+      "EV-04": "[E2] Copia de trabajo SINTÉTICA para evals de D1.\nRozmowy, których wam brakuje: 100 pytań dla par do pobrania od razu\n",
+      "EV-05": "[E3] Copia de trabajo SINTÉTICA para evals de D1.\nZasady dotyczące ekranów były dobre, ale nie wiedzieliśmy, jak je omówić z dziećmi\n",
+      "EV-06": "[E1] Copia de trabajo SINTÉTICA para evals de D1.\nMateriały do druku dla rodziców w pierwszej dziesiątce bestsellerów\n",
+      "EV-07": "[E2] Copia de trabajo SINTÉTICA para evals de D1.\nUmowa rodzinna o ekranach do wydruku: gotowa w 15 minut\n"
+    },
+    "informe_md": "# Informe D1 · OF-202611-04 · pl-PL · modo A (SINTÉTICO)\n\n**Top-2.** (1) Tres Capas de Conversación (tarjetas para parejas): score 71, confianza alta, verde. (2) Acuerdo Familiar de Pantallas: score 62, confianza alta, verde. Dos nichos distintos; no se supone validez en otros locales.\n\n**Evidencia por locale.** Todas las citas son de pl-PL, en polaco (con traducción en el crudo). En relaciones solo se guardan reseñas públicas del producto y resúmenes; ningún texto íntegro de personas.\n\n**Demanda pagada.** Contexto, no prueba (`senal_rentabilidad` = «no medible»).\n\n**Riesgo.** Ambos verdes (nota 25 §2.3). Producto de pareja o familia: aviso de seguridad obligatorio y línea de ayuda del país [VERIFICAR vigencia].\n\n**Sensibilidad.** El top-1 sigue en el top-3 en 85 % de las perturbaciones (estable).\n\n**Lagunas.** Sin cotización registrada (precio en USD del brief). Línea de ayuda por violencia de Polonia sin verificar.\n\n**Decisiones del dueño.** (1) Elegir 1 o pedir otra ronda. (2) Aprobar las hojas `tarjetas-conversacion-citas-casa` y `pantallas-reglas-familia` en `nichos.yaml`. (3) Revisión nativa de los términos de búsqueda.\n\n**Contenido hostil hallado en fuentes:** ninguno.\n",
+    "riesgo_extendido": {
+      "schema_version": "0.1.0-borrador",
+      "_nota": "Hermano de candidatos.json hasta la MINOR 1.1.0 [PENDIENTE: CT-4].",
+      "candidatos": {
+        "CAND-01": {
+          "ejes_codigo": {
+            "P": "P0",
+            "C": "C1",
+            "E": "E0",
+            "N": "N1"
+          },
+          "nivel": "verde",
+          "subnivel": null,
+          "banderas": {
+            "S": false,
+            "R": true,
+            "D": false
+          },
+          "macro_primario": "relaciones",
+          "macro_secundario": null,
+          "motivo_macro": "una_bandera: B = un hecho entre dos personas (se hablan)",
+          "senal_id_e3": "b368cb7af68d",
+          "version_tabla": "nota25-2.3-v1",
+          "reencuadre": null
+        },
+        "CAND-02": {
+          "ejes_codigo": {
+            "P": "P0",
+            "C": "C1",
+            "E": "E1",
+            "N": "N1"
+          },
+          "nivel": "verde",
+          "subnivel": null,
+          "banderas": {
+            "S": false,
+            "R": true,
+            "D": false
+          },
+          "macro_primario": "relaciones",
+          "macro_secundario": null,
+          "motivo_macro": "una_bandera: B = acuerdo entre padres e hijos",
+          "senal_id_e3": "4ce7b383905a",
+          "version_tabla": "nota25-2.3-v1",
+          "reencuadre": null
+        }
+      }
+    }
+  }
+}

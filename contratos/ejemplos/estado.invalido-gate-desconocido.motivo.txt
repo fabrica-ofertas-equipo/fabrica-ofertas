@@ -1,0 +1,3 @@
+validador=enum
+ruta=/etapas/D3/gate
+texto=el gate solo puede ser A, S o H

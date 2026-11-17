@@ -1,0 +1,3 @@
+validador=required
+ruta=/grupos/testeo/k_corte
+texto=todo parámetro lleva valor

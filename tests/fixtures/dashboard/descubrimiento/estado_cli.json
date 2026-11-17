@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "corrida_id": "2026-11-06-a",
+ "plan": {
+  "consultas": 98,
+  "tope": 120,
+  "cupo_restante": 22,
+  "por_pasada": {
+   "1": 48,
+   "3": 50
+  }
+ },
+ "crudos": {
+  "carpeta": true,
+  "validos": 98,
+  "ok": 98,
+  "con_error": 0,
+  "sin_crudo": 0,
+  "truncadas": 59,
+  "anuncios_distintos": 3083
+ },
+ "paginas": {
+  "existe": true,
+  "total": 724,
+  "medicion": {
+   "completa": 27,
+   "parcial": 23,
+   "muestra": 674,
+   "sin_medicion": 0
+  }
+ },
+ "etiquetado": {
+  "lotes": 37,
+  "con_salida": 37,
+  "consolidado": {
+   "paginas_total": 724,
+   "etiquetadas": 694,
+   "indeterminadas": 205,
+   "en_disputa": 0,
+   "sin_etiquetar": 30,
+   "rechazadas": 0,
+   "avanzan_a_candidata": 641,
+   "tasa_etiquetadas": "0.9586",
+   "tasa_con_tema": "0.6754",
+   "lotes_total": 37,
+   "lotes_validados": 37,
+   "lotes_sin_salida": 0,
+   "lotes_salida_invalida": 0
+  }
+ },
+ "memoria": {
+  "instantanea": true,
+  "instantaneas": 1,
+  "problemas": []
+ },
+ "candidatos": {
+  "existe": true,
+  "resumen": {
+   "temas": 391
+  }
+ },
+ "fichas": {
+  "existe": true,
+  "ofertas": 13
+ },
+ "freno_captura": {
+  "activo": true,
+  "ts": "2026-11-06T06:03:43Z",
+  "motivo": "HTTP 403 (Document)"
+ }
+}

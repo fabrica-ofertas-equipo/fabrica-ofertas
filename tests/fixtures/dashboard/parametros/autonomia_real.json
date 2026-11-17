@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "version": 1,
+  "nivel_por_etapa": {
+    "O0": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D0": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "M1": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D1": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D2": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D3": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D4": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D5": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D6": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D7": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D8": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D9": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "D10": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "F1": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "F2": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "X1": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    },
+    "X2": {
+      "nivel": "N0",
+      "desde": "2026-11-06",
+      "evidencia": []
+    }
+  },
+  "descensos": [],
+  "reglas_descenso": [
+    "2 rechazos de Meta en 7 días: D5..D9 bajan a N1 y X1 congela lanzamientos",
+    "Violación de un guardarraíl de dinero (gasto > tope, activación sin sello): la etapa baja a N1",
+    "Dictamen X1 FAIL ignorado por una etapa: la etapa baja a N0"
+  ]
+}

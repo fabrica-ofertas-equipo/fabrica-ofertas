@@ -1,0 +1,79 @@
+{
+  "id": "D01",
+  "descripcion": "Salud verde it-IT (plan de comidas semanal, sin claims de peso): presupuesto holgado, evento PURCHASE, tarifa de ubicacion 3 %, DSA (Italia es UE). La campana dorada de evals/_base/ es este caso: debe pasar el lint sin bloqueos.",
+  "capa": "script-presupuesto",
+  "contexto": {
+    "macro_nicho": "salud",
+    "locale": "it-IT",
+    "paises": [
+      "IT"
+    ],
+    "moneda": "EUR",
+    "riesgo": "verde",
+    "estructura": "CBO_1AS",
+    "audiencia": "amplia 18-65, genero todos, sin intereses",
+    "special_ad_categories": [],
+    "dsa": "beneficiario y pagador = LLC en el conjunto",
+    "gate": "H por activar_campana"
+  },
+  "entrada_presupuesto": {
+    "moneda": "EUR",
+    "cpa_be": 1600,
+    "cpa_esperado": 1000,
+    "tarifa_meta_bp": 300,
+    "n_anuncios_paquete": 6,
+    "dias_test": 7,
+    "evento_economia": "Purchase",
+    "veredicto_economia": "FACTIBLE",
+    "min_diario_cuenta": 100,
+    "spend_cap_minimo_meta": 9300,
+    "inicio": "2026-11-16T00:00:00Z",
+    "limites": {
+      "moneda_limites": "EUR",
+      "gasto_diario_por_oferta": 8000,
+      "gasto_total_test_por_oferta": 40000,
+      "perdida_max_test_por_oferta": 40000,
+      "factor_techo_teorico_diario": "1.75"
+    },
+    "parametros": {
+      "testeo.k_corte": 3,
+      "testeo.n_dec": 15,
+      "campana.n_anuncios_tope": 6,
+      "campana.n_anuncios_min": 3,
+      "campana.dias_test_defecto": 10,
+      "campana.dias_test_min": 7,
+      "campana.dias_test_max": 30,
+      "campana.spend_cap_factor": "1.10",
+      "estadistica.meta_eventos_aprendizaje_semana": 50,
+      "estadistica.meta_fraccion_min_purchase": "0.5"
+    }
+  },
+  "esperado": {
+    "estado": "OK",
+    "n_anuncios": 6,
+    "total_plan": 28800,
+    "solo_refuta": false,
+    "facturado_plan": 29662,
+    "presupuesto": {
+      "diario": 4114,
+      "total_test": 28798,
+      "max_teorico_diario": 7200,
+      "spend_cap": 31678,
+      "candado_alternativo": null
+    },
+    "evento": {
+      "campana": "PURCHASE",
+      "recomendado": "PURCHASE"
+    },
+    "monto_api": {
+      "offset_meta": 100
+    }
+  },
+  "lint_esperado": "sin_bloqueos (ver CONTROL _base en probar_evals.py)",
+  "salida_qa_esperada": {
+    "veredicto": "PASS",
+    "umbral": "media >= 4,0 y ningun item < 3",
+    "hallazgos_minimos": 3,
+    "nota": "anti-sello-de-goma: >= 3 hallazgos o evidencia de que se reviso"
+  }
+}
